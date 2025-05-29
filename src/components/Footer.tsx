@@ -64,20 +64,20 @@ const Footer = ({ dict, lang }: FooterProps) => {
   ]
 
   return (
-    <footer className="relative overflow-hidden bg-gradient-to-b from-white to-cherry-pink-50 border-t border-cherry-pink-100" role="contentinfo" aria-label="Site footer">
-      {/* Cherry blossom decorations */}      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="cherry-blossom-footer-1 cherry-blossom absolute opacity-40"></div>
-        <div className="cherry-blossom-footer-2 cherry-blossom absolute opacity-40"></div>
-        <div className="cherry-blossom-footer-3 cherry-blossom absolute opacity-40"></div>
-        <div className="cherry-blossom-footer-4 cherry-blossom absolute opacity-40"></div>
-        <div className="cherry-blossom-footer-5 cherry-blossom absolute opacity-40"></div>
-        <div className="cherry-blossom-footer-6 cherry-blossom absolute opacity-40"></div>
-        <div className="cherry-blossom-footer-7 cherry-blossom absolute opacity-40"></div>
-        <div className="cherry-blossom-footer-8 cherry-blossom absolute opacity-40"></div>
-        <div className="cherry-blossom-footer-9 cherry-blossom absolute opacity-40"></div>
-        <div className="cherry-blossom-footer-10 cherry-blossom absolute opacity-40"></div>
-        <div className="cherry-blossom-footer-11 cherry-blossom absolute opacity-40"></div>
-        <div className="cherry-blossom-footer-12 cherry-blossom absolute opacity-40"></div>
+    <footer className="relative overflow-hidden bg-gradient-to-b from-white to-cherry-pink-50 border-t border-cherry-pink-100">
+      {/* Cherry blossom decorations */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {[...Array(12)].map((_, i) => (
+          <div 
+            key={i}
+            className={`cherry-blossom absolute opacity-40 animation-delay-${(i * 100) % 1000}`}
+            style={{
+              bottom: `${Math.random() * 100}%`,
+              left: `${i * 8 + Math.random() * 5}%`,
+              transform: `scale(${0.6 + Math.random() * 0.6}) rotate(${Math.random() * 360}deg)`
+            }}
+          />
+        ))}
         {/* Gradient orbs */}
         <div className="absolute bottom-20 left-10 w-40 h-40 bg-cherry-pink-200 rounded-full opacity-10 blur-3xl"></div>
         <div className="absolute top-40 right-20 w-56 h-56 bg-sakura-200 rounded-full opacity-10 blur-3xl"></div>
@@ -107,7 +107,6 @@ const Footer = ({ dict, lang }: FooterProps) => {
             <button
               onClick={toggleLanguage}
               className="flex items-center space-x-2 px-4 py-2 bg-white rounded-full shadow-md text-cherry-pink-700 font-medium hover:bg-cherry-pink-50 transition-colors duration-200 mb-8 border border-cherry-pink-100"
-              aria-label={lang === 'ja' ? 'Switch to English' : '日本語に切り替える'}
             >
               <span>{lang === 'ja' ? '🇬🇧 English' : '🇯🇵 日本語'}</span>
             </button>

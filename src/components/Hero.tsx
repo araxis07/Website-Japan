@@ -18,8 +18,10 @@ const Hero = ({ dict }: HeroProps) => {
     <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-warm-white via-cherry-pink-50 to-sakura-100 overflow-hidden">
       {/* Enhanced Cherry Blossom Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        {/* Animated Cherry Blossoms */}
-        <div className="cherry-blossom-1 cherry-blossom"></div>
+        {/* Animated Cherry Blossoms with Image Fallback */}
+        <div className="cherry-blossom-1 cherry-blossom">
+          <img src="/cherry-blossom.svg" alt="" className="w-full h-full opacity-0" />
+        </div>
         <div className="cherry-blossom-2 cherry-blossom"></div>
         <div className="cherry-blossom-3 cherry-blossom"></div>
         <div className="cherry-blossom-4 cherry-blossom"></div>

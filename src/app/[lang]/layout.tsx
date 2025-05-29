@@ -52,10 +52,14 @@ export default async function LocaleLayout({
 }) {
   const { lang } = await params
   // Use a safer approach to avoid hydration mismatches  
-  const fontClass = lang === 'ja' ? 'font-noto-sans-jp' : 'font-inter'
+  const fontClass = lang === 'ja' ? 'font-japanese' : 'font-english'
   
   return (
     <html lang={lang || 'ja'} className={`${inter.variable} ${notoSansJP.variable} scroll-smooth`}>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      </head>
       <body className={`${fontClass} antialiased bg-warm-white text-gray-800`} suppressHydrationWarning>
         <a 
           href="#main-content" 
