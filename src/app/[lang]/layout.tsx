@@ -43,30 +43,26 @@ export const metadata: Metadata = {
   },
 }
 
-// Skip to content link for better accessibility
-const SkipToContent = () => (
-  <a 
-    href="#main-content" 
-    className="absolute z-50 bg-white text-cherry-pink-600 p-3 m-3 -translate-y-16 focus:translate-y-0 transition-transform duration-200 border border-cherry-pink-200 rounded-md shadow-md"
-  >
-    Skip to main content
-  </a>
-);
-
 export default async function LocaleLayout({
   children,
   params,
 }: {
   children: React.ReactNode
   params: Promise<{ lang: Locale }>
-}) {  const { lang } = await params
+}) {
+  const { lang } = await params
   // Use a safer approach to avoid hydration mismatches  
   const fontClass = lang === 'ja' ? 'font-noto-sans-jp' : 'font-inter'
   
   return (
     <html lang={lang || 'ja'} className={`${inter.variable} ${notoSansJP.variable} scroll-smooth`}>
       <body className={`${fontClass} antialiased bg-warm-white text-gray-800`} suppressHydrationWarning>
-        <SkipToContent />
+        <a 
+          href="#main-content" 
+          className="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 z-50 bg-white text-cherry-pink-600 p-3 m-3 focus:outline-none focus:ring-2 focus:ring-cherry-pink-500 border border-cherry-pink-200 rounded-md shadow-md"
+        >
+          Skip to main content
+        </a>
         {children}
       </body>
     </html>

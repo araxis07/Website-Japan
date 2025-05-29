@@ -59,19 +59,19 @@ const ClientNavigationWrapper = ({ dict, lang }: ClientNavigationWrapperProps) =
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-cherry-pink-500 to-sakura-500 group-hover:w-full group-focus:w-full transition-all duration-300"></span>
               </Link>
             ))}
-              {/* Language Toggle */}
-            <button
+              {/* Language Toggle */}            <button
               onClick={toggleLanguage}
               className="px-5 py-2.5 bg-gradient-to-r from-cherry-pink-400 to-sakura-400 text-white rounded-full text-sm font-bold hover:from-cherry-pink-500 hover:to-sakura-500 transition-all duration-300 shadow-md hover:shadow-lg transform hover:scale-105 border border-white/30"
+              aria-label={lang === 'ja' ? 'Switch to English' : '日本語に切り替える'}
             >
               {langToggleText}
             </button>
           </div>          
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center space-x-3">
-            <button
+          <div className="md:hidden flex items-center space-x-3">            <button
               onClick={toggleLanguage}
               className="px-4 py-2 bg-gradient-to-r from-cherry-pink-400 to-sakura-400 text-white rounded-full text-sm font-bold shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-300 border border-white/30"
+              aria-label={lang === 'ja' ? 'Switch to English' : '日本語に切り替える'}
             >
               {langToggleText}
             </button>

@@ -381,6 +381,7 @@ video {
 }
   html {
     font-family: 'Noto Sans JP', 'Inter', sans-serif;
+    scroll-behavior: smooth;
   }
   
   body {
@@ -388,6 +389,8 @@ video {
   background-color: rgb(253 249 249 / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
   color: rgb(31 41 55 / var(--tw-text-opacity));
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 *, ::before, ::after {
@@ -483,7 +486,6 @@ video {
   --tw-backdrop-saturate:  ;
   --tw-backdrop-sepia:  ;
 }
-/* Smooth scrolling enhancement */
 /* Custom animation delays */
 /* Floating cherry blossoms for hero section */
 

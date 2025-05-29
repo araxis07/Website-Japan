@@ -13,7 +13,6 @@ const Hero = ({ dict }: HeroProps) => {
   useEffect(() => {
     setMounted(true)
   }, [])
-  
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-warm-white via-cherry-pink-50 to-sakura-100 overflow-hidden">
       {/* Enhanced Cherry Blossom Background Elements */}
