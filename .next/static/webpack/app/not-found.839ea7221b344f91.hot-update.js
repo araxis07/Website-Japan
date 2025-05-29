@@ -6,7 +6,7 @@
  * or disable the default devtool with "devtool: false".
  * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
  */
-(self["webpackChunk_N_E"] = self["webpackChunk_N_E"] || []).push([["app/not-found"],{
+self["webpackHotUpdate_N_E"]("app/not-found",{
 
 /***/ "(app-pages-browser)/./node_modules/next/dist/api/navigation.js":
 /*!**************************************************!*\
@@ -139,11 +139,4 @@ eval(__webpack_require__.ts("__webpack_require__.r(__webpack_exports__);\n/* har
 
 /***/ })
 
-},
-/******/ __webpack_require__ => { // webpackRuntimeModules
-/******/ var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-/******/ __webpack_require__.O(0, ["main-app"], () => (__webpack_exec__("(app-pages-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-client-entry-loader.js?modules=%7B%22request%22%3A%22C%3A%5C%5CUsers%5C%5CTunderGod%5C%5CDocuments%5C%5CCoding%20Project%5C%5CWebsite-Japan%5C%5Csrc%5C%5Capp%5C%5Cnot-found.tsx%22%2C%22ids%22%3A%5B%5D%7D&server=false!")));
-/******/ var __webpack_exports__ = __webpack_require__.O();
-/******/ _N_E = __webpack_exports__;
-/******/ }
-]);
+});
