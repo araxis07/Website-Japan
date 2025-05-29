@@ -2,7 +2,7 @@ import Navigation from '@/components/Navigation'
 import Hero from '@/components/Hero'
 import RegionsList from '@/components/RegionsList'
 import FeaturedDestinations from '@/components/FeaturedDestinations'
-import Footer from '@/components/Footer2'
+import Footer from '@/components/Footer'
 import { getDictionary } from '@/i18n/dictionaries'
 import { Locale } from '@/i18n/config'
 
