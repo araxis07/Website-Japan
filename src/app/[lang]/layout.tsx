@@ -57,11 +57,10 @@ export default async function LocaleLayout({
   params: Promise<{ lang: Locale }>
 }) {
   const { lang } = await params
-  // Use a safer approach to avoid hydration mismatches
-  const fontClass = lang === 'ja' ? 'font-noto-sans-jp' : 'font-inter'
+  // Use a safer approach to avoid hydration mismatches  const fontClass = lang === 'ja' ? 'font-noto-sans-jp' : 'font-inter'
     return (
-    <html lang={lang || 'ja'} className={`${inter.variable} ${notoSansJP.variable}`}>
-      <body className={fontClass} suppressHydrationWarning>
+    <html lang={lang || 'ja'} className={`${inter.variable} ${notoSansJP.variable} scroll-smooth`}>
+      <body className={`${fontClass} antialiased bg-warm-white text-gray-800`} suppressHydrationWarning>
         {children}
       </body>
     </html>
