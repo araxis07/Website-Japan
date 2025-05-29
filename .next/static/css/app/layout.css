@@ -500,8 +500,18 @@ video {
 }
 
 @keyframes cherryFall {
-  from { transform: translateY(-100vh) rotate(0deg); }
-  to { transform: translateY(100vh) rotate(720deg); }
+  0% { 
+    transform: translateY(-100vh) rotate(0deg) scale(0.8); 
+    opacity: 0.7;
+  }
+  50% { 
+    transform: translateY(0vh) rotate(360deg) scale(1.2); 
+    opacity: 1;
+  }
+  100% { 
+    transform: translateY(100vh) rotate(720deg) scale(0.8); 
+    opacity: 0.7;
+  }
 }
 
 @keyframes fadeIn {
@@ -549,4 +559,18 @@ video {
   height: 150px;
   pointer-events: none;
 }
+
+/* Footer cherry blossom positions */
+.cherry-blossom-footer-1 { bottom: 10%; left: 5%; transform: scale(0.7) rotate(30deg); animation-delay: 0.1s; }
+.cherry-blossom-footer-2 { bottom: 20%; left: 15%; transform: scale(0.8) rotate(60deg); animation-delay: 0.5s; }
+.cherry-blossom-footer-3 { bottom: 5%; left: 25%; transform: scale(0.9) rotate(90deg); animation-delay: 0.9s; }
+.cherry-blossom-footer-4 { bottom: 15%; left: 35%; transform: scale(0.7) rotate(120deg); animation-delay: 1.3s; }
+.cherry-blossom-footer-5 { bottom: 25%; left: 45%; transform: scale(0.8) rotate(150deg); animation-delay: 1.7s; }
+.cherry-blossom-footer-6 { bottom: 8%; left: 55%; transform: scale(0.9) rotate(180deg); animation-delay: 2.1s; }
+.cherry-blossom-footer-7 { bottom: 18%; left: 65%; transform: scale(0.7) rotate(210deg); animation-delay: 2.5s; }
+.cherry-blossom-footer-8 { bottom: 28%; left: 75%; transform: scale(0.8) rotate(240deg); animation-delay: 2.9s; }
+.cherry-blossom-footer-9 { bottom: 12%; left: 85%; transform: scale(0.9) rotate(270deg); animation-delay: 3.3s; }
+.cherry-blossom-footer-10 { bottom: 22%; left: 95%; transform: scale(0.7) rotate(300deg); animation-delay: 3.7s; }
+.cherry-blossom-footer-11 { bottom: 7%; left: 40%; transform: scale(0.8) rotate(330deg); animation-delay: 4.1s; }
+.cherry-blossom-footer-12 { bottom: 17%; left: 50%; transform: scale(0.9) rotate(360deg); animation-delay: 4.5s; }
 
