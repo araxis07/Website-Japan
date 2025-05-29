@@ -10,16 +10,16 @@
     "analyze": "ANALYZE=true next build"
   },
   "dependencies": {
+    "@formatjs/intl-localematcher": "^0.5.4",
+    "framer-motion": "^11.0.8",
+    "negotiator": "^0.6.3",
     "next": "^15.1.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-intersection-observer": "^9.8.1",
-    "framer-motion": "^11.0.8",
-    "sharp": "^0.33.2",
-    "@formatjs/intl-localematcher": "^0.5.4",
-    "negotiator": "^0.6.3"
+    "react-intersection-observer": "^9.8.1"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^15.1.0",
     "@types/negotiator": "^0.6.3",
     "@types/node": "^22.0.0",
     "@types/react": "^19.0.0",
@@ -28,8 +28,8 @@
     "eslint": "^9.0.0",
     "eslint-config-next": "^15.1.0",
     "postcss": "^8.4.23",
+    "sharp": "^0.34.2",
     "tailwindcss": "^3.3.0",
-    "typescript": "^5.7.0",
-    "@next/bundle-analyzer": "^15.1.0"
+    "typescript": "^5.7.0"
   }
 }

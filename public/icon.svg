@@ -1,0 +1,20 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Circle -->
+  <circle cx="32" cy="32" r="32" fill="url(#paint0_linear)"/>
+  
+  <!-- Cherry Blossom Shape -->
+  <g transform="translate(8, 8) scale(0.75)">
+    <path d="M32 16C37.523 16 42 20.477 42 26C42 31.523 37.523 36 32 36C26.477 36 22 31.523 22 26C22 20.477 26.477 16 32 16Z" fill="white" fill-opacity="0.9"/>
+    <path d="M48 32C53.523 32 58 36.477 58 42C58 47.523 53.523 52 48 52C42.477 52 38 47.523 38 42C38 36.477 42.477 32 48 32Z" fill="white" fill-opacity="0.9"/>
+    <path d="M32 48C37.523 48 42 52.477 42 58C42 63.523 37.523 68 32 68C26.477 68 22 63.523 22 58C22 52.477 26.477 48 32 48Z" fill="white" fill-opacity="0.9"/>
+    <path d="M16 32C21.523 32 26 36.477 26 42C26 47.523 21.523 52 16 52C10.477 52 6 47.523 6 42C6 36.477 10.477 32 16 32Z" fill="white" fill-opacity="0.9"/>
+    <circle cx="32" cy="42" r="10" fill="white"/>
+  </g>
+  
+  <defs>
+    <linearGradient id="paint0_linear" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#EB5757"/>
+      <stop offset="1" stop-color="#F87171"/>
+    </linearGradient>
+  </defs>
+</svg>
