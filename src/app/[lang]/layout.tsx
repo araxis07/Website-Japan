@@ -24,6 +24,12 @@ export const metadata: Metadata = {
   description: "日本の美しい地域と観光地を発見しよう。47都道府県、9地域の魅力的な旅行情報をお届けします。| Discover Japan's beautiful regions and destinations with comprehensive travel information.",
   keywords: "Japan, travel, tourism, regions, destinations, 日本, 旅行, 観光, 地域, 観光地",
   authors: [{ name: "Japan Travel Guide" }],
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 5,
+    minimumScale: 1
+  },
   openGraph: {
     title: "Japan Travel Guide - Discover Beautiful Japan",
     description: "Explore Japan's 9 regions and 47 prefectures with our comprehensive travel guide",
