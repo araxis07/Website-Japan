@@ -81,9 +81,7 @@ const FeaturedDestinations = ({ dict, lang = 'ja' }: FeaturedDestinationsProps) 
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-10">
           {destinations.map((destination, index) => (
             <div
-              key={destination.id}
-              className="bg-white rounded-3xl overflow-hidden shadow-xl border border-cherry-pink-100 card-hover group stagger-animation hover:shadow-2xl transition-all duration-500"
-              style={{ animationDelay: `${index * 0.2}s` }}
+              key={destination.id}              className={`bg-white rounded-3xl overflow-hidden shadow-xl border border-cherry-pink-100 card-hover group stagger-animation hover:shadow-2xl transition-all duration-500 animation-delay-${index * 200}`}
             >
               {/* Enhanced Image Section */}
               <div className={`relative h-64 bg-gradient-to-br ${destination.gradient} overflow-hidden`}>
@@ -125,9 +123,7 @@ const FeaturedDestinations = ({ dict, lang = 'ja' }: FeaturedDestinationsProps) 
                 <div className="flex flex-wrap gap-2 mb-6">
                   {destination.tags.map((tag, tagIndex) => (
                     <span
-                      key={tag}
-                      className="px-3 py-1 bg-gradient-to-r from-cherry-pink-100 to-sakura-100 text-cherry-pink-700 text-sm font-medium rounded-full hover:from-cherry-pink-200 hover:to-sakura-200 transition-all duration-200"
-                      style={{ animationDelay: `${index * 0.2 + tagIndex * 0.1}s` }}
+                      key={tag}                      className={`px-3 py-1 bg-gradient-to-r from-cherry-pink-100 to-sakura-100 text-cherry-pink-700 text-sm font-medium rounded-full hover:from-cherry-pink-200 hover:to-sakura-200 transition-all duration-200 animation-delay-${((index * 200) + (tagIndex * 100)) % 1000}`}
                     >
                       {tag}
                     </span>

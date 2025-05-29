@@ -96,9 +96,7 @@ const ClientNavigationWrapper = ({ dict, lang }: ClientNavigationWrapperProps) =
               {menuItems.map((item, index) => (
                 <Link
                   key={item.name}
-                  href={item.href}
-                  className={`flex items-center px-5 py-3.5 text-gray-700 hover:text-cherry-pink-600 hover:bg-gradient-to-r hover:from-cherry-pink-50 hover:to-sakura-50 rounded-xl transition-all duration-300 font-medium stagger-animation`}
-                  style={{ animationDelay: `${index * 0.1}s` }}
+                  href={item.href}                  className={`flex items-center px-5 py-3.5 text-gray-700 hover:text-cherry-pink-600 hover:bg-gradient-to-r hover:from-cherry-pink-50 hover:to-sakura-50 rounded-xl transition-all duration-300 font-medium stagger-animation animation-delay-${index * 100}`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <span className="mr-2">{index === 0 ? '🏠' : index === 1 ? '🗾' : index === 2 ? '🎌' : index === 3 ? 'ℹ️' : '✉️'}</span>
