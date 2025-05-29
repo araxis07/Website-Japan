@@ -77,9 +77,9 @@
   .cherry-decoration:nth-child(13) { top: 40%; left: 10%; animation-delay: 3.2s; }
   .cherry-decoration:nth-child(14) { top: 65%; left: 75%; animation-delay: 0.3s; }
   .cherry-decoration:nth-child(15) { top: 85%; left: 35%; animation-delay: 1.3s; }
-
   .stagger-animation {
     animation: fadeIn 1s ease-in-out forwards;
+    opacity: 0;
   }
   
   .stagger-animation:nth-child(1) { animation-delay: 0.1s; }
@@ -91,6 +91,17 @@
   .stagger-animation:nth-child(7) { animation-delay: 0.7s; }
   .stagger-animation:nth-child(8) { animation-delay: 0.8s; }
   .stagger-animation:nth-child(9) { animation-delay: 0.9s; }
+
+  /* Smooth scrolling enhancement */
+  .scroll-smooth {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom animation delays */
+  .animation-delay-500 { animation-delay: 0.5s; }
+  .animation-delay-1000 { animation-delay: 1s; }
+  .animation-delay-1500 { animation-delay: 1.5s; }
+  .animation-delay-2000 { animation-delay: 2s; }
 
   .footer-cherry {
     animation: float 4s ease-in-out infinite;
