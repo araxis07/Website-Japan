@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   keywords: "Japan, travel, tourism, regions, destinations, sakura, cherry blossom, Tokyo, Kyoto, Osaka, Hokkaido, Okinawa, 日本, 旅行, 観光, 地域, 観光地, 桜, 東京, 京都, 大阪, 北海道, 沖縄",
   authors: [{ name: "Japan Travel Guide" }],
   creator: "Japan Travel Guide Team",
-  publisher: "Japan Travel Guide",
+  publisherกด: "Japan Travel Guide",
   robots: {
     index: true,
     follow: true,
@@ -94,12 +94,9 @@ export default async function LocaleLayout({
   // Use a safer approach to avoid hydration mismatches  
   const fontClass = lang === 'ja' ? 'font-japanese' : 'font-english'
     return (
-    <html lang={lang || 'ja'} className={`${inter.variable} ${notoSansJP.variable} scroll-smooth`}>
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, minimum-scale=1" />        <script
+    <html lang={lang || 'ja'} className={`${inter.variable} ${notoSansJP.variable} scroll-smooth`}>      <head>
+        {/* We're already using Next.js font system, so we don't need these font links */}
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, minimum-scale=1" /><script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify([
