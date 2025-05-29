@@ -1,5 +1,4 @@
-// This file is deprecated, use Navigation.improved.tsx instead
-import Navigation from './Navigation.improved';
+import ClientNavigationWrapper from './ClientNavigationWrapper';
 import { Locale } from '@/i18n/config'
 
 interface NavigationProps {
@@ -7,9 +6,9 @@ interface NavigationProps {
   lang: Locale
 }
 
-const NavigationWrapper = ({ dict, lang }: NavigationProps) => {
-  // Use the improved Navigation component directly
-  return <Navigation dict={dict} lang={lang} />;
+const Navigation = ({ dict, lang }: NavigationProps) => {
+  // Ensure we're passing the correct props to ClientNavigationWrapper
+  return <ClientNavigationWrapper dict={dict} lang={lang} />;
 }
 
-export default NavigationWrapper
+export default Navigation
