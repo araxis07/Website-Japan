@@ -15,21 +15,20 @@ const Hero = ({ dict }: HeroProps) => {
   }, [])
   
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-warm-white via-cherry-pink-50 to-sakura-100 overflow-hidden">      {/* Enhanced Cherry Blossom Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-warm-white via-cherry-pink-50 to-sakura-100 overflow-hidden">      {/* Enhanced Cherry Blossom Background Elements */}      <div className="absolute inset-0 overflow-hidden">
         {/* Floating cherry blossoms */}
-        {[...Array(15)].map((_, i) => (
-          <div 
-            key={i} 
-            className={`cherry-blossom absolute transform scale-${Math.random() > 0.5 ? '75' : '100'} opacity-${Math.random() > 0.5 ? '60' : '40'}`} 
-            style={{
-              top: `${Math.random() * 100}%`, 
-              left: `${Math.random() * 100}%`,
-              animationDuration: `${5 + Math.random() * 10}s`,
-              animationDelay: `${Math.random() * 5}s`
-            }}
-          />
-        ))}
+        <div className="cherry-blossom-1 cherry-blossom"></div>
+        <div className="cherry-blossom-2 cherry-blossom"></div>
+        <div className="cherry-blossom-3 cherry-blossom"></div>
+        <div className="cherry-blossom-4 cherry-blossom"></div>
+        <div className="cherry-blossom-5 cherry-blossom"></div>
+        <div className="cherry-blossom-6 cherry-blossom"></div>
+        <div className="cherry-blossom-7 cherry-blossom"></div>
+        <div className="cherry-blossom-8 cherry-blossom"></div>
+        <div className="cherry-blossom-9 cherry-blossom"></div>
+        <div className="cherry-blossom-10 cherry-blossom"></div>
+        <div className="cherry-blossom-11 cherry-blossom"></div>
+        <div className="cherry-blossom-12 cherry-blossom"></div>
         
         {/* Gradient orbs */}
         <div className="absolute top-20 left-10 w-32 h-32 bg-cherry-pink-200 rounded-full opacity-20 animate-pulse blur-xl"></div>
