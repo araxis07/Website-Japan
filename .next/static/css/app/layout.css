@@ -501,6 +501,15 @@ video {
   to { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes fall {
+  0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(100vh) rotate(360deg); opacity: 0.2; }
+}
+
+.animate-fall {
+  animation: fall 10s linear infinite;
+}
+
 /* Adding specific animation classes that might be missing */
 @keyframes animate-fade-in {
   0% { opacity: 0; transform: translateY(10px); }
@@ -509,5 +518,28 @@ video {
 
 .animate-fade-in {
   animation: animate-fade-in 0.5s ease-in-out forwards;
+}
+
+/* Page transition animations */
+.page-enter {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 400ms, transform 400ms;
+}
+
+.page-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.page-exit-active {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 400ms, transform 400ms;
 }
 

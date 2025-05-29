@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 
 interface HeroProps {
   dict: any
@@ -14,33 +14,39 @@ const Hero = ({ dict }: HeroProps) => {
     setMounted(true)
   }, [])
   
+  // Use memoized cherry blossoms for performance
+  const cherryBlossoms = useMemo(() => {
+    return Array.from({ length: 20 }).map((_, i) => ({
+      id: `cherry-${i}`,
+      delay: `${Math.random() * 10}s`,
+      duration: `${8 + Math.random() * 7}s`,
+      size: `${10 + Math.random() * 5}px`,
+      left: `${Math.random() * 100}%`,
+    }))
+  }, [])
+  
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-warm-white via-cherry-pink-50 to-sakura-100 overflow-hidden">
-      {/* Enhanced Cherry Blossom Background Elements */}
+    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-warm-white via-cherry-pink-50 to-sakura-100 overflow-hidden">      {/* Enhanced Cherry Blossom Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        {/* Animated Cherry Blossoms with Image Fallback */}
-        <div className="cherry-blossom-1 cherry-blossom">
-          <img src="/cherry-blossom.svg" alt="" className="w-full h-full opacity-0" />
-        </div>
-        <div className="cherry-blossom-2 cherry-blossom"></div>
-        <div className="cherry-blossom-3 cherry-blossom"></div>
-        <div className="cherry-blossom-4 cherry-blossom"></div>
-        <div className="cherry-blossom-5 cherry-blossom"></div>
-        <div className="cherry-blossom-6 cherry-blossom"></div>
-        <div className="cherry-blossom-7 cherry-blossom"></div>
-        <div className="cherry-blossom-8 cherry-blossom"></div>
-        <div className="cherry-blossom-9 cherry-blossom"></div>
-        <div className="cherry-blossom-10 cherry-blossom"></div>
-        <div className="cherry-blossom-11 cherry-blossom"></div>
-        <div className="cherry-blossom-12 cherry-blossom"></div>
-        <div className="cherry-blossom-13 cherry-blossom"></div>
-        <div className="cherry-blossom-14 cherry-blossom"></div>
-        <div className="cherry-blossom-15 cherry-blossom"></div>
-        <div className="cherry-blossom-16 cherry-blossom"></div>
-        <div className="cherry-blossom-17 cherry-blossom"></div>
-        <div className="cherry-blossom-18 cherry-blossom"></div>
-        <div className="cherry-blossom-19 cherry-blossom"></div>
-        <div className="cherry-blossom-20 cherry-blossom"></div>
+        {/* Animated Cherry Blossoms with Image Fallback - Performance Optimized */}
+        {cherryBlossoms.map((blossom) => (
+          <div
+            key={blossom.id}
+            className="cherry-blossom"
+            style={{
+              top: '-20px',
+              left: blossom.left,
+              width: blossom.size,
+              height: blossom.size,
+              animationDuration: blossom.duration,
+              animationDelay: blossom.delay,
+            }}
+          >
+            {blossom.id === 'cherry-0' && (
+              <img src="/cherry-blossom.svg" alt="" className="w-full h-full opacity-0" />
+            )}
+          </div>
+        ))}
         
         {/* Gradient orbs */}
         <div className="absolute top-20 left-10 w-32 h-32 bg-cherry-pink-200 rounded-full opacity-20 animate-pulse blur-xl"></div>
