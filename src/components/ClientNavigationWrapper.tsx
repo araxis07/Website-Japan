@@ -1,7 +1,7 @@
-'use client'
+s'use client'
 
 import { useState, useEffect } from 'react'
-import { useRouter } from 'next/naviga                  className={`block px-4 py-3 text-gray-700 hover:text-cherry-pink-600 hover:bg-gradient-to-r hover:from-cherry-pink-50 hover:to-sakura-50 rounded-xl transition-all duration-200 font-medium stagger-animation animation-delay-${index * 100}`}on'
+import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { Locale } from '@/i18n/config'
 
