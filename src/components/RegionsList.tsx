@@ -84,31 +84,30 @@ const RegionsList = ({ dict, lang = 'ja' }: RegionsListProps) => {
     }
   ]
 
-  return (
-    <section id="regions" className="py-24 bg-gradient-to-b from-sakura-50 to-warm-white relative overflow-hidden">
+  return (    <section id="regions" className="py-28 bg-gradient-to-b from-sakura-50 to-warm-white relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 opacity-30">
-        <div className="absolute top-20 left-10 w-20 h-20 bg-cherry-pink-200 rounded-full animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-16 h-16 bg-sakura-200 rounded-full animate-bounce"></div>
-        <div className="absolute top-1/2 right-1/4 w-12 h-12 bg-cherry-pink-300 rounded-full animate-ping"></div>
+        <div className="absolute top-20 left-10 w-32 h-32 bg-cherry-pink-200 rounded-full animate-pulse blur-xl"></div>
+        <div className="absolute bottom-20 right-10 w-28 h-28 bg-sakura-200 rounded-full animate-bounce blur-lg"></div>
+        <div className="absolute top-1/2 right-1/4 w-24 h-24 bg-cherry-pink-300 rounded-full animate-ping blur-xl"></div>
+        <div className="absolute top-1/3 left-1/4 w-40 h-40 bg-sakura-100 rounded-full animate-pulse blur-2xl"></div>
       </div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-20">
+          <span className="inline-block mb-4 px-6 py-2 bg-cherry-pink-100/50 text-cherry-pink-700 rounded-full font-medium text-sm">🌏 {lang === 'ja' ? '地域ガイド' : 'REGION GUIDE'}</span>
           <h2 className="section-title mb-8 animate-fade-in">
             {dict.regions.title}
           </h2>
-          <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-light">
+          <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-medium">
             {dict.regions.subtitle}
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {regions.map((region, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">          {regions.map((region, index) => (
             <div
               key={region.id}
-              className="bg-white/90 backdrop-blur-sm rounded-3xl p-8 border border-cherry-pink-100 card-hover group stagger-animation shadow-lg hover:shadow-2xl transition-all duration-500"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              className={`bg-white/90 backdrop-blur-sm rounded-3xl p-8 border border-cherry-pink-100 card-hover group stagger-animation shadow-lg hover:shadow-2xl transition-all duration-500 animation-delay-${index < 10 ? index * 100 : 900}`}
             >
               {/* Region Icon and Name */}
               <div className="flex items-center mb-6">
@@ -131,11 +130,9 @@ const RegionsList = ({ dict, lang = 'ja' }: RegionsListProps) => {
                   {lang === 'en' ? 'Key Cities & Attractions' : '主要都市・観光地'}
                 </h4>
                 <div className="flex flex-wrap gap-3">
-                  {region.highlights.map((highlight, highlightIndex) => (
-                    <span
+                  {region.highlights.map((highlight, highlightIndex) => (                    <span
                       key={highlight}
-                      className="px-4 py-2 bg-gradient-to-r from-cherry-pink-100 to-sakura-100 text-cherry-pink-700 rounded-full text-sm font-medium shadow-sm hover:shadow-md transition-all duration-200 hover:scale-105"
-                      style={{ animationDelay: `${index * 0.1 + highlightIndex * 0.05}s` }}
+                      className={`px-4 py-2 bg-gradient-to-r from-cherry-pink-100 to-sakura-100 text-cherry-pink-700 rounded-full text-sm font-medium shadow-sm hover:shadow-md transition-all duration-200 hover:scale-105 animation-delay-${(index * 100 + highlightIndex * 50) % 1000}`}
                     >
                       {highlight}
                     </span>
