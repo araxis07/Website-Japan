@@ -20,8 +20,27 @@ export async function generateStaticParams() {
 }
 
 export const metadata: Metadata = {
-  title: "日本旅行ガイド | Japan Travel Guide",
-  description: "日本の美しい地域と観光地を発見しよう | Discover Japan's beautiful regions and destinations",
+  title: "日本旅行ガイド | Japan Travel Guide - Discover Beautiful Japan",
+  description: "日本の美しい地域と観光地を発見しよう。47都道府県、9地域の魅力的な旅行情報をお届けします。| Discover Japan's beautiful regions and destinations with comprehensive travel information.",
+  keywords: "Japan, travel, tourism, regions, destinations, 日本, 旅行, 観光, 地域, 観光地",
+  authors: [{ name: "Japan Travel Guide" }],
+  openGraph: {
+    title: "Japan Travel Guide - Discover Beautiful Japan",
+    description: "Explore Japan's 9 regions and 47 prefectures with our comprehensive travel guide",
+    type: "website",
+    locale: "ja_JP",
+    alternateLocale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Japan Travel Guide",
+    description: "Discover Japan's beautiful regions and destinations",
+  },
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 1,
+  },
 }
 
 export default async function LocaleLayout({
