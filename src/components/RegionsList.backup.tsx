@@ -83,59 +83,56 @@ const RegionsList = ({ dict, lang = 'ja' }: RegionsListProps) => {
       icon: '🏖️'
     }
   ]
-
   return (
     <section id="regions" className="py-24 bg-gradient-to-b from-sakura-50 to-warm-white relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 opacity-30">
         <div className="absolute top-20 left-10 w-20 h-20 bg-cherry-pink-200 rounded-full animate-pulse"></div>
         <div className="absolute bottom-20 right-10 w-16 h-16 bg-sakura-200 rounded-full animate-bounce"></div>
-        <div className="absolute top-1/2 right-1/4 w-12 h-12 bg-cherry-pink-300 rounded-full animate-ping"></div>
       </div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-20">
-          <h2 className="section-title mb-8 animate-fade-in">
+          <h2 className="section-title mb-8">
             {dict.regions.title}
           </h2>
-          <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-light">
+          <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
             {dict.regions.subtitle}
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {regions.map((region, index) => (
             <div
               key={region.id}
-              className="bg-white/90 backdrop-blur-sm rounded-3xl p-8 border border-cherry-pink-100 card-hover group stagger-animation shadow-lg hover:shadow-2xl transition-all duration-500"
+              className={`bg-white/80 backdrop-blur-sm rounded-3xl p-8 border border-cherry-pink-100 card-hover group stagger-animation shadow-lg hover:shadow-2xl`}
               style={{ animationDelay: `${index * 0.1}s` }}
             >
+            >
               {/* Region Icon and Name */}
-              <div className="flex items-center mb-6">
-                <div className={`w-16 h-16 bg-gradient-to-r ${region.color} rounded-2xl flex items-center justify-center text-white text-3xl mr-4 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+              <div className="flex items-center mb-4">
+                <div className={`w-12 h-12 bg-gradient-to-r ${region.color} rounded-full flex items-center justify-center text-white text-2xl mr-4`}>
                   {region.icon}
                 </div>
-                <h3 className="text-2xl md:text-3xl font-bold text-gray-800 group-hover:text-cherry-pink-600 transition-colors duration-300">
+                <h3 className="text-2xl font-bold text-gray-800 group-hover:text-cherry-pink-600 transition-colors duration-200">
                   {region.name}
                 </h3>
               </div>
 
               {/* Description */}
-              <p className="text-gray-600 mb-6 leading-relaxed text-lg">
+              <p className="text-gray-600 mb-4 leading-relaxed">
                 {region.description}
               </p>
 
-              {/* Highlights */}
-              <div className="mb-8">
-                <h4 className="text-sm font-semibold text-gray-500 mb-4 uppercase tracking-wider">
+              {/* Highlights */}              <div className="mb-6">
+                <h4 className="text-sm font-semibold text-gray-500 mb-2 uppercase tracking-wide">
                   {lang === 'en' ? 'Key Cities & Attractions' : '主要都市・観光地'}
                 </h4>
-                <div className="flex flex-wrap gap-3">
-                  {region.highlights.map((highlight, highlightIndex) => (
+                <div className="flex flex-wrap gap-2">
+                  {region.highlights.map((highlight) => (
                     <span
                       key={highlight}
-                      className="px-4 py-2 bg-gradient-to-r from-cherry-pink-100 to-sakura-100 text-cherry-pink-700 rounded-full text-sm font-medium shadow-sm hover:shadow-md transition-all duration-200 hover:scale-105"
-                      style={{ animationDelay: `${index * 0.1 + highlightIndex * 0.05}s` }}
+                      className="px-3 py-1 bg-cherry-pink-100 text-cherry-pink-700 rounded-full text-sm font-medium"
                     >
                       {highlight}
                     </span>
@@ -143,13 +140,12 @@ const RegionsList = ({ dict, lang = 'ja' }: RegionsListProps) => {
                 </div>
               </div>
 
-              {/* Learn More Button */}
-              <Link
-                href={`/${lang}/regions/${region.id}`}
-                className="inline-flex items-center text-cherry-pink-600 hover:text-cherry-pink-700 font-semibold group-hover:translate-x-2 transition-all duration-300 text-lg bg-gradient-to-r from-cherry-pink-50 to-sakura-50 px-4 py-2 rounded-xl hover:from-cherry-pink-100 hover:to-sakura-100"
+              {/* Learn More Button */}              <Link
+                href={`/regions/${region.id}`}
+                className="inline-flex items-center text-cherry-pink-600 hover:text-cherry-pink-700 font-medium group-hover:translate-x-1 transition-all duration-200"
               >
                 {lang === 'en' ? 'Learn More' : 'もっと見る'}
-                <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </Link>
