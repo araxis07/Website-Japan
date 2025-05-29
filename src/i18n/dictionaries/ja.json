@@ -79,13 +79,34 @@
       "button": "購読する"
     },
     "follow": "フォローする",
-    "copyright": "© 2025 日本旅行ガイド。すべての権利を保有します。"
-  },
+    "copyright": "© 2025 日本旅行ガイド。すべての権利を保有します。"  },
   "resources": {
     "tripPlanner": "旅行プランナー",
     "transportation": "交通情報",
     "accommodations": "宿泊施設",
     "foodGuide": "グルメガイド",
     "events": "イベント・祭り"
+  },
+  "contact": {
+    "title": "お問い合わせ",
+    "subtitle": "ご質問やお問い合わせがございましたら、お気軽にお知らせください",
+    "getInTouch": "お問い合わせ",
+    "helpText": "旅行計画やご質問があれば、いつでもお手伝いします。",
+    "email": "メールアドレス",
+    "phone": "電話番号",
+    "address": "住所",
+    "followUs": "フォローする",
+    "sendMessage": "メッセージを送信",
+    "name": "お名前",
+    "subject": "件名",
+    "selectSubject": "件名を選択してください",
+    "subjectGeneral": "一般的なお問い合わせ",
+    "subjectBooking": "予約について",
+    "subjectFeedback": "フィードバック",
+    "subjectPartnership": "提携について",
+    "message": "メッセージ",
+    "send": "送信",
+    "successMessage": "メッセージを受け取りました。できるだけ早くご連絡いたします。",
+    "errorMessage": "送信中にエラーが発生しました。後でもう一度お試しください。"
   }
 }

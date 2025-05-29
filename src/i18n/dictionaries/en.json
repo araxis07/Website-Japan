@@ -79,13 +79,34 @@
       "button": "Subscribe"
     },
     "follow": "Follow Us",
-    "copyright": "© 2025 Japan Travel Guide. All rights reserved."
-  },
+    "copyright": "© 2025 Japan Travel Guide. All rights reserved."  },
   "resources": {
     "tripPlanner": "Trip Planner",
     "transportation": "Transportation",
     "accommodations": "Accommodations",
     "foodGuide": "Food Guide",
     "events": "Events & Festivals"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Feel free to reach out if you have any questions or inquiries",
+    "getInTouch": "Get in Touch",
+    "helpText": "We're here to help with your travel plans or any questions you might have.",
+    "email": "Email",
+    "phone": "Phone",
+    "address": "Address",
+    "followUs": "Follow Us",
+    "sendMessage": "Send a Message",
+    "name": "Name",
+    "subject": "Subject",
+    "selectSubject": "Select a subject",
+    "subjectGeneral": "General Inquiry",
+    "subjectBooking": "Booking Information",
+    "subjectFeedback": "Feedback",
+    "subjectPartnership": "Partnership",
+    "message": "Message",
+    "send": "Send",
+    "successMessage": "Message received. We'll get back to you as soon as possible.",
+    "errorMessage": "An error occurred while sending. Please try again later."
   }
 }
