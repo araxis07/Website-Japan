@@ -2,7 +2,8 @@ const sharp = require('sharp');
 const fs = require('fs');
 const path = require('path');
 
-const publicDir = path.join(__dirname, 'public');
+// Path to the public directory (from the project root)
+const publicDir = path.join(__dirname, '..', 'public');
 
 async function generateIcons() {
   try {
