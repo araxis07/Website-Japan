@@ -58,14 +58,16 @@ const config: Config = {
         'inter': ['var(--font-inter)', 'Inter', 'sans-serif'],
       },backgroundColor: {
         'warm-white': '#fdf9f9',
-      },
-      backgroundImage: {
+      },      backgroundImage: {
         'cherry-gradient': 'linear-gradient(135deg, #fef9f9 0%, #fde8e8 100%)',
         'sakura-gradient': 'linear-gradient(135deg, #fef2f2 0%, #fbd5d5 100%)',
+        'gradient-text': 'linear-gradient(135deg, #dc2626, #f87171, #fda4af)',
+        'section-title': 'linear-gradient(135deg, #dc2626, #f87171)',
       },
       animation: {
         'cherry-fall': 'cherryFall 8s infinite linear',
         'fade-in': 'fadeIn 1s ease-in-out',
+        'float': 'float 6s ease-in-out infinite',
       },
       keyframes: {
         cherryFall: {
@@ -75,6 +77,10 @@ const config: Config = {
         fadeIn: {
           '0%': { opacity: '0', transform: 'translateY(20px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        float: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-10px)' },
         },
       },
     },

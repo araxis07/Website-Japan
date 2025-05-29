@@ -13,8 +13,7 @@ const Hero = ({ dict }: HeroProps) => {
   useEffect(() => {
     setMounted(true)
   }, [])
-  
-  // Use memo to cache cherry blossom elements to improve performance
+    // Use memo to cache cherry blossom elements to improve performance
   const cherryBlossoms = useMemo(() => {
     const positions = [
       { top: 0, left: "10%" },
