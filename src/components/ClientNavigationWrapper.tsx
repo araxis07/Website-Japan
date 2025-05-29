@@ -35,16 +35,15 @@ const ClientNavigationWrapper = ({ dict, lang }: ClientNavigationWrapperProps) =
   // For server/client consistency, don't show language-dependent elements until mounted
   const langToggleText = mounted ? (lang === 'ja' ? 'EN' : '日本語') : ''
   const siteTitle = mounted ? (lang === 'ja' ? '日本旅行' : 'Japan Travel') : ''
-  return (
-    <nav className="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-lg shadow-lg z-50 border-b border-cherry-pink-100 transition-all duration-300">
+  return (    <nav className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-lg shadow-xl z-50 border-b border-cherry-pink-100 transition-all duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center h-24">
           {/* Logo */}
           <Link href={`/${lang}`} className="flex items-center space-x-3 group">
-            <div className="w-10 h-10 bg-gradient-to-br from-cherry-pink-400 to-sakura-400 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
-              <span className="text-white font-bold text-lg">🌸</span>
+            <div className="w-12 h-12 bg-gradient-to-br from-cherry-pink-400 to-sakura-400 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg ring-2 ring-white/30">
+              <span className="text-white font-bold text-2xl">🌸</span>
             </div>
-            <span className="text-2xl font-bold gradient-text group-hover:scale-105 transition-transform duration-300">{siteTitle}</span>
+            <span className="text-3xl font-bold gradient-text group-hover:scale-105 transition-transform duration-300">{siteTitle}</span>
           </Link>
 
           {/* Desktop Menu */}
