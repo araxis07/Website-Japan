@@ -52,10 +52,10 @@ const ClientNavigationWrapper = ({ dict, lang }: ClientNavigationWrapperProps) =
               <Link
                 key={item.name}
                 href={item.href}
-                className="relative text-gray-700 hover:text-cherry-pink-600 transition-colors duration-200 font-medium text-lg group"
+                className="relative text-gray-700 hover:text-cherry-pink-600 focus:text-cherry-pink-600 transition-colors duration-200 font-medium text-lg group outline-none focus-visible:ring-2 focus-visible:ring-cherry-pink-500 focus-visible:ring-offset-2 rounded-md px-2 py-1"
               >
                 {item.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-cherry-pink-500 to-sakura-500 group-hover:w-full transition-all duration-300"></span>
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-cherry-pink-500 to-sakura-500 group-hover:w-full group-focus:w-full transition-all duration-300"></span>
               </Link>
             ))}
               {/* Language Toggle */}
