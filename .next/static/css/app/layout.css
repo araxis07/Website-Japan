@@ -380,7 +380,6 @@ video {
   display: none;
 }
   html {
-    font-family: 'Noto Sans JP', 'Inter', sans-serif;
     scroll-behavior: smooth;
   }
   
@@ -491,7 +490,7 @@ video {
 /* General animation delay utility classes */
 /* Footer cherry animations with better positioning */
 
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+/* Font imports are handled by Next.js font system in layout.tsx */
 
 /* Animation keyframes with smoother transitions */
 @keyframes float {

@@ -2,11 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
-
+/* Font imports are handled by Next.js font system in layout.tsx */
 @layer base {
   html {
-    font-family: 'Noto Sans JP', 'Inter', sans-serif;
     scroll-behavior: smooth;
   }
   
