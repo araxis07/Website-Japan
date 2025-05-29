@@ -83,22 +83,31 @@ const RegionsList = ({ dict, lang = 'ja' }: RegionsListProps) => {
       icon: '🏖️'
     }
   ]
-
   return (
-    <section id="regions" className="py-20 bg-gradient-to-b from-sakura-50 to-warm-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">        <div className="text-center mb-16">
-          <h2 className="section-title mb-6">
+    <section id="regions" className="py-24 bg-gradient-to-b from-sakura-50 to-warm-white relative overflow-hidden">
+      {/* Background decorative elements */}
+      <div className="absolute inset-0 opacity-30">
+        <div className="absolute top-20 left-10 w-20 h-20 bg-cherry-pink-200 rounded-full animate-pulse"></div>
+        <div className="absolute bottom-20 right-10 w-16 h-16 bg-sakura-200 rounded-full animate-bounce"></div>
+      </div>
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="text-center mb-20">
+          <h2 className="section-title mb-8">
             {dict.regions.title}
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
             {dict.regions.subtitle}
           </p>
         </div>
+        
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {regions.map((region) => (
+          {regions.map((region, index) => (
             <div
               key={region.id}
-              className={`bg-white/60 backdrop-blur-sm rounded-2xl p-6 border border-cherry-pink-100 card-hover group stagger-animation`}
+              className={`bg-white/80 backdrop-blur-sm rounded-3xl p-8 border border-cherry-pink-100 card-hover group stagger-animation shadow-lg hover:shadow-2xl`}
+              style={{ animationDelay: `${index * 0.1}s` }}
+            >
             >
               {/* Region Icon and Name */}
               <div className="flex items-center mb-4">
