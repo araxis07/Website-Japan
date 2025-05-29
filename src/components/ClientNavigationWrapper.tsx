@@ -67,38 +67,41 @@ const ClientNavigationWrapper = ({ dict, lang }: ClientNavigationWrapperProps) =
             >
               {langToggleText}
             </button>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center space-x-2">
+          </div>          {/* Mobile Menu Button */}
+          <div className="md:hidden flex items-center space-x-3">
             <button
               onClick={toggleLanguage}
-              className="px-2 py-1 bg-cherry-pink-100 text-cherry-pink-700 rounded text-xs font-medium"
+              className="px-3 py-1 bg-gradient-to-r from-cherry-pink-100 to-sakura-100 text-cherry-pink-700 rounded-full text-sm font-medium shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-200"
             >
               {langToggleText}
             </button>
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-700 hover:text-cherry-pink-600 transition-colors duration-200"
+              className="text-gray-700 hover:text-cherry-pink-600 transition-colors duration-200 p-2 rounded-lg hover:bg-cherry-pink-50"
               aria-label="Toggle mobile menu"
               title="Toggle mobile menu"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                {isMenuOpen ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                )}
               </svg>
             </button>
           </div>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Enhanced Mobile Menu */}
         {isMenuOpen && mounted && (
           <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-white/90 backdrop-blur-md rounded-lg mt-2 shadow-lg border border-cherry-pink-100">
-              {menuItems.map((item) => (
+            <div className="px-4 pt-4 pb-6 space-y-3 bg-white/95 backdrop-blur-lg rounded-2xl mt-4 shadow-2xl border border-cherry-pink-100 mx-2">
+              {menuItems.map((item, index) => (
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="block px-3 py-2 text-gray-700 hover:text-cherry-pink-600 hover:bg-cherry-pink-50 rounded-md transition-colors duration-200"
+                  className={`block px-4 py-3 text-gray-700 hover:text-cherry-pink-600 hover:bg-gradient-to-r hover:from-cherry-pink-50 hover:to-sakura-50 rounded-xl transition-all duration-200 font-medium stagger-animation`}
+                  style={{ animationDelay: `${index * 0.1}s` }}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}
