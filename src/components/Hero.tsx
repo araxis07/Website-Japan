@@ -15,22 +15,30 @@ const Hero = ({ dict }: HeroProps) => {
   }, [])
   
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-warm-white via-cherry-pink-50 to-sakura-100 overflow-hidden">      {/* Enhanced Cherry Blossom Background Elements */}      <div className="absolute inset-0 overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-warm-white via-cherry-pink-50 to-sakura-100 overflow-hidden">
+      {/* Enhanced Cherry Blossom Background Elements */}
+      <div className="absolute inset-0 overflow-hidden">
         {/* Animated Cherry Blossoms */}
-        {[...Array(20)].map((_, i) => (
-          <div
-            key={i}
-            className={`cherry-blossom absolute animation-delay-${i % 10 * 100}`}
-            style={{
-              left: `${(i * 5) % 100}%`,
-              top: `-20px`,
-              width: `${8 + Math.random() * 8}px`,
-              height: `${8 + Math.random() * 8}px`,
-              opacity: 0.4 + Math.random() * 0.4,
-              animation: `cherryFallFancy ${5 + Math.random() * 10}s linear infinite`
-            }}
-          />
-        ))}
+        <div className="cherry-blossom-1 cherry-blossom"></div>
+        <div className="cherry-blossom-2 cherry-blossom"></div>
+        <div className="cherry-blossom-3 cherry-blossom"></div>
+        <div className="cherry-blossom-4 cherry-blossom"></div>
+        <div className="cherry-blossom-5 cherry-blossom"></div>
+        <div className="cherry-blossom-6 cherry-blossom"></div>
+        <div className="cherry-blossom-7 cherry-blossom"></div>
+        <div className="cherry-blossom-8 cherry-blossom"></div>
+        <div className="cherry-blossom-9 cherry-blossom"></div>
+        <div className="cherry-blossom-10 cherry-blossom"></div>
+        <div className="cherry-blossom-11 cherry-blossom"></div>
+        <div className="cherry-blossom-12 cherry-blossom"></div>
+        <div className="cherry-blossom-13 cherry-blossom"></div>
+        <div className="cherry-blossom-14 cherry-blossom"></div>
+        <div className="cherry-blossom-15 cherry-blossom"></div>
+        <div className="cherry-blossom-16 cherry-blossom"></div>
+        <div className="cherry-blossom-17 cherry-blossom"></div>
+        <div className="cherry-blossom-18 cherry-blossom"></div>
+        <div className="cherry-blossom-19 cherry-blossom"></div>
+        <div className="cherry-blossom-20 cherry-blossom"></div>
         
         {/* Gradient orbs */}
         <div className="absolute top-20 left-10 w-32 h-32 bg-cherry-pink-200 rounded-full opacity-20 animate-pulse blur-xl"></div>
@@ -46,7 +54,9 @@ const Hero = ({ dict }: HeroProps) => {
           <div className="inline-flex items-center justify-center w-24 h-24 bg-gradient-to-br from-cherry-pink-400 to-sakura-500 rounded-full shadow-2xl ring-4 ring-white/30 backdrop-blur-sm">
             <span className="text-4xl animate-pulse">🌸</span>
           </div>
-        </div>        {/* Title with improved typography */}
+        </div>
+        
+        {/* Title with improved typography */}
         <h1 className="text-5xl md:text-7xl lg:text-9xl font-black gradient-text mb-8 leading-tight animate-fade-in font-japanese tracking-tight">
           {dict.hero.title}
         </h1>
@@ -54,14 +64,18 @@ const Hero = ({ dict }: HeroProps) => {
         {/* Subtitle with better spacing */}
         <p className="text-xl md:text-2xl lg:text-3xl text-gray-700 mb-16 max-w-4xl mx-auto leading-relaxed font-medium">
           {dict.hero.subtitle}
-        </p>        {/* Improved CTA Button */}
+        </p>
+        
+        {/* Improved CTA Button */}
         <div className="mb-20">
           <button className="group relative inline-flex items-center px-10 py-5 bg-gradient-to-r from-cherry-pink-500 to-sakura-500 text-white font-bold rounded-full text-2xl shadow-2xl hover:shadow-cherry-pink-500/50 transform hover:scale-105 transition-all duration-300 overflow-hidden">
             <span className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
             <span className="relative z-10">{dict.hero.cta}</span>
             <span className="relative z-10 ml-3 transform group-hover:translate-x-2 transition-transform duration-300">→</span>
           </button>
-        </div>        {/* Enhanced Stats Section */}
+        </div>
+        
+        {/* Enhanced Stats Section */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto">
           {[
             { value: '47', label: '都道府県', icon: '🏞️' },
