@@ -1,10 +1,11 @@
 import Navigation from '@/components/Navigation'
 import Hero from '@/components/Hero.optimized'
-import RegionsList from '@/components/RegionsList'
+import RegionsList from '@/components/RegionsList.optimized'
 import FeaturedDestinations from '@/components/FeaturedDestinations'
 import Footer from '@/components/Footer'
 import ScrollToTop from '@/components/ScrollToTop'
 import SeasonalHighlights from '@/components/SeasonalHighlights'
+import ContactForm from '@/components/ContactForm'
 import PageTransition from '@/components/PageTransition'
 import { Suspense } from 'react'
 import { getDictionary } from '@/i18n/dictionaries'
@@ -24,11 +25,11 @@ const LocalePage = async ({ params }: PageProps) => {
     <PageTransition>
       <main id="main-content" className="min-h-screen bg-gradient-to-b from-warm-white via-cherry-pink-50 to-sakura-50 scroll-smooth">
         <Navigation dict={dict} lang={currentLang} />
-        <Suspense fallback={<div className="min-h-screen flex items-center justify-center"><div className="text-4xl">🌸</div></div>}>
-          <Hero dict={dict} />
+        <Suspense fallback={<div className="min-h-screen flex items-center justify-center"><div className="text-4xl">🌸</div></div>}>          <Hero dict={dict} />
           <RegionsList dict={dict} lang={currentLang} />
           <SeasonalHighlights dict={dict} lang={currentLang} />
           <FeaturedDestinations dict={dict} lang={currentLang} />
+          <ContactForm dict={dict} lang={currentLang} />
         </Suspense>
         <Footer dict={dict} lang={currentLang} />
         <ScrollToTop />

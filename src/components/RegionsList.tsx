@@ -102,12 +102,10 @@ const RegionsList = ({ dict, lang = 'ja' }: RegionsListProps) => {
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {regions.map((region, index) => (
-            <div
+          {regions.map((region, index) => (            <div
               key={region.id}
               className={`bg-white/80 backdrop-blur-sm rounded-3xl p-8 border border-cherry-pink-100 card-hover group stagger-animation shadow-lg hover:shadow-2xl`}
               style={{ animationDelay: `${index * 0.1}s` }}
-            >
             >
               {/* Region Icon and Name */}
               <div className="flex items-center mb-4">
