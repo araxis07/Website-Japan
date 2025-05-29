@@ -8,14 +8,14 @@ import { Locale } from '@/i18n/config'
 
 // Define the props interface
 interface PageProps {
-  params: { 
+  params: Promise<{ 
     lang: Locale 
-  }
+  }>
 }
 
 // Create a client-side wrapper for the page content
 const LocalePage = async ({ params }: PageProps) => {
-  const currentLang = params.lang;
+  const { lang: currentLang } = await params
   const dict = await getDictionary(currentLang);
 
   return (

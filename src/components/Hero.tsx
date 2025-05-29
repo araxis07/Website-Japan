@@ -14,10 +14,22 @@ const Hero = ({ dict }: HeroProps) => {
     setMounted(true)
   }, [])
   
-  return (
-    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-warm-white via-cherry-pink-50 to-sakura-100 overflow-hidden">
-      {/* Cherry Blossom Background Elements */}
+  return (    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-warm-white via-cherry-pink-50 to-sakura-100 overflow-hidden">
+      {/* Enhanced Cherry Blossom Background Elements */}
       <div className="absolute inset-0">
+        {/* Floating cherry blossoms */}
+        {[...Array(8)].map((_, i) => (
+          <div
+            key={i}
+            className={`absolute w-4 h-4 bg-cherry-pink-300 rounded-full opacity-30 animate-bounce`}
+            style={{
+              top: `${20 + i * 10}%`,
+              left: `${10 + i * 11}%`,
+              animationDelay: `${i * 0.5}s`,
+              animationDuration: `${3 + i * 0.5}s`
+            }}
+          />
+        ))}
         <div className="absolute top-20 left-10 w-32 h-32 bg-cherry-pink-200 rounded-full opacity-20 animate-pulse"></div>
         <div className="absolute top-40 right-20 w-24 h-24 bg-sakura-300 rounded-full opacity-30 animate-bounce"></div>
         <div className="absolute bottom-32 left-1/4 w-40 h-40 bg-cherry-pink-100 rounded-full opacity-25 animate-pulse"></div>

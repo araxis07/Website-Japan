@@ -24,17 +24,18 @@ export const metadata: Metadata = {
   description: "日本の美しい地域と観光地を発見しよう | Discover Japan's beautiful regions and destinations",
 }
 
-export default function LocaleLayout({
+export default async function LocaleLayout({
   children,
   params,
 }: {
   children: React.ReactNode
-  params: { lang: Locale }
+  params: Promise<{ lang: Locale }>
 }) {
+  const { lang } = await params
   // Use a safer approach to avoid hydration mismatches
-  const fontClass = params.lang === 'ja' ? 'font-noto-sans-jp' : 'font-inter'
+  const fontClass = lang === 'ja' ? 'font-noto-sans-jp' : 'font-inter'
     return (
-    <html lang={params.lang || 'ja'} className={`${inter.variable} ${notoSansJP.variable}`}>
+    <html lang={lang || 'ja'} className={`${inter.variable} ${notoSansJP.variable}`}>
       <body className={fontClass} suppressHydrationWarning>
         {children}
       </body>

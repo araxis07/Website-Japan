@@ -35,11 +35,12 @@ const config: Config = {
         },
         'soft-white': '#fefefe',
         'warm-white': '#fdf9f9',
-      },
-      fontFamily: {
-        'japanese': ['Noto Sans JP', 'sans-serif'],
-        'english': ['Inter', 'sans-serif'],
-      },      backgroundColor: {
+      },      fontFamily: {
+        'japanese': ['var(--font-noto-sans-jp)', 'Noto Sans JP', 'sans-serif'],
+        'english': ['var(--font-inter)', 'Inter', 'sans-serif'],
+        'noto-sans-jp': ['var(--font-noto-sans-jp)', 'Noto Sans JP', 'sans-serif'],
+        'inter': ['var(--font-inter)', 'Inter', 'sans-serif'],
+      },backgroundColor: {
         'warm-white': '#fdf9f9',
       },
       backgroundImage: {
