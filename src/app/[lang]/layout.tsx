@@ -23,8 +23,7 @@ export const metadata: Metadata = {
   title: "日本旅行ガイド | Japan Travel Guide - Discover Beautiful Japan",
   description: "日本の美しい地域と観光地を発見しよう。47都道府県、9地域の魅力的な旅行情報をお届けします。| Discover Japan's beautiful regions and destinations with comprehensive travel information.",
   keywords: "Japan, travel, tourism, regions, destinations, 日本, 旅行, 観光, 地域, 観光地",
-  authors: [{ name: "Japan Travel Guide" }],
-  viewport: {
+  authors: [{ name: "Japan Travel Guide" }],  viewport: {
     width: "device-width",
     initialScale: 1,
     maximumScale: 5,
@@ -42,11 +41,6 @@ export const metadata: Metadata = {
     title: "Japan Travel Guide",
     description: "Discover Japan's beautiful regions and destinations",
   },
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 1,
-  },
 }
 
 export default async function LocaleLayout({
@@ -55,10 +49,11 @@ export default async function LocaleLayout({
 }: {
   children: React.ReactNode
   params: Promise<{ lang: Locale }>
-}) {
-  const { lang } = await params
-  // Use a safer approach to avoid hydration mismatches  const fontClass = lang === 'ja' ? 'font-noto-sans-jp' : 'font-inter'
-    return (
+}) {  const { lang } = await params
+  // Use a safer approach to avoid hydration mismatches  
+  const fontClass = lang === 'ja' ? 'font-noto-sans-jp' : 'font-inter'
+  
+  return (
     <html lang={lang || 'ja'} className={`${inter.variable} ${notoSansJP.variable} scroll-smooth`}>
       <body className={`${fontClass} antialiased bg-warm-white text-gray-800`} suppressHydrationWarning>
         {children}
