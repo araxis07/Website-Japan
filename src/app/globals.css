@@ -38,22 +38,24 @@
   }
   
   .section-title {
-    @apply text-4xl md:text-5xl font-bold text-center;
-    background: linear-gradient(135deg, #dc2626, #f87171);
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold text-center;
+    background: linear-gradient(135deg, #dc2626, #f87171, #fda4af);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    text-shadow: 0 4px 8px rgba(220, 38, 38, 0.1);
   }
   
   .card-hover {
-    @apply transition-all duration-300 hover:scale-105 hover:shadow-xl;
+    @apply transition-all duration-500 hover:scale-105 hover:shadow-2xl;
   }
   
   .gradient-text {
-    background: linear-gradient(135deg, #dc2626, #f87171);
+    background: linear-gradient(135deg, #dc2626, #f87171, #fda4af);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    text-shadow: 0 2px 4px rgba(220, 38, 38, 0.1);
   }
   
   .cherry-decoration {
