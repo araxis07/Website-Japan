@@ -1,6 +1,6 @@
 import Navigation from '@/components/Navigation'
-import Hero from '@/components/Hero.optimized'
-import RegionsList from '@/components/RegionsList.optimized'
+import Hero from '@/components/Hero.fixed'
+import RegionsList from '@/components/RegionsList.fixed'
 import FeaturedDestinations from '@/components/FeaturedDestinations'
 import Footer from '@/components/Footer'
 import ScrollToTop from '@/components/ScrollToTop'
@@ -23,13 +23,22 @@ const LocalePage = async ({ params }: PageProps) => {
   const { lang: currentLang } = await params
   const dict = await getDictionary(currentLang);  return (
     <PageTransition>
-      <main id="main-content" className="min-h-screen bg-gradient-to-b from-warm-white via-cherry-pink-50 to-sakura-50 scroll-smooth">
+      <main id="main-content" className="min-h-screen bg-gradient-to-b from-warm-white via-cherry-pink-50 to-sakura-50 scroll-smooth overflow-x-hidden">
         <Navigation dict={dict} lang={currentLang} />
-        <Suspense fallback={<div className="min-h-screen flex items-center justify-center"><div className="text-4xl">🌸</div></div>}>          <Hero dict={dict} />
-          <RegionsList dict={dict} lang={currentLang} />
-          <SeasonalHighlights dict={dict} lang={currentLang} />
-          <FeaturedDestinations dict={dict} lang={currentLang} />
-          <ContactForm dict={dict} lang={currentLang} />
+        <Suspense fallback={
+          <div className="min-h-screen flex items-center justify-center">
+            <div className="w-24 h-24 bg-gradient-to-br from-cherry-pink-400 to-sakura-500 rounded-full flex items-center justify-center animate-pulse">
+              <span className="text-4xl">🌸</span>
+            </div>
+          </div>
+        }>
+          <div className="pt-24">
+            <Hero dict={dict} />
+            <RegionsList dict={dict} lang={currentLang} />
+            <SeasonalHighlights dict={dict} lang={currentLang} />
+            <FeaturedDestinations dict={dict} lang={currentLang} />
+            <ContactForm dict={dict} lang={currentLang} />
+          </div>
         </Suspense>
         <Footer dict={dict} lang={currentLang} />
         <ScrollToTop />
