@@ -109,13 +109,12 @@ export default async function LocaleLayout({
             ])
           }}
         />
-      </head>
-      <body className={`${fontClass} antialiased bg-warm-white text-gray-800`} suppressHydrationWarning>
+      </head>      <body className={`${fontClass} antialiased bg-warm-white text-gray-800 overflow-x-hidden`} suppressHydrationWarning>
         <a 
           href="#main-content" 
           className="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 z-50 bg-white text-cherry-pink-600 p-3 m-3 focus:outline-none focus:ring-2 focus:ring-cherry-pink-500 border border-cherry-pink-200 rounded-md shadow-md"
         >
-          Skip to main content
+          {lang === 'ja' ? 'メインコンテンツへスキップ' : 'Skip to main content'}
         </a>
         {children}
       </body>
