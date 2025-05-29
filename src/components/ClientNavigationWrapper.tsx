@@ -58,19 +58,19 @@ const ClientNavigationWrapper = ({ dict, lang }: ClientNavigationWrapperProps) =
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-cherry-pink-500 to-sakura-500 group-hover:w-full transition-all duration-300"></span>
               </Link>
             ))}
-            
-            {/* Language Toggle */}
+              {/* Language Toggle */}
             <button
               onClick={toggleLanguage}
-              className="px-4 py-2 bg-gradient-to-r from-cherry-pink-100 to-sakura-100 text-cherry-pink-700 rounded-full text-sm font-medium hover:from-cherry-pink-200 hover:to-sakura-200 transition-all duration-200 shadow-md hover:shadow-lg transform hover:scale-105"
+              className="px-5 py-2.5 bg-gradient-to-r from-cherry-pink-400 to-sakura-400 text-white rounded-full text-sm font-bold hover:from-cherry-pink-500 hover:to-sakura-500 transition-all duration-300 shadow-md hover:shadow-lg transform hover:scale-105 border border-white/30"
             >
               {langToggleText}
             </button>
-          </div>          {/* Mobile Menu Button */}
+          </div>          
+          {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center space-x-3">
             <button
               onClick={toggleLanguage}
-              className="px-3 py-1 bg-gradient-to-r from-cherry-pink-100 to-sakura-100 text-cherry-pink-700 rounded-full text-sm font-medium shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-200"
+              className="px-4 py-2 bg-gradient-to-r from-cherry-pink-400 to-sakura-400 text-white rounded-full text-sm font-bold shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-300 border border-white/30"
             >
               {langToggleText}
             </button>
@@ -89,23 +89,23 @@ const ClientNavigationWrapper = ({ dict, lang }: ClientNavigationWrapperProps) =
               </svg>
             </button>
           </div>
-        </div>
-
-        {/* Enhanced Mobile Menu */}
+        </div>        {/* Enhanced Mobile Menu */}
         {isMenuOpen && mounted && (
-          <div className="md:hidden">
-            <div className="px-4 pt-4 pb-6 space-y-3 bg-white/95 backdrop-blur-lg rounded-2xl mt-4 shadow-2xl border border-cherry-pink-100 mx-2">
+          <div className="md:hidden absolute left-0 right-0 px-4">
+            <div className="px-4 pt-4 pb-6 space-y-3 bg-white/95 backdrop-blur-lg rounded-2xl mt-2 shadow-2xl border border-cherry-pink-200 mx-auto max-w-sm animate-fade-in">
               {menuItems.map((item, index) => (
                 <Link
                   key={item.name}
                   href={item.href}
-                  className={`block px-4 py-3 text-gray-700 hover:text-cherry-pink-600 hover:bg-gradient-to-r hover:from-cherry-pink-50 hover:to-sakura-50 rounded-xl transition-all duration-200 font-medium stagger-animation`}
+                  className={`flex items-center px-5 py-3.5 text-gray-700 hover:text-cherry-pink-600 hover:bg-gradient-to-r hover:from-cherry-pink-50 hover:to-sakura-50 rounded-xl transition-all duration-300 font-medium stagger-animation`}
                   style={{ animationDelay: `${index * 0.1}s` }}
                   onClick={() => setIsMenuOpen(false)}
                 >
+                  <span className="mr-2">{index === 0 ? '🏠' : index === 1 ? '🗾' : index === 2 ? '🎌' : index === 3 ? 'ℹ️' : '✉️'}</span>
                   {item.name}
                 </Link>
               ))}
+              <div className="h-1 w-1/3 mx-auto bg-gradient-to-r from-cherry-pink-300 to-sakura-300 rounded-full mt-2 opacity-50"></div>
             </div>
           </div>
         )}

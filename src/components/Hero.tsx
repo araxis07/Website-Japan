@@ -15,20 +15,27 @@ const Hero = ({ dict }: HeroProps) => {
   }, [])
   
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-warm-white via-cherry-pink-50 to-sakura-100 overflow-hidden">
-      {/* Enhanced Cherry Blossom Background Elements */}
-      <div className="absolute inset-0">
+    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-warm-white via-cherry-pink-50 to-sakura-100 overflow-hidden">      {/* Enhanced Cherry Blossom Background Elements */}
+      <div className="absolute inset-0 overflow-hidden">
         {/* Floating cherry blossoms */}
-        {[...Array(8)].map((_, i) => (
-          <div
-            key={i}
-            className={`absolute w-4 h-4 bg-cherry-pink-300 rounded-full opacity-30 floating-cherry floating-cherry-${i + 1}`}
+        {[...Array(15)].map((_, i) => (
+          <div 
+            key={i} 
+            className={`cherry-blossom absolute transform scale-${Math.random() > 0.5 ? '75' : '100'} opacity-${Math.random() > 0.5 ? '60' : '40'}`} 
+            style={{
+              top: `${Math.random() * 100}%`, 
+              left: `${Math.random() * 100}%`,
+              animationDuration: `${5 + Math.random() * 10}s`,
+              animationDelay: `${Math.random() * 5}s`
+            }}
           />
         ))}
-        <div className="absolute top-20 left-10 w-32 h-32 bg-cherry-pink-200 rounded-full opacity-20 animate-pulse"></div>
-        <div className="absolute top-40 right-20 w-24 h-24 bg-sakura-300 rounded-full opacity-30 animate-bounce"></div>
-        <div className="absolute bottom-32 left-1/4 w-40 h-40 bg-cherry-pink-100 rounded-full opacity-25 animate-pulse"></div>
-        <div className="absolute bottom-20 right-1/3 w-28 h-28 bg-sakura-200 rounded-full opacity-35 animate-bounce"></div>
+        
+        {/* Gradient orbs */}
+        <div className="absolute top-20 left-10 w-32 h-32 bg-cherry-pink-200 rounded-full opacity-20 animate-pulse blur-xl"></div>
+        <div className="absolute top-40 right-20 w-24 h-24 bg-sakura-300 rounded-full opacity-30 animate-bounce blur-lg"></div>
+        <div className="absolute bottom-32 left-1/4 w-40 h-40 bg-cherry-pink-100 rounded-full opacity-25 animate-pulse blur-2xl"></div>
+        <div className="absolute bottom-20 right-1/3 w-28 h-28 bg-sakura-200 rounded-full opacity-35 animate-bounce blur-xl"></div>
       </div>
 
       {/* Main Content */}
@@ -38,40 +45,37 @@ const Hero = ({ dict }: HeroProps) => {
           <div className="inline-flex items-center justify-center w-24 h-24 bg-gradient-to-br from-cherry-pink-400 to-sakura-500 rounded-full shadow-2xl ring-4 ring-white/30 backdrop-blur-sm">
             <span className="text-4xl animate-pulse">🌸</span>
           </div>
-        </div>
-
-        {/* Title with improved typography */}
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold gradient-text mb-8 leading-tight animate-fade-in">
+        </div>        {/* Title with improved typography */}
+        <h1 className="text-5xl md:text-7xl lg:text-9xl font-black gradient-text mb-8 leading-tight animate-fade-in font-japanese tracking-tight">
           {dict.hero.title}
         </h1>
 
         {/* Subtitle with better spacing */}
-        <p className="text-xl md:text-2xl lg:text-3xl text-gray-700 mb-16 max-w-4xl mx-auto leading-relaxed font-light">
+        <p className="text-xl md:text-2xl lg:text-3xl text-gray-700 mb-16 max-w-4xl mx-auto leading-relaxed font-medium">
           {dict.hero.subtitle}
-        </p>
-
-        {/* Improved CTA Button */}
+        </p>        {/* Improved CTA Button */}
         <div className="mb-20">
-          <button className="group inline-flex items-center px-10 py-5 bg-gradient-to-r from-cherry-pink-500 to-sakura-500 text-white font-semibold rounded-full text-xl shadow-2xl hover:shadow-cherry-pink-500/50 transform hover:scale-110 transition-all duration-300 ring-2 ring-white/20">
-            {dict.hero.cta}
-            <span className="ml-3 group-hover:translate-x-1 transition-transform duration-300">→</span>
+          <button className="group relative inline-flex items-center px-10 py-5 bg-gradient-to-r from-cherry-pink-500 to-sakura-500 text-white font-bold rounded-full text-2xl shadow-2xl hover:shadow-cherry-pink-500/50 transform hover:scale-105 transition-all duration-300 overflow-hidden">
+            <span className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+            <span className="relative z-10">{dict.hero.cta}</span>
+            <span className="relative z-10 ml-3 transform group-hover:translate-x-2 transition-transform duration-300">→</span>
           </button>
-        </div>
-
-        {/* Enhanced Stats Section */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto">
+        </div>        {/* Enhanced Stats Section */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto">
           {[
             { value: '47', label: '都道府県', icon: '🏞️' },
             { value: '9', label: '地域', icon: '🗾' },
             { value: '100+', label: '観光地', icon: '🎌' },
             { value: '24/7', label: 'サポート', icon: '💬' },
           ].map((stat, index) => (
-            <div key={index} className="text-center group stagger-animation bg-white/20 backdrop-blur-sm rounded-2xl p-6 border border-white/30 hover:bg-white/30 transition-all duration-300">
-              <div className="text-3xl mb-2">{stat.icon}</div>
+            <div key={index} className="text-center group stagger-animation bg-white/30 backdrop-blur-md rounded-2xl p-6 border border-white/40 hover:bg-white/40 transition-all duration-300 shadow-lg hover:shadow-xl">
+              <div className="w-12 h-12 bg-gradient-to-br from-cherry-pink-400/70 to-sakura-400/70 flex items-center justify-center rounded-full mx-auto mb-3 text-2xl group-hover:scale-110 transition-all duration-300 shadow-md">
+                {stat.icon}
+              </div>
               <div className="text-3xl md:text-4xl font-bold gradient-text mb-2 group-hover:scale-110 transition-transform duration-300">
                 {stat.value}
               </div>
-              <div className="text-sm text-gray-600 font-medium">{stat.label}</div>
+              <div className="text-sm text-gray-700 font-medium">{stat.label}</div>
             </div>
           ))}
         </div>
