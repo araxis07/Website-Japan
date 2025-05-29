@@ -1,4 +1,4 @@
-import Navigation from '@/components/Navigation'
+import Navigation from '@/components/Navigation.improved-fixed'
 import Hero from '@/components/Hero.improved'
 import RegionsList from '@/components/RegionsList.improved'
 import FeaturedDestinations from '@/components/FeaturedDestinations.improved'

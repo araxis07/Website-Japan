@@ -1204,6 +1204,9 @@
   background-clip: text;
   color: transparent;
   display: inline-block; /* Fix for rendering issues */
+  padding: 0.25rem 0; /* Add padding to improve rendering */
+  -webkit-box-decoration-break: clone; /* Fix for multi-line gradient text */
+  box-decoration-break: clone;
 }
 
 .gradient-text {
@@ -1239,10 +1242,14 @@
 
 /* Font helpers */
 .font-japanese {
-  font-family: 'Noto Sans JP', sans-serif;
+  font-family: var(--font-noto-sans-jp), 'Noto Sans JP', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .font-english {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
