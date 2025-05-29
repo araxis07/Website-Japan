@@ -1,4 +1,4 @@
-import ClientNavigationWrapper from './ClientNavigationWrapper.new';
+import ClientNavigationWrapper from './ClientNavigationWrapper';
 import { Locale } from '@/i18n/config'
 
 interface NavigationProps {
