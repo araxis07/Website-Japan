@@ -39,6 +39,8 @@ const config: Config = {
       fontFamily: {
         'japanese': ['Noto Sans JP', 'sans-serif'],
         'english': ['Inter', 'sans-serif'],
+      },      backgroundColor: {
+        'warm-white': '#fdf9f9',
       },
       backgroundImage: {
         'cherry-gradient': 'linear-gradient(135deg, #fef9f9 0%, #fde8e8 100%)',
