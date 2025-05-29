@@ -70,8 +70,7 @@
       "name": "大阪城",
       "description": "歴史的な城と文化"
     }
-  },
-  "footer": {
+  },  "footer": {
     "description": "日本の美しさと文化を世界と共有することを使命としています。",
     "newsletter": {
       "title": "ニュースレター",
@@ -80,6 +79,13 @@
       "button": "購読する"
     },
     "follow": "フォローする",
-    "copyright": "© 2024 日本旅行ガイド。すべての権利を保有します。"
+    "copyright": "© 2025 日本旅行ガイド。すべての権利を保有します。"
+  },
+  "resources": {
+    "tripPlanner": "旅行プランナー",
+    "transportation": "交通情報",
+    "accommodations": "宿泊施設",
+    "foodGuide": "グルメガイド",
+    "events": "イベント・祭り"
   }
 }
