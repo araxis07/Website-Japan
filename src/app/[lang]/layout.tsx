@@ -43,6 +43,16 @@ export const metadata: Metadata = {
   },
 }
 
+// Skip to content link for better accessibility
+const SkipToContent = () => (
+  <a 
+    href="#main-content" 
+    className="absolute z-50 bg-white text-cherry-pink-600 p-3 m-3 -translate-y-16 focus:translate-y-0 transition-transform duration-200 border border-cherry-pink-200 rounded-md shadow-md"
+  >
+    Skip to main content
+  </a>
+);
+
 export default async function LocaleLayout({
   children,
   params,
@@ -56,6 +66,7 @@ export default async function LocaleLayout({
   return (
     <html lang={lang || 'ja'} className={`${inter.variable} ${notoSansJP.variable} scroll-smooth`}>
       <body className={`${fontClass} antialiased bg-warm-white text-gray-800`} suppressHydrationWarning>
+        <SkipToContent />
         {children}
       </body>
     </html>

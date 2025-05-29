@@ -19,7 +19,7 @@ interface PageProps {
 const LocalePage = async ({ params }: PageProps) => {
   const { lang: currentLang } = await params
   const dict = await getDictionary(currentLang);  return (
-    <main className="min-h-screen bg-gradient-to-b from-warm-white via-cherry-pink-50 to-sakura-50 scroll-smooth">
+    <main id="main-content" className="min-h-screen bg-gradient-to-b from-warm-white via-cherry-pink-50 to-sakura-50 scroll-smooth">
       <LoadingOverlay />
       <Navigation dict={dict} lang={currentLang} />
       <Hero dict={dict} />

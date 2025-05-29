@@ -17,7 +17,12 @@ const LoadingOverlay = () => {
   if (!isLoading) return null
 
   return (
-    <div className="fixed inset-0 z-50 bg-warm-white flex items-center justify-center">
+    <div 
+      className="fixed inset-0 z-50 bg-warm-white flex items-center justify-center"
+      role="alert"
+      aria-busy="true"
+      aria-label="Loading content"
+    >
       <div className="flex flex-col items-center">
         <div className="relative">
           {/* Cherry blossom icon with gradient */}
@@ -33,6 +38,15 @@ const LoadingOverlay = () => {
         {/* Text */}
         <h2 className="mt-6 text-2xl font-bold gradient-text">Japan Travel</h2>
         <p className="mt-3 text-gray-600">Loading the beauty of Japan...</p>
+        
+        {/* Skip button */}
+        <button 
+          onClick={() => setIsLoading(false)}
+          className="mt-6 px-4 py-1 text-sm bg-white border border-cherry-pink-200 rounded-full hover:bg-cherry-pink-50 text-gray-700 transition-colors duration-300"
+          aria-label="Skip loading animation"
+        >
+          Skip
+        </button>
         
         {/* Cherry blossoms falling animation */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">

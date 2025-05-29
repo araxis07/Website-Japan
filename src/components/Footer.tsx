@@ -64,7 +64,7 @@ const Footer = ({ dict, lang }: FooterProps) => {
   ]
 
   return (
-    <footer className="relative overflow-hidden bg-gradient-to-b from-white to-cherry-pink-50 border-t border-cherry-pink-100">
+    <footer className="relative overflow-hidden bg-gradient-to-b from-white to-cherry-pink-50 border-t border-cherry-pink-100" role="contentinfo" aria-label="Site footer">
       {/* Cherry blossom decorations */}      <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="cherry-blossom-footer-1 cherry-blossom absolute opacity-40"></div>
         <div className="cherry-blossom-footer-2 cherry-blossom absolute opacity-40"></div>
@@ -107,6 +107,7 @@ const Footer = ({ dict, lang }: FooterProps) => {
             <button
               onClick={toggleLanguage}
               className="flex items-center space-x-2 px-4 py-2 bg-white rounded-full shadow-md text-cherry-pink-700 font-medium hover:bg-cherry-pink-50 transition-colors duration-200 mb-8 border border-cherry-pink-100"
+              aria-label={lang === 'ja' ? 'Switch to English' : '日本語に切り替える'}
             >
               <span>{lang === 'ja' ? '🇬🇧 English' : '🇯🇵 日本語'}</span>
             </button>

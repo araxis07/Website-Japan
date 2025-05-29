@@ -65,13 +65,15 @@ const Hero = ({ dict }: HeroProps) => {
         <p className="text-xl md:text-2xl lg:text-3xl text-gray-700 mb-16 max-w-4xl mx-auto leading-relaxed font-medium">
           {dict.hero.subtitle}
         </p>
-        
-        {/* Improved CTA Button */}
+          {/* Improved CTA Button */}
         <div className="mb-20">
-          <button className="group relative inline-flex items-center px-10 py-5 bg-gradient-to-r from-cherry-pink-500 to-sakura-500 text-white font-bold rounded-full text-2xl shadow-2xl hover:shadow-cherry-pink-500/50 transform hover:scale-105 transition-all duration-300 overflow-hidden">
+          <button 
+            className="group relative inline-flex items-center px-10 py-5 bg-gradient-to-r from-cherry-pink-500 to-sakura-500 text-white font-bold rounded-full text-2xl shadow-2xl hover:shadow-cherry-pink-500/50 transform hover:scale-105 transition-all duration-300 overflow-hidden"
+            aria-label={dict.hero.cta}
+          >
             <span className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
             <span className="relative z-10">{dict.hero.cta}</span>
-            <span className="relative z-10 ml-3 transform group-hover:translate-x-2 transition-transform duration-300">→</span>
+            <span className="relative z-10 ml-3 transform group-hover:translate-x-2 transition-transform duration-300" aria-hidden="true">→</span>
           </button>
         </div>
         
