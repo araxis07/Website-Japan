@@ -140,10 +140,12 @@ const SeasonalHighlights = ({ dict, lang }: SeasonalHighlightsProps) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="section-title">{dict.seasons.title}</span>
+            <span className="section-title">{dict.seasons?.title || (lang === 'ja' ? '季節の見どころ' : 'Seasonal Highlights')}</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            {dict.seasons.subtitle}
+            {dict.seasons?.subtitle || (lang === 'ja' 
+              ? '日本は一年を通して様々な魅力があります。それぞれの季節が持つ特色をお楽しみください。'
+              : 'Japan offers unique experiences all year round. Explore what each season has to offer.')}
           </p>
         </div>
         

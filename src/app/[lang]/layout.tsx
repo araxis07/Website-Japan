@@ -99,8 +99,7 @@ export default async function LocaleLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, minimum-scale=1" />
-        <script
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, minimum-scale=1" />        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify([
@@ -109,8 +108,9 @@ export default async function LocaleLayout({
               generateBreadcrumbSchema(lang)
             ])
           }}
-        />      </head>
-<body className={`${fontClass} antialiased bg-warm-white text-gray-800 overflow-x-hidden`} suppressHydrationWarning>
+        />
+      </head>
+      <body className={`${fontClass} antialiased bg-warm-white text-gray-800 overflow-x-hidden`} suppressHydrationWarning>
         <a 
           href="#main-content" 
           className="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 z-50 bg-white text-cherry-pink-600 p-3 m-3 focus:outline-none focus:ring-2 focus:ring-cherry-pink-500 border border-cherry-pink-200 rounded-md shadow-md"

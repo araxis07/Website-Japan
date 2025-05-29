@@ -79,13 +79,16 @@
       "button": "購読する"
     },
     "follow": "フォローする",
-    "copyright": "© 2025 日本旅行ガイド。すべての権利を保有します。"  },
-  "resources": {
+    "copyright": "© 2025 日本旅行ガイド。すべての権利を保有します。"  },  "resources": {
     "tripPlanner": "旅行プランナー",
     "transportation": "交通情報",
     "accommodations": "宿泊施設",
     "foodGuide": "グルメガイド",
     "events": "イベント・祭り"
+  },
+  "seasons": {
+    "title": "季節の見どころ",
+    "subtitle": "日本は一年を通して様々な魅力があります。それぞれの季節が持つ特色をお楽しみください。"
   },
   "contact": {
     "title": "お問い合わせ",

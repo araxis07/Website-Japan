@@ -79,13 +79,16 @@
       "button": "Subscribe"
     },
     "follow": "Follow Us",
-    "copyright": "© 2025 Japan Travel Guide. All rights reserved."  },
-  "resources": {
+    "copyright": "© 2025 Japan Travel Guide. All rights reserved."  },  "resources": {
     "tripPlanner": "Trip Planner",
     "transportation": "Transportation",
     "accommodations": "Accommodations",
     "foodGuide": "Food Guide",
     "events": "Events & Festivals"
+  },
+  "seasons": {
+    "title": "Seasonal Highlights",
+    "subtitle": "Japan offers unique experiences all year round. Explore what each season has to offer."
   },
   "contact": {
     "title": "Contact Us",
