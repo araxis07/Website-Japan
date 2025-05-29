@@ -1,13 +1,13 @@
 {
   "name": "japan-travel-website",
   "version": "0.1.0",
-  "private": true,
-  "scripts": {
+  "private": true,  "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "analyze": "ANALYZE=true next build"
+    "analyze": "ANALYZE=true next build",
+    "icons": "node scripts/generate-icons.js"
   },
   "dependencies": {
     "@formatjs/intl-localematcher": "^0.5.4",
