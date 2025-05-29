@@ -14,20 +14,15 @@ const Hero = ({ dict }: HeroProps) => {
     setMounted(true)
   }, [])
   
-  return (    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-warm-white via-cherry-pink-50 to-sakura-100 overflow-hidden">
+  return (
+    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-warm-white via-cherry-pink-50 to-sakura-100 overflow-hidden">
       {/* Enhanced Cherry Blossom Background Elements */}
       <div className="absolute inset-0">
         {/* Floating cherry blossoms */}
         {[...Array(8)].map((_, i) => (
           <div
             key={i}
-            className={`absolute w-4 h-4 bg-cherry-pink-300 rounded-full opacity-30 animate-bounce`}
-            style={{
-              top: `${20 + i * 10}%`,
-              left: `${10 + i * 11}%`,
-              animationDelay: `${i * 0.5}s`,
-              animationDuration: `${3 + i * 0.5}s`
-            }}
+            className={`absolute w-4 h-4 bg-cherry-pink-300 rounded-full opacity-30 floating-cherry floating-cherry-${i + 1}`}
           />
         ))}
         <div className="absolute top-20 left-10 w-32 h-32 bg-cherry-pink-200 rounded-full opacity-20 animate-pulse"></div>
@@ -38,61 +33,64 @@ const Hero = ({ dict }: HeroProps) => {
 
       {/* Main Content */}
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        {/* Cherry Blossom Icon */}
-        <div className="mb-8">
-          <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-cherry-pink-400 to-sakura-500 rounded-full shadow-lg">
-            <span className="text-3xl">🌸</span>
+        {/* Cherry Blossom Icon with improved animation */}
+        <div className="mb-8 animate-bounce">
+          <div className="inline-flex items-center justify-center w-24 h-24 bg-gradient-to-br from-cherry-pink-400 to-sakura-500 rounded-full shadow-2xl ring-4 ring-white/30 backdrop-blur-sm">
+            <span className="text-4xl animate-pulse">🌸</span>
           </div>
         </div>
 
-        {/* Title */}
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold gradient-text mb-6 leading-tight">
+        {/* Title with improved typography */}
+        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold gradient-text mb-8 leading-tight animate-fade-in">
           {dict.hero.title}
         </h1>
 
-        {/* Subtitle */}
-        <p className="text-lg md:text-xl lg:text-2xl text-gray-700 mb-12 max-w-4xl mx-auto leading-relaxed">
+        {/* Subtitle with better spacing */}
+        <p className="text-xl md:text-2xl lg:text-3xl text-gray-700 mb-16 max-w-4xl mx-auto leading-relaxed font-light">
           {dict.hero.subtitle}
         </p>
 
-        {/* CTA Button */}
-        <div className="mb-16">
-          <button className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-cherry-pink-500 to-sakura-500 text-white font-semibold rounded-full text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+        {/* Improved CTA Button */}
+        <div className="mb-20">
+          <button className="group inline-flex items-center px-10 py-5 bg-gradient-to-r from-cherry-pink-500 to-sakura-500 text-white font-semibold rounded-full text-xl shadow-2xl hover:shadow-cherry-pink-500/50 transform hover:scale-110 transition-all duration-300 ring-2 ring-white/20">
             {dict.hero.cta}
-            <span className="ml-2">→</span>
+            <span className="ml-3 group-hover:translate-x-1 transition-transform duration-300">→</span>
           </button>
         </div>
 
-        {/* Stats Section */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-2xl mx-auto">
-          <div className="text-center">
-            <div className="text-2xl md:text-3xl font-bold gradient-text mb-2">47</div>
-            <div className="text-sm text-gray-600">都道府県</div>
-          </div>
-          <div className="text-center">
-            <div className="text-2xl md:text-3xl font-bold gradient-text mb-2">9</div>
-            <div className="text-sm text-gray-600">地域</div>
-          </div>
-          <div className="text-center">
-            <div className="text-2xl md:text-3xl font-bold gradient-text mb-2">100+</div>
-            <div className="text-sm text-gray-600">観光地</div>
-          </div>
-          <div className="text-center">
-            <div className="text-2xl md:text-3xl font-bold gradient-text mb-2">24/7</div>
-            <div className="text-sm text-gray-600">サポート</div>
+        {/* Enhanced Stats Section */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto">
+          {[
+            { value: '47', label: '都道府県', icon: '🏞️' },
+            { value: '9', label: '地域', icon: '🗾' },
+            { value: '100+', label: '観光地', icon: '🎌' },
+            { value: '24/7', label: 'サポート', icon: '💬' },
+          ].map((stat, index) => (
+            <div key={index} className="text-center group stagger-animation bg-white/20 backdrop-blur-sm rounded-2xl p-6 border border-white/30 hover:bg-white/30 transition-all duration-300">
+              <div className="text-3xl mb-2">{stat.icon}</div>
+              <div className="text-3xl md:text-4xl font-bold gradient-text mb-2 group-hover:scale-110 transition-transform duration-300">
+                {stat.value}
+              </div>
+              <div className="text-sm text-gray-600 font-medium">{stat.label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Enhanced Scroll Indicator */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <div className="flex flex-col items-center text-gray-500 hover:text-cherry-pink-600 transition-colors duration-300 cursor-pointer">
+          <span className="text-sm mb-3 font-medium">スクロール</span>
+          <div className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center bg-white/30 backdrop-blur-sm">
+            <div className="w-1 h-3 bg-gradient-to-b from-cherry-pink-400 to-sakura-400 rounded-full animate-bounce mt-2"></div>
           </div>
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-        <div className="flex flex-col items-center text-gray-500">
-          <span className="text-sm mb-2">スクロール</span>
-          <div className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-gray-400 rounded-full animate-bounce mt-2"></div>
-          </div>
-        </div>
-      </div>
+      {/* Additional decorative elements */}
+      <div className="absolute top-1/4 left-5 w-2 h-2 bg-cherry-pink-400 rounded-full opacity-60 animate-ping"></div>
+      <div className="absolute top-3/4 right-5 w-3 h-3 bg-sakura-400 rounded-full opacity-40 animate-ping animation-delay-1000"></div>
+      <div className="absolute top-1/2 left-1/4 w-1 h-1 bg-cherry-pink-300 rounded-full opacity-80 animate-ping animation-delay-500"></div>
     </section>
   )
 }

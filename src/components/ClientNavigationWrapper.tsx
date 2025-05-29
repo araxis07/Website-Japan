@@ -35,35 +35,35 @@ const ClientNavigationWrapper = ({ dict, lang }: ClientNavigationWrapperProps) =
   // For server/client consistency, don't show language-dependent elements until mounted
   const langToggleText = mounted ? (lang === 'ja' ? 'EN' : '日本語') : ''
   const siteTitle = mounted ? (lang === 'ja' ? '日本旅行' : 'Japan Travel') : ''
-
   return (
-    <nav className="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md shadow-lg z-50 border-b border-cherry-pink-100">
+    <nav className="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-lg shadow-lg z-50 border-b border-cherry-pink-100 transition-all duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <Link href={`/${lang}`} className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gradient-to-br from-cherry-pink-400 to-sakura-400 rounded-full flex items-center justify-center">
-              <span className="text-white font-bold text-sm">🌸</span>
+          <Link href={`/${lang}`} className="flex items-center space-x-3 group">
+            <div className="w-10 h-10 bg-gradient-to-br from-cherry-pink-400 to-sakura-400 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
+              <span className="text-white font-bold text-lg">🌸</span>
             </div>
-            <span className="text-xl font-bold gradient-text">{siteTitle}</span>
+            <span className="text-2xl font-bold gradient-text group-hover:scale-105 transition-transform duration-300">{siteTitle}</span>
           </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-10">
             {mounted && menuItems.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-gray-700 hover:text-cherry-pink-600 transition-colors duration-200 font-medium"
+                className="relative text-gray-700 hover:text-cherry-pink-600 transition-colors duration-200 font-medium text-lg group"
               >
                 {item.name}
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-cherry-pink-500 to-sakura-500 group-hover:w-full transition-all duration-300"></span>
               </Link>
             ))}
             
             {/* Language Toggle */}
             <button
               onClick={toggleLanguage}
-              className="px-3 py-1 bg-cherry-pink-100 text-cherry-pink-700 rounded-full text-sm font-medium hover:bg-cherry-pink-200 transition-colors duration-200"
+              className="px-4 py-2 bg-gradient-to-r from-cherry-pink-100 to-sakura-100 text-cherry-pink-700 rounded-full text-sm font-medium hover:from-cherry-pink-200 hover:to-sakura-200 transition-all duration-200 shadow-md hover:shadow-lg transform hover:scale-105"
             >
               {langToggleText}
             </button>
