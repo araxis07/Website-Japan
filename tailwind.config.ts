@@ -6,6 +6,22 @@ const config: Config = {
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+  safelist: [
+    'section-title',
+    'gradient-text',
+    {
+      pattern: /^from-.*$/,
+      variants: ['hover', 'focus', 'group-hover'],
+    },
+    {
+      pattern: /^to-.*$/,
+      variants: ['hover', 'focus', 'group-hover'],
+    },
+    {
+      pattern: /^bg-.*$/,
+      variants: ['hover', 'focus', 'group-hover'],
+    },
+  ],
   theme: {
     extend: {
       colors: {
