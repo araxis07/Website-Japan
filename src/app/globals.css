@@ -10,7 +10,7 @@
   }
   
   body {
-    @apply bg-warm-white text-gray-800;
+    @apply bg-[#fdf9f9] text-gray-800;
   }
 }
 
