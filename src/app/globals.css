@@ -36,19 +36,26 @@
     border-radius: 50% 0 50% 0;
     transform: rotate(90deg);
   }
-  
-  .cherry-blossom-1 { top: 10%; left: 15%; animation: cherryFall 7s infinite linear; opacity: 0.6; transform: scale(0.8) rotate(45deg); }
-  .cherry-blossom-2 { top: 20%; left: 80%; animation: cherryFall 9s infinite linear; opacity: 0.7; transform: scale(0.9) rotate(90deg); }
-  .cherry-blossom-3 { top: 35%; left: 25%; animation: cherryFall 8s infinite linear; opacity: 0.5; transform: scale(1.1) rotate(135deg); }
-  .cherry-blossom-4 { top: 45%; left: 70%; animation: cherryFall 10s infinite linear; opacity: 0.6; transform: scale(0.7) rotate(180deg); }
-  .cherry-blossom-5 { top: 60%; left: 40%; animation: cherryFall 11s infinite linear; opacity: 0.7; transform: scale(1.0) rotate(225deg); }
-  .cherry-blossom-6 { top: 75%; left: 85%; animation: cherryFall 7.5s infinite linear; opacity: 0.5; transform: scale(0.95) rotate(270deg); }
-  .cherry-blossom-7 { top: 15%; left: 55%; animation: cherryFall 8.5s infinite linear; opacity: 0.6; transform: scale(1.05) rotate(315deg); }
-  .cherry-blossom-8 { top: 30%; left: 5%; animation: cherryFall 9.5s infinite linear; opacity: 0.7; transform: scale(0.85) rotate(0deg); }
-  .cherry-blossom-9 { top: 50%; left: 90%; animation: cherryFall 12s infinite linear; opacity: 0.5; transform: scale(1.15) rotate(45deg); }
-  .cherry-blossom-10 { top: 70%; left: 15%; animation: cherryFall 8.2s infinite linear; opacity: 0.6; transform: scale(0.75) rotate(90deg); }
-  .cherry-blossom-11 { top: 25%; left: 45%; animation: cherryFall 10.5s infinite linear; opacity: 0.7; transform: scale(1.2) rotate(135deg); }
-  .cherry-blossom-12 { top: 80%; left: 60%; animation: cherryFall 9.2s infinite linear; opacity: 0.5; transform: scale(0.9) rotate(180deg); }
+    .cherry-blossom-1 { top: -10%; left: 15%; animation: cherryFallFancy 15s infinite linear; opacity: 0.6; transform: scale(0.8) rotate(45deg); }
+  .cherry-blossom-2 { top: -20%; left: 80%; animation: cherryFallFancy 18s infinite linear; opacity: 0.7; transform: scale(0.9) rotate(90deg); }
+  .cherry-blossom-3 { top: -15%; left: 25%; animation: cherryFallFancy 20s infinite linear; opacity: 0.5; transform: scale(1.1) rotate(135deg); }
+  .cherry-blossom-4 { top: -25%; left: 70%; animation: cherryFallFancy 17s infinite linear; opacity: 0.6; transform: scale(0.7) rotate(180deg); }
+  .cherry-blossom-5 { top: -10%; left: 40%; animation: cherryFallFancy 19s infinite linear; opacity: 0.7; transform: scale(1.0) rotate(225deg); }
+  .cherry-blossom-6 { top: -20%; left: 85%; animation: cherryFallFancy 16s infinite linear; opacity: 0.5; transform: scale(0.95) rotate(270deg); }
+  .cherry-blossom-7 { top: -15%; left: 55%; animation: cherryFallFancy 18s infinite linear; opacity: 0.6; transform: scale(1.05) rotate(315deg); }
+  .cherry-blossom-8 { top: -25%; left: 5%; animation: cherryFallFancy 21s infinite linear; opacity: 0.7; transform: scale(0.85) rotate(0deg); }
+  .cherry-blossom-9 { top: -10%; left: 90%; animation: cherryFallFancy 19s infinite linear; opacity: 0.5; transform: scale(1.15) rotate(45deg); }
+  .cherry-blossom-10 { top: -20%; left: 15%; animation: cherryFallFancy 17s infinite linear; opacity: 0.6; transform: scale(0.75) rotate(90deg); }
+  .cherry-blossom-11 { top: -15%; left: 45%; animation: cherryFallFancy 20s infinite linear; opacity: 0.7; transform: scale(1.2) rotate(135deg); }
+  .cherry-blossom-12 { top: -25%; left: 60%; animation: cherryFallFancy 18s infinite linear; opacity: 0.5; transform: scale(0.9) rotate(180deg); }
+  .cherry-blossom-13 { top: -10%; left: 35%; animation: cherryFallFancy 19s infinite linear; opacity: 0.6; transform: scale(0.85) rotate(225deg); }
+  .cherry-blossom-14 { top: -20%; left: 75%; animation: cherryFallFancy 16s infinite linear; opacity: 0.7; transform: scale(1.1) rotate(270deg); }
+  .cherry-blossom-15 { top: -15%; left: 20%; animation: cherryFallFancy 21s infinite linear; opacity: 0.5; transform: scale(0.95) rotate(315deg); }
+  .cherry-blossom-16 { top: -25%; left: 65%; animation: cherryFallFancy 17s infinite linear; opacity: 0.6; transform: scale(1.05) rotate(0deg); }
+  .cherry-blossom-17 { top: -10%; left: 50%; animation: cherryFallFancy 20s infinite linear; opacity: 0.7; transform: scale(0.8) rotate(45deg); }
+  .cherry-blossom-18 { top: -20%; left: 10%; animation: cherryFallFancy 18s infinite linear; opacity: 0.5; transform: scale(1.15) rotate(90deg); }
+  .cherry-blossom-19 { top: -15%; left: 85%; animation: cherryFallFancy 19s infinite linear; opacity: 0.6; transform: scale(0.9) rotate(135deg); }
+  .cherry-blossom-20 { top: -25%; left: 30%; animation: cherryFallFancy 16s infinite linear; opacity: 0.7; transform: scale(1.0) rotate(180deg); }
   
   .section-title {
     @apply text-4xl md:text-5xl lg:text-6xl font-bold text-center;
