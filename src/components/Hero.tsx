@@ -16,19 +16,21 @@ const Hero = ({ dict }: HeroProps) => {
   
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-warm-white via-cherry-pink-50 to-sakura-100 overflow-hidden">      {/* Enhanced Cherry Blossom Background Elements */}      <div className="absolute inset-0 overflow-hidden">
-        {/* Floating cherry blossoms */}
-        <div className="cherry-blossom-1 cherry-blossom"></div>
-        <div className="cherry-blossom-2 cherry-blossom"></div>
-        <div className="cherry-blossom-3 cherry-blossom"></div>
-        <div className="cherry-blossom-4 cherry-blossom"></div>
-        <div className="cherry-blossom-5 cherry-blossom"></div>
-        <div className="cherry-blossom-6 cherry-blossom"></div>
-        <div className="cherry-blossom-7 cherry-blossom"></div>
-        <div className="cherry-blossom-8 cherry-blossom"></div>
-        <div className="cherry-blossom-9 cherry-blossom"></div>
-        <div className="cherry-blossom-10 cherry-blossom"></div>
-        <div className="cherry-blossom-11 cherry-blossom"></div>
-        <div className="cherry-blossom-12 cherry-blossom"></div>
+        {/* Animated Cherry Blossoms */}
+        {[...Array(20)].map((_, i) => (
+          <div
+            key={i}
+            className={`cherry-blossom absolute animation-delay-${i % 10 * 100}`}
+            style={{
+              left: `${(i * 5) % 100}%`,
+              top: `-20px`,
+              width: `${8 + Math.random() * 8}px`,
+              height: `${8 + Math.random() * 8}px`,
+              opacity: 0.4 + Math.random() * 0.4,
+              animation: `cherryFallFancy ${5 + Math.random() * 10}s linear infinite`
+            }}
+          />
+        ))}
         
         {/* Gradient orbs */}
         <div className="absolute top-20 left-10 w-32 h-32 bg-cherry-pink-200 rounded-full opacity-20 animate-pulse blur-xl"></div>
