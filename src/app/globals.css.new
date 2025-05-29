@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  html {
+    font-family: 'Noto Sans JP', 'Inter', sans-serif;
+  }
+  
+  body {
+    @apply bg-warm-white text-gray-800;
+  }
+}
+
+@layer components {
+  .cherry-blossom {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: radial-gradient(circle, #fbd5d5 40%, #f8b4b4 80%);
+    border-radius: 50% 0 50% 0;
+    transform: rotate(45deg);
+    animation: cherryFall 8s infinite linear;
+  }
+  
+  .cherry-blossom::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: -6px;
+    width: 12px;
+    height: 12px;
+    background: radial-gradient(circle, #fbd5d5 40%, #f8b4b4 80%);
+    border-radius: 50% 0 50% 0;
+    transform: rotate(90deg);
+  }
+  
+  .section-title {
+    @apply text-4xl md:text-5xl font-bold text-center;
+    background: linear-gradient(135deg, #dc2626, #f87171);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .card-hover {
+    @apply transition-all duration-300 hover:scale-105 hover:shadow-xl;
+  }
+  
+  .gradient-text {
+    background: linear-gradient(135deg, #dc2626, #f87171);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .cherry-decoration {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .cherry-decoration:nth-child(1) { top: 10%; left: 15%; animation-delay: 0s; }
+  .cherry-decoration:nth-child(2) { top: 20%; left: 80%; animation-delay: 1s; }
+  .cherry-decoration:nth-child(3) { top: 35%; left: 25%; animation-delay: 2s; }
+  .cherry-decoration:nth-child(4) { top: 45%; left: 70%; animation-delay: 0.5s; }
+  .cherry-decoration:nth-child(5) { top: 60%; left: 40%; animation-delay: 1.5s; }
+  .cherry-decoration:nth-child(6) { top: 75%; left: 85%; animation-delay: 2.5s; }
+  .cherry-decoration:nth-child(7) { top: 15%; left: 55%; animation-delay: 3s; }
+  .cherry-decoration:nth-child(8) { top: 30%; left: 5%; animation-delay: 0.8s; }
+  .cherry-decoration:nth-child(9) { top: 50%; left: 90%; animation-delay: 1.8s; }
+  .cherry-decoration:nth-child(10) { top: 70%; left: 15%; animation-delay: 2.8s; }
+  .cherry-decoration:nth-child(11) { top: 25%; left: 45%; animation-delay: 1.2s; }
+  .cherry-decoration:nth-child(12) { top: 80%; left: 60%; animation-delay: 2.2s; }
+  .cherry-decoration:nth-child(13) { top: 40%; left: 10%; animation-delay: 3.2s; }
+  .cherry-decoration:nth-child(14) { top: 65%; left: 75%; animation-delay: 0.3s; }
+  .cherry-decoration:nth-child(15) { top: 85%; left: 35%; animation-delay: 1.3s; }
+
+  .stagger-animation {
+    animation: fadeIn 1s ease-in-out forwards;
+  }
+  
+  .stagger-animation:nth-child(1) { animation-delay: 0.1s; }
+  .stagger-animation:nth-child(2) { animation-delay: 0.2s; }
+  .stagger-animation:nth-child(3) { animation-delay: 0.3s; }
+  .stagger-animation:nth-child(4) { animation-delay: 0.4s; }
+  .stagger-animation:nth-child(5) { animation-delay: 0.5s; }
+  .stagger-animation:nth-child(6) { animation-delay: 0.6s; }
+  .stagger-animation:nth-child(7) { animation-delay: 0.7s; }
+  .stagger-animation:nth-child(8) { animation-delay: 0.8s; }
+  .stagger-animation:nth-child(9) { animation-delay: 0.9s; }
+
+  .footer-cherry {
+    animation: float 4s ease-in-out infinite;
+  }
+  
+  .footer-cherry:nth-child(1) { left: 5%; bottom: 60px; transform: scale(0.3) rotate(45deg); }
+  .footer-cherry:nth-child(2) { left: 15%; bottom: 20px; transform: scale(0.4) rotate(90deg); }
+  .footer-cherry:nth-child(3) { left: 25%; bottom: 50px; transform: scale(0.5) rotate(135deg); }
+  .footer-cherry:nth-child(4) { left: 35%; bottom: 30px; transform: scale(0.3) rotate(180deg); }
+  .footer-cherry:nth-child(5) { left: 45%; bottom: 70px; transform: scale(0.4) rotate(225deg); }
+  .footer-cherry:nth-child(6) { left: 55%; bottom: 15px; transform: scale(0.5) rotate(270deg); }
+  .footer-cherry:nth-child(7) { left: 65%; bottom: 45px; transform: scale(0.3) rotate(315deg); }
+  .footer-cherry:nth-child(8) { left: 75%; bottom: 65px; transform: scale(0.4) rotate(0deg); }
+  .footer-cherry:nth-child(9) { left: 85%; bottom: 25px; transform: scale(0.5) rotate(45deg); }
+  .footer-cherry:nth-child(10) { left: 95%; bottom: 55px; transform: scale(0.3) rotate(90deg); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(180deg); }
+}
+
+@keyframes cherryFall {
+  from { transform: translateY(-100vh) rotate(0deg); }
+  to { transform: translateY(100vh) rotate(720deg); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
