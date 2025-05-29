@@ -33,16 +33,15 @@ const ScrollToTop = () => {
 
   return (
     <>
-      {isVisible && (
-        <button 
+      {isVisible && (        <button 
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-50 p-4 rounded-full bg-white shadow-lg border border-cherry-pink-200 transition-all duration-300 hover:scale-110 hover:shadow-xl focus:outline-none group"
+          className="fixed bottom-8 right-8 z-50 p-4 rounded-full bg-white/90 backdrop-blur-sm shadow-lg border border-cherry-pink-200 transition-all duration-300 hover:scale-110 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-cherry-pink-500 focus:ring-offset-2 group"
           aria-label="Scroll to top"
         >
-          <div className="w-5 h-5 flex items-center justify-center relative">
-            <span className="absolute inset-0 bg-gradient-to-br from-cherry-pink-400 to-sakura-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+          <div className="w-6 h-6 flex items-center justify-center relative">
+            <span className="absolute inset-0 bg-gradient-to-br from-cherry-pink-400 to-sakura-400 rounded-full opacity-0 group-hover:opacity-100 focus:opacity-100 transition-opacity duration-300"></span>
             <svg 
-              className="w-5 h-5 text-cherry-pink-600 group-hover:text-white relative z-10 transition-colors duration-300"
+              className="w-6 h-6 text-cherry-pink-600 group-hover:text-white group-focus:text-white relative z-10 transition-colors duration-300"
               fill="none" 
               strokeLinecap="round" 
               strokeLinejoin="round" 
@@ -53,8 +52,8 @@ const ScrollToTop = () => {
               <path d="M5 15l7-7 7 7"></path>
             </svg>
           </div>
-          <span className="absolute -top-10 left-1/2 -translate-x-1/2 bg-gray-800 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-            Top
+          <span className="absolute -top-10 left-1/2 -translate-x-1/2 bg-gray-800/80 backdrop-blur-sm text-white text-xs px-2 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+            トップへ
           </span>
 
           {/* Cherry blossom animation effect */}

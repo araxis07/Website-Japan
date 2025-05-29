@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { Inter, Noto_Sans_JP } from "next/font/google"
 import "../globals.css"
 import { i18n, type Locale } from '@/i18n/config'
+import { generateTravelGuideSchema, generateTouristDestinationSchema, generateBreadcrumbSchema } from '@/utils/schema'
 
 const inter = Inter({
   subsets: ["latin"],
@@ -28,18 +29,29 @@ export const metadata: Metadata = {
     initialScale: 1,
     maximumScale: 5,
     minimumScale: 1
-  },
-  openGraph: {
+  },  openGraph: {
     title: "Japan Travel Guide - Discover Beautiful Japan",
     description: "Explore Japan's 9 regions and 47 prefectures with our comprehensive travel guide",
     type: "website",
     locale: "ja_JP",
     alternateLocale: "en_US",
+    images: [
+      {
+        url: 'https://japantravel-guide.com/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Japan Travel Guide - Cherry blossoms and Mount Fuji'
+      }
+    ],
+    siteName: 'Japan Travel Guide',
   },
   twitter: {
     card: "summary_large_image",
     title: "Japan Travel Guide",
     description: "Discover Japan's beautiful regions and destinations",
+    images: ['https://japantravel-guide.com/twitter-image.jpg'],
+    creator: '@japantravelguide',
+    site: '@japantravelguide',
   },
 }
 
@@ -55,10 +67,19 @@ export default async function LocaleLayout({
   const fontClass = lang === 'ja' ? 'font-japanese' : 'font-english'
   
   return (
-    <html lang={lang || 'ja'} className={`${inter.variable} ${notoSansJP.variable} scroll-smooth`}>
-      <head>
+    <html lang={lang || 'ja'} className={`${inter.variable} ${notoSansJP.variable} scroll-smooth`}>      <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify([
+              generateTravelGuideSchema(lang),
+              generateTouristDestinationSchema(lang),
+              generateBreadcrumbSchema(lang)
+            ])
+          }}
+        />
       </head>
       <body className={`${fontClass} antialiased bg-warm-white text-gray-800`} suppressHydrationWarning>
         <a 
