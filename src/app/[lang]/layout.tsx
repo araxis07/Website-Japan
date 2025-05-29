@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { Inter, Noto_Sans_JP } from "next/font/google"
 import "../globals.css"
+import "../custom-styles.css"
 import { i18n, type Locale } from '@/i18n/config'
 import { generateTravelGuideSchema, generateTouristDestinationSchema, generateBreadcrumbSchema } from '@/utils/schema'
 

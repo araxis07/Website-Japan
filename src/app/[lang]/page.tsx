@@ -1,6 +1,6 @@
 import Navigation from '@/components/Navigation'
-import Hero from '@/components/Hero.fixed'
-import RegionsList from '@/components/RegionsList.fixed'
+import Hero from '@/components/Hero.improved'
+import RegionsList from '@/components/RegionsList.improved'
 import FeaturedDestinations from '@/components/FeaturedDestinations'
 import Footer from '@/components/Footer'
 import ScrollToTop from '@/components/ScrollToTop'
@@ -32,7 +32,7 @@ const LocalePage = async ({ params }: PageProps) => {
             </div>
           </div>
         }>
-          <div className="pt-24">
+          <div className="pt-24 relative z-10">
             <Hero dict={dict} />
             <RegionsList dict={dict} lang={currentLang} />
             <SeasonalHighlights dict={dict} lang={currentLang} />

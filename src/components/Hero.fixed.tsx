@@ -79,10 +79,9 @@ const Hero = ({ dict }: HeroProps) => {
             <span className="text-4xl">🌸</span>
           </div>
         </div>
-        
-        {/* Title with improved typography and consistent text rendering */}
-        <h1 className="text-5xl md:text-7xl lg:text-9xl font-black gradient-text mb-8 leading-tight animate-fade-in font-japanese tracking-tight">
-          {dict.hero.title}
+          {/* Title with improved typography and consistent text rendering */}
+        <h1 className="text-5xl md:text-7xl lg:text-9xl font-black mb-8 leading-tight animate-fade-in font-japanese tracking-tight">
+          <span className="gradient-text inline-block">{dict.hero.title}</span>
         </h1>
 
         {/* Subtitle with better spacing */}
@@ -103,8 +102,7 @@ const Hero = ({ dict }: HeroProps) => {
         </div>
         
         {/* Enhanced Stats Section with performance optimizations */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto">
-          {[
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto">          {[
             { value: '47', label: '都道府県', icon: '🏞️' },
             { value: '9', label: '地域', icon: '🗾' },
             { value: '100+', label: '観光地', icon: '🎌' },
@@ -112,14 +110,7 @@ const Hero = ({ dict }: HeroProps) => {
           ].map((stat, index) => (
             <div 
               key={index} 
-              className="text-center group bg-white/30 backdrop-blur-md rounded-2xl p-6 border border-white/40 hover:bg-white/40 transition-all duration-300 shadow-lg hover:shadow-xl transform-gpu"
-              style={{ 
-                animationName: 'fadeIn', 
-                animationDuration: '1s', 
-                animationFillMode: 'forwards',
-                animationDelay: `${index * 0.1}s`,
-                opacity: mounted ? 1 : 0
-              }}
+              className={`text-center group bg-white/30 backdrop-blur-md rounded-2xl p-6 border border-white/40 hover:bg-white/40 transition-all duration-300 shadow-lg hover:shadow-xl transform-gpu animation-fade-in stagger-delay-${index+1}`}
             >
               <div className="w-12 h-12 bg-gradient-to-br from-cherry-pink-400/70 to-sakura-400/70 flex items-center justify-center rounded-full mx-auto mb-3 text-2xl group-hover:scale-110 transition-all duration-300 shadow-md">
                 {stat.icon}
@@ -132,13 +123,13 @@ const Hero = ({ dict }: HeroProps) => {
           ))}
         </div>
       </div>
-      
-      {/* Bottom wave decoration */}
+        {/* Bottom wave decoration */}
       <div className="absolute bottom-0 left-0 right-0 w-full overflow-hidden">
         <svg 
-          className="w-full h-auto text-warm-white fill-current" 
+          className="w-full h-auto fill-warm-white" 
           viewBox="0 0 1200 120" 
           preserveAspectRatio="none"
+          style={{display: 'block'}}
         >
           <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"></path>
         </svg>

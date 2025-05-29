@@ -7,6 +7,7 @@ interface NavigationProps {
 }
 
 const Navigation = ({ dict, lang }: NavigationProps) => {
+  // Ensure we're passing the correct props to ClientNavigationWrapper
   return <ClientNavigationWrapper dict={dict} lang={lang} />;
 }
 

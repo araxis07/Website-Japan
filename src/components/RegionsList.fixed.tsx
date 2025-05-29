@@ -117,10 +117,9 @@ const RegionsList = ({ dict, lang = 'ja' }: RegionsListProps) => {
         <div className="absolute bottom-20 right-10 w-16 h-16 bg-sakura-200 rounded-full animate-bounce transform-gpu"></div>
       </div>
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-20">
-          <h2 className="section-title mb-8">
-            {dict.regions.title}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">        <div className="text-center mb-20">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-8">
+            <span className="section-title">{dict.regions.title}</span>
           </h2>
           <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
             {dict.regions.subtitle}
