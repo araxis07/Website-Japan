@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { Locale } from '@/i18n/config'
+import { handleAnchorClick } from '@/utils/scrollTo'
 
 interface ClientNavigationWrapperProps {
   dict: any
@@ -48,17 +49,32 @@ const ClientNavigationWrapper = ({ dict, lang }: ClientNavigationWrapperProps) =
           </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-10">
-            {mounted && menuItems.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="relative text-gray-700 hover:text-cherry-pink-600 focus:text-cherry-pink-600 transition-colors duration-200 font-medium text-lg group outline-none focus-visible:ring-2 focus-visible:ring-cherry-pink-500 focus-visible:ring-offset-2 rounded-md px-2 py-1"
-              >
-                {item.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-cherry-pink-500 to-sakura-500 group-hover:w-full group-focus:w-full transition-all duration-300"></span>
-              </Link>
-            ))}
+          <div className="hidden md:flex items-center space-x-10">            {mounted && menuItems.map((item) => {
+              // Check if this is an anchor link (contains #)
+              const isAnchor = item.href.includes('#')
+              const sectionId = isAnchor ? item.href.split('#')[1] : ''
+              
+              return isAnchor ? (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  onClick={(e) => handleAnchorClick(e, sectionId)}
+                  className="relative text-gray-700 hover:text-cherry-pink-600 focus:text-cherry-pink-600 transition-colors duration-200 font-medium text-lg group outline-none focus-visible:ring-2 focus-visible:ring-cherry-pink-500 focus-visible:ring-offset-2 rounded-md px-2 py-1"
+                >
+                  {item.name}
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-cherry-pink-500 to-sakura-500 group-hover:w-full group-focus:w-full transition-all duration-300"></span>
+                </a>
+              ) : (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className="relative text-gray-700 hover:text-cherry-pink-600 focus:text-cherry-pink-600 transition-colors duration-200 font-medium text-lg group outline-none focus-visible:ring-2 focus-visible:ring-cherry-pink-500 focus-visible:ring-offset-2 rounded-md px-2 py-1"
+                >
+                  {item.name}
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-cherry-pink-500 to-sakura-500 group-hover:w-full group-focus:w-full transition-all duration-300"></span>
+                </Link>
+              )
+            })}
               {/* Language Toggle */}            <button
               onClick={toggleLanguage}
               className="px-5 py-2.5 bg-gradient-to-r from-cherry-pink-400 to-sakura-400 text-white rounded-full text-sm font-bold hover:from-cherry-pink-500 hover:to-sakura-500 transition-all duration-300 shadow-md hover:shadow-lg transform hover:scale-105 border border-white/30"
@@ -93,17 +109,38 @@ const ClientNavigationWrapper = ({ dict, lang }: ClientNavigationWrapperProps) =
         </div>        {/* Enhanced Mobile Menu */}
         {isMenuOpen && mounted && (
           <div className="md:hidden absolute left-0 right-0 px-4">
-            <div className="px-4 pt-4 pb-6 space-y-3 bg-white/95 backdrop-blur-lg rounded-2xl mt-2 shadow-2xl border border-cherry-pink-200 mx-auto max-w-sm animate-fade-in">
-              {menuItems.map((item, index) => (
-                <Link
-                  key={item.name}
-                  href={item.href}                  className={`flex items-center px-5 py-3.5 text-gray-700 hover:text-cherry-pink-600 hover:bg-gradient-to-r hover:from-cherry-pink-50 hover:to-sakura-50 rounded-xl transition-all duration-300 font-medium stagger-animation animation-delay-${index * 100}`}
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  <span className="mr-2">{index === 0 ? '🏠' : index === 1 ? '🗾' : index === 2 ? '🎌' : index === 3 ? 'ℹ️' : '✉️'}</span>
-                  {item.name}
-                </Link>
-              ))}
+            <div className="px-4 pt-4 pb-6 space-y-3 bg-white/95 backdrop-blur-lg rounded-2xl mt-2 shadow-2xl border border-cherry-pink-200 mx-auto max-w-sm animate-fade-in">              {menuItems.map((item, index) => {
+                // Check if this is an anchor link (contains #)
+                const isAnchor = item.href.includes('#')
+                const sectionId = isAnchor ? item.href.split('#')[1] : ''
+                
+                const className = `flex items-center px-5 py-3.5 text-gray-700 hover:text-cherry-pink-600 hover:bg-gradient-to-r hover:from-cherry-pink-50 hover:to-sakura-50 rounded-xl transition-all duration-300 font-medium stagger-animation animation-delay-${index * 100}`
+                
+                return isAnchor ? (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    className={className}
+                    onClick={(e) => {
+                      handleAnchorClick(e, sectionId)
+                      setIsMenuOpen(false)
+                    }}
+                  >
+                    <span className="mr-2">{index === 0 ? '🏠' : index === 1 ? '🗾' : index === 2 ? '🎌' : index === 3 ? 'ℹ️' : '✉️'}</span>
+                    {item.name}
+                  </a>
+                ) : (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    className={className}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    <span className="mr-2">{index === 0 ? '🏠' : index === 1 ? '🗾' : index === 2 ? '🎌' : index === 3 ? 'ℹ️' : '✉️'}</span>
+                    {item.name}
+                  </Link>
+                )
+              })}
               <div className="h-1 w-1/3 mx-auto bg-gradient-to-r from-cherry-pink-300 to-sakura-300 rounded-full mt-2 opacity-50"></div>
             </div>
           </div>

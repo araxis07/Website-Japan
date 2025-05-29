@@ -23,13 +23,40 @@ export async function generateStaticParams() {
 export const metadata: Metadata = {
   title: "日本旅行ガイド | Japan Travel Guide - Discover Beautiful Japan",
   description: "日本の美しい地域と観光地を発見しよう。47都道府県、9地域の魅力的な旅行情報をお届けします。| Discover Japan's beautiful regions and destinations with comprehensive travel information.",
-  keywords: "Japan, travel, tourism, regions, destinations, 日本, 旅行, 観光, 地域, 観光地",
-  authors: [{ name: "Japan Travel Guide" }],  viewport: {
+  keywords: "Japan, travel, tourism, regions, destinations, sakura, cherry blossom, Tokyo, Kyoto, Osaka, Hokkaido, Okinawa, 日本, 旅行, 観光, 地域, 観光地, 桜, 東京, 京都, 大阪, 北海道, 沖縄",
+  authors: [{ name: "Japan Travel Guide" }],
+  creator: "Japan Travel Guide Team",
+  publisher: "Japan Travel Guide",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true
+    }
+  },
+  icons: {
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/icon.svg', type: 'image/svg+xml' },
+    ],
+    apple: '/apple-touch-icon.png',
+  },
+  themeColor: '#eb5757',
+  viewport: {
     width: "device-width",
     initialScale: 1,
     maximumScale: 5,
     minimumScale: 1
-  },  openGraph: {
+  },
+  alternates: {
+    canonical: 'https://japantravel-guide.com',
+    languages: {
+      'ja': 'https://japantravel-guide.com/ja',
+      'en': 'https://japantravel-guide.com/en'
+    }
+  },
+  openGraph: {
     title: "Japan Travel Guide - Discover Beautiful Japan",
     description: "Explore Japan's 9 regions and 47 prefectures with our comprehensive travel guide",
     type: "website",

@@ -1,5 +1,5 @@
 import Navigation from '@/components/Navigation'
-import Hero from '@/components/Hero'
+import Hero from '@/components/Hero.optimized'
 import RegionsList from '@/components/RegionsList'
 import FeaturedDestinations from '@/components/FeaturedDestinations'
 import Footer from '@/components/Footer'
