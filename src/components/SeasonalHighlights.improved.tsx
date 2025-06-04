@@ -81,6 +81,14 @@ const SeasonalHighlights = ({ dict, lang }: SeasonalHighlightsProps) => {
     }
   ]
 
+  // Map season ids to the corresponding border color classes used in the grid
+  const borderColorClasses: Record<string, string> = {
+    spring: 'border-cherry-pink-200',
+    summer: 'border-blue-200',
+    autumn: 'border-orange-200',
+    winter: 'border-indigo-200'
+  }
+
   // Init after mount
   useEffect(() => {
     setMounted(true)
@@ -150,7 +158,13 @@ const SeasonalHighlights = ({ dict, lang }: SeasonalHighlightsProps) => {
         </div>
         
         {/* Seasons grid */}
-        <div className={`grid grid-cols-1 lg:grid-cols-3 gap-8 rounded-3xl overflow-hidden border border-${season.id === 'spring' ? 'cherry-pink' : season.id === 'summer' ? 'blue' : season.id === 'autumn' ? 'orange' : 'indigo'}-200 shadow-xl ${season.bgClass}`}>
+        {/**
+         * Tailwind can't detect dynamically generated border color classes,
+         * so we map the season ID to explicit class names.
+         */}
+        <div
+          className={`grid grid-cols-1 lg:grid-cols-3 gap-8 rounded-3xl overflow-hidden border ${borderColorClasses[season.id]} shadow-xl ${season.bgClass}`}
+        >
           {/* Season Info Column */}
           <div className={`bg-gradient-to-br ${season.color} text-white p-8 flex flex-col justify-between transition-colors duration-300`}>
             {/* Navigation dots for mobile */}
