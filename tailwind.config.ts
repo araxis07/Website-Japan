@@ -7,18 +7,18 @@ const config: Config = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   safelist: [
-    'section-title',
-    'gradient-text',
+    { pattern: /^section-title$/ },
+    { pattern: /^gradient-text$/ },
     {
-      pattern: /^from-.*$/,
+      pattern: /^from-.*/,
       variants: ['hover', 'focus', 'group-hover'],
     },
     {
-      pattern: /^to-.*$/,
+      pattern: /^to-.*/,
       variants: ['hover', 'focus', 'group-hover'],
     },
     {
-      pattern: /^bg-.*$/,
+      pattern: /^bg-.*/,
       variants: ['hover', 'focus', 'group-hover'],
     },
   ],
