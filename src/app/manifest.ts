@@ -41,14 +41,14 @@ export default function manifest(): MetadataRoute.Manifest {
         src: '/screenshots/homepage.jpg',
         sizes: '1080x1920',
         type: 'image/jpeg',
-        platform: 'narrow',
+        form_factor: 'narrow',
         label: 'Homepage of Japan Travel Guide'
       },
       {
         src: '/screenshots/regions.jpg',
         sizes: '1080x1920',
         type: 'image/jpeg',
-        platform: 'narrow',
+        form_factor: 'narrow',
         label: 'Regions of Japan'
       }
     ]
