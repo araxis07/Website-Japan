@@ -20,7 +20,10 @@ const Navigation = ({ dict, lang }: NavigationProps) => {
     setMounted(true)
     
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10)
+      const scrolled = window.scrollY > 10
+      if (scrolled !== isScrolled) {
+        setIsScrolled(scrolled)
+      }
     }
     
     const handleResize = () => {
@@ -29,14 +32,23 @@ const Navigation = ({ dict, lang }: NavigationProps) => {
       }
     }
     
-    window.addEventListener('scroll', handleScroll)
-    window.addEventListener('resize', handleResize)
+    // Add passive event listeners for better performance
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    window.addEventListener('resize', handleResize, { passive: true })
+    
+    // Prevent body scroll when menu is open
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
     
     return () => {
       window.removeEventListener('scroll', handleScroll)
       window.removeEventListener('resize', handleResize)
+      document.body.style.overflow = ''
     }
-  }, [isMenuOpen])
+  }, [isMenuOpen, isScrolled])
 
   const menuItems = [
     { name: dict.navigation.home, href: `/${lang}` },
@@ -51,7 +63,6 @@ const Navigation = ({ dict, lang }: NavigationProps) => {
     router.push(`/${newLang}`)
   }
 
-  // Calculate text values once to prevent hydration mismatch
   const siteTitle = lang === 'ja' ? '日本旅行' : 'Japan Travel'
   const langToggleText = lang === 'ja' ? 'EN' : '日本語'
 
@@ -65,92 +76,92 @@ const Navigation = ({ dict, lang }: NavigationProps) => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
+          {/* Logo with improved hover effect */}
           <div className="flex-shrink-0">
-            <Link href={`/${lang}`} className="flex items-center">
-              <span className="text-3xl mr-2">🌸</span>
-              <span className={`font-bold text-lg ${isScrolled ? 'text-cherry-pink-600' : 'text-cherry-pink-500'}`}>
+            <Link 
+              href={`/${lang}`} 
+              className="flex items-center group transition-transform duration-300 hover:scale-105"
+            >
+              <span className="text-3xl mr-2 transform group-hover:rotate-12 transition-transform duration-300">🌸</span>
+              <span className={`font-bold text-lg ${
+                isScrolled ? 'text-cherry-pink-600' : 'text-cherry-pink-500'
+              } transition-colors duration-300`}>
                 {siteTitle}
               </span>
             </Link>
           </div>
           
-          {/* Desktop Menu */}
-          <div className="hidden md:flex md:items-center md:space-x-6">
+          {/* Desktop Menu with improved hover effects */}
+          <div className="hidden md:flex md:items-center md:space-x-8">
             {menuItems.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className={`${
-                  isScrolled ? 'text-gray-800' : 'text-gray-800'
-                } hover:text-cherry-pink-600 px-3 py-2 text-sm font-medium transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-cherry-pink-500`}
+                className="nav-link text-gray-800 hover:text-cherry-pink-600 px-3 py-2 text-sm font-medium transition-all duration-300"
                 aria-label={item.name}
               >
                 {item.name}
               </Link>
             ))}
             
-            {/* Language Toggle */}
+            {/* Language Toggle with improved feedback */}
             <button
               onClick={toggleLanguage}
-              className="ml-4 px-3 py-1 bg-cherry-pink-50 border border-cherry-pink-200 text-cherry-pink-700 rounded-full font-medium text-sm hover:bg-cherry-pink-100 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-cherry-pink-500"
+              className="ml-4 px-4 py-2 bg-cherry-pink-50 border border-cherry-pink-200 text-cherry-pink-700 rounded-full font-medium text-sm hover:bg-cherry-pink-100 active:bg-cherry-pink-200 transform hover:scale-105 active:scale-95 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-cherry-pink-500 focus-visible:ring-offset-2"
               aria-label={lang === 'ja' ? 'Switch to English' : '日本語に切り替え'}
             >
               {langToggleText}
             </button>
           </div>
-          
-          {/* Mobile Menu Button */}
+
+          {/* Mobile menu button with improved touch target */}
           <div className="md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className={`inline-flex items-center justify-center p-2 rounded-md ${
-                isScrolled ? 'text-gray-700' : 'text-gray-700'
-              } hover:text-cherry-pink-600 focus:outline-none`}
+              className="inline-flex items-center justify-center p-3 rounded-md text-cherry-pink-600 hover:text-cherry-pink-700 hover:bg-cherry-pink-50 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-cherry-pink-500"
+              aria-expanded={isMenuOpen ? 'true' : 'false'}
+              aria-label="Toggle menu"
             >
-              <span className="sr-only">Open main menu</span>
-              {isMenuOpen ? (
-                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              ) : (
-                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" />
-                </svg>
-              )}
+              <div className="w-6 h-6 flex flex-col justify-around">
+                <span className={`block w-full h-0.5 bg-current transform transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-1.5' : ''}`} />
+                <span className={`block w-full h-0.5 bg-current transition-all duration-300 ${isMenuOpen ? 'opacity-0' : ''}`} />
+                <span className={`block w-full h-0.5 bg-current transform transition-all duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-1.5' : ''}`} />
+              </div>
             </button>
           </div>
         </div>
-      </div>
-      
-      {/* Mobile Menu */}
-      {isMenuOpen && (
-        <div className="md:hidden bg-white/95 backdrop-blur-md shadow-lg border-t border-cherry-pink-100">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+
+        {/* Mobile menu with improved animations */}
+        <div
+          className={`md:hidden transform transition-all duration-300 ${
+            isMenuOpen
+              ? 'translate-y-0 opacity-100 visible'
+              : 'translate-y-2 opacity-0 invisible'
+          }`}
+        >
+          <div className="px-2 pt-2 pb-3 space-y-1 bg-white/95 backdrop-blur-lg rounded-lg shadow-lg mt-2">
             {menuItems.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-cherry-pink-600 hover:bg-cherry-pink-50 rounded-md"
+                className="block px-4 py-3 text-base font-medium text-gray-800 hover:text-cherry-pink-600 hover:bg-cherry-pink-50 rounded-md transition-colors duration-200"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.name}
               </Link>
             ))}
-            
-            {/* Language Toggle - Mobile */}
             <button
               onClick={() => {
                 toggleLanguage()
                 setIsMenuOpen(false)
               }}
-              className="mt-3 w-full text-center px-4 py-2 bg-cherry-pink-50 border border-cherry-pink-200 text-cherry-pink-700 rounded-md font-medium hover:bg-cherry-pink-100 transition-colors duration-200"
+              className="w-full text-left px-4 py-3 text-base font-medium text-cherry-pink-600 hover:text-cherry-pink-700 hover:bg-cherry-pink-50 rounded-md transition-colors duration-200"
             >
-              {lang === 'ja' ? 'English' : '日本語'}
+              {langToggleText}
             </button>
           </div>
         </div>
-      )}
+      </div>
     </nav>
   )
 }
