@@ -106,81 +106,33 @@ const RegionsList = ({ dict, lang = 'ja' }: RegionsListProps) => {
   ]
   
   return (
-    <section 
-      id="regions" 
+    <section
       ref={sectionRef}
-      className="py-24 bg-gradient-to-b from-sakura-50 to-warm-white relative overflow-hidden"
+      id="regions"
+      className="py-20 bg-gradient-to-b from-cherry-pink-50 to-warm-white relative"
+      aria-label="Japan Regions"
     >
-      {/* Background decorative elements */}
-      <div className="absolute inset-0 opacity-30 pointer-events-none">
-        <div className="absolute top-20 left-10 w-20 h-20 bg-cherry-pink-200 rounded-full animate-pulse transform-gpu"></div>
-        <div className="absolute bottom-20 right-10 w-16 h-16 bg-sakura-200 rounded-full animate-bounce transform-gpu"></div>
-      </div>
-      
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-8">
-            <span className="section-title">{dict.regions.title}</span>
-          </h2>
-          <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-            {dict.regions.subtitle}
-          </p>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {regions.map((region, index) => (
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 className="section-title text-3xl md:text-4xl font-bold mb-10 text-center font-japanese">
+          {dict.regions.title}
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+          {regions.map((region) => (
             <div
               key={region.id}
-              className={`bg-white/90 backdrop-blur-sm rounded-3xl p-8 border border-cherry-pink-100 card-hover group shadow-lg hover:shadow-2xl transform transition-all duration-300 animation-fade-in ${isVisible ? '' : 'opacity-0'}`}
-              style={{
-                transitionDelay: isVisible ? `${index * 0.1}s` : '0s'
-              }}
+              className={`rounded-2xl shadow-lg bg-gradient-to-br ${region.color} p-6 flex flex-col items-center card-hover transition-all duration-300 min-h-[260px]`}
             >
-              {/* Region Icon and Name */}
-              <div className="flex items-center mb-4">
-                <div className={`w-12 h-12 bg-gradient-to-r ${region.color} rounded-full flex items-center justify-center text-white text-2xl mr-4`}>
-                  {region.icon}
-                </div>
-                <h3 className="text-2xl font-bold text-gray-800 group-hover:text-cherry-pink-600 transition-colors duration-200">
-                  {region.name}
-                </h3>
-              </div>
-
-              {/* Description */}
-              <p className="text-gray-600 mb-4">
+              <div className="text-4xl mb-2">{region.icon}</div>
+              <h3 className="font-bold text-xl md:text-2xl mb-2 text-white font-japanese drop-shadow-lg">{region.name}</h3>
+              <p className="text-white/90 text-sm md:text-base text-center mb-3 font-japanese">
                 {region.description}
               </p>
-              
-              {/* Popular highlights */}
-              <div className="mb-4">
-                <h4 className="text-sm text-gray-500 mb-2 uppercase tracking-wider">
-                  {lang === 'ja' ? '主な都市' : 'Major Cities'}
-                </h4>
-                <div className="flex flex-wrap gap-2">
-                  {region.highlights.map((highlight, i) => (
-                    <span 
-                      key={i} 
-                      className="inline-block px-3 py-1 bg-cherry-pink-50 text-cherry-pink-700 rounded-full text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-cherry-pink-500"
-                    >
-                      {highlight}
-                    </span>
-                  ))}
-                </div>
-              </div>
-              
-              {/* View details link */}
-              <div className="mt-6">
-                <Link 
-                  href={`/${lang}/regions/${region.id}`}
-                  className="inline-flex items-center font-medium text-cherry-pink-600 hover:text-cherry-pink-800 transition-colors duration-200 group"
-                >
-                  <span>
-                    {lang === 'ja' ? 'もっと見る' : 'Learn more'}
+              <div className="flex flex-wrap gap-2 justify-center mt-auto">
+                {region.highlights.map((hl) => (
+                  <span key={hl} className="bg-white/80 text-cherry-pink-600 rounded-full px-3 py-1 text-xs font-medium font-japanese shadow-sm">
+                    {hl}
                   </span>
-                  <span className="ml-2 transform group-hover:translate-x-1 transition-transform duration-200">
-                    →
-                  </span>
-                </Link>
+                ))}
               </div>
             </div>
           ))}

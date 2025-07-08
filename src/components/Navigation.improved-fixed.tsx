@@ -73,6 +73,7 @@ const Navigation = ({ dict, lang }: NavigationProps) => {
           ? 'bg-white/90 shadow-md backdrop-blur-md'
           : 'bg-transparent'
       }`}
+      aria-label="Main navigation"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
@@ -83,37 +84,34 @@ const Navigation = ({ dict, lang }: NavigationProps) => {
               className="flex items-center group transition-transform duration-300 hover:scale-105"
             >
               <span className="text-3xl mr-2 transform group-hover:rotate-12 transition-transform duration-300">🌸</span>
-              <span className={`font-bold text-lg ${
+              <span className={`font-bold text-lg md:text-2xl font-japanese ${
                 isScrolled ? 'text-cherry-pink-600' : 'text-cherry-pink-500'
               } transition-colors duration-300`}>
                 {siteTitle}
               </span>
             </Link>
           </div>
-          
           {/* Desktop Menu with improved hover effects */}
           <div className="hidden md:flex md:items-center md:space-x-8">
             {menuItems.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className="nav-link text-gray-800 hover:text-cherry-pink-600 px-3 py-2 text-sm font-medium transition-all duration-300"
+                className="nav-link text-gray-800 hover:text-cherry-pink-600 px-4 py-2 text-base md:text-lg font-medium font-japanese rounded-lg transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-cherry-pink-400"
                 aria-label={item.name}
               >
                 {item.name}
               </Link>
             ))}
-            
             {/* Language Toggle with improved feedback */}
             <button
               onClick={toggleLanguage}
-              className="ml-4 px-4 py-2 bg-cherry-pink-50 border border-cherry-pink-200 text-cherry-pink-700 rounded-full font-medium text-sm hover:bg-cherry-pink-100 active:bg-cherry-pink-200 transform hover:scale-105 active:scale-95 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-cherry-pink-500 focus-visible:ring-offset-2"
+              className="ml-4 px-5 py-2 bg-cherry-pink-50 border border-cherry-pink-200 text-cherry-pink-700 rounded-full font-medium text-base md:text-lg hover:bg-cherry-pink-100 active:bg-cherry-pink-200 transform hover:scale-105 active:scale-95 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-cherry-pink-500 focus-visible:ring-offset-2"
               aria-label={lang === 'ja' ? 'Switch to English' : '日本語に切り替え'}
             >
               {langToggleText}
             </button>
           </div>
-
           {/* Mobile menu button with improved touch target */}
           <div className="md:hidden">
             <button
@@ -122,7 +120,7 @@ const Navigation = ({ dict, lang }: NavigationProps) => {
               aria-expanded={isMenuOpen ? 'true' : 'false'}
               aria-label="Toggle menu"
             >
-              <div className="w-6 h-6 flex flex-col justify-around">
+              <div className="w-7 h-7 flex flex-col justify-around">
                 <span className={`block w-full h-0.5 bg-current transform transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-1.5' : ''}`} />
                 <span className={`block w-full h-0.5 bg-current transition-all duration-300 ${isMenuOpen ? 'opacity-0' : ''}`} />
                 <span className={`block w-full h-0.5 bg-current transform transition-all duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-1.5' : ''}`} />
@@ -130,8 +128,7 @@ const Navigation = ({ dict, lang }: NavigationProps) => {
             </button>
           </div>
         </div>
-
-        {/* Mobile menu with improved animations */}
+        {/* Mobile menu with improved animations and spacing */}
         <div
           className={`md:hidden transform transition-all duration-300 ${
             isMenuOpen
@@ -139,12 +136,12 @@ const Navigation = ({ dict, lang }: NavigationProps) => {
               : 'translate-y-2 opacity-0 invisible'
           }`}
         >
-          <div className="px-2 pt-2 pb-3 space-y-1 bg-white/95 backdrop-blur-lg rounded-lg shadow-lg mt-2">
+          <div className="px-2 pt-4 pb-6 space-y-2 bg-white/95 backdrop-blur-lg rounded-xl shadow-lg mt-2 flex flex-col items-stretch">
             {menuItems.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className="block px-4 py-3 text-base font-medium text-gray-800 hover:text-cherry-pink-600 hover:bg-cherry-pink-50 rounded-md transition-colors duration-200"
+                className="block px-5 py-4 text-lg font-medium font-japanese text-gray-800 hover:text-cherry-pink-600 hover:bg-cherry-pink-50 rounded-lg transition-colors duration-200"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.name}
@@ -155,7 +152,7 @@ const Navigation = ({ dict, lang }: NavigationProps) => {
                 toggleLanguage()
                 setIsMenuOpen(false)
               }}
-              className="w-full text-left px-4 py-3 text-base font-medium text-cherry-pink-600 hover:text-cherry-pink-700 hover:bg-cherry-pink-50 rounded-md transition-colors duration-200"
+              className="w-full text-left px-5 py-4 text-lg font-medium font-japanese text-cherry-pink-600 hover:text-cherry-pink-700 hover:bg-cherry-pink-50 rounded-lg transition-colors duration-200"
             >
               {langToggleText}
             </button>
@@ -164,6 +161,3 @@ const Navigation = ({ dict, lang }: NavigationProps) => {
       </div>
     </nav>
   )
-}
-
-export default Navigation
