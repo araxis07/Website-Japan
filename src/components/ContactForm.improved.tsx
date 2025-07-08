@@ -202,9 +202,12 @@ const ContactForm = ({ dict, lang }: ContactFormProps) => {
                       name="name"
                       value={formState.name}
                       onChange={handleChange}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-cherry-pink-500 focus:border-cherry-pink-500"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-cherry-pink-500 focus:border-cherry-pink-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-cherry-pink-500"
                       required
+                      aria-label={dict.contact.name}
+                      aria-describedby="contact-name-desc"
                     />
+                    <span id="contact-name-desc" className="sr-only">{dict.contact.name} {lang === 'ja' ? 'を入力してください' : 'Please enter your name'}</span>
                   </div>
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">{dict.contact.email}</label>
@@ -214,9 +217,12 @@ const ContactForm = ({ dict, lang }: ContactFormProps) => {
                       name="email"
                       value={formState.email}
                       onChange={handleChange}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-cherry-pink-500 focus:border-cherry-pink-500"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-cherry-pink-500 focus:border-cherry-pink-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-cherry-pink-500"
                       required
+                      aria-label={dict.contact.email}
+                      aria-describedby="contact-email-desc"
                     />
+                    <span id="contact-email-desc" className="sr-only">{dict.contact.email} {lang === 'ja' ? 'を入力してください' : 'Please enter your email'}</span>
                   </div>
                 </div>
                 
@@ -246,24 +252,21 @@ const ContactForm = ({ dict, lang }: ContactFormProps) => {
                     value={formState.message}
                     onChange={handleChange}
                     rows={5}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-cherry-pink-500 focus:border-cherry-pink-500"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-cherry-pink-500 focus:border-cherry-pink-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-cherry-pink-500"
                     required
+                    aria-label={dict.contact.message}
+                    aria-describedby="contact-message-desc"
                   ></textarea>
+                  <span id="contact-message-desc" className="sr-only">{dict.contact.message} {lang === 'ja' ? 'を入力してください' : 'Please enter your message'}</span>
                 </div>
                 
                 <button
                   type="submit"
+                  className="w-full md:w-auto px-8 py-3 bg-gradient-to-r from-cherry-pink-500 to-sakura-500 text-white font-medium rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-cherry-pink-500"
                   disabled={status === 'loading'}
-                  className="w-full py-3 px-6 bg-gradient-to-r from-cherry-pink-500 to-sakura-500 text-white text-lg font-medium rounded-md shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-cherry-pink-500 focus:ring-offset-2 transition-all duration-300 relative overflow-hidden"
+                  aria-label={dict.contact.submit}
                 >
-                  {status === 'loading' ? (
-                    <>
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="w-6 h-6 border-4 border-white border-t-transparent rounded-full animate-spin"></div>
-                      </div>
-                      <span className="opacity-0">{dict.contact.send}</span>
-                    </>
-                  ) : dict.contact.send}
+                  {status === 'loading' ? (lang === 'ja' ? '送信中...' : 'Sending...') : dict.contact.submit}
                 </button>
               </form>
             </div>

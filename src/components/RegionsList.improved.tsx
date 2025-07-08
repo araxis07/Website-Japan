@@ -160,7 +160,7 @@ const RegionsList = ({ dict, lang = 'ja' }: RegionsListProps) => {
                   {region.highlights.map((highlight, i) => (
                     <span 
                       key={i} 
-                      className="inline-block px-3 py-1 bg-cherry-pink-50 text-cherry-pink-700 rounded-full text-sm"
+                      className="inline-block px-3 py-1 bg-cherry-pink-50 text-cherry-pink-700 rounded-full text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-cherry-pink-500"
                     >
                       {highlight}
                     </span>

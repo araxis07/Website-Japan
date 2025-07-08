@@ -44,17 +44,18 @@ export default function NotFound() {
       <p className="text-xl md:text-2xl text-gray-700 mb-12 text-center max-w-xl">
         お探しのページは存在しないか、移動した可能性があります。
         <br />
-        <span className="text-lg text-gray-600">{countdown}秒後にホームページにリダイレクトします...</span>
+        <span className="text-lg text-gray-600" aria-live="polite">{countdown}秒後にホームページにリダイレクトします...</span>
       </p>
       
       <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
-        <Link href="/" className="px-8 py-3 bg-gradient-to-r from-cherry-pink-500 to-sakura-500 text-white font-medium rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+        <Link href="/" className="px-8 py-3 bg-gradient-to-r from-cherry-pink-500 to-sakura-500 text-white font-medium rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-cherry-pink-500" aria-label="ホームに戻る">
           ホームに戻る
         </Link>
         
         <button 
           onClick={() => router.back()} 
-          className="px-8 py-3 bg-white text-cherry-pink-600 font-medium rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 border border-cherry-pink-200"
+          className="px-8 py-3 bg-white text-cherry-pink-600 font-medium rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 border border-cherry-pink-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-cherry-pink-500" 
+          aria-label="前のページに戻る"
         >
           前のページに戻る
         </button>

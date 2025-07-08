@@ -92,7 +92,7 @@ const Hero = ({ dict }: HeroProps) => {
         {/* Improved CTA Button with better accessibility */}
         <div className="mb-20 animation-fade-in stagger-delay-2">
           <button 
-            className="group relative inline-flex items-center px-10 py-5 bg-gradient-to-r from-cherry-pink-500 to-sakura-500 text-white font-bold rounded-full text-2xl shadow-2xl hover:shadow-cherry-pink-500/50 transform hover:scale-105 transition-all duration-300 overflow-hidden"
+            className="group relative inline-flex items-center px-10 py-5 bg-gradient-to-r from-cherry-pink-500 to-sakura-500 text-white font-bold rounded-full text-2xl shadow-2xl hover:shadow-cherry-pink-500/50 transform hover:scale-105 transition-all duration-300 overflow-hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-cherry-pink-500"
             aria-label={dict.hero.cta}
           >
             <span className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>

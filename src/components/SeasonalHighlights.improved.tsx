@@ -173,7 +173,7 @@ const SeasonalHighlights = ({ dict, lang }: SeasonalHighlightsProps) => {
                 <button
                   key={s.id}
                   onClick={() => setCurrentSeason(i)}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${i === currentSeason ? 'bg-white scale-125' : 'bg-white/50 hover:bg-white/75'}`}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${i === currentSeason ? 'bg-white scale-125' : 'bg-white/50 hover:bg-white/75'} focus:outline-none focus-visible:ring-2 focus-visible:ring-cherry-pink-500`}
                   aria-label={s.name}
                 />
               ))}
@@ -193,7 +193,7 @@ const SeasonalHighlights = ({ dict, lang }: SeasonalHighlightsProps) => {
                 <button
                   key={s.id}
                   onClick={() => setCurrentSeason(i)}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${i === currentSeason ? 'bg-white scale-125' : 'bg-white/50 hover:bg-white/75'}`}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${i === currentSeason ? 'bg-white scale-125' : 'bg-white/50 hover:bg-white/75'} focus:outline-none focus-visible:ring-2 focus-visible:ring-cherry-pink-500`}
                   aria-label={s.name}
                 />
               ))}

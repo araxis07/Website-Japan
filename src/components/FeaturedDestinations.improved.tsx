@@ -93,12 +93,14 @@ const FeaturedDestinations = ({ dict, lang }: FeaturedDestinationsProps) => {
           {destinations.map((destination, index) => (
             <div
               key={destination.id}
-              className="bg-white rounded-2xl overflow-hidden shadow-lg border border-cherry-pink-100 card-hover group animation-fade-in"
+              className="bg-white rounded-2xl overflow-hidden shadow-lg border border-cherry-pink-100 card-hover group animation-fade-in focus:outline-none focus-visible:ring-2 focus-visible:ring-cherry-pink-500"
               style={{
                 opacity: isVisible ? 1 : 0,
                 transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
                 transition: `opacity 0.5s ease-out ${index * 0.1}s, transform 0.5s ease-out ${index * 0.1}s`
               }}
+              tabIndex={0}
+              aria-label={destination.name}
             >
               {/* Image */}
               <div className="relative h-48 bg-gradient-to-br from-cherry-pink-200 to-sakura-200 overflow-hidden">

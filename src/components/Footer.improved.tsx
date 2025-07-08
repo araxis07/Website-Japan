@@ -134,8 +134,10 @@ const Footer = ({ dict, lang }: FooterProps) => {
                 <a
                   key={social.name}
                   href={social.href}
-                  className="w-10 h-10 flex items-center justify-center rounded-full bg-white shadow-md hover:bg-cherry-pink-50 transition-colors duration-200 border border-cherry-pink-100"
                   aria-label={social.name}
+                  className="inline-block text-gray-500 hover:text-cherry-pink-600 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-cherry-pink-500"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   {social.icon === 'twitter' && (
                     <svg className="w-5 h-5 text-cherry-pink-500" fill="currentColor" viewBox="0 0 24 24">
@@ -248,10 +250,10 @@ const Footer = ({ dict, lang }: FooterProps) => {
               />
               <button
                 type="submit"
-                className="bg-gradient-to-r from-cherry-pink-500 to-sakura-500 text-white font-medium rounded-r-lg px-6 py-3 hover:shadow-lg transition-all duration-300"
+                className="bg-gradient-to-r from-cherry-pink-500 to-sakura-500 text-white font-medium rounded-r-lg px-6 py-3 hover:shadow-lg transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-cherry-pink-500"
+                aria-label={dict.footer?.newsletter?.button || (lang === 'ja' ? '購読する' : 'Subscribe')}
               >
-                {dict.footer?.newsletter?.button || 
-                  (lang === 'ja' ? '購読する' : 'Subscribe')}
+                {dict.footer?.newsletter?.button || (lang === 'ja' ? '購読する' : 'Subscribe')}
               </button>
             </form>
           </div>

@@ -83,7 +83,8 @@ const Navigation = ({ dict, lang }: NavigationProps) => {
                 href={item.href}
                 className={`${
                   isScrolled ? 'text-gray-800' : 'text-gray-800'
-                } hover:text-cherry-pink-600 px-3 py-2 text-sm font-medium transition-colors duration-200`}
+                } hover:text-cherry-pink-600 px-3 py-2 text-sm font-medium transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-cherry-pink-500`}
+                aria-label={item.name}
               >
                 {item.name}
               </Link>
@@ -92,7 +93,8 @@ const Navigation = ({ dict, lang }: NavigationProps) => {
             {/* Language Toggle */}
             <button
               onClick={toggleLanguage}
-              className="ml-4 px-3 py-1 bg-cherry-pink-50 border border-cherry-pink-200 text-cherry-pink-700 rounded-full font-medium text-sm hover:bg-cherry-pink-100 transition-colors duration-200"
+              className="ml-4 px-3 py-1 bg-cherry-pink-50 border border-cherry-pink-200 text-cherry-pink-700 rounded-full font-medium text-sm hover:bg-cherry-pink-100 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-cherry-pink-500"
+              aria-label={lang === 'ja' ? 'Switch to English' : '日本語に切り替え'}
             >
               {langToggleText}
             </button>
