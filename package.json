@@ -1,7 +1,8 @@
 {
   "name": "japan-travel-website",
   "version": "0.1.0",
-  "private": true,  "scripts": {
+  "private": true,
+  "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
@@ -11,6 +12,7 @@
   },
   "dependencies": {
     "@formatjs/intl-localematcher": "^0.5.4",
+    "critters": "^0.0.23",
     "framer-motion": "^11.0.8",
     "negotiator": "^0.6.3",
     "next": "^15.1.0",

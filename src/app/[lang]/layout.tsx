@@ -1,21 +1,9 @@
 import type { Metadata, Viewport } from "next"
-import { Inter, Noto_Sans_JP } from "next/font/google"
 import "../globals.css"
 import "../custom-styles.css"
 import { i18n, type Locale } from '@/i18n/config'
 import { generateTravelGuideSchema, generateTouristDestinationSchema, generateBreadcrumbSchema } from '@/utils/schema'
 
-const inter = Inter({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-inter",
-})
-
-const notoSansJP = Noto_Sans_JP({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-noto-sans-jp",
-})
 
 export async function generateStaticParams() {
   return i18n.locales.map((locale) => ({ lang: locale }))
@@ -94,8 +82,9 @@ export default async function LocaleLayout({
   const { lang } = await params
   // Use a safer approach to avoid hydration mismatches  
   const fontClass = lang === 'ja' ? 'font-japanese' : 'font-english'
-    return (
-    <html lang={lang || 'ja'} className={`${inter.variable} ${notoSansJP.variable} scroll-smooth`}>      <head>
+  return (
+    <html lang={lang || 'ja'} className="scroll-smooth">
+      <head>
         {/* We're already using Next.js font system, so we don't need these font links */}
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, minimum-scale=1" /><script
           type="application/ld+json"
