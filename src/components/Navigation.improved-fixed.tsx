@@ -161,3 +161,6 @@ const Navigation = ({ dict, lang }: NavigationProps) => {
       </div>
     </nav>
   )
+}
+
+export default Navigation
