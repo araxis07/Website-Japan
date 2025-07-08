@@ -7,9 +7,9 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
   color: transparent;
-  display: inline-block; /* Fix for rendering issues */
-  padding: 0.25rem 0; /* Add padding to improve rendering */
-  -webkit-box-decoration-break: clone; /* Fix for multi-line gradient text */
+  display: inline-block;
+  padding: 0.25rem 0;
+  -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
 }
 
@@ -22,9 +22,12 @@
   text-shadow: 0 2px 4px rgba(220, 38, 38, 0.1);
 }
 
-/* Animation fix classes */
+/* Improved animations with better performance */
 .animation-fade-in {
-  animation: fadeIn 1s ease-in-out forwards;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  will-change: transform, opacity;
 }
 
 @keyframes fadeIn {
@@ -32,27 +35,92 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Stagger animation delays */
-.stagger-delay-1 { animation-delay: 0.1s; }
-.stagger-delay-2 { animation-delay: 0.2s; }
-.stagger-delay-3 { animation-delay: 0.3s; }
-.stagger-delay-4 { animation-delay: 0.4s; }
-.stagger-delay-5 { animation-delay: 0.5s; }
-.stagger-delay-6 { animation-delay: 0.6s; }
-.stagger-delay-7 { animation-delay: 0.7s; }
-.stagger-delay-8 { animation-delay: 0.8s; }
-.stagger-delay-9 { animation-delay: 0.9s; }
-.stagger-delay-10 { animation-delay: 1.0s; }
+/* Mobile menu animation */
+.menu-enter {
+  opacity: 0;
+  transform: translateY(-1rem);
+}
 
-/* Font helpers */
+.menu-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 200ms ease-out, transform 200ms ease-out;
+}
+
+.menu-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.menu-exit-active {
+  opacity: 0;
+  transform: translateY(-1rem);
+  transition: opacity 150ms ease-in, transform 150ms ease-in;
+}
+
+/* Cherry blossom animations with hardware acceleration */
+@keyframes floatBlossom {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  33% {
+    transform: translate(30px, 30px) rotate(120deg);
+  }
+  66% {
+    transform: translate(-20px, 60px) rotate(240deg);
+  }
+  100% {
+    transform: translate(0, 90px) rotate(360deg);
+  }
+}
+
+.cherry-blossom {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-image: url('/cherry-blossom.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.6;
+  will-change: transform;
+  animation: floatBlossom 6s ease-in-out infinite;
+  transform-origin: center center;
+}
+
+/* Font helpers with improved rendering */
 .font-japanese {
   font-family: var(--font-noto-sans-jp), 'Noto Sans JP', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 .font-english {
   font-family: var(--font-inter), 'Inter', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Active state animations */
+.nav-link {
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: currentColor;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav-link:hover::after,
+.nav-link:focus::after {
+  width: 100%;
 }
