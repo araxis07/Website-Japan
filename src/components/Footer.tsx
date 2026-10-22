@@ -22,7 +22,16 @@ export default function Footer({ dict, lang }: { dict: Dictionary; lang: Locale 
           <div>
             <h3>{dict.footer.explore}</h3>
             <nav aria-label={dict.footer.explore}>
-              {(['destinations', 'regions', 'seasons', 'plan'] as const).map((key) => (
+              {(
+                [
+                  'destinations',
+                  'experiences',
+                  'regions',
+                  'seasons',
+                  'journeys',
+                  'plan',
+                ] as const
+              ).map((key) => (
                 <Link key={key} href={`/${lang}#${key}`}>
                   {dict.navigation[key]}
                 </Link>

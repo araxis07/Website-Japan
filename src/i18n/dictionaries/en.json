@@ -1,6 +1,6 @@
 {
   "brand": "Japan Travel",
-  "brandSub": "A journey worth taking",
+  "brandSub": "Places. People. Little discoveries.",
   "navigation": {
     "destinations": "Destinations",
     "regions": "Explore regions",
@@ -9,20 +9,23 @@
     "menu": "Menu",
     "close": "Close menu",
     "label": "Main navigation",
-    "language": "Choose language"
+    "language": "Choose language",
+    "journeys": "Journeys",
+    "experiences": "Experiences"
   },
   "hero": {
-    "eyebrow": "Your next chapter begins here",
-    "title": "Japan, beyond\nthe expected.",
-    "subtitle": "From quiet temple mornings to cities that never stand still. Find the Japan that stays with you.",
-    "cta": "Find your inspiration",
-    "secondary": "Plan your first trip",
-    "location": "Mount Fuji, Yamanashi",
-    "caption": "A different perspective. An unforgettable journey."
+    "eyebrow": "A small world. An extraordinary journey.",
+    "title": "Japan.\nA little closer.",
+    "subtitle": "The glow of a lantern. The hush of a temple garden. A mountain beyond the clouds. Come for the places. Stay for the feeling.",
+    "cta": "Find your Japan",
+    "secondary": "Choose a journey",
+    "location": "An invitation to explore Japan",
+    "caption": "For curious days, unhurried moments, and stories to bring home.",
+    "scroll": "Begin exploring"
   },
   "intro": {
-    "title": "One country. So many ways to explore.",
-    "text": "Ancient streets, wild landscapes, a meal you’ll remember. Start with what moves you.",
+    "title": "A country to explore. A feeling to remember.",
+    "text": "Build a journey around what you love: quiet gardens, local flavors, open landscapes or life beside the sea.",
     "regions": "Regions to discover",
     "prefectures": "Prefectures",
     "seasons": "Distinct seasons"
@@ -87,6 +90,18 @@
         "text": "Keep voices low on public transport, respect private spaces and ask before photographing people. Leave every place as you found it.",
         "url": "https://www.japan.travel/en/responsible-travel-guide/",
         "link": "Travel thoughtfully"
+      },
+      {
+        "title": "Make travel work for you",
+        "text": "Step-free station routes, accessible rooms and assistance vary by location. Contact transport operators and accommodation in advance about your specific needs.",
+        "url": "https://www.japan.travel/en/plan/traveling-with-disability/",
+        "link": "Plan accessible travel"
+      },
+      {
+        "title": "Carry less, see more",
+        "text": "Ask your accommodation about luggage forwarding and delivery times. Keep essentials with you and check baggage rules before reserving a train.",
+        "url": "https://www.japan.travel/en/plan/getting-around/luggage-storage/",
+        "link": "Plan your luggage"
       }
     ],
     "faqTitle": "Before you pack",
@@ -102,6 +117,18 @@
       {
         "question": "Where can I check entry requirements and travel updates?",
         "answer": "Requirements depend on your nationality and circumstances. Use JNTO’s planning resources and the Japanese embassy or consulate responsible for your location for current official guidance."
+      },
+      {
+        "question": "Can I visit an onsen with tattoos?",
+        "answer": "Each bath sets its own policy. Ask the facility before visiting; some offer private baths or allow tattoos under certain conditions. Wash before entering, keep towels out of the water, and follow the posted rules."
+      },
+      {
+        "question": "Should I book every day in advance?",
+        "answer": "Reserve accommodation and any time-specific experiences you care about. Keep flexible time for weather, rest and discoveries. Avoid filling an arrival day with timed reservations."
+      },
+      {
+        "question": "Can I rely on cards everywhere?",
+        "answer": "Carry a modest amount of cash as well as your preferred payment card. Acceptance varies by shop and area; check your card’s overseas use and withdrawal fees with its issuer."
       }
     ],
     "help": "Need practical travel help?",
@@ -109,7 +136,7 @@
     "helpLink": "Visit JNTO travel planning"
   },
   "footer": {
-    "title": "Make room for discovery.",
+    "title": "The next story\nis yours.",
     "description": "An independent guide to the places, seasons and small moments that make Japan special.",
     "explore": "Explore Japan",
     "resources": "Useful resources",
@@ -117,7 +144,7 @@
     "aboutText": "Written for curious travelers. Destination and planning information is checked against official sources; follow the linked guides for current access, fares and travel requirements.",
     "reviewed": "Content reviewed",
     "disclaimer": "Independent travel guide. Not affiliated with JNTO. We do not handle bookings.",
-    "credits": "Photography credits",
+    "credits": "Photography & artwork",
     "top": "Back to top",
     "copyright": "Japan Travel Guide"
   },
@@ -137,5 +164,47 @@
   "a11y": {
     "skip": "Skip to main content",
     "external": "External website"
+  },
+  "scene": {
+    "title": "Your little corner of Japan",
+    "description": "An interactive miniature of Japan with Mount Fuji, a red torii gate, cherry trees, a pagoda and lanterns. Use the controls to rotate, change seasons or light the lanterns.",
+    "loading": "A little Japan is taking shape…",
+    "fallback": "A view of Japan. Interactive 3D is unavailable on this device.",
+    "seasonLabel": "Change the miniature season",
+    "seasons": ["Spring", "Summer", "Autumn", "Winter"],
+    "lightsOff": "Light the lanterns",
+    "lightsOn": "Bring back the sun",
+    "left": "Rotate scene left",
+    "right": "Rotate scene right",
+    "reset": "Reset scene view",
+    "pause": "Pause animation",
+    "play": "Play animation",
+    "reduced": "Still scene · reduced motion is enabled",
+    "hint": "Drag to explore · tap a lantern to change the light"
+  },
+  "experiences": {
+    "title": "Not just places.\nWays to feel Japan.",
+    "subtitle": "Follow a small curiosity. It might become the best part of your trip.",
+    "link": "Explore this experience"
+  },
+  "journeys": {
+    "title": "A route to make\nyour own.",
+    "subtitle": "A few thoughtful starting points. Choose your pace, then leave room for the unexpected.",
+    "label": "Choose a sample itinerary",
+    "days": "days",
+    "day": "Day",
+    "open": "Explore the guide",
+    "note": "Editorial route ideas, not tours or live schedules. Allow for arrival and departure times, confirm transport, and adapt the pace to your needs.",
+    "transport": "Travel between stops"
+  },
+  "detailExtra": {
+    "day": "One day, at an easier pace.",
+    "morning": "Morning",
+    "afternoon": "Afternoon",
+    "evening": "Evening",
+    "food": "A taste of this place",
+    "pace": "Make it your own",
+    "dayNote": "An editorial day plan. Check access, opening hours and reservations before setting out.",
+    "nearby": "Leave a little room"
   }
 }

@@ -3,6 +3,7 @@ import { copyFile, mkdtemp, rm } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { pathToFileURL } from 'node:url'
+import { journeys, destinationNotes } from '../src/data/journeys'
 import { destinations, regions } from '../src/data/travel'
 import en from '../src/i18n/dictionaries/en.json'
 import ja from '../src/i18n/dictionaries/ja.json'
@@ -22,21 +23,22 @@ test('production config loads without development dependencies', async () => {
   }
 })
 
-test('both languages render without runtime errors, broken images or overflow', async ({
-  page,
-}) => {
-  const errors: string[] = []
-  page.on('pageerror', (error) => errors.push(error.message))
-  page.on('console', (message) => {
-    if (message.type() === 'error') errors.push(message.text())
-  })
-  for (const lang of ['en', 'ja']) {
+for (const lang of ['en', 'ja']) {
+  test(`${lang} renders without runtime errors, broken images or overflow`, async ({
+    page,
+  }) => {
+    const errors: string[] = []
+    page.on('pageerror', (error) => errors.push(error.message))
+    page.on('console', (message) => {
+      if (message.type() === 'error') errors.push(message.text())
+    })
     const response = await page.goto(`/${lang}`)
     expect(response?.status()).toBe(200)
     await expect(page.locator('html')).toHaveAttribute('lang', lang)
     await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
     await expect(page.locator('.destination-card')).toHaveCount(6)
     await expect(page.locator('.region-row')).toHaveCount(9)
+    await expect(page.locator('.diorama')).not.toHaveAttribute('data-scene-status', 'loading')
     for (const image of await page.locator('img:visible').all()) {
       await image.scrollIntoViewIfNeeded()
       await expect(image).toHaveJSProperty('complete', true)
@@ -58,15 +60,16 @@ test('both languages render without runtime errors, broken images or overflow', 
       }),
     )
     expect(missingAnchors).toEqual([])
-  }
-  expect(errors).toEqual([])
-})
+    expect(errors).toEqual([])
+  })
+}
 
 test('browser extension body attributes do not interrupt hydration', async ({ page }) => {
   const errors: string[] = []
   page.on('pageerror', (error) => errors.push(error.message))
   page.on('console', (message) => {
-    if (message.type() === 'error' && /hydrat/i.test(message.text())) errors.push(message.text())
+    if (message.type() === 'error' && /hydrat/i.test(message.text()))
+      errors.push(message.text())
   })
   await page.addInitScript(() => {
     // Simulate Grammarly changing the body as soon as the browser parses it.
@@ -80,7 +83,10 @@ test('browser extension body attributes do not interrupt hydration', async ({ pa
   })
   for (const lang of ['en', 'ja']) {
     await page.goto(`/${lang}`)
-    await expect(page.locator('body')).toHaveAttribute('data-new-gr-c-s-check-loaded', '14.1338.0')
+    await expect(page.locator('body')).toHaveAttribute(
+      'data-new-gr-c-s-check-loaded',
+      '14.1338.0',
+    )
     await expect(page.locator('body')).toHaveAttribute('data-gr-ext-installed', '')
     await page.getByRole('searchbox').fill('Kyoto')
     await expect(page.locator('.destination-card')).toHaveCount(1)
@@ -135,16 +141,16 @@ test('navigation, language switching and FAQ disclosure work', async ({ page, is
     const toggle = page.locator('.menu-toggle')
     await toggle.click()
     await expect(toggle).toHaveAttribute('aria-expanded', 'true')
-    await page.locator('#mobile-navigation').getByRole('link', { name: 'Explore regions' }).click()
+    await page.locator('#mobile-navigation').getByRole('link', { name: 'Journeys' }).click()
     await expect(toggle).toHaveAttribute('aria-expanded', 'false')
     await toggle.click()
     await toggle.press('Escape')
     await expect(toggle).toBeFocused()
     await expect(toggle).toHaveAttribute('aria-expanded', 'false')
   } else {
-    await page.locator('.desktop-navigation').getByRole('link', { name: 'Explore regions' }).click()
+    await page.locator('.desktop-navigation').getByRole('link', { name: 'Journeys' }).click()
   }
-  await expect(page).toHaveURL(/#regions$/)
+  await expect(page).toHaveURL(/#journeys$/)
   await page.locator('summary').filter({ hasText: 'When should I visit Japan?' }).click()
   await expect(page.getByText(/Choose by region and the experience/)).toBeVisible()
   await page.getByRole('link', { name: 'Back to top', exact: true }).click()
@@ -192,7 +198,9 @@ test('content and navigation stay readable without JavaScript', async ({ browser
   await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
   await expect(page.locator('.destination-card')).toHaveCount(6)
   await page.locator('.destination-card').first().click()
-  await expect(page.getByRole('heading', { level: 1, name: 'Kyoto', exact: true })).toBeVisible()
+  await expect(
+    page.getByRole('heading', { level: 1, name: 'Kyoto', exact: true }),
+  ).toBeVisible()
   await context.close()
 })
 
@@ -206,4 +214,95 @@ test('translations have matching keys and content identifiers stay unique', () =
   expect(keys(en)).toEqual(keys(ja))
   expect(new Set(destinations.map((item) => item.slug)).size).toBe(destinations.length)
   expect(new Set(regions.map((item) => item.id)).size).toBe(9)
+})
+
+test('interactive miniature responds to lighting, seasons, rotation and motion controls', async ({
+  page,
+}) => {
+  await page.goto('/en')
+  const scene = page.locator('.diorama')
+  await expect(scene).toHaveAttribute('data-scene-status', 'ready')
+  await page.getByRole('button', { name: 'Pause animation', exact: true }).click()
+  await expect(scene).toHaveAttribute('data-moving', 'false')
+  const canvas = scene.locator('canvas')
+  const day = await canvas.screenshot()
+  await page.getByRole('button', { name: 'Light the lanterns', exact: true }).click()
+  await expect(scene).toHaveAttribute('data-night', 'true')
+  await scene.evaluate((element) =>
+    Promise.allSettled(
+      element.getAnimations({ subtree: true }).map((animation) => animation.finished),
+    ),
+  )
+  expect((await canvas.screenshot()).equals(day)).toBe(false)
+  await page
+    .getByRole('group', { name: 'Change the miniature season' })
+    .getByRole('button', { name: 'Winter', exact: true })
+    .click()
+  await expect(scene).toHaveAttribute('data-season', '3')
+  const winter = await canvas.screenshot()
+  await page.getByRole('button', { name: 'Rotate scene right', exact: true }).click()
+  expect((await canvas.screenshot()).equals(winter)).toBe(false)
+  await page.getByRole('button', { name: 'Reset scene view', exact: true }).click()
+  expect((await canvas.screenshot()).equals(winter)).toBe(true)
+  await page.getByRole('button', { name: 'Play animation', exact: true }).click()
+  await expect(scene).toHaveAttribute('data-moving', 'true')
+})
+
+test('reduced motion and unavailable WebGL retain readable, usable content', async ({
+  page,
+}) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' })
+  await page.goto('/en')
+  await expect(page.locator('.diorama')).toHaveAttribute('data-moving', 'false')
+  await expect(
+    page.getByRole('button', {
+      name: 'Still scene · reduced motion is enabled',
+      exact: true,
+    }),
+  ).toBeDisabled()
+  await page.addInitScript(() => {
+    const original = HTMLCanvasElement.prototype.getContext
+    HTMLCanvasElement.prototype.getContext = function (
+      this: HTMLCanvasElement,
+      ...args: Parameters<typeof original>
+    ) {
+      if (args[0] === 'webgl2') return null
+      return original.apply(this, args)
+    } as typeof original
+  })
+  await page.reload()
+  await expect(page.locator('.diorama')).toHaveAttribute('data-scene-status', 'fallback')
+  await expect(page.locator('.scene-fallback img')).toBeVisible()
+  await page.getByRole('searchbox').fill('Kyoto')
+  await expect(page.locator('.destination-card')).toHaveCount(1)
+})
+
+test('itineraries switch routes and every detailed guide has a day plan', async ({
+  page,
+  request,
+}) => {
+  await page.goto('/en')
+  const selector = page.getByRole('group', {
+    name: 'Choose a sample itinerary',
+  })
+  await selector.getByRole('button', { name: '10 days' }).click()
+  await expect(page.locator('.journey-route')).toContainText('Sapporo & a seasonal escape')
+  await expect(page.locator('.journey-route li')).toHaveCount(2)
+  await selector.getByRole('button', { name: '14 days' }).click()
+  await expect(page.locator('.journey-route li')).toHaveCount(4)
+  await expect(page.locator('.journey-route')).toContainText('Day 12–14')
+  await page.locator('.journey-route').getByRole('link', { name: 'Fuji Five Lakes' }).click()
+  await expect(page).toHaveURL('/en/destinations/mount-fuji')
+  await expect(page.locator('.day-timeline li')).toHaveCount(3)
+  for (const place of destinations) {
+    for (const lang of ['en', 'ja'] as const) {
+      const response = await request.get(`/${lang}/destinations/${place.slug}`)
+      expect(await response.text()).toContain(destinationNotes[place.slug][lang].food)
+    }
+  }
+  for (const journey of journeys) {
+    expect(journey.stops.reduce((sum, stop) => sum + stop.days, 0)).toBe(journey.days)
+    for (const stop of journey.stops)
+      expect(destinations.some((place) => place.slug === stop.slug)).toBe(true)
+  }
 })

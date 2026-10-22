@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import { destinationNotes } from '@/data/journeys'
 import { destinations, reviewedAt } from '@/data/travel'
 import { isLocale } from '@/i18n/config'
 import { getDictionary } from '@/i18n/dictionaries'
@@ -51,6 +52,7 @@ export default async function DestinationPage({ params }: Props) {
   const place = destinations.find((item) => item.slug === slug)
   if (!place) notFound()
   const copy = place[lang]
+  const notes = destinationNotes[slug][lang]
   const dict = await getDictionary(lang)
   const schema = generateBreadcrumbSchema(lang, { name: copy.name, slug })
   return (
@@ -58,7 +60,9 @@ export default async function DestinationPage({ params }: Props) {
       {schema && (
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, '\\u003c') }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(schema).replace(/</g, '\\u003c'),
+          }}
         />
       )}
       <nav className="breadcrumbs" aria-label={lang === 'ja' ? 'パンくずリスト' : 'Breadcrumb'}>
@@ -74,7 +78,7 @@ export default async function DestinationPage({ params }: Props) {
             src={place.image}
             alt={copy.imageAlt}
             fill
-            preload
+            loading="eager"
             sizes="(max-width: 700px) 100vw, 50vw"
           />
         </div>
@@ -95,6 +99,33 @@ export default async function DestinationPage({ params }: Props) {
           </dl>
         </div>
       </section>
+      <section className="day-plan" aria-labelledby="day-plan-title">
+        <div className="section-heading">
+          <div>
+            <p className="section-japanese" lang="ja" aria-hidden="true">
+              一日のしおり
+            </p>
+            <h2 id="day-plan-title">{dict.detailExtra.day}</h2>
+            <p>{dict.detailExtra.dayNote}</p>
+          </div>
+        </div>
+        <ol className="day-timeline">
+          {notes.day.map((text, index) => (
+            <li key={text}>
+              <span className="day-time">
+                {
+                  [
+                    dict.detailExtra.morning,
+                    dict.detailExtra.afternoon,
+                    dict.detailExtra.evening,
+                  ][index]
+                }
+              </span>
+              <p>{text}</p>
+            </li>
+          ))}
+        </ol>
+      </section>
       <div className="detail-body">
         <div>
           <h2>{dict.detail.highlights}</h2>
@@ -103,12 +134,16 @@ export default async function DestinationPage({ params }: Props) {
               <li key={item}>{item}</li>
             ))}
           </ul>
+          <h2>{dict.detailExtra.food}</h2>
+          <p>{notes.food}</p>
           <h2>{dict.detail.gettingThere}</h2>
           <p>{copy.gettingThere}</p>
         </div>
         <aside className="detail-aside">
           <h2>{dict.detail.tip}</h2>
           <p>{copy.tip}</p>
+          <h3>{dict.detailExtra.nearby}</h3>
+          <p>{notes.extra}</p>
           <p className="source-note">{dict.detail.suggestion}</p>
           <a href={place.source} className="text-link">
             {dict.detail.source}
@@ -124,9 +159,21 @@ export default async function DestinationPage({ params }: Props) {
         <div className="related-links">
           {destinations
             .filter((item) => item.slug !== slug)
+            .slice(0, 3)
             .map((item) => (
               <Link href={`/${lang}/destinations/${item.slug}`} key={item.slug}>
-                {item[lang].name}
+                <div className="related-photo">
+                  <Image
+                    src={item.image}
+                    alt={item[lang].imageAlt}
+                    fill
+                    sizes="(max-width: 650px) 100vw, 30vw"
+                  />
+                </div>
+                <span>
+                  {item[lang].name}
+                  <Icon name="arrow" />
+                </span>
               </Link>
             ))}
         </div>

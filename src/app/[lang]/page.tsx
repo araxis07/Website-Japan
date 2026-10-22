@@ -4,6 +4,8 @@ import Hero from '@/components/Hero'
 import FeaturedDestinations from '@/components/FeaturedDestinations'
 import RegionsList from '@/components/RegionsList'
 import SeasonalHighlights from '@/components/SeasonalHighlights'
+import Experiences from '@/components/Experiences'
+import Journeys from '@/components/Journeys'
 import TravelPlanning from '@/components/TravelPlanning'
 import { getDictionary } from '@/i18n/dictionaries'
 import { isLocale } from '@/i18n/config'
@@ -26,7 +28,11 @@ export async function generateMetadata({
   return {
     alternates: {
       canonical: `${siteUrl}/${lang}`,
-      languages: { ja: `${siteUrl}/ja`, en: `${siteUrl}/en`, 'x-default': `${siteUrl}/ja` },
+      languages: {
+        ja: `${siteUrl}/ja`,
+        en: `${siteUrl}/en`,
+        'x-default': `${siteUrl}/ja`,
+      },
     },
     openGraph: {
       title: dict.brand,
@@ -52,7 +58,9 @@ export default async function LocalePage({ params }: { params: Promise<{ lang: s
     <main id="main-content">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, '\\u003c') }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(schema).replace(/</g, '\\u003c'),
+        }}
       />
       <Hero dict={dict} />
       <div className="container intro-strip">
@@ -76,8 +84,10 @@ export default async function LocalePage({ params }: { params: Promise<{ lang: s
         </div>
       </div>
       <FeaturedDestinations dict={dict} lang={lang} />
+      <Experiences dict={dict} lang={lang} />
       <RegionsList dict={dict} lang={lang} />
       <SeasonalHighlights dict={dict} lang={lang} />
+      <Journeys dict={dict} lang={lang} />
       <TravelPlanning dict={dict} />
     </main>
   )

@@ -12,7 +12,7 @@ export default function Navigation({ dict, lang }: { dict: Dictionary; lang: Loc
   const toggle = useRef<HTMLButtonElement>(null)
   const pathname = usePathname()
   const alternate = lang === 'ja' ? 'en' : 'ja'
-  const links = ['destinations', 'regions', 'seasons', 'plan'] as const
+  const links = ['destinations', 'experiences', 'seasons', 'journeys', 'plan'] as const
 
   return (
     <header

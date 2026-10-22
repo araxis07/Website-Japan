@@ -36,6 +36,11 @@ export default async function Credits({ params }: { params: Promise<{ lang: stri
           Unsplash License
         </a>
       </p>
+      <p>
+        {lang === 'ja'
+          ? 'ホームの3Dミニチュアは、このサイトのためにThree.jsで制作したオリジナルのイラスト表現です。地理や建物を正確に再現したものではありません。'
+          : 'The interactive miniature is original procedural artwork made for this website with Three.js. It is an imaginative scene, not a geographically accurate reconstruction.'}
+      </p>
       {credits.map(([name, url]) => (
         <div className="credit-row" key={name}>
           <span>{name}</span>

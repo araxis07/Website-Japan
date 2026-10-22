@@ -2,7 +2,7 @@ import type { Dictionary } from '@/i18n/dictionaries'
 import Icon from './Icon'
 
 export default function TravelPlanning({ dict }: { dict: Dictionary }) {
-  const icons = ['train', 'ticket', 'bed', 'leaf'] as const
+  const icons = ['train', 'ticket', 'bed', 'leaf', 'globe', 'pin'] as const
   return (
     <section id="plan" className="planning-section" aria-labelledby="plan-title">
       <div className="container">

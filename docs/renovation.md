@@ -1,35 +1,44 @@
 # Japan Travel renovation
 
-## Scope and existing problems
-- Preserve Japanese (default) and English, all nine editorial regions, seasonal discovery and destination guidance.
-- Reach home/detail routes, navigation, footer, dictionaries, shared styles, metadata/schema, sitemap, manifest, build/lint config and browser checks.
-- Baseline: Next 15.3.2 builds but Tailwind reports missing content configuration; random SSR decoration risks hydration errors; page transition hides content until JavaScript runs; contact/newsletter are simulations; footer and sitemap advertise nonexistent pages; unsupported locales silently get Japanese.
-- No database or working contact delivery exists. Replace simulated forms and invented contact details with official visitor resources. No user records are migrated or deleted.
+## Scope
 
-## Design
-A photographic Japanese travel journal: snow white #f8f9f6, paper #ffffff, sumi #24332e, vermilion #b3332e, soft sakura #f4e6e5, mist #e8eeea. Georgia / Yu Mincho display type with a system sans-serif reading face. Left-aligned, generous readable spacing, restrained borders and rounded photo corners.
+Preserve Japanese (default) and English, all nine editorial regions, the six destinations and their URLs. Renovate home, destination guides, navigation, footer, planning, credits and error pages; keep metadata, icons, translations and browser checks aligned. No database, user records, booking service or message delivery exists in this guide.
 
-Layout: compact masthead → full-width photographic opening → destination discovery → north-to-south regional directory → interactive seasons → practical planning → editorial footer. On mobile, use a disclosure menu and single-column content. The Japan photography and Japanese letterforms carry the identity; avoid floating emoji, decorative gradients, blocking animations and generic dashboard tiles.
+The first renovation repaired the missing utility styles, removed random server-rendered decoration, made initial content readable without JavaScript, replaced simulated forms and nonexistent links, validated locales and upgraded Next/React. The second renovation adds the stronger Japanese identity, interactive 3D and expanded editorial content requested by the owner.
 
-## Content policy
-Sources reviewed 2026-10-22. Destination and planning links point to JNTO and transport operators. Recommended stay lengths are editorial suggestions. Seasons are broad planning windows, not live forecasts. Check official pages for dates, fares, access and entry requirements. This is an independent guide, not a booking service or JNTO affiliate.
+## Design and content
 
-## Implementation decisions
-- Removed the unused utility CSS pipeline after moving all layout rules to explicit CSS; this fixes missing generated styles and removes its broad safelist and unused dependencies.
-- Static prerendering for both locales and all six detail guides; only navigation, discovery and seasons need client state.
-- `NEXT_PUBLIC_BASE_URL` controls domain-dependent SEO; no production domain is inferred from old placeholder metadata.
-- System font stacks keep builds independent of external font availability. Photos are local, optimized by Next Image and have in-app source credits.
-- Generated `.next` files were removed from version control while preserving the local build directory. No deployment or messaging was performed.
+A Japanese travel journal in warm paper `#f6f2e9`, indigo `#23333d` and torii vermilion `#b33d2d`, with seasonal colors, serif display type, Japanese letterforms, local photography and paper-like route cards. System fonts avoid external font requests. Layouts adapt to desktop, tablet and mobile.
 
-## Verification completed
-- Production build, ESLint, TypeScript and diff whitespace checks pass.
-- All 18 production Playwright checks pass across desktop Chromium and mobile WebKit, including the back-to-top scroll-position assertion and production configuration loading without development dependencies.
-- The Grammarly body-attribute mismatch was reproduced in development before the fix. Both development browser checks now pass with the same attributes injected before hydration; suppression is limited to the two root bodies. The stale preview server was stopped, a fresh `npm run dev` served `/ja` on port 3000, and that smoke-test server was stopped afterwards.
-- No page errors, hydration errors, broken visible images or horizontal overflow in the tested homepages. Visual review completed at 1440px desktop and 390px mobile, including destination and seasonal sections and a detail page.
-- One-off axe WCAG 2 A/AA and 2.1 AA scan: zero automated violations on `/en`, `/ja`, two localized detail pages, credits and the global 404. This does not constitute a full manual accessibility certification.
-- With a temporary test domain configured at build time: all 16 sitemap URLs return 200; canonical URLs, language alternates and robots refer to the configured origin. Final local build has no production domain configured.
-- All destination, region and planning source links were checked; the outdated accommodation URL was replaced with JNTO's current accommodation guide.
-- `npm audit --omit=dev`: zero reported vulnerabilities. Five affected development dependency entries remain in the current Next ESLint/glob/braces dependency chain; no compatible upstream fix was reported. No forced framework downgrade was applied.
-- Icon generation and the ICO self-check pass. Clean-install dry run succeeds without peer-dependency overrides.
+Home: editorial opening with a miniature Japan → destination search → six cultural experiences → regional directory → seasons → 7-, 10- and 14-day itineraries → practical planning and FAQs. Every destination now includes a three-part day plan, local food and pacing advice. Interface, new content and controls are available in both languages.
 
-Not checked: physical phones, production hosting/CDN behavior, field Core Web Vitals, live booking or message delivery (neither service exists in this guide).
+Sources reviewed on 2026-10-22 include JNTO guidance on destinations, tea ceremony, onsen, accessible travel, luggage, payment and responsible travel. The README and in-app links identify the original sources. Itineraries and stay lengths are editorial suggestions, not reservations or current transport schedules. Seasonal windows are approximate, not live forecasts. This is an independent guide, not a JNTO affiliate.
+
+## Interactive scene and motion
+
+`JapanDiorama` lazy-loads an original procedural Three.js scene near the viewport. The miniature contains Mount Fuji, a torii, trees, a bridge, a pagoda and lanterns. Visitors can drag to rotate, click a lantern or use the day/night button, change seasons, rotate/reset with buttons and pause animation. All actions have keyboard-accessible controls.
+
+The scene caps pixel density at 1.5 and animation at approximately 30 fps, caches static shadows, pauses offscreen and in background tabs, and disposes graphics resources and listeners on unmount. Reduced-motion preferences disable autonomous motion. A local photo replaces the canvas if WebGL2 is unavailable or its context is lost. The scene is illustrative artwork, not a geographic reconstruction.
+
+Native CSS and browser APIs provide section entrances, card tilt, image transitions, itinerary changes and reading progress. Content is server-rendered and stays visible without JavaScript. No animation framework, remote models or asset service is required.
+
+## Runtime and SEO
+
+- Static prerendering remains enabled for both locales and all six detail guides.
+- `NEXT_PUBLIC_BASE_URL` controls domain-dependent SEO. No production domain is inferred from old placeholder metadata.
+- The Grammarly attribute mismatch is handled only on the two root bodies with `suppressHydrationWarning`; descendant hydration checks remain enabled.
+- One development server may use the project build directory at a time. The README explains how to reuse or stop an existing server. Test servers stop automatically.
+- Generated build artifacts and test results remain ignored. No production deployment was performed.
+
+## Verification
+
+- ESLint, TypeScript, production build and diff whitespace checks pass.
+- All 26 production Playwright checks pass across desktop Chromium and mobile WebKit. They cover both locales, all destination routes, metadata assets, visible images, overflow, navigation, filters, keyboard controls, FAQs, no-JavaScript content, canvas lighting/rotation/reset, reduced motion, WebGL fallback and itinerary integrity.
+- Both development hydration regression checks pass with Grammarly-like attributes injected before hydration.
+- Visual review completed at 1440px desktop and 390px mobile, including the miniature by day/night, destination cards, itinerary and detail pages.
+- One-off axe WCAG 2 A/AA and 2.1 AA scans report zero automated violations on `/en`, `/ja`, `/en/destinations/kyoto`, `/en/credits` and the home page's night state. Reduced-motion mode avoids measuring transient entrance-animation opacity. This is not a full manual accessibility certification.
+- All 12 new experience and planning reference links return HTTP 200. Existing destination/region sources and configured-domain SEO were checked in the first renovation.
+- `npm audit --omit=dev`: zero reported production vulnerabilities. Five affected development dependency entries remain in the upstream Next ESLint/glob/braces chain; no forced downgrade was applied.
+- Icon generation and the ICO self-check pass.
+
+Not checked: physical phones or GPU calibration, production hosting/CDN behavior, field Core Web Vitals, live bookings or message delivery. WebGL2-capable hardware is required for the miniature; the photo fallback preserves access to the guide.
