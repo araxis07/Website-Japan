@@ -6,9 +6,16 @@ import Link from 'next/link'
 import { categories, destinations, type Category } from '@/data/travel'
 import type { Locale } from '@/i18n/config'
 import type { Dictionary } from '@/i18n/dictionaries'
+import SavePlace from './SavePlace'
 import Icon from './Icon'
 
-export default function FeaturedDestinations({ dict, lang }: { dict: Dictionary; lang: Locale }) {
+export default function FeaturedDestinations({
+  dict,
+  lang,
+}: {
+  dict: Dictionary
+  lang: Locale
+}) {
   const [category, setCategory] = useState<Category>('all')
   const [query, setQuery] = useState('')
   const search = query.trim().toLocaleLowerCase(lang)
@@ -16,14 +23,18 @@ export default function FeaturedDestinations({ dict, lang }: { dict: Dictionary;
     const copy = place[lang]
     return (
       (category === 'all' || place.category === category) &&
-      `${copy.name} ${copy.region} ${copy.description} ${dict.destinations[place.category]} ${place.en.name} ${place.japanese}`
+      `${copy.name} ${copy.region} ${copy.description} ${dict.destinations[place.category]} ${place.en.name} ${place.th.name} ${place.japanese}`
         .toLocaleLowerCase(lang)
         .includes(search)
     )
   })
 
   return (
-    <section id="destinations" className="section container" aria-labelledby="destinations-title">
+    <section
+      id="destinations"
+      className="section container"
+      aria-labelledby="destinations-title"
+    >
       <div className="section-heading">
         <div>
           <p className="section-japanese" lang="ja" aria-hidden="true">
@@ -70,37 +81,36 @@ export default function FeaturedDestinations({ dict, lang }: { dict: Dictionary;
         {places.map((place) => {
           const copy = place[lang]
           return (
-            <Link
-              key={place.slug}
-              href={`/${lang}/destinations/${place.slug}`}
-              className="destination-card"
-            >
-              <div className="destination-photo">
-                <Image
-                  src={place.image}
-                  alt={copy.imageAlt}
-                  fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 960px) 50vw, 33vw"
-                />
-                <span className="photo-tag">{dict.destinations[place.category]}</span>
-                <span className="photo-japanese" lang="ja" aria-hidden="true">
-                  {place.japanese}
-                </span>
-              </div>
-              <div className="destination-content">
-                <div className="destination-meta">
-                  <span>{copy.region}</span>
-                  <span>{copy.duration}</span>
-                </div>
-                <div className="destination-title">
-                  <h3>{copy.name}</h3>
-                  <span className="circle-arrow">
-                    <Icon name="arrow" />
+            <article className="destination-result" key={place.slug}>
+              <Link href={`/${lang}/destinations/${place.slug}`} className="destination-card">
+                <div className="destination-photo">
+                  <Image
+                    src={place.image}
+                    alt={copy.imageAlt}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 960px) 50vw, 33vw"
+                  />
+                  <span className="photo-tag">{dict.destinations[place.category]}</span>
+                  <span className="photo-japanese" lang="ja" aria-hidden="true">
+                    {place.japanese}
                   </span>
                 </div>
-                <p>{copy.tagline}</p>
-              </div>
-            </Link>
+                <div className="destination-content">
+                  <div className="destination-meta">
+                    <span>{copy.region}</span>
+                    <span>{copy.duration}</span>
+                  </div>
+                  <div className="destination-title">
+                    <h3>{copy.name}</h3>
+                    <span className="circle-arrow">
+                      <Icon name="arrow" />
+                    </span>
+                  </div>
+                  <p>{copy.tagline}</p>
+                </div>
+              </Link>
+              <SavePlace id={`destination:${place.slug}`} name={copy.name} />
+            </article>
           )
         })}
       </div>

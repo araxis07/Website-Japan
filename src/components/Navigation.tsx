@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useRef, useState } from 'react'
-import type { Locale } from '@/i18n/config'
+import { i18n, localeNames, type Locale } from '@/i18n/config'
 import type { Dictionary } from '@/i18n/dictionaries'
 import Icon from './Icon'
 
@@ -11,8 +11,7 @@ export default function Navigation({ dict, lang }: { dict: Dictionary; lang: Loc
   const [open, setOpen] = useState(false)
   const toggle = useRef<HTMLButtonElement>(null)
   const pathname = usePathname()
-  const alternate = lang === 'ja' ? 'en' : 'ja'
-  const links = ['destinations', 'experiences', 'seasons', 'journeys', 'plan'] as const
+  const links = ['destinations', 'map', 'seasons', 'journeys', 'plan'] as const
 
   return (
     <header
@@ -25,7 +24,7 @@ export default function Navigation({ dict, lang }: { dict: Dictionary; lang: Loc
       }}
     >
       <div className="container header-inner">
-        <Link href={`/${lang}`} className="brand" aria-label={dict.brand}>
+        <Link href={`/${lang}`} className="brand">
           <span className="brand-mark" aria-hidden="true">
             日
           </span>
@@ -43,16 +42,31 @@ export default function Navigation({ dict, lang }: { dict: Dictionary; lang: Loc
           ))}
         </nav>
         <div className="header-actions">
-          <Link
-            className="language-link"
-            href={pathname.replace(/^\/(ja|en)(?=\/|$)/, `/${alternate}`)}
-            hrefLang={alternate}
-            lang={alternate}
-            aria-label={lang === 'ja' ? 'Switch to English' : '日本語に切り替え'}
-          >
-            <Icon name="globe" />
-            <span>{alternate === 'en' ? 'EN' : '日本語'}</span>
+          <Link className="header-trip" href={`/${lang}/my-trip`}>
+            {dict.trip.title}
           </Link>
+          <details className="language-picker">
+            <summary aria-label={`${dict.navigation.language}: ${localeNames[lang]}`}>
+              <Icon name="globe" />
+              <span>{localeNames[lang]}</span>
+            </summary>
+            <div>
+              {i18n.locales.map((locale) => (
+                <Link
+                  key={locale}
+                  href={pathname.replace(/^\/(ja|en|th)(?=\/|$)/, `/${locale}`)}
+                  hrefLang={locale}
+                  lang={locale}
+                  aria-current={locale === lang ? 'page' : undefined}
+                  onClick={(event) =>
+                    event.currentTarget.closest('details')?.removeAttribute('open')
+                  }
+                >
+                  {localeNames[locale]}
+                </Link>
+              ))}
+            </div>
+          </details>
           <button
             ref={toggle}
             type="button"

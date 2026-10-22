@@ -11,7 +11,8 @@
     "label": "Main navigation",
     "language": "Choose language",
     "journeys": "Journeys",
-    "experiences": "Experiences"
+    "experiences": "Experiences",
+    "map": "Map"
   },
   "hero": {
     "eyebrow": "A small world. An extraordinary journey.",
@@ -166,6 +167,8 @@
     "external": "External website"
   },
   "scene": {
+    "start": "Explore the 3D scene",
+    "preview": "A miniature Japan. Open the scene to rotate it, change seasons and light the lanterns.",
     "title": "Your little corner of Japan",
     "description": "An interactive miniature of Japan with Mount Fuji, a red torii gate, cherry trees, a pagoda and lanterns. Use the controls to rotate, change seasons or light the lanterns.",
     "loading": "A little Japan is taking shape…",
@@ -206,5 +209,75 @@
     "pace": "Make it your own",
     "dayNote": "An editorial day plan. Check access, opening hours and reservations before setting out.",
     "nearby": "Leave a little room"
+  },
+  "guide": {
+    "toc": "In this guide",
+    "overview": "At a glance",
+    "suits": "Best for",
+    "stay": "Choose your base",
+    "arrival": "From the airport",
+    "rain": "A rainy-day plan",
+    "prepare": "Before you go",
+    "spots": "Places to put on your map",
+    "gallery": "A closer look",
+    "sources": "Sources & updates",
+    "note": "Planning suggestions, not live timetables. Check the linked operators and venues for current access, hours and bookings.",
+    "open": "Open in Google Maps",
+    "route": "Get directions",
+    "mapNote": "Approximate locations. Use the linked map for streets and actual routes.",
+    "photo": "Open photo",
+    "close": "Close photo",
+    "previous": "Previous photo",
+    "next": "Next photo",
+    "breadcrumb": "Breadcrumb"
+  },
+  "map": {
+    "title": "See how your journey connects.",
+    "subtitle": "Choose a destination on the map, then explore places nearby.",
+    "label": "Destination map",
+    "note": "Geographic overview · markers show the guide’s base, not the entire region.",
+    "credit": "Map data: Natural Earth",
+    "guide": "Read the guide"
+  },
+  "trip": {
+    "title": "My trip",
+    "subtitle": "Collect the places you love. Give each day a little room.",
+    "save": "Save to my trip",
+    "saved": "Saved to my trip",
+    "remove": "Remove",
+    "day": "Day",
+    "unplanned": "Not scheduled yet",
+    "days": "Number of days",
+    "assign": "Schedule for",
+    "up": "Move earlier",
+    "down": "Move later",
+    "print": "Print / save PDF",
+    "local": "Saved in this browser only. No account or cross-device sync. Clearing browser data removes your plan.",
+    "empty": "Your journey starts with one place.",
+    "explore": "Find places to save",
+    "loading": "Opening your trip…",
+    "error": "Your browser could not save this change. Your previous plan is unchanged. Allow site storage and try again.",
+    "invalid": "Saved data could not be read. It has not been overwritten. Reset it to start a new plan.",
+    "reset": "Reset unreadable saved data",
+    "confirm": "Reset the unreadable saved plan? This cannot be undone.",
+    "limit": "You can save up to 60 places.",
+    "added": "Place saved.",
+    "removed": "Place removed.",
+    "updated": "Plan updated.",
+    "plan": "Open my trip",
+    "nojs": "Enable JavaScript to save and arrange your trip. Destination guides remain available.",
+    "note": "Check opening hours and travel times before setting out. The order is yours; this is not automatic route optimization.",
+    "crossCity": "This day includes more than one destination. Allow time for travel between them.",
+    "emptyDay": "Leave this day open, or schedule a saved place.",
+    "printNote": "Use your browser’s print dialog and choose Save as PDF. Unscheduled places are included.",
+    "count": "saved places",
+    "dismiss": "Dismiss message"
+  },
+  "creditsExtra": {
+    "photos": "Photography from Unsplash. With thanks to the photographers.",
+    "art": "The miniature is original procedural Three.js artwork, not a geographic reconstruction.",
+    "source": "View source",
+    "map": "The geographic overview uses public-domain Natural Earth data. Pins are approximate planning references.",
+    "tea": "Matcha tea, an illustration of the experience rather than a particular venue."
   }
 }

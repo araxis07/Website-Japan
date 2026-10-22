@@ -26,6 +26,9 @@ export default function GlobalNotFound() {
             <Link className="button" href="/en" lang="en">
               Explore in English
             </Link>
+            <Link className="button" href="/th" lang="th">
+              กลับหน้าแรกภาษาไทย
+            </Link>
           </div>
         </main>
       </body>

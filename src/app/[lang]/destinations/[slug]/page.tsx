@@ -3,11 +3,17 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { destinationNotes } from '@/data/journeys'
-import { destinations, reviewedAt } from '@/data/travel'
-import { isLocale } from '@/i18n/config'
+import { destinations } from '@/data/travel'
+import { isLocale, ogLocales } from '@/i18n/config'
 import { getDictionary } from '@/i18n/dictionaries'
 import { siteUrl } from '@/utils/site'
 import { generateBreadcrumbSchema } from '@/utils/schema'
+import { guides } from '@/data/guides'
+import { spots } from '@/data/places'
+import { detailPhotos } from '@/data/photos'
+import SavePlace from '@/components/SavePlace'
+import PlacesMap from '@/components/PlacesMap'
+import PhotoGallery from '@/components/PhotoGallery'
 import Icon from '@/components/Icon'
 
 type Props = { params: Promise<{ lang: string; slug: string }> }
@@ -31,13 +37,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
             languages: {
               ja: `${siteUrl}/ja/destinations/${slug}`,
               en: `${siteUrl}/en/destinations/${slug}`,
+              th: `${siteUrl}/th/destinations/${slug}`,
             },
           },
           openGraph: {
             title: place[lang].name,
             description: place[lang].description,
             url: `${siteUrl}/${lang}/destinations/${slug}`,
-            locale: lang === 'ja' ? 'ja_JP' : 'en_US',
+            locale: ogLocales[lang],
             type: 'article',
             images: [{ url: place.image, alt: place[lang].imageAlt }],
           },
@@ -53,6 +60,8 @@ export default async function DestinationPage({ params }: Props) {
   if (!place) notFound()
   const copy = place[lang]
   const notes = destinationNotes[slug][lang]
+  const guide = guides[slug]
+  const practical = guide[lang]
   const dict = await getDictionary(lang)
   const schema = generateBreadcrumbSchema(lang, { name: copy.name, slug })
   return (
@@ -65,7 +74,7 @@ export default async function DestinationPage({ params }: Props) {
           }}
         />
       )}
-      <nav className="breadcrumbs" aria-label={lang === 'ja' ? 'パンくずリスト' : 'Breadcrumb'}>
+      <nav className="breadcrumbs" aria-label={dict.guide.breadcrumb}>
         <Link href={`/${lang}`}>{dict.detail.home}</Link>
         <span aria-hidden="true">/</span>
         <Link href={`/${lang}#destinations`}>{dict.detail.back}</Link>
@@ -97,9 +106,37 @@ export default async function DestinationPage({ params }: Props) {
               <dd>{copy.bestTime}</dd>
             </div>
           </dl>
+          <SavePlace id={`destination:${slug}`} name={copy.name} />
+          <Link className="text-link detail-trip-link" href={`/${lang}/my-trip`}>
+            {dict.trip.plan} ↗
+          </Link>
         </div>
       </section>
-      <section className="day-plan" aria-labelledby="day-plan-title">
+      <nav className="guide-toc" aria-label={dict.guide.toc}>
+        <span>{dict.guide.toc}</span>
+        <a href="#practical">{dict.guide.overview}</a>
+        <a href="#day-plan">{dict.detailExtra.day}</a>
+        <a href="#places">{dict.guide.spots}</a>
+        <a href="#gallery">{dict.guide.gallery}</a>
+        <a href="#sources">{dict.guide.sources}</a>
+      </nav>
+      <section className="practical-guide" id="practical" aria-labelledby="practical-title">
+        <div className="section-heading">
+          <div>
+            <h2 id="practical-title">{dict.guide.overview}</h2>
+            <p>{practical.suits}</p>
+          </div>
+        </div>
+        <div className="practical-grid">
+          {(['stay', 'arrival', 'rain', 'prepare'] as const).map((key) => (
+            <article key={key}>
+              <h3>{dict.guide[key]}</h3>
+              <p>{practical[key]}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+      <section id="day-plan" className="day-plan" aria-labelledby="day-plan-title">
         <div className="section-heading">
           <div>
             <p className="section-japanese" lang="ja" aria-hidden="true">
@@ -150,10 +187,46 @@ export default async function DestinationPage({ params }: Props) {
             <Icon name="external" />
           </a>
           <p className="source-note">
-            {dict.detail.reviewed} <time dateTime={reviewedAt}>{reviewedAt}</time>
+            {dict.detail.reviewed} <time dateTime={guide.reviewedAt}>{guide.reviewedAt}</time>
           </p>
         </aside>
       </div>
+      <section className="guide-places" id="places" aria-labelledby="places-title">
+        <h2 id="places-title">{dict.guide.spots}</h2>
+        <PlacesMap
+          points={spots.filter((spot) => spot.destination === slug)}
+          copy={dict.guide}
+          lang={lang}
+        />
+      </section>
+      <section id="gallery" className="guide-gallery" aria-labelledby="gallery-title">
+        <h2 id="gallery-title">{dict.guide.gallery}</h2>
+        <PhotoGallery
+          photos={[
+            {
+              src: place.image,
+              alt: { en: place.en.imageAlt, ja: place.ja.imageAlt, th: place.th.imageAlt },
+            },
+            detailPhotos[slug],
+          ]}
+          lang={lang}
+          copy={dict.guide}
+        />
+      </section>
+      <section className="guide-sources" id="sources" aria-labelledby="sources-title">
+        <h2 id="sources-title">{dict.guide.sources}</h2>
+        <p>{dict.guide.note}</p>
+        <p>
+          {dict.detail.reviewed} <time dateTime={guide.reviewedAt}>{guide.reviewedAt}</time>
+        </p>
+        <ul>
+          {guide.sources.map((url) => (
+            <li key={url}>
+              <a href={url}>{new URL(url).hostname.replace('www.', '')} ↗</a>
+            </li>
+          ))}
+        </ul>
+      </section>
       <section className="related">
         <h2>{dict.detail.more}</h2>
         <div className="related-links">

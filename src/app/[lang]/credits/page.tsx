@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { isLocale } from '@/i18n/config'
+import { siteUrl } from '@/utils/site'
+import { i18n, isLocale } from '@/i18n/config'
+import { newPhotoCredits } from '@/data/photos'
 import { getDictionary } from '@/i18n/dictionaries'
 
 const credits = [
@@ -19,7 +21,19 @@ export async function generateMetadata({
   const { lang } = await params
   if (!isLocale(lang)) notFound()
   const dict = await getDictionary(lang)
-  return { title: dict.footer.credits }
+  return {
+    title: dict.footer.credits,
+    ...(siteUrl
+      ? {
+          alternates: {
+            canonical: `${siteUrl}/${lang}/credits`,
+            languages: Object.fromEntries(
+              i18n.locales.map((locale) => [locale, `${siteUrl}/${locale}/credits`]),
+            ),
+          },
+        }
+      : {}),
+  }
 }
 export default async function Credits({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params
@@ -29,22 +43,20 @@ export default async function Credits({ params }: { params: Promise<{ lang: stri
     <main className="container credits-page" id="main-content">
       <h1>{dict.footer.credits}</h1>
       <p>
-        {lang === 'ja'
-          ? '写真はUnsplashから。撮影者の皆さまに感謝します。'
-          : 'Photography sourced from Unsplash. With thanks to the photographers who share these views of Japan.'}{' '}
+        {dict.creditsExtra.photos}{' '}
         <a className="text-link" href="https://unsplash.com/license">
           Unsplash License
         </a>
       </p>
+      <p>{dict.creditsExtra.art}</p>
       <p>
-        {lang === 'ja'
-          ? 'ホームの3Dミニチュアは、このサイトのためにThree.jsで制作したオリジナルのイラスト表現です。地理や建物を正確に再現したものではありません。'
-          : 'The interactive miniature is original procedural artwork made for this website with Three.js. It is an imaginative scene, not a geographically accurate reconstruction.'}
+        {dict.creditsExtra.map}{' '}
+        <a href="https://www.naturalearthdata.com/about/terms-of-use/">Natural Earth</a>
       </p>
-      {credits.map(([name, url]) => (
+      {[...credits, ...newPhotoCredits].map(([name, url]) => (
         <div className="credit-row" key={name}>
           <span>{name}</span>
-          <a href={url}>{lang === 'ja' ? '写真の出典' : 'View photo source'}</a>
+          <a href={url}>{dict.creditsExtra.source}</a>
         </div>
       ))}
     </main>

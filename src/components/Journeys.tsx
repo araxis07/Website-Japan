@@ -70,7 +70,7 @@ export default function Journeys({ dict, lang }: { dict: Dictionary; lang: Local
                 <li key={stop.slug}>
                   <span className="route-dot" aria-hidden="true" />
                   <span className="route-days">
-                    {lang === 'en'
+                    {lang !== 'ja'
                       ? `${dict.journeys.day} ${range}`
                       : `${range}${dict.journeys.day}`}
                   </span>

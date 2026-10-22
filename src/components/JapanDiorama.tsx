@@ -22,7 +22,8 @@ export default function JapanDiorama({ copy }: { copy: Dictionary['scene'] }) {
     season: 0,
     moving: false,
   })
-  const [status, setStatus] = useState('loading')
+  const [status, setStatus] = useState('preview')
+  const [requested, setRequested] = useState(false)
   const [night, setNight] = useState(false)
   const [season, setSeason] = useState(0)
   const [paused, setPaused] = useState(false)
@@ -34,44 +35,35 @@ export default function JapanDiorama({ copy }: { copy: Dictionary['scene'] }) {
   }, [night, season, moving])
   useEffect(() => {
     const element = host.current
-    if (!element) return
+    if (!element || !requested) return
     let cancelled = false
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (!entry.isIntersecting) return
-        observer.disconnect()
-        import('@/lib/japan-scene')
-          .then(({ createJapanScene }) => {
-            if (cancelled) return
-            scene.current = createJapanScene(
-              element,
-              settings.current,
-              () => setNight((value) => !value),
-              () => setStatus('fallback'),
-            )
-            setStatus('ready')
-          })
-          .catch(() => {
-            if (!cancelled) setStatus('fallback')
-          })
-      },
-      { rootMargin: '100px' },
-    )
-    observer.observe(element)
+    import('@/lib/japan-scene')
+      .then(({ createJapanScene }) => {
+        if (cancelled) return
+        scene.current = createJapanScene(
+          element,
+          settings.current,
+          () => setNight((value) => !value),
+          () => setStatus('fallback'),
+        )
+        setStatus('ready')
+      })
+      .catch(() => {
+        if (!cancelled) setStatus('fallback')
+      })
     return () => {
       cancelled = true
-      observer.disconnect()
       scene.current?.dispose()
       scene.current = null
     }
-  }, [])
+  }, [requested])
   return (
     <div
       className="diorama"
       data-night={night}
       data-season={season}
       data-scene-status={status}
-      data-moving={moving}
+      data-moving={moving && status === 'ready'}
     >
       <div className="scene-sky" aria-hidden="true">
         <span className="scene-sun" />
@@ -89,13 +81,12 @@ export default function JapanDiorama({ copy }: { copy: Dictionary['scene'] }) {
         {status !== 'ready' && (
           <div className="scene-fallback">
             <Image
-              src="/images/fuji.jpg"
+              src="/images/miniature.png"
               alt={copy.description}
               fill
               loading="eager"
               sizes="(max-width: 800px) 100vw, 55vw"
             />
-            <span>{status === 'loading' ? copy.loading : copy.fallback}</span>
           </div>
         )}
         <div
@@ -103,7 +94,7 @@ export default function JapanDiorama({ copy }: { copy: Dictionary['scene'] }) {
           className="scene-canvas"
           role="img"
           aria-label={copy.description}
-          hidden={status === 'fallback'}
+          hidden={status === 'preview' || status === 'fallback'}
         />
         <span className="scene-stamp" lang="ja" aria-hidden="true">
           旅<br />
@@ -111,6 +102,19 @@ export default function JapanDiorama({ copy }: { copy: Dictionary['scene'] }) {
         </span>
       </div>
       <div className="scene-controls">
+        {status === 'preview' && (
+          <button
+            type="button"
+            className="scene-start"
+            onClick={() => {
+              setStatus('loading')
+              setRequested(true)
+            }}
+          >
+            <Icon name="play" />
+            {copy.start}
+          </button>
+        )}
         <div className="scene-seasons" role="group" aria-label={copy.seasonLabel}>
           {copy.seasons.map((name, index) => (
             <button
@@ -178,8 +182,16 @@ export default function JapanDiorama({ copy }: { copy: Dictionary['scene'] }) {
             </button>
           </div>
         </div>
-        <p className="scene-hint">
-          {status === 'fallback' ? copy.fallback : reduced ? copy.reduced : copy.hint}
+        <p className="scene-hint" role="status">
+          {status === 'loading'
+            ? copy.loading
+            : status === 'fallback'
+              ? copy.fallback
+              : status === 'preview'
+                ? copy.preview
+                : reduced
+                  ? copy.reduced
+                  : copy.hint}
         </p>
       </div>
     </div>

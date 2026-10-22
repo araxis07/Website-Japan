@@ -20,7 +20,9 @@ export default function RegionsList({ dict, lang }: { dict: Dictionary; lang: Lo
               alt={
                 lang === 'ja'
                   ? '緑の木々と青い海に囲まれた沖縄の海岸'
-                  : 'Okinawa coastline with green forest and turquoise water'
+                  : lang === 'th'
+                    ? 'ชายฝั่งโอกินาว่าที่มีป่าเขียวและทะเลใส'
+                    : 'Okinawa coastline with green forest and turquoise water'
               }
               fill
               sizes="(max-width: 800px) 100vw, 40vw"
@@ -40,13 +42,13 @@ export default function RegionsList({ dict, lang }: { dict: Dictionary; lang: Lo
                 className="region-row"
                 key={region.id}
                 href={`https://www.japan.travel/en/destinations/${region.path}`}
-                aria-label={`${region[lang][0]} — ${dict.regions.link}`}
               >
                 <span className="region-dot" />
                 <span>
                   <strong>{region[lang][0]}</strong>
                   <small>{region[lang][1]}</small>
                 </span>
+                <span className="sr-only">{dict.regions.link}</span>
                 <Icon name="external" />
               </a>
             ))}

@@ -25,6 +25,7 @@ export default function Footer({ dict, lang }: { dict: Dictionary; lang: Locale 
               {(
                 [
                   'destinations',
+                  'map',
                   'experiences',
                   'regions',
                   'seasons',
@@ -36,6 +37,7 @@ export default function Footer({ dict, lang }: { dict: Dictionary; lang: Locale 
                   {dict.navigation[key]}
                 </Link>
               ))}
+              <Link href={`/${lang}/my-trip`}>{dict.trip.title}</Link>
             </nav>
           </div>
           <div className="footer-about" id="about">
@@ -63,6 +65,9 @@ export default function Footer({ dict, lang }: { dict: Dictionary; lang: Locale 
           </Link>
           <Link href="/en" hrefLang="en" lang="en">
             English
+          </Link>
+          <Link href="/th" hrefLang="th" lang="th">
+            ไทย
           </Link>
           <a href="https://www.japan.travel/en/">
             JNTO <Icon name="external" />

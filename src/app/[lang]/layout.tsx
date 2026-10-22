@@ -1,8 +1,9 @@
 import type { Metadata, Viewport } from 'next'
 import { notFound } from 'next/navigation'
-import { i18n, isLocale } from '@/i18n/config'
+import { i18n, isLocale, ogLocales } from '@/i18n/config'
 import { getDictionary } from '@/i18n/dictionaries'
 import { siteUrl } from '@/utils/site'
+import TripProvider from '@/components/TripProvider'
 import JourneyEffects from '@/components/JourneyEffects'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
@@ -38,8 +39,10 @@ export async function generateMetadata({
     openGraph: {
       type: 'website',
       siteName: dict.brand,
-      locale: lang === 'ja' ? 'ja_JP' : 'en_US',
-      alternateLocale: lang === 'ja' ? 'en_US' : 'ja_JP',
+      locale: ogLocales[lang],
+      alternateLocale: i18n.locales
+        .filter((locale) => locale !== lang)
+        .map((locale) => ogLocales[locale]),
     },
   }
 }
@@ -61,10 +64,12 @@ export default async function LocaleLayout({
         <a className="skip-link" href="#main-content">
           {dict.a11y.skip}
         </a>
-        <JourneyEffects />
-        <Navigation dict={dict} lang={lang} />
-        {children}
-        <Footer dict={dict} lang={lang} />
+        <TripProvider copy={dict.trip} lang={lang}>
+          <JourneyEffects />
+          <Navigation dict={dict} lang={lang} />
+          {children}
+          <Footer dict={dict} lang={lang} />
+        </TripProvider>
       </body>
     </html>
   )

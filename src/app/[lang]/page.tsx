@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
+import DestinationMap from '@/components/DestinationMap'
 import Hero from '@/components/Hero'
 import FeaturedDestinations from '@/components/FeaturedDestinations'
 import RegionsList from '@/components/RegionsList'
@@ -8,7 +9,7 @@ import Experiences from '@/components/Experiences'
 import Journeys from '@/components/Journeys'
 import TravelPlanning from '@/components/TravelPlanning'
 import { getDictionary } from '@/i18n/dictionaries'
-import { isLocale } from '@/i18n/config'
+import { isLocale, ogLocales } from '@/i18n/config'
 import { siteUrl } from '@/utils/site'
 import {
   generateTravelGuideSchema,
@@ -31,6 +32,7 @@ export async function generateMetadata({
       languages: {
         ja: `${siteUrl}/ja`,
         en: `${siteUrl}/en`,
+        th: `${siteUrl}/th`,
         'x-default': `${siteUrl}/ja`,
       },
     },
@@ -38,7 +40,7 @@ export async function generateMetadata({
       title: dict.brand,
       description: dict.footer.description,
       url: `${siteUrl}/${lang}`,
-      locale: lang === 'ja' ? 'ja_JP' : 'en_US',
+      locale: ogLocales[lang],
       type: 'website',
       images: [{ url: '/images/fuji.jpg', alt: dict.hero.location }],
     },
@@ -84,6 +86,7 @@ export default async function LocalePage({ params }: { params: Promise<{ lang: s
         </div>
       </div>
       <FeaturedDestinations dict={dict} lang={lang} />
+      <DestinationMap copy={dict.map} lang={lang} />
       <Experiences dict={dict} lang={lang} />
       <RegionsList dict={dict} lang={lang} />
       <SeasonalHighlights dict={dict} lang={lang} />
