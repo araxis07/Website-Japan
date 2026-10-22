@@ -9,7 +9,8 @@ export const metadata: Metadata = {
 export default function GlobalNotFound() {
   return (
     <html lang="ja">
-      <body>
+      {/* Extensions can add body attributes before hydration; descendants remain checked. */}
+      <body suppressHydrationWarning>
         <main className="error-page">
           <span className="brand-mark" aria-hidden="true">
             日

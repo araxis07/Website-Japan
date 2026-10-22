@@ -23,7 +23,8 @@ Sources reviewed 2026-10-22. Destination and planning links point to JNTO and tr
 
 ## Verification completed
 - Production build, ESLint, TypeScript and diff whitespace checks pass.
-- All 16 Playwright checks pass across desktop Chromium and mobile WebKit, including the back-to-top scroll-position assertion and production configuration loading without development dependencies.
+- All 18 production Playwright checks pass across desktop Chromium and mobile WebKit, including the back-to-top scroll-position assertion and production configuration loading without development dependencies.
+- The Grammarly body-attribute mismatch was reproduced in development before the fix. Both development browser checks now pass with the same attributes injected before hydration; suppression is limited to the two root bodies. The stale preview server was stopped, a fresh `npm run dev` served `/ja` on port 3000, and that smoke-test server was stopped afterwards.
 - No page errors, hydration errors, broken visible images or horizontal overflow in the tested homepages. Visual review completed at 1440px desktop and 390px mobile, including destination and seasonal sections and a detail page.
 - One-off axe WCAG 2 A/AA and 2.1 AA scan: zero automated violations on `/en`, `/ja`, two localized detail pages, credits and the global 404. This does not constitute a full manual accessibility certification.
 - With a temporary test domain configured at build time: all 16 sitemap URLs return 200; canonical URLs, language alternates and robots refer to the configured origin. Final local build has no production domain configured.

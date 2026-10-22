@@ -62,6 +62,39 @@ test('both languages render without runtime errors, broken images or overflow', 
   expect(errors).toEqual([])
 })
 
+test('browser extension body attributes do not interrupt hydration', async ({ page }) => {
+  const errors: string[] = []
+  page.on('pageerror', (error) => errors.push(error.message))
+  page.on('console', (message) => {
+    if (message.type() === 'error' && /hydrat/i.test(message.text())) errors.push(message.text())
+  })
+  await page.addInitScript(() => {
+    // Simulate Grammarly changing the body as soon as the browser parses it.
+    const observer = new MutationObserver(() => {
+      if (!document.body) return
+      document.body.setAttribute('data-new-gr-c-s-check-loaded', '14.1338.0')
+      document.body.setAttribute('data-gr-ext-installed', '')
+      observer.disconnect()
+    })
+    observer.observe(document, { childList: true, subtree: true })
+  })
+  for (const lang of ['en', 'ja']) {
+    await page.goto(`/${lang}`)
+    await expect(page.locator('body')).toHaveAttribute('data-new-gr-c-s-check-loaded', '14.1338.0')
+    await expect(page.locator('body')).toHaveAttribute('data-gr-ext-installed', '')
+    await page.getByRole('searchbox').fill('Kyoto')
+    await expect(page.locator('.destination-card')).toHaveCount(1)
+    expect(errors).toEqual([])
+  }
+  await page.goto('/missing/path')
+  await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
+  await page.getByRole('link', { name: 'Explore in English', exact: true }).click()
+  await expect(page).toHaveURL('/en')
+  await page.getByRole('searchbox').fill('Tokyo')
+  await expect(page.locator('.destination-card')).toHaveCount(1)
+  expect(errors).toEqual([])
+})
+
 test('search and category filters combine, clear and handle no results', async ({ page }) => {
   await page.goto('/en')
   await page.getByRole('button', { name: 'Nature & outdoors', exact: true }).click()

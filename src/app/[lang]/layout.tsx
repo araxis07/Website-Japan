@@ -48,7 +48,8 @@ export default async function LocaleLayout({
   const dict = await getDictionary(lang)
   return (
     <html lang={lang}>
-      <body id="top">
+      {/* Extensions can add body attributes before hydration; descendants remain checked. */}
+      <body id="top" suppressHydrationWarning>
         <a className="skip-link" href="#main-content">
           {dict.a11y.skip}
         </a>

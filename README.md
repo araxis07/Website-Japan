@@ -15,6 +15,8 @@ npm run dev
 
 Open http://localhost:3000. `/` redirects to `/ja`.
 
+Run one development server per project. If Next.js reports “Another next dev server is already running”, use the existing URL or stop that server with Ctrl+C in its terminal before restarting. For a background server, verify that the PID and directory shown by Next.js belong to this project, then stop that PID with `kill`. Changing ports does not allow a second development server to use the same build directory.
+
 ```sh
 npm run lint
 npm run typecheck
@@ -33,6 +35,14 @@ npm test
 ```
 
 Playwright starts a production server on port 3100 and checks desktop Chromium and mobile WebKit. Coverage includes both locales, all detail routes, image loading, no horizontal overflow, hash links, filters/search/empty state, keyboard season tabs, mobile menu, FAQ, language switching, invalid routes and server-rendered content without JavaScript. This is browser emulation, not physical-device testing.
+
+To check development-only hydration warnings, stop any running development server first, then run:
+
+```sh
+PLAYWRIGHT_DEV=1 npm test -- --grep 'browser extension'
+```
+
+This test simulates Grammarly adding attributes to `<body>` before React hydrates, then checks both locales and the 404 navigation. The two root bodies use `suppressHydrationWarning` only at that element; descendant hydration warnings remain enabled. The test server uses `localhost` so Next.js permits its development WebSocket origin, and stops automatically after testing.
 
 ## Edit the content
 
