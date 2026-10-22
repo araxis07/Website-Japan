@@ -1,115 +1,141 @@
 {
+  "brand": "Japan Travel",
+  "brandSub": "A journey worth taking",
   "navigation": {
-    "home": "Home",
-    "regions": "Regions",
     "destinations": "Destinations",
-    "about": "About",
-    "contact": "Contact"
+    "regions": "Explore regions",
+    "seasons": "When to go",
+    "plan": "Plan your trip",
+    "menu": "Menu",
+    "close": "Close menu",
+    "label": "Main navigation",
+    "language": "Choose language"
   },
   "hero": {
-    "title": "Discover Japan",
-    "subtitle": "Journey through a beautiful country where ancient traditions meet modern innovation",
-    "cta": "Start Your Journey"
+    "eyebrow": "Your next chapter begins here",
+    "title": "Japan, beyond\nthe expected.",
+    "subtitle": "From quiet temple mornings to cities that never stand still. Find the Japan that stays with you.",
+    "cta": "Find your inspiration",
+    "secondary": "Plan your first trip",
+    "location": "Mount Fuji, Yamanashi",
+    "caption": "A different perspective. An unforgettable journey."
   },
-  "regions": {
-    "title": "Regions of Japan",
-    "subtitle": "Explore the unique charm of each region from Hokkaido to Okinawa",
-    "hokkaido": {
-      "name": "Hokkaido",
-      "description": "Famous for snow landscapes and fresh seafood"
-    },
-    "tohoku": {
-      "name": "Tohoku",
-      "description": "Known for abundant nature and hot springs"
-    },
-    "kanto": {
-      "name": "Kanto",
-      "description": "Political and economic center including Tokyo"
-    },
-    "chubu": {
-      "name": "Chubu",
-      "description": "Beautiful scenery of Mount Fuji and Japanese Alps"
-    },
-    "kansai": {
-      "name": "Kansai",
-      "description": "Historic cities of Kyoto, Osaka, and Nara"
-    },
-    "chugoku": {
-      "name": "Chugoku",
-      "description": "Beautiful islands of the Seto Inland Sea"
-    },
-    "shikoku": {
-      "name": "Shikoku",
-      "description": "Sacred land of the Shikoku Pilgrimage"
-    },
-    "kyushu": {
-      "name": "Kyushu",
-      "description": "Famous for active volcanoes and hot springs"
-    },
-    "okinawa": {
-      "name": "Okinawa",
-      "description": "Beautiful beaches and unique culture"
-    }
+  "intro": {
+    "title": "One country. So many ways to explore.",
+    "text": "Ancient streets, wild landscapes, a meal you’ll remember. Start with what moves you.",
+    "regions": "Regions to discover",
+    "prefectures": "Prefectures",
+    "seasons": "Distinct seasons"
   },
   "destinations": {
-    "title": "Popular Destinations",
-    "subtitle": "Visit Japan's most beautiful and iconic places",
-    "mount_fuji": {
-      "name": "Mount Fuji",
-      "description": "Japan's iconic mountain"
-    },
-    "kyoto_temples": {
-      "name": "Kyoto Temples",
-      "description": "Ancient temples and traditions"
-    },
-    "tokyo_skyline": {
-      "name": "Tokyo Skyline",
-      "description": "Modern urban magnificence"
-    },
-    "osaka_castle": {
-      "name": "Osaka Castle",
-      "description": "Historic castle and culture"
-    }
-  },  "footer": {
-    "description": "Our mission is to share Japan's beauty and culture with the world.",
-    "newsletter": {
-      "title": "Newsletter",
-      "description": "Receive the latest travel information and special offers",
-      "placeholder": "Enter your email",
-      "button": "Subscribe"
-    },
-    "follow": "Follow Us",
-    "copyright": "© 2025 Japan Travel Guide. All rights reserved."  },  "resources": {
-    "tripPlanner": "Trip Planner",
-    "transportation": "Transportation",
-    "accommodations": "Accommodations",
-    "foodGuide": "Food Guide",
-    "events": "Events & Festivals"
+    "title": "Where will Japan take you?",
+    "subtitle": "A few places to begin. A thousand reasons to stay.",
+    "search": "Search destinations",
+    "placeholder": "Try Kyoto, Tokyo, nature…",
+    "all": "All places",
+    "culture": "Culture & history",
+    "city": "City & food",
+    "nature": "Nature & outdoors",
+    "coast": "Island life",
+    "guide": "Explore the guide",
+    "results": "destinations",
+    "empty": "No places found. Try another name or clear your filters.",
+    "reset": "Clear filters"
+  },
+  "regions": {
+    "title": "Go a little further.",
+    "subtitle": "From the snowy north to the subtropical south, every region has a story of its own.",
+    "link": "Explore with JNTO",
+    "note": "Our nine-region guide groups Hokuriku Shinetsu and Tokai under Chubu. Official JNTO guides cover them separately.",
+    "tokai": "Explore Tokai",
+    "caption": "The many colors of Japan",
+    "heading": "A journey from north to south"
   },
   "seasons": {
-    "title": "Seasonal Highlights",
-    "subtitle": "Japan offers unique experiences all year round. Explore what each season has to offer."
+    "title": "A new Japan in every season.",
+    "subtitle": "Find the right moment for your kind of journey.",
+    "label": "Choose a season",
+    "explore": "Discover",
+    "source": "Seasonal weather guide · JNTO",
+    "note": "Typical seasonal windows. Weather and peak dates vary by region and year."
   },
-  "contact": {
-    "title": "Contact Us",
-    "subtitle": "Feel free to reach out if you have any questions or inquiries",
-    "getInTouch": "Get in Touch",
-    "helpText": "We're here to help with your travel plans or any questions you might have.",
-    "email": "Email",
-    "phone": "Phone",
-    "address": "Address",
-    "followUs": "Follow Us",
-    "sendMessage": "Send a Message",
-    "name": "Name",
-    "subject": "Subject",
-    "selectSubject": "Select a subject",
-    "subjectGeneral": "General Inquiry",
-    "subjectBooking": "Booking Information",
-    "subjectFeedback": "Feedback",
-    "subjectPartnership": "Partnership",
-    "message": "Message",
-    "send": "Send",
-    "successMessage": "Message received. We'll get back to you as soon as possible.",
-    "errorMessage": "An error occurred while sending. Please try again later."
+  "plan": {
+    "title": "A little planning. A better journey.",
+    "subtitle": "The practical things, so you can focus on the memorable ones.",
+    "source": "Official guide",
+    "cards": [
+      {
+        "title": "Getting around",
+        "text": "Use an IC card for many local trains, buses and small purchases. Coverage and mobile-card compatibility vary.",
+        "url": "https://faq.japan-travel.jnto.go.jp/en/plan/ic-card/",
+        "link": "Understand IC cards"
+      },
+      {
+        "title": "Find the right rail ticket",
+        "text": "Compare your actual route with individual tickets and regional passes before buying a nationwide JAPAN RAIL PASS.",
+        "url": "https://japanrailpass.net/en/purchase/price/",
+        "link": "Check passes & prices"
+      },
+      {
+        "title": "Stay somewhere memorable",
+        "text": "A station-side hotel makes city travel easy. A ryokan invites a slower stay; check meal times and bathing rules before booking.",
+        "url": "https://www.japan.travel/en/au/plan/accommodation/",
+        "link": "Explore accommodation"
+      },
+      {
+        "title": "Travel with care",
+        "text": "Keep voices low on public transport, respect private spaces and ask before photographing people. Leave every place as you found it.",
+        "url": "https://www.japan.travel/en/responsible-travel-guide/",
+        "link": "Travel thoughtfully"
+      }
+    ],
+    "faqTitle": "Before you pack",
+    "faqs": [
+      {
+        "question": "When should I visit Japan?",
+        "answer": "Choose by region and the experience you want. Spring and autumn suit many city walks, while summer and winter offer very different trips. Consult local forecasts and attraction calendars before booking."
+      },
+      {
+        "question": "How many days do I need?",
+        "answer": "For a first visit, consider 7–10 days split between Tokyo and Kyoto or Osaka. This is an editorial suggestion: fewer bases and more time in each place usually mean less time in transit."
+      },
+      {
+        "question": "Where can I check entry requirements and travel updates?",
+        "answer": "Requirements depend on your nationality and circumstances. Use JNTO’s planning resources and the Japanese embassy or consulate responsible for your location for current official guidance."
+      }
+    ],
+    "help": "Need practical travel help?",
+    "helpText": "Find visitor information, entry guidance and travel support through Japan’s national tourism organization.",
+    "helpLink": "Visit JNTO travel planning"
+  },
+  "footer": {
+    "title": "Make room for discovery.",
+    "description": "An independent guide to the places, seasons and small moments that make Japan special.",
+    "explore": "Explore Japan",
+    "resources": "Useful resources",
+    "about": "About this guide",
+    "aboutText": "Written for curious travelers. Destination and planning information is checked against official sources; follow the linked guides for current access, fares and travel requirements.",
+    "reviewed": "Content reviewed",
+    "disclaimer": "Independent travel guide. Not affiliated with JNTO. We do not handle bookings.",
+    "credits": "Photography credits",
+    "top": "Back to top",
+    "copyright": "Japan Travel Guide"
+  },
+  "detail": {
+    "back": "All destinations",
+    "highlights": "Make time for",
+    "gettingThere": "Getting there",
+    "tip": "Good to know",
+    "duration": "Suggested stay",
+    "bestTime": "When to visit",
+    "suggestion": "Stay lengths are editorial suggestions. Check opening times, transport and conditions before travelling.",
+    "source": "Read the official JNTO guide",
+    "more": "Keep exploring",
+    "home": "Home",
+    "reviewed": "Reviewed"
+  },
+  "a11y": {
+    "skip": "Skip to main content",
+    "external": "External website"
   }
 }

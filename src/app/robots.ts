@@ -1,12 +1,9 @@
-import { MetadataRoute } from 'next'
+import type { MetadataRoute } from 'next'
+import { siteUrl } from '@/utils/site'
 
 export default function robots(): MetadataRoute.Robots {
   return {
-    rules: {
-      userAgent: '*',
-      allow: '/',
-      disallow: ['/api/', '/admin/', '/_next/'],
-    },
-    sitemap: 'https://japantravel-guide.com/sitemap.xml',
+    rules: { userAgent: '*', allow: '/' },
+    ...(siteUrl ? { sitemap: `${siteUrl}/sitemap.xml` } : {}),
   }
 }

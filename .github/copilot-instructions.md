@@ -1,66 +1,11 @@
-<!-- Use this file to provide workspace-specific custom instructions to Copilot. For more details, visit https://code.visualstudio.com/docs/copilot/copilot-customization#_use-a-githubcopilotinstructionsmd-file -->
+# Japan Travel development notes
 
-# Japan Travel Website - Copilot Instructions
+This is an independent Japanese/English travel guide. Keep Japanese as the default locale and maintain translation parity.
 
-This is a Next.js website project for Japanese travel guidance with the following specifications:
+Use the existing components, dictionaries and `src/data/travel.ts`. The design uses sumi green, vermilion, restrained sakura tones, serif headings and local travel photography. Styles live in `src/app/globals.css`; there is no Tailwind pipeline.
 
-## Project Overview
-- **Purpose**: A beautiful travel website showcasing Japan's regions and destinations
-- **Theme**: Cherry blossom inspired design with white and pink color scheme
-- **Technology Stack**: Next.js 15.1+ with App Router, TypeScript, Tailwind CSS 4.1
-- **Languages**: Bilingual support (Japanese as primary, English as secondary)
-- **Target Audience**: International travelers interested in visiting Japan
+Use Next Image for photographs, server components for static content, native HTML for disclosures and accessible client controls only where needed. Respect reduced motion and visible keyboard focus. Do not hide initial content behind JavaScript or use random render-time values.
 
-## Design Guidelines
-- Use cherry blossom (sakura) inspired color palette with whites and pinks
-- Implement smooth animations and transitions
-- Create responsive design for all device sizes
-- Use Japanese fonts (Noto Sans JP) for Japanese content
-- Use Inter font for English content
-- Include subtle cherry blossom animations and decorative elements
+New internal links must point to implemented pages. Validate locale and destination parameters. Never simulate successful form delivery or invent contact details. Travel guidance needs an official source; keep suggestions distinct from current rules and forecasts. Do not change the review date without checking the content.
 
-## Technical Requirements
-- Use Next.js App Router for all pages
-- Implement TypeScript for type safety
-- Use Tailwind CSS for styling with custom color extensions
-- Create reusable components for consistent design
-- Implement proper SEO meta tags
-- Use proper semantic HTML
-- Ensure accessibility compliance
-
-## Content Structure
-- Cover all 9 regions of Japan (Hokkaido, Tohoku, Kanto, Chubu, Kansai, Chugoku, Shikoku, Kyushu, Okinawa)
-- Include popular destinations within each region
-- Provide cultural information and travel tips
-- Show seasonal recommendations
-- Include transportation and accommodation information
-
-## Language Support
-- Primary language: Japanese (ja)
-- Secondary language: English (en)
-- Use proper language detection and switching
-- Maintain consistent translations across components
-- Use appropriate cultural context for each language
-
-## Component Guidelines
-- Create modular, reusable components
-- Use proper TypeScript interfaces
-- Implement proper error handling
-- Use React hooks appropriately
-- Follow Next.js best practices
-
-## Performance Optimization
-- Use Next.js Image component for optimized images
-- Implement proper lazy loading
-- Use Turbopack for development
-- Optimize for Core Web Vitals
-- Minimize bundle size
-
-## Styling Guidelines
-- Use Tailwind CSS utility classes
-- Create custom color palette in tailwind.config.ts
-- Use CSS custom properties for complex animations
-- Implement responsive design with mobile-first approach
-- Use proper spacing and typography scales
-
-When generating code for this project, always consider the Japanese travel context, maintain the cherry blossom theme, ensure bilingual support, and follow modern React/Next.js best practices.
+Run lint, typecheck, production build and appropriate Playwright checks after substantive changes. Do not commit generated `.next` or test-result files.

@@ -1,115 +1,141 @@
 {
+  "brand": "日本旅行",
+  "brandSub": "心に残る、日本の旅",
   "navigation": {
-    "home": "ホーム",
-    "regions": "地域",
-    "destinations": "観光地",
-    "about": "について",
-    "contact": "お問い合わせ"
+    "destinations": "旅先を探す",
+    "regions": "地域を巡る",
+    "seasons": "季節を楽しむ",
+    "plan": "旅の準備",
+    "menu": "メニュー",
+    "close": "メニューを閉じる",
+    "label": "メインナビゲーション",
+    "language": "言語を選択"
   },
   "hero": {
-    "title": "日本を発見しよう",
-    "subtitle": "古代の伝統と現代の革新が出会う美しい国への旅",
-    "cta": "旅を始める"
+    "eyebrow": "次の旅は、ここから",
+    "title": "まだ知らない、\n日本に出会う。",
+    "subtitle": "静かな寺院の朝も、眠らない街の夜も。\nあなたの心に残る、日本の旅を見つけよう。",
+    "cta": "旅先を見つける",
+    "secondary": "はじめての旅を計画",
+    "location": "富士山・山梨",
+    "caption": "いつもと違う景色が、忘れられない旅になる。"
   },
-  "regions": {
-    "title": "日本の地域",
-    "subtitle": "北海道から沖縄まで、各地域の独特な魅力を探索",
-    "hokkaido": {
-      "name": "北海道",
-      "description": "雪景色と新鮮な海の幸で有名"
-    },
-    "tohoku": {
-      "name": "東北",
-      "description": "豊かな自然と温泉で知られる"
-    },
-    "kanto": {
-      "name": "関東",
-      "description": "東京を含む日本の政治・経済の中心地"
-    },
-    "chubu": {
-      "name": "中部",
-      "description": "富士山と日本アルプスの美しい景色"
-    },
-    "kansai": {
-      "name": "関西",
-      "description": "京都、大阪、奈良の歴史的な都市"
-    },
-    "chugoku": {
-      "name": "中国",
-      "description": "瀬戸内海の美しい島々"
-    },
-    "shikoku": {
-      "name": "四国",
-      "description": "お遍路巡礼の聖地"
-    },
-    "kyushu": {
-      "name": "九州",
-      "description": "活火山と温泉で有名"
-    },
-    "okinawa": {
-      "name": "沖縄",
-      "description": "美しいビーチと独特の文化"
-    }
+  "intro": {
+    "title": "ひとつの国に、いくつもの旅。",
+    "text": "古い街並み、雄大な自然、忘れられない一皿。心が動くものから、旅を始めよう。",
+    "regions": "巡る地域",
+    "prefectures": "都道府県",
+    "seasons": "四季の魅力"
   },
   "destinations": {
-    "title": "人気の観光地",
-    "subtitle": "日本で最も美しく象徴的な場所を訪れてください",
-    "mount_fuji": {
-      "name": "富士山",
-      "description": "日本の象徴的な山"
-    },
-    "kyoto_temples": {
-      "name": "京都の寺院",
-      "description": "古代の寺院と伝統"
-    },
-    "tokyo_skyline": {
-      "name": "東京スカイライン",
-      "description": "現代都市の素晴らしさ"
-    },
-    "osaka_castle": {
-      "name": "大阪城",
-      "description": "歴史的な城と文化"
-    }
-  },  "footer": {
-    "description": "日本の美しさと文化を世界と共有することを使命としています。",
-    "newsletter": {
-      "title": "ニュースレター",
-      "description": "最新の旅行情報やお得な情報をお受け取りください",
-      "placeholder": "メールアドレスを入力",
-      "button": "購読する"
-    },
-    "follow": "フォローする",
-    "copyright": "© 2025 日本旅行ガイド。すべての権利を保有します。"  },  "resources": {
-    "tripPlanner": "旅行プランナー",
-    "transportation": "交通情報",
-    "accommodations": "宿泊施設",
-    "foodGuide": "グルメガイド",
-    "events": "イベント・祭り"
+    "title": "次は、どんな日本へ。",
+    "subtitle": "旅の始まりに選びたい、とっておきの場所。",
+    "search": "旅先を検索",
+    "placeholder": "京都、東京、自然など…",
+    "all": "すべて",
+    "culture": "歴史と文化",
+    "city": "街とグルメ",
+    "nature": "自然を楽しむ",
+    "coast": "島の時間",
+    "guide": "ガイドを見る",
+    "results": "件の旅先",
+    "empty": "旅先が見つかりません。別の言葉で検索するか、条件をクリアしてください。",
+    "reset": "条件をクリア"
+  },
+  "regions": {
+    "title": "もう少し、遠くまで。",
+    "subtitle": "雪に包まれる北の大地から、亜熱帯の南の島へ。それぞれの地域に、違った物語があります。",
+    "link": "JNTOのガイドへ",
+    "note": "本サイトは北陸信越と東海を「中部」にまとめた9地域で紹介しています。JNTOでは別々の地域ガイドで案内しています。",
+    "tokai": "東海のガイドへ",
+    "caption": "日本の、いろいろな表情",
+    "heading": "北から南へ、地域を巡る"
   },
   "seasons": {
-    "title": "季節の見どころ",
-    "subtitle": "日本は一年を通して様々な魅力があります。それぞれの季節が持つ特色をお楽しみください。"
+    "title": "季節が変われば、旅も変わる。",
+    "subtitle": "あなたの旅にぴったりの季節を見つけよう。",
+    "label": "季節を選択",
+    "explore": "おすすめの旅先：",
+    "source": "季節と天候のガイド・JNTO",
+    "note": "季節の目安です。天候や見頃は地域・年によって異なります。"
   },
-  "contact": {
-    "title": "お問い合わせ",
-    "subtitle": "ご質問やお問い合わせがございましたら、お気軽にお知らせください",
-    "getInTouch": "お問い合わせ",
-    "helpText": "旅行計画やご質問があれば、いつでもお手伝いします。",
-    "email": "メールアドレス",
-    "phone": "電話番号",
-    "address": "住所",
-    "followUs": "フォローする",
-    "sendMessage": "メッセージを送信",
-    "name": "お名前",
-    "subject": "件名",
-    "selectSubject": "件名を選択してください",
-    "subjectGeneral": "一般的なお問い合わせ",
-    "subjectBooking": "予約について",
-    "subjectFeedback": "フィードバック",
-    "subjectPartnership": "提携について",
-    "message": "メッセージ",
-    "send": "送信",
-    "successMessage": "メッセージを受け取りました。できるだけ早くご連絡いたします。",
-    "errorMessage": "送信中にエラーが発生しました。後でもう一度お試しください。"
+  "plan": {
+    "title": "少しの準備で、もっといい旅。",
+    "subtitle": "大切なことを押さえて、旅先では思いきり楽しもう。",
+    "source": "公式ガイド",
+    "cards": [
+      {
+        "title": "移動をスムーズに",
+        "text": "交通系ICカードは多くの鉄道やバス、買い物に便利です。利用エリアやモバイル版の対応機種は確認しましょう。",
+        "url": "https://faq.japan-travel.jnto.go.jp/en/plan/ic-card/",
+        "link": "ICカードを知る"
+      },
+      {
+        "title": "自分に合う鉄道きっぷ",
+        "text": "全国版JAPAN RAIL PASSを買う前に、予定ルートの通常運賃や地域限定パスと比較しましょう。利用資格の確認も必要です。",
+        "url": "https://japanrailpass.net/",
+        "link": "パスと料金を確認"
+      },
+      {
+        "title": "旅に合う宿を選ぶ",
+        "text": "街歩きには駅に近いホテルが便利。ゆっくり過ごすなら旅館もおすすめです。食事時間や入浴のルールも事前に確認を。",
+        "url": "https://www.japan.travel/en/au/plan/accommodation/",
+        "link": "宿泊スタイルを探す"
+      },
+      {
+        "title": "思いやりを旅のおともに",
+        "text": "公共交通では静かに、私有地には配慮を。人を撮影するときはひと声かけ、訪れた場所を大切にしましょう。",
+        "url": "https://www.japan.travel/en/responsible-travel-guide/",
+        "link": "旅のマナーを知る"
+      }
+    ],
+    "faqTitle": "出発前の、気になること",
+    "faqs": [
+      {
+        "question": "日本旅行はいつがおすすめ？",
+        "answer": "行きたい地域と体験で選びましょう。春と秋は街歩きがしやすい時期が多く、夏と冬にはそれぞれ違う魅力があります。予約前に現地の天気や施設の予定を確認してください。"
+      },
+      {
+        "question": "何日くらいあると楽しめる？",
+        "answer": "初めてなら、東京と京都または大阪を巡る7〜10日ほどの旅も一案です。これは編集上の目安です。拠点を絞って滞在を長めにすると、移動の負担を減らせます。"
+      },
+      {
+        "question": "入国条件や最新情報はどこで確認できる？",
+        "answer": "条件は国籍や状況によって異なります。JNTOの旅行準備情報や、お住まいの地域を担当する日本大使館・領事館の公式案内で確認してください。"
+      }
+    ],
+    "help": "旅の情報を、もう少し詳しく。",
+    "helpText": "観光案内、入国に関する案内、旅行中のサポートは日本政府観光局の情報をご利用ください。",
+    "helpLink": "JNTOの旅行準備ガイドへ"
+  },
+  "footer": {
+    "title": "旅に、出会いの余白を。",
+    "description": "場所、季節、ふとした瞬間。日本の旅の魅力を伝える、独立した旅行ガイドです。",
+    "explore": "日本を旅する",
+    "resources": "旅に役立つ情報",
+    "about": "このガイドについて",
+    "aboutText": "旅先が気になるすべての人へ。観光地や旅行準備の情報は公式情報を参照しています。アクセス、運賃、渡航条件はリンク先で最新の案内をご確認ください。",
+    "reviewed": "情報確認日",
+    "disclaimer": "JNTOとは提携していない独立した旅行ガイドです。予約の取り扱いはありません。",
+    "credits": "写真のクレジット",
+    "top": "ページの先頭へ",
+    "copyright": "日本旅行ガイド"
+  },
+  "detail": {
+    "back": "すべての旅先",
+    "highlights": "この旅で、したいこと",
+    "gettingThere": "アクセス",
+    "tip": "知っておきたいこと",
+    "duration": "滞在の目安",
+    "bestTime": "おすすめの時期",
+    "suggestion": "滞在日数は編集上の目安です。営業時間、交通情報、現地の状況を出発前に確認しましょう。",
+    "source": "JNTOの公式ガイドを読む",
+    "more": "次の旅先を探す",
+    "home": "ホーム",
+    "reviewed": "情報確認日"
+  },
+  "a11y": {
+    "skip": "メインコンテンツへ移動",
+    "external": "外部サイト"
   }
 }

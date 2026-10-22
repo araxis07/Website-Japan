@@ -1,50 +1,84 @@
-import Navigation from '@/components/Navigation.improved-fixed'
-import Hero from '@/components/Hero.improved'
-import RegionsList from '@/components/RegionsList.improved'
-import FeaturedDestinations from '@/components/FeaturedDestinations.improved'
-import Footer from '@/components/Footer.improved'
-import ScrollToTop from '@/components/ScrollToTop'
-import SeasonalHighlights from '@/components/SeasonalHighlights.improved'
-import ContactForm from '@/components/ContactForm.improved'
-import PageTransition from '@/components/PageTransition'
-import { Suspense } from 'react'
+import type { Metadata } from 'next'
+import { notFound } from 'next/navigation'
+import Hero from '@/components/Hero'
+import FeaturedDestinations from '@/components/FeaturedDestinations'
+import RegionsList from '@/components/RegionsList'
+import SeasonalHighlights from '@/components/SeasonalHighlights'
+import TravelPlanning from '@/components/TravelPlanning'
 import { getDictionary } from '@/i18n/dictionaries'
-import { Locale } from '@/i18n/config'
+import { isLocale } from '@/i18n/config'
+import { siteUrl } from '@/utils/site'
+import {
+  generateTravelGuideSchema,
+  generateTouristDestinationSchema,
+  generateBreadcrumbSchema,
+} from '@/utils/schema'
 
-// Define the props interface
-interface PageProps {
-  params: Promise<{ 
-    lang: Locale 
-  }>
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>
+}): Promise<Metadata> {
+  const { lang } = await params
+  if (!isLocale(lang)) notFound()
+  if (!siteUrl) return {}
+  const dict = await getDictionary(lang)
+  return {
+    alternates: {
+      canonical: `${siteUrl}/${lang}`,
+      languages: { ja: `${siteUrl}/ja`, en: `${siteUrl}/en`, 'x-default': `${siteUrl}/ja` },
+    },
+    openGraph: {
+      title: dict.brand,
+      description: dict.footer.description,
+      url: `${siteUrl}/${lang}`,
+      locale: lang === 'ja' ? 'ja_JP' : 'en_US',
+      type: 'website',
+      images: [{ url: '/images/fuji.jpg', alt: dict.hero.location }],
+    },
+  }
 }
 
-// Create a client-side wrapper for the page content
-const LocalePage = async ({ params }: PageProps) => {
-  const { lang: currentLang } = await params
-  const dict = await getDictionary(currentLang);  return (
-    <PageTransition>
-      <main id="main-content" className="min-h-screen bg-gradient-to-b from-warm-white via-cherry-pink-50 to-sakura-50 scroll-smooth overflow-x-hidden">
-        <Navigation dict={dict} lang={currentLang} />
-        <Suspense fallback={
-          <div className="min-h-screen flex items-center justify-center">
-            <div className="w-24 h-24 bg-gradient-to-br from-cherry-pink-400 to-sakura-500 rounded-full flex items-center justify-center animate-pulse">
-              <span className="text-4xl">🌸</span>
-            </div>
+export default async function LocalePage({ params }: { params: Promise<{ lang: string }> }) {
+  const { lang } = await params
+  if (!isLocale(lang)) notFound()
+  const dict = await getDictionary(lang)
+  const schema = [
+    generateTravelGuideSchema(lang),
+    generateTouristDestinationSchema(lang),
+    generateBreadcrumbSchema(lang),
+  ].filter(Boolean)
+  return (
+    <main id="main-content">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, '\\u003c') }}
+      />
+      <Hero dict={dict} />
+      <div className="container intro-strip">
+        <div className="intro-copy">
+          <h2>{dict.intro.title}</h2>
+          <p>{dict.intro.text}</p>
+        </div>
+        <div className="intro-stats">
+          <div>
+            <strong>9</strong>
+            <span>{dict.intro.regions}</span>
           </div>
-        }>
-          <div className="pt-24 relative z-10">
-            <Hero dict={dict} />
-            <RegionsList dict={dict} lang={currentLang} />
-            <SeasonalHighlights dict={dict} lang={currentLang} />
-            <FeaturedDestinations dict={dict} lang={currentLang} />
-            <ContactForm dict={dict} lang={currentLang} />
+          <div>
+            <strong>47</strong>
+            <span>{dict.intro.prefectures}</span>
           </div>
-        </Suspense>
-        <Footer dict={dict} lang={currentLang} />
-        <ScrollToTop />
-      </main>
-    </PageTransition>
+          <div>
+            <strong>4</strong>
+            <span>{dict.intro.seasons}</span>
+          </div>
+        </div>
+      </div>
+      <FeaturedDestinations dict={dict} lang={lang} />
+      <RegionsList dict={dict} lang={lang} />
+      <SeasonalHighlights dict={dict} lang={lang} />
+      <TravelPlanning dict={dict} />
+    </main>
   )
 }
-
-export default LocalePage

@@ -1,75 +1,39 @@
-import type { Metadata, Viewport } from "next"
-import "../globals.css"
-import "../custom-styles.css"
-import { i18n, type Locale } from '@/i18n/config'
-import { generateTravelGuideSchema, generateTouristDestinationSchema, generateBreadcrumbSchema } from '@/utils/schema'
+import type { Metadata, Viewport } from 'next'
+import { notFound } from 'next/navigation'
+import { i18n, isLocale } from '@/i18n/config'
+import { getDictionary } from '@/i18n/dictionaries'
+import { siteUrl } from '@/utils/site'
+import Navigation from '@/components/Navigation'
+import Footer from '@/components/Footer'
+import '../globals.css'
 
-
-export async function generateStaticParams() {
-  return i18n.locales.map((locale) => ({ lang: locale }))
+export const dynamicParams = false
+export function generateStaticParams() {
+  return i18n.locales.map((lang) => ({ lang }))
 }
+export const viewport: Viewport = { themeColor: '#263c32', width: 'device-width', initialScale: 1 }
 
-export const viewport: Viewport = {
-  themeColor: '#eb5757',
-  width: "device-width",
-  initialScale: 1,
-  maximumScale: 5,
-  minimumScale: 1
-}
-
-export const metadata: Metadata = {
-  title: "日本旅行ガイド | Japan Travel Guide - Discover Beautiful Japan",
-  description: "日本の美しい地域と観光地を発見しよう。47都道府県、9地域の魅力的な旅行情報をお届けします。| Discover Japan's beautiful regions and destinations with comprehensive travel information.",
-  keywords: "Japan, travel, tourism, regions, destinations, sakura, cherry blossom, Tokyo, Kyoto, Osaka, Hokkaido, Okinawa, 日本, 旅行, 観光, 地域, 観光地, 桜, 東京, 京都, 大阪, 北海道, 沖縄",
-  authors: [{ name: "Japan Travel Guide" }],
-  creator: "Japan Travel Guide Team",
-  publisher: "Japan Travel Guide",
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true
-    }
-  },
-  icons: {
-    icon: [
-      { url: '/favicon.ico' },
-      { url: '/icon.svg', type: 'image/svg+xml' },
-    ],
-    apple: '/apple-touch-icon.png',
-  },
-  alternates: {
-    canonical: 'https://japantravel-guide.com',
-    languages: {
-      'ja': 'https://japantravel-guide.com/ja',
-      'en': 'https://japantravel-guide.com/en'
-    }
-  },
-  openGraph: {
-    title: "Japan Travel Guide - Discover Beautiful Japan",
-    description: "Explore Japan's 9 regions and 47 prefectures with our comprehensive travel guide",
-    type: "website",
-    locale: "ja_JP",
-    alternateLocale: "en_US",
-    images: [
-      {
-        url: 'https://japantravel-guide.com/og-image.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Japan Travel Guide - Cherry blossoms and Mount Fuji'
-      }
-    ],
-    siteName: 'Japan Travel Guide',
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Japan Travel Guide",
-    description: "Discover Japan's beautiful regions and destinations",
-    images: ['https://japantravel-guide.com/twitter-image.jpg'],
-    creator: '@japantravelguide',
-    site: '@japantravelguide',
-  },
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>
+}): Promise<Metadata> {
+  const { lang } = await params
+  if (!isLocale(lang)) notFound()
+  const dict = await getDictionary(lang)
+  return {
+    ...(siteUrl ? { metadataBase: new URL(siteUrl) } : {}),
+    title: { default: `${dict.brand} | ${dict.hero.eyebrow}`, template: `%s | ${dict.brand}` },
+    description: dict.footer.description,
+    icons: { icon: '/icon.svg', apple: '/apple-touch-icon.png' },
+    manifest: '/manifest.webmanifest',
+    openGraph: {
+      type: 'website',
+      siteName: dict.brand,
+      locale: lang === 'ja' ? 'ja_JP' : 'en_US',
+      alternateLocale: lang === 'ja' ? 'en_US' : 'ja_JP',
+    },
+  }
 }
 
 export default async function LocaleLayout({
@@ -77,34 +41,20 @@ export default async function LocaleLayout({
   params,
 }: {
   children: React.ReactNode
-  params: Promise<{ lang: Locale }>
+  params: Promise<{ lang: string }>
 }) {
   const { lang } = await params
-  // Use a safer approach to avoid hydration mismatches  
-  const fontClass = lang === 'ja' ? 'font-japanese' : 'font-english'
+  if (!isLocale(lang)) notFound()
+  const dict = await getDictionary(lang)
   return (
-    <html lang={lang || 'ja'} className="scroll-smooth">
-      <head>
-        {/* We're already using Next.js font system, so we don't need these font links */}
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, minimum-scale=1" /><script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify([
-              generateTravelGuideSchema(lang),
-              generateTouristDestinationSchema(lang),
-              generateBreadcrumbSchema(lang)
-            ])
-          }}
-        />
-      </head>
-      <body className={`${fontClass} antialiased bg-warm-white text-gray-800 overflow-x-hidden`} suppressHydrationWarning>
-        <a 
-          href="#main-content" 
-          className="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 z-50 bg-white text-cherry-pink-600 p-3 m-3 focus:outline-none focus:ring-2 focus:ring-cherry-pink-500 border border-cherry-pink-200 rounded-md shadow-md"
-        >
-          {lang === 'ja' ? 'メインコンテンツへスキップ' : 'Skip to main content'}
+    <html lang={lang}>
+      <body id="top">
+        <a className="skip-link" href="#main-content">
+          {dict.a11y.skip}
         </a>
+        <Navigation dict={dict} lang={lang} />
         {children}
+        <Footer dict={dict} lang={lang} />
       </body>
     </html>
   )
