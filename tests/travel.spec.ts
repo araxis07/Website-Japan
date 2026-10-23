@@ -583,6 +583,48 @@ test('empty saved data stays intact and blocked storage gives an actionable erro
   ).toHaveCount(0)
 })
 
+test('the guide cover paints without duplicate-image LCP warnings', async ({
+  page,
+  browserName,
+}) => {
+  test.skip(browserName !== 'chromium', 'LCP observation requires Chromium.')
+  const warnings: string[] = []
+  page.on('console', (message) => {
+    if (/Largest Contentful Paint/.test(message.text())) warnings.push(message.text())
+  })
+  await page.addInitScript(() => {
+    new PerformanceObserver((list) => {
+      for (const entry of list.getEntries()) {
+        const element = (entry as PerformanceEntry & { element?: Element }).element
+        if (element?.closest('.detail-photo')) performance.mark('guide-cover-painted')
+      }
+    }).observe({ type: 'largest-contentful-paint', buffered: true })
+  })
+  let releaseCover = () => {}
+  const hydration = new Promise<void>((resolve) => {
+    releaseCover = resolve
+  })
+  const coverRequests: string[] = []
+  await page.route('**/_next/image*', async (route) => {
+    if (new URL(route.request().url()).searchParams.get('url') === '/images/kyoto.jpg') {
+      coverRequests.push(route.request().url())
+      await hydration
+    }
+    await route.continue()
+  })
+  await page.goto('/th/destinations/kyoto', { waitUntil: 'domcontentloaded' })
+  await expect(page.locator('.save-button').first()).toBeEnabled()
+  releaseCover()
+  await expect
+    .poll(() =>
+      page.evaluate(() => performance.getEntriesByName('guide-cover-painted').length),
+    )
+    .toBeGreaterThan(0)
+  await expect(page.locator('.photo-gallery img').first()).toHaveJSProperty('complete', true)
+  expect(coverRequests).toHaveLength(1)
+  expect(warnings).toEqual([])
+})
+
 test('gallery supports keyboard navigation, escape and focus restoration', async ({
   page,
 }) => {

@@ -47,7 +47,13 @@ export default function PhotoGallery({
                 alt={photo.alt[lang]}
                 width={1000}
                 height={700}
-                sizes="(max-width: 700px) 100vw, 45vw"
+                // The first photo repeats the cover; reuse its request and loading policy.
+                loading={i === 0 ? 'eager' : 'lazy'}
+                sizes={
+                  i === 0
+                    ? '(max-width: 700px) 100vw, 50vw'
+                    : '(max-width: 700px) 100vw, 45vw'
+                }
               />
               <span aria-hidden="true">↗</span>
             </a>
