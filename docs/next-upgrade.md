@@ -70,3 +70,24 @@ A one-off Lighthouse mobile simulation against local production `/th` used the s
 | Cumulative Layout Shift | 0 | 0 |
 
 The interactive miniature still initializes WebGL when requested. The ambient layer uses perspective/rotation/depth transforms and does not load an extra Three.js scene at startup.
+
+## Follow-up production verification — 2026-10-24
+
+The production build includes the theme-script, smooth-scroll and duplicate-cover fixes through `4d52e16`. The Kyoto cover was already eager; its gallery duplicate now shares the same loading policy and responsive size, preventing Next.js's development LCP observer from treating the shared image as lazy. The other gallery photo remains lazy.
+
+- `npm run build` passes with 179 generated paths. ESLint and `npm run typecheck` pass.
+- The complete production Playwright suite reports **63 passed, 1 skipped** across desktop Chromium and mobile WebKit. The skipped case uses the native LCP observer available in Chromium; gallery interaction still passes on WebKit. The Chromium case verifies a real cover paint and a single cover-image request.
+- The first full run exposed an unstable miniature screenshot assertion: a fractional canvas boundary included one pixel of neighbouring controls, whose hover state changed after clicking Reset. The test now masks those controls while comparing the canvas. Rotation must still change the image, and Reset must still restore an identical image; the comparison tolerance was not relaxed. The complete rerun passes.
+
+A separate Lighthouse **13.5.0** run against local production `/th/destinations/kyoto` used headless Chromium and default simulated mobile throttling, after browser tests had finished. It reports no run warnings and one Kyoto image request (approximately 32.5 kB transferred).
+
+| Measure | Result |
+| --- | --- |
+| Performance | 97 |
+| Accessibility / Best Practices / SEO | 100 / 100 / 100 |
+| First Contentful Paint | 1.1 s |
+| Largest Contentful Paint | 2.7 s |
+| Total Blocking Time | 30 ms |
+| Cumulative Layout Shift | 0 |
+
+This is a single local lab measurement of the Kyoto guide, not a before/after speed comparison or field Core Web Vitals. Production hosting/CDN, physical devices and deployment were not checked. The security audit above was not rerun in this verification pass. Generated build files, browser traces and Lighthouse output remain outside the commit.

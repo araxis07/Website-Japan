@@ -299,7 +299,13 @@ test('interactive miniature responds to lighting, seasons, rotation and motion c
   await page.getByRole('button', { name: 'Pause animation', exact: true }).click()
   await expect(scene).toHaveAttribute('data-moving', 'false')
   const canvas = scene.locator('canvas')
-  const day = await canvas.screenshot({ animations: 'disabled' })
+  // Fractional canvas bounds can include a pixel of the neighbouring hover controls.
+  const snapshot = () =>
+    canvas.screenshot({
+      animations: 'disabled',
+      mask: [scene.locator('.scene-controls')],
+    })
+  const day = await snapshot()
   await page.getByRole('button', { name: 'Light the lanterns', exact: true }).click()
   await expect(scene).toHaveAttribute('data-night', 'true')
   await scene.evaluate((element) =>
@@ -307,17 +313,17 @@ test('interactive miniature responds to lighting, seasons, rotation and motion c
       element.getAnimations({ subtree: true }).map((animation) => animation.finished),
     ),
   )
-  expect((await canvas.screenshot({ animations: 'disabled' })).equals(day)).toBe(false)
+  expect((await snapshot()).equals(day)).toBe(false)
   await page
     .getByRole('group', { name: 'Change the miniature season' })
     .getByRole('button', { name: 'Winter', exact: true })
     .click()
   await expect(scene).toHaveAttribute('data-season', '3')
-  const winter = await canvas.screenshot({ animations: 'disabled' })
+  const winter = await snapshot()
   await page.getByRole('button', { name: 'Rotate scene right', exact: true }).click()
-  expect((await canvas.screenshot({ animations: 'disabled' })).equals(winter)).toBe(false)
+  expect((await snapshot()).equals(winter)).toBe(false)
   await page.getByRole('button', { name: 'Reset scene view', exact: true }).click()
-  expect((await canvas.screenshot({ animations: 'disabled' })).equals(winter)).toBe(true)
+  expect((await snapshot()).equals(winter)).toBe(true)
   await page.getByRole('button', { name: 'Play animation', exact: true }).click()
   await expect(scene).toHaveAttribute('data-moving', 'true')
 })
