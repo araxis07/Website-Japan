@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 }
 export default function GlobalNotFound() {
   return (
-    <html lang="ja" suppressHydrationWarning>
+    <html lang="ja" data-scroll-behavior="smooth" suppressHydrationWarning>
       <head>
         <ThemeScript />
       </head>

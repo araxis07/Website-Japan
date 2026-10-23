@@ -61,7 +61,7 @@ export default async function LocaleLayout({
   if (!isLocale(lang)) notFound()
   const dict = await getDictionary(lang)
   return (
-    <html lang={lang} suppressHydrationWarning>
+    <html lang={lang} data-scroll-behavior="smooth" suppressHydrationWarning>
       <head>
         <ThemeScript />
       </head>

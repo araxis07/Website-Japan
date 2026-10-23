@@ -78,7 +78,10 @@ test('browser extension body attributes do not interrupt hydration', async ({ pa
   const errors: string[] = []
   page.on('pageerror', (error) => errors.push(error.message))
   page.on('console', (message) => {
-    if (message.type() === 'error' && /hydrat|script tag/i.test(message.text()))
+    if (
+      ['error', 'warning'].includes(message.type()) &&
+      /hydrat|script tag|scroll-behavior/i.test(message.text())
+    )
       errors.push(message.text())
   })
   await page.addInitScript(() => {
