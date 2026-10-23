@@ -5,13 +5,15 @@ import Image from 'next/image'
 import type { Dictionary } from '@/i18n/dictionaries'
 import type { createJapanScene, SceneOptions } from '@/lib/japan-scene'
 import Icon from './Icon'
+import { useAtmosphere } from './Atmosphere'
 
 function subscribe(callback: () => void) {
   const query = window.matchMedia('(prefers-reduced-motion: reduce)')
   query.addEventListener('change', callback)
   return () => query.removeEventListener('change', callback)
 }
-const reducedSnapshot = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches
+const reducedSnapshot = () =>
+  window.matchMedia('(prefers-reduced-motion: reduce)').matches
 const serverSnapshot = () => true
 
 export default function JapanDiorama({ copy }: { copy: Dictionary['scene'] }) {
@@ -24,15 +26,18 @@ export default function JapanDiorama({ copy }: { copy: Dictionary['scene'] }) {
   })
   const [status, setStatus] = useState('preview')
   const [requested, setRequested] = useState(false)
-  const [night, setNight] = useState(false)
+  const { theme, toggleTheme } = useAtmosphere()
+  const lightToggle = useRef(toggleTheme)
+  const night = theme === 'dark'
   const [season, setSeason] = useState(0)
   const [paused, setPaused] = useState(false)
   const reduced = useSyncExternalStore(subscribe, reducedSnapshot, serverSnapshot)
   const moving = !paused && !reduced
   useEffect(() => {
+    lightToggle.current = toggleTheme
     settings.current = { night, season, moving }
     scene.current?.update(settings.current)
-  }, [night, season, moving])
+  }, [night, season, moving, toggleTheme])
   useEffect(() => {
     const element = host.current
     if (!element || !requested) return
@@ -43,7 +48,7 @@ export default function JapanDiorama({ copy }: { copy: Dictionary['scene'] }) {
         scene.current = createJapanScene(
           element,
           settings.current,
-          () => setNight((value) => !value),
+          () => lightToggle.current(),
           () => setStatus('fallback'),
         )
         setStatus('ready')
@@ -128,7 +133,9 @@ export default function JapanDiorama({ copy }: { copy: Dictionary['scene'] }) {
                 {['春', '夏', '秋', '冬'][index]}
               </span>
               <span
-                className={name === ['春', '夏', '秋', '冬'][index] ? 'sr-only' : undefined}
+                className={
+                  name === ['春', '夏', '秋', '冬'][index] ? 'sr-only' : undefined
+                }
               >
                 {name}
               </span>
@@ -140,7 +147,7 @@ export default function JapanDiorama({ copy }: { copy: Dictionary['scene'] }) {
             className="light-switch"
             type="button"
             aria-pressed={night}
-            onClick={() => setNight(!night)}
+            onClick={toggleTheme}
             disabled={status !== 'ready'}
           >
             <Icon name={night ? 'moon' : 'sun'} />

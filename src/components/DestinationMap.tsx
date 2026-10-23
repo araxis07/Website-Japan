@@ -7,27 +7,30 @@ import { places, mapUrl } from '@/data/places'
 import type { Locale } from '@/i18n/config'
 import type { Dictionary } from '@/i18n/dictionaries'
 import SavePlace from './SavePlace'
+import StreetMap from './StreetMap'
 
-const offsets: Record<string, [number, number]> = {
-  kyoto: [-15, -4],
-  osaka: [-16, 7],
-  'mount-fuji': [8, 9],
-  tokyo: [12, 0],
-  hokkaido: [-7, 0],
-  okinawa: [5, -2],
-}
+const overviewPoints = places.filter((p) => p.id.startsWith('destination:'))
+
 export default function DestinationMap({
   lang,
   copy,
+  mapCopy,
+  exploreLabel,
 }: {
   lang: Locale
   copy: Dictionary['map']
+  mapCopy: Dictionary['streetMap']
+  exploreLabel: string
 }) {
   const [selected, setSelected] = useState('kyoto')
   const destination = destinations.find((d) => d.slug === selected)!
   const place = places.find((p) => p.id === `destination:${selected}`)!
   return (
-    <section className="atlas-section section container" id="map" aria-labelledby="map-title">
+    <section
+      className="atlas-section section container"
+      id="map"
+      aria-labelledby="map-title"
+    >
       <div className="section-heading">
         <div>
           <p className="section-japanese" lang="ja" aria-hidden="true">
@@ -38,49 +41,29 @@ export default function DestinationMap({
         </div>
       </div>
       <div className="atlas-layout">
-        <div className="atlas-map" role="group" aria-label={copy.label}>
-          <Image
-            src="/images/japan-map.svg"
-            alt=""
-            fill
-            sizes="(max-width: 750px) 100vw, 45vw"
+        <div className="atlas-map-panel">
+          <StreetMap
+            points={overviewPoints}
+            selected={`destination:${selected}`}
+            onSelect={(id) => setSelected(id.replace('destination:', ''))}
+            lang={lang}
+            copy={mapCopy}
           />
-          <svg viewBox="0 0 600 700" aria-hidden="true" className="atlas-lines">
-            {destinations.map((d) => {
-              const p = places.find((p) => p.id === `destination:${d.slug}`)!,
-                x = ((p.coordinates[1] - 122) / 25) * 600,
-                y = ((46 - p.coordinates[0]) / 23) * 700,
-                offset = offsets[d.slug]
-              return (
-                <g key={d.slug}>
-                  <line x1={x} y1={y} x2={x + offset[0] * 6} y2={y + offset[1] * 7} />
-                  <circle cx={x} cy={y} r="4" />
-                </g>
-              )
-            })}
-          </svg>
-          {destinations.map((d) => {
-            const p = places.find((p) => p.id === `destination:${d.slug}`)!,
-              offset = offsets[d.slug]
-            return (
+          <div className="map-destination-buttons" role="group" aria-label={copy.label}>
+            {destinations.map((d) => (
               <button
                 key={d.slug}
                 type="button"
-                className="atlas-pin"
                 aria-pressed={selected === d.slug}
                 onClick={() => setSelected(d.slug)}
-                style={{
-                  left: `${((p.coordinates[1] - 122) / 25) * 100 + offset[0]}%`,
-                  top: `${((46 - p.coordinates[0]) / 23) * 100 + offset[1]}%`,
-                }}
               >
                 {d[lang].name}
               </button>
-            )
-          })}
-          <span className="map-north" aria-hidden="true">
-            N ↑
-          </span>
+            ))}
+          </div>
+          <Link className="button" href={`/${lang}/explore`}>
+            {exploreLabel} <span aria-hidden="true">↗</span>
+          </Link>
         </div>
         <div className="atlas-selection" aria-live="polite">
           <div className="atlas-photo">
@@ -106,8 +89,7 @@ export default function DestinationMap({
         </div>
       </div>
       <p className="source-note">
-        {copy.note}{' '}
-        <a href="https://www.naturalearthdata.com/about/terms-of-use/">{copy.credit}</a>
+        {copy.note} <a href="https://www.openstreetmap.org/copyright">{copy.credit}</a>
       </p>
     </section>
   )

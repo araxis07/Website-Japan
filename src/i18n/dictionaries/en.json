@@ -12,7 +12,8 @@
     "language": "Choose language",
     "journeys": "Journeys",
     "experiences": "Experiences",
-    "map": "Map"
+    "map": "Map",
+    "explore": "Explore 47 prefectures"
   },
   "hero": {
     "eyebrow": "A small world. An extraordinary journey.",
@@ -224,7 +225,7 @@
     "note": "Planning suggestions, not live timetables. Check the linked operators and venues for current access, hours and bookings.",
     "open": "Open in Google Maps",
     "route": "Get directions",
-    "mapNote": "Approximate locations. Use the linked map for streets and actual routes.",
+    "mapNote": "Pins identify the featured places, not the whole prefecture. Open directions to confirm the entrance and actual journey.",
     "photo": "Open photo",
     "close": "Close photo",
     "previous": "Previous photo",
@@ -235,8 +236,8 @@
     "title": "See how your journey connects.",
     "subtitle": "Choose a destination on the map, then explore places nearby.",
     "label": "Destination map",
-    "note": "Geographic overview · markers show the guide’s base, not the entire region.",
-    "credit": "Map data: Natural Earth",
+    "note": "Street maps © OpenStreetMap contributors. Map labels may use the local language.",
+    "credit": "OpenStreetMap",
     "guide": "Read the guide"
   },
   "trip": {
@@ -271,13 +272,81 @@
     "emptyDay": "Leave this day open, or schedule a saved place.",
     "printNote": "Use your browser’s print dialog and choose Save as PDF. Unscheduled places are included.",
     "count": "saved places",
-    "dismiss": "Dismiss message"
+    "dismiss": "Dismiss message",
+    "directions": "Directions in Google Maps"
   },
   "creditsExtra": {
     "photos": "Photography from Unsplash. With thanks to the photographers.",
     "art": "The miniature is original procedural Three.js artwork, not a geographic reconstruction.",
     "source": "View source",
-    "map": "The geographic overview uses public-domain Natural Earth data. Pins are approximate planning references.",
+    "map": "Street maps © OpenStreetMap contributors. Map labels may use the local language.",
     "tea": "Matcha tea, an illustration of the experience rather than a particular venue."
+  },
+  "atmosphere": {
+    "label": "Appearance and motion",
+    "light": "Day mode",
+    "dark": "Night mode",
+    "pause": "Pause petals",
+    "play": "Resume petals",
+    "reduced": "Motion reduced"
+  },
+  "streetMap": {
+    "label": "Interactive street map",
+    "loading": "Loading the street map…",
+    "error": "Map tiles could not load. You can still use the place list and open Google Maps.",
+    "retry": "Retry map",
+    "nojs": "Enable JavaScript for the map, or use the place links below.",
+    "hint": "Drag to move. Use + / − or pinch to zoom. Select a pin or choose from the list.",
+    "zoomIn": "Zoom in",
+    "zoomOut": "Zoom out",
+    "report": "Report a map issue",
+    "credit": "Street maps © OpenStreetMap contributors. Map labels may use the local language.",
+    "route": "Directions in Google Maps",
+    "search": "Open place in Google Maps",
+    "location": "Map location (Japanese)",
+    "source": "Location source · OpenStreetMap"
+  },
+  "explorer": {
+    "title": "Find your place in Japan",
+    "subtitle": "All 47 prefectures. Start with a region, choose a place, then build your trip.",
+    "search": "Search prefectures or places",
+    "placeholder": "Try Kyoto, Nara or a temple name",
+    "region": "Region",
+    "all": "All regions",
+    "results": "prefectures",
+    "empty": "No matching prefectures. Try another name or clear the filters.",
+    "reset": "Clear filters",
+    "read": "Open prefecture guide",
+    "show": "Show on map",
+    "base": "Suggested base",
+    "arrival": "How to get there",
+    "places": "Places to start with",
+    "source": "Official prefecture guide — JNTO",
+    "reviewed": "Sources checked",
+    "back": "All 47 prefectures",
+    "mapNote": "Pins identify the featured places, not the whole prefecture. Open directions to confirm the entrance and actual journey.",
+    "planNote": "These are ideas to choose from, not a same-day route. Check distances, opening days and the last return service before adding them to your plan.",
+    "visit": "First time in Japan?",
+    "visitLink": "Start with the arrival guide",
+    "saveHelp": "Save a place, then assign it to a day in My trip.",
+    "more": "Detailed city guide",
+    "pick": "Choose a prefecture",
+    "list": "Prefecture list"
+  },
+  "beginner": {
+    "title": "Your first Japan trip, one step at a time",
+    "subtitle": "A practical path from choosing a destination to leaving the airport.",
+    "nav": "First visit",
+    "step1": "Prepare for arrival",
+    "step1Text": "Documents, internet, money and your first train.",
+    "step2": "Choose a prefecture",
+    "step2Text": "Find real places on the map in all 47 prefectures.",
+    "step3": "Put your days together",
+    "step3Text": "Save places, assign days and print your plan.",
+    "heading": "Start here",
+    "continue": "Explore all 47 prefectures",
+    "source": "Official information",
+    "note": "Requirements and services can change. Follow the linked official information for your nationality, date and arrival airport.",
+    "visa": "Visa information — Ministry of Foreign Affairs"
   }
 }

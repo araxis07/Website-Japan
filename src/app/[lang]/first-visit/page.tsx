@@ -1,0 +1,81 @@
+import { notFound } from 'next/navigation'
+import Link from 'next/link'
+import { isLocale } from '@/i18n/config'
+import { getDictionary } from '@/i18n/dictionaries'
+import { firstVisitSteps } from '@/data/first-visit'
+import { pageMetadata } from '@/utils/site'
+
+type Props = { params: Promise<{ lang: string }> }
+export async function generateMetadata({ params }: Props) {
+  const { lang } = await params
+  if (!isLocale(lang)) notFound()
+  const dict = await getDictionary(lang)
+  return pageMetadata(lang, '/first-visit', dict.beginner.title, dict.beginner.subtitle)
+}
+export default async function FirstVisit({ params }: Props) {
+  const { lang } = await params
+  if (!isLocale(lang)) notFound()
+  const dict = await getDictionary(lang)
+  return (
+    <main id="main-content" className="container first-visit-page">
+      <nav className="breadcrumbs" aria-label={dict.guide.breadcrumb}>
+        <Link href={`/${lang}`}>{dict.detail.home}</Link>
+        <span aria-hidden="true">/</span>
+        <span>{dict.beginner.nav}</span>
+      </nav>
+      <div className="page-intro">
+        <p className="section-japanese" lang="ja" aria-hidden="true">
+          はじめての日本
+        </p>
+        <h1>{dict.beginner.title}</h1>
+        <p>{dict.beginner.subtitle}</p>
+      </div>
+      <nav className="first-visit-toc" aria-label={dict.guide.toc}>
+        {firstVisitSteps.map((step, index) => (
+          <a key={step.id} href={`#${step.id}`}>
+            {index + 1}. {step.copy[lang].title}
+          </a>
+        ))}
+      </nav>
+      <div className="first-visit-steps">
+        {firstVisitSteps.map((step, index) => (
+          <section
+            className="first-step depth-surface"
+            id={step.id}
+            key={step.id}
+            aria-labelledby={`${step.id}-title`}
+          >
+            <span className="step-number" aria-hidden="true">
+              {index + 1}
+            </span>
+            <div>
+              <h2 id={`${step.id}-title`}>{step.copy[lang].title}</h2>
+              <ul>
+                {step.copy[lang].items.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+              <a className="text-link" href={step.source}>
+                {dict.beginner.source} ↗
+              </a>
+              {step.id === 'documents' && (
+                <p>
+                  <a
+                    className="text-link"
+                    href="https://www.mofa.go.jp/j_info/visit/visa/index.html"
+                  >
+                    {dict.beginner.visa} ↗
+                  </a>
+                </p>
+              )}
+            </div>
+          </section>
+        ))}
+      </div>
+      <p className="source-note">{dict.beginner.note}</p>
+      <Link className="button" href={`/${lang}/explore`}>
+        {dict.beginner.continue} ↗
+      </Link>
+    </main>
+  )
+}

@@ -1,8 +1,10 @@
 import type { Dictionary } from '@/i18n/dictionaries'
 import Icon from './Icon'
+import Link from 'next/link'
+import type { Locale } from '@/i18n/config'
 import JapanDiorama from './JapanDiorama'
 
-export default function Hero({ dict }: { dict: Dictionary }) {
+export default function Hero({ dict, lang }: { dict: Dictionary; lang: Locale }) {
   return (
     <section className="hero" aria-labelledby="hero-title">
       <div className="container hero-inner">
@@ -14,14 +16,14 @@ export default function Hero({ dict }: { dict: Dictionary }) {
           <h1 id="hero-title">{dict.hero.title}</h1>
           <p className="hero-description">{dict.hero.subtitle}</p>
           <div className="hero-actions">
-            <a href="#destinations" className="button">
-              {dict.hero.cta}
+            <Link href={`/${lang}/first-visit`} className="button">
+              {dict.beginner.step1}
               <Icon name="arrow" />
-            </a>
-            <a href="#journeys" className="hero-secondary">
-              {dict.hero.secondary}
+            </Link>
+            <Link href={`/${lang}/explore`} className="hero-secondary">
+              {dict.navigation.explore}
               <span aria-hidden="true">↗</span>
-            </a>
+            </Link>
           </div>
           <div className="hero-note">
             <span className="hero-seal" lang="ja" aria-hidden="true">

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import DestinationMap from '@/components/DestinationMap'
+import StartHere from '@/components/StartHere'
 import Hero from '@/components/Hero'
 import FeaturedDestinations from '@/components/FeaturedDestinations'
 import RegionsList from '@/components/RegionsList'
@@ -47,7 +48,11 @@ export async function generateMetadata({
   }
 }
 
-export default async function LocalePage({ params }: { params: Promise<{ lang: string }> }) {
+export default async function LocalePage({
+  params,
+}: {
+  params: Promise<{ lang: string }>
+}) {
   const { lang } = await params
   if (!isLocale(lang)) notFound()
   const dict = await getDictionary(lang)
@@ -64,7 +69,8 @@ export default async function LocalePage({ params }: { params: Promise<{ lang: s
           __html: JSON.stringify(schema).replace(/</g, '\\u003c'),
         }}
       />
-      <Hero dict={dict} />
+      <Hero dict={dict} lang={lang} />
+      <StartHere lang={lang} copy={dict.beginner} />
       <div className="container intro-strip">
         <div className="intro-copy">
           <h2>{dict.intro.title}</h2>
@@ -86,7 +92,12 @@ export default async function LocalePage({ params }: { params: Promise<{ lang: s
         </div>
       </div>
       <FeaturedDestinations dict={dict} lang={lang} />
-      <DestinationMap copy={dict.map} lang={lang} />
+      <DestinationMap
+        copy={dict.map}
+        mapCopy={dict.streetMap}
+        exploreLabel={dict.navigation.explore}
+        lang={lang}
+      />
       <Experiences dict={dict} lang={lang} />
       <RegionsList dict={dict} lang={lang} />
       <SeasonalHighlights dict={dict} lang={lang} />

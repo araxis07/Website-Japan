@@ -1,152 +1,219 @@
 import type { Locale } from '@/i18n/config'
 import { destinations } from './travel'
+import { prefecturePlaces } from './prefecture-places'
 
 export type Place = {
   id: string
   destination: string
   coordinates: [number, number]
   names: Record<Locale, string>
+  prefecture?: string
+  query?: string
+  address?: string
+  source?: string
 }
 export const spots: Place[] = [
   {
     id: 'kiyomizu',
     destination: 'kyoto',
-    coordinates: [34.9949, 135.785],
+    coordinates: [34.994303, 135.784439],
     names: { en: 'Kiyomizu-dera', ja: '清水寺', th: 'วัดคิโยมิซุเดระ' },
+    query: '清水寺 京都府 日本',
+    address:
+      '清水寺, 茶わん坂, 清水一丁目, 辰巳町, 東山区, 京都市, 京都府, 605-0862, 日本',
+    source: 'https://www.openstreetmap.org/way/336641107',
   },
   {
     id: 'gion',
     destination: 'kyoto',
-    coordinates: [35.003, 135.775],
+    coordinates: [35.00469, 135.778403],
     names: { en: 'Gion', ja: '祇園', th: 'กิออน' },
+    query: '祇園 京都府 日本',
+    address: '祇園, 東山区, 京都市, 京都府, 日本',
+    source: 'https://www.openstreetmap.org/relation/9541222',
   },
   {
     id: 'kyoto-museum',
     destination: 'kyoto',
-    coordinates: [34.99, 135.773],
+    coordinates: [34.989896, 135.772861],
     names: {
       en: 'Kyoto National Museum',
       ja: '京都国立博物館',
       th: 'พิพิธภัณฑสถานแห่งชาติเกียวโต',
     },
+    query: '京都国立博物館 京都府 日本',
+    address:
+      '京都国立博物館, 東大路通, 妙法院前側町, 辰巳町, 東山区, 京都市, 京都府, 605-0932, 日本',
+    source: 'https://www.openstreetmap.org/way/31843043',
   },
   {
     id: 'sensoji',
     destination: 'tokyo',
-    coordinates: [35.7148, 139.7967],
+    coordinates: [35.713403, 139.795526],
     names: { en: 'Sensoji', ja: '浅草寺', th: 'วัดเซ็นโซจิ' },
+    query: '浅草寺 東京都 日本',
+    address: '浅草寺, 1, 浅草二丁目, 浅草, 台東区, 東京, 111-0032, 日本',
+    source: 'https://www.openstreetmap.org/way/173154847',
   },
   {
     id: 'sumida',
     destination: 'tokyo',
-    coordinates: [35.714, 139.802],
+    coordinates: [35.715506, 139.803143],
     names: { en: 'Sumida Park', ja: '隅田公園', th: 'สวนสุมิดะ' },
+    query: '隅田公園 東京都 日本',
+    address: '隅田公園, 台東区, 東京, 日本',
+    source: 'https://www.openstreetmap.org/relation/14235095',
   },
   {
     id: 'tokyo-museum',
     destination: 'tokyo',
-    coordinates: [35.7188, 139.7765],
+    coordinates: [35.719045, 139.775968],
     names: {
       en: 'Tokyo National Museum',
       ja: '東京国立博物館',
       th: 'พิพิธภัณฑสถานแห่งชาติโตเกียว',
     },
+    query: '東京国立博物館 東京都 日本',
+    address: '東京国立博物館, 9, 上野公園, 台東区, 東京, 110-8712, 日本',
+    source: 'https://www.openstreetmap.org/way/33439660',
   },
   {
     id: 'oishi',
     destination: 'mount-fuji',
-    coordinates: [35.5238, 138.7468],
+    coordinates: [35.52329, 138.746537],
     names: { en: 'Oishi Park', ja: '大石公園', th: 'สวนโออิชิ' },
+    query: '大石公園 山梨県 日本',
+    address: '大石公園, 大石, 富士河口湖町, 南都留郡, 山梨県, 401-0392, 日本',
+    source: 'https://www.openstreetmap.org/way/1220560079',
   },
   {
     id: 'kawaguchiko',
     destination: 'mount-fuji',
-    coordinates: [35.498, 138.7688],
+    coordinates: [35.498033, 138.76898],
     names: { en: 'Kawaguchiko Station', ja: '河口湖駅', th: 'สถานีคาวากุจิโกะ' },
+    query: '河口湖駅 山梨県 日本',
+    address: '河口湖, 御坂みち, 船津, 富士河口湖町, 南都留郡, 山梨県, 401-0392, 日本',
+    source: 'https://www.openstreetmap.org/node/8241789866',
   },
   {
     id: 'fuji-center',
     destination: 'mount-fuji',
-    coordinates: [35.4846, 138.7732],
+    coordinates: [35.485872, 138.770659],
     names: {
       en: 'Yamanashi Fujisan World Heritage Center',
       ja: '山梨県立富士山世界遺産センター',
       th: 'ศูนย์มรดกโลกฟูจิ จังหวัดยามานาชิ',
     },
+    query: '山梨県立富士山世界遺産センター 山梨県 日本',
+    address:
+      '山梨県立富士山世界遺産センター, 富士河口湖富士線, 富士河口湖町, 南都留郡, 山梨県, 401-0392, 日本',
+    source: 'https://www.openstreetmap.org/relation/17259559',
   },
   {
     id: 'osaka-castle',
     destination: 'osaka',
-    coordinates: [34.6873, 135.5262],
+    coordinates: [34.686527, 135.527246],
     names: { en: 'Osaka Castle Park', ja: '大阪城公園', th: 'สวนปราสาทโอซาก้า' },
+    query: '大阪城公園 大阪府 日本',
+    address: '大阪城公園, 大阪市, 大阪府, 540-0002, 日本',
+    source: 'https://www.openstreetmap.org/way/35457792',
   },
   {
     id: 'osaka-museum',
     destination: 'osaka',
-    coordinates: [34.6825, 135.5208],
+    coordinates: [34.682618, 135.520813],
     names: {
       en: 'Osaka Museum of History',
       ja: '大阪歴史博物館',
       th: 'พิพิธภัณฑ์ประวัติศาสตร์โอซาก้า',
     },
+    query: '大阪歴史博物館 大阪府 日本',
+    address:
+      '大阪歴史博物館, 本町通, 大手前四丁目, 中央区, 大阪市, 大阪府, 540-0007, 日本',
+    source: 'https://www.openstreetmap.org/node/4920617728',
   },
   {
     id: 'dotonbori',
     destination: 'osaka',
-    coordinates: [34.6687, 135.5013],
+    coordinates: [34.669031, 135.501572],
     names: { en: 'Dotonbori', ja: '道頓堀', th: 'โดทงโบริ' },
+    query: '道頓堀 大阪府 日本',
+    address: '道頓堀, 道頓堀一丁目, 中央区, 大阪市, 大阪府, 542-0071, 日本',
+    source: 'https://www.openstreetmap.org/node/4029007869',
   },
   {
     id: 'odori',
     destination: 'hokkaido',
-    coordinates: [43.0598, 141.3478],
+    coordinates: [43.059902, 141.34751],
     names: { en: 'Odori Park, Sapporo', ja: '札幌・大通公園', th: 'สวนโอโดริ ซัปโปโร' },
+    query: '大通公園 北海道 日本',
+    address: '大通公園, 中央区, 札幌市, 石狩振興局, 北海道, 北海道地方, 060-0042, 日本',
+    source: 'https://www.openstreetmap.org/way/64733385',
   },
   {
     id: 'hokkaido-museum',
     destination: 'hokkaido',
-    coordinates: [43.0753, 141.3407],
+    coordinates: [43.0726, 141.342212],
     names: {
       en: 'Hokkaido University Museum',
       ja: '北海道大学総合博物館',
       th: 'พิพิธภัณฑ์มหาวิทยาลัยฮอกไกโด',
     },
+    query: '北海道大学総合博物館 北海道 日本',
+    address:
+      '北海道大学総合博物館, メインストリート, 北10条西8, 北区, 札幌市, 石狩振興局, 北海道, 北海道地方, 060-0813, 日本',
+    source: 'https://www.openstreetmap.org/way/192083649',
   },
   {
     id: 'beer-museum',
     destination: 'hokkaido',
-    coordinates: [43.0715, 141.3686],
+    coordinates: [43.071408, 141.368996],
     names: {
       en: 'Sapporo Beer Museum',
       ja: 'サッポロビール博物館',
       th: 'พิพิธภัณฑ์เบียร์ซัปโปโร',
     },
+    query: 'サッポロビール博物館 北海道 日本',
+    address:
+      'サッポロビール博物館, 1, 北7条東9, 東区, 札幌市, 石狩振興局, 北海道, 北海道地方, 065-8633, 日本',
+    source: 'https://www.openstreetmap.org/way/219728956',
   },
   {
     id: 'makishi',
     destination: 'okinawa',
-    coordinates: [26.2148, 127.6887],
+    coordinates: [26.214546, 127.688288],
     names: { en: 'Makishi Public Market', ja: '第一牧志公設市場', th: 'ตลาดมาคิชิ' },
+    query: '第一牧志公設市場 沖縄県 日本',
+    address:
+      '第一牧志公設市場, 市場中央通り, 松尾二丁目, 松尾, 那覇市, 沖縄県, 900-8585, 日本',
+    source: 'https://www.openstreetmap.org/way/533600878',
   },
   {
     id: 'tsuboya',
     destination: 'okinawa',
-    coordinates: [26.213, 127.6917],
+    coordinates: [26.212911, 127.691807],
     names: {
       en: 'Tsuboya pottery street',
       ja: '壺屋やちむん通り',
       th: 'ถนนเครื่องปั้นดินเผาสึโบยะ',
     },
+    query: '壺屋やちむん通り 那覇市 沖縄県 日本',
+    address: '壺屋やちむん通り, 壺屋一丁目, 牧志, 那覇市, 沖縄県, 900-8585, 日本',
+    source: 'https://www.openstreetmap.org/way/104798533',
   },
   {
     id: 'okinawa-museum',
     destination: 'okinawa',
-    coordinates: [26.2273, 127.693],
+    coordinates: [26.227159, 127.693718],
     names: {
       en: 'Okinawa Prefectural Museum & Art Museum',
       ja: '沖縄県立博物館・美術館',
       th: 'พิพิธภัณฑ์และหอศิลป์จังหวัดโอกินาว่า',
     },
+    query: '沖縄県立博物館・美術館 沖縄県 日本',
+    address:
+      '沖縄県立博物館・美術館 (おきみゅー), 1, おもろまち三丁目, おもろまち, 那覇市, 沖縄県, 900-0006, 日本',
+    source: 'https://www.openstreetmap.org/way/104013354',
   },
 ]
 const bases: Record<string, [number, number]> = {
@@ -165,10 +232,17 @@ export const places: Place[] = [
     names: { en: d.en.name, ja: d.ja.name, th: d.th.name },
   })),
   ...spots,
+  ...prefecturePlaces,
 ]
 export function mapUrl(place: Place, directions = false) {
-  const target = `${place.coordinates[0]},${place.coordinates[1]}`
+  const target =
+    place.query ??
+    `${place.names.ja} ${destinations.find((d) => d.slug === place.destination)?.ja.name ?? ''} 日本`
   return directions
     ? `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(target)}`
-    : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${place.names.en} ${place.names.ja}`)}`
+    : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(target)}`
+}
+
+export function placePath(place: Place, lang: Locale) {
+  return `/${lang}/${place.prefecture ? 'prefectures' : 'destinations'}/${place.prefecture ?? place.destination}#places`
 }

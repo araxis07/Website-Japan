@@ -6,6 +6,7 @@ export const emptyTrip: Trip = { version: 1, days: 7, items: [] }
 const knownPlaces = new Set(places.map((place) => place.id))
 
 export function parseTrip(raw: string): Trip | null {
+  if (raw.length > 64_000) return null
   try {
     const value = JSON.parse(raw)
     if (

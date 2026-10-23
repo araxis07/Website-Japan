@@ -120,7 +120,11 @@ export default async function DestinationPage({ params }: Props) {
         <a href="#gallery">{dict.guide.gallery}</a>
         <a href="#sources">{dict.guide.sources}</a>
       </nav>
-      <section className="practical-guide" id="practical" aria-labelledby="practical-title">
+      <section
+        className="practical-guide"
+        id="practical"
+        aria-labelledby="practical-title"
+      >
         <div className="section-heading">
           <div>
             <h2 id="practical-title">{dict.guide.overview}</h2>
@@ -187,7 +191,8 @@ export default async function DestinationPage({ params }: Props) {
             <Icon name="external" />
           </a>
           <p className="source-note">
-            {dict.detail.reviewed} <time dateTime={guide.reviewedAt}>{guide.reviewedAt}</time>
+            {dict.detail.reviewed}{' '}
+            <time dateTime={guide.reviewedAt}>{guide.reviewedAt}</time>
           </p>
         </aside>
       </div>
@@ -195,29 +200,34 @@ export default async function DestinationPage({ params }: Props) {
         <h2 id="places-title">{dict.guide.spots}</h2>
         <PlacesMap
           points={spots.filter((spot) => spot.destination === slug)}
-          copy={dict.guide}
+          mapCopy={dict.streetMap}
           lang={lang}
         />
       </section>
       <section id="gallery" className="guide-gallery" aria-labelledby="gallery-title">
         <h2 id="gallery-title">{dict.guide.gallery}</h2>
         <PhotoGallery
+          copy={dict.guide}
           photos={[
             {
               src: place.image,
-              alt: { en: place.en.imageAlt, ja: place.ja.imageAlt, th: place.th.imageAlt },
+              alt: {
+                en: place.en.imageAlt,
+                ja: place.ja.imageAlt,
+                th: place.th.imageAlt,
+              },
             },
             detailPhotos[slug],
           ]}
           lang={lang}
-          copy={dict.guide}
         />
       </section>
       <section className="guide-sources" id="sources" aria-labelledby="sources-title">
         <h2 id="sources-title">{dict.guide.sources}</h2>
         <p>{dict.guide.note}</p>
         <p>
-          {dict.detail.reviewed} <time dateTime={guide.reviewedAt}>{guide.reviewedAt}</time>
+          {dict.detail.reviewed}{' '}
+          <time dateTime={guide.reviewedAt}>{guide.reviewedAt}</time>
         </p>
         <ul>
           {guide.sources.map((url) => (

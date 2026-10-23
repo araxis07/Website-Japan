@@ -51,7 +51,7 @@ export default async function Credits({ params }: { params: Promise<{ lang: stri
       <p>{dict.creditsExtra.art}</p>
       <p>
         {dict.creditsExtra.map}{' '}
-        <a href="https://www.naturalearthdata.com/about/terms-of-use/">Natural Earth</a>
+        <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>
       </p>
       {[...credits, ...newPhotoCredits].map(([name, url]) => (
         <div className="credit-row" key={name}>

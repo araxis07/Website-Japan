@@ -22,6 +22,8 @@ export default function Footer({ dict, lang }: { dict: Dictionary; lang: Locale 
           <div>
             <h3>{dict.footer.explore}</h3>
             <nav aria-label={dict.footer.explore}>
+              <Link href={`/${lang}/first-visit`}>{dict.beginner.nav}</Link>
+              <Link href={`/${lang}/explore`}>{dict.navigation.explore}</Link>
               {(
                 [
                   'destinations',

@@ -4,10 +4,13 @@ import { i18n, isLocale, ogLocales } from '@/i18n/config'
 import { getDictionary } from '@/i18n/dictionaries'
 import { siteUrl } from '@/utils/site'
 import TripProvider from '@/components/TripProvider'
+import Atmosphere from '@/components/Atmosphere'
+import { themeInit } from '@/lib/appearance'
 import JourneyEffects from '@/components/JourneyEffects'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import '../globals.css'
+import 'leaflet/dist/leaflet.css'
 
 export const dynamicParams = false
 export function generateStaticParams() {
@@ -58,18 +61,23 @@ export default async function LocaleLayout({
   if (!isLocale(lang)) notFound()
   const dict = await getDictionary(lang)
   return (
-    <html lang={lang}>
+    <html lang={lang} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInit }} />
+      </head>
       {/* Extensions can add body attributes before hydration; descendants remain checked. */}
       <body id="top" suppressHydrationWarning>
         <a className="skip-link" href="#main-content">
           {dict.a11y.skip}
         </a>
-        <TripProvider copy={dict.trip} lang={lang}>
-          <JourneyEffects />
-          <Navigation dict={dict} lang={lang} />
-          {children}
-          <Footer dict={dict} lang={lang} />
-        </TripProvider>
+        <Atmosphere copy={dict.atmosphere}>
+          <TripProvider copy={dict.trip} lang={lang}>
+            <JourneyEffects />
+            <Navigation dict={dict} lang={lang} />
+            {children}
+            <Footer dict={dict} lang={lang} />
+          </TripProvider>
+        </Atmosphere>
       </body>
     </html>
   )

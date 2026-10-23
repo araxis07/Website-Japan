@@ -11,7 +11,11 @@ export default function Navigation({ dict, lang }: { dict: Dictionary; lang: Loc
   const [open, setOpen] = useState(false)
   const toggle = useRef<HTMLButtonElement>(null)
   const pathname = usePathname()
-  const links = ['destinations', 'map', 'seasons', 'journeys', 'plan'] as const
+  const links = [
+    { href: `/${lang}/first-visit`, label: dict.beginner.nav },
+    { href: `/${lang}/explore`, label: dict.navigation.explore },
+    { href: `/${lang}#journeys`, label: dict.navigation.journeys },
+  ]
 
   return (
     <header
@@ -34,10 +38,13 @@ export default function Navigation({ dict, lang }: { dict: Dictionary; lang: Loc
           </span>
         </Link>
         <nav className="desktop-navigation" aria-label={dict.navigation.label}>
-          {links.map((id) => (
-            <Link key={id} className={id === 'plan' ? 'nav-plan' : ''} href={`/${lang}#${id}`}>
-              {dict.navigation[id]}
-              {id === 'plan' && <Icon name="arrow" />}
+          {links.map(({ href, label }) => (
+            <Link
+              key={href}
+              href={href}
+              aria-current={pathname === href ? 'page' : undefined}
+            >
+              {label}
             </Link>
           ))}
         </nav>
@@ -86,9 +93,9 @@ export default function Navigation({ dict, lang }: { dict: Dictionary; lang: Loc
         hidden={!open}
         aria-label={dict.navigation.label}
       >
-        {links.map((id) => (
-          <Link key={id} href={`/${lang}#${id}`} onClick={() => setOpen(false)}>
-            {dict.navigation[id]}
+        {links.map(({ href, label }) => (
+          <Link key={href} href={href} onClick={() => setOpen(false)}>
+            {label}
             <Icon name="arrow" />
           </Link>
         ))}

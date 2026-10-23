@@ -1,5 +1,7 @@
 # Japan Travel renovation
 
+Historical record of the earlier renovation. The current 47-prefecture maps, appearance and beginner upgrade is documented in [next-upgrade.md](next-upgrade.md); the checks and Lighthouse figures below describe the earlier release.
+
 ## Scope
 
 Preserve Japanese (default), English, all nine editorial regions, the six destinations and their URLs; add Thai throughout. Renovate home, destination guides, navigation, footer, planning, credits and error pages; keep metadata, icons, translations and browser checks aligned. Personal plans stay in the visitor’s browser. No server-side user records, booking service or message delivery exists in this guide.

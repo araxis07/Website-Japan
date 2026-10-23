@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test'
+import { test, expect } from './fixtures'
 import { copyFile, mkdtemp, rm } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
@@ -43,7 +43,10 @@ for (const lang of i18n.locales) {
     await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
     await expect(page.locator('.destination-card')).toHaveCount(6)
     await expect(page.locator('.region-row')).toHaveCount(9)
-    await expect(page.locator('.diorama')).not.toHaveAttribute('data-scene-status', 'loading')
+    await expect(page.locator('.diorama')).not.toHaveAttribute(
+      'data-scene-status',
+      'loading',
+    )
     for (const image of await page.locator('img:visible').all()) {
       await image.scrollIntoViewIfNeeded()
       await expect(image).toHaveJSProperty('complete', true)
@@ -52,7 +55,9 @@ for (const lang of i18n.locales) {
         .toBeGreaterThan(0)
     }
     expect(
-      await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth),
+      await page.evaluate(
+        () => document.documentElement.scrollWidth <= window.innerWidth,
+      ),
     ).toBe(true)
     const missingAnchors = await page.locator('a[href*="#"]').evaluateAll((links) =>
       links.flatMap((link) => {
@@ -77,6 +82,7 @@ test('browser extension body attributes do not interrupt hydration', async ({ pa
       errors.push(message.text())
   })
   await page.addInitScript(() => {
+    localStorage.setItem('japan-travel-appearance', 'dark')
     // Simulate Grammarly changing the body as soon as the browser parses it.
     const observer = new MutationObserver(() => {
       if (!document.body) return
@@ -93,6 +99,8 @@ test('browser extension body attributes do not interrupt hydration', async ({ pa
       '14.1338.0',
     )
     await expect(page.locator('body')).toHaveAttribute('data-gr-ext-installed', '')
+    await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark')
+    await expect(page.locator('.save-button').first()).toBeEnabled()
     await page.getByRole('searchbox').fill('Kyoto')
     await expect(page.locator('.destination-card')).toHaveCount(1)
     expect(errors).toEqual([])
@@ -101,12 +109,15 @@ test('browser extension body attributes do not interrupt hydration', async ({ pa
   await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
   await page.getByRole('link', { name: 'Explore in English', exact: true }).click()
   await expect(page).toHaveURL('/en')
+  await expect(page.locator('.save-button').first()).toBeEnabled()
   await page.getByRole('searchbox').fill('Tokyo')
   await expect(page.locator('.destination-card')).toHaveCount(1)
   expect(errors).toEqual([])
 })
 
-test('search and category filters combine, clear and handle no results', async ({ page }) => {
+test('search and category filters combine, clear and handle no results', async ({
+  page,
+}) => {
   await page.goto('/en')
   await page.getByRole('button', { name: 'Nature & outdoors', exact: true }).click()
   await expect(page.locator('.destination-card')).toHaveCount(2)
@@ -140,20 +151,29 @@ test('season tabs support clicks and keyboard navigation', async ({ page }) => {
   await expect(page.getByRole('tabpanel')).toContainText('Long days. Island escapes.')
 })
 
-test('navigation, language switching and FAQ disclosure work', async ({ page, isMobile }) => {
+test('navigation, language switching and FAQ disclosure work', async ({
+  page,
+  isMobile,
+}) => {
   await page.goto('/en')
   if (isMobile) {
     const toggle = page.locator('.menu-toggle')
     await toggle.click()
     await expect(toggle).toHaveAttribute('aria-expanded', 'true')
-    await page.locator('#mobile-navigation').getByRole('link', { name: 'Journeys' }).click()
+    await page
+      .locator('#mobile-navigation')
+      .getByRole('link', { name: 'Journeys' })
+      .click()
     await expect(toggle).toHaveAttribute('aria-expanded', 'false')
     await toggle.click()
     await toggle.press('Escape')
     await expect(toggle).toBeFocused()
     await expect(toggle).toHaveAttribute('aria-expanded', 'false')
   } else {
-    await page.locator('.desktop-navigation').getByRole('link', { name: 'Journeys' }).click()
+    await page
+      .locator('.desktop-navigation')
+      .getByRole('link', { name: 'Journeys' })
+      .click()
   }
   await expect(page).toHaveURL(/#journeys$/)
   await page.locator('summary').filter({ hasText: 'When should I visit Japan?' }).click()
@@ -167,11 +187,15 @@ test('navigation, language switching and FAQ disclosure work', async ({ page, is
     .getByRole('link', { name: '日本語', exact: true })
     .click()
   await expect(page).toHaveURL('/ja/destinations/kyoto')
-  await expect(page.getByRole('heading', { name: '京都', exact: true, level: 1 })).toBeVisible()
+  await expect(
+    page.getByRole('heading', { name: '京都', exact: true, level: 1 }),
+  ).toBeVisible()
   await expect(page.locator('html')).toHaveAttribute('lang', 'ja')
 })
 
-test('every destination route, locale and metadata asset is valid', async ({ request }) => {
+test('every destination route, locale and metadata asset is valid', async ({
+  request,
+}) => {
   for (const lang of i18n.locales) {
     for (const destination of destinations) {
       const response = await request.get(`/${lang}/destinations/${destination.slug}`)
@@ -184,7 +208,12 @@ test('every destination route, locale and metadata asset is valid', async ({ req
     expect(await trip.text()).toContain('noindex')
   }
   expect((await request.get('/')).url()).toMatch(/\/ja$/)
-  for (const route of ['/fr', '/ja/not-real', '/en/destinations/not-real', '/missing/path']) {
+  for (const route of [
+    '/fr',
+    '/ja/not-real',
+    '/en/destinations/not-real',
+    '/missing/path',
+  ]) {
     const response = await request.get(route)
     expect(response.status()).toBe(404)
     expect(await response.text()).toContain('noindex')
@@ -213,6 +242,13 @@ test('content and navigation stay readable without JavaScript', async ({ browser
   await expect(
     page.getByRole('heading', { level: 1, name: 'Kyoto', exact: true }),
   ).toBeVisible()
+  await page.goto('/en/explore')
+  await expect(page.locator('.prefecture-card')).toHaveCount(47)
+  const prefecture = await page.goto('/en/prefectures/nara')
+  await expect(page.locator('.map-place-list li')).toHaveCount(2)
+  expect(await prefecture!.text()).toContain(
+    '<noscript><p>Enable JavaScript for the map, or use the place links below.</p></noscript>',
+  )
   await context.close()
 })
 
@@ -240,6 +276,8 @@ test('interactive miniature responds to lighting, seasons, rotation and motion c
   page,
 }) => {
   await page.goto('/en')
+  // Ambient petals would otherwise move over the miniature's screenshot.
+  await page.getByRole('button', { name: 'Pause petals', exact: true }).click()
   const scene = page.locator('.diorama')
   await expect(scene).toHaveAttribute('data-scene-status', 'preview')
   await expect(scene.locator('canvas')).toHaveCount(0)
@@ -299,6 +337,12 @@ test('reduced motion and unavailable WebGL retain readable, usable content', asy
   await expect(page.locator('.scene-fallback img')).toBeVisible()
   await page.getByRole('searchbox').fill('Kyoto')
   await expect(page.locator('.destination-card')).toHaveCount(1)
+  await page.emulateMedia({ reducedMotion: 'no-preference' })
+  await expect(page.locator('.sakura-petal').first()).toBeVisible()
+  await expect(page.locator('.sakura-petal').first()).toHaveCSS(
+    'animation-play-state',
+    'running',
+  )
 })
 
 test('itineraries switch routes and every detailed guide has a day plan', async ({
@@ -310,12 +354,17 @@ test('itineraries switch routes and every detailed guide has a day plan', async 
     name: 'Choose a sample itinerary',
   })
   await selector.getByRole('button', { name: '10 days' }).click()
-  await expect(page.locator('.journey-route')).toContainText('Sapporo & a seasonal escape')
+  await expect(page.locator('.journey-route')).toContainText(
+    'Sapporo & a seasonal escape',
+  )
   await expect(page.locator('.journey-route li')).toHaveCount(2)
   await selector.getByRole('button', { name: '14 days' }).click()
   await expect(page.locator('.journey-route li')).toHaveCount(4)
   await expect(page.locator('.journey-route')).toContainText('Day 12–14')
-  await page.locator('.journey-route').getByRole('link', { name: 'Fuji Five Lakes' }).click()
+  await page
+    .locator('.journey-route')
+    .getByRole('link', { name: 'Fuji Five Lakes' })
+    .click()
   await expect(page).toHaveURL('/en/destinations/mount-fuji')
   await expect(page.locator('.day-timeline li')).toHaveCount(3)
   for (const place of destinations) {
@@ -335,7 +384,10 @@ test('maps connect destinations, local places and usable external directions', a
   page,
 }) => {
   await page.goto('/th#map')
-  await page.locator('.atlas-map').getByRole('button', { name: 'โตเกียว', exact: true }).click()
+  await page
+    .locator('.map-destination-buttons')
+    .getByRole('button', { name: 'โตเกียว', exact: true })
+    .click()
   await expect(page.locator('.atlas-selection h3')).toHaveText('โตเกียว')
   await page
     .locator('.atlas-selection')
@@ -343,7 +395,7 @@ test('maps connect destinations, local places and usable external directions', a
     .click()
   await expect(page).toHaveURL('/th/destinations/tokyo#places')
   await page
-    .locator('.local-map')
+    .locator('.street-map')
     .getByRole('button', { name: '2. สวนสุมิดะ', exact: true })
     .click()
   await expect(page.locator('.map-place-list li[data-selected="true"]')).toContainText(
@@ -352,12 +404,12 @@ test('maps connect destinations, local places and usable external directions', a
   const directions = await page
     .locator('.map-place-list li')
     .first()
-    .getByRole('link', { name: 'ดูเส้นทาง', exact: false })
+    .getByRole('link', { name: th.streetMap.route, exact: false })
     .getAttribute('href')
   const url = new URL(directions!)
   expect(url.hostname).toBe('www.google.com')
   expect(url.searchParams.get('api')).toBe('1')
-  expect(url.searchParams.get('destination')).toBe('35.7148,139.7967')
+  expect(url.searchParams.get('destination')).toBe('浅草寺 東京都 日本')
   await expect(page.locator('.practical-grid article')).toHaveCount(4)
 })
 
@@ -378,24 +430,35 @@ test('trip saves, schedules, reorders, survives reload and language changes, and
     .getByRole('combobox', { name: 'Schedule for: Gion', exact: true })
     .selectOption('2')
   await page.getByRole('button', { name: 'Move earlier: Gion', exact: true }).click()
-  await expect(page.locator('.trip-day li').first()).toHaveAttribute('data-place-id', 'gion')
+  await expect(page.locator('.trip-day li').first()).toHaveAttribute(
+    'data-place-id',
+    'gion',
+  )
   await page.reload()
   await expect(
     page.getByRole('combobox', { name: 'Schedule for: Gion', exact: true }),
   ).toHaveValue('2')
   await page.locator('.language-picker summary').click()
-  await page.locator('.language-picker').getByRole('link', { name: 'ไทย', exact: true }).click()
+  await page
+    .locator('.language-picker')
+    .getByRole('link', { name: 'ไทย', exact: true })
+    .click()
   await expect(page).toHaveURL('/th/my-trip')
   await expect(page.locator('.trip-day li').first()).toContainText('กิออน')
-  await page.getByRole('combobox', { name: 'จำนวนวันเดินทาง', exact: true }).selectOption('1')
+  await page
+    .getByRole('combobox', { name: 'จำนวนวันเดินทาง', exact: true })
+    .selectOption('1')
   await expect(
     page.getByRole('combobox', { name: 'จัดลงวัน: กิออน', exact: true }),
   ).toHaveValue('0')
-  await page.getByRole('combobox', { name: 'จัดลงวัน: กิออน', exact: true }).selectOption('1')
+  await page
+    .getByRole('combobox', { name: 'จัดลงวัน: กิออน', exact: true })
+    .selectOption('1')
   await page.getByRole('button', { name: 'นำออก: วัดคิโยมิซุเดระ', exact: true }).click()
   await expect(page.locator('.trip-day li')).toHaveCount(1)
   await page.evaluate(() => {
-    window.print = () => document.documentElement.setAttribute('data-print-called', 'true')
+    window.print = () =>
+      document.documentElement.setAttribute('data-print-called', 'true')
   })
   await page.getByRole('button', { name: 'พิมพ์ / บันทึก PDF', exact: true }).click()
   await expect(page.locator('html')).toHaveAttribute('data-print-called', 'true')
@@ -410,11 +473,15 @@ test('saved trip syncs across tabs and failed writes keep the previous plan', as
   context,
 }) => {
   await page.goto('/en/destinations/tokyo')
-  await page.getByRole('button', { name: 'Save to my trip: Sensoji', exact: true }).click()
+  await page
+    .getByRole('button', { name: 'Save to my trip: Sensoji', exact: true })
+    .click()
   const other = await context.newPage()
   await other.goto('/en/my-trip')
   await expect(other.locator('.trip-day li')).toHaveCount(1)
-  await page.getByRole('button', { name: 'Save to my trip: Sumida Park', exact: true }).click()
+  await page
+    .getByRole('button', { name: 'Save to my trip: Sumida Park', exact: true })
+    .click()
   await expect(other.locator('.trip-day li')).toHaveCount(2)
   await page.evaluate(() => {
     Storage.prototype.setItem = () => {
@@ -433,23 +500,32 @@ test('saved trip syncs across tabs and failed writes keep the previous plan', as
   await other.close()
 })
 
-test('invalid saved data is not overwritten and can be explicitly reset', async ({ page }) => {
+test('invalid saved data is not overwritten and can be explicitly reset', async ({
+  page,
+}) => {
   await page.addInitScript((key) => localStorage.setItem(key, '{broken'), tripKey)
   await page.goto('/en/my-trip')
-  await expect(page.locator('.trip-storage-error')).toContainText('has not been overwritten')
+  await expect(page.locator('.trip-storage-error')).toContainText(
+    'has not been overwritten',
+  )
   expect(await page.evaluate((key) => localStorage.getItem(key), tripKey)).toBe('{broken')
   page.once('dialog', (dialog) => dialog.accept())
-  await page.getByRole('button', { name: 'Reset unreadable saved data', exact: true }).click()
+  await page
+    .getByRole('button', { name: 'Reset unreadable saved data', exact: true })
+    .click()
   await expect(
     page.getByRole('heading', { name: 'Your journey starts with one place.' }),
   ).toBeVisible()
   expect(
-    JSON.parse((await page.evaluate((key) => localStorage.getItem(key), tripKey)) || '{}'),
+    JSON.parse(
+      (await page.evaluate((key) => localStorage.getItem(key), tripKey)) || '{}',
+    ),
   ).toEqual(emptyTrip)
 })
 
 test('trip storage validates unknown, duplicate and out-of-range data', () => {
   expect(parseTrip(JSON.stringify(emptyTrip))).toEqual(emptyTrip)
+  expect(parseTrip(' '.repeat(64_001))).toBeNull()
   for (const value of [
     null,
     { ...emptyTrip, version: 2 },
@@ -478,7 +554,9 @@ test('empty saved data stays intact and blocked storage gives an actionable erro
     localStorage.setItem(key, '')
     window.dispatchEvent(new Event('trip-change'))
   }, tripKey)
-  await expect(page.locator('.trip-storage-error')).toContainText('has not been overwritten')
+  await expect(page.locator('.trip-storage-error')).toContainText(
+    'has not been overwritten',
+  )
   expect(await page.evaluate((key) => localStorage.getItem(key), tripKey)).toBe('')
   await page.addInitScript(() => {
     Storage.prototype.getItem = () => {
@@ -492,7 +570,9 @@ test('empty saved data stays intact and blocked storage gives an actionable erro
   ).toHaveCount(0)
 })
 
-test('gallery supports keyboard navigation, escape and focus restoration', async ({ page }) => {
+test('gallery supports keyboard navigation, escape and focus restoration', async ({
+  page,
+}) => {
   await page.goto('/th/destinations/tokyo')
   const first = page.locator('.photo-gallery a').first()
   await first.click()

@@ -1,6 +1,6 @@
 'use client'
 import Link from 'next/link'
-import { places, mapUrl } from '@/data/places'
+import { places, mapUrl, placePath } from '@/data/places'
 import { useTrip } from './TripProvider'
 
 export default function TripPlanner() {
@@ -63,7 +63,7 @@ export default function TripPlanner() {
       {!trip.items.length ? (
         <div className="empty-state">
           <h2>{copy.empty}</h2>
-          <Link className="text-link" href={`/${lang}#destinations`}>
+          <Link className="text-link" href={`/${lang}/explore`}>
             {copy.explore} ↗
           </Link>
         </div>
@@ -77,7 +77,9 @@ export default function TripPlanner() {
                 <h2 id={`trip-day-${day}`}>{day ? dayLabel(day) : copy.unplanned}</h2>
                 {day > 0 &&
                   new Set(
-                    entries.map((entry) => places.find((p) => p.id === entry.id)?.destination),
+                    entries.map(
+                      (entry) => places.find((p) => p.id === entry.id)?.destination,
+                    ),
                   ).size > 1 && <p className="trip-travel-note">{copy.crossCity}</p>}
                 {!entries.length && <p className="empty-day">{copy.emptyDay}</p>}
                 <ol>
@@ -95,12 +97,10 @@ export default function TripPlanner() {
                       <li key={entry.id} data-place-id={entry.id}>
                         <div className="trip-place-copy">
                           <h3>
-                            <Link href={`/${lang}/destinations/${place.destination}#places`}>
-                              {place.names[lang]}
-                            </Link>
+                            <Link href={placePath(place, lang)}>{place.names[lang]}</Link>
                           </h3>
                           <a className="text-link" href={mapUrl(place, true)}>
-                            {place.names.ja} ↗
+                            {copy.directions} ↗
                           </a>
                         </div>
                         <div className="trip-item-controls">
@@ -116,7 +116,9 @@ export default function TripPlanner() {
                                   (current) => ({
                                     ...current,
                                     items: current.items.map((item) =>
-                                      item.id === entry.id ? { ...item, day: nextDay } : item,
+                                      item.id === entry.id
+                                        ? { ...item, day: nextDay }
+                                        : item,
                                     ),
                                   }),
                                   copy.updated,
@@ -154,7 +156,9 @@ export default function TripPlanner() {
                               change(
                                 (current) => ({
                                   ...current,
-                                  items: current.items.filter((item) => item.id !== entry.id),
+                                  items: current.items.filter(
+                                    (item) => item.id !== entry.id,
+                                  ),
                                 }),
                                 copy.removed,
                               )
