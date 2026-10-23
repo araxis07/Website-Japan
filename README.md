@@ -62,7 +62,7 @@ To check development-only hydration warnings, stop any running development serve
 PLAYWRIGHT_DEV=1 npm test -- --grep 'browser extension'
 ```
 
-This test simulates Grammarly adding attributes to `<body>` before React hydrates, then checks all three locales and the 404 navigation. The root bodies narrowly suppress extension-added attributes; root HTML elements suppress only the theme attribute set by the constant before-paint script. Descendant hydration warnings remain enabled. The test server uses `localhost` so Next.js permits its development WebSocket origin, and stops automatically after testing.
+This test simulates Grammarly adding attributes to `<body>` before React hydrates, then checks all three locales, client-side language changes and the 404 navigation for hydration and script-rendering warnings. `ThemeScript` runs the constant theme initializer during HTML parsing and renders inert text on client navigation; `Atmosphere` reapplies the current theme before paint. A separate test blocks client bundles to verify initial themes on normal and 404 pages, including blocked storage. The root bodies narrowly suppress extension-added attributes; root HTML elements suppress only the theme attribute set by the constant before-paint script. The script suppresses only its intentional server/client type difference. Descendant hydration warnings remain enabled. The test server uses `localhost` so Next.js permits its development WebSocket origin, and stops automatically after testing.
 
 ## Edit the content
 

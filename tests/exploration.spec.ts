@@ -159,6 +159,37 @@ test('map failure leaves places and directions available, and retry restores the
   )
 })
 
+test('theme is applied before client bundles load, including the 404 page', async ({
+  context,
+}) => {
+  await context.route('**/_next/**/*.js*', (route) => route.abort())
+  for (const preference of ['dark', 'light', 'blocked'] as const) {
+    const page = await context.newPage()
+    await page.emulateMedia({ colorScheme: preference === 'dark' ? 'light' : 'dark' })
+    await page.addInitScript(
+      ({ preference, key }) => {
+        if (preference === 'blocked') {
+          Storage.prototype.getItem = () => {
+            throw new DOMException('Blocked', 'SecurityError')
+          }
+        } else {
+          localStorage.setItem(key, preference)
+        }
+      },
+      { preference, key: appearanceKey },
+    )
+    for (const path of ['/en/first-visit', '/missing/path']) {
+      await page.goto(path, { waitUntil: 'domcontentloaded' })
+      await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
+      await expect(page.locator('html')).toHaveAttribute(
+        'data-theme',
+        preference === 'light' ? 'light' : 'dark',
+      )
+    }
+    await page.close()
+  }
+})
+
 test('night mode follows the system, persists and synchronizes across tabs', async ({
   page,
   context,

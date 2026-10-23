@@ -78,7 +78,7 @@ test('browser extension body attributes do not interrupt hydration', async ({ pa
   const errors: string[] = []
   page.on('pageerror', (error) => errors.push(error.message))
   page.on('console', (message) => {
-    if (message.type() === 'error' && /hydrat/i.test(message.text()))
+    if (message.type() === 'error' && /hydrat|script tag/i.test(message.text()))
       errors.push(message.text())
   })
   await page.addInitScript(() => {
@@ -105,11 +105,21 @@ test('browser extension body attributes do not interrupt hydration', async ({ pa
     await expect(page.locator('.destination-card')).toHaveCount(1)
     expect(errors).toEqual([])
   }
+  for (const lang of i18n.locales) {
+    await page.locator('.language-picker summary').click()
+    await page.locator(`.language-picker a[lang="${lang}"]`).click()
+    await expect(page.locator('html')).toHaveAttribute('lang', lang)
+    await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark')
+    await expect(page.locator('.save-button').first()).toBeEnabled()
+    expect(errors).toEqual([])
+  }
   await page.goto('/missing/path')
   await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
+  await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark')
   await page.getByRole('link', { name: 'Explore in English', exact: true }).click()
   await expect(page).toHaveURL('/en')
   await expect(page.locator('.save-button').first()).toBeEnabled()
+  await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark')
   await page.getByRole('searchbox').fill('Tokyo')
   await expect(page.locator('.destination-card')).toHaveCount(1)
   expect(errors).toEqual([])

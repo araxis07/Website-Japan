@@ -4,6 +4,7 @@ import {
   createContext,
   useContext,
   useEffect,
+  useLayoutEffect,
   useState,
   useSyncExternalStore,
   type CSSProperties,
@@ -66,7 +67,7 @@ export default function Atmosphere({
     }
     window.dispatchEvent(new Event('appearance-change'))
   }
-  useEffect(() => {
+  useLayoutEffect(() => {
     document.documentElement.dataset.theme = themeSnapshot()
   }, [theme])
   useEffect(() => {

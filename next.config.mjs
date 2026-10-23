@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   poweredByHeader: false,
+  devIndicators: { position: 'bottom-right' }, // Keep the theme controls clickable in development.
   experimental: { globalNotFound: true },
   images: { formats: ['image/avif', 'image/webp'] },
   async redirects() {

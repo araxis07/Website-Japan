@@ -5,7 +5,7 @@ import { getDictionary } from '@/i18n/dictionaries'
 import { siteUrl } from '@/utils/site'
 import TripProvider from '@/components/TripProvider'
 import Atmosphere from '@/components/Atmosphere'
-import { themeInit } from '@/lib/appearance'
+import ThemeScript from '@/components/ThemeScript'
 import JourneyEffects from '@/components/JourneyEffects'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
@@ -63,7 +63,7 @@ export default async function LocaleLayout({
   return (
     <html lang={lang} suppressHydrationWarning>
       <head>
-        <script dangerouslySetInnerHTML={{ __html: themeInit }} />
+        <ThemeScript />
       </head>
       {/* Extensions can add body attributes before hydration; descendants remain checked. */}
       <body id="top" suppressHydrationWarning>

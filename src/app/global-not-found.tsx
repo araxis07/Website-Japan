@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Atmosphere from '@/components/Atmosphere'
-import { themeInit } from '@/lib/appearance'
+import ThemeScript from '@/components/ThemeScript'
 import ja from '@/i18n/dictionaries/ja.json'
 import './globals.css'
 
@@ -13,7 +13,7 @@ export default function GlobalNotFound() {
   return (
     <html lang="ja" suppressHydrationWarning>
       <head>
-        <script dangerouslySetInnerHTML={{ __html: themeInit }} />
+        <ThemeScript />
       </head>
       {/* Extensions can add body attributes before hydration; descendants remain checked. */}
       <body suppressHydrationWarning>
