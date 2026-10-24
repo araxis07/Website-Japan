@@ -5,7 +5,6 @@ import {
   useContext,
   useEffect,
   useLayoutEffect,
-  useState,
   useSyncExternalStore,
   type CSSProperties,
 } from 'react'
@@ -14,12 +13,23 @@ import Icon from './Icon'
 import { appearanceKey } from '@/lib/appearance'
 
 let memoryTheme: string | null = null
+let memoryPaused: boolean | null = null
+const motionKey = 'japan-travel-motion'
+const pausedSnapshot = () => {
+  if (memoryPaused !== null) return memoryPaused
+  try {
+    return localStorage.getItem(motionKey) === 'paused'
+  } catch {
+    return false
+  }
+}
 function subscribe(callback: () => void) {
   const media = matchMedia('(prefers-reduced-motion: reduce)')
   const color = matchMedia('(prefers-color-scheme: dark)')
   const storage = (event: StorageEvent) => {
-    if (!event.key || event.key === appearanceKey) {
+    if (!event.key || event.key === appearanceKey || event.key === motionKey) {
       memoryTheme = null
+      memoryPaused = null
       callback()
     }
   }
@@ -34,7 +44,8 @@ function subscribe(callback: () => void) {
     window.removeEventListener('storage', storage)
   }
 }
-const reducedSnapshot = () => matchMedia('(prefers-reduced-motion: reduce)').matches
+const reducedSnapshot = () =>
+  matchMedia('(prefers-reduced-motion: reduce)').matches
 const themeSnapshot = () => {
   if (memoryTheme) return memoryTheme
   try {
@@ -43,22 +54,34 @@ const themeSnapshot = () => {
   } catch {}
   return matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
 }
-const ThemeContext = createContext({ theme: 'light', toggleTheme: () => {} })
+const ThemeContext = createContext({
+  theme: 'light',
+  toggleTheme: () => {},
+  moving: false,
+  reduced: true,
+  toggleMotion: () => {},
+})
 export const useAtmosphere = () => useContext(ThemeContext)
 
 export default function Atmosphere({
   children,
-  copy,
 }: {
   children: React.ReactNode
-  copy: Dictionary['atmosphere']
 }) {
   const theme = useSyncExternalStore(subscribe, themeSnapshot, () => 'light')
   const reduced = useSyncExternalStore(subscribe, reducedSnapshot, () => true)
-  const [paused, setPaused] = useState(false)
+  const paused = useSyncExternalStore(subscribe, pausedSnapshot, () => true)
+  const toggleMotion = () => {
+    memoryPaused = !pausedSnapshot()
+    try {
+      localStorage.setItem(motionKey, memoryPaused ? 'paused' : 'moving')
+    } catch {}
+    window.dispatchEvent(new Event('appearance-change'))
+  }
   const moving = !reduced && !paused
   const toggleTheme = () => {
-    const value = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark'
+    const value =
+      document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark'
     memoryTheme = value
     try {
       localStorage.setItem(appearanceKey, value)
@@ -74,7 +97,9 @@ export default function Atmosphere({
     document.documentElement.dataset.motion = moving ? 'moving' : 'still'
   }, [moving])
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <ThemeContext.Provider
+      value={{ theme, toggleTheme, moving, reduced, toggleMotion }}
+    >
       <div
         className="sakura-atmosphere"
         data-moving={moving}
@@ -100,26 +125,36 @@ export default function Atmosphere({
         <span className="still-blossom">✿</span>
       </div>
       {children}
-      <div className="atmosphere-controls" role="group" aria-label={copy.label}>
-        <button
-          type="button"
-          onClick={toggleTheme}
-          aria-label={theme === 'dark' ? copy.light : copy.dark}
-        >
-          <Icon name={theme === 'dark' ? 'sun' : 'moon'} />
-          <span>{theme === 'dark' ? copy.light : copy.dark}</span>
-        </button>
-        <button
-          type="button"
-          onClick={() => setPaused(!paused)}
-          disabled={reduced}
-          aria-pressed={!moving}
-          aria-label={reduced ? copy.reduced : moving ? copy.pause : copy.play}
-        >
-          <Icon name={moving ? 'pause' : 'play'} />
-          <span>{reduced ? copy.reduced : moving ? copy.pause : copy.play}</span>
-        </button>
-      </div>
     </ThemeContext.Provider>
+  )
+}
+
+export function AppearanceControls({
+  copy,
+}: {
+  copy: Dictionary['atmosphere']
+}) {
+  const { theme, toggleTheme, moving, reduced, toggleMotion } = useAtmosphere()
+  return (
+    <div className="atmosphere-controls" role="group" aria-label={copy.label}>
+      <button
+        type="button"
+        onClick={toggleTheme}
+        aria-label={theme === 'dark' ? copy.light : copy.dark}
+      >
+        <Icon name={theme === 'dark' ? 'sun' : 'moon'} />
+        <span>{theme === 'dark' ? copy.light : copy.dark}</span>
+      </button>
+      <button
+        type="button"
+        onClick={toggleMotion}
+        disabled={reduced}
+        aria-pressed={!moving}
+        aria-label={reduced ? copy.reduced : moving ? copy.pause : copy.play}
+      >
+        <Icon name={moving ? 'pause' : 'play'} />
+        <span>{reduced ? copy.reduced : moving ? copy.pause : copy.play}</span>
+      </button>
+    </div>
   )
 }

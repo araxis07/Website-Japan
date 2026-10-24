@@ -1,7 +1,7 @@
 import { test, expect } from './fixtures'
 import { prefectures } from '../src/data/prefectures'
 import { prefecturePlaces } from '../src/data/prefecture-places'
-import { spots, placePath } from '../src/data/places'
+import { spots, placePath, canonicalPlaceId } from '../src/data/places'
 import { firstVisitSteps } from '../src/data/first-visit'
 import { regions } from '../src/data/travel'
 import { i18n } from '../src/i18n/config'
@@ -14,7 +14,9 @@ test('47 prefectures have complete translations, source links and real mapped pl
   expect(prefecturePlaces).toHaveLength(94)
   for (const p of prefectures) {
     expect(regions.some((r) => r.id === p.region)).toBe(true)
-    expect(p.source).toMatch(/^https:\/\/www\.japan\.travel\/en\/destinations\//)
+    expect(p.source).toMatch(
+      /^https:\/\/www\.japan\.travel\/en\/destinations\//,
+    )
     expect(p.places).toHaveLength(2)
     for (const lang of i18n.locales) {
       expect(p.names[lang]).toBeTruthy()
@@ -45,7 +47,7 @@ test('47 prefectures have complete translations, source links and real mapped pl
       expect(step.copy[lang].items).toHaveLength(3)
       expect(step.copy[lang].items.every((item) => item.length > 25)).toBe(true)
     }
-  // Preserve existing place IDs alongside new prefecture places in the same saved plan.
+  // Legacy aliases stay readable and normalize to one shared place identity.
   const plan = {
     version: 1,
     days: 7,
@@ -54,7 +56,13 @@ test('47 prefectures have complete translations, source links and real mapped pl
       { id: prefecturePlaces[0].id, day: 2 },
     ],
   }
-  expect(parseTrip(JSON.stringify(plan))).toEqual(plan)
+  expect(parseTrip(JSON.stringify(plan))).toEqual({
+    ...plan,
+    items: plan.items.map((item) => ({
+      ...item,
+      id: canonicalPlaceId(item.id),
+    })),
+  })
 })
 
 test('every prefecture and beginner route renders in all three languages', async ({
@@ -74,7 +82,9 @@ test('every prefecture and beginner route renders in all three languages', async
     for (const path of ['/explore', '/first-visit'])
       expect((await request.get(`/${lang}${path}`)).status()).toBe(200)
   }
-  expect((await request.get('/en/prefectures/not-a-prefecture')).status()).toBe(404)
+  expect((await request.get('/en/prefectures/not-a-prefecture')).status()).toBe(
+    404,
+  )
 })
 
 test('prefecture filters combine with multilingual landmark search and map selection', async ({
@@ -82,7 +92,9 @@ test('prefecture filters combine with multilingual landmark search and map selec
 }) => {
   await page.goto('/en/explore')
   await expect(page.locator('.prefecture-card')).toHaveCount(47)
-  await page.getByRole('combobox', { name: 'Region', exact: true }).selectOption('kansai')
+  await page
+    .getByRole('combobox', { name: 'Region', exact: true })
+    .selectOption('kansai')
   await expect(page.locator('.prefecture-card')).toHaveCount(6)
   await page.getByRole('searchbox').fill('東大寺')
   await expect(page.locator('.prefecture-card')).toHaveCount(1)
@@ -114,7 +126,10 @@ test('first-time visitor can find, save and revisit a prefecture place across la
   await page.getByRole('searchbox').fill('Nara')
   await page.locator('.prefecture-card h3 a').click()
   await page
-    .getByRole('button', { name: 'Save to my trip: Todaiji Temple', exact: true })
+    .getByRole('button', {
+      name: 'Save to my trip: Todaiji Temple',
+      exact: true,
+    })
     .click()
   await page.locator('.header-trip').click()
   await expect(page.locator('.trip-day li')).toHaveCount(1)
@@ -124,7 +139,9 @@ test('first-time visitor can find, save and revisit a prefecture place across la
   )
   await page.reload()
   expect(
-    JSON.parse((await page.evaluate((key) => localStorage.getItem(key), tripKey))!).items,
+    JSON.parse(
+      (await page.evaluate((key) => localStorage.getItem(key), tripKey))!,
+    ).items,
   ).toHaveLength(1)
   await page.locator('.language-picker summary').click()
   await page
@@ -139,7 +156,9 @@ test('first-time visitor can find, save and revisit a prefecture place across la
 test('map failure leaves places and directions available, and retry restores the map', async ({
   page,
 }) => {
-  await page.route('https://tile.openstreetmap.org/**', (route) => route.abort())
+  await page.route('https://tile.openstreetmap.org/**', (route) =>
+    route.abort(),
+  )
   await page.goto('/en/prefectures/nara#places')
   await expect(page.locator('.map-warning')).toContainText('could not load')
   await expect(page.locator('.map-place-list li')).toHaveCount(2)
@@ -153,10 +172,12 @@ test('map failure leaves places and directions available, and retry restores the
   await page.getByRole('button', { name: 'Retry map', exact: true }).click()
   await expect(page.locator('.leaflet-tile-loaded').first()).toBeVisible()
   await expect(page.locator('.map-warning')).toHaveCount(0)
-  await page.getByRole('button', { name: '2. Kasuga Taisha', exact: true }).press('Enter')
-  await expect(page.locator('.map-place-list li[data-selected="true"]')).toContainText(
-    'Kasuga Taisha',
-  )
+  await page
+    .getByRole('button', { name: '2. Kasuga Taisha', exact: true })
+    .press('Enter')
+  await expect(
+    page.locator('.map-place-list li[data-selected="true"]'),
+  ).toContainText('Kasuga Taisha')
 })
 
 test('theme is applied before client bundles load, including the 404 page', async ({
@@ -165,7 +186,9 @@ test('theme is applied before client bundles load, including the 404 page', asyn
   await context.route('**/_next/**/*.js*', (route) => route.abort())
   for (const preference of ['dark', 'light', 'blocked'] as const) {
     const page = await context.newPage()
-    await page.emulateMedia({ colorScheme: preference === 'dark' ? 'light' : 'dark' })
+    await page.emulateMedia({
+      colorScheme: preference === 'dark' ? 'light' : 'dark',
+    })
     await page.addInitScript(
       ({ preference, key }) => {
         if (preference === 'blocked') {
@@ -199,9 +222,9 @@ test('night mode follows the system, persists and synchronizes across tabs', asy
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark')
   await page.getByRole('button', { name: 'Day mode', exact: true }).click()
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'light')
-  expect(await page.evaluate((key) => localStorage.getItem(key), appearanceKey)).toBe(
-    'light',
-  )
+  expect(
+    await page.evaluate((key) => localStorage.getItem(key), appearanceKey),
+  ).toBe('light')
   await page.reload()
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'light')
   const other = await context.newPage()
@@ -215,7 +238,9 @@ test('night mode follows the system, persists and synchronizes across tabs', asy
   await other.close()
 })
 
-test('appearance still works when browser storage is blocked', async ({ page }) => {
+test('appearance still works when browser storage is blocked', async ({
+  page,
+}) => {
   await page.emulateMedia({ colorScheme: 'light', reducedMotion: 'reduce' })
   await page.addInitScript(() => {
     Storage.prototype.getItem = Storage.prototype.setItem = () => {
@@ -236,10 +261,12 @@ test('3D petals can be paused and resumed on guide pages', async ({ page }) => {
   await expect(petal).toBeVisible()
   await expect(petal).toHaveCSS('animation-play-state', 'running')
   await expect(petal).toHaveCSS('transform', /matrix3d/)
-  await page.getByRole('button', { name: 'Pause petals', exact: true }).click()
+  await page.getByRole('button', { name: 'Pause effects', exact: true }).click()
   await expect(petal).toHaveCSS('animation-play-state', 'paused')
   await expect(page.locator('html')).toHaveAttribute('data-motion', 'still')
-  await page.getByRole('button', { name: 'Resume petals', exact: true }).click()
+  await page
+    .getByRole('button', { name: 'Resume effects', exact: true })
+    .click()
   await expect(petal).toHaveCSS('animation-play-state', 'running')
 })
 
@@ -254,4 +281,8 @@ test('production responses carry security headers without exposing the framework
   expect(headers['content-security-policy']).toContain("object-src 'none'")
   expect(headers['content-security-policy']).toContain("frame-ancestors 'none'")
   expect(headers['permissions-policy']).toContain('geolocation=()')
+  expect(headers['content-security-policy']).toContain("default-src 'self'")
+  expect(headers['content-security-policy']).toContain("frame-src 'none'")
+  if (!process.env.PLAYWRIGHT_DEV)
+    expect(headers['content-security-policy']).not.toContain('unsafe-eval')
 })

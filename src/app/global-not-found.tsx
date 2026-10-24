@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import Atmosphere from '@/components/Atmosphere'
+import Atmosphere, { AppearanceControls } from '@/components/Atmosphere'
 import ThemeScript from '@/components/ThemeScript'
 import ja from '@/i18n/dictionaries/ja.json'
 import './globals.css'
@@ -17,7 +17,8 @@ export default function GlobalNotFound() {
       </head>
       {/* Extensions can add body attributes before hydration; descendants remain checked. */}
       <body suppressHydrationWarning>
-        <Atmosphere copy={ja.atmosphere}>
+        <Atmosphere>
+          <AppearanceControls copy={ja.atmosphere} />
           <main className="error-page">
             <span className="brand-mark" aria-hidden="true">
               日

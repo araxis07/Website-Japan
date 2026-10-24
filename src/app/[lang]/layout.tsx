@@ -4,7 +4,7 @@ import { i18n, isLocale, ogLocales } from '@/i18n/config'
 import { getDictionary } from '@/i18n/dictionaries'
 import { siteUrl } from '@/utils/site'
 import TripProvider from '@/components/TripProvider'
-import Atmosphere from '@/components/Atmosphere'
+import Atmosphere, { AppearanceControls } from '@/components/Atmosphere'
 import ThemeScript from '@/components/ThemeScript'
 import JourneyEffects from '@/components/JourneyEffects'
 import Navigation from '@/components/Navigation'
@@ -31,6 +31,7 @@ export async function generateMetadata({
   if (!isLocale(lang)) notFound()
   const dict = await getDictionary(lang)
   return {
+    manifest: `/${lang}.webmanifest`,
     ...(siteUrl ? { metadataBase: new URL(siteUrl) } : {}),
     title: {
       default: `${dict.brand} | ${dict.hero.eyebrow}`,
@@ -38,7 +39,6 @@ export async function generateMetadata({
     },
     description: dict.footer.description,
     icons: { icon: '/icon.svg', apple: '/apple-touch-icon.png' },
-    manifest: '/manifest.webmanifest',
     openGraph: {
       type: 'website',
       siteName: dict.brand,
@@ -70,10 +70,11 @@ export default async function LocaleLayout({
         <a className="skip-link" href="#main-content">
           {dict.a11y.skip}
         </a>
-        <Atmosphere copy={dict.atmosphere}>
-          <TripProvider copy={dict.trip} lang={lang}>
+        <Atmosphere>
+          <TripProvider copy={dict.trip} tools={dict.tools} lang={lang}>
             <JourneyEffects />
             <Navigation dict={dict} lang={lang} />
+            <AppearanceControls copy={dict.atmosphere} />
             {children}
             <Footer dict={dict} lang={lang} />
           </TripProvider>

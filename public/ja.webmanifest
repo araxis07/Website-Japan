@@ -1,0 +1,23 @@
+{
+  "name": "日本旅行",
+  "short_name": "日本旅行",
+  "lang": "ja",
+  "description": "灯る提灯、静かな庭、雲の向こうの富士山。名所だけでは終わらない、心に残る日本の旅を見つけましょう。",
+  "start_url": "/ja",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f6f2e9",
+  "theme_color": "#23333d",
+  "icons": [
+    {
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

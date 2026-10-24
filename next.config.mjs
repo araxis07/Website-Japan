@@ -21,8 +21,20 @@ const nextConfig = {
           },
           {
             key: 'Content-Security-Policy',
-            value:
-              "base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self'",
+            value: [
+              "default-src 'self'",
+              "base-uri 'self'",
+              "object-src 'none'",
+              "frame-ancestors 'none'",
+              "form-action 'self'",
+              "frame-src 'none'",
+              `script-src 'self' 'unsafe-inline'${process.env.NODE_ENV === 'development' ? " 'unsafe-eval'" : ''}`,
+              "style-src 'self' 'unsafe-inline'",
+              "img-src 'self' data: blob: https://tile.openstreetmap.org",
+              `connect-src 'self' https://tile.openstreetmap.org${process.env.NODE_ENV === 'development' ? ' ws: wss:' : ''}`,
+              "font-src 'self' data:",
+              "worker-src 'self' blob:",
+            ].join('; '),
           },
         ],
       },
@@ -31,5 +43,7 @@ const nextConfig = {
 }
 
 export default process.env.ANALYZE === 'true'
-  ? (await import('@next/bundle-analyzer')).default({ enabled: true })(nextConfig)
+  ? (await import('@next/bundle-analyzer')).default({ enabled: true })(
+      nextConfig,
+    )
   : nextConfig

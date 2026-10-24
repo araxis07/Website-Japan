@@ -6,11 +6,19 @@ import { useRef, useState } from 'react'
 import { i18n, localeNames, type Locale } from '@/i18n/config'
 import type { Dictionary } from '@/i18n/dictionaries'
 import Icon from './Icon'
+import { usePageLocation } from './usePageLocation'
 
-export default function Navigation({ dict, lang }: { dict: Dictionary; lang: Locale }) {
+export default function Navigation({
+  dict,
+  lang,
+}: {
+  dict: Dictionary
+  lang: Locale
+}) {
   const [open, setOpen] = useState(false)
   const toggle = useRef<HTMLButtonElement>(null)
   const pathname = usePathname()
+  const suffix = usePageLocation()
   const links = [
     { href: `/${lang}/first-visit`, label: dict.beginner.nav },
     { href: `/${lang}/explore`, label: dict.navigation.explore },
@@ -42,18 +50,28 @@ export default function Navigation({ dict, lang }: { dict: Dictionary; lang: Loc
             <Link
               key={href}
               href={href}
-              aria-current={pathname === href ? 'page' : undefined}
+              aria-current={
+                pathname === href ||
+                (href.endsWith('/explore') &&
+                  pathname.includes('/prefectures/')) ||
+                (href.endsWith('#journeys') && suffix.endsWith('#journeys'))
+                  ? 'page'
+                  : undefined
+              }
             >
               {label}
             </Link>
           ))}
+          <Link href={`/${lang}/first-visit#help`}>{dict.tools.emergency}</Link>
         </nav>
         <div className="header-actions">
           <Link className="header-trip" href={`/${lang}/my-trip`}>
             {dict.trip.title}
           </Link>
           <details className="language-picker">
-            <summary aria-label={`${dict.navigation.language}: ${localeNames[lang]}`}>
+            <summary
+              aria-label={`${dict.navigation.language}: ${localeNames[lang]}`}
+            >
               <Icon name="globe" />
               <span>{localeNames[lang]}</span>
             </summary>
@@ -61,12 +79,17 @@ export default function Navigation({ dict, lang }: { dict: Dictionary; lang: Loc
               {i18n.locales.map((locale) => (
                 <Link
                   key={locale}
-                  href={pathname.replace(/^\/(ja|en|th)(?=\/|$)/, `/${locale}`)}
+                  href={
+                    pathname.replace(/^\/(ja|en|th)(?=\/|$)/, `/${locale}`) +
+                    suffix
+                  }
                   hrefLang={locale}
                   lang={locale}
                   aria-current={locale === lang ? 'page' : undefined}
                   onClick={(event) =>
-                    event.currentTarget.closest('details')?.removeAttribute('open')
+                    event.currentTarget
+                      .closest('details')
+                      ?.removeAttribute('open')
                   }
                 >
                   {localeNames[locale]}
@@ -99,6 +122,9 @@ export default function Navigation({ dict, lang }: { dict: Dictionary; lang: Loc
             <Icon name="arrow" />
           </Link>
         ))}
+        <Link href={`/${lang}/first-visit#help`} onClick={() => setOpen(false)}>
+          {dict.tools.emergency}
+        </Link>
       </nav>
     </header>
   )

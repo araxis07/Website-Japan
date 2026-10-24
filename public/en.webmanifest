@@ -1,0 +1,23 @@
+{
+  "name": "Japan Travel",
+  "short_name": "Japan Travel",
+  "lang": "en",
+  "description": "The glow of a lantern. The hush of a temple garden. A mountain beyond the clouds. Come for the places. Stay for the feeling.",
+  "start_url": "/en",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f6f2e9",
+  "theme_color": "#23333d",
+  "icons": [
+    {
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

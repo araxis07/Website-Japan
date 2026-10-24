@@ -1,7 +1,6 @@
 import type { MetadataRoute } from 'next'
 import { i18n } from '@/i18n/config'
-import { destinations, reviewedAt } from '@/data/travel'
-import { guides } from '@/data/guides'
+import { destinations } from '@/data/travel'
 import { prefectures } from '@/data/prefectures'
 import { siteUrl } from '@/utils/site'
 
@@ -11,19 +10,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     [
       '',
       '/credits',
+      '/about',
       '/explore',
       '/first-visit',
       ...destinations.map(({ slug }) => `/destinations/${slug}`),
       ...prefectures.map(({ slug }) => `/prefectures/${slug}`),
     ].map((path) => ({
       url: `${siteUrl}/${lang}${path}`,
-      lastModified: path.startsWith('/destinations/')
-        ? guides[path.split('/').pop()!].reviewedAt
-        : path === '/explore' ||
-            path === '/first-visit' ||
-            path.startsWith('/prefectures/')
-          ? '2026-10-23'
-          : reviewedAt,
+      lastModified: '2026-10-25',
       changeFrequency: 'monthly' as const,
       priority: path === '' ? 1 : 0.7,
       alternates: {

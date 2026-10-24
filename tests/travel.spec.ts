@@ -47,11 +47,16 @@ for (const lang of i18n.locales) {
       'data-scene-status',
       'loading',
     )
-    for (const image of await page.locator('img:visible').all()) {
+    // Leaflet replaces raster tiles while fitting bounds; map loading is tested separately.
+    for (const image of await page
+      .locator('img:visible:not(.leaflet-tile)')
+      .all()) {
       await image.scrollIntoViewIfNeeded()
       await expect(image).toHaveJSProperty('complete', true)
       await expect
-        .poll(() => image.evaluate((element: HTMLImageElement) => element.naturalWidth))
+        .poll(() =>
+          image.evaluate((element: HTMLImageElement) => element.naturalWidth),
+        )
         .toBeGreaterThan(0)
     }
     expect(
@@ -59,22 +64,26 @@ for (const lang of i18n.locales) {
         () => document.documentElement.scrollWidth <= window.innerWidth,
       ),
     ).toBe(true)
-    const missingAnchors = await page.locator('a[href*="#"]').evaluateAll((links) =>
-      links.flatMap((link) => {
-        const href = new URL((link as HTMLAnchorElement).href)
-        return href.pathname === location.pathname &&
-          href.hash &&
-          !document.getElementById(decodeURIComponent(href.hash.slice(1)))
-          ? [href.hash]
-          : []
-      }),
-    )
+    const missingAnchors = await page
+      .locator('a[href*="#"]')
+      .evaluateAll((links) =>
+        links.flatMap((link) => {
+          const href = new URL((link as HTMLAnchorElement).href)
+          return href.pathname === location.pathname &&
+            href.hash &&
+            !document.getElementById(decodeURIComponent(href.hash.slice(1)))
+            ? [href.hash]
+            : []
+        }),
+      )
     expect(missingAnchors).toEqual([])
     expect(errors).toEqual([])
   })
 }
 
-test('browser extension body attributes do not interrupt hydration', async ({ page }) => {
+test('browser extension body attributes do not interrupt hydration', async ({
+  page,
+}) => {
   const errors: string[] = []
   page.on('pageerror', (error) => errors.push(error.message))
   page.on('console', (message) => {
@@ -101,7 +110,10 @@ test('browser extension body attributes do not interrupt hydration', async ({ pa
       'data-new-gr-c-s-check-loaded',
       '14.1338.0',
     )
-    await expect(page.locator('body')).toHaveAttribute('data-gr-ext-installed', '')
+    await expect(page.locator('body')).toHaveAttribute(
+      'data-gr-ext-installed',
+      '',
+    )
     await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark')
     await expect(page.locator('.save-button').first()).toBeEnabled()
     await page.getByRole('searchbox').fill('Kyoto')
@@ -119,7 +131,9 @@ test('browser extension body attributes do not interrupt hydration', async ({ pa
   await page.goto('/missing/path')
   await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark')
-  await page.getByRole('link', { name: 'Explore in English', exact: true }).click()
+  await page
+    .getByRole('link', { name: 'Explore in English', exact: true })
+    .click()
   await expect(page).toHaveURL('/en')
   await expect(page.locator('.save-button').first()).toBeEnabled()
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark')
@@ -132,7 +146,9 @@ test('search and category filters combine, clear and handle no results', async (
   page,
 }) => {
   await page.goto('/en')
-  await page.getByRole('button', { name: 'Nature & outdoors', exact: true }).click()
+  await page
+    .getByRole('button', { name: 'Nature & outdoors', exact: true })
+    .click()
   await expect(page.locator('.destination-card')).toHaveCount(2)
   await page.getByRole('searchbox').fill('  HOKKAIDO  ')
   await expect(page.locator('.destination-card')).toHaveCount(1)
@@ -152,16 +168,22 @@ test('season tabs support clicks and keyboard navigation', async ({ page }) => {
   const winter = page.getByRole('tab', { name: /Winter/ })
   await winter.click()
   await expect(winter).toHaveAttribute('aria-selected', 'true')
-  await expect(page.getByRole('tabpanel')).toContainText('Find warmth in the quiet.')
+  await expect(page.getByRole('tabpanel')).toContainText(
+    'Find warmth in the quiet.',
+  )
   await winter.press('ArrowRight')
   await expect(page.getByRole('tab', { name: /Spring/ })).toBeFocused()
-  await expect(page.getByRole('tabpanel')).toContainText('A country coming into bloom.')
+  await expect(page.getByRole('tabpanel')).toContainText(
+    'A country coming into bloom.',
+  )
   await page.getByRole('tab', { name: /Spring/ }).press('End')
   await expect(winter).toBeFocused()
   await winter.press('Home')
   await expect(page.getByRole('tab', { name: /Spring/ })).toBeFocused()
   await page.getByRole('tab', { name: /Summer/ }).click()
-  await expect(page.getByRole('tabpanel')).toContainText('Long days. Island escapes.')
+  await expect(page.getByRole('tabpanel')).toContainText(
+    'Long days. Island escapes.',
+  )
 })
 
 test('navigation, language switching and FAQ disclosure work', async ({
@@ -189,8 +211,13 @@ test('navigation, language switching and FAQ disclosure work', async ({
       .click()
   }
   await expect(page).toHaveURL(/#journeys$/)
-  await page.locator('summary').filter({ hasText: 'When should I visit Japan?' }).click()
-  await expect(page.getByText(/Choose by region and the experience/)).toBeVisible()
+  await page
+    .locator('summary')
+    .filter({ hasText: 'When should I visit Japan?' })
+    .click()
+  await expect(
+    page.getByText(/Choose by region and the experience/),
+  ).toBeVisible()
   await page.getByRole('link', { name: 'Back to top', exact: true }).click()
   await expect.poll(() => page.evaluate(() => window.scrollY)).toBeLessThan(2)
   await page.goto('/en/destinations/kyoto')
@@ -211,11 +238,19 @@ test('every destination route, locale and metadata asset is valid', async ({
 }) => {
   for (const lang of i18n.locales) {
     for (const destination of destinations) {
-      const response = await request.get(`/${lang}/destinations/${destination.slug}`)
+      const response = await request.get(
+        `/${lang}/destinations/${destination.slug}`,
+      )
       expect(response.status()).toBe(200)
       expect(await response.text()).toContain(destination[lang].name)
     }
     expect((await request.get(`/${lang}/credits`)).status()).toBe(200)
+    expect((await request.get(`/${lang}/about`)).status()).toBe(200)
+    const manifest = await (await request.get(`/${lang}.webmanifest`)).json()
+    expect(manifest.lang).toBe(lang)
+    expect(manifest.start_url).toBe(`/${lang}`)
+    const localeHtml = await (await request.get(`/${lang}`)).text()
+    expect(localeHtml).toContain(`href="/${lang}.webmanifest"`)
     const trip = await request.get(`/${lang}/my-trip`)
     expect(trip.status()).toBe(200)
     expect(await trip.text()).toContain('noindex')
@@ -245,7 +280,9 @@ test('every destination route, locale and metadata asset is valid', async ({
   expect(sitemap).not.toContain('japantravel-guide.com')
 })
 
-test('content and navigation stay readable without JavaScript', async ({ browser }) => {
+test('content and navigation stay readable without JavaScript', async ({
+  browser,
+}) => {
   const context = await browser.newContext({ javaScriptEnabled: false })
   const page = await context.newPage()
   await page.goto('/en')
@@ -281,7 +318,9 @@ test('translations have matching keys and content identifiers stay unique', () =
     }
   expect(new Set(places.map((p) => p.id)).size).toBe(places.length)
   expect(spots).toHaveLength(18)
-  expect(new Set(destinations.map((item) => item.slug)).size).toBe(destinations.length)
+  expect(new Set(destinations.map((item) => item.slug)).size).toBe(
+    destinations.length,
+  )
   expect(new Set(regions.map((item) => item.id)).size).toBe(9)
 })
 
@@ -290,13 +329,14 @@ test('interactive miniature responds to lighting, seasons, rotation and motion c
 }) => {
   await page.goto('/en')
   // Ambient petals would otherwise move over the miniature's screenshot.
-  await page.getByRole('button', { name: 'Pause petals', exact: true }).click()
+  await page.getByRole('button', { name: 'Pause effects', exact: true }).click()
   const scene = page.locator('.diorama')
   await expect(scene).toHaveAttribute('data-scene-status', 'preview')
   await expect(scene.locator('canvas')).toHaveCount(0)
-  await page.getByRole('button', { name: 'Explore the 3D scene', exact: true }).click()
+  await page
+    .getByRole('button', { name: 'Explore the 3D scene', exact: true })
+    .click()
   await expect(scene).toHaveAttribute('data-scene-status', 'ready')
-  await page.getByRole('button', { name: 'Pause animation', exact: true }).click()
   await expect(scene).toHaveAttribute('data-moving', 'false')
   const canvas = scene.locator('canvas')
   // Fractional canvas bounds can include a pixel of the neighbouring hover controls.
@@ -306,11 +346,15 @@ test('interactive miniature responds to lighting, seasons, rotation and motion c
       mask: [scene.locator('.scene-controls')],
     })
   const day = await snapshot()
-  await page.getByRole('button', { name: 'Light the lanterns', exact: true }).click()
+  await page
+    .getByRole('button', { name: 'Light the lanterns', exact: true })
+    .click()
   await expect(scene).toHaveAttribute('data-night', 'true')
   await scene.evaluate((element) =>
     Promise.allSettled(
-      element.getAnimations({ subtree: true }).map((animation) => animation.finished),
+      element
+        .getAnimations({ subtree: true })
+        .map((animation) => animation.finished),
     ),
   )
   expect((await snapshot()).equals(day)).toBe(false)
@@ -320,11 +364,17 @@ test('interactive miniature responds to lighting, seasons, rotation and motion c
     .click()
   await expect(scene).toHaveAttribute('data-season', '3')
   const winter = await snapshot()
-  await page.getByRole('button', { name: 'Rotate scene right', exact: true }).click()
+  await page
+    .getByRole('button', { name: 'Rotate scene right', exact: true })
+    .click()
   expect((await snapshot()).equals(winter)).toBe(false)
-  await page.getByRole('button', { name: 'Reset scene view', exact: true }).click()
+  await page
+    .getByRole('button', { name: 'Reset scene view', exact: true })
+    .click()
   expect((await snapshot()).equals(winter)).toBe(true)
-  await page.getByRole('button', { name: 'Play animation', exact: true }).click()
+  await page
+    .getByRole('button', { name: 'Play animation', exact: true })
+    .click()
   await expect(scene).toHaveAttribute('data-moving', 'true')
 })
 
@@ -351,8 +401,13 @@ test('reduced motion and unavailable WebGL retain readable, usable content', asy
     } as typeof original
   })
   await page.reload()
-  await page.getByRole('button', { name: 'Explore the 3D scene', exact: true }).click()
-  await expect(page.locator('.diorama')).toHaveAttribute('data-scene-status', 'fallback')
+  await page
+    .getByRole('button', { name: 'Explore the 3D scene', exact: true })
+    .click()
+  await expect(page.locator('.diorama')).toHaveAttribute(
+    'data-scene-status',
+    'fallback',
+  )
   await expect(page.locator('.scene-fallback img')).toBeVisible()
   await page.getByRole('searchbox').fill('Kyoto')
   await expect(page.locator('.destination-card')).toHaveCount(1)
@@ -389,11 +444,15 @@ test('itineraries switch routes and every detailed guide has a day plan', async 
   for (const place of destinations) {
     for (const lang of i18n.locales) {
       const response = await request.get(`/${lang}/destinations/${place.slug}`)
-      expect(await response.text()).toContain(destinationNotes[place.slug][lang].food)
+      expect(await response.text()).toContain(
+        destinationNotes[place.slug][lang].food,
+      )
     }
   }
   for (const journey of journeys) {
-    expect(journey.stops.reduce((sum, stop) => sum + stop.days, 0)).toBe(journey.days)
+    expect(journey.stops.reduce((sum, stop) => sum + stop.days, 0)).toBe(
+      journey.days,
+    )
     for (const stop of journey.stops)
       expect(destinations.some((place) => place.slug === stop.slug)).toBe(true)
   }
@@ -417,9 +476,9 @@ test('maps connect destinations, local places and usable external directions', a
     .locator('.street-map')
     .getByRole('button', { name: '2. สวนสุมิดะ', exact: true })
     .click()
-  await expect(page.locator('.map-place-list li[data-selected="true"]')).toContainText(
-    'สวนสุมิดะ',
-  )
+  await expect(
+    page.locator('.map-place-list li[data-selected="true"]'),
+  ).toContainText('สวนสุมิดะ')
   const directions = await page
     .locator('.map-place-list li')
     .first()
@@ -437,9 +496,14 @@ test('trip saves, schedules, reorders, survives reload and language changes, and
 }) => {
   await page.goto('/en/destinations/kyoto')
   await page
-    .getByRole('button', { name: 'Save to my trip: Kiyomizu-dera', exact: true })
+    .getByRole('button', {
+      name: 'Save to my trip: Kiyomizu-dera',
+      exact: true,
+    })
     .click()
-  await page.getByRole('button', { name: 'Save to my trip: Gion', exact: true }).click()
+  await page
+    .getByRole('button', { name: 'Save to my trip: Gion', exact: true })
+    .click()
   await page.locator('.header-trip').click()
   await expect(page.locator('.trip-day li')).toHaveCount(2)
   await page
@@ -448,7 +512,9 @@ test('trip saves, schedules, reorders, survives reload and language changes, and
   await page
     .getByRole('combobox', { name: 'Schedule for: Gion', exact: true })
     .selectOption('2')
-  await page.getByRole('button', { name: 'Move earlier: Gion', exact: true }).click()
+  await page
+    .getByRole('button', { name: 'Move earlier: Gion', exact: true })
+    .click()
   await expect(page.locator('.trip-day li').first()).toHaveAttribute(
     'data-place-id',
     'gion',
@@ -473,14 +539,21 @@ test('trip saves, schedules, reorders, survives reload and language changes, and
   await page
     .getByRole('combobox', { name: 'จัดลงวัน: กิออน', exact: true })
     .selectOption('1')
-  await page.getByRole('button', { name: 'นำออก: วัดคิโยมิซุเดระ', exact: true }).click()
+  await page
+    .getByRole('button', { name: 'นำออก: วัดคิโยมิซุเดระ', exact: true })
+    .click()
   await expect(page.locator('.trip-day li')).toHaveCount(1)
   await page.evaluate(() => {
     window.print = () =>
       document.documentElement.setAttribute('data-print-called', 'true')
   })
-  await page.getByRole('button', { name: 'พิมพ์ / บันทึก PDF', exact: true }).click()
-  await expect(page.locator('html')).toHaveAttribute('data-print-called', 'true')
+  await page
+    .getByRole('button', { name: 'พิมพ์ / บันทึก PDF', exact: true })
+    .click()
+  await expect(page.locator('html')).toHaveAttribute(
+    'data-print-called',
+    'true',
+  )
   await page.emulateMedia({ media: 'print' })
   await expect(page.locator('.site-header')).toBeHidden()
   await expect(page.locator('.trip-item-controls')).toBeHidden()
@@ -508,13 +581,20 @@ test('saved trip syncs across tabs and failed writes keep the previous plan', as
     }
   })
   await page
-    .getByRole('button', { name: 'Save to my trip: Tokyo National Museum', exact: true })
+    .getByRole('button', {
+      name: 'Save to my trip: Tokyo National Museum',
+      exact: true,
+    })
     .click()
-  await expect(page.locator('.trip-error-toast')).toContainText('could not save')
+  await expect(page.locator('.trip-error-toast')).toContainText(
+    'could not save',
+  )
   await expect(other.locator('.trip-day li')).toHaveCount(2)
   expect(
-    JSON.parse((await page.evaluate((key) => localStorage.getItem(key), tripKey)) || '{}')
-      .items,
+    JSON.parse(
+      (await page.evaluate((key) => localStorage.getItem(key), tripKey)) ||
+        '{}',
+    ).items,
   ).toHaveLength(2)
   await other.close()
 })
@@ -522,12 +602,17 @@ test('saved trip syncs across tabs and failed writes keep the previous plan', as
 test('invalid saved data is not overwritten and can be explicitly reset', async ({
   page,
 }) => {
-  await page.addInitScript((key) => localStorage.setItem(key, '{broken'), tripKey)
+  await page.addInitScript(
+    (key) => localStorage.setItem(key, '{broken'),
+    tripKey,
+  )
   await page.goto('/en/my-trip')
   await expect(page.locator('.trip-storage-error')).toContainText(
     'has not been overwritten',
   )
-  expect(await page.evaluate((key) => localStorage.getItem(key), tripKey)).toBe('{broken')
+  expect(await page.evaluate((key) => localStorage.getItem(key), tripKey)).toBe(
+    '{broken',
+  )
   page.once('dialog', (dialog) => dialog.accept())
   await page
     .getByRole('button', { name: 'Reset unreadable saved data', exact: true })
@@ -537,7 +622,8 @@ test('invalid saved data is not overwritten and can be explicitly reset', async 
   ).toBeVisible()
   expect(
     JSON.parse(
-      (await page.evaluate((key) => localStorage.getItem(key), tripKey)) || '{}',
+      (await page.evaluate((key) => localStorage.getItem(key), tripKey)) ||
+        '{}',
     ),
   ).toEqual(emptyTrip)
 })
@@ -576,16 +662,23 @@ test('empty saved data stays intact and blocked storage gives an actionable erro
   await expect(page.locator('.trip-storage-error')).toContainText(
     'has not been overwritten',
   )
-  expect(await page.evaluate((key) => localStorage.getItem(key), tripKey)).toBe('')
+  expect(await page.evaluate((key) => localStorage.getItem(key), tripKey)).toBe(
+    '',
+  )
   await page.addInitScript(() => {
     Storage.prototype.getItem = () => {
       throw new DOMException('Blocked', 'SecurityError')
     }
   })
   await page.reload()
-  await expect(page.locator('.trip-storage-error')).toContainText('could not save')
+  await expect(page.locator('.trip-storage-error')).toContainText(
+    'could not save',
+  )
   await expect(
-    page.getByRole('button', { name: 'Reset unreadable saved data', exact: true }),
+    page.getByRole('button', {
+      name: 'Reset unreadable saved data',
+      exact: true,
+    }),
   ).toHaveCount(0)
 })
 
@@ -596,13 +689,16 @@ test('the guide cover paints without duplicate-image LCP warnings', async ({
   test.skip(browserName !== 'chromium', 'LCP observation requires Chromium.')
   const warnings: string[] = []
   page.on('console', (message) => {
-    if (/Largest Contentful Paint/.test(message.text())) warnings.push(message.text())
+    if (/Largest Contentful Paint/.test(message.text()))
+      warnings.push(message.text())
   })
   await page.addInitScript(() => {
     new PerformanceObserver((list) => {
       for (const entry of list.getEntries()) {
-        const element = (entry as PerformanceEntry & { element?: Element }).element
-        if (element?.closest('.detail-photo')) performance.mark('guide-cover-painted')
+        const element = (entry as PerformanceEntry & { element?: Element })
+          .element
+        if (element?.closest('.detail-photo'))
+          performance.mark('guide-cover-painted')
       }
     }).observe({ type: 'largest-contentful-paint', buffered: true })
   })
@@ -612,7 +708,10 @@ test('the guide cover paints without duplicate-image LCP warnings', async ({
   })
   const coverRequests: string[] = []
   await page.route('**/_next/image*', async (route) => {
-    if (new URL(route.request().url()).searchParams.get('url') === '/images/kyoto.jpg') {
+    if (
+      new URL(route.request().url()).searchParams.get('url') ===
+      '/images/kyoto.jpg'
+    ) {
       coverRequests.push(route.request().url())
       await hydration
     }
@@ -623,10 +722,15 @@ test('the guide cover paints without duplicate-image LCP warnings', async ({
   releaseCover()
   await expect
     .poll(() =>
-      page.evaluate(() => performance.getEntriesByName('guide-cover-painted').length),
+      page.evaluate(
+        () => performance.getEntriesByName('guide-cover-painted').length,
+      ),
     )
     .toBeGreaterThan(0)
-  await expect(page.locator('.photo-gallery img').first()).toHaveJSProperty('complete', true)
+  await expect(page.locator('.photo-gallery img').first()).toHaveJSProperty(
+    'complete',
+    true,
+  )
   expect(coverRequests).toHaveLength(1)
   expect(warnings).toEqual([])
 })

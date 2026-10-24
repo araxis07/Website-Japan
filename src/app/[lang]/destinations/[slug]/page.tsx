@@ -1,3 +1,4 @@
+import ApplyPlan from '@/components/ApplyPlan'
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -107,11 +108,20 @@ export default async function DestinationPage({ params }: Props) {
             </div>
           </dl>
           <SavePlace id={`destination:${slug}`} name={copy.name} />
-          <Link className="text-link detail-trip-link" href={`/${lang}/my-trip`}>
+          <Link
+            className="text-link detail-trip-link"
+            href={`/${lang}/my-trip`}
+          >
             {dict.trip.plan} ↗
           </Link>
         </div>
       </section>
+      <ApplyPlan
+        days={2}
+        entries={spots
+          .filter((p) => p.destination === slug)
+          .map((p, i) => ({ id: p.id, day: i < 2 ? 1 : 2 }))}
+      />
       <nav className="guide-toc" aria-label={dict.guide.toc}>
         <span>{dict.guide.toc}</span>
         <a href="#practical">{dict.guide.overview}</a>
@@ -140,7 +150,11 @@ export default async function DestinationPage({ params }: Props) {
           ))}
         </div>
       </section>
-      <section id="day-plan" className="day-plan" aria-labelledby="day-plan-title">
+      <section
+        id="day-plan"
+        className="day-plan"
+        aria-labelledby="day-plan-title"
+      >
         <div className="section-heading">
           <div>
             <p className="section-japanese" lang="ja" aria-hidden="true">
@@ -196,7 +210,11 @@ export default async function DestinationPage({ params }: Props) {
           </p>
         </aside>
       </div>
-      <section className="guide-places" id="places" aria-labelledby="places-title">
+      <section
+        className="guide-places"
+        id="places"
+        aria-labelledby="places-title"
+      >
         <h2 id="places-title">{dict.guide.spots}</h2>
         <PlacesMap
           points={spots.filter((spot) => spot.destination === slug)}
@@ -204,7 +222,11 @@ export default async function DestinationPage({ params }: Props) {
           lang={lang}
         />
       </section>
-      <section id="gallery" className="guide-gallery" aria-labelledby="gallery-title">
+      <section
+        id="gallery"
+        className="guide-gallery"
+        aria-labelledby="gallery-title"
+      >
         <h2 id="gallery-title">{dict.guide.gallery}</h2>
         <PhotoGallery
           copy={dict.guide}
@@ -222,7 +244,11 @@ export default async function DestinationPage({ params }: Props) {
           lang={lang}
         />
       </section>
-      <section className="guide-sources" id="sources" aria-labelledby="sources-title">
+      <section
+        className="guide-sources"
+        id="sources"
+        aria-labelledby="sources-title"
+      >
         <h2 id="sources-title">{dict.guide.sources}</h2>
         <p>{dict.guide.note}</p>
         <p>

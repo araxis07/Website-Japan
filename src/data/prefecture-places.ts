@@ -1,20 +1,12 @@
+import { guidePlaces } from './guide-places'
 import type { Place } from './places'
 
 // Coordinates and Japanese location labels from OpenStreetMap, reviewed 2026-10-23.
 export const prefecturePlaces: Place[] = [
   {
+    ...guidePlaces.find((place) => place.id === 'odori')!,
     id: 'pref:hokkaido:odori-park',
     prefecture: 'hokkaido',
-    destination: 'hokkaido',
-    names: {
-      en: 'Odori Park',
-      ja: '大通公園',
-      th: 'สวนโอโดริ',
-    },
-    coordinates: [43.059902, 141.34751],
-    query: '大通公園 北海道 日本',
-    address: '大通公園, 中央区, 札幌市, 石狩振興局, 北海道, 北海道地方, 060-0042, 日本',
-    source: 'https://www.openstreetmap.org/way/64733385',
   },
   {
     id: 'pref:hokkaido:otaru-canal',
@@ -27,7 +19,8 @@ export const prefecturePlaces: Place[] = [
     },
     coordinates: [43.202023, 141.0006],
     query: '小樽運河 北海道 日本',
-    address: '小樽運河, 小樽市, 後志総合振興局, 北海道, 北海道地方, 047-0031, 日本',
+    address:
+      '小樽運河, 小樽市, 後志総合振興局, 北海道, 北海道地方, 047-0031, 日本',
     source: 'https://www.openstreetmap.org/way/205065355',
   },
   {
@@ -142,7 +135,8 @@ export const prefecturePlaces: Place[] = [
     },
     coordinates: [39.60051, 140.561744],
     query: '角館歴史村青柳家 仙北市 秋田県 日本',
-    address: '角館歴史村青柳家, 日三市角館線, 角館町, 仙北市, 秋田県, 014-1298, 日本',
+    address:
+      '角館歴史村青柳家, 日三市角館線, 角館町, 仙北市, 秋田県, 014-1298, 日本',
     source: 'https://www.openstreetmap.org/node/2598170891',
   },
   {
@@ -296,7 +290,8 @@ export const prefecturePlaces: Place[] = [
     },
     coordinates: [35.921729, 139.617861],
     query: '鉄道博物館 埼玉県 日本',
-    address: '鉄道博物館, 大成町三丁目, 大宮区, さいたま市, 埼玉県, 330-0852, 日本',
+    address:
+      '鉄道博物館, 大成町三丁目, 大宮区, さいたま市, 埼玉県, 330-0852, 日本',
     source: 'https://www.openstreetmap.org/way/30614323',
   },
   {
@@ -343,32 +338,14 @@ export const prefecturePlaces: Place[] = [
     source: 'https://www.openstreetmap.org/way/604291866',
   },
   {
+    ...guidePlaces.find((p) => p.id === 'sensoji')!,
     id: 'pref:tokyo:sensoji',
     prefecture: 'tokyo',
-    destination: 'tokyo',
-    names: {
-      en: 'Sensoji',
-      ja: '浅草寺',
-      th: 'วัดเซ็นโซจิ',
-    },
-    coordinates: [35.713403, 139.795526],
-    query: '浅草寺 東京都 日本',
-    address: '浅草寺, 1, 浅草二丁目, 浅草, 台東区, 東京, 111-0032, 日本',
-    source: 'https://www.openstreetmap.org/way/173154847',
   },
   {
+    ...guidePlaces.find((p) => p.id === 'tokyo-museum')!,
     id: 'pref:tokyo:tokyo-national-museum',
     prefecture: 'tokyo',
-    destination: 'tokyo',
-    names: {
-      en: 'Tokyo National Museum',
-      ja: '東京国立博物館',
-      th: 'พิพิธภัณฑสถานแห่งชาติโตเกียว',
-    },
-    coordinates: [35.719045, 139.775968],
-    query: '東京国立博物館 東京都 日本',
-    address: '東京国立博物館, 9, 上野公園, 台東区, 東京, 110-8712, 日本',
-    source: 'https://www.openstreetmap.org/way/33439660',
   },
   {
     id: 'pref:kanagawa:yokohama-red-brick-warehouse',
@@ -395,7 +372,8 @@ export const prefecturePlaces: Place[] = [
     },
     coordinates: [35.316499, 139.535729],
     query: '高徳院 神奈川県 日本',
-    address: '高徳院, 28, 長谷四丁目, 長谷, 御所ノ内, 鎌倉市, 神奈川県, 248-0016, 日本',
+    address:
+      '高徳院, 28, 長谷四丁目, 長谷, 御所ノ内, 鎌倉市, 神奈川県, 248-0016, 日本',
     source: 'https://www.openstreetmap.org/way/606025831',
   },
   {
@@ -513,18 +491,9 @@ export const prefecturePlaces: Place[] = [
     source: 'https://www.openstreetmap.org/way/685100415',
   },
   {
+    ...guidePlaces.find((p) => p.id === 'oishi')!,
     id: 'pref:yamanashi:oishi-park',
     prefecture: 'yamanashi',
-    destination: 'yamanashi',
-    names: {
-      en: 'Oishi Park',
-      ja: '大石公園',
-      th: 'สวนโออิชิ',
-    },
-    coordinates: [35.52329, 138.746537],
-    query: '大石公園 山梨県 日本',
-    address: '大石公園, 大石, 富士河口湖町, 南都留郡, 山梨県, 401-0392, 日本',
-    source: 'https://www.openstreetmap.org/way/1220560079',
   },
   {
     id: 'pref:yamanashi:takeda-shrine',
@@ -566,7 +535,8 @@ export const prefecturePlaces: Place[] = [
     },
     coordinates: [36.238635, 137.968871],
     query: '松本城 長野県 日本',
-    address: '松本城, 埋橋, 城西二丁目, 丸の内, 葭町, 松本市, 長野県, 390-8611, 日本',
+    address:
+      '松本城, 埋橋, 城西二丁目, 丸の内, 葭町, 松本市, 長野県, 390-8611, 日本',
     source: 'https://www.openstreetmap.org/way/300077872',
   },
   {
@@ -697,7 +667,8 @@ export const prefecturePlaces: Place[] = [
     },
     coordinates: [35.277101, 136.251717],
     query: '彦根城 滋賀県 日本',
-    address: '彦根城, 彦根城線旧道, Konki-cho, 彦根, 彦根市, 滋賀県, 522-8501, 日本',
+    address:
+      '彦根城, 彦根城線旧道, Konki-cho, 彦根, 彦根市, 滋賀県, 522-8501, 日本',
     source: 'https://www.openstreetmap.org/way/209262408',
   },
   {
@@ -711,23 +682,14 @@ export const prefecturePlaces: Place[] = [
     },
     coordinates: [34.96047, 135.905494],
     query: '石山寺 滋賀県 日本',
-    address: '石山寺, 国道422号, 瀬田四丁目, 螢谷, 大津市, 滋賀県, 520-2134, 日本',
+    address:
+      '石山寺, 国道422号, 瀬田四丁目, 螢谷, 大津市, 滋賀県, 520-2134, 日本',
     source: 'https://www.openstreetmap.org/way/1460649870',
   },
   {
+    ...guidePlaces.find((p) => p.id === 'kiyomizu')!,
     id: 'pref:kyoto:kiyomizu-dera',
     prefecture: 'kyoto',
-    destination: 'kyoto',
-    names: {
-      en: 'Kiyomizu-dera',
-      ja: '清水寺',
-      th: 'วัดคิโยมิซุเดระ',
-    },
-    coordinates: [34.994303, 135.784439],
-    query: '清水寺 京都府 日本',
-    address:
-      '清水寺, 茶わん坂, 清水一丁目, 辰巳町, 東山区, 京都市, 京都府, 605-0862, 日本',
-    source: 'https://www.openstreetmap.org/way/336641107',
   },
   {
     id: 'pref:kyoto:fushimi-inari-taisha',
@@ -758,18 +720,9 @@ export const prefecturePlaces: Place[] = [
     source: 'https://www.openstreetmap.org/way/1550234049',
   },
   {
+    ...guidePlaces.find((p) => p.id === 'dotonbori')!,
     id: 'pref:osaka:dotonbori',
     prefecture: 'osaka',
-    destination: 'osaka',
-    names: {
-      en: 'Dotonbori',
-      ja: '道頓堀',
-      th: 'โดทงโบริ',
-    },
-    coordinates: [34.669031, 135.501572],
-    query: '道頓堀 大阪府 日本',
-    address: '道頓堀, 道頓堀一丁目, 中央区, 大阪市, 大阪府, 542-0071, 日本',
-    source: 'https://www.openstreetmap.org/node/4029007869',
   },
   {
     id: 'pref:hyogo:himeji-castle',
@@ -782,7 +735,8 @@ export const prefecturePlaces: Place[] = [
     },
     coordinates: [34.839331, 134.69402],
     query: '姫路城 兵庫県 日本',
-    address: '姫路城, 68, 備前丸, 八代本町一丁目, 本町, 姫路市, 兵庫県, 670-0012, 日本',
+    address:
+      '姫路城, 68, 備前丸, 八代本町一丁目, 本町, 姫路市, 兵庫県, 670-0012, 日本',
     source: 'https://www.openstreetmap.org/way/23707900',
   },
   {
@@ -852,7 +806,8 @@ export const prefecturePlaces: Place[] = [
     },
     coordinates: [34.213882, 135.583687],
     query: '金剛峯寺 和歌山県 日本',
-    address: '金剛峯寺, 高野天川線, 高野山, 高野町, 伊都郡, 和歌山県, 648-0211, 日本',
+    address:
+      '金剛峯寺, 高野天川線, 高野山, 高野町, 伊都郡, 和歌山県, 648-0211, 日本',
     source: 'https://www.openstreetmap.org/way/1363855538',
   },
   {
@@ -1007,7 +962,8 @@ export const prefecturePlaces: Place[] = [
     },
     coordinates: [34.070151, 134.545018],
     query: '阿波おどり会館 徳島県 日本',
-    address: '阿波おどり会館, 新町橋二丁目, 西山手町, 徳島市, 徳島県, 770-0904, 日本',
+    address:
+      '阿波おどり会館, 新町橋二丁目, 西山手町, 徳島市, 徳島県, 770-0904, 日本',
     source: 'https://www.openstreetmap.org/way/226021281',
   },
   {
@@ -1063,7 +1019,8 @@ export const prefecturePlaces: Place[] = [
     },
     coordinates: [33.845651, 132.765746],
     query: '松山城 愛媛県 日本',
-    address: '松山城, 中央循環線, 平和通五丁目, 鉄砲町, 松山市, 愛媛県, 790-0827, 日本',
+    address:
+      '松山城, 中央循環線, 平和通五丁目, 鉄砲町, 松山市, 愛媛県, 790-0827, 日本',
     source: 'https://www.openstreetmap.org/node/611661255',
   },
   {
@@ -1105,7 +1062,8 @@ export const prefecturePlaces: Place[] = [
     },
     coordinates: [33.560448, 133.535688],
     query: 'ひろめ市場 高知県 日本',
-    address: 'ひろめ市場, 追手筋, 追手筋一丁目, 廿代町, 高知市, 高知県, 780-8571, 日本',
+    address:
+      'ひろめ市場, 追手筋, 追手筋一丁目, 廿代町, 高知市, 高知県, 780-8571, 日本',
     source: 'https://www.openstreetmap.org/way/1146148201',
   },
   {
@@ -1274,7 +1232,8 @@ export const prefecturePlaces: Place[] = [
     },
     coordinates: [31.938358, 131.42351],
     query: '宮崎神宮 宮崎県 日本',
-    address: '宮崎神宮, 宮崎高鍋線, 神宮二丁目, 矢の先町, 宮崎市, 宮崎県, 880-8505, 日本',
+    address:
+      '宮崎神宮, 宮崎高鍋線, 神宮二丁目, 矢の先町, 宮崎市, 宮崎県, 880-8505, 日本',
     source: 'https://www.openstreetmap.org/node/9611934970',
   },
   {
@@ -1307,33 +1266,13 @@ export const prefecturePlaces: Place[] = [
     source: 'https://www.openstreetmap.org/node/589671404',
   },
   {
+    ...guidePlaces.find((p) => p.id === 'makishi')!,
     id: 'pref:okinawa:makishi-public-market',
     prefecture: 'okinawa',
-    destination: 'okinawa',
-    names: {
-      en: 'Makishi Public Market',
-      ja: '第一牧志公設市場',
-      th: 'ตลาดมาคิชิ',
-    },
-    coordinates: [26.214546, 127.688288],
-    query: '第一牧志公設市場 沖縄県 日本',
-    address:
-      '第一牧志公設市場, 市場中央通り, 松尾二丁目, 松尾, 那覇市, 沖縄県, 900-8585, 日本',
-    source: 'https://www.openstreetmap.org/way/533600878',
   },
   {
+    ...guidePlaces.find((place) => place.id === 'okinawa-museum')!,
     id: 'pref:okinawa:okinawa-prefectural-museum-and-art-museum',
     prefecture: 'okinawa',
-    destination: 'okinawa',
-    names: {
-      en: 'Okinawa Prefectural Museum and Art Museum',
-      ja: '沖縄県立博物館・美術館',
-      th: 'พิพิธภัณฑ์และหอศิลป์จังหวัดโอกินาว่า',
-    },
-    coordinates: [26.227159, 127.693718],
-    query: '沖縄県立博物館・美術館 沖縄県 日本',
-    address:
-      '沖縄県立博物館・美術館 (おきみゅー), 1, おもろまち三丁目, おもろまち, 那覇市, 沖縄県, 900-0006, 日本',
-    source: 'https://www.openstreetmap.org/way/104013354',
   },
 ]

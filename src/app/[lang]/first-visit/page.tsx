@@ -10,7 +10,12 @@ export async function generateMetadata({ params }: Props) {
   const { lang } = await params
   if (!isLocale(lang)) notFound()
   const dict = await getDictionary(lang)
-  return pageMetadata(lang, '/first-visit', dict.beginner.title, dict.beginner.subtitle)
+  return pageMetadata(
+    lang,
+    '/first-visit',
+    dict.beginner.title,
+    dict.beginner.subtitle,
+  )
 }
 export default async function FirstVisit({ params }: Props) {
   const { lang } = await params
@@ -30,6 +35,19 @@ export default async function FirstVisit({ params }: Props) {
         <h1>{dict.beginner.title}</h1>
         <p>{dict.beginner.subtitle}</p>
       </div>
+      <details className="readiness-checklist">
+        <summary>{dict.tools.checklist}</summary>
+        <fieldset>
+          <legend>{dict.tools.checklist}</legend>
+          <p>{dict.tools.checklistHelp}</p>
+          {firstVisitSteps.map((step) => (
+            <label key={step.id}>
+              <input type="checkbox" />
+              {step.copy[lang].title}
+            </label>
+          ))}
+        </fieldset>
+      </details>
       <nav className="first-visit-toc" aria-label={dict.guide.toc}>
         {firstVisitSteps.map((step, index) => (
           <a key={step.id} href={`#${step.id}`}>

@@ -4,7 +4,13 @@ import type { Locale } from '@/i18n/config'
 import type { Dictionary } from '@/i18n/dictionaries'
 import Icon from './Icon'
 
-export default function Footer({ dict, lang }: { dict: Dictionary; lang: Locale }) {
+export default function Footer({
+  dict,
+  lang,
+}: {
+  dict: Dictionary
+  lang: Locale
+}) {
   return (
     <footer className="site-footer">
       <div className="container">
@@ -45,8 +51,16 @@ export default function Footer({ dict, lang }: { dict: Dictionary; lang: Locale 
           <div className="footer-about" id="about">
             <h3>{dict.footer.about}</h3>
             <p>{dict.footer.aboutText}</p>
+            <Link href={`/${lang}/about`}>{dict.tools.about}</Link>
+            <Link href={`/${lang}/first-visit#help`}>
+              {dict.tools.emergency}
+            </Link>
+            <a href="https://github.com/araxis07/Website-Japan/issues/new">
+              {dict.tools.report} ↗
+            </a>
             <p className="review-date">
-              {dict.footer.reviewed} <time dateTime={reviewedAt}>{reviewedAt}</time>
+              {dict.footer.reviewed}{' '}
+              <time dateTime={reviewedAt}>{reviewedAt}</time>
             </p>
           </div>
         </div>

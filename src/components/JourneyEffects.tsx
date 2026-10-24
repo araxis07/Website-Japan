@@ -12,7 +12,8 @@ export default function JourneyEffects() {
     const scroll = () => {
       if (frame) return
       frame = requestAnimationFrame(() => {
-        const length = document.documentElement.scrollHeight - window.innerHeight
+        const length =
+          document.documentElement.scrollHeight - window.innerHeight
         progress?.style.setProperty(
           'transform',
           `scaleX(${length > 0 ? window.scrollY / length : 0})`,
@@ -24,7 +25,11 @@ export default function JourneyEffects() {
       (entries) =>
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            if (!media.matches) entry.target.classList.add('entered')
+            if (
+              !media.matches &&
+              document.documentElement.dataset.motion !== 'still'
+            )
+              entry.target.classList.add('entered')
             observer.unobserve(entry.target)
           }
         }),
@@ -36,8 +41,15 @@ export default function JourneyEffects() {
       )
       .forEach((el) => observer.observe(el))
     const tilt = (event: PointerEvent) => {
-      if (media.matches || event.pointerType !== 'mouse') return
-      const card = (event.target as HTMLElement).closest<HTMLElement>('.destination-card')
+      if (
+        media.matches ||
+        document.documentElement.dataset.motion === 'still' ||
+        event.pointerType !== 'mouse'
+      )
+        return
+      const card = (event.target as HTMLElement).closest<HTMLElement>(
+        '.destination-card',
+      )
       if (!card) return
       const rect = card.getBoundingClientRect()
       card.style.setProperty(
@@ -50,7 +62,9 @@ export default function JourneyEffects() {
       )
     }
     const reset = (event: PointerEvent) => {
-      const card = (event.target as HTMLElement).closest<HTMLElement>('.destination-card')
+      const card = (event.target as HTMLElement).closest<HTMLElement>(
+        '.destination-card',
+      )
       if (card && !card.contains(event.relatedTarget as Node)) {
         card.style.removeProperty('--tilt-x')
         card.style.removeProperty('--tilt-y')

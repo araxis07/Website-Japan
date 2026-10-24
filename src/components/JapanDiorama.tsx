@@ -1,20 +1,11 @@
 'use client'
 
-import { useEffect, useRef, useState, useSyncExternalStore } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import type { Dictionary } from '@/i18n/dictionaries'
 import type { createJapanScene, SceneOptions } from '@/lib/japan-scene'
 import Icon from './Icon'
 import { useAtmosphere } from './Atmosphere'
-
-function subscribe(callback: () => void) {
-  const query = window.matchMedia('(prefers-reduced-motion: reduce)')
-  query.addEventListener('change', callback)
-  return () => query.removeEventListener('change', callback)
-}
-const reducedSnapshot = () =>
-  window.matchMedia('(prefers-reduced-motion: reduce)').matches
-const serverSnapshot = () => true
 
 export default function JapanDiorama({ copy }: { copy: Dictionary['scene'] }) {
   const host = useRef<HTMLDivElement>(null)
@@ -26,13 +17,10 @@ export default function JapanDiorama({ copy }: { copy: Dictionary['scene'] }) {
   })
   const [status, setStatus] = useState('preview')
   const [requested, setRequested] = useState(false)
-  const { theme, toggleTheme } = useAtmosphere()
+  const { theme, toggleTheme, moving, reduced, toggleMotion } = useAtmosphere()
   const lightToggle = useRef(toggleTheme)
   const night = theme === 'dark'
   const [season, setSeason] = useState(0)
-  const [paused, setPaused] = useState(false)
-  const reduced = useSyncExternalStore(subscribe, reducedSnapshot, serverSnapshot)
-  const moving = !paused && !reduced
   useEffect(() => {
     lightToggle.current = toggleTheme
     settings.current = { night, season, moving }
@@ -120,7 +108,11 @@ export default function JapanDiorama({ copy }: { copy: Dictionary['scene'] }) {
             {copy.start}
           </button>
         )}
-        <div className="scene-seasons" role="group" aria-label={copy.seasonLabel}>
+        <div
+          className="scene-seasons"
+          role="group"
+          aria-label={copy.seasonLabel}
+        >
           {copy.seasons.map((name, index) => (
             <button
               key={name}
@@ -134,7 +126,9 @@ export default function JapanDiorama({ copy }: { copy: Dictionary['scene'] }) {
               </span>
               <span
                 className={
-                  name === ['春', '夏', '秋', '冬'][index] ? 'sr-only' : undefined
+                  name === ['春', '夏', '秋', '冬'][index]
+                    ? 'sr-only'
+                    : undefined
                 }
               >
                 {name}
@@ -180,9 +174,11 @@ export default function JapanDiorama({ copy }: { copy: Dictionary['scene'] }) {
             </button>
             <button
               type="button"
-              aria-label={reduced ? copy.reduced : paused ? copy.play : copy.pause}
+              aria-label={
+                reduced ? copy.reduced : !moving ? copy.play : copy.pause
+              }
               aria-pressed={!moving}
-              onClick={() => setPaused(!paused)}
+              onClick={toggleMotion}
               disabled={reduced || status !== 'ready'}
             >
               <Icon name={moving ? 'pause' : 'play'} />

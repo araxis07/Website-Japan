@@ -1,0 +1,347 @@
+.trip-tools,
+.planner-view,
+.explorer-toolbar,
+.map-toolbar,
+.apply-plan {
+  margin-block: 1.25rem;
+}
+.trip-meta,
+.trip-reservation {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr));
+  gap: 1rem;
+}
+.trip-meta label,
+.trip-reservation label,
+.day-notes,
+.planner-view label {
+  display: grid;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+}
+.trip-tools input:not([type='file']),
+.trip-reservation input,
+.day-notes textarea,
+.planner-view select {
+  width: 100%;
+  min-height: 44px;
+  padding: 0.65rem;
+  color: var(--ink);
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+}
+.day-notes textarea {
+  min-height: 5rem;
+  resize: vertical;
+}
+.trip-reservation {
+  width: 100%;
+  margin-block: 1rem;
+}
+.trip-file-actions,
+.explorer-toolbar,
+.map-toolbar,
+.planner-view {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.trip-file-actions button,
+.file-import,
+.import-preview button,
+.explorer-toolbar button,
+.map-toolbar button,
+.copy-address,
+.trip-feedback button {
+  min-height: 44px;
+  padding: 0.6rem 0.9rem;
+  border: 1px solid var(--line);
+  background: var(--white);
+  color: var(--ink);
+  border-radius: 4px;
+  cursor: pointer;
+}
+.file-import {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: 100%;
+}
+.file-import input {
+  max-width: 100%;
+  font-size: 0.8rem;
+}
+.explorer-toolbar [aria-pressed='true'] {
+  background: var(--ink);
+  color: var(--paper);
+}
+.budget-panel,
+.visit-details,
+.import-preview,
+.readiness-checklist {
+  padding: 1rem;
+  margin-block: 1rem;
+  border: 1px solid var(--line);
+  background: var(--white);
+}
+.budget-panel summary,
+.visit-details summary {
+  cursor: pointer;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+.visit-details dl > div {
+  margin-block: 1rem;
+}
+.visit-details dt {
+  font-weight: 600;
+}
+.visit-details dd {
+  margin: 0.4rem 0;
+  line-height: 1.8;
+}
+.visit-details p {
+  line-height: 1.8;
+}
+.planner-view label:has([type='checkbox']) {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+}
+.planner-view [type='checkbox'],
+.readiness-checklist input {
+  width: 22px;
+  height: 22px;
+  accent-color: var(--red);
+  flex-shrink: 0;
+}
+.trip-day[hidden] {
+  display: none;
+}
+.trip-day h2 small {
+  display: block;
+  font: 400 0.9rem/1.6 var(--font-sans, sans-serif);
+}
+.trip-day li {
+  flex-wrap: wrap;
+}
+.place-kind {
+  display: inline-block;
+  color: var(--muted);
+  font-size: 0.8rem;
+  margin-block: 0.5rem;
+}
+.print-address {
+  display: none;
+}
+.trip-feedback button {
+  margin-inline-start: 0.75rem;
+}
+.street-map-wrap[data-expanded='true'] .street-map {
+  height: 70dvh;
+  min-height: 420px;
+}
+.scene-topics {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.scene-topics a {
+  min-height: 44px;
+  padding: 0.7rem;
+  border-bottom: 1px solid var(--line);
+}
+.prefecture-photo {
+  position: relative;
+  min-height: 280px;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  border-radius: 50% 50% 4px 4px;
+}
+.prefecture-photo img {
+  object-fit: cover;
+}
+.prefecture-practical {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: 1rem;
+  margin-block: 2rem;
+}
+.prefecture-practical article {
+  border-top: 1px solid var(--line);
+  padding-block: 1.25rem;
+}
+.prefecture-practical h2 {
+  font-size: 1.25rem;
+  margin-bottom: 0.8rem;
+}
+.nearby-prefectures {
+  display: grid;
+  gap: 0.75rem;
+  margin-block: 2rem;
+}
+.nearby-prefectures a {
+  padding: 0.75rem;
+  border: 1px solid var(--line);
+}
+.readiness-checklist label {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 0.7rem 0;
+  line-height: 1.8;
+}
+.about-page {
+  max-width: 850px;
+  padding-block: 3rem;
+}
+.about-page p,
+.about-page li {
+  line-height: 1.9;
+  margin-block: 1rem;
+}
+.page-intro {
+  padding-top: 1rem;
+}
+html[data-motion='still'] .destination-card {
+  transform: none !important;
+}
+@media (max-width: 700px) {
+  .explorer-page .page-intro,
+  .first-visit-page .page-intro {
+    padding: 8px 0 18px;
+    margin: 0;
+  }
+  .explorer-page .page-intro h1,
+  .first-visit-page .page-intro h1 {
+    font-size: 32px;
+    margin-bottom: 16px;
+  }
+  .explorer-page .breadcrumbs,
+  .first-visit-page .breadcrumbs,
+  .prefecture-page .breadcrumbs {
+    padding-block: 20px;
+  }
+  .explorer-page .beginner-note {
+    margin-bottom: 24px;
+    padding: 12px 16px;
+  }
+  main.planner-page {
+    padding-top: 28px;
+  }
+  .planner-page .planner-heading h1 {
+    font-size: 40px;
+  }
+  .prefecture-page .prefecture-hero {
+    padding-top: 8px;
+    gap: 20px;
+  }
+  .readiness-checklist summary {
+    min-height: 44px;
+    cursor: pointer;
+  }
+  .readiness-checklist fieldset {
+    border: 0;
+    padding: 0;
+  }
+  .explore-map-panel .prefecture-preview {
+    padding: 1rem;
+  }
+  .explore-map-panel .prefecture-preview h2 {
+    font-size: 1.8rem;
+  }
+  .trip-day {
+    padding: 1rem;
+  }
+  .trip-file-actions {
+    align-items: stretch;
+  }
+  .trip-file-actions > * {
+    width: 100%;
+  }
+  .map-toolbar button {
+    flex: 1;
+  }
+  .guide-toc {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+  }
+  .guide-toc a {
+    flex-shrink: 0;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+  .explorer-filters {
+    grid-template-columns: 1fr !important;
+  }
+}
+@media print {
+  .trip-tools,
+  .planner-view,
+  .apply-plan,
+  .trip-file-actions,
+  .trip-feedback,
+  .copy-address,
+  .map-toolbar {
+    display: none !important;
+  }
+  .trip-day[hidden] {
+    display: block !important;
+  }
+  .trip-day:not(:has(li, .print-address)) {
+    display: none !important;
+  }
+  .print-address {
+    display: block;
+  }
+  .trip-reservation input,
+  .day-notes textarea {
+    border: none;
+    background: transparent;
+    padding: 0;
+  }
+  .trip-reservation {
+    display: block;
+  }
+  .trip-day {
+    break-inside: avoid;
+  }
+}
+
+.prefecture-hero figure {
+  margin: 0;
+  min-width: 0;
+}
+.prefecture-hero figcaption {
+  overflow-wrap: anywhere;
+  line-height: 1.6;
+  padding-block: 0.75rem;
+}
+.credit-row {
+  overflow-wrap: anywhere;
+}
+
+.trip-print-summary {
+  display: none;
+}
+@media print {
+  .trip-print-summary {
+    display: block;
+  }
+}
+
+@media print {
+  .trip-reservation,
+  .day-notes {
+    display: none !important;
+  }
+  .print-address {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+}

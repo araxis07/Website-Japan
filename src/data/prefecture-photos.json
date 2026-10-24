@@ -1,0 +1,494 @@
+{
+  "aomori": {
+    "src": "/images/prefectures/aomori.jpg",
+    "alt": {
+      "en": "Apple trees and Mount Iwaki",
+      "ja": "りんごの木と岩木山",
+      "th": "ต้นแอปเปิลและภูเขาอิวากิ"
+    },
+    "artist": "岩浪陸",
+    "source": "https://commons.wikimedia.org/wiki/File:An_apple_branch_with_Mount_Iwaki_in_the_background.jpg",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0"
+  },
+  "iwate": {
+    "src": "/images/prefectures/iwate.jpg",
+    "alt": {
+      "en": "A cherry tree and Mount Iwate",
+      "ja": "一本桜と岩手山",
+      "th": "ต้นซากุระและภูเขาอิวาเตะ"
+    },
+    "artist": "掬茶",
+    "source": "https://commons.wikimedia.org/wiki/File:Cherry_tree_and_Mount_Iwate.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "miyagi": {
+    "src": "/images/prefectures/miyagi.jpg",
+    "alt": {
+      "en": "Matsushima from Saigyo Modoshi no Matsu Park",
+      "ja": "西行戻しの松公園からの松島",
+      "th": "มัตสึชิมะจากสวนไซเกียวโมโดชิโนะมัตสึ"
+    },
+    "artist": "663highland",
+    "source": "https://commons.wikimedia.org/wiki/File:211030_Saigyo_Modoshi_no_Matsu_Park_Matsushima_Miyagi_pref_Japan01n.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "akita": {
+    "src": "/images/prefectures/akita.jpg",
+    "alt": {
+      "en": "Lake Tazawa and Kansagu Shrine",
+      "ja": "田沢湖と漢槎宮",
+      "th": "ทะเลสาบทาซาวะและศาลเจ้าคันซากู"
+    },
+    "artist": "(Tea-making tea) 掬茶",
+    "source": "https://commons.wikimedia.org/wiki/File:Lake_Tazawa_and_Kansa-g%C5%AB_20210213.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "yamagata": {
+    "src": "/images/prefectures/yamagata.jpg",
+    "alt": {
+      "en": "Evening in Ginzan Onsen",
+      "ja": "夕暮れの銀山温泉",
+      "th": "กินซังออนเซ็นยามเย็น"
+    },
+    "artist": "さかおり",
+    "source": "https://commons.wikimedia.org/wiki/File:Evening_twilight_in_Ginzan_Onsen_town_January_2022_A.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "fukushima": {
+    "src": "/images/prefectures/fukushima.jpg",
+    "alt": {
+      "en": "Mount Bandai across Lake Inawashiro",
+      "ja": "猪苗代湖から望む磐梯山",
+      "th": "ภูเขาบันไดจากทะเลสาบอินาวาชิโระ"
+    },
+    "artist": "Σ64",
+    "source": "https://commons.wikimedia.org/wiki/File:Mt.Bandai_from_Lake_Inawashiro_05.jpg",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0"
+  },
+  "ibaraki": {
+    "src": "/images/prefectures/ibaraki.jpg",
+    "alt": {
+      "en": "Plum blossoms in Kairakuen",
+      "ja": "偕楽園の梅",
+      "th": "ดอกบ๊วยในสวนไคราคุเอ็น"
+    },
+    "artist": "Σ64",
+    "source": "https://commons.wikimedia.org/wiki/File:Kairaku-en,_Ibaraki_21.jpg",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0"
+  },
+  "tochigi": {
+    "src": "/images/prefectures/tochigi.jpg",
+    "alt": {
+      "en": "Yomeimon Gate at Nikko Toshogu",
+      "ja": "日光東照宮の陽明門",
+      "th": "ประตูโยเมมงที่นิกโกโทโชกู"
+    },
+    "artist": "Jpatokal",
+    "source": "https://commons.wikimedia.org/wiki/File:Nikko_Toshogu_Yomeimon_Gate_2024.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "gunma": {
+    "src": "/images/prefectures/gunma.jpg",
+    "alt": {
+      "en": "Tanigawadake Ropeway",
+      "ja": "谷川岳ロープウェイ",
+      "th": "กระเช้าทานิกาวะดาเกะ"
+    },
+    "artist": "photo: Qurren (talk) Taken with Canon IXY 430F (Digital IXUS 245 HS)",
+    "source": "https://commons.wikimedia.org/wiki/File:Tanigawadake_Ropeway.jpg",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  "saitama": {
+    "src": "/images/prefectures/saitama.jpg",
+    "alt": {
+      "en": "Nagatoro Gorge",
+      "ja": "長瀞渓谷",
+      "th": "หุบเขานากาโทโระ"
+    },
+    "artist": "Suikotei",
+    "source": "https://commons.wikimedia.org/wiki/File:Nagatoro_gorge_2019_02.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "chiba": {
+    "src": "/images/prefectures/chiba.jpg",
+    "alt": {
+      "en": "Sunrise at Inubosaki",
+      "ja": "犬吠埼の日の出",
+      "th": "พระอาทิตย์ขึ้นที่อินุโบซากิ"
+    },
+    "artist": "Takashi Hososhima from Tokyo, Japan",
+    "source": "https://commons.wikimedia.org/wiki/File:Sunrise_in_Inubosaki_(9027196940).jpg",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0"
+  },
+  "kanagawa": {
+    "src": "/images/prefectures/kanagawa.jpg",
+    "alt": {
+      "en": "Yokohama waterfront",
+      "ja": "横浜のウォーターフロント",
+      "th": "ริมน้ำโยโกฮามะ"
+    },
+    "artist": "Dick Thomas Johnson from Tokyo, Japan",
+    "source": "https://commons.wikimedia.org/wiki/File:Yokohama_(52978652484).jpg",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0"
+  },
+  "niigata": {
+    "src": "/images/prefectures/niigata.jpg",
+    "alt": {
+      "en": "Countryside near Tokoji Station",
+      "ja": "東光寺駅付近の田園風景",
+      "th": "ชนบทใกล้สถานีโทโคจิ"
+    },
+    "artist": "くろふね",
+    "source": "https://commons.wikimedia.org/wiki/File:%E6%9D%B1%E5%85%89%E5%AF%BA%E9%A7%85%E4%BB%98%E8%BF%91%E3%81%AE%E9%A2%A8%E6%99%AF_-_panoramio_(1).jpg",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0"
+  },
+  "toyama": {
+    "src": "/images/prefectures/toyama.jpg",
+    "alt": {
+      "en": "Snow walls on the Tateyama route",
+      "ja": "立山・雪の大谷",
+      "th": "กำแพงหิมะบนเส้นทางทาเตยามะ"
+    },
+    "artist": "くろふね",
+    "source": "https://commons.wikimedia.org/wiki/File:%E7%AB%8B%E5%B1%B1%E9%9B%AA%E3%81%AE%E5%A4%A7%E8%B0%B720220507-IMG_2206.jpg",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0"
+  },
+  "ishikawa": {
+    "src": "/images/prefectures/ishikawa.jpg",
+    "alt": {
+      "en": "Kenrokuen Garden in Kanazawa",
+      "ja": "金沢の兼六園",
+      "th": "สวนเค็นโรคุเอ็นในคานาซาวะ"
+    },
+    "artist": "Winniepix",
+    "source": "https://commons.wikimedia.org/wiki/File:Kenrokuen_Garden,_Kanazawa_(53621201294).jpg",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0"
+  },
+  "fukui": {
+    "src": "/images/prefectures/fukui.jpg",
+    "alt": {
+      "en": "Fukui Plain from Mount Monju",
+      "ja": "文殊山から望む福井平野",
+      "th": "ที่ราบฟุกุอิจากภูเขามนจุ"
+    },
+    "artist": "藤谷良秀(Yoshihide Fujitani)",
+    "source": "https://commons.wikimedia.org/wiki/File:Fukui_plain.jpg",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  "nagano": {
+    "src": "/images/prefectures/nagano.jpg",
+    "alt": {
+      "en": "Ski slopes in Shiga Kogen",
+      "ja": "志賀高原のスキー場",
+      "th": "ลานสกีชิกะโคเก็น"
+    },
+    "artist": "MaedaAkihiko",
+    "source": "https://commons.wikimedia.org/wiki/File:Shiga-kogen_Ski-resort.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "gifu": {
+    "src": "/images/prefectures/gifu.jpg",
+    "alt": {
+      "en": "Cormorant fishing on the Nagara River",
+      "ja": "長良川の鵜飼",
+      "th": "การจับปลาโดยนกกาน้ำที่แม่น้ำนางาระ"
+    },
+    "artist": "Hide-sp",
+    "source": "https://commons.wikimedia.org/wiki/File:Ukai_Gifu_Nagaragawa_05.jpg",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/"
+  },
+  "aichi": {
+    "src": "/images/prefectures/aichi.jpg",
+    "alt": {
+      "en": "Nagoya from the MIRAI Tower observation deck",
+      "ja": "MIRAI TOWER展望台からの名古屋",
+      "th": "นาโกย่าจากจุดชมวิว MIRAI Tower"
+    },
+    "artist": "Tomio344456",
+    "source": "https://commons.wikimedia.org/wiki/File:View_of_Westward_from_Sky_Deck_MIRAI360,_Nishiki_Naka_Ward_Nagoya_2022.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "mie": {
+    "src": "/images/prefectures/mie.jpg",
+    "alt": {
+      "en": "Sunrise at Meoto Iwa",
+      "ja": "夫婦岩の日の出",
+      "th": "พระอาทิตย์ขึ้นที่หินเมโอโตะอิวะ"
+    },
+    "artist": "Tawashi2006",
+    "source": "https://commons.wikimedia.org/wiki/File:Sunrise_of_the_Wedded_Rocks03.jpg",
+    "license": "CC BY 2.1 jp",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.1/jp/deed.en"
+  },
+  "shiga": {
+    "src": "/images/prefectures/shiga.jpg",
+    "alt": {
+      "en": "Mangetsuji Temple beside Lake Biwa",
+      "ja": "琵琶湖畔の満月寺",
+      "th": "วัดมันเก็ตสึจิริมทะเลสาบบิวะ"
+    },
+    "artist": "663highland",
+    "source": "https://commons.wikimedia.org/wiki/File:Mangetsuji_Otsu_Shiga02n4500.jpg",
+    "license": "CC BY 2.5",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.5"
+  },
+  "nara": {
+    "src": "/images/prefectures/nara.jpg",
+    "alt": {
+      "en": "The Great Buddha Hall at Todaiji",
+      "ja": "東大寺の大仏殿",
+      "th": "วิหารพระใหญ่ที่วัดโทไดจิ"
+    },
+    "artist": "Cun Cun",
+    "source": "https://commons.wikimedia.org/wiki/File:T%C5%8Ddai-ji_Daibutsuden,_June_2019.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "wakayama": {
+    "src": "/images/prefectures/wakayama.jpg",
+    "alt": {
+      "en": "Seigantoji Pagoda and Nachi Falls",
+      "ja": "青岸渡寺の三重塔と那智の滝",
+      "th": "เจดีย์เซกันโทจิและน้ำตกนาจิ"
+    },
+    "artist": "Big Ben in Japan",
+    "source": "https://commons.wikimedia.org/wiki/File:Pagoda_and_Nachi_Falls_2017-10-12.jpg",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0"
+  },
+  "tottori": {
+    "src": "/images/prefectures/tottori.jpg",
+    "alt": {
+      "en": "Tottori Sand Dunes",
+      "ja": "鳥取砂丘",
+      "th": "เนินทรายทตโตริ"
+    },
+    "artist": "Hashi photo",
+    "source": "https://commons.wikimedia.org/wiki/File:Tottori-Sakyu_Tottori_Japan.JPG",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  "shimane": {
+    "src": "/images/prefectures/shimane.jpg",
+    "alt": {
+      "en": "The worship hall at Izumo Taisha",
+      "ja": "出雲大社の拝殿",
+      "th": "วิหารสักการะที่ศาลเจ้าอิซุโมะไทฉะ"
+    },
+    "artist": "MaedaAkihiko",
+    "source": "https://commons.wikimedia.org/wiki/File:Izumo-Taisha_Haiden.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "okayama": {
+    "src": "/images/prefectures/okayama.jpg",
+    "alt": {
+      "en": "City lights in Okayama",
+      "ja": "岡山の街の灯り",
+      "th": "แสงไฟเมืองโอคายามะ"
+    },
+    "artist": "Takuma Kimura",
+    "source": "https://commons.wikimedia.org/wiki/File:Christmas_tree_lighting_(6471182605).jpg",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0"
+  },
+  "hiroshima": {
+    "src": "/images/prefectures/hiroshima.jpg",
+    "alt": {
+      "en": "Hiroshima Peace Memorial Park",
+      "ja": "広島平和記念公園",
+      "th": "สวนสันติภาพฮิโรชิมะ"
+    },
+    "artist": "DXR",
+    "source": "https://commons.wikimedia.org/wiki/File:Peace_Memorial_Park_and_Cenotaph,_Hiroshima,_South_view_20190417_1.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "yamaguchi": {
+    "src": "/images/prefectures/yamaguchi.jpg",
+    "alt": {
+      "en": "Kintaikyo Bridge seen from Iwakuni Castle",
+      "ja": "岩国城から望む錦帯橋",
+      "th": "สะพานคินไทเคียวจากปราสาทอิวาคุนิ"
+    },
+    "artist": "កៀនស្វាយ",
+    "source": "https://commons.wikimedia.org/wiki/File:%E5%B2%A9%E5%9B%BD%E5%9F%8E%E3%81%8B%E3%82%89%E8%A6%8B%E3%81%9F%E9%8C%A6%E5%B8%AF%E6%A9%8B.jpg",
+    "license": "Public domain",
+    "licenseUrl": ""
+  },
+  "tokushima": {
+    "src": "/images/prefectures/tokushima.jpg",
+    "alt": {
+      "en": "Naruto whirlpools",
+      "ja": "鳴門の渦潮",
+      "th": "น้ำวนนารูโตะ"
+    },
+    "artist": "Suicasmo",
+    "source": "https://commons.wikimedia.org/wiki/File:Naruto_whirlpools_20170609-2.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "kagawa": {
+    "src": "/images/prefectures/kagawa.jpg",
+    "alt": {
+      "en": "The Great Seto Bridge",
+      "ja": "瀬戸大橋",
+      "th": "สะพานเซโตะโอฮาชิ"
+    },
+    "artist": "Kanchi1979",
+    "source": "https://commons.wikimedia.org/wiki/File:JP-Kagawa-Great-Seto-Bridge-Minami_Bisan-Seto-Bridge.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "ehime": {
+    "src": "/images/prefectures/ehime.jpg",
+    "alt": {
+      "en": "Mount Ishizuchi in winter",
+      "ja": "冬の石鎚山",
+      "th": "ภูเขาอิชิซึจิในฤดูหนาว"
+    },
+    "artist": "Dokudami",
+    "source": "https://commons.wikimedia.org/wiki/File:Isidutisan20220226_1.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "fukuoka": {
+    "src": "/images/prefectures/fukuoka.jpg",
+    "alt": {
+      "en": "Seaside Momochi in Fukuoka",
+      "ja": "福岡・シーサイドももち",
+      "th": "ซีไซด์โมโมจิในฟุกุโอกะ"
+    },
+    "artist": "Nryate",
+    "source": "https://commons.wikimedia.org/wiki/File:Fukuoka_Skyline_of_Seaside_Momochi.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "saga": {
+    "src": "/images/prefectures/saga.jpg",
+    "alt": {
+      "en": "Niji no Matsubara from Mount Kagami",
+      "ja": "鏡山から望む虹の松原",
+      "th": "ป่าสนนิจิโนะมัตสึบาระจากภูเขาคางามิ"
+    },
+    "artist": "ascesis",
+    "source": "https://commons.wikimedia.org/wiki/File:Nijinomatsubara.jpg",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  "nagasaki": {
+    "src": "/images/prefectures/nagasaki.jpg",
+    "alt": {
+      "en": "Obon lanterns on the Sasebo River",
+      "ja": "佐世保川の盆の灯籠",
+      "th": "โคมเทศกาลโอบ้งบนแม่น้ำซาเซโบะ"
+    },
+    "artist": "U.S. Navy photo by Photographer's Mate 3rd Class Ian W. Anderson (Released, PH3 IAN W. ANDERSON, FLTIMAGFACPAC SASEBO JA)",
+    "source": "https://commons.wikimedia.org/wiki/File:Albuquerque_Bridge-Sasebo_River,_Sasebo.jpg",
+    "license": "Public domain",
+    "licenseUrl": ""
+  },
+  "kumamoto": {
+    "src": "/images/prefectures/kumamoto.jpg",
+    "alt": {
+      "en": "Mount Aso from Kabutoiwa viewpoint",
+      "ja": "かぶと岩展望所からの阿蘇山",
+      "th": "ภูเขาอะโสะจากจุดชมวิวคาบุโตะอิวะ"
+    },
+    "artist": "mahlervv",
+    "source": "https://commons.wikimedia.org/wiki/File:%E9%98%BF%E8%98%87%E3%81%AE%E6%9C%9D_-_panoramio.jpg",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0"
+  },
+  "miyazaki": {
+    "src": "/images/prefectures/miyazaki.jpg",
+    "alt": {
+      "en": "Kakuto Basin and the Kirishima mountains",
+      "ja": "加久藤盆地と霧島連山",
+      "th": "แอ่งคาคุโตะและเทือกเขาคิริชิมะ"
+    },
+    "artist": "Ray_go",
+    "source": "https://commons.wikimedia.org/wiki/File:Kakutou_Basin.jpg",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  "kagoshima": {
+    "src": "/images/prefectures/kagoshima.jpg",
+    "alt": {
+      "en": "Sunrise over Sakurajima",
+      "ja": "桜島の日の出",
+      "th": "พระอาทิตย์ขึ้นเหนือซากุระจิมะ"
+    },
+    "artist": "The Modern Polymath",
+    "source": "https://commons.wikimedia.org/wiki/File:2025-09-08_Sakurajima_Sunrise.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "hyogo": {
+    "src": "/images/prefectures/hyogo.jpg",
+    "alt": {
+      "en": "Kobe at night from Mount Maya",
+      "ja": "摩耶山からの神戸の夜景",
+      "th": "โกเบยามค่ำจากภูเขามายะ"
+    },
+    "artist": "Laitr Keiows",
+    "source": "https://commons.wikimedia.org/wiki/File:Night_view_of_Rokk%C5%8D_Island_and_Higashinada-ku,_Kobe,_Japan.jpg",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  "kochi": {
+    "src": "/images/prefectures/kochi.jpg",
+    "alt": {
+      "en": "Shimanto River and Iwama Bridge",
+      "ja": "四万十川と岩間沈下橋",
+      "th": "แม่น้ำชิมันโตะและสะพานอิวะมะ"
+    },
+    "artist": "京浜にけ",
+    "source": "https://commons.wikimedia.org/wiki/File:Shimanto_River_And_Iwama_Bridge_1.jpg",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  "oita": {
+    "src": "/images/prefectures/oita.jpg",
+    "alt": {
+      "en": "Umi Jigoku in Beppu",
+      "ja": "別府の海地獄",
+      "th": "บ่อนรกอุมิจิโงกุในเบปปุ"
+    },
+    "artist": "663highland",
+    "source": "https://commons.wikimedia.org/wiki/File:Beppu_Umi-jigoku04n4272.jpg",
+    "license": "CC BY 2.5",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.5"
+  },
+  "shizuoka": {
+    "src": "/images/prefectures/shizuoka.jpg",
+    "alt": {
+      "en": "Miho no Matsubara",
+      "ja": "三保の松原",
+      "th": "มิโฮะโนะมัตสึบาระ"
+    },
+    "artist": "Σ64",
+    "source": "https://commons.wikimedia.org/wiki/File:Miho_no_Matsubara_08.jpg",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0"
+  }
+}

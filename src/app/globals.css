@@ -1,3 +1,4 @@
+@import './journey-tools.css';
 :root {
   --paper: #f6f2e9;
   --white: #fffcf6;
@@ -6,7 +7,8 @@
   --red: #b33d2d;
   --line: #d8d2c6;
   --serif: Baskerville, 'Yu Mincho', 'Hiragino Mincho ProN', Georgia, serif;
-  --sans: 'Avenir Next', 'Hiragino Kaku Gothic ProN', Meiryo, system-ui, sans-serif;
+  --sans:
+    'Avenir Next', 'Hiragino Kaku Gothic ProN', Meiryo, system-ui, sans-serif;
 }
 * {
   box-sizing: border-box;
@@ -671,7 +673,12 @@ html[lang='ja'] h2 {
   color: #f3eee4;
 }
 .diorama[data-night='true'] .scene-sky {
-  background: radial-gradient(ellipse at 50% 37%, #283957 0%, #253140 55%, #26333e 85%);
+  background: radial-gradient(
+    ellipse at 50% 37%,
+    #283957 0%,
+    #253140 55%,
+    #26333e 85%
+  );
 }
 .diorama[data-night='true'] .scene-sun {
   background: #f7e6bc;
@@ -812,7 +819,8 @@ html[lang='ja'] h2 {
   background: var(--white);
   border: 1px solid #e1d9ca;
   border-radius: 4px;
-  transform: perspective(1000px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+  transform: perspective(1000px) rotateX(var(--tilt-x, 0deg))
+    rotateY(var(--tilt-y, 0deg));
   transition:
     transform 0.2s,
     box-shadow 0.3s;
@@ -2767,7 +2775,7 @@ html[lang='th'] .hero-description {
   color: var(--white);
   padding: 12px 24px;
   border-radius: 6px;
-  pointer-events: none;
+  pointer-events: auto;
   animation: trip-notice 5s both;
   max-width: calc(100% - 32px);
 }
@@ -3331,7 +3339,8 @@ html[data-theme='light'] {
 }
 html[data-theme='dark'] body {
   background:
-    radial-gradient(ellipse at 75% 10%, #24344b 0, transparent 45%), var(--paper);
+    radial-gradient(ellipse at 75% 10%, #24344b 0, transparent 45%),
+    var(--paper);
 }
 html[data-theme='dark'] .site-header {
   background: #101d2bf2;
@@ -3425,8 +3434,8 @@ html[data-theme='dark'] .sakura-petal {
       rotateZ(-30deg);
   }
   to {
-    transform: translate3d(12vw, 180vh, var(--depth)) rotateX(300deg) rotateY(540deg)
-      rotateZ(160deg);
+    transform: translate3d(12vw, 180vh, var(--depth)) rotateX(300deg)
+      rotateY(540deg) rotateZ(160deg);
   }
 }
 .still-blossom {
@@ -3442,17 +3451,13 @@ html[data-theme='dark'] .sakura-petal {
   display: none;
 }
 .atmosphere-controls {
-  position: fixed;
-  left: 20px;
-  bottom: 20px;
-  z-index: 70;
+  position: relative;
   display: flex;
-  gap: 2px;
-  padding: 5px;
-  background: var(--white);
-  border: 1px solid var(--line);
-  box-shadow: 0 6px 24px #07132126;
-  border-radius: 28px;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 2px max(20px, calc((100vw - 1280px) / 2));
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
 }
 .atmosphere-controls button {
   display: flex;
@@ -3563,6 +3568,7 @@ html[data-theme='dark'] .sakura-petal {
 }
 .street-map .leaflet-control-attribution a {
   color: #185178;
+  text-decoration: underline;
 }
 .street-map .leaflet-control-zoom a {
   color: #20313d;
@@ -3783,13 +3789,12 @@ html[data-theme='dark'] .street-map .leaflet-tile-pane {
 }
 .prefecture-seal {
   position: absolute;
-  top: 10px;
-  right: 8px;
+  top: 24px;
+  right: 16px;
   writing-mode: vertical-rl;
-  font-size: 65px;
+  font-size: 20px;
   font-family: var(--serif);
   color: var(--red);
-  opacity: 0.09;
   transform: perspective(500px) rotateY(-25deg);
 }
 .prefecture-list-title {
@@ -4130,16 +4135,11 @@ html[data-motion='still'] .prefecture-lantern {
     font-size: 13px;
   }
   .atmosphere-controls {
-    left: 12px;
-    bottom: 12px;
+    justify-content: center;
   }
   .atmosphere-controls button {
-    width: 42px;
-    justify-content: center;
-    padding: 9px;
-  }
-  .atmosphere-controls button span {
-    display: none;
+    min-height: 44px;
+    padding: 8px 12px;
   }
 }
 @media (prefers-reduced-motion: reduce) {

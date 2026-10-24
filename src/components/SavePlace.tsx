@@ -1,8 +1,16 @@
 'use client'
 import Link from 'next/link'
 import { useTrip } from './TripProvider'
+import { canonicalPlaceId } from '@/data/places'
 
-export default function SavePlace({ id, name }: { id: string; name: string }) {
+export default function SavePlace({
+  id: sourceId,
+  name,
+}: {
+  id: string
+  name: string
+}) {
+  const id = canonicalPlaceId(sourceId)
   const { trip, ready, copy, change, lang } = useTrip()
   const saved = trip?.items.some((item) => item.id === id) ?? false
   return (
@@ -25,7 +33,8 @@ export default function SavePlace({ id, name }: { id: string; name: string }) {
           )
         }
       >
-        <span aria-hidden="true">{saved ? '✓' : '+'}</span> {saved ? copy.saved : copy.save}
+        <span aria-hidden="true">{saved ? '✓' : '+'}</span>{' '}
+        {saved ? copy.saved : copy.save}
       </button>
       {ready && !trip && <Link href={`/${lang}/my-trip`}>{copy.plan}</Link>}
     </div>

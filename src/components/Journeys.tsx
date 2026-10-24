@@ -7,8 +7,15 @@ import { journeys } from '@/data/journeys'
 import type { Dictionary } from '@/i18n/dictionaries'
 import type { Locale } from '@/i18n/config'
 import Icon from './Icon'
+import ApplyPlan from './ApplyPlan'
 
-export default function Journeys({ dict, lang }: { dict: Dictionary; lang: Locale }) {
+export default function Journeys({
+  dict,
+  lang,
+}: {
+  dict: Dictionary
+  lang: Locale
+}) {
   const [selected, setSelected] = useState(0)
   const journey = journeys[selected]
   return (
@@ -26,7 +33,11 @@ export default function Journeys({ dict, lang }: { dict: Dictionary; lang: Local
             <h2 id="journeys-title">{dict.journeys.title}</h2>
             <p>{dict.journeys.subtitle}</p>
           </div>
-          <div className="journey-tabs" role="group" aria-label={dict.journeys.label}>
+          <div
+            className="journey-tabs"
+            role="group"
+            aria-label={dict.journeys.label}
+          >
             {journeys.map((item, index) => (
               <button
                 type="button"
@@ -43,7 +54,12 @@ export default function Journeys({ dict, lang }: { dict: Dictionary; lang: Local
         <div className="journey-paper" key={journey.days}>
           <div className="journey-overview">
             <div className="journey-image">
-              <Image src={journey.image} alt="" fill sizes="(max-width: 750px) 100vw, 40vw" />
+              <Image
+                src={journey.image}
+                alt=""
+                fill
+                sizes="(max-width: 750px) 100vw, 40vw"
+              />
               <span className="journey-ticket">
                 {journey.days}
                 <small>{dict.journeys.days}</small>
@@ -64,7 +80,10 @@ export default function Journeys({ dict, lang }: { dict: Dictionary; lang: Local
           <ol className="journey-route" aria-label={journey[lang].title}>
             {journey.stops.map((stop, index) => {
               const start =
-                1 + journey.stops.slice(0, index).reduce((total, item) => total + item.days, 0)
+                1 +
+                journey.stops
+                  .slice(0, index)
+                  .reduce((total, item) => total + item.days, 0)
               const range = `${start}${stop.days > 1 ? `–${start + stop.days - 1}` : ''}`
               return (
                 <li key={stop.slug}>
@@ -84,6 +103,17 @@ export default function Journeys({ dict, lang }: { dict: Dictionary; lang: Local
             })}
           </ol>
         </div>
+        <ApplyPlan
+          days={journey.days}
+          entries={journey.stops.map((stop, index) => ({
+            id: `destination:${stop.slug}`,
+            day:
+              1 +
+              journey.stops
+                .slice(0, index)
+                .reduce((sum, previous) => sum + previous.days, 0),
+          }))}
+        />
         <p className="source-note journey-note">{dict.journeys.note}</p>
       </div>
     </section>

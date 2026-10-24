@@ -4,7 +4,13 @@ import Link from 'next/link'
 import type { Locale } from '@/i18n/config'
 import JapanDiorama from './JapanDiorama'
 
-export default function Hero({ dict, lang }: { dict: Dictionary; lang: Locale }) {
+export default function Hero({
+  dict,
+  lang,
+}: {
+  dict: Dictionary
+  lang: Locale
+}) {
   return (
     <section className="hero" aria-labelledby="hero-title">
       <div className="container hero-inner">
@@ -32,7 +38,19 @@ export default function Hero({ dict, lang }: { dict: Dictionary; lang: Locale })
             <p>{dict.hero.caption}</p>
           </div>
         </div>
-        <JapanDiorama copy={dict.scene} />
+        <div>
+          <JapanDiorama copy={dict.scene} />
+          <nav className="scene-topics" aria-label={dict.tools.sceneExplore}>
+            <Link href={`/${lang}/first-visit#etiquette`}>
+              {dict.tools.sceneTorii}
+            </Link>
+            <Link href={`/${lang}/destinations/mount-fuji`}>
+              {dict.tools.sceneFuji}
+            </Link>
+            <a href="#seasons">{dict.tools.sceneSakura}</a>
+          </nav>
+          <p className="source-note">{dict.tools.sceneNote}</p>
+        </div>
       </div>
       <div className="hero-bottom container">
         <span>{dict.hero.location}</span>

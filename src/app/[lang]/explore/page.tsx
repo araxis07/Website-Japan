@@ -1,9 +1,11 @@
+import { searchAliases } from '@/data/regional-planning'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { isLocale } from '@/i18n/config'
 import { getDictionary } from '@/i18n/dictionaries'
 import { prefectures } from '@/data/prefectures'
 import { prefecturePlaces } from '@/data/prefecture-places'
+import { placeCategory } from '@/data/visit-details'
 import { regions } from '@/data/travel'
 import { pageMetadata } from '@/utils/site'
 import PrefectureExplorer from '@/components/PrefectureExplorer'
@@ -13,7 +15,12 @@ export async function generateMetadata({ params }: Props) {
   const { lang } = await params
   if (!isLocale(lang)) notFound()
   const dict = await getDictionary(lang)
-  return pageMetadata(lang, '/explore', dict.explorer.title, dict.explorer.subtitle)
+  return pageMetadata(
+    lang,
+    '/explore',
+    dict.explorer.title,
+    dict.explorer.subtitle,
+  )
 }
 export default async function Explore({ params }: Props) {
   const { lang } = await params
@@ -41,22 +48,30 @@ export default async function Explore({ params }: Props) {
         lang={lang}
         copy={dict.explorer}
         mapCopy={dict.streetMap}
+        tools={dict.tools}
         regions={regions.map((r) => ({ id: r.id, name: r[lang][0] }))}
         entries={prefectures.map((p) => ({
           slug: p.slug,
           names: p.names,
           region: p.region,
           base: p.base[lang],
-          keywords: p.places
-            .map((id) =>
-              Object.values(
-                prefecturePlaces.find((place) => place.id === id)!.names,
-              ).join(' '),
-            )
-            .join(' '),
+          categories: p.places.map((id) =>
+            placeCategory(prefecturePlaces.find((place) => place.id === id)!),
+          ),
+          keywords:
+            (searchAliases[p.slug] || '') +
+            ' ' +
+            p.places
+              .map((id) =>
+                Object.values(
+                  prefecturePlaces.find((place) => place.id === id)!.names,
+                ).join(' '),
+              )
+              .join(' '),
           summary: p.summary[lang],
-          coordinates: prefecturePlaces.find((place) => place.id === p.places[0])!
-            .coordinates,
+          coordinates: prefecturePlaces.find(
+            (place) => place.id === p.places[0],
+          )!.coordinates,
         }))}
       />
     </main>
