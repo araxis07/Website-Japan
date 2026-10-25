@@ -100,3 +100,26 @@ test('all-place search, mobile sheet and suggested-plan preview work', async ({
     saved.items.find((item: { id: string }) => item.id === 'kyoto-museum').day,
   ).toBe(4)
 })
+
+test('navigation and prefecture covers reflow at 320px in every language', async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 320, height: 800 })
+  for (const lang of ['en', 'ja', 'th']) {
+    for (const path of ['my-trip', 'prefectures/kyoto']) {
+      await page.goto(`/${lang}/${path}`)
+      expect(
+        await page.evaluate(
+          () => document.documentElement.scrollWidth <= innerWidth,
+        ),
+        `${lang}/${path}`,
+      ).toBe(true)
+      const menu = page.locator('.menu-toggle')
+      await menu.focus()
+      await page.keyboard.press('Enter')
+      await expect(page.locator('#mobile-navigation')).toBeVisible()
+      await page.keyboard.press('Escape')
+      await expect(menu).toBeFocused()
+    }
+  }
+})

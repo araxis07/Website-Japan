@@ -185,7 +185,7 @@ export function createJapanScene(
     }
     const cedar = mesh(
       cone,
-      blossom,
+      grass,
       [x, size + 0.25, z],
       [0.55, 1.45, 0.55],
       cedars,

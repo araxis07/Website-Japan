@@ -540,3 +540,12 @@ html[data-motion='still'] *::after {
   min-height: 44px;
   padding: 0.6rem;
 }
+
+@media (max-width: 360px) {
+  .site-header .header-inner {
+    gap: 8px;
+  }
+  .site-header .brand small {
+    display: none;
+  }
+}

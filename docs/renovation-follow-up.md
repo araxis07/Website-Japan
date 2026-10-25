@@ -38,6 +38,7 @@ Three new entrance photos identify the Kiyomizu-dera Nio-mon approach, Fushimi I
 - Local Playwright result: **105 passed, 1 intentionally skipped**. Coverage includes Chromium desktop and WebKit mobile, all locales/prefectures, data persistence/imports, maps/dialog focus, 3D variants and theme screenshots. The WebKit LCP case is intentionally skipped because that browser does not expose the tested observation API.
 - Automated axe WCAG 2 A/AA and 2.1 AA scans of six Thai routes at desktop/mobile widths in both themes found no violations (24 scans). A mobile cover overflow found by visual review was corrected and receives a regression assertion.
 - Full dependency audit on 2026-10-25: zero reported vulnerabilities. Credential-pattern scan of tracked/new text: no matches. No generated build/test output or dependency directory is committed.
+- Additional final checks: 320px navigation/cover reflow in all three languages and miniature scene controls passed on both browser projects (4 targeted tests). Linux baseline images were visually reviewed from CI run `40155650453`; that initial run passed 101 functional checks and failed only the four missing-platform screenshot cases.
 - Check the pushed commit's Actions result and retained artifacts for the final browser count and Linux screenshot evidence. Never infer remote CI success from a local result.
 
 ## External work and deliberate limits

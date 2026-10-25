@@ -381,9 +381,17 @@ test('interactive miniature responds to lighting, seasons, rotation and motion c
   expect((await snapshot()).equals(winter)).toBe(true)
   await scene.locator('.scene-region select').selectOption('kyoto')
   await expect(scene).toHaveAttribute('data-region', 'kyoto')
+  await expect(scene.locator('.scene-topic a')).toHaveAttribute(
+    'href',
+    '/en/prefectures/kyoto#place-pref:kyoto:fushimi-inari-taisha',
+  )
   const kyoto = await snapshot()
   expect(kyoto.equals(winter)).toBe(false)
   await scene.locator('.scene-region select').selectOption('hokkaido')
+  await expect(scene.locator('.scene-topic a')).toHaveAttribute(
+    'href',
+    '/en/prefectures/hokkaido',
+  )
   expect((await snapshot()).equals(kyoto)).toBe(false)
   await scene.locator('.scene-hotspots button').nth(1).click()
   await expect(scene.locator('.scene-topic a')).toHaveAttribute(

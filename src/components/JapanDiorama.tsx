@@ -110,7 +110,17 @@ export default function JapanDiorama({ copy }: { copy: Dictionary['scene'] }) {
           {tools.sceneRegion}
           <select
             value={region}
-            onChange={(e) => setRegion(e.target.value as SceneRegion)}
+            onChange={(e) => {
+              const region = e.target.value as SceneRegion
+              setRegion(region)
+              setTopic(
+                region === 'fuji'
+                  ? 'fuji'
+                  : region === 'kyoto'
+                    ? 'torii'
+                    : 'sakura',
+              )
+            }}
             disabled={status !== 'ready'}
           >
             <option value="fuji">{tools.sceneFuji}</option>
