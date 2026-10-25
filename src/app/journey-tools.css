@@ -144,19 +144,9 @@
   height: 70dvh;
   min-height: 420px;
 }
-.scene-topics {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-.scene-topics a {
-  min-height: 44px;
-  padding: 0.7rem;
-  border-bottom: 1px solid var(--line);
-}
 .prefecture-photo {
   position: relative;
+  width: 100%;
   min-height: 280px;
   aspect-ratio: 4/3;
   overflow: hidden;
@@ -344,4 +334,209 @@ html[data-motion='still'] .destination-card {
     white-space: pre-wrap;
     overflow-wrap: anywhere;
   }
+}
+
+.save-status {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+.trip-meta [aria-invalid='true'],
+.trip-reservation [aria-invalid='true'] {
+  border-color: var(--red);
+}
+.trip-meta [role='alert'],
+.trip-reservation [role='alert'] {
+  color: var(--red);
+  line-height: 1.7;
+}
+.export-privacy {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-block: 1rem;
+}
+.export-privacy input {
+  width: 24px !important;
+  min-height: 24px !important;
+}
+.lodging-row {
+  padding-block: 1rem;
+  border-bottom: 1px solid var(--line);
+}
+.map-sheet {
+  border: 1px solid var(--line);
+  border-radius: 18px 18px 0 0;
+  background: var(--paper);
+  color: var(--ink);
+  width: 100%;
+  max-width: 700px;
+  max-height: 65dvh;
+  overflow: auto;
+  padding: 1.5rem;
+  position: fixed;
+  margin: auto auto 0;
+}
+.map-sheet::backdrop {
+  background: rgb(0 0 0 / 0.4);
+}
+.map-sheet > button {
+  min-height: 44px;
+  padding: 0.6rem 1rem;
+  color: var(--ink);
+  background: var(--white);
+  border: 1px solid var(--line);
+}
+.map-sheet h2 {
+  margin-block: 1rem;
+}
+.map-sheet p {
+  line-height: 1.8;
+  margin-block: 1rem;
+}
+.place-search-results {
+  margin-block: 2rem;
+}
+.place-search-results ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: 1rem;
+}
+.place-search-results li {
+  display: grid;
+  gap: 0.7rem;
+  border: 1px solid var(--line);
+  padding: 1rem;
+}
+.place-search-results [data-selected='true'] {
+  border-color: var(--red);
+}
+.place-search-results button {
+  min-height: 44px;
+}
+.place-extra-actions summary,
+.map-links summary {
+  cursor: pointer;
+  padding-block: 0.6rem;
+}
+.map-links details a {
+  display: block;
+  min-height: 44px;
+  padding-block: 0.5rem;
+}
+.map-place-list li:target {
+  outline: 2px solid var(--red);
+  outline-offset: 4px;
+}
+.map-place-list li {
+  scroll-margin-top: 100px;
+}
+.street-marker.map-cluster span {
+  border: 3px double var(--paper);
+  border-radius: 50%;
+}
+:lang(th) {
+  line-height: 1.8;
+}
+html[data-motion='still'] *,
+html[data-motion='still'] *::before,
+html[data-motion='still'] *::after {
+  scroll-behavior: auto !important;
+}
+@media print {
+  .map-sheet,
+  .save-status {
+    display: none !important;
+  }
+}
+.field-source {
+  display: block;
+  margin-top: 0.6rem;
+  font-size: 0.8rem;
+}
+.arrival-guides details {
+  padding-block: 0.8rem;
+  border-top: 1px solid var(--line);
+}
+.arrival-guides summary {
+  cursor: pointer;
+  min-height: 44px;
+}
+.emergency-card {
+  padding: 1.25rem;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  margin-block: 1rem;
+}
+.emergency-card button {
+  min-height: 44px;
+  padding: 0.7rem;
+}
+.prefecture-day-plan > ol {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  gap: 1rem;
+  padding-left: 1.5rem;
+}
+.prefecture-day-plan li {
+  padding-block: 0.4rem;
+}
+.scene-region {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+.scene-region select {
+  min-height: 44px;
+  background: var(--white);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  padding: 0.4rem;
+  max-width: 100%;
+}
+.scene-hotspots {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  padding: 0.75rem 1rem;
+}
+.scene-hotspots button {
+  min-height: 44px;
+  border: 1px solid var(--line);
+  background: var(--white);
+  color: var(--ink);
+  padding: 0.5rem 0.75rem;
+}
+.scene-hotspots [aria-pressed='true'] {
+  border-color: var(--red);
+}
+.scene-topic {
+  margin: 0;
+  padding: 0 1rem 1.25rem;
+  color: var(--ink);
+  font-size: 0.85rem;
+  line-height: 1.8;
+}
+@media (max-width: 700px) {
+  .sakura-petal:nth-child(n + 15) {
+    display: none;
+  }
+}
+.report-issue label {
+  display: grid;
+  gap: 0.5rem;
+}
+.report-issue textarea {
+  min-height: 10rem;
+  padding: 1rem;
+  color: var(--ink);
+  background: var(--white);
+  border: 1px solid var(--line);
+  max-width: 100%;
+}
+.report-issue button {
+  min-height: 44px;
+  padding: 0.6rem;
 }

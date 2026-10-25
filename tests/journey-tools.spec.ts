@@ -107,7 +107,11 @@ test('explorer state survives refresh, language changes and history without rebu
 }) => {
   await page.goto('/en/explore')
   await page.locator('.street-map').scrollIntoViewIfNeeded()
-  await expect(page.locator('.leaflet-marker-icon')).toHaveCount(47)
+  await expect(page.locator('.street-map')).toHaveAttribute(
+    'data-point-count',
+    '47',
+  )
+  await expect(page.locator('.map-cluster').first()).toBeVisible()
   const mapId = await page
     .locator('.street-map')
     .evaluate((el) => (el as HTMLElement & { _leaflet_id: number })._leaflet_id)
@@ -208,7 +212,7 @@ test('backup import previews changes, merges safely and never overwrites on inva
   await page
     .getByRole('button', { name: 'Download backup', exact: true })
     .click()
-  expect((await backup).suggestedFilename()).toBe('japan-trip.json')
+  expect((await backup).suggestedFilename()).toMatch(/^japan-trip-.*\.json$/)
   const second = {
     ...emptyTrip,
     items: [
@@ -233,7 +237,7 @@ test('backup import previews changes, merges safely and never overwrites on inva
   await page
     .getByRole('button', { name: 'Save readable offline guide', exact: true })
     .click()
-  expect((await offline).suggestedFilename()).toBe('japan-trip.html')
+  expect((await offline).suggestedFilename()).toMatch(/^japan-trip-.*\.html$/)
 })
 
 test('import refuses stale previews after another tab changes the plan', async ({

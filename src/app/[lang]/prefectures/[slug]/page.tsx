@@ -1,3 +1,8 @@
+import { seasonPlanning } from '@/data/season-planning'
+import entrancePhotos from '@/data/entrance-photos.json'
+import PhotoGallery from '@/components/PhotoGallery'
+import { visitFor } from '@/data/visit-details'
+import prefecturePlans from '@/data/prefecture-plans.json'
 import { regionalPlanning } from '@/data/regional-planning'
 import commonsPhotos from '@/data/prefecture-photos.json'
 import Image from 'next/image'
@@ -68,6 +73,7 @@ export default async function PrefecturePage({ params }: Props) {
         !initial.some((point) => canonicalPlaceId(point.id) === spot.id),
     ),
   ]
+  const plan = prefecturePlans[slug as keyof typeof prefecturePlans]
   const practical = detailed ? guides[detailed.slug][lang] : null
   const nearby = prefectures
     .filter((other) => other.slug !== slug)
@@ -160,6 +166,8 @@ export default async function PrefecturePage({ params }: Props) {
         <article>
           <h2>{dict.tools.regionalPlan}</h2>
           <p>{regionalPlanning[p.region][lang]}</p>
+          <h3>{dict.tools.seasonPlanning}</h3>
+          <p>{seasonPlanning[p.region][lang]}</p>
           <a
             className="text-link"
             href="https://www.japan.travel/en/plan/weather/"
@@ -175,13 +183,65 @@ export default async function PrefecturePage({ params }: Props) {
           </Link>
         </article>
       </div>
-      <ApplyPlan
-        days={points.length}
-        entries={points.map((point, index) => ({
-          id: point.id,
-          day: index + 1,
-        }))}
-      />
+      <section className="prefecture-day-plan" aria-label={dict.tools.apply}>
+        <h2>{dict.tools.apply}</h2>
+        <p>{plan.note[lang]}</p>
+        <p className="source-note">{dict.tools.planEstimate}</p>
+        <ol>
+          {plan.groups.map((ids, i) => (
+            <li key={i}>
+              <strong>
+                {dict.trip.day} {i + 1}
+              </strong>
+              <ul>
+                {ids.map((id) => {
+                  const point = points.find(
+                    (p) => canonicalPlaceId(p.id) === id,
+                  )!
+                  return (
+                    <li key={id}>
+                      <a href={`#place-${id}`}>{point.names[lang]}</a>
+                    </li>
+                  )
+                })}
+              </ul>
+            </li>
+          ))}
+        </ol>
+        <details className="visit-details">
+          <summary>{dict.tools.slowDay}</summary>
+          <p>{dict.tools.slowHelp}</p>
+          <h3>{dict.tools.indoor}</h3>
+          {points.some(
+            (point) => point.category === 'museum' && visitFor(point),
+          ) ? (
+            <ul>
+              {points
+                .filter(
+                  (point) => point.category === 'museum' && visitFor(point),
+                )
+                .map((point) => (
+                  <li key={point.id}>
+                    <a href={`#place-${canonicalPlaceId(point.id)}`}>
+                      {point.names[lang]}
+                    </a>
+                  </li>
+                ))}
+            </ul>
+          ) : (
+            <p>
+              {dict.tools.noIndoor}{' '}
+              <a href={p.source}>{dict.tools.official} ↗</a>
+            </p>
+          )}
+        </details>
+        <ApplyPlan
+          days={plan.groups.length}
+          entries={plan.groups.flatMap((ids, i) =>
+            ids.map((id) => ({ id, day: i + 1 })),
+          )}
+        />
+      </section>
       <section
         id="places"
         className="guide-places"
@@ -192,6 +252,23 @@ export default async function PrefecturePage({ params }: Props) {
         <PlacesMap points={points} lang={lang} mapCopy={dict.streetMap} />
         <p className="source-note">{dict.explorer.mapNote}</p>
       </section>
+      {points.some((point) => canonicalPlaceId(point.id) in entrancePhotos) && (
+        <section className="guide-gallery">
+          <h2>{dict.tools.entrance}</h2>
+          <p>{dict.tools.photoContext}</p>
+          <PhotoGallery
+            photos={points.flatMap((point) => {
+              const photo =
+                entrancePhotos[
+                  canonicalPlaceId(point.id) as keyof typeof entrancePhotos
+                ]
+              return photo ? [photo] : []
+            })}
+            lang={lang}
+            copy={dict.guide}
+          />
+        </section>
+      )}
       <section id="nearby" className="nearby-prefectures">
         <h2>{dict.tools.nearby}</h2>
         <p className="source-note">{dict.tools.straight}</p>

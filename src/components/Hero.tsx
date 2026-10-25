@@ -40,15 +40,6 @@ export default function Hero({
         </div>
         <div>
           <JapanDiorama copy={dict.scene} />
-          <nav className="scene-topics" aria-label={dict.tools.sceneExplore}>
-            <Link href={`/${lang}/first-visit#etiquette`}>
-              {dict.tools.sceneTorii}
-            </Link>
-            <Link href={`/${lang}/destinations/mount-fuji`}>
-              {dict.tools.sceneFuji}
-            </Link>
-            <a href="#seasons">{dict.tools.sceneSakura}</a>
-          </nav>
           <p className="source-note">{dict.tools.sceneNote}</p>
         </div>
       </div>

@@ -1,5 +1,12 @@
 import type { Locale } from '@/i18n/config'
-export type Photo = { src: string; alt: Record<Locale, string> }
+export type Photo = {
+  src: string
+  alt: Record<Locale, string>
+  source?: string
+  artist?: string
+  license?: string
+  licenseUrl?: string
+}
 export const detailPhotos: Record<string, Photo> = {
   kyoto: {
     src: '/images/tea.jpg',
@@ -53,7 +60,10 @@ export const detailPhotos: Record<string, Photo> = {
 export const newPhotoCredits = [
   ['Matcha — Zed Can', 'https://unsplash.com/photos/vXivoEBxWIY'],
   ['Dotonbori — Stefan Szankowski', 'https://unsplash.com/photos/TPBo7esmAWM'],
-  ['Hot spring water — Nichika Sakurai', 'https://unsplash.com/photos/vu9NE6SvDzI'],
+  [
+    'Hot spring water — Nichika Sakurai',
+    'https://unsplash.com/photos/vu9NE6SvDzI',
+  ],
   ['Sensoji — Charles Postiaux', 'https://unsplash.com/photos/4gVxWoFlCPw'],
   ['Lake Kawaguchi — Aditya Anjagi', 'https://unsplash.com/photos/wafSlbysWB4'],
   ['Otaru Canal — Stephen Fang', 'https://unsplash.com/photos/F3quid2lfZc'],

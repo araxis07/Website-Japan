@@ -1,3 +1,4 @@
+import entrancePhotos from '@/data/entrance-photos.json'
 import commonsPhotos from '@/data/prefecture-photos.json'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
@@ -65,19 +66,21 @@ export default async function Credits({
         <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>
       </p>
       <p>{dict.tools.commonsCredit}</p>
-      {Object.entries(commonsPhotos).map(([slug, photo]) => (
-        <div className="credit-row" id={`photo-${slug}`} key={slug}>
-          <span>
-            {photo.alt[lang]} — {photo.artist}
-          </span>
-          <a href={photo.source}>{dict.creditsExtra.source}</a>
-          {photo.licenseUrl ? (
-            <a href={photo.licenseUrl}>{photo.license}</a>
-          ) : (
-            <span>{photo.license}</span>
-          )}
-        </div>
-      ))}
+      {Object.entries({ ...commonsPhotos, ...entrancePhotos }).map(
+        ([slug, photo]) => (
+          <div className="credit-row" id={`photo-${slug}`} key={slug}>
+            <span>
+              {photo.alt[lang]} — {photo.artist}
+            </span>
+            <a href={photo.source}>{dict.creditsExtra.source}</a>
+            {photo.licenseUrl ? (
+              <a href={photo.licenseUrl}>{photo.license}</a>
+            ) : (
+              <span>{photo.license}</span>
+            )}
+          </div>
+        ),
+      )}
       {[...credits, ...newPhotoCredits].map(([name, url]) => (
         <div className="credit-row" key={name}>
           <span>{name}</span>

@@ -2,8 +2,14 @@
 
 import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
+import { useTrip } from './TripProvider'
 import type { Dictionary } from '@/i18n/dictionaries'
-import type { createJapanScene, SceneOptions } from '@/lib/japan-scene'
+import type {
+  createJapanScene,
+  SceneOptions,
+  SceneRegion,
+} from '@/lib/japan-scene'
 import Icon from './Icon'
 import { useAtmosphere } from './Atmosphere'
 
@@ -21,11 +27,14 @@ export default function JapanDiorama({ copy }: { copy: Dictionary['scene'] }) {
   const lightToggle = useRef(toggleTheme)
   const night = theme === 'dark'
   const [season, setSeason] = useState(0)
+  const [region, setRegion] = useState<SceneRegion>('fuji')
+  const [topic, setTopic] = useState<'fuji' | 'torii' | 'sakura'>('fuji')
+  const { lang, tools } = useTrip()
   useEffect(() => {
     lightToggle.current = toggleTheme
-    settings.current = { night, season, moving }
+    settings.current = { night, season, moving, region }
     scene.current?.update(settings.current)
-  }, [night, season, moving, toggleTheme])
+  }, [night, season, moving, region, toggleTheme])
   useEffect(() => {
     const element = host.current
     if (!element || !requested) return
@@ -38,6 +47,7 @@ export default function JapanDiorama({ copy }: { copy: Dictionary['scene'] }) {
           settings.current,
           () => lightToggle.current(),
           () => setStatus('fallback'),
+          setTopic,
         )
         setStatus('ready')
       })
@@ -55,6 +65,7 @@ export default function JapanDiorama({ copy }: { copy: Dictionary['scene'] }) {
       className="diorama"
       data-night={night}
       data-season={season}
+      data-region={region}
       data-scene-status={status}
       data-moving={moving && status === 'ready'}
     >
@@ -95,6 +106,18 @@ export default function JapanDiorama({ copy }: { copy: Dictionary['scene'] }) {
         </span>
       </div>
       <div className="scene-controls">
+        <label className="scene-region">
+          {tools.sceneRegion}
+          <select
+            value={region}
+            onChange={(e) => setRegion(e.target.value as SceneRegion)}
+            disabled={status !== 'ready'}
+          >
+            <option value="fuji">{tools.sceneFuji}</option>
+            <option value="kyoto">{tools.sceneKyoto}</option>
+            <option value="hokkaido">{tools.sceneHokkaido}</option>
+          </select>
+        </label>
         {status === 'preview' && (
           <button
             type="button"
@@ -197,6 +220,44 @@ export default function JapanDiorama({ copy }: { copy: Dictionary['scene'] }) {
                   : copy.hint}
         </p>
       </div>
+      <div
+        className="scene-hotspots"
+        role="group"
+        aria-label={tools.sceneExplore}
+      >
+        {(['fuji', 'torii', 'sakura'] as const).map((key) => (
+          <button
+            key={key}
+            type="button"
+            aria-pressed={topic === key}
+            onClick={() => setTopic(key)}
+          >
+            {key === 'fuji'
+              ? tools.sceneFuji
+              : key === 'torii'
+                ? tools.sceneTorii
+                : tools.sceneSakura}
+          </button>
+        ))}
+      </div>
+      <p className="scene-topic" aria-live="polite">
+        {topic === 'fuji'
+          ? tools.hotspotFuji
+          : topic === 'torii'
+            ? tools.hotspotTorii
+            : tools.hotspotSakura}{' '}
+        <Link
+          href={
+            topic === 'fuji'
+              ? `/${lang}/destinations/mount-fuji`
+              : topic === 'torii'
+                ? `/${lang}/prefectures/kyoto#place-pref:kyoto:fushimi-inari-taisha`
+                : `/${lang}/prefectures/hokkaido`
+          }
+        >
+          {tools.readTopic} ↗
+        </Link>
+      </p>
     </div>
   )
 }

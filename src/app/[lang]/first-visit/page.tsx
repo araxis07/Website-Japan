@@ -1,3 +1,5 @@
+import EmergencyCard from '@/components/EmergencyCard'
+import { arrivalGuides, trainExample } from '@/data/arrival-guides'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { isLocale } from '@/i18n/config'
@@ -76,6 +78,39 @@ export default async function FirstVisit({ params }: Props) {
               <a className="text-link" href={step.source}>
                 {dict.beginner.source} ↗
               </a>
+              {step.id === 'airport' && (
+                <section className="arrival-guides">
+                  <h3>{dict.tools.airportGuide}</h3>
+                  {arrivalGuides.map((airport) => (
+                    <details key={airport.code}>
+                      <summary>{airport.code}</summary>
+                      <ol>
+                        {airport.steps[lang].map((text) => (
+                          <li key={text}>{text}</li>
+                        ))}
+                      </ol>
+                      <a href={airport.source}>{dict.tools.official} ↗</a>
+                      <p className="source-note">
+                        {dict.tools.reviewed}: 2026-10-25
+                      </p>
+                    </details>
+                  ))}
+                </section>
+              )}
+              {step.id === 'transport' && (
+                <section>
+                  <h3>{dict.tools.trainExample}</h3>
+                  <ol>
+                    {trainExample[lang].map((text) => (
+                      <li key={text}>{text}</li>
+                    ))}
+                  </ol>
+                  <a href="https://www.jreast.co.jp/en/multi/ticket/guide.html">
+                    JR East ↗
+                  </a>
+                </section>
+              )}
+              {step.id === 'help' && <EmergencyCard />}
               {step.id === 'documents' && (
                 <p>
                   <a

@@ -13,6 +13,14 @@ export default function SavePlace({
   const id = canonicalPlaceId(sourceId)
   const { trip, ready, copy, change, lang } = useTrip()
   const saved = trip?.items.some((item) => item.id === id) ?? false
+  if ((trip?.items.filter((item) => item.id === id).length || 0) > 1)
+    return (
+      <div className="save-place">
+        <Link className="save-button" href={`/${lang}/my-trip`}>
+          {copy.saved}: {name} · {copy.plan} ↗
+        </Link>
+      </div>
+    )
   return (
     <div className="save-place">
       <button

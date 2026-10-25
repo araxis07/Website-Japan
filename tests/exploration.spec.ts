@@ -27,7 +27,9 @@ test('47 prefectures have complete translations, source links and real mapped pl
     for (const id of p.places) {
       const place = prefecturePlaces.find((place) => place.id === id)!
       expect(place.prefecture).toBe(p.slug)
-      expect(placePath(place, 'th')).toBe(`/th/prefectures/${p.slug}#places`)
+      expect(placePath(place, 'th')).toBe(
+        `/th/prefectures/${p.slug}#place-${canonicalPlaceId(place.id)}`,
+      )
     }
   }
   for (const place of [...prefecturePlaces, ...spots]) {
@@ -98,7 +100,10 @@ test('prefecture filters combine with multilingual landmark search and map selec
   await expect(page.locator('.prefecture-card')).toHaveCount(6)
   await page.getByRole('searchbox').fill('東大寺')
   await expect(page.locator('.prefecture-card')).toHaveCount(1)
-  await page.getByRole('button', { name: 'Show on map', exact: true }).click()
+  await page
+    .locator('.prefecture-card')
+    .getByRole('button', { name: 'Show on map', exact: true })
+    .click()
   await expect(page.locator('.prefecture-preview h2')).toHaveText('Nara')
   await expect(
     page.getByRole('button', { name: '1. Nara', exact: true }),
@@ -107,7 +112,10 @@ test('prefecture filters combine with multilingual landmark search and map selec
   await expect(page.locator('.empty-state')).toBeVisible()
   await page.getByRole('button', { name: 'Clear filters', exact: true }).click()
   await expect(page.locator('.prefecture-card')).toHaveCount(47)
-  await expect(page.locator('.street-marker')).toHaveCount(47)
+  await expect(page.locator('.street-map')).toHaveAttribute(
+    'data-point-count',
+    '47',
+  )
 })
 
 test('first-time visitor can find, save and revisit a prefecture place across languages', async ({
@@ -135,7 +143,7 @@ test('first-time visitor can find, save and revisit a prefecture place across la
   await expect(page.locator('.trip-day li')).toHaveCount(1)
   await expect(page.locator('.trip-place-copy h3 a')).toHaveAttribute(
     'href',
-    '/en/prefectures/nara#places',
+    '/en/prefectures/nara#place-pref:nara:todaiji-temple',
   )
   await page.reload()
   expect(
@@ -150,7 +158,9 @@ test('first-time visitor can find, save and revisit a prefecture place across la
     .click()
   await expect(page.locator('.trip-day li')).toContainText('วัดโทไดจิ')
   await page.locator('.trip-place-copy h3 a').click()
-  await expect(page).toHaveURL('/th/prefectures/nara#places')
+  await expect(page).toHaveURL(
+    '/th/prefectures/nara#place-pref:nara:todaiji-temple',
+  )
 })
 
 test('map failure leaves places and directions available, and retry restores the map', async ({

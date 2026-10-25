@@ -1,3 +1,4 @@
+import entrancePhotos from '@/data/entrance-photos.json'
 import ApplyPlan from '@/components/ApplyPlan'
 import type { Metadata } from 'next'
 import Image from 'next/image'
@@ -240,6 +241,7 @@ export default async function DestinationPage({ params }: Props) {
               },
             },
             detailPhotos[slug],
+            ...(slug === 'kyoto' ? [entrancePhotos.kiyomizu] : []),
           ]}
           lang={lang}
         />

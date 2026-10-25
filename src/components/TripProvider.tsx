@@ -94,7 +94,7 @@ export default function TripProvider({
   const persist = (next: Trip, message: string) => {
     const validated = parseTrip(JSON.stringify(next))
     if (!validated) {
-      showFeedback(copy.limit, '')
+      showFeedback(next.items.length > 60 ? copy.limit : tools.fieldInvalid, '')
       return false
     }
     const serialized = JSON.stringify(validated)

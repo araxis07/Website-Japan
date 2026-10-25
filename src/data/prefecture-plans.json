@@ -1,0 +1,458 @@
+{
+  "hokkaido": {
+    "groups": [
+      ["odori", "hokkaido-museum", "beer-museum"],
+      ["pref:hokkaido:otaru-canal"]
+    ],
+    "note": {
+      "en": "Keep Otaru separate from the Sapporo museum day.",
+      "ja": "小樽は札幌の博物館巡りとは別日に。",
+      "th": "แยกโอตารุจากวันเที่ยวพิพิธภัณฑ์ซัปโปโร"
+    }
+  },
+  "aomori": {
+    "groups": [
+      ["pref:aomori:hirosaki-castle"],
+      ["pref:aomori:nebuta-museum-wa-rasse"]
+    ],
+    "note": {
+      "en": "Choose an Aomori day and a separate Hirosaki day.",
+      "ja": "青森市と弘前市を別日に分けます。",
+      "th": "แยกวันเที่ยวเมืองอาโอโมริกับฮิโรซากิ"
+    }
+  },
+  "iwate": {
+    "groups": [
+      ["pref:iwate:chusonji-temple"],
+      ["pref:iwate:morioka-castle-site-park"]
+    ],
+    "note": {
+      "en": "Hiraizumi and Morioka need separate travel windows.",
+      "ja": "平泉と盛岡は別々の移動枠を確保。",
+      "th": "เผื่อเวลาเดินทางแยกสำหรับฮิราอิซุมิกับโมริโอกะ"
+    }
+  },
+  "miyagi": {
+    "groups": [["pref:miyagi:zuihoden"], ["pref:miyagi:zuiganji-temple"]],
+    "note": {
+      "en": "Matsushima deserves a separate outing from Sendai.",
+      "ja": "松島は仙台市内とは別のお出かけに。",
+      "th": "แยกมัตสึชิมะเป็นทริปจากวันเที่ยวเซนได"
+    }
+  },
+  "akita": {
+    "groups": [["pref:akita:senshu-park"], ["pref:akita:aoyagi-samurai-manor"]],
+    "note": {
+      "en": "Do not treat Kakunodate as an Akita city walk.",
+      "ja": "角館は秋田市内の散策とは別の行程です。",
+      "th": "คาคุโนะดาเตะเป็นอีกทริปหนึ่ง ไม่ใช่การเดินเที่ยวในเมืองอาคิตะ"
+    }
+  },
+  "yamagata": {
+    "groups": [
+      ["pref:yamagata:yamadera-risshakuji", "pref:yamagata:kajo-park"]
+    ],
+    "note": {
+      "en": "Allow for Yamadera steps before adding the city park.",
+      "ja": "山寺の階段で使う体力を考えてから市街地の公園へ。",
+      "th": "เผื่อแรงสำหรับบันไดยามาเดระก่อนเพิ่มสวนในเมือง"
+    }
+  },
+  "fukushima": {
+    "groups": [
+      ["pref:fukushima:tsurugajo-castle"],
+      ["pref:fukushima:ouchi-juku"]
+    ],
+    "note": {
+      "en": "Keep the Ouchi-juku connection separate from Aizu castle time.",
+      "ja": "大内宿への接続と会津の城見学を別枠に。",
+      "th": "แยกเวลาเดินทางโออุจิจูกุจากเวลาเที่ยวปราสาทไอซุ"
+    }
+  },
+  "ibaraki": {
+    "groups": [
+      ["pref:ibaraki:kairakuen"],
+      ["pref:ibaraki:hitachi-seaside-park"]
+    ],
+    "note": {
+      "en": "Mito garden and Hitachi Seaside Park are separate outings.",
+      "ja": "水戸の庭園とひたち海浜公園は別行程に。",
+      "th": "แยกสวนในมิโตะกับ Hitachi Seaside Park เป็นคนละทริป"
+    }
+  },
+  "tochigi": {
+    "groups": [
+      ["pref:tochigi:nikko-toshogu"],
+      ["pref:tochigi:oya-history-museum"]
+    ],
+    "note": {
+      "en": "Nikko and Oya are different bases for a day out.",
+      "ja": "日光と大谷は別の日帰り先として計画。",
+      "th": "วางนิกโก้กับโอยะเป็นทริปคนละวัน"
+    }
+  },
+  "gunma": {
+    "groups": [
+      ["pref:gunma:kusatsu-yubatake"],
+      ["pref:gunma:tomioka-silk-mill"]
+    ],
+    "note": {
+      "en": "Separate Kusatsu from the Tomioka Silk Mill day.",
+      "ja": "草津と富岡製糸場を別日に。",
+      "th": "แยกคุซัตสึออกจากวันเที่ยวโรงไหมโทมิโอกะ"
+    }
+  },
+  "saitama": {
+    "groups": [
+      ["pref:saitama:railway-museum"],
+      ["pref:saitama:kawagoe-toki-no-kane"]
+    ],
+    "note": {
+      "en": "Railway Museum and Kawagoe work as separate half-day choices.",
+      "ja": "鉄道博物館と川越は別々の半日候補に。",
+      "th": "พิพิธภัณฑ์รถไฟกับคาวาโกเอะเป็นตัวเลือกครึ่งวันที่แยกกัน"
+    }
+  },
+  "chiba": {
+    "groups": [
+      ["pref:chiba:naritasan-shinshoji"],
+      ["pref:chiba:chiba-port-tower"]
+    ],
+    "note": {
+      "en": "Narita temple and Chiba port are not one neighborhood.",
+      "ja": "成田の寺院と千葉港は同じ地区ではありません。",
+      "th": "วัดที่นาริตะกับท่าเรือชิบะไม่ได้อยู่ในย่านเดียวกัน"
+    }
+  },
+  "tokyo": {
+    "groups": [["sensoji", "sumida"], ["tokyo-museum"]],
+    "note": {
+      "en": "Pair Asakusa with Sumida; give Ueno museums their own time.",
+      "ja": "浅草と隅田を組み合わせ、上野の博物館は別枠に。",
+      "th": "จับคู่อาซากุสะกับสุมิดะ แล้วแยกเวลาให้พิพิธภัณฑ์อุเอโนะ"
+    }
+  },
+  "kanagawa": {
+    "groups": [
+      ["pref:kanagawa:yokohama-red-brick-warehouse"],
+      ["pref:kanagawa:kotoku-in"]
+    ],
+    "note": {
+      "en": "Separate Yokohama waterfront from Kamakura temple walks.",
+      "ja": "横浜の海辺と鎌倉の寺院散策は別日に。",
+      "th": "แยกริมอ่าวโยโกฮามะจากวันเดินวัดในคามาคุระ"
+    }
+  },
+  "niigata": {
+    "groups": [["pref:niigata:bandai-bridge", "pref:niigata:hakusan-park"]],
+    "note": {
+      "en": "Leave time between the Bandai waterfront and Hakusan Park.",
+      "ja": "万代の川辺と白山公園の間に移動時間を確保。",
+      "th": "เว้นเวลาเดินทางระหว่างริมน้ำบันไดกับสวนฮาคุซัง"
+    }
+  },
+  "toyama": {
+    "groups": [
+      ["pref:toyama:fugan-canal-kansui-park", "pref:toyama:toyama-castle"]
+    ],
+    "note": {
+      "en": "Use the castle and canal park as a gentle city day.",
+      "ja": "城と運河の公園をゆったりした市内観光に。",
+      "th": "จัดปราสาทกับสวนริมคลองเป็นวันเที่ยวเมืองแบบไม่เร่ง"
+    }
+  },
+  "ishikawa": {
+    "groups": [
+      ["pref:ishikawa:kenrokuen", "pref:ishikawa:higashi-chaya-district"]
+    ],
+    "note": {
+      "en": "Balance Kenrokuen paths with breaks in the tea-house district.",
+      "ja": "兼六園の散策と茶屋街での休憩を組み合わせて。",
+      "th": "สลับเดินเคนโรคุเอ็นกับพักในย่านโรงน้ำชา"
+    }
+  },
+  "fukui": {
+    "groups": [
+      ["pref:fukui:fukui-prefectural-dinosaur-museum"],
+      ["pref:fukui:eiheiji-temple"]
+    ],
+    "note": {
+      "en": "Give the dinosaur museum its own day before Eiheiji.",
+      "ja": "恐竜博物館と永平寺は別日にして余裕を。",
+      "th": "แยกวันให้พิพิธภัณฑ์ไดโนเสาร์ก่อนเที่ยวเอเฮจิ"
+    }
+  },
+  "yamanashi": {
+    "groups": [
+      ["kawaguchiko", "fuji-center", "oishi"],
+      ["pref:yamanashi:takeda-shrine"]
+    ],
+    "note": {
+      "en": "Keep Kofu separate from the Kawaguchiko lake area.",
+      "ja": "甲府と河口湖周辺は別の日に。",
+      "th": "แยกโคฟุจากพื้นที่ทะเลสาบคาวากุจิโกะ"
+    }
+  },
+  "nagano": {
+    "groups": [
+      ["pref:nagano:zenkoji-temple"],
+      ["pref:nagano:matsumoto-castle"]
+    ],
+    "note": {
+      "en": "Matsumoto and Nagano city are separate day bases.",
+      "ja": "松本市と長野市を別の日の拠点に。",
+      "th": "แยกเมืองมัตสึโมโตะกับเมืองนากาโนะเป็นคนละวัน"
+    }
+  },
+  "gifu": {
+    "groups": [["pref:gifu:gifu-castle"], ["pref:gifu:takayama-jinya"]],
+    "note": {
+      "en": "Takayama and Gifu city need separate days.",
+      "ja": "高山と岐阜市は別日に。",
+      "th": "แยกทาคายามะกับเมืองกิฟุเป็นคนละวัน"
+    }
+  },
+  "shizuoka": {
+    "groups": [
+      ["pref:shizuoka:miho-no-matsubara", "pref:shizuoka:sunpu-castle-park"]
+    ],
+    "note": {
+      "en": "Check the coastal connection before adding Miho to a city day.",
+      "ja": "市街地の予定に三保を加える前に海辺への交通を確認。",
+      "th": "ตรวจการต่อรถไปชายฝั่งก่อนเพิ่มมิโฮะในวันเที่ยวเมือง"
+    }
+  },
+  "aichi": {
+    "groups": [["pref:aichi:nagoya-castle", "pref:aichi:atsuta-jingu"]],
+    "note": {
+      "en": "Leave a transfer break between Nagoya Castle and Atsuta.",
+      "ja": "名古屋城と熱田の間に移動の余裕を。",
+      "th": "เผื่อเวลาต่อรถระหว่างปราสาทนาโกย่ากับอัตสึตะ"
+    }
+  },
+  "mie": {
+    "groups": [["pref:mie:ise-jingu-naiku", "pref:mie:futami-okitama-shrine"]],
+    "note": {
+      "en": "Keep time for the Naiku approach and the Futami transfer.",
+      "ja": "内宮の参道と二見への移動に時間を確保。",
+      "th": "เผื่อเวลาเดินเข้าศาลเจ้าไนกูกับการต่อรถไปฟุตามิ"
+    }
+  },
+  "shiga": {
+    "groups": [
+      ["pref:shiga:hikone-castle"],
+      ["pref:shiga:ishiyamadera-temple"]
+    ],
+    "note": {
+      "en": "Hikone and Ishiyamadera are separate lake-area outings.",
+      "ja": "彦根と石山寺は湖周辺の別々の行程に。",
+      "th": "จัดฮิโกเนะกับอิชิยามะเดระเป็นทริปริมทะเลสาบที่แยกกัน"
+    }
+  },
+  "kyoto": {
+    "groups": [
+      ["kiyomizu", "gion"],
+      ["pref:kyoto:fushimi-inari-taisha", "kyoto-museum"]
+    ],
+    "note": {
+      "en": "Walk Higashiyama and Gion together; visit southern sites another day.",
+      "ja": "東山と祇園をまとめ、南側の施設は別日に。",
+      "th": "รวมฮิกาชิยามะกับกิออน แล้วแยกสถานที่ทางใต้ไว้อีกวัน"
+    }
+  },
+  "osaka": {
+    "groups": [
+      ["pref:osaka:osaka-castle", "osaka-castle", "osaka-museum"],
+      ["dotonbori"]
+    ],
+    "note": {
+      "en": "Pair castle-area history with a separate Dotonbori evening.",
+      "ja": "城周辺の歴史巡りと道頓堀の夜を分けて計画。",
+      "th": "จัดประวัติศาสตร์รอบปราสาท แล้วแยกช่วงเย็นให้โดทงโบริ"
+    }
+  },
+  "hyogo": {
+    "groups": [["pref:hyogo:himeji-castle"], ["pref:hyogo:meriken-park"]],
+    "note": {
+      "en": "Keep Himeji castle time separate from Kobe waterfront.",
+      "ja": "姫路城と神戸の海辺は別の日に。",
+      "th": "แยกวันเที่ยวปราสาทฮิเมจิจากริมน้ำโกเบ"
+    }
+  },
+  "nara": {
+    "groups": [["pref:nara:todaiji-temple", "pref:nara:kasuga-taisha"]],
+    "note": {
+      "en": "Take breaks between Todaiji and Kasuga; avoid rushing both grounds.",
+      "ja": "東大寺と春日の間に休憩を取り、境内を急がずに。",
+      "th": "พักระหว่างโทไดจิกับคาซุกะ ไม่รีบเดินพื้นที่วัดและศาลเจ้า"
+    }
+  },
+  "wakayama": {
+    "groups": [
+      ["pref:wakayama:wakayama-castle"],
+      ["pref:wakayama:kongobuji-temple"]
+    ],
+    "note": {
+      "en": "Koyasan and Wakayama city should be separate days.",
+      "ja": "高野山と和歌山市は別の日程に。",
+      "th": "แยกโคยะซังกับเมืองวาคายามะเป็นคนละวัน"
+    }
+  },
+  "tottori": {
+    "groups": [["pref:tottori:tottori-sand-dunes", "pref:tottori:sand-museum"]],
+    "note": {
+      "en": "Pair the dunes with the museum, with weather flexibility.",
+      "ja": "砂丘と美術館を組み合わせ、天候で順序を調整。",
+      "th": "จับคู่เนินทรายกับพิพิธภัณฑ์และปรับลำดับตามอากาศ"
+    }
+  },
+  "shimane": {
+    "groups": [["pref:shimane:matsue-castle"], ["pref:shimane:izumo-taisha"]],
+    "note": {
+      "en": "Matsue and Izumo need distinct travel windows.",
+      "ja": "松江と出雲は移動時間を別に確保。",
+      "th": "เผื่อช่วงเดินทางแยกสำหรับมัตสึเอะกับอิซุโมะ"
+    }
+  },
+  "okayama": {
+    "groups": [
+      ["pref:okayama:okayama-korakuen"],
+      ["pref:okayama:kurashiki-bikan-historical-quarter"]
+    ],
+    "note": {
+      "en": "Leave a separate half day for Kurashiki after Okayama garden.",
+      "ja": "岡山の庭園とは別に倉敷へ半日を。",
+      "th": "แยกครึ่งวันให้คุราชิกิจากสวนในโอคายามะ"
+    }
+  },
+  "hiroshima": {
+    "groups": [
+      ["pref:hiroshima:hiroshima-peace-memorial-park"],
+      ["pref:hiroshima:itsukushima-shrine"]
+    ],
+    "note": {
+      "en": "Miyajima needs ferry time beyond the city memorial visit.",
+      "ja": "宮島は市内の平和公園とは別に船の時間を確保。",
+      "th": "เผื่อเวลาเรือไปมิยาจิมะเพิ่มจากการเที่ยวสวนอนุสรณ์ในเมือง"
+    }
+  },
+  "yamaguchi": {
+    "groups": [
+      ["pref:yamaguchi:kintaikyo-bridge"],
+      ["pref:yamaguchi:akiyoshido-cave"]
+    ],
+    "note": {
+      "en": "Iwakuni bridge and Akiyoshido are separate travel days.",
+      "ja": "岩国の橋と秋芳洞は別の日に。",
+      "th": "แยกสะพานอิวาคุนิกับถ้ำอากิโยชิโดเป็นคนละวัน"
+    }
+  },
+  "tokushima": {
+    "groups": [
+      ["pref:tokushima:awa-odori-kaikan"],
+      ["pref:tokushima:naruto-park"]
+    ],
+    "note": {
+      "en": "Keep Naruto separate from the Tokushima city performance visit.",
+      "ja": "鳴門と徳島市内の公演見学は別の行程に。",
+      "th": "แยกนารุโตะจากวันชมการแสดงในเมืองโทคุชิมะ"
+    }
+  },
+  "kagawa": {
+    "groups": [["pref:kagawa:ritsurin-garden"], ["pref:kagawa:kotohiragu"]],
+    "note": {
+      "en": "Ritsurin and Kotohira deserve separate time, especially for steps.",
+      "ja": "栗林と琴平は別枠に。琴平の階段に余裕を。",
+      "th": "แยกเวลาให้ริทสึรินกับโคโตฮิระ โดยเฉพาะเวลาขึ้นบันได"
+    }
+  },
+  "ehime": {
+    "groups": [["pref:ehime:matsuyama-castle", "pref:ehime:dogo-onsen-honkan"]],
+    "note": {
+      "en": "Leave a rest break between castle exploration and Dogo.",
+      "ja": "城の見学と道後の間に休憩を。",
+      "th": "เว้นช่วงพักระหว่างเที่ยวปราสาทกับโดโกะ"
+    }
+  },
+  "kochi": {
+    "groups": [["pref:kochi:kochi-castle", "pref:kochi:hirome-market"]],
+    "note": {
+      "en": "Pair the castle with a flexible meal stop at Hirome.",
+      "ja": "城とひろめ市場の食事をゆったり組み合わせて。",
+      "th": "จับคู่ปราสาทกับมื้ออาหารที่ฮิโรเมะแบบยืดหยุ่น"
+    }
+  },
+  "fukuoka": {
+    "groups": [["pref:fukuoka:ohori-park"], ["pref:fukuoka:dazaifu-tenmangu"]],
+    "note": {
+      "en": "Separate Dazaifu from a relaxed Ohori city day.",
+      "ja": "太宰府と大濠の市内散策は別日に。",
+      "th": "แยกดาไซฟุจากวันเดินสวนโอโฮริในเมือง"
+    }
+  },
+  "saga": {
+    "groups": [
+      ["pref:saga:yoshinogari-historical-park"],
+      ["pref:saga:yutoku-inari-shrine"]
+    ],
+    "note": {
+      "en": "Yoshinogari and Yutoku Inari need separate local connections.",
+      "ja": "吉野ヶ里と祐徳稲荷はそれぞれの接続を確認。",
+      "th": "ตรวจการต่อรถท้องถิ่นแยกสำหรับโยชิโนะการิกับยูโทคุอินาริ"
+    }
+  },
+  "nagasaki": {
+    "groups": [["pref:nagasaki:dejima", "pref:nagasaki:nagasaki-peace-park"]],
+    "note": {
+      "en": "Allow a city transfer between Dejima and the Peace Park.",
+      "ja": "出島と平和公園の間に市内移動の時間を。",
+      "th": "เผื่อเวลาเดินทางในเมืองระหว่างเดจิมะกับสวนสันติภาพ"
+    }
+  },
+  "kumamoto": {
+    "groups": [
+      ["pref:kumamoto:kumamoto-castle", "pref:kumamoto:suizenji-jojuen"]
+    ],
+    "note": {
+      "en": "Pair the castle and Suizenji with a midday rest.",
+      "ja": "城と水前寺の間に昼の休憩を。",
+      "th": "พักกลางวันระหว่างปราสาทกับซุยเซนจิ"
+    }
+  },
+  "oita": {
+    "groups": [["pref:oita:umi-jigoku"], ["pref:oita:lake-kinrin"]],
+    "note": {
+      "en": "Beppu and Yufuin need a checked intercity connection.",
+      "ja": "別府と由布院の移動を確認してから組み合わせて。",
+      "th": "ตรวจรถเชื่อมเบปปุกับยูฟุอินก่อนจัดไว้ด้วยกัน"
+    }
+  },
+  "miyazaki": {
+    "groups": [
+      ["pref:miyazaki:aoshima-shrine", "pref:miyazaki:miyazaki-jingu"]
+    ],
+    "note": {
+      "en": "Check the Aoshima connection from your Miyazaki base.",
+      "ja": "宮崎の拠点から青島への交通を確認。",
+      "th": "ตรวจการต่อรถจากฐานในมิยาซากิไปอาโอชิมะ"
+    }
+  },
+  "kagoshima": {
+    "groups": [
+      ["pref:kagoshima:sengan-en", "pref:kagoshima:shiroyama-observatory"]
+    ],
+    "note": {
+      "en": "Leave travel time between Sengan-en and Shiroyama.",
+      "ja": "仙巌園と城山の間に移動時間を。",
+      "th": "เผื่อเวลาเดินทางระหว่างเซ็นกังเอ็นกับชิโรยามะ"
+    }
+  },
+  "okinawa": {
+    "groups": [["makishi", "tsuboya"], ["okinawa-museum"]],
+    "note": {
+      "en": "Pair Makishi with Tsuboya; keep the museum as a separate indoor stop.",
+      "ja": "牧志と壺屋をまとめ、博物館は別の屋内枠に。",
+      "th": "รวมมาคิชิกับสึโบยะ แล้วแยกพิพิธภัณฑ์เป็นกิจกรรมในร่ม"
+    }
+  }
+}

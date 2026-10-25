@@ -1,12 +1,19 @@
 import * as THREE from 'three'
 
-export type SceneOptions = { night: boolean; season: number; moving: boolean }
+export type SceneRegion = 'fuji' | 'kyoto' | 'hokkaido'
+export type SceneOptions = {
+  night: boolean
+  season: number
+  moving: boolean
+  region?: SceneRegion
+}
 
 export function createJapanScene(
   host: HTMLElement,
   options: SceneOptions,
   onLantern: () => void,
   onLost: () => void,
+  onHotspot: (topic: 'fuji' | 'torii' | 'sakura') => void = () => {},
 ) {
   const canvas = document.createElement('canvas')
   const context = canvas.getContext('webgl2', { alpha: true, antialias: true })
@@ -17,7 +24,11 @@ export function createJapanScene(
     alpha: true,
     antialias: true,
   })
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5))
+  const compact = matchMedia('(max-width: 700px)').matches
+  const petalCount = compact ? 18 : 36
+  renderer.setPixelRatio(
+    Math.min(window.devicePixelRatio, compact ? 1.25 : 1.5),
+  )
   renderer.shadowMap.enabled = true
   // Only petals move autonomously; recompute shadows when the model rotates.
   renderer.shadowMap.autoUpdate = false
@@ -78,18 +89,31 @@ export function createJapanScene(
     parent.add(object)
     return object
   }
-  mesh(new THREE.CylinderGeometry(3.55, 2.9, 0.8, 48), stone, [0, -0.65, 0], [1, 1, 1])
-  mesh(new THREE.CylinderGeometry(3.6, 3.5, 0.18, 48), cream, [0, -0.16, 0], [1, 1, 1])
+  mesh(
+    new THREE.CylinderGeometry(3.55, 2.9, 0.8, 48),
+    stone,
+    [0, -0.65, 0],
+    [1, 1, 1],
+  )
+  mesh(
+    new THREE.CylinderGeometry(3.6, 3.5, 0.18, 48),
+    cream,
+    [0, -0.16, 0],
+    [1, 1, 1],
+  )
   mesh(cylinder, water, [0, -0.045, 0.15], [2.9, 0.08, 2.1])
   mesh(cylinder, grass, [-1.7, 0.04, 0], [1.55, 0.14, 2.3])
   mesh(cylinder, grass, [2, 0.04, 0], [1.1, 0.15, 2.25])
-  mesh(cone, mountain, [0, 1.1, -1.45], [1.9, 2.5, 1.7])
-  mesh(cone, snow, [0, 2.06, -1.45], [0.48, 0.64, 0.43])
+  const peak = mesh(cone, mountain, [0, 1.1, -1.45], [1.9, 2.5, 1.7])
+  const summit = mesh(cone, snow, [0, 2.06, -1.45], [0.48, 0.64, 0.43])
+  peak.userData.topic = summit.userData.topic = 'fuji'
   // The scene is an illustrative miniature, not a geographic reconstruction.
-  for (let i = 0; i < 6; i++) mesh(box, stone, [0, 0.08, 2.6 - i * 0.32], [0.85, 0.16, 0.25])
+  for (let i = 0; i < 6; i++)
+    mesh(box, stone, [0, 0.08, 2.6 - i * 0.32], [0.85, 0.16, 0.25])
   const torii = new THREE.Group()
   torii.position.set(0, 0.1, 1.15)
   world.add(torii)
+  torii.userData.topic = 'torii'
   for (const x of [-0.83, 0.83]) {
     mesh(cylinder, red, [x, 0.91, 0], [0.115, 1.82, 0.115], torii)
     mesh(cylinder, dark, [x, 0.12, 0], [0.15, 0.24, 0.15], torii)
@@ -103,6 +127,14 @@ export function createJapanScene(
   }
   mesh(box, dark, [0, 1.73, 0.12], [0.21, 0.35, 0.08], torii)
   mesh(box, cream, [0, 1.73, 0.17], [0.025, 0.2, 0.02], torii)
+  const gates = new THREE.Group()
+  for (let i = 0; i < 3; i++) {
+    const gate = torii.clone()
+    gate.scale.setScalar(0.4)
+    gate.position.set(-1.3 + i * 0.48, 0.05, -1.6)
+    gates.add(gate)
+  }
+  world.add(gates)
   // Arched footbridge over the water.
   for (let i = 0; i < 9; i++) {
     const x = -1.6 + i * 0.16,
@@ -122,6 +154,9 @@ export function createJapanScene(
     [2.15, 0.65, -1.35],
     [-1.55, 0.5, 2.3],
   ]
+  const canopy: THREE.Mesh[] = []
+  const cedars = new THREE.Group()
+  world.add(cedars)
   treePositions.forEach(([x, size, z], t) => {
     mesh(cylinder, wood, [x, size * 0.5, z], [0.09, size, 0.09])
     for (const direction of [-1, 1]) {
@@ -135,13 +170,27 @@ export function createJapanScene(
     }
     for (let i = 0; i < 7; i++) {
       const angle = i * 2.4
-      mesh(
+      const leaves = mesh(
         sphere,
         i % 2 ? blossom : blossomLight,
-        [x + Math.sin(angle) * 0.37, size + 0.3 + (i % 3) * 0.13, z + Math.cos(angle) * 0.3],
+        [
+          x + Math.sin(angle) * 0.37,
+          size + 0.3 + (i % 3) * 0.13,
+          z + Math.cos(angle) * 0.3,
+        ],
         [size * 0.5, size * 0.44, size * 0.5],
       )
+      leaves.userData.topic = 'sakura'
+      canopy.push(leaves)
     }
+    const cedar = mesh(
+      cone,
+      blossom,
+      [x, size + 0.25, z],
+      [0.55, 1.45, 0.55],
+      cedars,
+    )
+    cedar.userData.topic = 'sakura'
     mesh(sphere, stone, [x + 0.2, 0.1, z + 0.4], [0.2, 0.13, 0.17 + t * 0.01])
   })
   // A small pagoda at the far side of the garden.
@@ -174,12 +223,12 @@ export function createJapanScene(
   const sun = new THREE.DirectionalLight(0xffe6cd, 3)
   sun.position.set(-3, 7, 5)
   sun.castShadow = true
-  sun.shadow.mapSize.set(1024, 1024)
+  sun.shadow.mapSize.set(compact ? 512 : 1024, compact ? 512 : 1024)
   Object.assign(sun.shadow.camera, { left: -5, right: 5, top: 5, bottom: -5 })
   sun.shadow.normalBias = 0.035
   scene.add(ambient, sun)
   const petalMaterial = material(0xffb7c5, { side: THREE.DoubleSide })
-  const petals = new THREE.InstancedMesh(sphere, petalMaterial, 36)
+  const petals = new THREE.InstancedMesh(sphere, petalMaterial, petalCount)
   world.add(petals)
   const dummy = new THREE.Object3D()
   let settings = { ...options },
@@ -199,7 +248,7 @@ export function createJapanScene(
       renderer.shadowMap.needsUpdate = true
       shadowRotation = rotation
     }
-    for (let i = 0; i < 36; i++) {
+    for (let i = 0; i < petalCount; i++) {
       dummy.position.set(
         Math.sin(i * 23.2) * 3.2 + Math.sin(time + i) * 0.18,
         0.3 + ((((i * 0.17 + 4 - time * 0.2) % 3.4) + 3.4) % 3.4),
@@ -215,7 +264,14 @@ export function createJapanScene(
   }
   const tick = (now: number) => {
     frame = 0
-    if (!visible || document.hidden || !settings.moving || disposed || contextLost) return
+    if (
+      !visible ||
+      document.hidden ||
+      !settings.moving ||
+      disposed ||
+      contextLost
+    )
+      return
     if (now - lastTime >= 32) {
       time += Math.min((now - lastTime) / 1000, 0.05)
       lastTime = now
@@ -224,13 +280,31 @@ export function createJapanScene(
     frame = requestAnimationFrame(tick)
   }
   const start = () => {
-    if (!frame && visible && !document.hidden && settings.moving && !disposed && !contextLost) {
+    if (
+      !frame &&
+      visible &&
+      !document.hidden &&
+      settings.moving &&
+      !disposed &&
+      !contextLost
+    ) {
       lastTime = performance.now()
       frame = requestAnimationFrame(tick)
     }
   }
   const update = (next: SceneOptions) => {
     settings = next
+    const region = next.region || 'fuji'
+    gates.visible = region === 'kyoto'
+    cedars.visible = region === 'hokkaido'
+    canopy.forEach((leaves) => {
+      leaves.visible = region !== 'hokkaido'
+    })
+    peak.scale.y = region === 'fuji' ? 2.5 : 1.1
+    peak.position.y = region === 'fuji' ? 1.1 : 0.45
+    summit.visible = region === 'fuji'
+    peak.userData.topic = region === 'fuji' ? 'fuji' : 'sakura'
+    renderer.shadowMap.needsUpdate = true
     const colors = [
       [0xe9a6b8, 0xf8c9cb, 0x879d78],
       [0x609369, 0x94b777, 0x749461],
@@ -309,6 +383,29 @@ export function createJapanScene(
         camera,
       )
       if (ray.intersectObjects(lanterns).length) onLantern()
+      else {
+        const hit = ray
+          .intersectObjects(world.children, true)
+          .find(({ object }) => {
+            for (
+              let node: THREE.Object3D | null = object;
+              node;
+              node = node.parent
+            )
+              if (!node.visible) return false
+            return true
+          })
+        for (
+          let node: THREE.Object3D | null = hit?.object || null;
+          node;
+          node = node.parent
+        ) {
+          if (node.userData.topic) {
+            onHotspot(node.userData.topic)
+            break
+          }
+        }
+      }
     }
     drag = null
   }

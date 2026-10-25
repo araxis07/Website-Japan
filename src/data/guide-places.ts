@@ -3,6 +3,7 @@ import type { Place } from './places'
 export const guidePlaces: Place[] = [
   {
     id: 'kiyomizu',
+    category: 'culture',
     destination: 'kyoto',
     coordinates: [34.994303, 135.784439],
     names: { en: 'Kiyomizu-dera', ja: '清水寺', th: 'วัดคิโยมิซุเดระ' },
@@ -13,6 +14,7 @@ export const guidePlaces: Place[] = [
   },
   {
     id: 'gion',
+    category: 'city',
     destination: 'kyoto',
     coordinates: [35.00469, 135.778403],
     names: { en: 'Gion', ja: '祇園', th: 'กิออน' },
@@ -22,6 +24,7 @@ export const guidePlaces: Place[] = [
   },
   {
     id: 'kyoto-museum',
+    category: 'museum',
     destination: 'kyoto',
     coordinates: [34.989896, 135.772861],
     names: {
@@ -36,6 +39,7 @@ export const guidePlaces: Place[] = [
   },
   {
     id: 'sensoji',
+    category: 'culture',
     destination: 'tokyo',
     coordinates: [35.713403, 139.795526],
     names: { en: 'Sensoji', ja: '浅草寺', th: 'วัดเซ็นโซจิ' },
@@ -45,6 +49,7 @@ export const guidePlaces: Place[] = [
   },
   {
     id: 'sumida',
+    category: 'nature',
     destination: 'tokyo',
     coordinates: [35.715506, 139.803143],
     names: { en: 'Sumida Park', ja: '隅田公園', th: 'สวนสุมิดะ' },
@@ -54,6 +59,7 @@ export const guidePlaces: Place[] = [
   },
   {
     id: 'tokyo-museum',
+    category: 'museum',
     destination: 'tokyo',
     coordinates: [35.719045, 139.775968],
     names: {
@@ -67,6 +73,7 @@ export const guidePlaces: Place[] = [
   },
   {
     id: 'oishi',
+    category: 'nature',
     destination: 'mount-fuji',
     coordinates: [35.52329, 138.746537],
     names: { en: 'Oishi Park', ja: '大石公園', th: 'สวนโออิชิ' },
@@ -76,6 +83,7 @@ export const guidePlaces: Place[] = [
   },
   {
     id: 'kawaguchiko',
+    category: 'city',
     destination: 'mount-fuji',
     coordinates: [35.498033, 138.76898],
     names: {
@@ -90,6 +98,7 @@ export const guidePlaces: Place[] = [
   },
   {
     id: 'fuji-center',
+    category: 'museum',
     destination: 'mount-fuji',
     coordinates: [35.485872, 138.770659],
     names: {
@@ -104,6 +113,7 @@ export const guidePlaces: Place[] = [
   },
   {
     id: 'osaka-castle',
+    category: 'culture',
     destination: 'osaka',
     coordinates: [34.686527, 135.527246],
     names: {
@@ -117,6 +127,7 @@ export const guidePlaces: Place[] = [
   },
   {
     id: 'osaka-museum',
+    category: 'museum',
     destination: 'osaka',
     coordinates: [34.682618, 135.520813],
     names: {
@@ -131,6 +142,7 @@ export const guidePlaces: Place[] = [
   },
   {
     id: 'dotonbori',
+    category: 'city',
     destination: 'osaka',
     coordinates: [34.669031, 135.501572],
     names: { en: 'Dotonbori', ja: '道頓堀', th: 'โดทงโบริ' },
@@ -140,6 +152,7 @@ export const guidePlaces: Place[] = [
   },
   {
     id: 'odori',
+    category: 'nature',
     destination: 'hokkaido',
     coordinates: [43.059902, 141.34751],
     names: {
@@ -154,6 +167,7 @@ export const guidePlaces: Place[] = [
   },
   {
     id: 'hokkaido-museum',
+    category: 'museum',
     destination: 'hokkaido',
     coordinates: [43.0726, 141.342212],
     names: {
@@ -168,6 +182,7 @@ export const guidePlaces: Place[] = [
   },
   {
     id: 'beer-museum',
+    category: 'museum',
     destination: 'hokkaido',
     coordinates: [43.071408, 141.368996],
     names: {
@@ -182,6 +197,7 @@ export const guidePlaces: Place[] = [
   },
   {
     id: 'makishi',
+    category: 'city',
     destination: 'okinawa',
     coordinates: [26.214546, 127.688288],
     names: {
@@ -196,6 +212,7 @@ export const guidePlaces: Place[] = [
   },
   {
     id: 'tsuboya',
+    category: 'city',
     destination: 'okinawa',
     coordinates: [26.212911, 127.691807],
     names: {
@@ -210,6 +227,7 @@ export const guidePlaces: Place[] = [
   },
   {
     id: 'okinawa-museum',
+    category: 'museum',
     destination: 'okinawa',
     coordinates: [26.227159, 127.693718],
     names: {

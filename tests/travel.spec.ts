@@ -18,6 +18,7 @@ test('production config loads without development dependencies', async () => {
   try {
     const configPath = join(directory, 'next.config.mjs')
     await copyFile('next.config.mjs', configPath)
+    await copyFile('map-provider.mjs', join(directory, 'map-provider.mjs'))
     const { default: config } = await import(pathToFileURL(configPath).href)
     expect(config.images.formats).toEqual(['image/avif', 'image/webp'])
     expect(await config.redirects()).toEqual([
@@ -81,53 +82,60 @@ for (const lang of i18n.locales) {
   })
 }
 
-test('browser extension body attributes do not interrupt hydration', async ({
-  page,
-}) => {
-  const errors: string[] = []
-  page.on('pageerror', (error) => errors.push(error.message))
-  page.on('console', (message) => {
-    if (
-      ['error', 'warning'].includes(message.type()) &&
-      /hydrat|script tag|scroll-behavior/i.test(message.text())
-    )
-      errors.push(message.text())
-  })
-  await page.addInitScript(() => {
-    localStorage.setItem('japan-travel-appearance', 'dark')
-    // Simulate Grammarly changing the body as soon as the browser parses it.
-    const observer = new MutationObserver(() => {
-      if (!document.body) return
-      document.body.setAttribute('data-new-gr-c-s-check-loaded', '14.1338.0')
-      document.body.setAttribute('data-gr-ext-installed', '')
-      observer.disconnect()
+for (const initialLocale of i18n.locales)
+  test(`browser extension attributes preserve hydration in ${initialLocale}`, async ({
+    page,
+  }) => {
+    const errors: string[] = []
+    page.on('pageerror', (error) => errors.push(error.message))
+    page.on('console', (message) => {
+      if (
+        ['error', 'warning'].includes(message.type()) &&
+        /hydrat|script tag|scroll-behavior/i.test(message.text())
+      )
+        errors.push(message.text())
     })
-    observer.observe(document, { childList: true, subtree: true })
+    await page.addInitScript(() => {
+      localStorage.setItem('japan-travel-appearance', 'dark')
+      // Simulate Grammarly changing the body as soon as the browser parses it.
+      const observer = new MutationObserver(() => {
+        if (!document.body) return
+        document.body.setAttribute('data-new-gr-c-s-check-loaded', '14.1338.0')
+        document.body.setAttribute('data-gr-ext-installed', '')
+        observer.disconnect()
+      })
+      observer.observe(document, { childList: true, subtree: true })
+    })
+    {
+      await page.goto(`/${initialLocale}`)
+      await expect(page.locator('body')).toHaveAttribute(
+        'data-new-gr-c-s-check-loaded',
+        '14.1338.0',
+      )
+      await expect(page.locator('body')).toHaveAttribute(
+        'data-gr-ext-installed',
+        '',
+      )
+      await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark')
+      await expect(page.locator('.save-button').first()).toBeEnabled()
+      await page.getByRole('searchbox').fill('Kyoto')
+      await expect(page.locator('.destination-card')).toHaveCount(1)
+      expect(errors).toEqual([])
+    }
+    for (const lang of i18n.locales) {
+      await page.locator('.language-picker summary').click()
+      await page.locator(`.language-picker a[lang="${lang}"]`).click()
+      await expect(page.locator('html')).toHaveAttribute('lang', lang)
+      await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark')
+      await expect(page.locator('.save-button').first()).toBeEnabled()
+      expect(errors).toEqual([])
+    }
   })
-  for (const lang of i18n.locales) {
-    await page.goto(`/${lang}`)
-    await expect(page.locator('body')).toHaveAttribute(
-      'data-new-gr-c-s-check-loaded',
-      '14.1338.0',
-    )
-    await expect(page.locator('body')).toHaveAttribute(
-      'data-gr-ext-installed',
-      '',
-    )
-    await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark')
-    await expect(page.locator('.save-button').first()).toBeEnabled()
-    await page.getByRole('searchbox').fill('Kyoto')
-    await expect(page.locator('.destination-card')).toHaveCount(1)
-    expect(errors).toEqual([])
-  }
-  for (const lang of i18n.locales) {
-    await page.locator('.language-picker summary').click()
-    await page.locator(`.language-picker a[lang="${lang}"]`).click()
-    await expect(page.locator('html')).toHaveAttribute('lang', lang)
-    await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark')
-    await expect(page.locator('.save-button').first()).toBeEnabled()
-    expect(errors).toEqual([])
-  }
+
+test('404 theme and return navigation work', async ({ page }) => {
+  await page.addInitScript(() =>
+    localStorage.setItem('japan-travel-appearance', 'dark'),
+  )
   await page.goto('/missing/path')
   await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark')
@@ -139,7 +147,6 @@ test('browser extension body attributes do not interrupt hydration', async ({
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark')
   await page.getByRole('searchbox').fill('Tokyo')
   await expect(page.locator('.destination-card')).toHaveCount(1)
-  expect(errors).toEqual([])
 })
 
 test('search and category filters combine, clear and handle no results', async ({
@@ -372,6 +379,17 @@ test('interactive miniature responds to lighting, seasons, rotation and motion c
     .getByRole('button', { name: 'Reset scene view', exact: true })
     .click()
   expect((await snapshot()).equals(winter)).toBe(true)
+  await scene.locator('.scene-region select').selectOption('kyoto')
+  await expect(scene).toHaveAttribute('data-region', 'kyoto')
+  const kyoto = await snapshot()
+  expect(kyoto.equals(winter)).toBe(false)
+  await scene.locator('.scene-region select').selectOption('hokkaido')
+  expect((await snapshot()).equals(kyoto)).toBe(false)
+  await scene.locator('.scene-hotspots button').nth(1).click()
+  await expect(scene.locator('.scene-topic a')).toHaveAttribute(
+    'href',
+    '/en/prefectures/kyoto#place-pref:kyoto:fushimi-inari-taisha',
+  )
   await page
     .getByRole('button', { name: 'Play animation', exact: true })
     .click()
@@ -479,6 +497,11 @@ test('maps connect destinations, local places and usable external directions', a
   await expect(
     page.locator('.map-place-list li[data-selected="true"]'),
   ).toContainText('สวนสุมิดะ')
+  if (await page.locator('.map-sheet').isVisible())
+    await page
+      .locator('.map-sheet')
+      .getByRole('button', { name: th.tools.closeMap, exact: true })
+      .click()
   const directions = await page
     .locator('.map-place-list li')
     .first()

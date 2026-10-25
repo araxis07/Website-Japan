@@ -2,10 +2,23 @@ import { places, canonicalPlaceId } from '@/data/places'
 
 // Keep the storage key and accept old version-1 plans without additional fields.
 export const tripKey = 'japan-travel-trip-v1'
+export const maxTripBytes = 512_000
+export type TripEntry = {
+  id: string
+  day: number
+  entryId?: string
+  time?: string
+  note?: string
+  duration?: number
+  buffer?: number
+}
+export const entryKey = (item: TripEntry) => item.entryId || item.id
 export type Trip = {
   version: 1
   days: number
-  items: { id: string; day: number; time?: string; note?: string }[]
+  items: TripEntry[]
+  travelers?: number
+  stays?: { id?: string; name: string; from: number; to: number }[]
   title?: string
   startDate?: string
   base?: string
@@ -20,7 +33,7 @@ const text = (v: unknown, max: number) =>
   !/[\u0000-\u0008\u000b\u000c\u000e-\u001f]/.test(v)
 
 export function parseTrip(raw: string): Trip | null {
-  if (raw.length > 64_000) return null
+  if (new TextEncoder().encode(raw).byteLength > maxTripBytes) return null
   try {
     const value = JSON.parse(raw)
     if (
@@ -40,7 +53,7 @@ export function parseTrip(raw: string): Trip | null {
         !item ||
         typeof item.id !== 'string' ||
         !knownPlaces.has(canonicalPlaceId(item.id)) ||
-        originalIds.has(item.id) ||
+        originalIds.has(item.entryId || item.id) ||
         !Number.isInteger(item.day) ||
         item.day < 0 ||
         item.day > value.days
@@ -53,9 +66,25 @@ export function parseTrip(raw: string): Trip | null {
       )
         return null
       if (item.note !== undefined && !text(item.note, 500)) return null
-      originalIds.add(item.id)
+      if (
+        item.entryId !== undefined &&
+        (typeof item.entryId !== 'string' ||
+          !/^[a-zA-Z0-9_-]{1,80}$/.test(item.entryId) ||
+          knownPlaces.has(item.entryId))
+      )
+        return null
+      for (const key of ['duration', 'buffer'] as const) {
+        if (
+          item[key] !== undefined &&
+          (!Number.isInteger(item[key]) || item[key] < 0 || item[key] > 1440)
+        )
+          return null
+      }
+      originalIds.add(item.entryId || item.id)
       const id = canonicalPlaceId(item.id)
-      const existing = result.items.find((entry) => entry.id === id)
+      const existing = result.items.find(
+        (entry) => !entry.entryId && !item.entryId && entry.id === id,
+      )
       // Legacy aliases describe the same place: keep the first scheduled visit.
       if (existing) {
         for (const key of ['time', 'note'] as const) {
@@ -69,6 +98,9 @@ export function parseTrip(raw: string): Trip | null {
       result.items.push({
         id,
         day: item.day,
+        ...(item.entryId !== undefined ? { entryId: item.entryId } : {}),
+        ...(item.duration !== undefined ? { duration: item.duration } : {}),
+        ...(item.buffer !== undefined ? { buffer: item.buffer } : {}),
         ...(item.time !== undefined ? { time: item.time } : {}),
         ...(item.note !== undefined ? { note: item.note } : {}),
       })
@@ -125,6 +157,40 @@ export function parseTrip(raw: string): Trip | null {
         result.budget[key as keyof NonNullable<Trip['budget']>] = amount
       }
     }
+    if (value.travelers !== undefined) {
+      if (
+        !Number.isInteger(value.travelers) ||
+        value.travelers < 1 ||
+        value.travelers > 30
+      )
+        return null
+      result.travelers = value.travelers
+    }
+    if (value.stays !== undefined) {
+      if (!Array.isArray(value.stays) || value.stays.length > 30) return null
+      result.stays = []
+      for (const [index, stay] of value.stays.entries()) {
+        if (
+          !stay ||
+          !text(stay.name, 160) ||
+          !Number.isInteger(stay.from) ||
+          !Number.isInteger(stay.to) ||
+          stay.from < 1 ||
+          stay.from > 30 ||
+          stay.to <= stay.from ||
+          stay.to > 31
+        )
+          return null
+        const id = stay.id ?? `stay-${index}`
+        if (
+          typeof id !== 'string' ||
+          !/^[a-zA-Z0-9_-]{1,80}$/.test(id) ||
+          result.stays.some((other) => other.id === id)
+        )
+          return null
+        result.stays.push({ id, name: stay.name, from: stay.from, to: stay.to })
+      }
+    }
     return result
   } catch {
     return null
@@ -139,7 +205,8 @@ export function mergeTrips(current: Trip, incoming: Trip): Trip | null {
       items: [
         ...current.items,
         ...incoming.items.filter(
-          (item) => !current.items.some((old) => old.id === item.id),
+          (item) =>
+            !current.items.some((old) => entryKey(old) === entryKey(item)),
         ),
       ],
     }),
@@ -151,4 +218,49 @@ export function tripDate(start: string | undefined, day: number) {
   const date = new Date(`${start}T12:00:00Z`)
   date.setUTCDate(date.getUTCDate() + day - 1)
   return date.toISOString().slice(0, 10)
+}
+
+// Preserve notes and accommodation after shortening a trip; never silently discard them.
+export function tripDays(trip: Trip) {
+  return [
+    ...new Set([
+      0,
+      ...Array.from({ length: trip.days }, (_, i) => i + 1),
+      ...Object.keys(trip.notes || {})
+        .filter((day) => trip.notes![day])
+        .map(Number),
+    ]),
+  ].sort((a, b) => a - b)
+}
+export function overlaps(entries: TripEntry[]) {
+  return entries.some((entry, i) => {
+    if (!entry.time) return false
+    const minutes = (time: string) =>
+      Number(time.slice(0, 2)) * 60 + Number(time.slice(3))
+    const start = minutes(entry.time)
+    return entries.slice(i + 1).some((other) => {
+      if (!other.time) return false
+      const next = minutes(other.time)
+      return (
+        start === next ||
+        (start < next
+          ? start + (entry.duration || 0) + (entry.buffer || 0) > next
+          : next + (other.duration || 0) + (other.buffer || 0) > start)
+      )
+    })
+  })
+}
+export function publicTrip(trip: Trip): Trip {
+  return {
+    version: 1,
+    days: trip.days,
+    items: trip.items.map(({ id, day, entryId }) => ({
+      id,
+      day,
+      ...(entryId ? { entryId } : {}),
+    })),
+  }
+}
+export function tripFilename(extension: 'json' | 'html') {
+  return `japan-trip-${new Date().toISOString().replace(/[:.]/g, '-')}.${extension}`
 }

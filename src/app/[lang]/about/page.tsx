@@ -1,3 +1,4 @@
+import ReportIssue from '@/components/ReportIssue'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { isLocale } from '@/i18n/config'
@@ -20,6 +21,9 @@ export default async function About({ params }: Props) {
   if (!isLocale(lang)) notFound()
   const copy = editorial[lang],
     dict = await getDictionary(lang)
+  const configured = process.env.NEXT_PUBLIC_CONTACT_URL
+  const contact =
+    configured && /^https:\/\//.test(configured) ? configured : undefined
   return (
     <main id="main-content" className="container about-page">
       <Link href={`/${lang}`}>{dict.detail.home}</Link>
@@ -32,12 +36,7 @@ export default async function About({ params }: Props) {
         </section>
       ))}
       <p>{dict.tools.reportHelp}</p>
-      <a
-        className="button"
-        href="https://github.com/araxis07/Website-Japan/issues/new"
-      >
-        {dict.tools.report} ↗
-      </a>
+      <ReportIssue contact={contact} />
       <p>
         <Link href={`/${lang}/credits`}>{dict.footer.credits}</Link> ·{' '}
         <a href="https://osmfoundation.org/wiki/Privacy_Policy">

@@ -1,3 +1,4 @@
+import { mapProvider } from './map-provider.mjs'
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   poweredByHeader: false,
@@ -23,15 +24,16 @@ const nextConfig = {
             key: 'Content-Security-Policy',
             value: [
               "default-src 'self'",
-              "base-uri 'self'",
+              "base-uri 'none'",
               "object-src 'none'",
               "frame-ancestors 'none'",
-              "form-action 'self'",
+              "form-action 'none'",
               "frame-src 'none'",
               `script-src 'self' 'unsafe-inline'${process.env.NODE_ENV === 'development' ? " 'unsafe-eval'" : ''}`,
+              "script-src-attr 'none'",
               "style-src 'self' 'unsafe-inline'",
-              "img-src 'self' data: blob: https://tile.openstreetmap.org",
-              `connect-src 'self' https://tile.openstreetmap.org${process.env.NODE_ENV === 'development' ? ' ws: wss:' : ''}`,
+              `img-src 'self' data: blob: ${mapProvider.origin}`,
+              `connect-src 'self' ${mapProvider.origin}${process.env.NODE_ENV === 'development' ? ' ws: wss:' : ''}`,
               "font-src 'self' data:",
               "worker-src 'self' blob:",
             ].join('; '),

@@ -1,10 +1,13 @@
 'use client'
 
-import { useMemo } from 'react'
+import { useMemo, useRef } from 'react'
 import Link from 'next/link'
 import type { Locale } from '@/i18n/config'
 import type { Dictionary } from '@/i18n/dictionaries'
 import StreetMap from './StreetMap'
+import { placePath, type Place } from '@/data/places'
+import { normalizeSearch, placeSearchText } from '@/data/place-search'
+import SavePlace from './SavePlace'
 import { usePageLocation, updateFilters } from './usePageLocation'
 
 type Entry = {
@@ -16,6 +19,7 @@ type Entry = {
   keywords: string
   categories: string[]
   coordinates: [number, number]
+  places: Place[]
 }
 export default function PrefectureExplorer({
   entries,
@@ -32,6 +36,7 @@ export default function PrefectureExplorer({
   mapCopy: Dictionary['streetMap']
   tools: Dictionary['tools']
 }) {
+  const sheet = useRef<HTMLDialogElement>(null)
   const suffix = usePageLocation()
   const params = new URLSearchParams(suffix.split('#')[0])
   const query = (params.get('q') || '').slice(0, 120)
@@ -44,6 +49,7 @@ export default function PrefectureExplorer({
   )
     ? params.get('type')!
     : 'all'
+  const scope = params.get('scope') === 'places' ? 'places' : 'prefectures'
   const view = params.get('view') === 'list' ? 'list' : 'map'
   const filtered = useMemo(
     () =>
@@ -51,27 +57,58 @@ export default function PrefectureExplorer({
         (p) =>
           (region === 'all' || p.region === region) &&
           (category === 'all' || p.categories.includes(category)) &&
-          `${Object.values(p.names).join(' ')} ${p.summary} ${p.keywords}`
-            .normalize('NFKC')
-            .toLocaleLowerCase(lang)
-            .includes(query.trim().normalize('NFKC').toLocaleLowerCase(lang)),
+          normalizeSearch(
+            `${Object.values(p.names).join(' ')} ${p.summary} ${p.keywords} ${p.places.map(placeSearchText).join(' ')}`,
+          ).includes(normalizeSearch(query.trim())),
       ),
-    [entries, region, query, lang, category],
+    [entries, region, query, category],
+  )
+  const foundPlaces = useMemo(
+    () =>
+      filtered
+        .flatMap((p) => p.places)
+        .filter(
+          (place) =>
+            (category === 'all' || place.category === category) &&
+            (!query.trim() ||
+              normalizeSearch(placeSearchText(place)).includes(
+                normalizeSearch(query.trim()),
+              ) ||
+              filtered.some(
+                (p) =>
+                  p.places.includes(place) &&
+                  normalizeSearch(
+                    Object.values(p.names).join(' ') + p.keywords,
+                  ).includes(normalizeSearch(query.trim())),
+              )),
+        ),
+    [filtered, category, query],
   )
   const points = useMemo(
     () =>
-      filtered.map((p) => ({
-        id: p.slug,
-        names: p.names,
-        coordinates: p.coordinates,
-      })),
-    [filtered],
+      scope === 'places'
+        ? foundPlaces
+        : filtered.map((p) => ({
+            id: p.slug,
+            names: p.names,
+            coordinates: p.coordinates,
+          })),
+    [scope, foundPlaces, filtered],
   )
+  const selectedPlace =
+    foundPlaces.find((p) => p.id === selected) || foundPlaces[0]
   const active =
-    filtered.find((p) => p.slug === selected) ??
+    filtered.find((p) =>
+      scope === 'places'
+        ? p.places.some((place) => place.id === selectedPlace?.id)
+        : p.slug === selected,
+    ) ??
     filtered.find((p) => p.slug === 'tokyo') ??
     filtered[0]
-  const choose = (id: string) => updateFilters({ place: id }, true)
+  const choose = (id: string) => {
+    updateFilters({ place: id }, true)
+    if (matchMedia('(max-width: 700px)').matches) sheet.current?.showModal()
+  }
   return (
     <>
       <div className="explorer-filters">
@@ -110,7 +147,7 @@ export default function PrefectureExplorer({
               updateFilters({ type: e.target.value, place: '' }, true)
             }
           >
-            <option value="all">{copy.all}</option>
+            <option value="all">{tools.allCategories}</option>
             {(['culture', 'nature', 'city', 'museum'] as const).map((type) => (
               <option key={type} value={type}>
                 {tools[type]}
@@ -123,6 +160,18 @@ export default function PrefectureExplorer({
         </p>
       </div>
       <div className="explorer-toolbar" role="group" aria-label={tools.view}>
+        <label>
+          {tools.browse}
+          <select
+            value={scope}
+            onChange={(e) =>
+              updateFilters({ scope: e.target.value, place: '' }, true)
+            }
+          >
+            <option value="prefectures">{copy.results}</option>
+            <option value="places">{tools.place}</option>
+          </select>
+        </label>
         <button
           type="button"
           aria-pressed={view === 'map'}
@@ -169,7 +218,7 @@ export default function PrefectureExplorer({
           >
             <StreetMap
               points={points}
-              selected={active?.slug}
+              selected={scope === 'places' ? selectedPlace?.id : active?.slug}
               onSelect={choose}
               lang={lang}
               copy={mapCopy}
@@ -184,7 +233,11 @@ export default function PrefectureExplorer({
                 {active.names.ja}
               </span>
               <p>{regions.find((r) => r.id === active.region)?.name}</p>
-              <h2>{active.names[lang]}</h2>
+              <h2>
+                {scope === 'places'
+                  ? selectedPlace?.names[lang]
+                  : active.names[lang]}
+              </h2>
               <p>{active.summary}</p>
               <dl>
                 <dt>{copy.base}</dt>
@@ -192,12 +245,83 @@ export default function PrefectureExplorer({
               </dl>
               <Link
                 className="button"
-                href={`/${lang}/prefectures/${active.slug}`}
+                href={
+                  scope === 'places' && selectedPlace
+                    ? placePath(selectedPlace, lang)
+                    : `/${lang}/prefectures/${active.slug}`
+                }
               >
                 {copy.read} ↗
               </Link>
             </div>
           </div>
+          <dialog
+            ref={sheet}
+            className="map-sheet"
+            aria-label={tools.mapDetails}
+          >
+            <button type="button" onClick={() => sheet.current?.close()}>
+              {tools.closeMap}
+            </button>
+            <h2>
+              {scope === 'places'
+                ? selectedPlace?.names[lang]
+                : active.names[lang]}
+            </h2>
+            <p>
+              {scope === 'places' ? selectedPlace?.address : active.summary}
+            </p>
+            <Link
+              className="button"
+              href={
+                scope === 'places' && selectedPlace
+                  ? placePath(selectedPlace, lang)
+                  : `/${lang}/prefectures/${active.slug}`
+              }
+            >
+              {copy.read} ↗
+            </Link>
+          </dialog>
+          {(query || category !== 'all' || scope === 'places') && (
+            <section
+              className="place-search-results"
+              aria-label={tools.placeResults}
+            >
+              <h2>
+                {tools.placeResults} ({foundPlaces.length})
+              </h2>
+              <ul>
+                {foundPlaces.map((place) => (
+                  <li
+                    key={place.id}
+                    data-selected={
+                      scope === 'places' && selectedPlace?.id === place.id
+                    }
+                  >
+                    <Link href={placePath(place, lang)}>
+                      {place.names[lang]}
+                    </Link>
+                    <span lang="ja">{place.names.ja}</span>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        updateFilters(
+                          { scope: 'places', place: place.id, view: 'map' },
+                          true,
+                        )
+                        document
+                          .getElementById('explore-map')
+                          ?.scrollIntoView({ block: 'start' })
+                      }}
+                    >
+                      {copy.show}
+                    </button>
+                    <SavePlace id={place.id} name={place.names[lang]} />
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
           <p className="source-note">
             {tools.mapNote} {copy.mapNote}
           </p>
@@ -212,7 +336,7 @@ export default function PrefectureExplorer({
               <li
                 className="prefecture-card depth-surface"
                 key={p.slug}
-                data-selected={p.slug === selected}
+                data-selected={p.slug === active.slug}
               >
                 <p>{regions.find((r) => r.id === p.region)?.name}</p>
                 <h3>
@@ -227,16 +351,21 @@ export default function PrefectureExplorer({
                   </Link>
                   <button
                     type="button"
-                    aria-pressed={p.slug === selected}
+                    aria-pressed={p.slug === active.slug}
                     onClick={() => {
-                      updateFilters({ place: p.slug, view: 'map' }, true)
+                      updateFilters(
+                        { place: p.slug, view: 'map', scope: 'prefectures' },
+                        true,
+                      )
                       requestAnimationFrame(() =>
                         document.getElementById('explore-map')?.scrollIntoView({
-                          behavior: matchMedia(
-                            '(prefers-reduced-motion: reduce)',
-                          ).matches
-                            ? 'instant'
-                            : 'smooth',
+                          behavior:
+                            document.documentElement.dataset.motion ===
+                              'still' ||
+                            matchMedia('(prefers-reduced-motion: reduce)')
+                              .matches
+                              ? 'instant'
+                              : 'smooth',
                           block: 'start',
                         }),
                       )

@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { isLocale } from '@/i18n/config'
 import { getDictionary } from '@/i18n/dictionaries'
 import { prefectures } from '@/data/prefectures'
-import { prefecturePlaces } from '@/data/prefecture-places'
+import { places } from '@/data/places'
 import { placeCategory } from '@/data/visit-details'
 import { regions } from '@/data/travel'
 import { pageMetadata } from '@/utils/site'
@@ -50,29 +50,27 @@ export default async function Explore({ params }: Props) {
         mapCopy={dict.streetMap}
         tools={dict.tools}
         regions={regions.map((r) => ({ id: r.id, name: r[lang][0] }))}
-        entries={prefectures.map((p) => ({
-          slug: p.slug,
-          names: p.names,
-          region: p.region,
-          base: p.base[lang],
-          categories: p.places.map((id) =>
-            placeCategory(prefecturePlaces.find((place) => place.id === id)!),
-          ),
-          keywords:
-            (searchAliases[p.slug] || '') +
-            ' ' +
-            p.places
-              .map((id) =>
-                Object.values(
-                  prefecturePlaces.find((place) => place.id === id)!.names,
-                ).join(' '),
-              )
-              .join(' '),
-          summary: p.summary[lang],
-          coordinates: prefecturePlaces.find(
-            (place) => place.id === p.places[0],
-          )!.coordinates,
-        }))}
+        entries={prefectures.map((p) => {
+          const points = places.filter(
+            (place) =>
+              !place.id.startsWith('destination:') &&
+              (place.prefecture ||
+                (place.destination === 'mount-fuji'
+                  ? 'yamanashi'
+                  : place.destination)) === p.slug,
+          )
+          return {
+            slug: p.slug,
+            names: p.names,
+            region: p.region,
+            base: p.base[lang],
+            categories: points.map(placeCategory),
+            keywords: searchAliases[p.slug] || '',
+            summary: p.summary[lang],
+            coordinates: points[0].coordinates,
+            places: points,
+          }
+        })}
       />
     </main>
   )

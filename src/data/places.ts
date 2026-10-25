@@ -4,6 +4,7 @@ import { prefecturePlaces } from './prefecture-places'
 
 export type Place = {
   id: string
+  category: 'museum' | 'nature' | 'culture' | 'city'
   destination: string
   coordinates: [number, number]
   names: Record<Locale, string>
@@ -38,6 +39,7 @@ export const places: Place[] = [
   ...destinations.map((d) => ({
     id: `destination:${d.slug}`,
     destination: d.slug,
+    category: 'city' as const,
     coordinates: bases[d.slug],
     names: { en: d.en.name, ja: d.ja.name, th: d.th.name },
   })),
@@ -70,5 +72,5 @@ export function distanceKm(a: Place['coordinates'], b: Place['coordinates']) {
 }
 
 export function placePath(place: Place, lang: Locale) {
-  return `/${lang}/${place.prefecture ? 'prefectures' : 'destinations'}/${place.prefecture ?? place.destination}#places`
+  return `/${lang}/${place.prefecture ? 'prefectures' : 'destinations'}/${place.prefecture ?? place.destination}#place-${canonicalPlaceId(place.id)}`
 }

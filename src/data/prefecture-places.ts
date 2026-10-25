@@ -10,6 +10,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:hokkaido:otaru-canal',
+    category: 'city',
     prefecture: 'hokkaido',
     destination: 'hokkaido',
     names: {
@@ -25,6 +26,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:aomori:hirosaki-castle',
+    category: 'culture',
     prefecture: 'aomori',
     destination: 'aomori',
     names: {
@@ -40,6 +42,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:aomori:nebuta-museum-wa-rasse',
+    category: 'museum',
     prefecture: 'aomori',
     destination: 'aomori',
     names: {
@@ -55,6 +58,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:iwate:chusonji-temple',
+    category: 'culture',
     prefecture: 'iwate',
     destination: 'iwate',
     names: {
@@ -69,6 +73,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:iwate:morioka-castle-site-park',
+    category: 'culture',
     prefecture: 'iwate',
     destination: 'iwate',
     names: {
@@ -83,6 +88,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:miyagi:zuihoden',
+    category: 'culture',
     prefecture: 'miyagi',
     destination: 'miyagi',
     names: {
@@ -98,6 +104,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:miyagi:zuiganji-temple',
+    category: 'culture',
     prefecture: 'miyagi',
     destination: 'miyagi',
     names: {
@@ -112,6 +119,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:akita:senshu-park',
+    category: 'nature',
     prefecture: 'akita',
     destination: 'akita',
     names: {
@@ -126,6 +134,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:akita:aoyagi-samurai-manor',
+    category: 'culture',
     prefecture: 'akita',
     destination: 'akita',
     names: {
@@ -141,6 +150,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:yamagata:yamadera-risshakuji',
+    category: 'culture',
     prefecture: 'yamagata',
     destination: 'yamagata',
     names: {
@@ -155,6 +165,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:yamagata:kajo-park',
+    category: 'nature',
     prefecture: 'yamagata',
     destination: 'yamagata',
     names: {
@@ -169,6 +180,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:fukushima:tsurugajo-castle',
+    category: 'culture',
     prefecture: 'fukushima',
     destination: 'fukushima',
     names: {
@@ -183,6 +195,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:fukushima:ouchi-juku',
+    category: 'city',
     prefecture: 'fukushima',
     destination: 'fukushima',
     names: {
@@ -197,6 +210,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:ibaraki:kairakuen',
+    category: 'nature',
     prefecture: 'ibaraki',
     destination: 'ibaraki',
     names: {
@@ -211,6 +225,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:ibaraki:hitachi-seaside-park',
+    category: 'nature',
     prefecture: 'ibaraki',
     destination: 'ibaraki',
     names: {
@@ -225,6 +240,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:tochigi:nikko-toshogu',
+    category: 'culture',
     prefecture: 'tochigi',
     destination: 'tochigi',
     names: {
@@ -239,6 +255,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:tochigi:oya-history-museum',
+    category: 'museum',
     prefecture: 'tochigi',
     destination: 'tochigi',
     names: {
@@ -253,6 +270,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:gunma:kusatsu-yubatake',
+    category: 'city',
     prefecture: 'gunma',
     destination: 'gunma',
     names: {
@@ -267,6 +285,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:gunma:tomioka-silk-mill',
+    category: 'culture',
     prefecture: 'gunma',
     destination: 'gunma',
     names: {
@@ -281,6 +300,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:saitama:railway-museum',
+    category: 'museum',
     prefecture: 'saitama',
     destination: 'saitama',
     names: {
@@ -296,6 +316,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:saitama:kawagoe-toki-no-kane',
+    category: 'city',
     prefecture: 'saitama',
     destination: 'saitama',
     names: {
@@ -310,6 +331,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:chiba:naritasan-shinshoji',
+    category: 'culture',
     prefecture: 'chiba',
     destination: 'chiba',
     names: {
@@ -324,6 +346,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:chiba:chiba-port-tower',
+    category: 'city',
     prefecture: 'chiba',
     destination: 'chiba',
     names: {
@@ -349,6 +372,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:kanagawa:yokohama-red-brick-warehouse',
+    category: 'city',
     prefecture: 'kanagawa',
     destination: 'kanagawa',
     names: {
@@ -363,6 +387,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:kanagawa:kotoku-in',
+    category: 'culture',
     prefecture: 'kanagawa',
     destination: 'kanagawa',
     names: {
@@ -378,6 +403,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:niigata:bandai-bridge',
+    category: 'city',
     prefecture: 'niigata',
     destination: 'niigata',
     names: {
@@ -393,6 +419,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:niigata:hakusan-park',
+    category: 'nature',
     prefecture: 'niigata',
     destination: 'niigata',
     names: {
@@ -407,6 +434,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:toyama:fugan-canal-kansui-park',
+    category: 'nature',
     prefecture: 'toyama',
     destination: 'toyama',
     names: {
@@ -421,6 +449,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:toyama:toyama-castle',
+    category: 'culture',
     prefecture: 'toyama',
     destination: 'toyama',
     names: {
@@ -435,6 +464,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:ishikawa:kenrokuen',
+    category: 'nature',
     prefecture: 'ishikawa',
     destination: 'ishikawa',
     names: {
@@ -449,6 +479,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:ishikawa:higashi-chaya-district',
+    category: 'city',
     prefecture: 'ishikawa',
     destination: 'ishikawa',
     names: {
@@ -464,6 +495,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:fukui:fukui-prefectural-dinosaur-museum',
+    category: 'museum',
     prefecture: 'fukui',
     destination: 'fukui',
     names: {
@@ -478,6 +510,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:fukui:eiheiji-temple',
+    category: 'culture',
     prefecture: 'fukui',
     destination: 'fukui',
     names: {
@@ -497,6 +530,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:yamanashi:takeda-shrine',
+    category: 'culture',
     prefecture: 'yamanashi',
     destination: 'yamanashi',
     names: {
@@ -511,6 +545,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:nagano:zenkoji-temple',
+    category: 'culture',
     prefecture: 'nagano',
     destination: 'nagano',
     names: {
@@ -526,6 +561,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:nagano:matsumoto-castle',
+    category: 'culture',
     prefecture: 'nagano',
     destination: 'nagano',
     names: {
@@ -541,6 +577,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:gifu:gifu-castle',
+    category: 'culture',
     prefecture: 'gifu',
     destination: 'gifu',
     names: {
@@ -556,6 +593,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:gifu:takayama-jinya',
+    category: 'culture',
     prefecture: 'gifu',
     destination: 'gifu',
     names: {
@@ -571,6 +609,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:shizuoka:miho-no-matsubara',
+    category: 'nature',
     prefecture: 'shizuoka',
     destination: 'shizuoka',
     names: {
@@ -586,6 +625,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:shizuoka:sunpu-castle-park',
+    category: 'culture',
     prefecture: 'shizuoka',
     destination: 'shizuoka',
     names: {
@@ -600,6 +640,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:aichi:nagoya-castle',
+    category: 'culture',
     prefecture: 'aichi',
     destination: 'aichi',
     names: {
@@ -615,6 +656,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:aichi:atsuta-jingu',
+    category: 'culture',
     prefecture: 'aichi',
     destination: 'aichi',
     names: {
@@ -630,6 +672,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:mie:ise-jingu-naiku',
+    category: 'culture',
     prefecture: 'mie',
     destination: 'mie',
     names: {
@@ -644,6 +687,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:mie:futami-okitama-shrine',
+    category: 'culture',
     prefecture: 'mie',
     destination: 'mie',
     names: {
@@ -658,6 +702,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:shiga:hikone-castle',
+    category: 'culture',
     prefecture: 'shiga',
     destination: 'shiga',
     names: {
@@ -673,6 +718,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:shiga:ishiyamadera-temple',
+    category: 'culture',
     prefecture: 'shiga',
     destination: 'shiga',
     names: {
@@ -693,6 +739,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:kyoto:fushimi-inari-taisha',
+    category: 'culture',
     prefecture: 'kyoto',
     destination: 'kyoto',
     names: {
@@ -707,6 +754,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:osaka:osaka-castle',
+    category: 'culture',
     prefecture: 'osaka',
     destination: 'osaka',
     names: {
@@ -726,6 +774,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:hyogo:himeji-castle',
+    category: 'culture',
     prefecture: 'hyogo',
     destination: 'hyogo',
     names: {
@@ -741,6 +790,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:hyogo:meriken-park',
+    category: 'nature',
     prefecture: 'hyogo',
     destination: 'hyogo',
     names: {
@@ -755,6 +805,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:nara:todaiji-temple',
+    category: 'culture',
     prefecture: 'nara',
     destination: 'nara',
     names: {
@@ -769,6 +820,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:nara:kasuga-taisha',
+    category: 'culture',
     prefecture: 'nara',
     destination: 'nara',
     names: {
@@ -783,6 +835,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:wakayama:wakayama-castle',
+    category: 'culture',
     prefecture: 'wakayama',
     destination: 'wakayama',
     names: {
@@ -797,6 +850,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:wakayama:kongobuji-temple',
+    category: 'culture',
     prefecture: 'wakayama',
     destination: 'wakayama',
     names: {
@@ -812,6 +866,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:tottori:tottori-sand-dunes',
+    category: 'nature',
     prefecture: 'tottori',
     destination: 'tottori',
     names: {
@@ -826,6 +881,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:tottori:sand-museum',
+    category: 'museum',
     prefecture: 'tottori',
     destination: 'tottori',
     names: {
@@ -840,6 +896,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:shimane:matsue-castle',
+    category: 'culture',
     prefecture: 'shimane',
     destination: 'shimane',
     names: {
@@ -854,6 +911,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:shimane:izumo-taisha',
+    category: 'culture',
     prefecture: 'shimane',
     destination: 'shimane',
     names: {
@@ -869,6 +927,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:okayama:okayama-korakuen',
+    category: 'nature',
     prefecture: 'okayama',
     destination: 'okayama',
     names: {
@@ -883,6 +942,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:okayama:kurashiki-bikan-historical-quarter',
+    category: 'city',
     prefecture: 'okayama',
     destination: 'okayama',
     names: {
@@ -897,6 +957,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:hiroshima:hiroshima-peace-memorial-park',
+    category: 'culture',
     prefecture: 'hiroshima',
     destination: 'hiroshima',
     names: {
@@ -911,6 +972,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:hiroshima:itsukushima-shrine',
+    category: 'culture',
     prefecture: 'hiroshima',
     destination: 'hiroshima',
     names: {
@@ -925,6 +987,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:yamaguchi:kintaikyo-bridge',
+    category: 'city',
     prefecture: 'yamaguchi',
     destination: 'yamaguchi',
     names: {
@@ -939,6 +1002,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:yamaguchi:akiyoshido-cave',
+    category: 'nature',
     prefecture: 'yamaguchi',
     destination: 'yamaguchi',
     names: {
@@ -953,6 +1017,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:tokushima:awa-odori-kaikan',
+    category: 'culture',
     prefecture: 'tokushima',
     destination: 'tokushima',
     names: {
@@ -968,6 +1033,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:tokushima:naruto-park',
+    category: 'nature',
     prefecture: 'tokushima',
     destination: 'tokushima',
     names: {
@@ -982,6 +1048,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:kagawa:ritsurin-garden',
+    category: 'nature',
     prefecture: 'kagawa',
     destination: 'kagawa',
     names: {
@@ -996,6 +1063,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:kagawa:kotohiragu',
+    category: 'culture',
     prefecture: 'kagawa',
     destination: 'kagawa',
     names: {
@@ -1010,6 +1078,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:ehime:matsuyama-castle',
+    category: 'culture',
     prefecture: 'ehime',
     destination: 'ehime',
     names: {
@@ -1025,6 +1094,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:ehime:dogo-onsen-honkan',
+    category: 'city',
     prefecture: 'ehime',
     destination: 'ehime',
     names: {
@@ -1039,6 +1109,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:kochi:kochi-castle',
+    category: 'culture',
     prefecture: 'kochi',
     destination: 'kochi',
     names: {
@@ -1053,6 +1124,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:kochi:hirome-market',
+    category: 'city',
     prefecture: 'kochi',
     destination: 'kochi',
     names: {
@@ -1068,6 +1140,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:fukuoka:ohori-park',
+    category: 'nature',
     prefecture: 'fukuoka',
     destination: 'fukuoka',
     names: {
@@ -1082,6 +1155,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:fukuoka:dazaifu-tenmangu',
+    category: 'culture',
     prefecture: 'fukuoka',
     destination: 'fukuoka',
     names: {
@@ -1097,6 +1171,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:saga:yoshinogari-historical-park',
+    category: 'culture',
     prefecture: 'saga',
     destination: 'saga',
     names: {
@@ -1111,6 +1186,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:saga:yutoku-inari-shrine',
+    category: 'culture',
     prefecture: 'saga',
     destination: 'saga',
     names: {
@@ -1125,6 +1201,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:nagasaki:dejima',
+    category: 'culture',
     prefecture: 'nagasaki',
     destination: 'nagasaki',
     names: {
@@ -1139,6 +1216,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:nagasaki:nagasaki-peace-park',
+    category: 'nature',
     prefecture: 'nagasaki',
     destination: 'nagasaki',
     names: {
@@ -1153,6 +1231,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:kumamoto:kumamoto-castle',
+    category: 'culture',
     prefecture: 'kumamoto',
     destination: 'kumamoto',
     names: {
@@ -1167,6 +1246,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:kumamoto:suizenji-jojuen',
+    category: 'nature',
     prefecture: 'kumamoto',
     destination: 'kumamoto',
     names: {
@@ -1181,6 +1261,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:oita:umi-jigoku',
+    category: 'nature',
     prefecture: 'oita',
     destination: 'oita',
     names: {
@@ -1195,6 +1276,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:oita:lake-kinrin',
+    category: 'nature',
     prefecture: 'oita',
     destination: 'oita',
     names: {
@@ -1209,6 +1291,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:miyazaki:aoshima-shrine',
+    category: 'culture',
     prefecture: 'miyazaki',
     destination: 'miyazaki',
     names: {
@@ -1223,6 +1306,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:miyazaki:miyazaki-jingu',
+    category: 'culture',
     prefecture: 'miyazaki',
     destination: 'miyazaki',
     names: {
@@ -1238,6 +1322,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:kagoshima:sengan-en',
+    category: 'nature',
     prefecture: 'kagoshima',
     destination: 'kagoshima',
     names: {
@@ -1252,6 +1337,7 @@ export const prefecturePlaces: Place[] = [
   },
   {
     id: 'pref:kagoshima:shiroyama-observatory',
+    category: 'nature',
     prefecture: 'kagoshima',
     destination: 'kagoshima',
     names: {

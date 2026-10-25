@@ -1,0 +1,38 @@
+{
+  "kiyomizu": {
+    "source": "https://commons.wikimedia.org/wiki/File:Kiyomizu-dera_Nio-mon.jpg",
+    "artist": "Hyppolyte de Saint-Rambert",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "src": "/images/entrances/kiyomizu.jpg",
+    "alt": {
+      "en": "Nio-mon gate and steps at Kiyomizu-dera; use the official route for step-free access.",
+      "ja": "清水寺の仁王門と階段。段差のない経路は公式案内を確認。",
+      "th": "ประตู Nio-mon และบันไดวัดคิโยมิซุเดระ เส้นทางไร้บันไดให้ตรวจจากเว็บไซต์วัด"
+    }
+  },
+  "pref:nagano:matsumoto-castle": {
+    "source": "https://commons.wikimedia.org/wiki/File:Matsumoto_castle_Kuromon.jpg",
+    "artist": "ぺ有家音",
+    "license": "CC0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "src": "/images/entrances/matsumoto-castle.jpg",
+    "alt": {
+      "en": "Kuromon gate at Matsumoto Castle, seen from the approach.",
+      "ja": "松本城の黒門を入口側から見た様子。",
+      "th": "ประตู Kuromon ปราสาทมัตสึโมโตะ มองจากทางเดินเข้า"
+    }
+  },
+  "pref:kyoto:fushimi-inari-taisha": {
+    "source": "https://commons.wikimedia.org/wiki/File:Fushimi_Inari_R%C5%8Dmon.jpg",
+    "artist": "Cun Cun",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "src": "/images/entrances/fushimi-inari-taisha.jpg",
+    "alt": {
+      "en": "Romon gate at Fushimi Inari Taisha, seen from the forecourt.",
+      "ja": "前庭から見た伏見稲荷大社の楼門。",
+      "th": "ประตู Romon ศาลเจ้าฟุชิมิอินาริ มองจากลานด้านหน้า"
+    }
+  }
+}

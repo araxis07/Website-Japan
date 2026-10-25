@@ -26,7 +26,9 @@ export default function PhotoGallery({
     }
   }, [index])
   const next = (amount: number) =>
-    setIndex((current) => ((current ?? 0) + amount + photos.length) % photos.length)
+    setIndex(
+      (current) => ((current ?? 0) + amount + photos.length) % photos.length,
+    )
   return (
     <>
       <div className="photo-gallery">
@@ -57,7 +59,15 @@ export default function PhotoGallery({
               />
               <span aria-hidden="true">↗</span>
             </a>
-            <figcaption>{photo.alt[lang]}</figcaption>
+            <figcaption>
+              {photo.alt[lang]}
+              {photo.source && (
+                <small className="field-source">
+                  <a href={photo.source}>{photo.artist}</a> ·{' '}
+                  <a href={photo.licenseUrl}>{photo.license}</a>
+                </small>
+              )}
+            </figcaption>
           </figure>
         ))}
       </div>

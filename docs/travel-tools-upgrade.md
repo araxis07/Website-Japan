@@ -1,5 +1,7 @@
 # Travel tools and content upgrade — 2026-10-25
 
+Historical release record. The subsequent [renovation follow-up](renovation-follow-up.md) supersedes limits, coverage and feature status below.
+
 This release makes the existing three-language guide easier to use for a first trip. It retains the Japanese visual style, static rendering, local-first trip storage and existing URLs. No dependency was added.
 
 ## Shipped
