@@ -1,13 +1,18 @@
 'use client'
 
-import { useMemo, useRef } from 'react'
+import { useEffect, useMemo, useRef } from 'react'
 import Link from 'next/link'
 import type { Locale } from '@/i18n/config'
 import type { Dictionary } from '@/i18n/dictionaries'
 import StreetMap from './StreetMap'
 import { placePath, type Place } from '@/data/places'
-import { normalizeSearch, placeSearchText } from '@/data/place-search'
+import {
+  normalizeSearch,
+  placeSearchText,
+  searchSuggestions,
+} from '@/data/place-search'
 import SavePlace from './SavePlace'
+import { visitFor } from '@/data/visit-details'
 import { usePageLocation, updateFilters } from './usePageLocation'
 
 type Entry = {
@@ -36,6 +41,8 @@ export default function PrefectureExplorer({
   mapCopy: Dictionary['streetMap']
   tools: Dictionary['tools']
 }) {
+  const revealMap = useRef(false)
+  const returnTarget = useRef<HTMLButtonElement | null>(null)
   const sheet = useRef<HTMLDialogElement>(null)
   const suffix = usePageLocation()
   const params = new URLSearchParams(suffix.split('#')[0])
@@ -49,6 +56,9 @@ export default function PrefectureExplorer({
   )
     ? params.get('type')!
     : 'all'
+  const information = (['hours', 'booking', 'accessibility'] as const).find(
+    (field) => field === params.get('info'),
+  )
   const scope = params.get('scope') === 'places' ? 'places' : 'prefectures'
   const view = params.get('view') === 'list' ? 'list' : 'map'
   const filtered = useMemo(
@@ -57,11 +67,17 @@ export default function PrefectureExplorer({
         (p) =>
           (region === 'all' || p.region === region) &&
           (category === 'all' || p.categories.includes(category)) &&
+          (!information ||
+            p.places.some(
+              (place) =>
+                (category === 'all' || place.category === category) &&
+                visitFor(place)?.[information],
+            )) &&
           normalizeSearch(
             `${Object.values(p.names).join(' ')} ${p.summary} ${p.keywords} ${p.places.map(placeSearchText).join(' ')}`,
           ).includes(normalizeSearch(query.trim())),
       ),
-    [entries, region, query, category],
+    [entries, region, query, category, information],
   )
   const foundPlaces = useMemo(
     () =>
@@ -70,6 +86,7 @@ export default function PrefectureExplorer({
         .filter(
           (place) =>
             (category === 'all' || place.category === category) &&
+            (!information || Boolean(visitFor(place)?.[information])) &&
             (!query.trim() ||
               normalizeSearch(placeSearchText(place)).includes(
                 normalizeSearch(query.trim()),
@@ -82,8 +99,14 @@ export default function PrefectureExplorer({
                   ).includes(normalizeSearch(query.trim())),
               )),
         ),
-    [filtered, category, query],
+    [filtered, category, query, information],
   )
+  const suggestions = !foundPlaces.length
+    ? searchSuggestions(
+        query,
+        entries.flatMap((entry) => entry.places),
+      )
+    : []
   const points = useMemo(
     () =>
       scope === 'places'
@@ -105,6 +128,22 @@ export default function PrefectureExplorer({
     ) ??
     filtered.find((p) => p.slug === 'tokyo') ??
     filtered[0]
+  useEffect(() => {
+    if (!revealMap.current || view !== 'map') return
+    revealMap.current = false
+    const panel = document.getElementById('explore-map')
+    panel?.scrollIntoView({ block: 'start' })
+    panel?.focus({ preventScroll: true })
+  }, [view, selected, scope])
+  const showPlace = (
+    button: HTMLButtonElement,
+    place: string,
+    scope: string,
+  ) => {
+    returnTarget.current = button
+    revealMap.current = true
+    updateFilters({ place, scope, view: 'map' }, true)
+  }
   const choose = (id: string) => {
     updateFilters({ place: id }, true)
     if (matchMedia('(max-width: 700px)').matches) sheet.current?.showModal()
@@ -155,10 +194,31 @@ export default function PrefectureExplorer({
             ))}
           </select>
         </label>
+        <label>
+          {tools.informationFilter}
+          <select
+            value={information || 'all'}
+            onChange={(event) =>
+              updateFilters(
+                { info: event.target.value, scope: 'places', place: '' },
+                true,
+              )
+            }
+          >
+            <option value="all">{tools.allInformation}</option>
+            {(['hours', 'booking', 'accessibility'] as const).map((field) => (
+              <option key={field} value={field}>
+                {tools[field]}
+              </option>
+            ))}
+          </select>
+        </label>
         <p role="status">
-          {filtered.length} / 47 {copy.results}
+          {filtered.length} / 47 {copy.results} · {foundPlaces.length}{' '}
+          {tools.placeResults}
         </p>
       </div>
+      {information && <p className="source-note">{tools.informationHelp}</p>}
       <div className="explorer-toolbar" role="group" aria-label={tools.view}>
         <label>
           {tools.browse}
@@ -186,24 +246,63 @@ export default function PrefectureExplorer({
         >
           {tools.list}
         </button>
-        {active && (query || region !== 'all' || category !== 'all') && (
-          <button
-            type="button"
-            onClick={() =>
-              updateFilters({ q: '', region: '', type: '', place: '' })
-            }
-          >
-            {tools.clear}
-          </button>
-        )}
+        {active &&
+          (query || region !== 'all' || category !== 'all' || information) && (
+            <button
+              type="button"
+              onClick={() =>
+                updateFilters({
+                  q: '',
+                  region: '',
+                  type: '',
+                  info: '',
+                  place: '',
+                })
+              }
+            >
+              {tools.clear}
+            </button>
+          )}
       </div>
       {!active ? (
         <div className="empty-state">
           <p>{copy.empty}</p>
+          {suggestions.length > 0 && (
+            <div>
+              <p>{tools.suggestions}</p>
+              {suggestions.map((place) => (
+                <button
+                  key={place.id}
+                  type="button"
+                  onClick={() =>
+                    updateFilters(
+                      {
+                        q: place.names[lang],
+                        region: '',
+                        type: '',
+                        info: '',
+                        scope: 'places',
+                        place: place.id,
+                      },
+                      true,
+                    )
+                  }
+                >
+                  {place.names[lang]}
+                </button>
+              ))}
+            </div>
+          )}
           <button
             className="button"
             onClick={() => {
-              updateFilters({ q: '', region: '', place: '', type: '' })
+              updateFilters({
+                q: '',
+                region: '',
+                place: '',
+                type: '',
+                info: '',
+              })
             }}
           >
             {copy.reset}
@@ -214,6 +313,7 @@ export default function PrefectureExplorer({
           <div
             className="explore-map-panel"
             id="explore-map"
+            tabIndex={-1}
             hidden={view === 'list'}
           >
             <StreetMap
@@ -238,11 +338,41 @@ export default function PrefectureExplorer({
                   ? selectedPlace?.names[lang]
                   : active.names[lang]}
               </h2>
-              <p>{active.summary}</p>
-              <dl>
-                <dt>{copy.base}</dt>
-                <dd>{active.base}</dd>
-              </dl>
+              {scope === 'places' && selectedPlace ? (
+                <>
+                  <p lang="ja">
+                    {selectedPlace.address || selectedPlace.names.ja}
+                  </p>
+                  <p>
+                    {visitFor(selectedPlace)?.access?.[lang] || tools.verify}
+                  </p>
+                  <p className="source-note">{tools.pinReference}</p>
+                  <SavePlace
+                    id={selectedPlace.id}
+                    name={selectedPlace.names[lang]}
+                  />
+                </>
+              ) : (
+                <>
+                  <p>{active.summary}</p>
+                  <dl>
+                    <dt>{copy.base}</dt>
+                    <dd>{active.base}</dd>
+                  </dl>
+                </>
+              )}
+              <button
+                type="button"
+                onClick={() => {
+                  updateFilters({ view: 'list' })
+                  requestAnimationFrame(() => {
+                    returnTarget.current?.scrollIntoView({ block: 'center' })
+                    returnTarget.current?.focus({ preventScroll: true })
+                  })
+                }}
+              >
+                {tools.returnResults}
+              </button>
               <Link
                 className="button"
                 href={
@@ -282,7 +412,10 @@ export default function PrefectureExplorer({
               {copy.read} ↗
             </Link>
           </dialog>
-          {(query || category !== 'all' || scope === 'places') && (
+          {(query ||
+            category !== 'all' ||
+            scope === 'places' ||
+            information) && (
             <section
               className="place-search-results"
               aria-label={tools.placeResults}
@@ -304,15 +437,9 @@ export default function PrefectureExplorer({
                     <span lang="ja">{place.names.ja}</span>
                     <button
                       type="button"
-                      onClick={() => {
-                        updateFilters(
-                          { scope: 'places', place: place.id, view: 'map' },
-                          true,
-                        )
-                        document
-                          .getElementById('explore-map')
-                          ?.scrollIntoView({ block: 'start' })
-                      }}
+                      onClick={(event) =>
+                        showPlace(event.currentTarget, place.id, 'places')
+                      }
                     >
                       {copy.show}
                     </button>
@@ -352,24 +479,9 @@ export default function PrefectureExplorer({
                   <button
                     type="button"
                     aria-pressed={p.slug === active.slug}
-                    onClick={() => {
-                      updateFilters(
-                        { place: p.slug, view: 'map', scope: 'prefectures' },
-                        true,
-                      )
-                      requestAnimationFrame(() =>
-                        document.getElementById('explore-map')?.scrollIntoView({
-                          behavior:
-                            document.documentElement.dataset.motion ===
-                              'still' ||
-                            matchMedia('(prefers-reduced-motion: reduce)')
-                              .matches
-                              ? 'instant'
-                              : 'smooth',
-                          block: 'start',
-                        }),
-                      )
-                    }}
+                    onClick={(event) =>
+                      showPlace(event.currentTarget, p.slug, 'prefectures')
+                    }
                   >
                     {copy.show}
                   </button>

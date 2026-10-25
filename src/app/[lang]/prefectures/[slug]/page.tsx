@@ -168,6 +168,7 @@ export default async function PrefecturePage({ params }: Props) {
           <p>{regionalPlanning[p.region][lang]}</p>
           <h3>{dict.tools.seasonPlanning}</h3>
           <p>{seasonPlanning[p.region][lang]}</p>
+          <p className="source-note">{dict.tools.typicalSeason}</p>
           <a
             className="text-link"
             href="https://www.japan.travel/en/plan/weather/"
@@ -194,13 +195,25 @@ export default async function PrefecturePage({ params }: Props) {
                 {dict.trip.day} {i + 1}
               </strong>
               <ul>
-                {ids.map((id) => {
+                {ids.map((id, index) => {
                   const point = points.find(
                     (p) => canonicalPlaceId(p.id) === id,
                   )!
                   return (
                     <li key={id}>
                       <a href={`#place-${id}`}>{point.names[lang]}</a>
+                      {index > 0 && (
+                        <p className="source-note">
+                          {dict.tools.legDistance}:{' '}
+                          {distanceKm(
+                            points.find(
+                              (p) => canonicalPlaceId(p.id) === ids[index - 1],
+                            )!.coordinates,
+                            point.coordinates,
+                          ).toFixed(1)}{' '}
+                          km · {dict.tools.mapHop}
+                        </p>
+                      )}
                     </li>
                   )
                 })}

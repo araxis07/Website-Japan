@@ -1,0 +1,32 @@
+# Travel guide and planner follow-through — 2026-10-26
+
+This release follows the approved content, beginner usability, map, planner and maintenance recommendations. It retains existing routes, three languages, all 47 prefectures, the version-1 saved-trip format and the paper/ink day and night themes. No runtime dependency or account service is added.
+
+## Shipped behavior
+
+- All 104 mapped venues now have primary-source last-mile access notes in English, Japanese and Thai, up from 12 access notes in 17 operational records. Each note links its source and review date. The new Sengan-en rail connection, the correct Taito bank of Sumida Park and the temporary Tsuboya museum closure are distinguished explicitly.
+- Venue filters select reviewed hours, booking or accessibility notes. An accessibility note can describe barriers. Search suggests one-letter Latin spelling corrections without rewriting the query or removing Thai marks. Results count provinces and venues separately; map previews show the actual place, address and access, and return keyboard focus to the originating list button.
+- Map overview/zoom no longer jumps back to the selected location on each marker revision. Venue pins remain approximate references rather than verified entrances. Daily trip maps reuse the real raster map and ordered saved places; they do not fabricate road routes or hotel coordinates.
+- Optional starter plans use existing local place groups. Prefecture suggestions show straight-line gaps between stops, with an explicit instruction to check real routes. Seasonal advice is distinguished from annual event dates and forecasts. Airport guides cover late arrivals, bags, children and an actual Narita Express example with a dated service notice.
+- Invalid edits survive navigation/reload in per-tab drafts. Global save status reflects pending fields, labels stay stable for assistive technology, and raw corrupt data can be downloaded before reset. Undo groups a focused typing session. Imports distinguish existing/new visits and explain merge versus replacement; shortening a trip previews affected entries, notes and stays.
+- Stay rows show nights and dates, and identify conflicting pairs. Visit conflicts identify both places; the timeline separates duration, user-entered transfer buffers and unallocated time. Full backup requests retain a timestamp/fingerprint across sessions and show changes since the request.
+- Up to ten local trip copies, Japan-time `.ics` export, and manually dated FX estimates sit inside optional planning tools. Copies are snapshots, not cloud sync. Loading/deleting requires confirmation; malformed archives are preserved for raw download and explicit reset.
+- Mobile native selects have at least 44px touch height; expandable tools have visible indicators. Fuji, Kyoto and Hokkaido models have distinct architecture/vegetation, with clickable hotspots, pointer feedback and equivalent ordinary controls. Below-fold gallery images stay lazy; only an actual matching cover uses eager loading.
+- A fourth licensed practical photograph shows the Takayama Jinya entrance in historical winter conditions, with localized captions, creator/license links and a clear photo date. It does not certify present-day access.
+- Sitemap entries no longer use one blanket last-modified date. Correction reports explain copy/open/submit and omit query strings. CI scans tracked files for common credential patterns, audits dependencies and generates per-field content queues; scheduled/manual runs also produce source-link reachability reports.
+
+## Facts still requiring editorial work
+
+Coverage is intentionally field-specific: **104 access**, **20 hours**, **16 admission**, **8 accessibility**, **2 entrance descriptions**, **3 booking notes**. Other fields remain marked unverified. A reviewed access note does not certify prices, current closure status, step-free access or entrance coordinates. Open parks, districts and stations still need individually appropriate wording rather than invented opening hours or booking rules.
+
+The source-link sweep checked 119 URLs; eight initially returned timeouts/HTTP errors. One obsolete Dejima transport link was replaced with the venue's current access section. The other failures were reviewed against retrieved primary-source content and remain maintenance flags; server/bot errors are not proof that a page is permanently dead. Reachability and factual verification are separate checks.
+
+## Verification
+
+Local release checks: **127 passed, 1 intentionally skipped** across Chromium desktop and WebKit mobile. The skip is WebKit’s unsupported LCP observer. After the final calendar date-boundary guard, the 14 affected browser/unit checks passed again. Lint, typecheck and the optimized build passed. Twelve axe WCAG 2 A/AA and 2.1 AA scans across Thai trip tools, English filtered exploration and the Japanese arrival guide, at two widths and both themes, found no violations. Dependency audit reported zero vulnerabilities. Darwin visual baselines and all three rendered miniatures were inspected. Linux results and baselines must be checked on the pushed commit’s GitHub Actions evidence. Required: lint, typecheck, 182-route optimized build, full Chromium/WebKit tests, visual review, accessibility scans, dependency audit and tracked-file scan. Tests cover malformed data, failed writes, stale tabs, retained drafts, grouped Undo, raw downloads, archive validation, calendar escaping/time zones, backup fingerprints, shrinking previews, map overview and list focus.
+
+## External acceptance work
+
+No live domain, paid map-provider account, monitoring account or alert destination was supplied. Existing deployment configuration and rollout checks remain in [release operations](release-operations.md). OSM public raster tiles remain best effort; dedicated night/vector/multilingual maps need the chosen provider. No hosting change or monitoring activation is claimed.
+
+Native-speaker approval, physical VoiceOver/TalkBack, low-end-device performance, production Core Web Vitals and actual novice usability sessions remain external acceptance work. Automated browser/axe checks do not replace them. See the existing participant protocol and glossary. Historical release counts in earlier documents describe those earlier releases, not this one.

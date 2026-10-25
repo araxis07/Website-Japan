@@ -23,3 +23,33 @@ export const placeSearchText = (place: Place) =>
   Object.values(place.names).join(' ') +
   ' ' +
   (placeSearchAliases[place.id] || '')
+
+// Suggest a single missing/extra/changed Latin letter; never rewrite the query.
+export function searchSuggestions(query: string, candidates: Place[]) {
+  const q = normalizeSearch(query.trim())
+  if (!/^[a-z]{4,40}$/.test(q)) return []
+  const near = (word: string) => {
+    if (Math.abs(word.length - q.length) > 1) return false
+    let a = 0,
+      b = 0,
+      edits = 0
+    while (a < q.length && b < word.length) {
+      if (q[a] === word[b]) {
+        a++
+        b++
+        continue
+      }
+      if (++edits > 1) return false
+      if (q.length >= word.length) a++
+      if (word.length >= q.length) b++
+    }
+    return edits + q.length - a + word.length - b === 1
+  }
+  return candidates
+    .filter((place) =>
+      [place.names.en, ...(placeSearchAliases[place.id] || '').split(' ')].some(
+        (name) => near(normalizeSearch(name)),
+      ),
+    )
+    .slice(0, 5)
+}

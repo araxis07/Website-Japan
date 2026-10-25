@@ -24,6 +24,28 @@ test('content schema covers every place, local plan, language, credit and review
     for (const lang of ['en', 'ja', 'th'] as const)
       expect(place.names[lang].trim()).not.toBe('')
     const visit = visitFor(place)
+    expect(
+      visit?.access,
+      `${place.id}: reviewed last-mile access`,
+    ).toBeDefined()
+    const fieldReviews = Object.fromEntries(
+      fields.map((field) => {
+        const checked = visit?.[field] && visitSource(visit, field)
+        return [
+          field,
+          checked
+            ? {
+                ...checked,
+                nextReviewBy: new Date(
+                  Date.parse(checked.reviewedAt) + 90 * 86400000,
+                )
+                  .toISOString()
+                  .slice(0, 10),
+              }
+            : { status: 'needs primary-source review' },
+        ]
+      }),
+    )
     const missing = fields.filter((field) => !visit?.[field])
     if (visit)
       for (const field of fields)
@@ -42,6 +64,8 @@ test('content schema covers every place, local plan, language, credit and review
         ? Date.now() - Date.parse(visit.reviewedAt) > 90 * 86400000
         : true,
       missing,
+      suggestedOwner: 'repository maintainer',
+      fieldReviews,
       source: visit?.source || place.source,
     })
   }

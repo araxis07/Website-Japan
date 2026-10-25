@@ -12,10 +12,10 @@
 
 ## Content and translations
 
-`tests/content-quality.spec.ts` produces a per-place maintenance queue. Missing fields and reviews older than 90 days are reported, not silently presented as current. Prioritize high-traffic venues, closures, accessibility, pricing and reservation changes. Schema checks cannot verify that a source remains factually current.
+`tests/content-quality.spec.ts` produces a per-place maintenance queue, including a suggested maintainer role and a next-review date for each checked field. Run `node scripts/check-links.mjs` for a separate reachability report; scheduled/manual CI also runs it. HTTP failures flag manual review and never change factual review dates. Missing fields and reviews older than 90 days are reported, not silently presented as current. Prioritize high-traffic venues, closures, accessibility, pricing and reservation changes. Schema checks cannot verify that a source remains factually current.
 
 - Operator access, admission/calendar and booking pages are the primary sources. Update only facts actually checked and their field-specific source/date; retain different dates when one field has not been rechecked.
-- All 104 mapped places have localized names and explicit categories. Seventeen currently have reviewed visit-detail records; the remaining 87 have explicit unknown operational fields. A reviewed record may still have missing fields. No page claims universal entrance/accessibility verification.
+- All 104 mapped places have localized names and explicit categories. All 104 now have a reviewed last-mile access note in all three languages. Hours, admission, entrance, booking and accessibility remain explicitly unknown wherever they have not been checked. A reviewed record may still have missing fields. No page claims universal entrance/accessibility verification.
 - Map coordinates are approximate venue/area references. An entrance photograph or description does not certify a precise entrance pin, step-free access or a usable route. Confirm the exact entrance with the operator before moving a pin or adding accessibility claims.
 - Day groups, visit durations, regional seasonal advice, rainy-day substitutions and budgets are editorial planning aids. They are not live schedules, route times, bloom forecasts or quotes. Keep that distinction in every language.
 - Match the same factual meaning in Japanese, English and Thai. Preserve Japanese place names/addresses for taxi, station and map use. Keep the stable ID unchanged; use the existing alias migration for renamed records.
@@ -41,7 +41,7 @@ Native-speaker review should check tone, ambiguous station exits, transliteratio
 - Check 200% text/desktop zoom and a 320px reflow width. Test real screen-reader speech on VoiceOver and TalkBack; automated axe scans alone do not verify reading order or announcements.
 - Honor reduced motion and global pause. Three.js loads only after activation, caps mobile pixel ratio/shadows/particles and pauses when offscreen. Recheck on a physical low-end Android and iPhone for input delay, thermal/battery cost and WebGL fallback. Emulators do not establish frame-rate budgets on hardware.
 - Check first load and navigation separately. Use the [Core Web Vitals targets](https://web.dev/articles/vitals): field p75 LCP ≤2.5s, INP ≤200ms, CLS ≤0.1; these are release targets, not measured production results. Use field reports only after a real origin has sufficient traffic. Inspect before/after network requests to ensure maps and 3D remain deferred.
-- Visual baselines cover desktop/mobile trip forms in both themes. Platform-specific baselines account for native controls/fonts. To update intentionally, run `npm test -- tests/visual.spec.ts --update-snapshots`, inspect every changed image, and commit the appropriate OS baselines. Never approve differences merely because a test failed.
+- Visual baselines cover desktop/mobile trip forms in both themes, a Thai homepage, Japanese search filters and the English airport guide. Platform-specific baselines account for native controls/fonts. To update intentionally, run `npm test -- tests/visual.spec.ts --update-snapshots`, inspect every changed image, and commit the appropriate OS baselines. Never approve differences merely because a test failed.
 - Security checks include bounded UTF-8 imports, known place IDs, stale-tab guards, failed-write recovery, escaped offline HTML and dependency audit. Production CSP excludes eval and inline event handlers, but Next's static output still uses inline scripts/styles. Moving to nonce CSP changes rendering/caching and needs a separate verified implementation. This release is not a penetration test.
 
 ## First-time visitor usability session
@@ -56,3 +56,11 @@ Recruit at least five people who have not used the site, including Thai and Japa
 6. Find emergency help without using the 3D model, then pause motion and switch to night mode.
 
 Record completion, wrong turns, time, requests for help, misunderstood terms and whether the participant can explain what is saved/shared. Prioritize blocked tasks and data-loss misunderstandings over decoration. Retest the fixes with fresh participants. No participant sessions have been run as part of this workspace change.
+
+## Trip copies, drafts and export
+
+The active version-1 trip remains in `japan-travel-trip-v1`. Up to ten separately saved copies use `japan-travel-library-v1`; edits do not update earlier copies automatically. Both are local to the browser, without account or cloud sync. Invalid drafts use per-tab session storage and survive route/language changes and reloads. If session storage fails, an in-memory draft and unload warning are the fallback; closing the tab can still lose that draft. The page must never label a trip fully saved while a rejected draft exists.
+
+A full backup request stores a SHA-256 fingerprint and timestamp in `japan-trip-backup`. This records the download request, not proof that the user retained the file. A sanitized export does not count as a full backup. Calendar export uses Japan time for timed visits and all-day entries otherwise; it contains saved visit notes and must be reviewed before sharing. Manually dated currency rates are estimates, never live quotes.
+
+Before switching trips, repair or discard pending input and export the current plan. Load/replace requires confirmation; one-step Undo restores the preceding active trip. Invalid stored JSON can be downloaded unchanged before an explicit reset. No migration discards the existing trip automatically.

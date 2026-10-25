@@ -1,3 +1,4 @@
+import accessRecords from './visit-access.json'
 import type { Locale } from '@/i18n/config'
 import { canonicalPlaceId, type Place } from './places'
 type Text = Record<Locale, string>
@@ -22,9 +23,10 @@ type Visit = {
       { source: string; reviewedAt: string }
     >
   >
-  minutes: number
+  minutes?: number
 }
 export const visitDetails: Record<string, Visit> = {
+  ...accessRecords,
   sensoji: {
     source: 'https://www.senso-ji.jp/access/',
     reviewedAt: '2026-10-25',
@@ -53,6 +55,11 @@ export const visitDetails: Record<string, Visit> = {
   'beer-museum': {
     source: 'https://www.sapporobeer.jp/english/brewery/s_museum/',
     reviewedAt: '2026-10-25',
+    access: {
+      en: 'About ten minutes on foot from exit 4 of Higashi-Kuyakusho-Mae on the Toho subway. This is the Sapporo museum, not the brewery in Eniwa.',
+      ja: '地下鉄東豊線東区役所前駅4番出口から徒歩約10分。恵庭の工場とは別施設です。',
+      th: 'เดินประมาณ 10 นาทีจากทางออก 4 ของ Higashi-Kuyakusho-Mae สาย Toho ที่นี่คือพิพิธภัณฑ์ในซัปโปโร ไม่ใช่โรงงานใน Eniwa',
+    },
     minutes: 60,
     hours: {
       en: 'Self-guided exhibition: 11:00–18:00, last entry 17:30. Check the current operating calendar.',
@@ -68,6 +75,12 @@ export const visitDetails: Record<string, Visit> = {
       en: 'Self-guided visits do not require a reservation; premium tours use separate booking.',
       ja: '自由見学は予約不要。プレミアムツアーは別途予約。',
       th: 'ชมเองไม่ต้องจอง ส่วนทัวร์พรีเมียมมีระบบจองแยก',
+    },
+    fieldSources: {
+      access: {
+        source: 'https://www.sapporobeer.jp/english/brewery/s_museum/',
+        reviewedAt: '2026-10-25',
+      },
     },
   },
   'pref:hyogo:himeji-castle': {
@@ -149,6 +162,11 @@ export const visitDetails: Record<string, Visit> = {
   'pref:ishikawa:kenrokuen': {
     source: 'https://shiro-niwa.pref.ishikawa.lg.jp/kenrokuen-garden/info.html',
     reviewedAt: '2026-10-25',
+    access: {
+      en: 'From Kanazawa Station, use the Kenrokuen-shita bus stop for Katsurazaka Gate, or Hirosaka for Mayumizaka Gate. Choose your entrance before boarding.',
+      ja: '金沢駅から桂坂口へは兼六園下、真弓坂口へは広坂でバスを下車。利用する門を決めて乗車。',
+      th: 'จากสถานี Kanazawa ลงบัส Kenrokuen-shita เพื่อเข้าประตู Katsurazaka หรือ Hirosaka เพื่อเข้าประตู Mayumizaka เลือกประตูก่อนขึ้นรถ',
+    },
     minutes: 90,
     hours: {
       en: 'March 1–October 15: 07:00–18:00; October 16–February: 08:00–17:00. Last entry 30 minutes before closing.',
@@ -165,10 +183,21 @@ export const visitDetails: Record<string, Visit> = {
       ja: '各料金所に貸出車いすあり。坂道・砂利道があるため公式の推奨コースを確認。',
       th: 'มีรถเข็นให้ยืมตามประตูที่ระบุ สวนมีทางลาดและกรวด ตรวจเส้นทางที่เว็บไซต์แนะนำ',
     },
+    fieldSources: {
+      access: {
+        source: 'https://shiro-niwa.pref.ishikawa.lg.jp/access.html',
+        reviewedAt: '2026-10-25',
+      },
+    },
   },
   'pref:nagano:matsumoto-castle': {
     source: 'https://www.matsumoto-castle.jp/eng/info',
     reviewedAt: '2026-10-25',
+    access: {
+      en: 'Walk about 20 minutes from JR Matsumoto Station. Use the south-side Kuromon entrance; the red bridge is not an entrance.',
+      ja: 'JR松本駅から徒歩約20分。南側の黒門から入場。赤い橋は入口ではありません。',
+      th: 'เดินประมาณ 20 นาทีจาก JR Matsumoto เข้าประตู Kuromon ด้านใต้ สะพานแดงไม่ใช่ทางเข้า',
+    },
     minutes: 90,
     hours: {
       en: 'Usually 08:30–17:00, last entry 16:30. Closed December 29–31; holiday extensions vary.',
@@ -191,6 +220,10 @@ export const visitDetails: Record<string, Visit> = {
       th: 'เข้าทางประตู Kuromon ด้านใต้ สะพานแดงไม่ใช่ทางเข้า',
     },
     fieldSources: {
+      access: {
+        source: 'https://www.matsumoto-castle.jp/access',
+        reviewedAt: '2026-10-25',
+      },
       entrance: {
         source: 'https://www.matsumoto-castle.jp/eng/faq',
         reviewedAt: '2026-10-25',
@@ -220,6 +253,11 @@ export const visitDetails: Record<string, Visit> = {
   'pref:nagasaki:dejima': {
     source: 'https://nagasakidejima.jp/about/',
     reviewedAt: '2026-10-25',
+    access: {
+      en: 'From Nagasaki Station, take a tram toward Sofukuji and get off at Dejima. Check the operator’s entrance map and each gate’s closing time.',
+      ja: '長崎駅前から崇福寺行きの路面電車で出島へ。公式の入口案内と各入口の終了時刻を確認。',
+      th: 'จากสถานี Nagasaki นั่งรถรางไปทาง Sofukuji ลง Dejima ตรวจแผนที่ทางเข้าและเวลาปิดแต่ละประตูจากเว็บไซต์สถานที่',
+    },
     minutes: 120,
     hours: {
       en: '08:00–21:00; last entry 20:40. Open year-round, with possible maintenance closures inside.',
@@ -235,6 +273,12 @@ export const visitDetails: Record<string, Visit> = {
       en: 'Omotemon bridge entry until 20:40; the Suimon entrance closes at 18:00.',
       ja: '表門橋は最終入場20:40、水門は18:00まで。',
       th: 'ทางสะพาน Omotemon เข้าสุดท้าย 20:40 น. ทาง Suimon ปิด 18:00 น.',
+    },
+    fieldSources: {
+      access: {
+        source: 'https://nagasakidejima.jp/about/',
+        reviewedAt: '2026-10-25',
+      },
     },
   },
   'pref:aichi:nagoya-castle': {
@@ -305,11 +349,22 @@ export const visitDetails: Record<string, Visit> = {
   'fuji-center': {
     source: 'https://www.fujisan-whc.jp/en/guide/index.html',
     reviewedAt: '2026-10-24',
+    access: {
+      en: 'From Kawaguchiko Station, the operator lists a sightseeing bus to Prefectural Fuji Visitor Center Entrance (about five minutes). Confirm the current stop name and departures with Fujikyu Bus.',
+      ja: '河口湖駅から周遊バスで県立富士ビジターセンター入口へ約5分の案内。現在の停留所名と発車時刻は富士急バスで確認。',
+      th: 'จากสถานี Kawaguchiko เว็บไซต์ศูนย์ระบุบัสเที่ยวชมไป Prefectural Fuji Visitor Center Entrance ประมาณ 5 นาที ตรวจชื่อป้ายและเวลาเดินรถล่าสุดกับ Fujikyu Bus',
+    },
     minutes: 90,
     hours: {
       en: 'Usually 09:00–17:00; July–August 08:30–18:00 and December–February 09:00–16:30. Last admission is 30 minutes before closing; check closure notices.',
       ja: '通常9:00〜17:00。7〜8月は8:30〜18:00、12〜2月は9:00〜16:30。入館は閉館30分前まで。休館案内も確認。',
       th: 'ปกติ 09:00–17:00 น. ก.ค.–ส.ค. 08:30–18:00 น. และ ธ.ค.–ก.พ. 09:00–16:30 น. เข้าชมได้ก่อนปิด 30 นาที โปรดตรวจประกาศวันปิดด้วย',
+    },
+    fieldSources: {
+      access: {
+        source: 'https://www.fujisan-whc.jp/en/access/index.html',
+        reviewedAt: '2026-10-25',
+      },
     },
   },
   kiyomizu: {

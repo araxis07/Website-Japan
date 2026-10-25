@@ -1,5 +1,10 @@
 import EmergencyCard from '@/components/EmergencyCard'
-import { arrivalGuides, trainExample } from '@/data/arrival-guides'
+import {
+  arrivalGuides,
+  arrivalChecks,
+  trainExample,
+  workedTrainRoute,
+} from '@/data/arrival-guides'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { isLocale } from '@/i18n/config'
@@ -95,6 +100,16 @@ export default async function FirstVisit({ params }: Props) {
                       </p>
                     </details>
                   ))}
+                  {arrivalChecks.map((check) => (
+                    <details key={check.source}>
+                      <summary>{check[lang].title}</summary>
+                      <p>{check[lang].text}</p>
+                      <a href={check.source}>{dict.tools.official} ↗</a>
+                      <p className="source-note">
+                        {dict.tools.reviewed}: 2026-10-25
+                      </p>
+                    </details>
+                  ))}
                 </section>
               )}
               {step.id === 'transport' && (
@@ -105,6 +120,20 @@ export default async function FirstVisit({ params }: Props) {
                       <li key={text}>{text}</li>
                     ))}
                   </ol>
+                  <details className="visit-details">
+                    <summary>{dict.tools.workedRoute}</summary>
+                    <ol>
+                      {workedTrainRoute[lang].map((text) => (
+                        <li key={text}>{text}</li>
+                      ))}
+                    </ol>
+                    <a href="https://www.jreast.co.jp/en/multi/nex/">
+                      JR East · Narita Express ↗
+                    </a>
+                    <p className="source-note">
+                      {dict.tools.reviewed}: 2026-10-25
+                    </p>
+                  </details>
                   <a href="https://www.jreast.co.jp/en/multi/ticket/guide.html">
                     JR East ↗
                   </a>

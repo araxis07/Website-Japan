@@ -110,6 +110,13 @@ export default function PlacesMap({
                 </p>
               )}
               <span className="place-kind">{tools[placeCategory(point)]}</span>
+              <p className="source-note">{tools.pinReference}</p>
+              {visit?.access && <p>{visit.access[lang]}</p>}
+              {visit?.hours && (
+                <p>
+                  <strong>{tools.hours}:</strong> {visit.hours[lang]}
+                </p>
+              )}
               <details className="visit-details">
                 <summary>{tools.visitInfo}</summary>
                 <dl>
@@ -138,7 +145,7 @@ export default function PlacesMap({
                       </dd>
                     </div>
                   ))}
-                  {visit && (
+                  {visit?.minutes !== undefined && (
                     <div>
                       <dt>{tools.duration}</dt>
                       <dd>

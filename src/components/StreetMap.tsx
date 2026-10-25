@@ -28,6 +28,7 @@ export default function StreetMap({
   const markers = useRef(new Map<string, Marker>())
   const callback = useRef(onSelect)
   const fitted = useRef(false)
+  const focused = useRef<string | undefined>(undefined)
   const [instance, setInstance] = useState<LeafletMap | null>(null)
   const [status, setStatus] = useState('loading')
   const [attempt, setAttempt] = useState(0)
@@ -86,6 +87,7 @@ export default function StreetMap({
             resize = new ResizeObserver(() => current.invalidateSize())
             resize.observe(element)
             fitted.current = false
+            focused.current = undefined
             setInstance(map)
           })
           .catch(() => {
@@ -220,9 +222,13 @@ export default function StreetMap({
       marker.getElement()?.classList.add('is-selected')
       marker.getElement()?.setAttribute('aria-pressed', 'true')
       marker.openTooltip()
+    }
+    if (marker && fitted.current && selected && selected !== focused.current) {
       const coordinates = points.find(
         (point) => point.id === selected,
-      )!.coordinates
+      )?.coordinates
+      if (!coordinates) return
+      focused.current = selected
       if (
         focusZoom &&
         (instance.getZoom() < focusZoom ||
@@ -234,6 +240,7 @@ export default function StreetMap({
       else if (!instance.getBounds().contains(coordinates))
         instance.panTo(coordinates, { animate: false })
     }
+    if (!selected) focused.current = undefined
   }, [selected, focusZoom, instance, revision, points])
   const fit = () => {
     if (instance && points.length)

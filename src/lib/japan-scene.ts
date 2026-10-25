@@ -155,6 +155,7 @@ export function createJapanScene(
     [-1.55, 0.5, 2.3],
   ]
   const canopy: THREE.Mesh[] = []
+  const evergreen = material(0x355c4b)
   const cedars = new THREE.Group()
   world.add(cedars)
   treePositions.forEach(([x, size, z], t) => {
@@ -185,7 +186,7 @@ export function createJapanScene(
     }
     const cedar = mesh(
       cone,
-      grass,
+      evergreen,
       [x, size + 0.25, z],
       [0.55, 1.45, 0.55],
       cedars,
@@ -193,19 +194,50 @@ export function createJapanScene(
     cedar.userData.topic = 'sakura'
     mesh(sphere, stone, [x + 0.2, 0.1, z + 0.4], [0.2, 0.13, 0.17 + t * 0.01])
   })
+  const cabins = new THREE.Group()
+  world.add(cabins)
+  cabins.userData.topic = 'sakura'
+  for (const x of [-0.6, 0.65]) {
+    mesh(box, wood, [x, 0.32, 1.1], [0.75, 0.55, 0.7], cabins)
+    const roof = mesh(
+      new THREE.ConeGeometry(1, 1, 4),
+      dark,
+      [x, 0.76, 1.1],
+      [0.7, 0.45, 0.65],
+      cabins,
+    )
+    roof.rotation.y = Math.PI / 4
+    mesh(box, glow, [x, 0.35, 1.46], [0.25, 0.2, 0.02], cabins)
+  }
+  const pagoda = new THREE.Group()
+  world.add(pagoda)
+  pagoda.userData.topic = 'torii'
   // A small pagoda at the far side of the garden.
   for (let i = 0; i < 3; i++) {
     const width = 0.65 - i * 0.13
-    mesh(box, cream, [1.8, 0.25 + i * 0.37, -0.25], [width, 0.31, width])
+    mesh(
+      box,
+      cream,
+      [1.8, 0.25 + i * 0.37, -0.25],
+      [width, 0.31, width],
+      pagoda,
+    )
     mesh(
       new THREE.ConeGeometry(1, 1, 4),
       dark,
       [1.8, 0.47 + i * 0.37, -0.25],
       [width, 0.27, width],
+      pagoda,
     ).rotation.y = Math.PI / 4
-    mesh(box, red, [1.8, 0.23 + i * 0.37, 0.09 - i * 0.06], [0.1, 0.28, 0.04])
+    mesh(
+      box,
+      red,
+      [1.8, 0.23 + i * 0.37, 0.09 - i * 0.06],
+      [0.1, 0.28, 0.04],
+      pagoda,
+    )
   }
-  mesh(cone, dark, [1.8, 1.51, -0.25], [0.07, 0.35, 0.07])
+  mesh(cone, dark, [1.8, 1.51, -0.25], [0.07, 0.35, 0.07], pagoda)
   const lanterns: THREE.Mesh[] = []
   const lights: THREE.PointLight[] = []
   for (const x of [-1.18, 1.18]) {
@@ -296,6 +328,11 @@ export function createJapanScene(
     settings = next
     const region = next.region || 'fuji'
     gates.visible = region === 'kyoto'
+    torii.visible = region !== 'hokkaido'
+    pagoda.visible = region === 'kyoto'
+    cabins.visible = region === 'hokkaido'
+    peak.scale.x = region === 'hokkaido' ? 2.8 : 1.9
+    peak.scale.z = region === 'hokkaido' ? 1.1 : 1.7
     cedars.visible = region === 'hokkaido'
     canopy.forEach((leaves) => {
       leaves.visible = region !== 'hokkaido'
@@ -371,43 +408,48 @@ export function createJapanScene(
       render()
     }
   }
+  const hitTopic = (event: PointerEvent) => {
+    const rect = canvas.getBoundingClientRect()
+    const ray = new THREE.Raycaster()
+    ray.setFromCamera(
+      new THREE.Vector2(
+        ((event.clientX - rect.left) / rect.width) * 2 - 1,
+        -((event.clientY - rect.top) / rect.height) * 2 + 1,
+      ),
+      camera,
+    )
+    const hit = ray
+      .intersectObjects(world.children, true)
+      .find(({ object }) => {
+        for (let node: THREE.Object3D | null = object; node; node = node.parent)
+          if (!node.visible) return false
+        return object !== petals
+      })
+    if (hit && lanterns.includes(hit.object as THREE.Mesh)) return 'lantern'
+    for (
+      let node: THREE.Object3D | null = hit?.object || null;
+      node;
+      node = node.parent
+    )
+      if (node.userData.topic)
+        return node.userData.topic as 'fuji' | 'torii' | 'sakura'
+    return null
+  }
+  const hover = (event: PointerEvent) => {
+    canvas.style.cursor = drag
+      ? 'grabbing'
+      : hitTopic(event)
+        ? 'pointer'
+        : 'grab'
+  }
   const up = (event: PointerEvent) => {
     if (drag && Math.abs(event.clientX - drag.start) < 6) {
-      const rect = canvas.getBoundingClientRect()
-      const ray = new THREE.Raycaster()
-      ray.setFromCamera(
-        new THREE.Vector2(
-          ((event.clientX - rect.left) / rect.width) * 2 - 1,
-          -((event.clientY - rect.top) / rect.height) * 2 + 1,
-        ),
-        camera,
-      )
-      if (ray.intersectObjects(lanterns).length) onLantern()
-      else {
-        const hit = ray
-          .intersectObjects(world.children, true)
-          .find(({ object }) => {
-            for (
-              let node: THREE.Object3D | null = object;
-              node;
-              node = node.parent
-            )
-              if (!node.visible) return false
-            return true
-          })
-        for (
-          let node: THREE.Object3D | null = hit?.object || null;
-          node;
-          node = node.parent
-        ) {
-          if (node.userData.topic) {
-            onHotspot(node.userData.topic)
-            break
-          }
-        }
-      }
+      const topic = hitTopic(event)
+      if (topic === 'lantern') onLantern()
+      else if (topic) onHotspot(topic)
     }
     drag = null
+    hover(event)
   }
   const cancel = () => {
     drag = null
@@ -421,6 +463,7 @@ export function createJapanScene(
   }
   canvas.addEventListener('pointerdown', down)
   canvas.addEventListener('pointermove', move)
+  canvas.addEventListener('pointermove', hover)
   canvas.addEventListener('pointerup', up)
   canvas.addEventListener('pointercancel', cancel)
   canvas.addEventListener('webglcontextlost', lost)
@@ -444,6 +487,7 @@ export function createJapanScene(
       document.removeEventListener('visibilitychange', visibility)
       canvas.removeEventListener('pointerdown', down)
       canvas.removeEventListener('pointermove', move)
+      canvas.removeEventListener('pointermove', hover)
       canvas.removeEventListener('pointerup', up)
       canvas.removeEventListener('pointercancel', cancel)
       canvas.removeEventListener('webglcontextlost', lost)

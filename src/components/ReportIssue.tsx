@@ -2,7 +2,7 @@
 import { useState } from 'react'
 import { useTrip } from './TripProvider'
 export default function ReportIssue({ contact }: { contact?: string }) {
-  const { tools } = useTrip()
+  const { tools, lang } = useTrip()
   const [text, setText] = useState('')
   const [status, setStatus] = useState('')
   return (
@@ -17,11 +17,14 @@ export default function ReportIssue({ contact }: { contact?: string }) {
         />
       </label>
       <p>{tools.reportPrivacy}</p>
+      <p>{tools.reportSteps}</p>
       <button
         type="button"
         onClick={async () => {
           try {
-            await navigator.clipboard.writeText(text)
+            await navigator.clipboard.writeText(
+              `${location.origin}${location.pathname}\nLanguage: ${lang}\n\n${text}`,
+            )
             setStatus(tools.copied)
           } catch {
             setStatus(tools.copyFail)

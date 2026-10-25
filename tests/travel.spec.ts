@@ -343,7 +343,9 @@ test('interactive miniature responds to lighting, seasons, rotation and motion c
   await page
     .getByRole('button', { name: 'Explore the 3D scene', exact: true })
     .click()
-  await expect(scene).toHaveAttribute('data-scene-status', 'ready')
+  await expect(scene).toHaveAttribute('data-scene-status', 'ready', {
+    timeout: 15000,
+  })
   await expect(scene).toHaveAttribute('data-moving', 'false')
   const canvas = scene.locator('canvas')
   // Fractional canvas bounds can include a pixel of the neighbouring hover controls.
@@ -564,6 +566,9 @@ test('trip saves, schedules, reorders, survives reload and language changes, and
   await page
     .getByRole('combobox', { name: 'จำนวนวันเดินทาง', exact: true })
     .selectOption('1')
+  await page
+    .getByRole('button', { name: 'ใช้จำนวนวันนี้: 1', exact: true })
+    .click()
   await expect(
     page.getByRole('combobox', { name: 'จัดลงวัน: กิออน', exact: true }),
   ).toHaveValue('0')

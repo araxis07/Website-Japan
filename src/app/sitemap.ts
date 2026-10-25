@@ -17,9 +17,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       ...prefectures.map(({ slug }) => `/prefectures/${slug}`),
     ].map((path) => ({
       url: `${siteUrl}/${lang}${path}`,
-      lastModified: '2026-10-25',
-      changeFrequency: 'monthly' as const,
-      priority: path === '' ? 1 : 0.7,
       alternates: {
         languages: {
           ja: `${siteUrl}/ja${path}`,

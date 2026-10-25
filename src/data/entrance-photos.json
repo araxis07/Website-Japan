@@ -34,5 +34,17 @@
       "ja": "前庭から見た伏見稲荷大社の楼門。",
       "th": "ประตู Romon ศาลเจ้าฟุชิมิอินาริ มองจากลานด้านหน้า"
     }
+  },
+  "pref:gifu:takayama-jinya": {
+    "source": "https://commons.wikimedia.org/wiki/File:Entrance_of_Takayama_Jinya_House_in_a_snowy_day_2.JPG",
+    "artist": "そらみみ",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "src": "/images/entrances/takayama-jinya.jpg",
+    "alt": {
+      "en": "Takayama Jinya entrance and cleared stone approach in snow, photographed January 2015. Historical view; check current winter conditions.",
+      "ja": "2015年1月撮影、高山陣屋の玄関と除雪された石畳。過去の景観であり、現在の積雪状況は要確認。",
+      "th": "ทางเข้า Takayama Jinya และทางหินที่กวาดหิมะ ถ่าย ม.ค. 2015 เป็นภาพในอดีต ต้องตรวจสภาพหิมะปัจจุบัน"
+    }
   }
 }

@@ -232,24 +232,29 @@ export function tripDays(trip: Trip) {
     ]),
   ].sort((a, b) => a - b)
 }
-export function overlaps(entries: TripEntry[]) {
-  return entries.some((entry, i) => {
-    if (!entry.time) return false
-    const minutes = (time: string) =>
-      Number(time.slice(0, 2)) * 60 + Number(time.slice(3))
-    const start = minutes(entry.time)
-    return entries.slice(i + 1).some((other) => {
-      if (!other.time) return false
-      const next = minutes(other.time)
-      return (
-        start === next ||
-        (start < next
-          ? start + (entry.duration || 0) + (entry.buffer || 0) > next
-          : next + (other.duration || 0) + (other.buffer || 0) > start)
-      )
-    })
+export const timeMinutes = (time: string) =>
+  Number(time.slice(0, 2)) * 60 + Number(time.slice(3))
+export function conflictPairs(entries: TripEntry[]) {
+  return entries.flatMap((entry, index) => {
+    if (!entry.time) return []
+    const start = timeMinutes(entry.time)
+    return entries
+      .slice(index + 1)
+      .filter((other) => {
+        if (!other.time) return false
+        const next = timeMinutes(other.time)
+        return (
+          start === next ||
+          (start < next
+            ? start + (entry.duration || 0) + (entry.buffer || 0) > next
+            : next + (other.duration || 0) + (other.buffer || 0) > start)
+        )
+      })
+      .map((other) => [entry, other] as const)
   })
 }
+export const overlaps = (entries: TripEntry[]) =>
+  conflictPairs(entries).length > 0
 export function publicTrip(trip: Trip): Trip {
   return {
     version: 1,
@@ -261,6 +266,6 @@ export function publicTrip(trip: Trip): Trip {
     })),
   }
 }
-export function tripFilename(extension: 'json' | 'html') {
+export function tripFilename(extension: 'json' | 'html' | 'ics') {
   return `japan-trip-${new Date().toISOString().replace(/[:.]/g, '-')}.${extension}`
 }

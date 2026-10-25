@@ -8,11 +8,21 @@ import type { Locale } from '@/i18n/config'
 import type { Dictionary } from '@/i18n/dictionaries'
 import Icon from './Icon'
 
-export default function SeasonalHighlights({ dict, lang }: { dict: Dictionary; lang: Locale }) {
+export default function SeasonalHighlights({
+  dict,
+  lang,
+}: {
+  dict: Dictionary
+  lang: Locale
+}) {
   const [selected, setSelected] = useState(2)
   const tabs = useRef<(HTMLButtonElement | null)[]>([])
   return (
-    <section id="seasons" className="section container" aria-labelledby="seasons-title">
+    <section
+      id="seasons"
+      className="section container"
+      aria-labelledby="seasons-title"
+    >
       <div className="section-heading">
         <div>
           <p className="section-japanese" lang="ja" aria-hidden="true">
@@ -22,7 +32,11 @@ export default function SeasonalHighlights({ dict, lang }: { dict: Dictionary; l
           <p>{dict.seasons.subtitle}</p>
         </div>
       </div>
-      <div className="season-tabs" role="tablist" aria-label={dict.seasons.label}>
+      <div
+        className="season-tabs"
+        role="tablist"
+        aria-label={dict.seasons.label}
+      >
         {seasons.map((season, index) => (
           <button
             key={season.id}
@@ -38,7 +52,8 @@ export default function SeasonalHighlights({ dict, lang }: { dict: Dictionary; l
             onClick={() => setSelected(index)}
             onKeyDown={(event) => {
               let next = index
-              if (event.key === 'ArrowRight') next = (index + 1) % seasons.length
+              if (event.key === 'ArrowRight')
+                next = (index + 1) % seasons.length
               else if (event.key === 'ArrowLeft')
                 next = (index + seasons.length - 1) % seasons.length
               else if (event.key === 'Home') next = 0
@@ -85,7 +100,10 @@ export default function SeasonalHighlights({ dict, lang }: { dict: Dictionary; l
               <Icon name="leaf" />
               {season[lang].note}
             </p>
-            <Link className="text-link" href={`/${lang}/destinations/${season.slug}`}>
+            <Link
+              className="text-link"
+              href={`/${lang}/destinations/${season.slug}`}
+            >
               {dict.seasons.explore} {season[lang].destination}
               <Icon name="arrow" />
             </Link>
@@ -93,7 +111,9 @@ export default function SeasonalHighlights({ dict, lang }: { dict: Dictionary; l
         </div>
       ))}
       <div className="season-footnote">
-        <p>{dict.seasons.note}</p>
+        <p>
+          {dict.seasons.note} {dict.tools.typicalSeason}
+        </p>
         <a href="https://www.japan.travel/en/plan/weather/">
           {dict.seasons.source}
           <Icon name="external" />

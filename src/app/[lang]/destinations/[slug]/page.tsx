@@ -230,6 +230,7 @@ export default async function DestinationPage({ params }: Props) {
       >
         <h2 id="gallery-title">{dict.guide.gallery}</h2>
         <PhotoGallery
+          cover={place.image}
           copy={dict.guide}
           photos={[
             {

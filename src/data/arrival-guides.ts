@@ -124,3 +124,76 @@ export const trainExample: Record<Locale, string[]> = {
     'เมื่อต่อจาก JR ไปบริษัทรถไฟอื่นหรือรถใต้ดิน ให้ดูผู้ให้บริการและประตูเปลี่ยนสาย พาสหรือตั๋วเดิมอาจไม่ครอบคลุมช่วงต่อไป',
   ],
 }
+
+export const arrivalChecks = [
+  {
+    source: 'https://tokyo-haneda.com/en/access/bus/index.html',
+    en: {
+      title: 'Arriving late',
+      text: 'Plan from the time you leave arrivals, including immigration and baggage. Check the last connection all the way to your hotel, not only the first train. Haneda lists late-night bus options, but their routes and operating days vary. If no connection works, arrange an airport-area night or a taxi quote and notify your hotel of late check-in.',
+    },
+    ja: {
+      title: '夜遅い到着',
+      text: '入国審査と荷物受取を含め、到着ロビーを出る時刻から計画。最初の列車だけでなく宿までの最終接続を確認。羽田の深夜バスは路線・運行日が異なります。接続できない場合は空港周辺の宿泊やタクシー料金を確認し、宿へ到着の遅れを連絡しましょう。',
+    },
+    th: {
+      title: 'เมื่อมาถึงดึก',
+      text: 'วางแผนจากเวลาที่ออกจากโถงขาเข้า โดยเผื่อตรวจคนเข้าเมืองและรับกระเป๋า ตรวจรถต่อจนถึงโรงแรม ไม่ใช่เฉพาะรถเที่ยวแรก ฮาเนดะมีข้อมูลรถบัสดึก แต่เส้นทางและวันให้บริการต่างกัน หากต่อรถไม่ได้ ให้เตรียมที่พักใกล้สนามบินหรือสอบถามราคาแท็กซี่ และแจ้งโรงแรมเรื่องเช็กอินช้า',
+    },
+  },
+  {
+    source: 'https://www.narita-airport.jp/en/service/delivery/',
+    en: {
+      title: 'Large bags and forwarding',
+      text: 'Narita lists baggage delivery, storage and lockers by terminal. Before forwarding, confirm counter hours, delivery date, size limits and whether your accommodation accepts bags. Keep first-night essentials with you; do not assume same-day delivery. For trains, check the chosen service’s luggage rules and lift exits.',
+    },
+    ja: {
+      title: '大きな荷物と配送',
+      text: '成田の公式案内はターミナル別に宅配・一時預かり・ロッカーを掲載。配送前に受付時間、到着日、サイズ制限、宿の受取可否を確認。当日配送を前提にせず、初日の必需品は手元に。列車の荷物規則と駅のエレベーター出口も確認。',
+    },
+    th: {
+      title: 'กระเป๋าใหญ่และการส่งสัมภาระ',
+      text: 'นาริตะแสดงจุดส่ง ฝาก และล็อกเกอร์แยกตามอาคาร ก่อนส่งต้องตรวจเวลาเคาน์เตอร์ วันที่ถึง ขนาดที่รับ และโรงแรมรับฝากได้หรือไม่ เก็บของจำเป็นคืนแรกติดตัว อย่าคิดว่าจะส่งถึงวันเดียวกันเสมอ หากขึ้นรถไฟให้ตรวจข้อกำหนดกระเป๋าของขบวนและทางออกที่มีลิฟต์',
+    },
+  },
+  {
+    source:
+      'https://tokyo-haneda.com/en/service/facilities/baby_nurseries.html',
+    en: {
+      title: 'Children and step-free transfers',
+      text: 'Haneda’s nursery map distinguishes public areas from areas after security, and lists feeding and changing facilities. Locate a room in your arrival area before leaving. Allow an extra break before the train, find lift routes, and confirm child tickets, stroller space and any assistance directly with your chosen operator.',
+    },
+    ja: {
+      title: '子ども連れ・段差を避ける乗り換え',
+      text: '羽田のベビールーム案内は一般エリアと保安検査後を区別し、授乳・おむつ替え設備を掲載。到着側で使える部屋を確認してから移動。乗車前の休憩とエレベーター経路を確保し、子ども用切符・ベビーカーの扱い・介助は利用する会社に確認。',
+    },
+    th: {
+      title: 'เด็กเล็กและการต่อรถที่ไม่ต้องขึ้นบันได',
+      text: 'แผนผังห้องเด็กของฮาเนดะแยกพื้นที่สาธารณะกับหลังตรวจความปลอดภัย และระบุจุดให้นมกับเปลี่ยนผ้าอ้อม เลือกห้องที่เข้าใช้ได้จากฝั่งขาเข้าก่อนออกไปต่อรถ เผื่อพัก หาทางใช้ลิฟต์ และตรวจตั๋วเด็ก พื้นที่รถเข็นเด็ก และความช่วยเหลือกับบริษัทที่ใช้จริง',
+    },
+  },
+] satisfies ({ source: string } & Record<
+  Locale,
+  { title: string; text: string }
+>)[]
+
+export const workedTrainRoute: Record<Locale, string[]> = {
+  en: [
+    'Worked route: Narita Airport → Tokyo Station on JR Narita Express. At Terminal 1 use Narita Airport Station; at Terminals 2/3 follow the connection to Airport Terminal 2 Station.',
+    'Select your travel date, departure and Tokyo as the destination. Confirm the base fare plus limited-express charge and your reserved train/car/seat; do not substitute an IC tap for the express ticket. Passes and bundles have their own eligibility and collection rules.',
+    'Board the named train and get off at Tokyo. For an onward subway journey, follow that operator’s transfer signs and confirm the separate fare. Match the final station exit to your hotel; this example ends at Tokyo Station.',
+    'Check service notices before buying: JR East has announced changes to some Narita Express services on November 6–8, 2026. No live fare or departure is guaranteed here.',
+  ],
+  ja: [
+    '具体例：成田空港→東京駅をJR成田エクスプレスで移動。第1ターミナルは成田空港駅、第2・3ターミナルは空港第2ビル駅への案内を確認。',
+    '乗車日・発車時刻・目的地「東京」を選択。運賃と特急料金、指定列車・号車・席番を確認。ICのタッチだけで特急券の代わりにはなりません。パス・セット券は利用条件と受取方法を別途確認。',
+    '指定の列車に乗り東京駅で下車。地下鉄へ乗り継ぐ場合は運行会社の案内と別途運賃を確認。宿に近い出口まで調べましょう。この例の終点は東京駅です。',
+    '購入前に運行情報を確認。JR東日本は2026年11月6〜8日の一部列車の変更を案内しています。ここにリアルタイムの運賃・時刻の保証はありません。',
+  ],
+  th: [
+    'ตัวอย่างเส้นทาง: สนามบินนาริตะ → สถานี Tokyo ด้วย JR Narita Express อาคาร 1 ใช้ Narita Airport Station ส่วนอาคาร 2/3 ตามป้ายเชื่อมไป Airport Terminal 2 Station',
+    'เลือกวัน เวลาออก และปลายทาง Tokyo ตรวจค่าโดยสารพื้นฐานรวมค่าด่วนพิเศษ พร้อมขบวน ตู้ และที่นั่งที่จอง การแตะบัตร IC ไม่ใช้แทนตั๋วด่วน พาสหรือตั๋วชุดมีเงื่อนไขผู้ใช้และวิธีรับตั๋วแยกต่างหาก',
+    'ขึ้นขบวนที่ระบุแล้วลง Tokyo หากต่อรถใต้ดิน ให้ตามป้ายของบริษัทนั้นและตรวจค่าโดยสารช่วงต่อ หาเส้นทางไปทางออกใกล้โรงแรม ตัวอย่างนี้สิ้นสุดที่สถานี Tokyo',
+    'ตรวจประกาศก่อนซื้อ: JR East แจ้งเปลี่ยนแปลงบริการ Narita Express บางขบวนวันที่ 6–8 พ.ย. 2026 หน้านี้ไม่ได้รับรองราคาหรือเวลาออกแบบเรียลไทม์',
+  ],
+}

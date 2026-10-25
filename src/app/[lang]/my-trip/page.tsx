@@ -28,7 +28,7 @@ export default async function MyTrip({ params }: Props) {
       <noscript>
         <p>{dict.trip.nojs}</p>
       </noscript>
-      <TripPlanner />
+      <TripPlanner mapCopy={dict.streetMap} />
     </main>
   )
 }

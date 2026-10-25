@@ -561,3 +561,134 @@ html[data-motion='still'] *::after {
     flex-shrink: 0;
   }
 }
+
+/* Inputs retain one stable label even while validation messages appear. */
+.trip-field {
+  display: grid;
+  align-content: start;
+  gap: 0.45rem;
+  min-width: 0;
+}
+.trip-field label {
+  font-weight: 600;
+}
+.trip-field input,
+.trip-field textarea {
+  width: 100%;
+  min-width: 0;
+}
+.trip-field [role='alert'] {
+  color: var(--red);
+  font-size: 0.9rem;
+}
+.trip-field [role='alert'] button {
+  display: block;
+  margin-top: 0.5rem;
+}
+.trip-drafts {
+  max-width: 70rem;
+  margin: 1rem auto;
+  padding: 1rem;
+  border: 1px solid var(--red);
+}
+
+.explorer-filters {
+  flex-wrap: wrap;
+}
+.explorer-filters > label {
+  min-width: min(100%, 12rem);
+}
+.explorer-filters > label:first-child {
+  flex-basis: 16rem;
+}
+.explorer-filters > p {
+  white-space: normal;
+  flex-basis: 100%;
+}
+.trip-starter,
+.day-map {
+  margin-block: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  background: var(--white);
+}
+.trip-starter summary,
+.day-map summary,
+.trip-drafts summary {
+  min-height: 44px;
+  cursor: pointer;
+}
+.trip-field label {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+.trip-library ul {
+  padding-left: 1.25rem;
+}
+.trip-library li {
+  padding-block: 0.75rem;
+  overflow-wrap: anywhere;
+}
+.trip-library button,
+.trip-drafts button,
+.trip-field button {
+  margin: 0.25rem;
+  padding: 0.5rem 0.75rem;
+  min-height: 44px;
+}
+.trip-timeline {
+  padding-left: 1.5rem;
+}
+.trip-timeline > li {
+  margin-block: 0.75rem;
+  border-left: 2px solid var(--line);
+  padding-left: 1rem;
+}
+@media (max-width: 700px) {
+  .explorer-filters > label:first-child {
+    flex-basis: auto;
+  }
+  .trip-drafts {
+    margin-inline: 1rem;
+  }
+}
+
+/* Native iOS select sizing ignores min-height unless appearance is removed. */
+.explorer-filters select:not([multiple]),
+.scene-region select:not([multiple]),
+.trip-meta select:not([multiple]),
+.planner-view select:not([multiple]),
+select:not([multiple]) {
+  appearance: none;
+  min-height: 44px;
+  font: inherit;
+  font-size: 16px;
+  color: var(--ink);
+  background-color: var(--white);
+  padding: 0.6rem 2rem 0.6rem 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--ink) 50%),
+    linear-gradient(135deg, var(--ink) 50%, transparent 50%);
+  background-position:
+    calc(100% - 17px) 50%,
+    calc(100% - 12px) 50%;
+  background-size: 5px 5px;
+  background-repeat: no-repeat;
+}
+.budget-panel > summary::after,
+.visit-details > summary::after {
+  content: '+';
+  margin-left: auto;
+  padding-left: 0.75rem;
+}
+.budget-panel[open] > summary::after,
+.visit-details[open] > summary::after {
+  content: '−';
+}
+
+select:focus-visible {
+  outline: 3px solid #bd732f;
+  outline-offset: 5px;
+}

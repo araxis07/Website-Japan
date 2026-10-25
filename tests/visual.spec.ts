@@ -127,3 +127,41 @@ test('navigation and prefecture covers reflow at 320px in every language', async
     }
   }
 })
+
+for (const sample of [
+  { name: 'thai-home-light', path: '/th', selector: '.hero', theme: 'light' },
+  {
+    name: 'japanese-search-dark',
+    path: '/ja/explore?view=list&info=accessibility&scope=places',
+    selector: '.explorer-filters',
+    theme: 'dark',
+  },
+  {
+    name: 'english-arrival-light',
+    path: '/en/first-visit',
+    selector: '.arrival-guides',
+    theme: 'light',
+  },
+] as const)
+  test(`${sample.name} visual regression`, async ({ page }) => {
+    await page.emulateMedia({
+      reducedMotion: 'reduce',
+      colorScheme: sample.theme,
+    })
+    await page.addInitScript(
+      (theme) => localStorage.setItem('japan-travel-appearance', theme),
+      sample.theme,
+    )
+    if (sample.path === '/en/first-visit')
+      await page.setViewportSize({ ...page.viewportSize()!, height: 1600 })
+    await page.goto(sample.path)
+    if (sample.path.includes('explore'))
+      await expect(page.locator('select').last()).toHaveValue('places')
+    await page.addStyleTag({
+      content: '.site-header, .skip-link { visibility: hidden !important; }',
+    })
+    await expect(page.locator(sample.selector)).toHaveScreenshot(
+      `${sample.name}.png`,
+      { animations: 'disabled', maxDiffPixelRatio: 0.005 },
+    )
+  })

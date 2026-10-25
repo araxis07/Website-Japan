@@ -3,9 +3,12 @@ import Link from 'next/link'
 import { useState } from 'react'
 import TripTools from './TripTools'
 import TripField from './TripField'
+import TripDayOverview from './TripDayOverview'
+import TripStarter from './TripStarter'
+import type { Dictionary } from '@/i18n/dictionaries'
 import {
   entryKey,
-  overlaps,
+  conflictPairs,
   tripDate,
   tripDays,
   type TripEntry,
@@ -13,20 +16,40 @@ import {
 import { places, mapUrl, placePath, distanceKm } from '@/data/places'
 import { useTrip } from './TripProvider'
 
-export default function TripPlanner() {
-  const { trip, ready, error, copy, lang, change, reset, canReset, tools } =
-    useTrip()
+export default function TripPlanner({
+  mapCopy,
+}: {
+  mapCopy: Dictionary['streetMap']
+}) {
+  const {
+    trip,
+    ready,
+    error,
+    copy,
+    lang,
+    change,
+    reset,
+    canReset,
+    tools,
+    downloadRaw,
+  } = useTrip()
   const [viewDay, setViewDay] = useState('all')
   const [showEmpty, setShowEmpty] = useState(false)
+  const [pendingDays, setPendingDays] = useState<number | null>(null)
   if (!ready) return <p className="trip-loading">{copy.loading}</p>
   if (!trip)
     return (
       <div role="alert" className="trip-storage-error">
         <p>{error}</p>
         {canReset && (
-          <button className="button" type="button" onClick={reset}>
-            {copy.reset}
-          </button>
+          <>
+            <button className="button" type="button" onClick={downloadRaw}>
+              {tools.rawBackup}
+            </button>
+            <button className="button" type="button" onClick={reset}>
+              {copy.reset}
+            </button>
+          </>
         )}
       </div>
     )
@@ -44,6 +67,25 @@ export default function TripPlanner() {
       '',
       JSON.stringify(trip),
     )
+  const applyDays = (days: number) => {
+    if (
+      change(
+        (current) => ({
+          ...current,
+          days,
+          items: current.items.map((item) => ({
+            ...item,
+            day: item.day > days ? 0 : item.day,
+          })),
+        }),
+        copy.updated,
+        JSON.stringify(trip),
+      )
+    ) {
+      setPendingDays(null)
+      setViewDay('all')
+    }
+  }
   return (
     <>
       <div className="trip-print-summary">
@@ -74,6 +116,7 @@ export default function TripPlanner() {
           </p>
         )}
       </div>
+      {!trip.items.length && <TripStarter />}
       <TripTools />
       <div className="planner-toolbar">
         <label>
@@ -82,18 +125,18 @@ export default function TripPlanner() {
             value={trip.days}
             onChange={(event) => {
               const days = Number(event.target.value)
-              change(
-                (current) => ({
-                  ...current,
-                  days,
-                  items: current.items.map((item) => ({
-                    ...item,
-                    day: item.day > days ? 0 : item.day,
-                  })),
-                }),
-                copy.updated,
-              )
-              setViewDay('all')
+              if (
+                days < trip.days &&
+                (trip.items.some((item) => item.day > days) ||
+                  Object.keys(trip.notes || {}).some(
+                    (day) => Number(day) > days,
+                  ) ||
+                  trip.stays?.some((stay) => stay.to > days + 1))
+              ) {
+                setPendingDays(days)
+                return
+              }
+              applyDays(days)
             }}
           >
             {Array.from({ length: 30 }, (_, i) => (
@@ -110,6 +153,41 @@ export default function TripPlanner() {
           {copy.print}
         </button>
       </div>
+      {pendingDays !== null && (
+        <section className="import-preview" aria-label={tools.preview}>
+          <p>{tools.shrinkWarning}</p>
+          <ul>
+            {trip.items
+              .filter((item) => item.day > pendingDays)
+              .map((item) => (
+                <li key={entryKey(item)}>
+                  {places.find((p) => p.id === item.id)!.names[lang]} ·{' '}
+                  {dayLabel(item.day)}
+                </li>
+              ))}
+            {Object.keys(trip.notes || {})
+              .filter((day) => Number(day) > pendingDays)
+              .map((day) => (
+                <li key={day}>
+                  {tools.notes}: {dayLabel(Number(day))}
+                </li>
+              ))}
+            {trip.stays
+              ?.filter((stay) => stay.to > pendingDays + 1)
+              .map((stay) => (
+                <li key={stay.id}>
+                  {stay.name} · {stay.from} → {stay.to}
+                </li>
+              ))}
+          </ul>
+          <button type="button" onClick={() => applyDays(pendingDays)}>
+            {tools.applyDays}: {pendingDays}
+          </button>
+          <button type="button" onClick={() => setPendingDays(null)}>
+            {tools.cancel}
+          </button>
+        </section>
+      )}
       <p className="source-note print-help">{copy.printNote}</p>
       <div className="planner-view">
         <label>
@@ -167,6 +245,7 @@ export default function TripPlanner() {
               )}
               <div className="day-notes">
                 <TripField
+                  fieldKey={`day:${day}:notes`}
                   label={tools.notes}
                   multiline
                   maxLength={1000}
@@ -195,8 +274,20 @@ export default function TripPlanner() {
                         ) > 30,
                     ),
                 ) && <p className="trip-travel-note">{tools.distance}</p>}
-              {day > 0 && overlaps(entries) && (
-                <p className="trip-travel-note">{tools.timeConflict}</p>
+              {day > 0 &&
+                conflictPairs(entries).map(([a, b]) => (
+                  <p
+                    className="trip-travel-note"
+                    key={`${entryKey(a)}:${entryKey(b)}`}
+                  >
+                    {tools.timeConflict}:{' '}
+                    {places.find((p) => p.id === a.id)!.names[lang]} ({a.time})
+                    ↔ {places.find((p) => p.id === b.id)!.names[lang]} (
+                    {b.time})
+                  </p>
+                ))}
+              {day > 0 && entries.length > 0 && (
+                <TripDayOverview entries={entries} mapCopy={mapCopy} />
               )}
               {day > 0 &&
                 new Set(
@@ -263,12 +354,14 @@ export default function TripPlanner() {
                       </p>
                       <div className="trip-reservation">
                         <TripField
+                          fieldKey={`visit:${entryKey(entry)}:time`}
                           label={`${tools.time}: ${place.names[lang]}`}
                           type="time"
                           value={entry.time || ''}
                           save={(time) => updateEntry(entry, { time })}
                         />
                         <TripField
+                          fieldKey={`visit:${entryKey(entry)}:note`}
                           label={`${tools.notes}: ${place.names[lang]}`}
                           maxLength={500}
                           value={entry.note || ''}
@@ -277,6 +370,7 @@ export default function TripPlanner() {
                         {(['duration', 'buffer'] as const).map((key) => (
                           <TripField
                             key={key}
+                            fieldKey={`visit:${entryKey(entry)}:${key}`}
                             label={`${tools[key]}: ${place.names[lang]}`}
                             type="number"
                             min={0}

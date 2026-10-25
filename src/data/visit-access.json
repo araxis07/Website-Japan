@@ -1,0 +1,850 @@
+{
+  "pref:hokkaido:otaru-canal": {
+    "source": "https://otaru.cc/access/",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "Walk about 10 minutes from JR Otaru toward the port to Chuo Bridge; the cruise ticket office is here.",
+      "ja": "JR小樽駅から港方面へ徒歩約10分で中央橋。クルーズの発券所があります。",
+      "th": "จาก JR Otaru เดินไปทางท่าเรือประมาณ 10 นาทีถึงสะพาน Chuo จุดขายตั๋วเรืออยู่ที่นี่"
+    }
+  },
+  "pref:aomori:hirosaki-castle": {
+    "source": "https://www.japan.travel/en/spot/1836/",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "From Hirosaki Station, walk about 30 minutes or take a bus to Shiyakusho-mae (about 15 minutes).",
+      "ja": "弘前駅から徒歩約30分、または市役所前までバス約15分。",
+      "th": "จากสถานี Hirosaki เดินประมาณ 30 นาที หรือนั่งบัสประมาณ 15 นาทีลง Shiyakusho-mae"
+    }
+  },
+  "pref:iwate:chusonji-temple": {
+    "source": "https://www.japan.travel/en/spot/1803/",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "From JR Hiraizumi on the Tohoku Line, take a bus (about 10 minutes) or walk about 30 minutes.",
+      "ja": "JR東北本線平泉駅からバス約10分、または徒歩約30分。",
+      "th": "จาก JR Hiraizumi สาย Tohoku นั่งบัสประมาณ 10 นาที หรือเดินประมาณ 30 นาที"
+    }
+  },
+  "pref:iwate:morioka-castle-site-park": {
+    "source": "https://faq.japan-travel.jnto.go.jp/en/spot/657/",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "From JR Morioka, the city loop bus reaches Morioka Joato Koen in about 10 minutes.",
+      "ja": "JR盛岡駅から循環バスで盛岡城跡公園へ約10分。",
+      "th": "จาก JR Morioka นั่งรถบัสวนเมืองประมาณ 10 นาทีลง Morioka Joato Koen"
+    }
+  },
+  "pref:miyagi:zuihoden": {
+    "source": "https://www.zuihoden.com/en/info/",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "Use Loople Sendai to Zuihoden-mae, or walk 15–20 minutes from Omachi Nishi-koen on the Tozai subway. The return bus route differs.",
+      "ja": "るーぷる仙台の瑞鳳殿前下車、または地下鉄東西線大町西公園駅から徒歩15〜20分。帰りのバス経路は異なります。",
+      "th": "ใช้ Loople Sendai ลง Zuihoden-mae หรือเดิน 15–20 นาทีจากสถานี Omachi Nishi-koen สาย Tozai เส้นทางรถบัสขากลับต่างจากขาไป"
+    },
+    "accessibility": {
+      "en": "The approach has roughly 80 steep steps, with about 30 more within the precinct. The operator warns that wheelchair visits are very difficult.",
+      "ja": "受付まで急な坂と約80段、境内にも約30段。運営者は車いすでの拝観が非常に困難と案内しています。",
+      "th": "ทางเข้ามีทางชันและบันไดราว 80 ขั้น ภายในมีอีกราว 30 ขั้น ผู้ดูแลระบุว่าการเข้าชมด้วยรถเข็นทำได้ยากมาก"
+    },
+    "hours": {
+      "en": "February–November: 09:00–16:50 (entry to 16:30). December–January: 09:00–16:20 (entry to 16:00). Closed December 31; museum also January 1.",
+      "ja": "2〜11月9:00〜16:50（受付16:30まで）、12〜1月9:00〜16:20（受付16:00まで）。12月31日休館、資料館は1月1日も休館。",
+      "th": "ก.พ.–พ.ย. 09:00–16:50 น. รับเข้าถึง 16:30 น. ธ.ค.–ม.ค. 09:00–16:20 น. รับเข้าถึง 16:00 น. ปิด 31 ธ.ค. พิพิธภัณฑ์ปิด 1 ม.ค. ด้วย"
+    }
+  },
+  "pref:miyagi:zuiganji-temple": {
+    "source": "https://www.zuiganji.or.jp/english/",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "Walk about 10 minutes from Matsushima-Kaigan on the JR Senseki Line, or 25 minutes from JR Matsushima.",
+      "ja": "JR仙石線松島海岸駅から徒歩約10分、JR松島駅から約25分。",
+      "th": "เดินประมาณ 10 นาทีจาก Matsushima-Kaigan สาย JR Senseki หรือ 25 นาทีจาก JR Matsushima"
+    },
+    "admission": {
+      "en": "Adult admission ¥1,000; elementary and junior-high students ¥500.",
+      "ja": "大人1,000円、小中学生500円。",
+      "th": "ผู้ใหญ่ 1,000 เยน นักเรียนประถมและมัธยมต้น 500 เยน"
+    },
+    "hours": {
+      "en": "Opens 08:30. Closing varies from 15:30 in midwinter to 17:00 April–September; last entry is 30 minutes earlier.",
+      "ja": "8:30開門。閉門は冬の15:30から4〜9月の17:00まで月により変動。最終受付は30分前。",
+      "th": "เปิด 08:30 น. ปิดระหว่าง 15:30 น. ช่วงกลางฤดูหนาว ถึง 17:00 น. เม.ย.–ก.ย. รับเข้าสุดท้ายก่อนปิด 30 นาที"
+    }
+  },
+  "pref:akita:senshu-park": {
+    "source": "https://www.akita-tourism.com/member/index/fall05/en",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "Walk about 15 minutes from JR Akita Station.",
+      "ja": "JR秋田駅から徒歩約15分。",
+      "th": "เดินประมาณ 15 นาทีจากสถานี JR Akita"
+    }
+  },
+  "pref:yamagata:yamadera-risshakuji": {
+    "source": "https://www.japan.travel/en/spot/1796/",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "The lower temples are about seven minutes on foot from JR Yamadera. The upper complex requires a long stair climb.",
+      "ja": "下部のお堂へはJR山寺駅から徒歩約7分。上部の境内へは長い石段を上ります。",
+      "th": "จาก JR Yamadera เดินประมาณ 7 นาทีถึงวัดส่วนล่าง ส่วนบนต้องขึ้นบันไดจำนวนมาก"
+    },
+    "accessibility": {
+      "en": "The ascent to the upper temple is around 1,000 steps; it is not a step-free route.",
+      "ja": "上部へは約1,000段の石段があり、段差のない経路ではありません。",
+      "th": "ทางขึ้นวัดส่วนบนมีบันไดประมาณ 1,000 ขั้น ไม่ใช่เส้นทางไร้ขั้นบันได"
+    }
+  },
+  "pref:yamagata:kajo-park": {
+    "source": "https://www.japan.travel/es/spot/1793/",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "Walk about 15 minutes from Yamagata Station to Kajo Park.",
+      "ja": "山形駅から霞城公園まで徒歩約15分。",
+      "th": "เดินประมาณ 15 นาทีจากสถานี Yamagata ถึงสวน Kajo"
+    }
+  },
+  "pref:fukushima:tsurugajo-castle": {
+    "source": "https://www.japan.travel/en/itineraries/exploring-aizus-samurai-spirit/",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "Use the Tsurugajo Godo-chosha-mae bus stop for the castle area.",
+      "ja": "鶴ヶ城・合同庁舎前バス停を利用して城周辺へ。",
+      "th": "ใช้ป้ายรถบัส Tsurugajo Godo-chosha-mae สำหรับบริเวณปราสาท"
+    }
+  },
+  "pref:ibaraki:kairakuen": {
+    "source": "https://www.japan.travel/en/spot/1469/",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "From JR Mito Station, allow about 20 minutes by bus to Kairakuen.",
+      "ja": "JR水戸駅から偕楽園までバス約20分。",
+      "th": "จากสถานี JR Mito นั่งรถบัสประมาณ 20 นาทีถึง Kairakuen"
+    }
+  },
+  "pref:ibaraki:hitachi-seaside-park": {
+    "source": "https://www.hitachikaihin.jp/access/train-bus.html",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "From Katsuta east exit, bus stand 2: about 15 minutes to the west gate or 30 minutes to the south gate. Choose the gate for your planned area.",
+      "ja": "勝田駅東口2番乗り場から西口まで約15分、南口まで約30分。目的のエリアに合う入口を選びます。",
+      "th": "จากทางออกตะวันออกสถานี Katsuta ป้ายหมายเลข 2 บัสถึงประตูตะวันตกราว 15 นาที หรือประตูใต้ราว 30 นาที เลือกประตูให้ตรงกับพื้นที่ที่จะเที่ยว"
+    }
+  },
+  "pref:tochigi:nikko-toshogu": {
+    "source": "https://www.japan.travel/en/spot/1482/",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "From JR or Tobu Nikko, take the World Heritage sightseeing bus (about 15 minutes). Walking from the station takes about 45 minutes.",
+      "ja": "JR・東武日光駅から世界遺産めぐりバス約15分。駅から徒歩では約45分。",
+      "th": "จาก JR หรือ Tobu Nikko ใช้บัสชมมรดกโลกประมาณ 15 นาที หากเดินจากสถานีใช้ประมาณ 45 นาที"
+    }
+  },
+  "pref:tochigi:oya-history-museum": {
+    "source": "https://www.japan.travel/en/spot/1476/",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "From JR Utsunomiya west exit, bus stand 6 toward Oya/Tateiwa: get off at Shiryokan-iriguchi after about 30 minutes, then walk three minutes.",
+      "ja": "JR宇都宮駅西口6番から大谷・立岩方面へ約30分、資料館入口下車徒歩約3分。",
+      "th": "JR Utsunomiya ทางออกตะวันตก ป้าย 6 ไป Oya/Tateiwa ราว 30 นาที ลง Shiryokan-iriguchi แล้วเดิน 3 นาที"
+    }
+  },
+  "pref:gunma:kusatsu-yubatake": {
+    "source": "https://www.japan.travel/en/spot/1518/",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "There is no station in Kusatsu. Connect from Naganohara-Kusatsuguchi by bus (about 25 minutes); Yubatake is in the town center.",
+      "ja": "草津温泉に鉄道駅はありません。長野原草津口駅からバス約25分。湯畑は温泉街の中心にあります。",
+      "th": "เมือง Kusatsu ไม่มีสถานีรถไฟ ต่อบัสจาก Naganohara-Kusatsuguchi ประมาณ 25 นาที Yubatake อยู่กลางเมืองออนเซ็น"
+    }
+  },
+  "pref:gunma:tomioka-silk-mill": {
+    "source": "https://www.japan.travel/en/experiences-in-japan/2114/",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "From Takasaki take Joshin Dentetsu to Joshu-Tomioka (about 40 minutes), then walk about 10 minutes.",
+      "ja": "高崎から上信電鉄で上州富岡へ約40分、駅から徒歩約10分。",
+      "th": "จาก Takasaki นั่ง Joshin Dentetsu ราว 40 นาทีถึง Joshu-Tomioka แล้วเดินประมาณ 10 นาที"
+    }
+  },
+  "pref:saitama:railway-museum": {
+    "source": "https://www.railway-museum.jp/pdf/flmap_eng.pdf",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "From JR Omiya take the New Shuttle to Tetsudo-Hakubutsukan Station.",
+      "ja": "JR大宮駅からニューシャトルに乗り鉄道博物館駅下車。",
+      "th": "จาก JR Omiya ใช้ New Shuttle ลงสถานี Tetsudo-Hakubutsukan"
+    }
+  },
+  "pref:saitama:kawagoe-toki-no-kane": {
+    "source": "https://www.japan.travel/en/destinations/kanto/saitama/kawagoe-area/",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "Use Hon-Kawagoe on the Seibu Shinjuku Line as one gateway to the warehouse district and bell tower; follow the local walking map from the station.",
+      "ja": "西武新宿線本川越駅が蔵造りの町並み・時の鐘への拠点の一つ。駅からは現地の散策地図を確認。",
+      "th": "Hon-Kawagoe สาย Seibu Shinjuku เป็นจุดเริ่มเดินเที่ยวย่านโกดังและหอระฆัง ดูแผนที่เดินจากสถานีเพิ่มเติม"
+    }
+  },
+  "pref:chiba:naritasan-shinshoji": {
+    "source": "https://www.naritasan.or.jp/access/",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "Walk about 10 minutes from JR Narita or Keisei Narita Station.",
+      "ja": "JR成田駅・京成成田駅から徒歩約10分。",
+      "th": "เดินประมาณ 10 นาทีจาก JR Narita หรือ Keisei Narita"
+    }
+  },
+  "pref:chiba:chiba-port-tower": {
+    "source": "https://chiba-porttower.com/?vm=r",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "Walk about 12 minutes from Chiba-Minato (JR Keiyo Line or Chiba Monorail). Check same-day elevator notices during strong wind.",
+      "ja": "JR京葉線・千葉モノレール千葉みなと駅から徒歩約12分。強風時は当日のエレベーター運行案内を確認。",
+      "th": "เดินประมาณ 12 นาทีจาก Chiba-Minato สาย JR Keiyo หรือ Chiba Monorail หากลมแรงให้ตรวจประกาศลิฟต์ในวันเดินทาง"
+    }
+  },
+  "pref:kanagawa:yokohama-red-brick-warehouse": {
+    "source": "https://www.japan.travel/en/spot/1598/",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "Use Bashamichi or Nihon-Odori on the Minatomirai Line; JR Sakuragicho and Kannai are about 15 minutes away on foot.",
+      "ja": "みなとみらい線馬車道・日本大通り駅を利用。JR桜木町・関内駅からは徒歩約15分。",
+      "th": "ใช้ Bashamichi หรือ Nihon-Odori สาย Minatomirai หากลง JR Sakuragicho หรือ Kannai เดินประมาณ 15 นาที"
+    }
+  },
+  "pref:toyama:toyama-castle": {
+    "source": "https://www.japan.travel/en/spot/1416/",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "Walk about 10 minutes from Toyama Station, or use city tram loop 3.",
+      "ja": "富山駅から徒歩約10分、または市内電車の環状線3系統を利用。",
+      "th": "เดินประมาณ 10 นาทีจากสถานี Toyama หรือใช้รถรางวนสาย 3"
+    }
+  },
+  "pref:toyama:fugan-canal-kansui-park": {
+    "source": "https://www.japan.travel/en/sg/flyandexplore/hokuriku/",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "The park is about an 11-minute walk from Toyama Station.",
+      "ja": "富山駅から徒歩約11分。",
+      "th": "จากสถานี Toyama เดินประมาณ 11 นาทีถึงสวน"
+    }
+  },
+  "pref:ishikawa:higashi-chaya-district": {
+    "source": "https://www.japan.travel/en/sg/guide/kanazawa-city-gold-leaf-amp-geisha-district/",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "Take a Kanazawa Loop Bus to Hashibacho, then walk about five minutes.",
+      "ja": "金沢周遊バスで橋場町下車、徒歩約5分。",
+      "th": "นั่ง Kanazawa Loop Bus ลง Hashibacho แล้วเดินประมาณ 5 นาที"
+    }
+  },
+  "pref:fukui:eiheiji-temple": {
+    "source": "https://www.japan.travel/en/gastronomy/article-zen-and-the-art-of-vegetarian-cuisine/",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "From Fukui Station take the Eiheiji Liner bus or a taxi; either takes about 30 minutes.",
+      "ja": "福井駅から永平寺ライナーバスまたはタクシーで約30分。",
+      "th": "จากสถานี Fukui ใช้บัส Eiheiji Liner หรือแท็กซี่ ใช้เวลาประมาณ 30 นาที"
+    }
+  },
+  "pref:nagano:zenkoji-temple": {
+    "source": "https://www.japan.travel/en/spot/1338/",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "From Nagano Station, walk about 30 minutes (1.8 km) or take a bus for about 15 minutes.",
+      "ja": "長野駅から徒歩約30分（1.8km）、またはバス約15分。",
+      "th": "จากสถานี Nagano เดินราว 30 นาที (1.8 กม.) หรือใช้บัสประมาณ 15 นาที"
+    }
+  },
+  "pref:gifu:gifu-castle": {
+    "source": "https://www.japan.travel/en/spot/1270/",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "From Gifu Station, take a bus about 15 minutes to Gifukoen-mae at the foot of Mt Kinka. The castle is on the mountain, not at the bus stop.",
+      "ja": "岐阜駅から岐阜公園前までバス約15分。バス停は金華山の麓で、城は山上にあります。",
+      "th": "จากสถานี Gifu นั่งบัสประมาณ 15 นาทีลง Gifukoen-mae ที่เชิงเขา Kinka ตัวปราสาทอยู่บนเขา ไม่ได้อยู่ที่ป้ายบัส"
+    }
+  },
+  "pref:shizuoka:miho-no-matsubara": {
+    "source": "https://www.japan.travel/en/spot/1303/",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "From JR Shimizu, continue by local bus or taxi; the bus journey is about 25 minutes. Confirm the current destination and stop with the operator.",
+      "ja": "JR清水駅から路線バス約25分、またはタクシー。現在の行先・停留所は運行会社で確認。",
+      "th": "จาก JR Shimizu ต่อบัสท้องถิ่นประมาณ 25 นาทีหรือแท็กซี่ ตรวจชื่อปลายทางและป้ายปัจจุบันกับผู้ให้บริการ"
+    }
+  },
+  "pref:shizuoka:sunpu-castle-park": {
+    "source": "https://www.japan.travel/en/spot/184/",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "Walk about 15 minutes from JR Shizuoka or 12 minutes from Shin-Shizuoka.",
+      "ja": "JR静岡駅から徒歩約15分、新静岡駅から約12分。",
+      "th": "เดินประมาณ 15 นาทีจาก JR Shizuoka หรือ 12 นาทีจาก Shin-Shizuoka"
+    }
+  },
+  "pref:aichi:atsuta-jingu": {
+    "source": "https://www.japan.travel/en/spot/1231/",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "Walk about three minutes from Meitetsu Jingu-mae or eight minutes from JR Atsuta.",
+      "ja": "名鉄神宮前駅から徒歩約3分、JR熱田駅から約8分。",
+      "th": "เดินประมาณ 3 นาทีจาก Meitetsu Jingu-mae หรือ 8 นาทีจาก JR Atsuta"
+    }
+  },
+  "pref:mie:ise-jingu-naiku": {
+    "source": "https://www.japan.travel/en/spot/1210/",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "Take a bus from Isuzugawa Station (about six minutes), or from Geku (about 10–15 minutes). Naiku and Geku are separate sites.",
+      "ja": "五十鈴川駅からバス約6分、外宮から約10〜15分。内宮と外宮は別の場所です。",
+      "th": "ใช้บัสจาก Isuzugawa ประมาณ 6 นาที หรือจาก Geku ประมาณ 10–15 นาที Naiku กับ Geku อยู่คนละแห่ง"
+    }
+  },
+  "pref:shiga:hikone-castle": {
+    "source": "https://www.japan.travel/en/spot/1076/",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "Walk about 15–20 minutes from JR Hikone. From Maibara, transfer to a local Tokaido Main Line train for Hikone.",
+      "ja": "JR彦根駅から徒歩約15〜20分。米原からは東海道本線の普通列車で彦根へ。",
+      "th": "เดินประมาณ 15–20 นาทีจาก JR Hikone หากมาจาก Maibara ให้ต่อรถท้องถิ่นสาย Tokaido Main Line ไป Hikone"
+    }
+  },
+  "pref:shiga:ishiyamadera-temple": {
+    "source": "https://www.japan.travel/en/spot/1064/",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "At JR Ishiyama, change to the Keihan Ishiyama Sakamoto Line for Ishiyamadera, then walk about 10 minutes.",
+      "ja": "JR石山駅で京阪石山坂本線に乗り換え石山寺駅へ。駅から徒歩約10分。",
+      "th": "ต่อจาก JR Ishiyama ไปสาย Keihan Ishiyama Sakamoto ลง Ishiyamadera แล้วเดินประมาณ 10 นาที"
+    }
+  },
+  "pref:osaka:osaka-castle": {
+    "source": "https://www.japan.travel/en/spot/1087/",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "JR Morinomiya serves the southeast park edge; Osakajokoen serves the northeast. Tanimachi Yonchome is another approach. Allow time to walk inside the park.",
+      "ja": "JR森ノ宮駅は公園南東側、大阪城公園駅は北東側。谷町四丁目駅からもアクセス可。園内の徒歩時間を確保。",
+      "th": "JR Morinomiya เข้าด้านตะวันออกเฉียงใต้ ส่วน Osakajokoen เข้าด้านตะวันออกเฉียงเหนือ หรือใช้ Tanimachi Yonchome เผื่อเวลาเดินภายในสวน"
+    }
+  },
+  "osaka-castle": {
+    "source": "https://www.japan.travel/en/destinations/kansai/osaka/osaka-castle-and-around/",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "JR Morinomiya on the Osaka Loop Line is beside Osaka Castle Park. The castle tower is farther inside the grounds.",
+      "ja": "大阪環状線森ノ宮駅は大阪城公園に隣接。天守閣は公園内をさらに歩きます。",
+      "th": "JR Morinomiya สาย Osaka Loop Line อยู่ติดสวนปราสาท ส่วนตัวปราสาทต้องเดินเข้าไปในสวนอีก"
+    }
+  },
+  "pref:hyogo:meriken-park": {
+    "source": "https://www.japan.travel/en/spot/1038/",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "Walk south from JR Motomachi for about 10 minutes.",
+      "ja": "JR元町駅から南へ徒歩約10分。",
+      "th": "จาก JR Motomachi เดินไปทางใต้ประมาณ 10 นาที"
+    }
+  },
+  "pref:nara:kasuga-taisha": {
+    "source": "https://www.japan.travel/en/spot/1013/",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "Use buses from JR or Kintetsu Nara to Kasuga Taisha Honden. Walking takes about 30 minutes from Kintetsu Nara or 45 from JR Nara.",
+      "ja": "JR・近鉄奈良駅から春日大社本殿行きバス。徒歩は近鉄奈良から約30分、JR奈良から約45分。",
+      "th": "ใช้บัสจาก JR หรือ Kintetsu Nara ไป Kasuga Taisha Honden หากเดินจาก Kintetsu ราว 30 นาที จาก JR ราว 45 นาที"
+    }
+  },
+  "pref:wakayama:wakayama-castle": {
+    "source": "https://www.japan.travel/en/spot/957/",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "Walk about 20 minutes from JR Wakayama or 10 minutes from Nankai Wakayama-shi; buses also connect from JR Wakayama.",
+      "ja": "JR和歌山駅から徒歩約20分、南海和歌山市駅から約10分。JR和歌山駅からバスも利用可。",
+      "th": "เดินประมาณ 20 นาทีจาก JR Wakayama หรือ 10 นาทีจาก Nankai Wakayama-shi มีบัสจาก JR Wakayama ด้วย"
+    }
+  },
+  "pref:wakayama:kongobuji-temple": {
+    "source": "https://www.japan.travel/en/spot/976/",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "From Gokurakubashi take the cable car to Koyasan, then Nankai Rinkan Bus to Kongobuji-mae.",
+      "ja": "極楽橋からケーブルカーで高野山駅へ。南海りんかんバスで金剛峯寺前下車。",
+      "th": "จาก Gokurakubashi ต่อเคเบิลคาร์ไป Koyasan แล้วใช้ Nankai Rinkan Bus ลง Kongobuji-mae"
+    }
+  },
+  "pref:tottori:tottori-sand-dunes": {
+    "source": "https://www.japan.travel/en/spot/951/",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "Take a bus from Tottori Station to the dune area, about 20 minutes. Check the return service before walking on the dunes.",
+      "ja": "鳥取駅から砂丘方面へバス約20分。砂丘を歩く前に帰りの便を確認。",
+      "th": "จากสถานี Tottori นั่งบัสไปบริเวณเนินทรายประมาณ 20 นาที ตรวจเที่ยวกลับก่อนออกเดินบนเนินทราย"
+    }
+  },
+  "pref:tottori:sand-museum": {
+    "source": "https://www.japan.travel/en/spot/951/",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "Travel by bus from Tottori Station toward the sand dunes (about 20 minutes), then follow signs to the museum in the dune area.",
+      "ja": "鳥取駅から砂丘方面へバス約20分、砂丘周辺の案内で砂の美術館へ。",
+      "th": "จากสถานี Tottori ใช้บัสไปทางเนินทรายประมาณ 20 นาที แล้วตามป้ายไปพิพิธภัณฑ์ในบริเวณเนินทราย"
+    }
+  },
+  "pref:shimane:matsue-castle": {
+    "source": "https://www.japan.travel/en/spot/933/",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "The castle is about 2 km from Matsue Station. The Lakeline sightseeing bus connects the station and castle entrance area.",
+      "ja": "松江駅から約2km。レイクラインバスで城の入口周辺へアクセスできます。",
+      "th": "ปราสาทอยู่ห่างสถานี Matsue ประมาณ 2 กม. มีบัส Lakeline เชื่อมจากสถานีไปบริเวณทางเข้าปราสาท"
+    }
+  },
+  "pref:shimane:izumo-taisha": {
+    "source": "https://www.japan.travel/en/spot/937/",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "From JR Izumoshi, take an Ichibata bus bound for Izumo Taisha and get off at Seimon-mae.",
+      "ja": "JR出雲市駅から一畑バス出雲大社方面に乗り、正門前下車。",
+      "th": "จาก JR Izumoshi ใช้บัส Ichibata ไป Izumo Taisha ลง Seimon-mae"
+    }
+  },
+  "pref:okayama:okayama-korakuen": {
+    "source": "https://www.japan.travel/en/japans-local-treasures/okayama-korakuen-garden/",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "Take a bus from JR Okayama to Korakuen-mae, about 10 minutes.",
+      "ja": "JR岡山駅から後楽園前までバス約10分。",
+      "th": "จาก JR Okayama นั่งบัสประมาณ 10 นาทีลง Korakuen-mae"
+    }
+  },
+  "pref:okayama:kurashiki-bikan-historical-quarter": {
+    "source": "https://www.japan.travel/en/spot/915/",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "Walk about 10 minutes from JR Kurashiki. This is different from Shin-Kurashiki, the Shinkansen station.",
+      "ja": "JR倉敷駅から徒歩約10分。新幹線の新倉敷駅とは別です。",
+      "th": "เดินประมาณ 10 นาทีจาก JR Kurashiki คนละสถานีกับ Shin-Kurashiki ที่รถชินคันเซ็นจอด"
+    }
+  },
+  "pref:hiroshima:hiroshima-peace-memorial-park": {
+    "source": "https://www.japan.travel/en/japans-local-treasures/hiroshima-peace-memorial-park/",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "From Hiroshima Station, take a tram or bus toward Genbaku-Dome-mae, then walk into the park. Allow about 20 minutes for the transit leg.",
+      "ja": "広島駅から原爆ドーム前方面へ電車またはバス、その後徒歩で公園へ。乗車の目安は約20分。",
+      "th": "จากสถานี Hiroshima ใช้รถรางหรือบัสไป Genbaku-Dome-mae แล้วเดินเข้าสวน เผื่อเวลานั่งรถประมาณ 20 นาที"
+    }
+  },
+  "pref:hiroshima:itsukushima-shrine": {
+    "source": "https://www.japan.travel/en/world-heritage/itsukushima-shinto-shrine/",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "From Hiroshima take JR to Miyajimaguchi (about 30 minutes), a ferry to Miyajima (about 10 minutes), then walk about 10 minutes to the shrine.",
+      "ja": "広島からJRで宮島口へ約30分、フェリーで宮島へ約10分、神社まで徒歩約10分。",
+      "th": "จาก Hiroshima ใช้ JR ถึง Miyajimaguchi ราว 30 นาที ต่อเรือไป Miyajima ราว 10 นาที แล้วเดินถึงศาลเจ้าอีกประมาณ 10 นาที"
+    }
+  },
+  "pref:yamaguchi:kintaikyo-bridge": {
+    "source": "https://www.japan.travel/en/spot/861/",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "Connect by bus or taxi from JR Iwakuni or Shin-Iwakuni. The bridge lies between these stations; neither station is beside it.",
+      "ja": "JR岩国駅・新岩国駅からバスまたはタクシー。橋は両駅の間にあり、駅のすぐ隣ではありません。",
+      "th": "ต่อบัสหรือแท็กซี่จาก JR Iwakuni หรือ Shin-Iwakuni สะพานอยู่ระหว่างสองสถานี ไม่ได้ติดสถานีใด"
+    }
+  },
+  "pref:yamaguchi:akiyoshido-cave": {
+    "source": "https://www.japan.travel/en/japans-local-treasures/akiyoshidai-plateau/",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "From Shin-Yamaguchi take a bus to Akiyoshido (about 40 minutes); the main cave entrance is about five minutes on foot from the terminal.",
+      "ja": "新山口駅から秋芳洞までバス約40分。バスターミナルから正面入口へ徒歩約5分。",
+      "th": "จาก Shin-Yamaguchi นั่งบัสถึง Akiyoshido ประมาณ 40 นาที จากท่ารถเดินราว 5 นาทีถึงทางเข้าหลัก"
+    }
+  },
+  "pref:tokushima:awa-odori-kaikan": {
+    "source": "https://www.japan.travel/en/spot/844/",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "Walk about 10 minutes from JR Tokushima Station.",
+      "ja": "JR徳島駅から徒歩約10分。",
+      "th": "เดินประมาณ 10 นาทีจากสถานี JR Tokushima"
+    }
+  },
+  "pref:tokushima:naruto-park": {
+    "source": "https://www.japan.travel/en/destinations/shikoku/tokushima/naruto-area/",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "City buses connect Naruto Station with Naruto Park. Check the return bus and the tide timetable for whirlpool viewing separately.",
+      "ja": "鳴門駅から路線バスで鳴門公園へ。帰りのバスと渦潮観潮の潮見表は別々に確認。",
+      "th": "มีบัสท้องถิ่นจากสถานี Naruto ไป Naruto Park ตรวจเที่ยวกลับและตารางน้ำขึ้นลงสำหรับดูน้ำวนแยกกัน"
+    }
+  },
+  "pref:kagawa:kotohiragu": {
+    "source": "https://www.japan.travel/en/spot/218/",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "The start of the stone steps is about 10 minutes on foot from JR Kotohira or eight minutes from Kotoden Kotohira. The shrine climb comes after this walk.",
+      "ja": "石段の登り口へはJR琴平駅から徒歩約10分、ことでん琴平駅から約8分。その後に参道の登りがあります。",
+      "th": "เดินถึงจุดเริ่มบันไดประมาณ 10 นาทีจาก JR Kotohira หรือ 8 นาทีจาก Kotoden Kotohira จากนั้นยังต้องขึ้นบันไดไปศาลเจ้า"
+    }
+  },
+  "pref:ehime:matsuyama-castle": {
+    "source": "https://www.japan.travel/en/spot/819/",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "Use Okaido tram stop and walk about five minutes to the ropeway area. The castle is on Mt Katsuyama; choose the ropeway, chairlift or uphill walking route.",
+      "ja": "大街道電停からロープウェイ方面へ徒歩約5分。城は勝山山上にあり、ロープウェイ・リフト・徒歩の登城路を選びます。",
+      "th": "ลงรถราง Okaido แล้วเดินประมาณ 5 นาทีถึงบริเวณกระเช้า ปราสาทอยู่บนเขา Katsuyama เลือกกระเช้า ลิฟต์เก้าอี้ หรือเส้นทางเดินขึ้น"
+    }
+  },
+  "pref:ehime:dogo-onsen-honkan": {
+    "source": "https://www.japan.travel/en/spot/821/",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "From JR Matsuyama use tram 5 to Dogo Onsen (about 30 minutes), then walk about five minutes through the shopping arcade.",
+      "ja": "JR松山駅から5系統電車で道後温泉へ約30分、商店街を通って徒歩約5分。",
+      "th": "จาก JR Matsuyama ใช้รถรางสาย 5 ถึง Dogo Onsen ราว 30 นาที แล้วเดินผ่านย่านร้านค้าอีกประมาณ 5 นาที"
+    }
+  },
+  "pref:kochi:kochi-castle": {
+    "source": "https://www.japan.travel/en/japans-local-treasures/kochi-castle-2020/",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "From JR Kochi use a tram journey to Kochijo-mae (about 15 minutes), then walk about five minutes to the castle area.",
+      "ja": "JR高知駅から高知城前まで電車で約15分、城周辺へ徒歩約5分。",
+      "th": "จาก JR Kochi ใช้รถรางไป Kochijo-mae ประมาณ 15 นาที แล้วเดินไปบริเวณปราสาทราว 5 นาที"
+    }
+  },
+  "pref:fukuoka:dazaifu-tenmangu": {
+    "source": "https://www.japan.travel/en/spot/798/",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "From Nishitetsu Fukuoka (Tenjin), change at Futsukaichi for Dazaifu. The shrine is about five minutes on foot from Dazaifu Station.",
+      "ja": "西鉄福岡（天神）から二日市で乗り換え太宰府へ。太宰府駅から徒歩約5分。",
+      "th": "จาก Nishitetsu Fukuoka (Tenjin) เปลี่ยนที่ Futsukaichi ไป Dazaifu แล้วเดินจากสถานีประมาณ 5 นาที"
+    }
+  },
+  "pref:saga:yoshinogari-historical-park": {
+    "source": "https://www.japan.travel/en/spot/757/",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "Use Yoshinogari-Koen on the JR Nagasaki Main Line, then walk about 15 minutes to the park.",
+      "ja": "JR長崎本線吉野ケ里公園駅から徒歩約15分。",
+      "th": "ลง Yoshinogari-Koen สาย JR Nagasaki Main Line แล้วเดินประมาณ 15 นาทีถึงสวน"
+    }
+  },
+  "pref:saga:yutoku-inari-shrine": {
+    "source": "https://www.japan.travel/en/spot/755/",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "From Hizen-Kashima take a bus to Yutoku Inari-jinja (about 20 minutes), then walk about six minutes.",
+      "ja": "肥前鹿島駅から祐徳稲荷神社方面へバス約20分、下車後徒歩約6分。",
+      "th": "จาก Hizen-Kashima นั่งบัสไป Yutoku Inari-jinja ราว 20 นาที แล้วเดินประมาณ 6 นาที"
+    }
+  },
+  "pref:nagasaki:nagasaki-peace-park": {
+    "source": "https://www.japan.travel/en/spot/742/",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "Take a tram from Nagasaki Station to Heiwa Koen (Peace Park), then walk about five minutes.",
+      "ja": "長崎駅から路面電車で平和公園へ、下車後徒歩約5分。",
+      "th": "จากสถานี Nagasaki ใช้รถรางลง Heiwa Koen (Peace Park) แล้วเดินประมาณ 5 นาที"
+    }
+  },
+  "pref:kumamoto:kumamoto-castle": {
+    "source": "https://www.japan.travel/en/japans-local-treasures/kumamoto-castle-2020/",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "Use the city tram from Kumamoto Station to Kumamoto Castle/City Hall, then walk about 10 minutes to the entrance. Check current reconstruction access notices.",
+      "ja": "熊本駅から市電で熊本城・市役所前へ、入口まで徒歩約10分。復旧工事に伴う通行案内を確認。",
+      "th": "จากสถานี Kumamoto ใช้รถรางลง Kumamoto Castle/City Hall แล้วเดินประมาณ 10 นาทีถึงทางเข้า ตรวจเส้นทางปัจจุบันระหว่างการบูรณะด้วย"
+    }
+  },
+  "gion": {
+    "source": "https://www.japan.travel/en/spot/84/",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "Walk from Keihan Gion-Shijo or Hankyu Kyoto-Kawaramachi. Use public streets and follow local photography signs.",
+      "ja": "京阪祇園四条駅、または阪急京都河原町駅から徒歩。公道を歩き、現地の撮影表示を守りましょう。",
+      "th": "เดินจาก Keihan Gion-Shijo หรือ Hankyu Kyoto-Kawaramachi ใช้ถนนสาธารณะและปฏิบัติตามป้ายถ่ายภาพในพื้นที่"
+    }
+  },
+  "sumida": {
+    "source": "https://t-navi.city.taito.lg.jp/spot/1011",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "For the Taito/Asakusa bank shown here, walk about five minutes from Asakusa Station (Ginza, Toei Asakusa or Tobu lines). The park also extends across the river.",
+      "ja": "この地点は台東区・浅草側。銀座線・都営浅草線・東武線の浅草駅から徒歩約5分。対岸にも隅田公園があります。",
+      "th": "จุดนี้อยู่ฝั่ง Taito/Asakusa เดินประมาณ 5 นาทีจากสถานี Asakusa สาย Ginza, Toei Asakusa หรือ Tobu สวนมีพื้นที่อยู่อีกฝั่งแม่น้ำด้วย"
+    }
+  },
+  "oishi": {
+    "source": "https://fujisan-pref.jp/en/article/88/",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "From Kawaguchiko Station, take the Red Line sightseeing bus to Kawaguchiko Shizen Seikatsukan (about 30 minutes). Check the return timetable before walking the lake shore.",
+      "ja": "河口湖駅から周遊バスRed Lineで河口湖自然生活館へ約30分。湖畔を歩く前に帰りの時刻表も確認。",
+      "th": "จากสถานี Kawaguchiko นั่งรถบัสเที่ยวชม Red Line ไป Kawaguchiko Shizen Seikatsukan ประมาณ 30 นาที ตรวจเวลาเที่ยวกลับก่อนเดินริมทะเลสาบ"
+    }
+  },
+  "kawaguchiko": {
+    "source": "https://www.fujikyu-railway.jp/en/station/timetable.php?no=18",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "Kawaguchiko is the terminal of the Fujikyu Railway Line. Use the operator’s station timetable to plan onward connections; the lake shore is a separate walk or bus ride.",
+      "ja": "富士急行線の終点・河口湖駅へ。接続は公式時刻表で確認。湖畔までは別途徒歩またはバスで移動します。",
+      "th": "ลงสถานี Kawaguchiko ซึ่งเป็นปลายทางสาย Fujikyu Railway ตรวจรถต่อจากตารางสถานีของผู้ให้บริการ ริมทะเลสาบต้องเดินหรือต่อรถบัสไปอีก"
+    }
+  },
+  "dotonbori": {
+    "source": "https://www.japan.travel/en/spot/2207/",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "Use Namba Station, including the Midosuji subway line, then walk north toward the Dotonbori River. Choose a meeting point before entering the busy streets.",
+      "ja": "御堂筋線などのなんば駅から道頓堀川へ北向きに徒歩。混雑する通りに入る前に集合場所を決めましょう。",
+      "th": "ลง Namba เช่นสายรถไฟใต้ดิน Midosuji แล้วเดินขึ้นเหนือไปแม่น้ำ Dotonbori นัดจุดพบกันก่อนเข้าถนนที่คนหนาแน่น"
+    }
+  },
+  "odori": {
+    "source": "https://www.japan.travel/en/spot/1927/",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "From Sapporo Station, take the Namboku or Toho subway one stop south to Odori, or walk about ten minutes. The park stretches across several blocks.",
+      "ja": "札幌駅から南北線・東豊線で南へ1駅の大通駅、または徒歩約10分。公園は複数の街区にまたがります。",
+      "th": "จากสถานี Sapporo นั่งรถไฟใต้ดิน Namboku หรือ Toho ลงใต้หนึ่งสถานีถึง Odori หรือเดินประมาณ 10 นาที สวนทอดยาวหลายบล็อก"
+    }
+  },
+  "makishi": {
+    "source": "https://www.makishi-public-market.jp/about/guide/",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "About ten minutes on foot from Yui Rail Makishi or Miebashi Station. Check individual shop hours and market closure dates before planning a meal.",
+      "ja": "ゆいレール牧志駅・美栄橋駅から徒歩約10分。食事の前に各店の営業時間と市場の休業日を確認。",
+      "th": "เดินประมาณ 10 นาทีจากสถานี Yui Rail Makishi หรือ Miebashi ตรวจเวลาแต่ละร้านและวันปิดตลาดก่อนวางแผนมื้ออาหาร"
+    },
+    "accessibility": {
+      "en": "Accessible toilets, wheelchair loans and a nursing room are listed. Strollers are not available for loan; confirm your specific route with the market.",
+      "ja": "多目的トイレ・貸出車いす・授乳室あり。ベビーカーの貸出なし。利用経路は市場に確認。",
+      "th": "มีห้องน้ำสำหรับผู้ใช้รถเข็น รถเข็นให้ยืม และห้องให้นม ไม่มีรถเข็นเด็กให้ยืม ตรวจเส้นทางที่ต้องใช้กับตลาด"
+    }
+  },
+  "tsuboya": {
+    "source": "https://www.okinawastory.jp/spot/1020",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "About 15 minutes on foot from Yui Rail Makishi Station, or one minute from Tsuboya bus stop. The nearby pottery museum is temporarily closed September 1, 2026–March 31, 2027; the street is a separate attraction.",
+      "ja": "ゆいレール牧志駅から徒歩約15分、壺屋バス停から約1分。近隣の壺屋焼物博物館は2026年9月1日〜2027年3月31日臨時休館。通りの散策とは別施設です。",
+      "th": "เดินประมาณ 15 นาทีจาก Yui Rail Makishi หรือ 1 นาทีจากป้ายรถบัส Tsuboya พิพิธภัณฑ์เครื่องปั้นใกล้กันปิดชั่วคราว 1 ก.ย. 2026–31 มี.ค. 2027 ซึ่งเป็นคนละส่วนกับถนนเดินชม"
+    }
+  },
+  "okinawa-museum": {
+    "source": "https://okimu.jp/sp/en/guide/access/",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "About ten minutes on foot from Yui Rail Omoromachi Station. The museum and art museum have separate exhibition admissions.",
+      "ja": "ゆいレールおもろまち駅から徒歩約10分。博物館と美術館の展示料金は別区分です。",
+      "th": "เดินประมาณ 10 นาทีจากสถานี Yui Rail Omoromachi ค่าเข้าชมส่วนพิพิธภัณฑ์และหอศิลป์แยกกัน"
+    }
+  },
+  "pref:akita:aoyagi-samurai-manor": {
+    "source": "https://tazawako-kakunodate.com/spots/5990/",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "About 15 minutes on foot or five minutes by taxi from JR Kakunodate Station.",
+      "ja": "JR角館駅から徒歩約15分、またはタクシー約5分。",
+      "th": "เดินประมาณ 15 นาที หรือนั่งแท็กซี่ประมาณ 5 นาทีจาก JR Kakunodate"
+    },
+    "hours": {
+      "en": "April–November 09:00–17:00; December–March 09:00–16:30. Check temporary closures before travel.",
+      "ja": "4〜11月9:00〜17:00、12〜3月9:00〜16:30。臨時休館は出発前に確認。",
+      "th": "เม.ย.–พ.ย. 09:00–17:00 น. ธ.ค.–มี.ค. 09:00–16:30 น. ตรวจวันปิดพิเศษก่อนเดินทาง"
+    },
+    "admission": {
+      "en": "Adult admission ¥500 at review; junior/high school ¥300, primary school ¥200.",
+      "ja": "確認時は大人500円、中高生300円、小学生200円。",
+      "th": "ราคาที่ตรวจ ผู้ใหญ่ 500 เยน มัธยม 300 เยน ประถม 200 เยน"
+    }
+  },
+  "pref:fukushima:ouchi-juku": {
+    "source": "https://www.japan.travel/en/spot/1759/",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "Take Aizu Railway to Yunokami-Onsen, then a bus or taxi to Ouchi-juku. Check seasonal bus operation and the last return connection before departure.",
+      "ja": "会津鉄道の湯野上温泉駅からバスかタクシーで大内宿へ。出発前にバスの運行期間と帰りの最終接続を確認。",
+      "th": "นั่ง Aizu Railway ลง Yunokami-Onsen แล้วต่อบัสหรือแท็กซี่ไป Ouchi-juku ตรวจฤดูให้บริการรถบัสและรถต่อเที่ยวสุดท้ายก่อนออกเดินทาง"
+    }
+  },
+  "pref:kanagawa:kotoku-in": {
+    "source": "https://www.kotoku-in.jp/en/",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "From Kamakura, take Enoden to Hase (third stop, about seven minutes), then walk about seven minutes to Kotoku-in.",
+      "ja": "鎌倉駅から江ノ電で3駅・約7分の長谷駅へ。長谷駅から高徳院まで徒歩約7分。",
+      "th": "จาก Kamakura นั่ง Enoden ไป Hase สามสถานีประมาณ 7 นาที แล้วเดินอีกประมาณ 7 นาทีถึง Kotoku-in"
+    }
+  },
+  "pref:niigata:bandai-bridge": {
+    "source": "https://www.tohokukanko.jp/en/attractions/detail_1785.html",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "About 15 minutes on foot from the Bandai exit of JR Niigata Station. Use the riverside paths for views of the bridge.",
+      "ja": "JR新潟駅万代口から徒歩約15分。橋を眺める際は川沿いの歩道を利用。",
+      "th": "เดินประมาณ 15 นาทีจากทางออก Bandai ของ JR Niigata ใช้ทางเดินริมแม่น้ำเพื่อชมสะพาน"
+    }
+  },
+  "pref:niigata:hakusan-park": {
+    "source": "https://niigata-kankou.or.jp/spot/detail_16002.html",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "About 20 minutes on foot from JR Hakusan. From Niigata Station, the Bandai-bashi bus line serves Shiyakusho-mae, about three minutes on foot from the park.",
+      "ja": "JR白山駅から徒歩約20分。新潟駅から萬代橋ラインで市役所前へ、公園まで徒歩約3分。",
+      "th": "เดินประมาณ 20 นาทีจาก JR Hakusan หรือจากสถานี Niigata นั่งรถบัสสาย Bandai-bashi ลง Shiyakusho-mae แล้วเดินประมาณ 3 นาที"
+    },
+    "accessibility": {
+      "en": "The tourism listing confirms accessible toilets. This does not confirm every path is step-free.",
+      "ja": "観光案内にバリアフリートイレの記載あり。すべての園路の段差なしを保証する情報ではありません。",
+      "th": "แหล่งท่องเที่ยวระบุว่ามีห้องน้ำรองรับผู้ใช้รถเข็น ไม่ได้ยืนยันว่าทุกทางเดินไม่มีขั้นบันได"
+    }
+  },
+  "pref:yamanashi:takeda-shrine": {
+    "source": "https://kofu-tourism.com/spot/index.php?p=11",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "From JR Kofu’s north exit, allow about 30 minutes on foot or ten minutes by bus toward Takeda Shrine. Check the return bus timetable.",
+      "ja": "JR甲府駅北口から徒歩約30分、または武田神社方面へバス約10分。帰りのバス時刻も確認。",
+      "th": "จากทางออกเหนือ JR Kofu เดินประมาณ 30 นาที หรือนั่งรถบัสไปทาง Takeda Shrine ประมาณ 10 นาที ตรวจเวลาเที่ยวกลับด้วย"
+    }
+  },
+  "pref:gifu:takayama-jinya": {
+    "source": "https://jinya.gifu.jp/en/guide/access/",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "About ten minutes on foot from Takayama Station or the Nohi Bus Center.",
+      "ja": "高山駅・濃飛バスセンターから徒歩約10分。",
+      "th": "เดินประมาณ 10 นาทีจากสถานี Takayama หรือ Nohi Bus Center"
+    },
+    "hours": {
+      "en": "April–October 08:45–17:00; November–March 08:45–16:30. Last entry 30 minutes before closing. Closed December 29–January 3.",
+      "ja": "4〜10月8:45〜17:00、11〜3月8:45〜16:30。最終入場は閉館30分前。12月29日〜1月3日休館。",
+      "th": "เม.ย.–ต.ค. 08:45–17:00 น. พ.ย.–มี.ค. 08:45–16:30 น. เข้าสุดท้ายก่อนปิด 30 นาที ปิด 29 ธ.ค.–3 ม.ค."
+    },
+    "fieldSources": {
+      "hours": {
+        "source": "https://jinya.gifu.jp/en/guide/info/",
+        "reviewedAt": "2026-10-25"
+      },
+      "admission": {
+        "source": "https://jinya.gifu.jp/en/guide/info/",
+        "reviewedAt": "2026-10-25"
+      }
+    },
+    "admission": {
+      "en": "Adult admission ¥500; visitors aged 18 or younger enter free at review.",
+      "ja": "確認時は大人500円、18歳以下無料。",
+      "th": "ราคาที่ตรวจ ผู้ใหญ่ 500 เยน อายุไม่เกิน 18 ปีเข้าฟรี"
+    }
+  },
+  "pref:mie:futami-okitama-shrine": {
+    "source": "https://futamiokitamajinja.or.jp/access/",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "Walk about 15 minutes from JR Futaminoura through the ryokan street, or about five minutes from Meotoiwa Higashiguchi bus stop.",
+      "ja": "JR二見浦駅から旅館街を通って徒歩約15分、または夫婦岩東口バス停から徒歩約5分。",
+      "th": "เดินผ่านถนนเรียวกังประมาณ 15 นาทีจาก JR Futaminoura หรือเดินประมาณ 5 นาทีจากป้ายรถบัส Meotoiwa Higashiguchi"
+    }
+  },
+  "pref:kagawa:ritsurin-garden": {
+    "source": "https://www.japan.travel/en/spot/833/",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "For the main entrance, walk about ten minutes from Kotoden Ritsurin-Koen. JR Ritsurinkoen-Kitaguchi is about five minutes from the north entrance; choose the entrance before routing.",
+      "ja": "正門へはことでん栗林公園駅から徒歩約10分。北門へはJR栗林公園北口駅から徒歩約5分。使う門を決めてから経路を確認。",
+      "th": "ทางเข้าหลักเดินประมาณ 10 นาทีจาก Kotoden Ritsurin-Koen ส่วนทางเข้าเหนือเดินประมาณ 5 นาทีจาก JR Ritsurinkoen-Kitaguchi เลือกประตูให้ตรงก่อนค้นเส้นทาง"
+    }
+  },
+  "pref:kochi:hirome-market": {
+    "source": "https://www.hirome.co.jp/access.html",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "About two minutes on foot from Ohashidori tram stop. Check individual shop hours; the parking facility’s hours do not describe market opening hours.",
+      "ja": "路面電車の大橋通停留場から徒歩約2分。各店の営業時間を確認。駐車場の時間と市場の時間は異なります。",
+      "th": "เดินประมาณ 2 นาทีจากป้ายรถราง Ohashidori ตรวจเวลาเปิดแต่ละร้าน เวลาเปิดที่จอดรถไม่ใช่เวลาเปิดตลาด"
+    }
+  },
+  "pref:fukuoka:ohori-park": {
+    "source": "https://www.ohorikouen.jp/access/",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "About seven minutes on foot from Ohorikoen or Tojinmachi Station on the Airport subway line. Kuromon and Ohorikoen bus stops are about five minutes away.",
+      "ja": "地下鉄空港線大濠公園駅・唐人町駅から徒歩約7分。黒門・大濠公園バス停から徒歩約5分。",
+      "th": "เดินประมาณ 7 นาทีจากสถานี Ohorikoen หรือ Tojinmachi สาย Airport หรือประมาณ 5 นาทีจากป้ายรถบัส Kuromon และ Ohorikoen"
+    }
+  },
+  "pref:kumamoto:suizenji-jojuen": {
+    "source": "https://www.japan.travel/en/japans-local-treasures/suizenji-jojuen-garden-2020/",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "About four minutes on foot from Suizenji Park tram stop, or ten minutes from JR Shin-Suizenji Station.",
+      "ja": "市電水前寺公園停留場から徒歩約4分、JR新水前寺駅から約10分。",
+      "th": "เดินประมาณ 4 นาทีจากป้ายรถราง Suizenji Park หรือประมาณ 10 นาทีจาก JR Shin-Suizenji"
+    }
+  },
+  "pref:oita:umi-jigoku": {
+    "source": "https://www.japan.travel/en/spot/713/",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "From Beppu Station, take a bus toward Kannawa or Umi-Jigoku-mae (around 20 minutes). Check the route and return departure with the bus operator.",
+      "ja": "別府駅から鉄輪・海地獄前方面のバスで約20分。系統と帰りの時刻は運行会社で確認。",
+      "th": "จากสถานี Beppu นั่งรถบัสไปทาง Kannawa หรือ Umi-Jigoku-mae ประมาณ 20 นาที ตรวจสายและเวลาเที่ยวกลับกับผู้ให้บริการ"
+    }
+  },
+  "pref:oita:lake-kinrin": {
+    "source": "https://www.japan.travel/en/spot/712/",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "About 25 minutes on foot from Yufuin Station on the JR Kyudai Main Line. Leave time for the walk back to the station.",
+      "ja": "JR久大本線由布院駅から徒歩約25分。駅まで戻る時間も確保しましょう。",
+      "th": "เดินประมาณ 25 นาทีจากสถานี Yufuin สาย JR Kyudai Main Line เผื่อเวลาเดินกลับสถานีด้วย"
+    }
+  },
+  "pref:miyazaki:aoshima-shrine": {
+    "source": "https://www.japan.travel/en/spot/632/",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "Use Aoshima Station on the JR Nichinan Line, then walk toward the island and shrine, about ten minutes. Check return trains before exploring.",
+      "ja": "JR日南線青島駅から島・神社へ徒歩約10分。散策前に帰りの列車を確認。",
+      "th": "ลง Aoshima สาย JR Nichinan แล้วเดินไปเกาะและศาลเจ้าประมาณ 10 นาที ตรวจรถไฟเที่ยวกลับก่อนเดินเที่ยว"
+    }
+  },
+  "pref:miyazaki:miyazaki-jingu": {
+    "source": "https://www.japan.travel/en/spot/630/",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "Use Miyazaki-Jingu Station on the JR Nippo Main Line. The shrine gate is visible from the station area; allow up to 15 minutes to walk to the shrine.",
+      "ja": "JR日豊本線宮崎神宮駅へ。駅付近から鳥居が見え、神社まで徒歩15分以内が目安。",
+      "th": "ลง Miyazaki-Jingu สาย JR Nippo Main Line มองเห็นประตูศาลเจ้าจากบริเวณสถานี เผื่อเวลาเดินไปศาลเจ้าประมาณ 15 นาที"
+    }
+  },
+  "pref:kagoshima:sengan-en": {
+    "source": "https://www.senganen.jp/iso-access/",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "Use Sengan-en Station on the JR Nippo Main Line and walk to the site. Some trains do not stop here: check JR Kyushu’s timetable. The City View bus also serves Sengan-en (Iso Teien)-mae.",
+      "ja": "JR日豊本線仙巌園駅から徒歩。一部列車は停車しないためJR九州の時刻表を確認。シティビューの仙巌園（磯庭園）前バス停も利用できます。",
+      "th": "ลงสถานี Sengan-en สาย JR Nippo Main Line แล้วเดินไปสถานที่ รถบางขบวนไม่จอด ต้องตรวจตาราง JR Kyushu รถบัส City View จอดที่ Sengan-en (Iso Teien)-mae ได้เช่นกัน"
+    }
+  },
+  "pref:kagoshima:shiroyama-observatory": {
+    "source": "https://www.kagoshima-kankou.com/guide/10525",
+    "reviewedAt": "2026-10-25",
+    "access": {
+      "en": "From Kagoshima-Chuo, the sightseeing bus reaches Shiroyama in about 25 minutes; the viewpoint is by the stop. Check the last bus before planning sunset views.",
+      "ja": "鹿児島中央駅から観光バスで城山へ約25分、展望所は停留所そば。夕景を見る場合は最終バスも確認。",
+      "th": "จาก Kagoshima-Chuo นั่งรถบัสเที่ยวชมไป Shiroyama ประมาณ 25 นาที จุดชมวิวอยู่ใกล้ป้าย ตรวจบัสเที่ยวสุดท้ายก่อนวางแผนชมพระอาทิตย์ตก"
+    }
+  }
+}

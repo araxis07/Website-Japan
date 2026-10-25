@@ -1,9 +1,10 @@
 'use client'
-import { useId, useState } from 'react'
+import { useId } from 'react'
 import { useTrip } from './TripProvider'
 
 // Keep rejected input visible so a failed write or invalid value cannot look saved.
 export default function TripField({
+  fieldKey,
   label,
   value,
   save,
@@ -13,6 +14,7 @@ export default function TripField({
   max,
   multiline = false,
 }: {
+  fieldKey: string
   label: string
   value: string | number
   save: (value: string) => boolean
@@ -22,36 +24,37 @@ export default function TripField({
   max?: number
   multiline?: boolean
 }) {
-  const { tools } = useTrip()
+  const { tools, drafts, setDraft: storeDraft, beginEdit, endEdit } = useTrip()
   const id = useId()
-  const [draft, setDraft] = useState(String(value))
-  const [previous, setPrevious] = useState(value)
-  const [error, setError] = useState('')
-  if (previous !== value) {
-    setPrevious(value)
-    if (!error) setDraft(String(value))
-  }
+  const rejected = drafts[fieldKey]
+  const issue = rejected
+    ? rejected.reason === 'invalid'
+      ? tools.fieldInvalid
+      : tools.unsaved
+    : ''
   const props = {
     id,
-    value: draft,
+    value: rejected?.value ?? String(value),
+    onFocus: () => beginEdit(fieldKey, label),
+    onBlur: endEdit,
     maxLength,
-    'aria-invalid': Boolean(error),
-    'aria-describedby': error ? `${id}-error` : undefined,
+    'aria-invalid': Boolean(issue),
+    'aria-describedby': issue ? `${id}-error` : undefined,
     onChange: (
       event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
     ) => {
       const next = event.target.value
-      setDraft(next)
       if (!event.target.validity.valid) {
-        setError(tools.fieldInvalid)
+        storeDraft(fieldKey, { value: next, label, reason: 'invalid' })
         return
       }
-      setError(save(next) ? '' : tools.unsaved)
+      const saved = save(next)
+      storeDraft(fieldKey, saved ? null : { value: next, label })
     },
   }
   return (
-    <label htmlFor={id}>
-      {label}
+    <div className="trip-field">
+      <label htmlFor={id}>{label}</label>
       {multiline ? (
         <textarea {...props} />
       ) : (
@@ -63,11 +66,19 @@ export default function TripField({
           step={type === 'number' ? 1 : undefined}
         />
       )}
-      {error && (
+      {issue && (
         <span id={`${id}-error`} role="alert">
-          {error}
+          {issue}
+          <button
+            type="button"
+            onClick={() => {
+              storeDraft(fieldKey, null)
+            }}
+          >
+            {tools.discardDraft}
+          </button>
         </span>
       )}
-    </label>
+    </div>
   )
 }

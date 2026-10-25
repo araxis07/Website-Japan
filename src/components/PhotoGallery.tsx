@@ -9,10 +9,12 @@ export default function PhotoGallery({
   photos,
   lang,
   copy,
+  cover,
 }: {
   photos: Photo[]
   lang: Locale
   copy: Dictionary['guide']
+  cover?: string
 }) {
   const dialog = useRef<HTMLDialogElement>(null)
   const trigger = useRef<HTMLAnchorElement | null>(null)
@@ -49,8 +51,8 @@ export default function PhotoGallery({
                 alt={photo.alt[lang]}
                 width={1000}
                 height={700}
-                // The first photo repeats the cover; reuse its request and loading policy.
-                loading={i === 0 ? 'eager' : 'lazy'}
+                // Reuse the loading policy only when this is the actual above-fold cover.
+                loading={photo.src === cover ? 'eager' : 'lazy'}
                 sizes={
                   i === 0
                     ? '(max-width: 700px) 100vw, 50vw'

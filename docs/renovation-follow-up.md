@@ -1,5 +1,7 @@
 # Renovation follow-up — 2026-10-25
 
+Historical release. See [the 2026-10-26 follow-through](renovation-2026-10-26.md) for current content coverage and planner behavior.
+
 The owner approved the 48 follow-up recommendations. This release retains the three languages, 47 prefectures, existing URLs, version-1 local trip storage and the Japanese paper/ink visual style. No runtime dependency was added. See [release operations](release-operations.md) for deployment, editorial review, the translation glossary and the novice usability protocol.
 
 ## Implementation coverage

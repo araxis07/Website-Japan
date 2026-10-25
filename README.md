@@ -128,3 +128,5 @@ General guidance reviewed on 2026-10-22; expanded city guides, all prefectures, 
 The site is an independent editorial guide and is not affiliated with JNTO.
 
 Latest implementation and verification notes: [Travel tools and content upgrade](docs/travel-tools-upgrade.md). Previous release: [47-prefecture upgrade](docs/next-upgrade.md). Earlier renovation measurements are historical, not measurements of the current ambient 3D release.
+
+Latest follow-through: [2026-10-26 release notes](docs/renovation-2026-10-26.md). All 104 venues now have reviewed last-mile access in three languages. The planner retains rejected drafts, previews shorter trips, identifies timing/lodging conflicts, and offers optional local copies, calendar export and manual currency estimates. Field-specific unknowns and external acceptance work remain explicit.

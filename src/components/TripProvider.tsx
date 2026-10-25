@@ -5,12 +5,28 @@ import {
   useContext,
   useEffect,
   useMemo,
+  useRef,
+  useCallback,
   useState,
   useSyncExternalStore,
 } from 'react'
 import type { Dictionary } from '@/i18n/dictionaries'
 import type { Locale } from '@/i18n/config'
-import { emptyTrip, parseTrip, tripKey, type Trip } from '@/lib/trip'
+import {
+  emptyTrip,
+  parseTrip,
+  tripKey,
+  tripFilename,
+  type Trip,
+} from '@/lib/trip'
+import { downloadTrip } from '@/lib/trip-export'
+import {
+  readDrafts,
+  writeDraft,
+  draftSnapshot,
+  subscribeDrafts,
+  type Drafts,
+} from '@/lib/trip-drafts'
 
 const emptyRaw = JSON.stringify(emptyTrip)
 function snapshot() {
@@ -48,6 +64,12 @@ type Context = {
   reset: () => void
   undo: () => void
   canUndo: boolean
+  undoLabel: string
+  drafts: Drafts
+  setDraft: typeof writeDraft
+  beginEdit: (key: string, label: string) => void
+  endEdit: () => void
+  downloadRaw: () => void
 }
 const TripContext = createContext<Context | null>(null)
 export function useTrip() {
@@ -66,6 +88,28 @@ export default function TripProvider({
   lang: Locale
   tools: Dictionary['tools']
 }) {
+  const draftRaw = useSyncExternalStore(
+    subscribeDrafts,
+    draftSnapshot,
+    () => '{}',
+  )
+  const drafts = useMemo(() => readDrafts(draftRaw), [draftRaw])
+  const edit = useRef<{ key: string; label: string } | null>(null)
+  const beginEdit = useCallback((key: string, label: string) => {
+    edit.current = { key: `${key}:${crypto.randomUUID()}`, label }
+  }, [])
+  const endEdit = useCallback(() => {
+    edit.current = null
+  }, [])
+  useEffect(() => {
+    if (!Object.keys(drafts).length) return
+    const warn = (event: BeforeUnloadEvent) => {
+      event.preventDefault()
+      event.returnValue = ''
+    }
+    window.addEventListener('beforeunload', warn)
+    return () => window.removeEventListener('beforeunload', warn)
+  }, [drafts])
   const raw = useSyncExternalStore(subscribe, snapshot, serverSnapshot)
   const trip = useMemo(() => (raw === null ? null : parseTrip(raw)), [raw])
   const [feedback, setFeedback] = useState({
@@ -76,6 +120,8 @@ export default function TripProvider({
   const [history, setHistory] = useState<{
     before: Trip
     after: string
+    group?: string
+    label: string
   } | null>(null)
   const showFeedback = (error: string, message: string) =>
     setFeedback((previous) => ({
@@ -101,7 +147,22 @@ export default function TripProvider({
     try {
       const before = parseTrip(snapshot())
       localStorage.setItem(tripKey, serialized)
-      setHistory(before ? { before, after: serialized } : null)
+      const group = edit.current
+      setHistory((previous) =>
+        before
+          ? {
+              before:
+                group &&
+                previous?.group === group.key &&
+                previous.after === JSON.stringify(before)
+                  ? previous.before
+                  : before,
+              after: serialized,
+              group: group?.key,
+              label: group?.label || message || copy.updated,
+            }
+          : null,
+      )
       window.dispatchEvent(new Event('trip-change'))
       showFeedback('', message)
       return true
@@ -136,6 +197,15 @@ export default function TripProvider({
         tools,
         undo,
         canUndo: Boolean(history),
+        undoLabel: history?.label || '',
+        drafts,
+        setDraft: writeDraft,
+        beginEdit,
+        endEdit,
+        downloadRaw: () => {
+          if (raw !== null && raw !== 'unavailable')
+            downloadTrip(raw, tripFilename('json'), 'application/json')
+        },
         change: (update, message, expected) => {
           const current = parseTrip(snapshot())
           if (expected && JSON.stringify(current) !== expected) {
@@ -154,11 +224,27 @@ export default function TripProvider({
           return false
         },
         reset: () => {
-          if (window.confirm(copy.confirm)) persist(emptyTrip, copy.updated)
+          if (window.confirm(copy.confirm) && persist(emptyTrip, copy.updated))
+            Object.keys(drafts).forEach((key) => writeDraft(key, null))
         },
       }}
     >
       {children}
+      {Object.keys(drafts).length > 0 && (
+        <details className="trip-drafts">
+          <summary>{tools.pendingDrafts}</summary>
+          <ul>
+            {Object.entries(drafts).map(([key, draft]) => (
+              <li key={key}>
+                {draft.label}
+                <button type="button" onClick={() => writeDraft(key, null)}>
+                  {tools.discardDraft}
+                </button>
+              </li>
+            ))}
+          </ul>
+        </details>
+      )}
       <div className="trip-feedback" role="status" key={feedback.sequence}>
         {feedback.message}
         {feedback.message && history && (

@@ -1,8 +1,9 @@
 'use client'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { places } from '@/data/places'
 import { useTrip } from './TripProvider'
 import TripField from './TripField'
+import TripExtras from './TripExtras'
 import {
   entryKey,
   maxTripBytes,
@@ -24,6 +25,8 @@ export default function TripTools() {
     lang,
     undo,
     canUndo,
+    undoLabel,
+    drafts,
     error: storageError,
   } = useTrip()
   const [incoming, setIncoming] = useState<{
@@ -32,7 +35,46 @@ export default function TripTools() {
   } | null>(null)
   const [error, setError] = useState('')
   const [sanitized, setSanitized] = useState(false)
-  const [lastBackup, setLastBackup] = useState('')
+  const [lastBackup, setLastBackup] = useState<{
+    time: string
+    hash: string
+  } | null>(null)
+  const [hash, setHash] = useState('')
+  useEffect(() => {
+    let cancelled = false
+    if (trip)
+      crypto.subtle
+        .digest('SHA-256', new TextEncoder().encode(JSON.stringify(trip)))
+        .then((buffer) => {
+          if (cancelled) return
+          setHash(
+            Array.from(new Uint8Array(buffer), (n) =>
+              n.toString(16).padStart(2, '0'),
+            ).join(''),
+          )
+          try {
+            const meta = JSON.parse(
+              localStorage.getItem('japan-trip-backup') || 'null',
+            )
+            setLastBackup(
+              meta &&
+                typeof meta.time === 'string' &&
+                Number.isFinite(Date.parse(meta.time)) &&
+                /^[a-f0-9]{64}$/.test(meta.hash)
+                ? meta
+                : null,
+            )
+          } catch {
+            /* Backup metadata is optional; trip writes report their own failures. */
+          }
+        })
+        .catch(() => {
+          if (!cancelled) setHash('')
+        })
+    return () => {
+      cancelled = true
+    }
+  }, [trip])
   if (!trip) return null
   const save = (update: (current: Trip) => Trip) =>
     change(update, '', JSON.stringify(trip))
@@ -52,12 +94,14 @@ export default function TripTools() {
   return (
     <div className="trip-tools">
       <p className="save-status" role="status">
-        {storageError || tools.savedLocal}
+        {storageError ||
+          (Object.keys(drafts).length ? tools.pendingDrafts : tools.savedLocal)}
       </p>
       <div className="trip-meta">
         {(['title', 'startDate', 'base'] as const).map((key) => (
           <TripField
             key={key}
+            fieldKey={key}
             label={key === 'startDate' ? tools.start : tools[key]}
             type={key === 'startDate' ? 'date' : 'text'}
             value={trip[key] || ''}
@@ -67,10 +111,38 @@ export default function TripTools() {
       </div>
       <details className="budget-panel">
         <summary>{tools.stays}</summary>
-        {lodgingConflict && <p role="alert">{tools.stayConflict}</p>}
+        {lodgingConflict && (
+          <div role="alert">
+            <p>{tools.stayConflict}</p>
+            <ul>
+              {trip.stays?.flatMap((stay, index) => [
+                ...(stay.to > trip.days + 1
+                  ? [
+                      <li key={`${stay.id}:range`}>
+                        {stay.name || tools.hotel}: {stay.from} → {stay.to} ·{' '}
+                        {tools.outOfRange}
+                      </li>,
+                    ]
+                  : []),
+                ...trip
+                  .stays!.slice(index + 1)
+                  .filter(
+                    (other) => stay.from < other.to && other.from < stay.to,
+                  )
+                  .map((other) => (
+                    <li key={`${stay.id}:${other.id}`}>
+                      {stay.name || tools.hotel} ({stay.from}–{stay.to}) ↔{' '}
+                      {other.name || tools.hotel} ({other.from}–{other.to})
+                    </li>
+                  )),
+              ])}
+            </ul>
+          </div>
+        )}
         {(trip.stays || []).map((stay, index) => (
           <div className="trip-meta lodging-row" key={stay.id}>
             <TripField
+              fieldKey={`stay:${stay.id}:name`}
               label={tools.hotel}
               value={stay.name}
               save={(name) =>
@@ -85,6 +157,7 @@ export default function TripTools() {
             {(['from', 'to'] as const).map((key) => (
               <TripField
                 key={key}
+                fieldKey={`stay:${stay.id}:${key}`}
                 label={key === 'from' ? tools.checkIn : tools.checkOut}
                 type="number"
                 min={key === 'from' ? 1 : stay.from + 1}
@@ -101,6 +174,7 @@ export default function TripTools() {
               />
             ))}
             <p>
+              {stay.to - stay.from} {tools.nights} ·{' '}
               {tripDate(trip.startDate, stay.from)} →{' '}
               {tripDate(trip.startDate, stay.to)}
             </p>
@@ -144,6 +218,7 @@ export default function TripTools() {
         <p>{tools.budgetHelp}</p>
         <div className="trip-meta">
           <TripField
+            fieldKey="travelers"
             label={tools.travelers}
             type="number"
             min={1}
@@ -156,6 +231,7 @@ export default function TripTools() {
           {(['stay', 'transport', 'food', 'activities'] as const).map((key) => (
             <TripField
               key={key}
+              fieldKey={`budget:${key}`}
               label={tools[key]}
               type="number"
               min={0}
@@ -180,6 +256,10 @@ export default function TripTools() {
           {tools.perDay}: {money(total / trip.days)}
         </p>
       </details>
+      <details className="budget-panel trip-extras">
+        <summary>{tools.moreTools}</summary>
+        <TripExtras />
+      </details>
       <label className="export-privacy">
         <input
           type="checkbox"
@@ -191,16 +271,38 @@ export default function TripTools() {
       <div className="trip-file-actions">
         <button type="button" onClick={undo} disabled={!canUndo}>
           {tools.undo}
+          {undoLabel ? `: ${undoLabel}` : ''}
         </button>
         <button
           type="button"
-          onClick={() => {
+          disabled={Object.keys(drafts).length > 0}
+          onClick={async () => {
             downloadTrip(
               JSON.stringify(exportTrip, null, 2),
               tripFilename('json'),
               'application/json',
             )
-            setLastBackup(new Date().toLocaleString(lang))
+            if (!sanitized) {
+              let backupHash = ''
+              try {
+                const buffer = await crypto.subtle.digest(
+                  'SHA-256',
+                  new TextEncoder().encode(JSON.stringify(trip)),
+                )
+                backupHash = Array.from(new Uint8Array(buffer), (n) =>
+                  n.toString(16).padStart(2, '0'),
+                ).join('')
+              } catch {
+                return
+              }
+              const meta = { time: new Date().toISOString(), hash: backupHash }
+              setLastBackup(meta)
+              try {
+                localStorage.setItem('japan-trip-backup', JSON.stringify(meta))
+              } catch {
+                setError(copy.error)
+              }
+            }
           }}
         >
           {tools.backup}
@@ -235,6 +337,7 @@ export default function TripTools() {
         </label>
         <button
           type="button"
+          disabled={Object.keys(drafts).length > 0}
           onClick={() =>
             downloadTrip(
               offlineTrip(exportTrip, lang, copy, tools),
@@ -248,7 +351,11 @@ export default function TripTools() {
       </div>
       {lastBackup && (
         <p>
-          {tools.lastBackup}: {lastBackup}
+          {tools.backupRequested}:{' '}
+          {new Date(lastBackup.time).toLocaleString(lang)}
+          {hash && lastBackup.hash !== hash && (
+            <strong> · {tools.backupChanged}</strong>
+          )}
         </p>
       )}
       <p className="source-note">{tools.privacy}</p>
@@ -266,7 +373,19 @@ export default function TripTools() {
           <p>
             {incoming.trip.base} · {incoming.trip.startDate}
           </p>
+          {Object.keys(drafts).length > 0 && (
+            <p role="alert">{tools.pendingDrafts}</p>
+          )}
           <p>{tools.mergeHelp}</p>
+          <p>{tools.replaceHelp}</p>
+          <p>
+            {tools.existingItems}:{' '}
+            {
+              incoming.trip.items.filter((item) =>
+                trip.items.some((old) => entryKey(old) === entryKey(item)),
+              ).length
+            }
+          </p>
           <p>
             {tools.countNew}:{' '}
             {
@@ -318,6 +437,7 @@ export default function TripTools() {
           </details>
           <button
             type="button"
+            disabled={Object.keys(drafts).length > 0}
             onClick={() => {
               if (!mergeTrips(trip, incoming.trip)) {
                 setError(copy.limit)
@@ -337,6 +457,7 @@ export default function TripTools() {
           </button>
           <button
             type="button"
+            disabled={Object.keys(drafts).length > 0}
             onClick={() => {
               if (
                 window.confirm(tools.replaceConfirm) &&
