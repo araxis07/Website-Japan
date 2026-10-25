@@ -548,4 +548,16 @@ html[data-motion='still'] *::after {
   .site-header .brand small {
     display: none;
   }
+  .site-header .brand {
+    flex-shrink: 1;
+    min-width: 0;
+  }
+  .site-header .brand > span:last-child {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+  .site-header .brand-mark,
+  .site-header .header-actions {
+    flex-shrink: 0;
+  }
 }

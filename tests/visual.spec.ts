@@ -108,6 +108,10 @@ test('navigation and prefecture covers reflow at 320px in every language', async
   for (const lang of ['en', 'ja', 'th']) {
     for (const path of ['my-trip', 'prefectures/kyoto']) {
       await page.goto(`/${lang}/${path}`)
+      // Exercise wider fallback fonts and enlarged brand text as well as native metrics.
+      await page.locator('.site-header .brand strong').evaluate((element) => {
+        element.style.fontSize = '24px'
+      })
       expect(
         await page.evaluate(
           () => document.documentElement.scrollWidth <= innerWidth,
