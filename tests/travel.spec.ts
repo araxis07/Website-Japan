@@ -226,6 +226,7 @@ test('navigation, language switching and FAQ disclosure work', async ({
     page.getByText(/Choose by region and the experience/),
   ).toBeVisible()
   await page.getByRole('link', { name: 'Back to top', exact: true }).click()
+  await expect(page).toHaveURL(/#$/)
   await expect.poll(() => page.evaluate(() => window.scrollY)).toBeLessThan(2)
   await page.goto('/en/destinations/kyoto')
   await page.locator('.language-picker summary').click()
@@ -299,6 +300,8 @@ test('content and navigation stay readable without JavaScript', async ({
   await expect(
     page.getByRole('heading', { level: 1, name: 'Kyoto', exact: true }),
   ).toBeVisible()
+  await page.getByRole('link', { name: 'Back to top', exact: true }).click()
+  await expect.poll(() => page.evaluate(() => window.scrollY)).toBeLessThan(2)
   await page.goto('/en/explore')
   await expect(page.locator('.prefecture-card')).toHaveCount(47)
   const prefecture = await page.goto('/en/prefectures/nara')

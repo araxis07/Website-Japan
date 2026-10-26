@@ -62,7 +62,7 @@ for (const theme of ['light', 'dark']) {
         body: JSON.stringify(result, null, 2),
         contentType: 'application/json',
       })
-      expect(result, path).toEqual([])
+      expect.soft(result, path).toEqual([])
     }
   })
 }

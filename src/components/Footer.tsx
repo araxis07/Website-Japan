@@ -70,7 +70,7 @@ export default function Footer({
           </p>
           <p>{dict.footer.disclaimer}</p>
           <Link href={`/${lang}/credits`}>{dict.footer.credits}</Link>
-          <a href="#top">
+          <a href="#">
             {dict.footer.top}
             <span aria-hidden="true">↑</span>
           </a>

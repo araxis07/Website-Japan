@@ -66,7 +66,7 @@ export default async function LocaleLayout({
         <ThemeScript />
       </head>
       {/* Extensions can add body attributes before hydration; descendants remain checked. */}
-      <body id="top" suppressHydrationWarning>
+      <body suppressHydrationWarning>
         <a className="skip-link" href="#main-content">
           {dict.a11y.skip}
         </a>
