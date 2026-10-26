@@ -2,8 +2,8 @@ import entrancePhotos from '@/data/entrance-photos.json'
 import commonsPhotos from '@/data/prefecture-photos.json'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { siteUrl } from '@/utils/site'
-import { i18n, isLocale } from '@/i18n/config'
+import { pageMetadata } from '@/utils/site'
+import { isLocale } from '@/i18n/config'
 import { newPhotoCredits } from '@/data/photos'
 import { getDictionary } from '@/i18n/dictionaries'
 
@@ -26,22 +26,12 @@ export async function generateMetadata({
   const { lang } = await params
   if (!isLocale(lang)) notFound()
   const dict = await getDictionary(lang)
-  return {
-    title: dict.footer.credits,
-    ...(siteUrl
-      ? {
-          alternates: {
-            canonical: `${siteUrl}/${lang}/credits`,
-            languages: Object.fromEntries(
-              i18n.locales.map((locale) => [
-                locale,
-                `${siteUrl}/${locale}/credits`,
-              ]),
-            ),
-          },
-        }
-      : {}),
-  }
+  return pageMetadata(
+    lang,
+    '/credits',
+    dict.footer.credits,
+    dict.tools.commonsCredit,
+  )
 }
 export default async function Credits({
   params,

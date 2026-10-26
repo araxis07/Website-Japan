@@ -248,6 +248,18 @@ export default function TripTools() {
             />
           ))}
         </div>
+        {(['stay', 'transport', 'food', 'activities'] as const).some(
+          (key) => trip.budget?.[key] === undefined,
+        ) && (
+          <p className="budget-incomplete">
+            {tools.budgetMissing}:{' '}
+            {(['stay', 'transport', 'food', 'activities'] as const)
+              .filter((key) => trip.budget?.[key] === undefined)
+              .map((key) => tools[key])
+              .join(' · ')}
+            . {tools.budgetIncomplete}
+          </p>
+        )}
         <p>
           <strong>
             {tools.total}: {money(total)}
@@ -404,8 +416,8 @@ export default function TripTools() {
                   {item.day || copy.unplanned} · {item.time}
                   <p>{item.note}</p>
                   <p>
-                    {tools.duration}: {item.duration ?? '—'} · {tools.buffer}:{' '}
-                    {item.buffer ?? '—'}
+                    {tools.duration}: {item.duration ?? '—'} {tools.minuteUnit}{' '}
+                    · {tools.buffer}: {item.buffer ?? '—'} {tools.minuteUnit}
                   </p>
                 </li>
               ))}

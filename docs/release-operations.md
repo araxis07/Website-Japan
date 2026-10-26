@@ -21,17 +21,17 @@
 - Match the same factual meaning in Japanese, English and Thai. Preserve Japanese place names/addresses for taxi, station and map use. Keep the stable ID unchanged; use the existing alias migration for renamed records.
 - Photo changes need a verified subject, meaningful alt in all three languages, original source, named creator, license and local optimized file. Preserve share-alike licensing for adapted Commons photos.
 
-| Meaning | English | 日本語 | ไทย |
-| --- | --- | --- | --- |
-| Regional division | Prefecture | 都道府県 | จังหวัด |
-| Travel planning only | Suggested plan | おすすめプラン | แผนเที่ยวแนะนำ |
-| Not verified | Check with the official source | 公式情報を確認 | ตรวจสอบกับแหล่งทางการ |
-| Estimate, not quote | Estimated budget | 予算の目安 | งบประมาณโดยประมาณ |
-| Public transport route | Transit directions | 公共交通機関の経路 | เส้นทางขนส่งสาธารณะ |
-| Distance, not journey time | Straight-line distance | 直線距離 | ระยะทางเส้นตรง |
-| Saved locally | Saved on this device | この端末に保存済み | บันทึกบนอุปกรณ์นี้แล้ว |
-| Unscheduled visit | Unscheduled | 未設定 | ยังไม่จัดวัน |
-| Accommodation check-out | Check-out day | チェックアウト日 | วันเช็กเอาต์ |
+| Meaning                    | English                        | 日本語             | ไทย                    |
+| -------------------------- | ------------------------------ | ------------------ | ---------------------- |
+| Regional division          | Prefecture                     | 都道府県           | จังหวัด                |
+| Travel planning only       | Suggested plan                 | おすすめプラン     | แผนเที่ยวแนะนำ         |
+| Not verified               | Check with the official source | 公式情報を確認     | ตรวจสอบกับแหล่งทางการ  |
+| Estimate, not quote        | Estimated budget               | 予算の目安         | งบประมาณโดยประมาณ      |
+| Public transport route     | Transit directions             | 公共交通機関の経路 | เส้นทางขนส่งสาธารณะ    |
+| Distance, not journey time | Straight-line distance         | 直線距離           | ระยะทางเส้นตรง         |
+| Saved locally              | Saved on this device           | この端末に保存済み | บันทึกบนอุปกรณ์นี้แล้ว |
+| Unscheduled visit          | Unscheduled                    | 未設定             | ยังไม่จัดวัน           |
+| Accommodation check-out    | Check-out day                  | チェックアウト日   | วันเช็กเอาต์           |
 
 Native-speaker review should check tone, ambiguous station exits, transliteration and accessibility wording, not just dictionary-key parity. This glossary is an editorial reference, not evidence that a native reviewer has signed off.
 
@@ -61,6 +61,8 @@ Record completion, wrong turns, time, requests for help, misunderstood terms and
 
 The active version-1 trip remains in `japan-travel-trip-v1`. Up to ten separately saved copies use `japan-travel-library-v1`; edits do not update earlier copies automatically. Both are local to the browser, without account or cloud sync. Invalid drafts use per-tab session storage and survive route/language changes and reloads. If session storage fails, an in-memory draft and unload warning are the fallback; closing the tab can still lose that draft. The page must never label a trip fully saved while a rejected draft exists.
 
-A full backup request stores a SHA-256 fingerprint and timestamp in `japan-trip-backup`. This records the download request, not proof that the user retained the file. A sanitized export does not count as a full backup. Calendar export uses Japan time for timed visits and all-day entries otherwise; it contains saved visit notes and must be reviewed before sharing. Manually dated currency rates are estimates, never live quotes.
+A full backup request stores a SHA-256 fingerprint and timestamp in `japan-trip-backup`. This records the download request, not proof that the user retained the file. A sanitized export does not count as a full backup. Calendar export uses Japan time for timed visits and all-day entries otherwise; private visit notes are excluded by default and require an explicit opt-in before download. Review the file before sharing. Manually dated currency rates are estimates, never live quotes; the chosen rate, currency and date persist in private backups. The preparation checklist also belongs to the active trip. Named copies include snapshot timestamps; whole-library backup/restore is separate from active-trip backup.
 
 Before switching trips, repair or discard pending input and export the current plan. Load/replace requires confirmation; one-step Undo restores the preceding active trip. Invalid stored JSON can be downloaded unchanged before an explicit reset. No migration discards the existing trip automatically.
+
+For the follow-through changes, per-item acceptance status and deployment checker, see [the delivery ledger](follow-through-2026-10-26.md).

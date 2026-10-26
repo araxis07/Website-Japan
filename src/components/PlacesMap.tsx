@@ -4,8 +4,9 @@ import { canonicalPlaceId, mapUrl, type Place } from '@/data/places'
 import type { Locale } from '@/i18n/config'
 import type { Dictionary } from '@/i18n/dictionaries'
 import SavePlace from './SavePlace'
+import VisitFacts from './VisitFacts'
 import StreetMap from './StreetMap'
-import { visitFor, placeCategory, visitSource } from '@/data/visit-details'
+import { visitFor, placeCategory } from '@/data/visit-details'
 import { prefectures } from '@/data/prefectures'
 import { useTrip } from './TripProvider'
 import { usePageLocation } from './usePageLocation'
@@ -55,6 +56,13 @@ export default function PlacesMap({
         </button>
         <h2>{selectedPlace.names[lang]}</h2>
         <p lang="ja">{selectedPlace.address}</p>
+        <p>{visitFor(selectedPlace)?.access?.[lang] || tools.verify}</p>
+        {visitFor(selectedPlace)?.hours && (
+          <p>
+            {tools.hours}: {visitFor(selectedPlace)!.hours![lang]}
+          </p>
+        )}
+        <p className="source-note">{tools.pinReference}</p>
         <a className="button" href={mapUrl(selectedPlace, true)}>
           {mapCopy.route} ↗
         </a>
@@ -119,41 +127,7 @@ export default function PlacesMap({
               )}
               <details className="visit-details">
                 <summary>{tools.visitInfo}</summary>
-                <dl>
-                  {(
-                    [
-                      'access',
-                      'entrance',
-                      'hours',
-                      'admission',
-                      'booking',
-                      'accessibility',
-                    ] as const
-                  ).map((key) => (
-                    <div key={key}>
-                      <dt>{tools[key]}</dt>
-                      <dd>
-                        {visit?.[key]?.[lang] || tools.verify}
-                        {visit?.[key] && (
-                          <small className="field-source">
-                            <a href={visitSource(visit, key).source}>
-                              {tools.official} ↗
-                            </a>{' '}
-                            · <time>{visitSource(visit, key).reviewedAt}</time>
-                          </small>
-                        )}
-                      </dd>
-                    </div>
-                  ))}
-                  {visit?.minutes !== undefined && (
-                    <div>
-                      <dt>{tools.duration}</dt>
-                      <dd>
-                        {visit.minutes} min · {tools.estimated}
-                      </dd>
-                    </div>
-                  )}
-                </dl>
+                <VisitFacts visit={visit} />
                 <p>{tools.locationNote}</p>
                 {source && <a href={source}>{tools.official} ↗</a>}
                 {visit?.infoSource && (
@@ -194,9 +168,7 @@ export default function PlacesMap({
 
                   <a href={mapUrl(point)}>{mapCopy.search} ↗</a>
                   <a href={mapUrl(point, true, 'walking')}>{tools.walk} ↗</a>
-                  <a href={mapUrl(point, true, 'transit')}>
-                    {tools.transit} ↗
-                  </a>
+                  <a href={mapUrl(point, true, 'transit')}>{tools.transit} ↗</a>
                   {point.source && (
                     <a href={point.source}>{mapCopy.source} ↗</a>
                   )}

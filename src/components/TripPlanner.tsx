@@ -5,6 +5,7 @@ import TripTools from './TripTools'
 import TripField from './TripField'
 import TripDayOverview from './TripDayOverview'
 import TripStarter from './TripStarter'
+import TripOverview from './TripOverview'
 import type { Dictionary } from '@/i18n/dictionaries'
 import {
   entryKey,
@@ -118,6 +119,18 @@ export default function TripPlanner({
       </div>
       {!trip.items.length && <TripStarter />}
       <TripTools />
+      {trip.items.length > 0 && (
+        <TripOverview
+          selectDay={(day) => {
+            setViewDay(String(day))
+            requestAnimationFrame(() => {
+              const heading = document.getElementById(`trip-day-${day}`)
+              heading?.focus()
+              heading?.scrollIntoView({ block: 'start' })
+            })
+          }}
+        />
+      )}
       <div className="planner-toolbar">
         <label>
           {copy.days}
@@ -235,7 +248,7 @@ export default function TripPlanner({
               key={day}
               aria-labelledby={`trip-day-${day}`}
             >
-              <h2 id={`trip-day-${day}`}>
+              <h2 id={`trip-day-${day}`} tabIndex={-1}>
                 {day ? dayLabel(day) : copy.unplanned}{' '}
                 <small>{tripDate(trip.startDate, day)}</small>
               </h2>
@@ -282,8 +295,8 @@ export default function TripPlanner({
                   >
                     {tools.timeConflict}:{' '}
                     {places.find((p) => p.id === a.id)!.names[lang]} ({a.time})
-                    ↔ {places.find((p) => p.id === b.id)!.names[lang]} (
-                    {b.time})
+                    ↔ {places.find((p) => p.id === b.id)!.names[lang]} ({b.time}
+                    )
                   </p>
                 ))}
               {day > 0 && entries.length > 0 && (
@@ -348,9 +361,9 @@ export default function TripPlanner({
                       <p className="print-address">
                         {entry.time} {entry.note}{' '}
                         {entry.duration !== undefined &&
-                          `${tools.duration}: ${entry.duration}`}{' '}
+                          `${tools.duration}: ${entry.duration} ${tools.minuteUnit}`}{' '}
                         {entry.buffer !== undefined &&
-                          `${tools.buffer}: ${entry.buffer}`}
+                          `${tools.buffer}: ${entry.buffer} ${tools.minuteUnit}`}
                       </p>
                       <div className="trip-reservation">
                         <TripField

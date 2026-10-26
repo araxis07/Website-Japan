@@ -26,7 +26,12 @@ function fold(line: string) {
   }
   return result
 }
-export function tripCalendar(trip: Trip, lang: Locale, now = new Date()) {
+export function tripCalendar(
+  trip: Trip,
+  lang: Locale,
+  now = new Date(),
+  includeNotes = false,
+) {
   if (!trip.startDate) return null
   const lines = [
     'BEGIN:VCALENDAR',
@@ -58,7 +63,7 @@ export function tripCalendar(trip: Trip, lang: Locale, now = new Date()) {
     lines.push(
       `SUMMARY:${escape(place.names[lang])}`,
       `LOCATION:${escape(place.address || place.names.ja)}`,
-      `DESCRIPTION:${escape(item.note || '')}`,
+      `DESCRIPTION:${escape(includeNotes ? item.note || '' : '')}`,
       'END:VEVENT',
     )
   }

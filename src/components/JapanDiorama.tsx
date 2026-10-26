@@ -60,6 +60,60 @@ export default function JapanDiorama({ copy }: { copy: Dictionary['scene'] }) {
       scene.current = null
     }
   }, [requested])
+  const topics =
+    region === 'kyoto'
+      ? {
+          fuji: {
+            label: tools.kyotoWalk,
+            text: tools.kyotoWalkText,
+            path: '/destinations/kyoto#place-kiyomizu',
+          },
+          torii: {
+            label: tools.sceneTorii,
+            text: tools.hotspotTorii,
+            path: '/prefectures/kyoto#place-pref:kyoto:fushimi-inari-taisha',
+          },
+          sakura: {
+            label: tools.kyotoSeason,
+            text: tools.kyotoSeasonText,
+            path: '/prefectures/kyoto',
+          },
+        }
+      : region === 'hokkaido'
+        ? {
+            fuji: {
+              label: tools.hokkaidoCity,
+              text: tools.hokkaidoCityText,
+              path: '/destinations/hokkaido#place-odori',
+            },
+            torii: {
+              label: tools.hokkaidoMuseum,
+              text: tools.hokkaidoMuseumText,
+              path: '/destinations/hokkaido#place-hokkaido-museum',
+            },
+            sakura: {
+              label: tools.hokkaidoSeason,
+              text: tools.hotspotSakura,
+              path: '/prefectures/hokkaido',
+            },
+          }
+        : {
+            fuji: {
+              label: tools.sceneFuji,
+              text: tools.hotspotFuji,
+              path: '/destinations/mount-fuji',
+            },
+            torii: {
+              label: tools.sceneTorii,
+              text: tools.hotspotTorii,
+              path: '/prefectures/kyoto#place-pref:kyoto:fushimi-inari-taisha',
+            },
+            sakura: {
+              label: tools.sceneSakura,
+              text: tools.typicalSeason,
+              path: '/prefectures/yamanashi',
+            },
+          }
   return (
     <div
       className="diorama"
@@ -106,7 +160,7 @@ export default function JapanDiorama({ copy }: { copy: Dictionary['scene'] }) {
         </span>
       </div>
       <div className="scene-controls">
-        <label className="scene-region">
+        <label className="scene-region" hidden={status !== 'ready'}>
           {tools.sceneRegion}
           <select
             value={region}
@@ -143,6 +197,7 @@ export default function JapanDiorama({ copy }: { copy: Dictionary['scene'] }) {
         )}
         <div
           className="scene-seasons"
+          hidden={status !== 'ready'}
           role="group"
           aria-label={copy.seasonLabel}
         >
@@ -169,7 +224,7 @@ export default function JapanDiorama({ copy }: { copy: Dictionary['scene'] }) {
             </button>
           ))}
         </div>
-        <div className="scene-toolbar">
+        <div className="scene-toolbar" hidden={status !== 'ready'}>
           <button
             className="light-switch"
             type="button"
@@ -218,6 +273,9 @@ export default function JapanDiorama({ copy }: { copy: Dictionary['scene'] }) {
             </button>
           </div>
         </div>
+        {status === 'ready' && (
+          <p className="source-note">{tools.sceneInstructions}</p>
+        )}
         <p className="scene-hint" role="status">
           {status === 'loading'
             ? copy.loading
@@ -242,31 +300,13 @@ export default function JapanDiorama({ copy }: { copy: Dictionary['scene'] }) {
             aria-pressed={topic === key}
             onClick={() => setTopic(key)}
           >
-            {key === 'fuji'
-              ? tools.sceneFuji
-              : key === 'torii'
-                ? tools.sceneTorii
-                : tools.sceneSakura}
+            {topics[key].label}
           </button>
         ))}
       </div>
       <p className="scene-topic" aria-live="polite">
-        {topic === 'fuji'
-          ? tools.hotspotFuji
-          : topic === 'torii'
-            ? tools.hotspotTorii
-            : tools.hotspotSakura}{' '}
-        <Link
-          href={
-            topic === 'fuji'
-              ? `/${lang}/destinations/mount-fuji`
-              : topic === 'torii'
-                ? `/${lang}/prefectures/kyoto#place-pref:kyoto:fushimi-inari-taisha`
-                : `/${lang}/prefectures/hokkaido`
-          }
-        >
-          {tools.readTopic} ↗
-        </Link>
+        {topics[topic].text}{' '}
+        <Link href={`/${lang}${topics[topic].path}`}>{tools.readTopic} ↗</Link>
       </p>
     </div>
   )

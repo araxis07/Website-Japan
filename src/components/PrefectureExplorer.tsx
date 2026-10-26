@@ -71,7 +71,8 @@ export default function PrefectureExplorer({
             p.places.some(
               (place) =>
                 (category === 'all' || place.category === category) &&
-                visitFor(place)?.[information],
+                (visitFor(place)?.[information] ||
+                  visitFor(place)?.notApplicable?.[information]),
             )) &&
           normalizeSearch(
             `${Object.values(p.names).join(' ')} ${p.summary} ${p.keywords} ${p.places.map(placeSearchText).join(' ')}`,
@@ -86,7 +87,11 @@ export default function PrefectureExplorer({
         .filter(
           (place) =>
             (category === 'all' || place.category === category) &&
-            (!information || Boolean(visitFor(place)?.[information])) &&
+            (!information ||
+              Boolean(
+                visitFor(place)?.[information] ||
+                visitFor(place)?.notApplicable?.[information],
+              )) &&
             (!query.trim() ||
               normalizeSearch(placeSearchText(place)).includes(
                 normalizeSearch(query.trim()),

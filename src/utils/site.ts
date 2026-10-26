@@ -20,7 +20,10 @@ export function pageMetadata(
           alternates: {
             canonical: `${siteUrl}/${lang}${path}`,
             languages: Object.fromEntries(
-              i18n.locales.map((locale) => [locale, `${siteUrl}/${locale}${path}`]),
+              i18n.locales.map((locale) => [
+                locale,
+                `${siteUrl}/${locale}${path}`,
+              ]),
             ),
           },
           openGraph: {
@@ -29,6 +32,12 @@ export function pageMetadata(
             url: `${siteUrl}/${lang}${path}`,
             locale: ogLocales[lang],
             type: 'website',
+            images: [
+              {
+                url: `${siteUrl}/images/fuji.jpg`,
+                alt: 'Mount Fuji / 富士山 / ภูเขาไฟฟูจิ',
+              },
+            ],
           },
         }
       : {}),

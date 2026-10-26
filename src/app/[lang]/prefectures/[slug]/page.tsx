@@ -62,8 +62,8 @@ export default async function PrefecturePage({ params }: Props) {
     (d) => d.slug === slug || (slug === 'yamanashi' && d.slug === 'mount-fuji'),
   )
   const photo = commonsPhotos[slug as keyof typeof commonsPhotos]
-  const initial = p.places.map(
-    (id) => prefecturePlaces.find((place) => place.id === id)!,
+  const initial = p.places.map((id) =>
+    prefecturePlaces.find((place) => place.id === id)!,
   )
   const points = [
     ...initial,
@@ -285,10 +285,19 @@ export default async function PrefecturePage({ params }: Props) {
       <section id="nearby" className="nearby-prefectures">
         <h2>{dict.tools.nearby}</h2>
         <p className="source-note">{dict.tools.straight}</p>
+        <p>{dict.tools.nearbyHelp}</p>
         {nearby.map(({ other, km }) => (
-          <Link key={other.slug} href={`/${lang}/prefectures/${other.slug}`}>
-            {other.names[lang]} · {Math.round(km)} km ↗
-          </Link>
+          <div className="nearby-connection" key={other.slug}>
+            <Link href={`/${lang}/prefectures/${other.slug}`}>
+              {other.names[lang]} · {Math.round(km)} km ↗
+            </Link>
+            <a
+              href={`https://www.google.com/maps/dir/?${new URLSearchParams({ api: '1', origin: `${p.base.ja} ${p.names.ja} 日本`, destination: `${other.base.ja} ${other.names.ja} 日本`, travelmode: 'transit' })}`}
+            >
+              {dict.tools.checkConnection}: {p.base[lang]} → {other.base[lang]}{' '}
+              ↗
+            </a>
+          </div>
         ))}
       </section>
       <div className="prefecture-next">

@@ -2749,6 +2749,9 @@ html[lang='th'] .hero-description {
   background: #f3e3d8;
   border-color: #c6947c;
 }
+html[data-theme='dark'] .save-button[aria-pressed='true'] {
+  background: var(--white);
+}
 .save-button > span {
   font-size: 19px;
   line-height: 1;

@@ -24,6 +24,8 @@ export type Trip = {
   base?: string
   notes?: Record<string, string>
   budget?: Partial<Record<'stay' | 'transport' | 'food' | 'activities', number>>
+  preparation?: string[]
+  fx?: { currency: 'THB' | 'USD' | 'EUR'; rate: number; date: string }
 }
 export const emptyTrip: Trip = { version: 1, days: 7, items: [] }
 const knownPlaces = new Set(places.map((place) => place.id))
@@ -47,6 +49,44 @@ export function parseTrip(raw: string): Trip | null {
     )
       return null
     const result: Trip = { version: 1, days: value.days, items: [] }
+    if (value.preparation !== undefined) {
+      if (
+        !Array.isArray(value.preparation) ||
+        value.preparation.length > 6 ||
+        new Set(value.preparation).size !== value.preparation.length ||
+        value.preparation.some(
+          (id: unknown) =>
+            typeof id !== 'string' ||
+            ![
+              'documents',
+              'airport',
+              'transport',
+              'essentials',
+              'etiquette',
+              'help',
+            ].includes(id),
+        )
+      )
+        return null
+      result.preparation = value.preparation
+    }
+    if (value.fx !== undefined) {
+      const fx = value.fx
+      if (
+        !fx ||
+        !['THB', 'USD', 'EUR'].includes(fx.currency) ||
+        typeof fx.rate !== 'number' ||
+        !Number.isFinite(fx.rate) ||
+        fx.rate <= 0 ||
+        fx.rate > 1000000 ||
+        typeof fx.date !== 'string' ||
+        !/^\d{4}-\d{2}-\d{2}$/.test(fx.date) ||
+        !Number.isFinite(Date.parse(`${fx.date}T12:00:00Z`)) ||
+        new Date(`${fx.date}T12:00:00Z`).toISOString().slice(0, 10) !== fx.date
+      )
+        return null
+      result.fx = { currency: fx.currency, rate: fx.rate, date: fx.date }
+    }
     const originalIds = new Set<string>()
     for (const item of value.items) {
       if (
@@ -218,6 +258,18 @@ export function tripDate(start: string | undefined, day: number) {
   const date = new Date(`${start}T12:00:00Z`)
   date.setUTCDate(date.getUTCDate() + day - 1)
   return date.toISOString().slice(0, 10)
+}
+
+export function japanDate(now = new Date()) {
+  const parts = new Intl.DateTimeFormat('en', {
+    timeZone: 'Asia/Tokyo',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).formatToParts(now)
+  return ['year', 'month', 'day']
+    .map((type) => parts.find((part) => part.type === type)!.value)
+    .join('-')
 }
 
 // Preserve notes and accommodation after shortening a trip; never silently discard them.

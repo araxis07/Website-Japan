@@ -28,7 +28,13 @@ jobs:
       - run: npm run lint
       - run: npm run build
       - run: npm run typecheck
-      - run: npx playwright install --with-deps chromium webkit
+      - name: Install browser system dependencies
+        timeout-minutes: 8
+        run: npx playwright install-deps chromium webkit
+      - name: Install test browsers
+        timeout-minutes: 6
+        run: npx playwright install chromium webkit
+      - run: node scripts/check-deployment.mjs --self-test
       - run: npm test
       - run: npm audit --audit-level=high
       - run: node scripts/check-links.mjs

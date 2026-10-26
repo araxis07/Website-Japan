@@ -175,7 +175,7 @@ test('backup import previews changes, merges safely and never overwrites on inva
   page,
 }) => {
   await page.goto('/en/my-trip')
-  const upload = page.locator('input[type=file]')
+  const upload = page.locator('.trip-file-actions input[type=file]')
   await upload.setInputFiles({
     name: 'bad.json',
     mimeType: 'application/json',
@@ -245,7 +245,7 @@ test('import refuses stale previews after another tab changes the plan', async (
   context,
 }) => {
   await page.goto('/en/my-trip')
-  await page.locator('input[type=file]').setInputFiles({
+  await page.locator('.trip-file-actions input[type=file]').setInputFiles({
     name: 'trip.json',
     mimeType: 'application/json',
     buffer: Buffer.from(

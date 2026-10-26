@@ -297,7 +297,7 @@ export default function StreetMap({
         <p>{copy.nojs}</p>
       </noscript>
       <p className="map-help">
-        {copy.hint}{' '}
+        {tools?.mapLegend} {copy.hint}{' '}
         <a href="https://www.openstreetmap.org/fixthemap">{copy.report}</a>
       </p>
     </div>

@@ -398,7 +398,7 @@ test('interactive miniature responds to lighting, seasons, rotation and motion c
   await scene.locator('.scene-hotspots button').nth(1).click()
   await expect(scene.locator('.scene-topic a')).toHaveAttribute(
     'href',
-    '/en/prefectures/kyoto#place-pref:kyoto:fushimi-inari-taisha',
+    '/en/destinations/hokkaido#place-hokkaido-museum',
   )
   await page
     .getByRole('button', { name: 'Play animation', exact: true })
@@ -412,6 +412,13 @@ test('reduced motion and unavailable WebGL retain readable, usable content', asy
   await page.emulateMedia({ reducedMotion: 'reduce' })
   await page.goto('/en')
   await expect(page.locator('.diorama')).toHaveAttribute('data-moving', 'false')
+  await page
+    .getByRole('button', { name: 'Explore the 3D scene', exact: true })
+    .click()
+  await expect(page.locator('.diorama')).toHaveAttribute(
+    'data-scene-status',
+    'ready',
+  )
   await expect(
     page.getByRole('button', {
       name: 'Still scene · reduced motion is enabled',

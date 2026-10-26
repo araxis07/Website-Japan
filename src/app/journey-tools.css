@@ -692,3 +692,156 @@ select:focus-visible {
   outline: 3px solid #bd732f;
   outline-offset: 5px;
 }
+
+.trip-overviews {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-block: 1.5rem;
+}
+.trip-overviews details,
+.readiness-checklist {
+  border: 1px solid var(--line);
+  padding: 1rem;
+  background: var(--white);
+}
+.trip-overviews summary {
+  cursor: pointer;
+  font-weight: 600;
+  min-height: 44px;
+}
+.trip-overviews li {
+  margin-block: 1rem;
+}
+.trip-overview li {
+  display: grid;
+  gap: 0.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--line);
+}
+.trip-overviews button {
+  min-height: 44px;
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+}
+.trip-overviews p,
+.trip-overviews h3 {
+  margin-block: 0.75rem;
+}
+.trip-overviews h3 {
+  font-size: 1.25rem;
+}
+.trip-on-the-go label {
+  display: grid;
+  gap: 0.5rem;
+}
+.preserve-lines {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.starter-coverage,
+.budget-incomplete {
+  padding: 0.75rem;
+  border-left: 3px solid var(--red);
+  background: var(--paper);
+}
+.visit-facts [data-review-status='overdue'] .field-source {
+  color: var(--red);
+  font-weight: 600;
+}
+.map-sheet .source-note {
+  margin-block: 0.75rem;
+}
+.trip-library > label {
+  display: grid;
+  margin-block: 1rem;
+  gap: 0.5rem;
+}
+.trip-library > ul > li {
+  padding-block: 1rem;
+  border-bottom: 1px solid var(--line);
+}
+.recovery-page {
+  padding-block: 5rem;
+  min-height: 60vh;
+}
+.recovery-page h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  margin-bottom: 1rem;
+}
+.recovery-page .hero-actions {
+  margin-top: 2rem;
+}
+.readiness-checklist fieldset {
+  border: 0;
+  min-width: 0;
+  padding: 0.75rem 0;
+}
+.readiness-checklist label {
+  display: flex;
+  align-items: start;
+  gap: 0.75rem;
+  padding-block: 0.5rem;
+}
+.readiness-checklist input {
+  flex: 0 0 auto;
+}
+.scene-controls [hidden] {
+  display: none !important;
+}
+.explorer-filters label {
+  min-width: min(100%, 12rem);
+}
+.explorer-filters select {
+  max-width: 100%;
+}
+html[lang='th'] body .hero h1 {
+  font-size: clamp(3rem, 6.8vw, 6.8rem);
+  line-height: 1.35;
+  letter-spacing: -0.025em;
+}
+.trip-tools button:focus-visible,
+.trip-overviews button:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid #bd732f;
+  outline-offset: 3px;
+}
+@media (max-width: 700px) {
+  .trip-overviews {
+    grid-template-columns: 1fr;
+  }
+  .explorer-filters > label,
+  .explorer-filters select {
+    width: 100%;
+  }
+  html[lang='th'] body .hero h1 {
+    font-size: clamp(2.5rem, 11.5vw, 4rem);
+  }
+}
+@media print {
+  .trip-overviews,
+  .recovery-page button {
+    display: none;
+  }
+}
+
+.traveler-profiles section {
+  margin-block: 1rem;
+}
+.traveler-profiles h2 {
+  font-size: 1.2rem;
+}
+.travel-notices li {
+  margin-block: 1rem;
+}
+
+.nearby-connection {
+  display: grid;
+  gap: 0.5rem;
+  padding-block: 0.75rem;
+}
+.nearby-connection a {
+  width: fit-content;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}

@@ -1,8 +1,14 @@
 import type { Locale } from '@/i18n/config'
-type Arrival = { code: string; source: string; steps: Record<Locale, string[]> }
+type Arrival = {
+  reviewedAt: string
+  code: string
+  source: string
+  steps: Record<Locale, string[]>
+}
 export const arrivalGuides: Arrival[] = [
   {
     code: 'HND · Haneda',
+    reviewedAt: '2026-10-25',
     source: 'https://tokyo-haneda.com/en/access/index.html',
     steps: {
       en: [
@@ -24,6 +30,7 @@ export const arrivalGuides: Arrival[] = [
   },
   {
     code: 'NRT · Narita',
+    reviewedAt: '2026-10-25',
     source: 'https://www.narita-airport.jp/en/access/',
     steps: {
       en: [
@@ -45,6 +52,7 @@ export const arrivalGuides: Arrival[] = [
   },
   {
     code: 'KIX · Kansai',
+    reviewedAt: '2026-10-25',
     source: 'https://www.kansai-airport.or.jp/en/access/from-airport/train',
     steps: {
       en: [
@@ -66,6 +74,7 @@ export const arrivalGuides: Arrival[] = [
   },
   {
     code: 'CTS · New Chitose',
+    reviewedAt: '2026-10-25',
     source: 'https://www.hokkaido-airports.com/en/new-chitose/access/',
     steps: {
       en: [
@@ -87,6 +96,7 @@ export const arrivalGuides: Arrival[] = [
   },
   {
     code: 'OKA · Naha',
+    reviewedAt: '2026-10-25',
     source: 'https://www.naha-airport.co.jp/en/access/',
     steps: {
       en: [
@@ -127,6 +137,7 @@ export const trainExample: Record<Locale, string[]> = {
 
 export const arrivalChecks = [
   {
+    reviewedAt: '2026-10-25',
     source: 'https://tokyo-haneda.com/en/access/bus/index.html',
     en: {
       title: 'Arriving late',
@@ -142,6 +153,7 @@ export const arrivalChecks = [
     },
   },
   {
+    reviewedAt: '2026-10-25',
     source: 'https://www.narita-airport.jp/en/service/delivery/',
     en: {
       title: 'Large bags and forwarding',
@@ -157,6 +169,7 @@ export const arrivalChecks = [
     },
   },
   {
+    reviewedAt: '2026-10-25',
     source:
       'https://tokyo-haneda.com/en/service/facilities/baby_nurseries.html',
     en: {
@@ -172,28 +185,125 @@ export const arrivalChecks = [
       text: 'แผนผังห้องเด็กของฮาเนดะแยกพื้นที่สาธารณะกับหลังตรวจความปลอดภัย และระบุจุดให้นมกับเปลี่ยนผ้าอ้อม เลือกห้องที่เข้าใช้ได้จากฝั่งขาเข้าก่อนออกไปต่อรถ เผื่อพัก หาทางใช้ลิฟต์ และตรวจตั๋วเด็ก พื้นที่รถเข็นเด็ก และความช่วยเหลือกับบริษัทที่ใช้จริง',
     },
   },
-] satisfies ({ source: string } & Record<
+] satisfies ({ source: string; reviewedAt: string } & Record<
   Locale,
   { title: string; text: string }
 >)[]
 
+export const workedTrainRouteReview = {
+  source: 'https://www.jreast.co.jp/en/multi/nex/',
+  reviewedAt: '2026-10-25',
+}
 export const workedTrainRoute: Record<Locale, string[]> = {
   en: [
     'Worked route: Narita Airport → Tokyo Station on JR Narita Express. At Terminal 1 use Narita Airport Station; at Terminals 2/3 follow the connection to Airport Terminal 2 Station.',
     'Select your travel date, departure and Tokyo as the destination. Confirm the base fare plus limited-express charge and your reserved train/car/seat; do not substitute an IC tap for the express ticket. Passes and bundles have their own eligibility and collection rules.',
     'Board the named train and get off at Tokyo. For an onward subway journey, follow that operator’s transfer signs and confirm the separate fare. Match the final station exit to your hotel; this example ends at Tokyo Station.',
-    'Check service notices before buying: JR East has announced changes to some Narita Express services on November 6–8, 2026. No live fare or departure is guaranteed here.',
   ],
   ja: [
     '具体例：成田空港→東京駅をJR成田エクスプレスで移動。第1ターミナルは成田空港駅、第2・3ターミナルは空港第2ビル駅への案内を確認。',
     '乗車日・発車時刻・目的地「東京」を選択。運賃と特急料金、指定列車・号車・席番を確認。ICのタッチだけで特急券の代わりにはなりません。パス・セット券は利用条件と受取方法を別途確認。',
     '指定の列車に乗り東京駅で下車。地下鉄へ乗り継ぐ場合は運行会社の案内と別途運賃を確認。宿に近い出口まで調べましょう。この例の終点は東京駅です。',
-    '購入前に運行情報を確認。JR東日本は2026年11月6〜8日の一部列車の変更を案内しています。ここにリアルタイムの運賃・時刻の保証はありません。',
   ],
   th: [
     'ตัวอย่างเส้นทาง: สนามบินนาริตะ → สถานี Tokyo ด้วย JR Narita Express อาคาร 1 ใช้ Narita Airport Station ส่วนอาคาร 2/3 ตามป้ายเชื่อมไป Airport Terminal 2 Station',
     'เลือกวัน เวลาออก และปลายทาง Tokyo ตรวจค่าโดยสารพื้นฐานรวมค่าด่วนพิเศษ พร้อมขบวน ตู้ และที่นั่งที่จอง การแตะบัตร IC ไม่ใช้แทนตั๋วด่วน พาสหรือตั๋วชุดมีเงื่อนไขผู้ใช้และวิธีรับตั๋วแยกต่างหาก',
     'ขึ้นขบวนที่ระบุแล้วลง Tokyo หากต่อรถใต้ดิน ให้ตามป้ายของบริษัทนั้นและตรวจค่าโดยสารช่วงต่อ หาเส้นทางไปทางออกใกล้โรงแรม ตัวอย่างนี้สิ้นสุดที่สถานี Tokyo',
-    'ตรวจประกาศก่อนซื้อ: JR East แจ้งเปลี่ยนแปลงบริการ Narita Express บางขบวนวันที่ 6–8 พ.ย. 2026 หน้านี้ไม่ได้รับรองราคาหรือเวลาออกแบบเรียลไทม์',
   ],
 }
+
+// Worked examples end at the named station; hotel transfers must be checked separately.
+export const moreTrainRoutes: Arrival[] = [
+  {
+    code: 'CTS → Sapporo',
+    reviewedAt: '2026-10-26',
+    source: 'https://www.jrhokkaido.co.jp/global/english/travel/airport.html',
+    steps: {
+      en: [
+        'At New Chitose Airport, follow JR signs and choose an Airport train stopping at Sapporo.',
+        'Non-reserved seats use a basic ticket or supported IC card. Car 4 is reserved: buy the additional reserved-seat ticket before boarding it.',
+        'Leave at Sapporo; check the exit and onward hotel route. A full non-reserved car does not guarantee a seat.',
+      ],
+      ja: [
+        '新千歳空港でJRの案内に従い、札幌に停車するエアポートを選択。',
+        '自由席は乗車券または対応ICカードで利用。4号車は指定席なので、乗車前に追加の指定席券を購入。',
+        '札幌で下車し、宿に近い出口と経路を確認。自由席の着席は保証されません。',
+      ],
+      th: [
+        'ที่สนามบิน New Chitose ตามป้าย JR เลือกขบวน Airport ที่จอด Sapporo',
+        'ที่นั่งไม่จองใช้ตั๋วพื้นฐานหรือบัตร IC ที่รองรับ ตู้ 4 เป็นที่นั่งจอง ต้องซื้อตั๋วที่นั่งเพิ่มก่อนขึ้น',
+        'ลง Sapporo แล้วตรวจทางออกและเส้นทางไปโรงแรม ที่นั่งไม่จองอาจเต็มและไม่ได้รับประกันว่าจะได้นั่ง',
+      ],
+    },
+  },
+  {
+    code: 'KIX → Nankai Namba',
+    reviewedAt: '2026-10-26',
+    source: 'https://www.nankai.co.jp/en_railway/rapit',
+    steps: {
+      en: [
+        'At Kansai-airport Station choose Nankai for this example, and Namba as your destination.',
+        'For Rapi:t, check the selected departure and reserved seat plus the complete ticket price. Follow the purchase or exchange instructions for your chosen ticket.',
+        'Get off at Nankai Namba. Check your hotel’s walking route or separate onward fare; JR Namba and Osaka-Namba are different stations.',
+      ],
+      ja: [
+        'この例では関西空港駅から南海を選び、目的地をなんばに設定。',
+        'ラピートは乗車便・指定席・合計料金を確認。購入した券の購入・引換手順に従ってください。',
+        '南海なんば駅で下車。宿への徒歩経路や乗り継ぎ運賃を確認。JR難波駅・大阪難波駅とは別の駅です。',
+      ],
+      th: [
+        'ตัวอย่างนี้เลือก Nankai ที่สถานี Kansai-airport โดยมีปลายทาง Namba',
+        'หากใช้ Rapi:t ตรวจขบวน ที่นั่งจอง และราคาตั๋วรวม ทำตามวิธีซื้อหรือแลกของตั๋วที่เลือก',
+        'ลง Nankai Namba แล้วตรวจทางเดินไปโรงแรมหรือค่าโดยสารต่อ JR Namba และ Osaka-Namba เป็นคนละสถานี',
+      ],
+    },
+  },
+]
+
+export const travelerProfiles = [
+  {
+    id: 'family',
+    en: {
+      title: 'Children or a slower pace',
+      text: 'Start with one main visit per half-day. Keep a meal and toilet break, check stroller rules, and leave an easy return to your base.',
+    },
+    ja: {
+      title: '子ども連れ・ゆったり旅',
+      text: '半日に主な訪問先を1か所から。食事・トイレ休憩を確保し、ベビーカーの規則と宿へ戻る経路を確認。',
+    },
+    th: {
+      title: 'มีเด็กหรืออยากเที่ยวแบบไม่เร่ง',
+      text: 'เริ่มจากจุดหลักหนึ่งแห่งต่อครึ่งวัน เผื่อมื้ออาหารและห้องน้ำ ตรวจข้อกำหนดรถเข็นเด็ก และเตรียมเส้นทางกลับที่พักง่าย ๆ',
+    },
+  },
+  {
+    id: 'access',
+    en: {
+      title: 'Step-free travel',
+      text: 'Check each station exit and venue entrance separately. A wheelchair-accessibility note is not a guarantee for the entire journey; contact the operator about the assistance you need.',
+    },
+    ja: {
+      title: '段差を避ける旅',
+      text: '駅出口と施設入口を別々に確認。車いす対応の記載だけでは全行程の利用を保証できません。必要な介助は事業者に相談。',
+    },
+    th: {
+      title: 'การเดินทางที่เลี่ยงบันได',
+      text: 'ตรวจทางออกสถานีและทางเข้าสถานที่แยกกัน ข้อมูลรองรับรถเข็นไม่ได้รับประกันทั้งเส้นทาง ติดต่อผู้ให้บริการเรื่องความช่วยเหลือที่ต้องการ',
+    },
+  },
+  {
+    id: 'budget',
+    en: {
+      title: 'A limited budget',
+      text: 'Group visits around one base before comparing passes with individual fares. Enter all budget categories, including a reserve; a blank category is not a zero cost.',
+    },
+    ja: {
+      title: '予算を抑える旅',
+      text: '拠点ごとに訪問先をまとめてから、パスと個別運賃を比較。予備費を含め各予算欄を入力。空欄は費用ゼロではありません。',
+    },
+    th: {
+      title: 'งบประมาณจำกัด',
+      text: 'จัดสถานที่รอบฐานพักเดียวก่อนเทียบพาสกับค่าโดยสารแยก ใส่งบทุกหมวดรวมเงินสำรอง ช่องว่างไม่ได้หมายถึงไม่เสียเงิน',
+    },
+  },
+] satisfies ({ id: string } & Record<Locale, { title: string; text: string }>)[]

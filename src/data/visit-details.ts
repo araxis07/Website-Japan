@@ -2,7 +2,16 @@ import accessRecords from './visit-access.json'
 import type { Locale } from '@/i18n/config'
 import { canonicalPlaceId, type Place } from './places'
 type Text = Record<Locale, string>
-type Visit = {
+export const visitFields = [
+  'access',
+  'entrance',
+  'hours',
+  'admission',
+  'booking',
+  'accessibility',
+] as const
+export type VisitField = (typeof visitFields)[number]
+export type Visit = {
   source: string
   infoSource?: string
   reviewedAt: string
@@ -24,9 +33,44 @@ type Visit = {
     >
   >
   minutes?: number
+  notApplicable?: Partial<
+    Record<VisitField, { reason: Text; source: string; reviewedAt: string }>
+  >
 }
 export const visitDetails: Record<string, Visit> = {
   ...accessRecords,
+  gion: {
+    ...accessRecords.gion,
+    notApplicable: {
+      hours: {
+        reason: {
+          en: 'Gion is a district, not a single ticketed venue. Each business, temple and private lane has its own access, hours and reservation rules.',
+          ja: '祇園は地域名で、単一の有料施設ではありません。店舗・寺院・私道ごとに利用条件・営業時間・予約規則を確認。',
+          th: 'กิออนเป็นย่าน ไม่ใช่สถานที่ซื้อตั๋วแห่งเดียว ตรวจเงื่อนไขเข้า เวลา และการจองของร้าน วัด และซอยส่วนบุคคลแต่ละแห่ง',
+        },
+        source: 'https://www.japan.travel/en/spot/84/',
+        reviewedAt: '2026-10-26',
+      },
+      admission: {
+        reason: {
+          en: 'Gion is a district, not a single ticketed venue. Each business, temple and private lane has its own access, hours and reservation rules.',
+          ja: '祇園は地域名で、単一の有料施設ではありません。店舗・寺院・私道ごとに利用条件・営業時間・予約規則を確認。',
+          th: 'กิออนเป็นย่าน ไม่ใช่สถานที่ซื้อตั๋วแห่งเดียว ตรวจเงื่อนไขเข้า เวลา และการจองของร้าน วัด และซอยส่วนบุคคลแต่ละแห่ง',
+        },
+        source: 'https://www.japan.travel/en/spot/84/',
+        reviewedAt: '2026-10-26',
+      },
+      booking: {
+        reason: {
+          en: 'Gion is a district, not a single ticketed venue. Each business, temple and private lane has its own access, hours and reservation rules.',
+          ja: '祇園は地域名で、単一の有料施設ではありません。店舗・寺院・私道ごとに利用条件・営業時間・予約規則を確認。',
+          th: 'กิออนเป็นย่าน ไม่ใช่สถานที่ซื้อตั๋วแห่งเดียว ตรวจเงื่อนไขเข้า เวลา และการจองของร้าน วัด และซอยส่วนบุคคลแต่ละแห่ง',
+        },
+        source: 'https://www.japan.travel/en/spot/84/',
+        reviewedAt: '2026-10-26',
+      },
+    },
+  },
   sensoji: {
     source: 'https://www.senso-ji.jp/access/',
     reviewedAt: '2026-10-25',
@@ -320,6 +364,17 @@ export const visitDetails: Record<string, Visit> = {
       ja: '確認時の常設展は大人600円。特別展の料金は別途確認。',
       th: 'ราคาที่ตรวจ: นิทรรศการถาวรผู้ใหญ่ 600 เยน โปรดตรวจตั๋วนิทรรศการพิเศษแยกต่างหาก',
     },
+    accessibility: {
+      en: 'Accessible toilets on every floor and loan wheelchairs. Strollers may be restricted when galleries are crowded; a nursing room is on the first floor.',
+      ja: '各階に多目的トイレ、車いす貸出あり。混雑時はベビーカー利用制限あり。授乳室は1階。',
+      th: 'มีห้องน้ำรถเข็นทุกชั้นและรถเข็นให้ยืม ช่วงคนแน่นอาจจำกัดรถเข็นเด็ก มีห้องให้นมชั้นหนึ่ง',
+    },
+    fieldSources: {
+      accessibility: {
+        source: 'https://www.osakamushis.jp/eng/about/faq.html',
+        reviewedAt: '2026-10-26',
+      },
+    },
   },
   'hokkaido-museum': {
     source: 'https://www.museum.hokudai.ac.jp/english/visit/',
@@ -341,9 +396,24 @@ export const visitDetails: Record<string, Visit> = {
       th: 'ไม่เสียค่าเข้าชม ณ วันที่ตรวจสอบ',
     },
     accessibility: {
-      en: 'The museum provides a wheelchair lift; use the intercom and ask reception for assistance.',
-      ja: '車いす用リフトあり。インターホンで受付に利用を相談。',
-      th: 'มีลิฟต์รถเข็น ใช้อินเตอร์คอมติดต่อเจ้าหน้าที่ก่อนใช้',
+      en: 'Use the intercom before using the wheelchair lift. Loan wheelchairs/strollers at first-floor reception; accessible toilets on floors 1 and 2.',
+      ja: '車いす用リフトはインターホンで連絡。1階受付で車いす・ベビーカー貸出。多目的トイレは1・2階。',
+      th: 'ใช้อินเตอร์คอมก่อนใช้ลิฟต์รถเข็น ยืมรถเข็นหรือรถเข็นเด็กที่เคาน์เตอร์ชั้นหนึ่ง มีห้องน้ำรถเข็นชั้น 1 และ 2',
+    },
+    booking: {
+      en: 'Advance reservation is not required for a regular visit.',
+      ja: '通常の見学は事前予約不要。',
+      th: 'การเข้าชมปกติไม่ต้องจองล่วงหน้า',
+    },
+    fieldSources: {
+      booking: {
+        source: 'https://www.museum.hokudai.ac.jp/english/visit/',
+        reviewedAt: '2026-10-26',
+      },
+      accessibility: {
+        source: 'https://www.museum.hokudai.ac.jp/english/visit/',
+        reviewedAt: '2026-10-26',
+      },
     },
   },
   'fuji-center': {
@@ -382,9 +452,24 @@ export const visitDetails: Record<string, Visit> = {
       th: 'เปิด 06:00 น. เวลาปิดและการเปิดกลางคืนพิเศษขึ้นกับวันที่',
     },
     accessibility: {
-      en: 'Consult the temple’s wheelchair route map before choosing an approach.',
-      ja: '車いす用の経路図を確認してから入口を選んでください。',
-      th: 'ตรวจแผนที่เส้นทางรถเข็นของวัดก่อนเลือกทางเข้า',
+      en: 'Follow the temple’s wheelchair route; accessible toilets are provided. Wheelchairs cannot be borrowed at the temple.',
+      ja: '寺院の車いす用経路図に従ってください。多目的トイレあり。車いすの貸出はありません。',
+      th: 'ใช้แผนที่เส้นทางรถเข็นของวัด มีห้องน้ำรองรับรถเข็น แต่ไม่มีรถเข็นให้ยืม',
+    },
+    entrance: {
+      en: 'For a step-free approach, consult the route via the emergency entrance at the top of Chawan-zaka. The Main Hall route map is available at Todoroki-mon.',
+      ja: '段差を避ける場合は茶わん坂上の緊急車両用入口を通る経路を確認。本堂入口の轟門で経路図を入手。',
+      th: 'หากต้องการเลี่ยงบันได ตรวจเส้นทางผ่านทางเข้ารถฉุกเฉินด้านบน Chawan-zaka รับแผนที่ทางสู่วิหารหลักที่ Todoroki-mon',
+    },
+    fieldSources: {
+      entrance: {
+        source: 'https://www.kiyomizudera.or.jp/en/faq/',
+        reviewedAt: '2026-10-26',
+      },
+      accessibility: {
+        source: 'https://www.kiyomizudera.or.jp/en/faq/',
+        reviewedAt: '2026-10-26',
+      },
     },
   },
   'tokyo-museum': {
@@ -397,14 +482,54 @@ export const visitDetails: Record<string, Visit> = {
       th: 'เดินประมาณ 10 นาทีจาก JR Ueno หรือ Uguisudani เข้าทางประตูหลัก',
     },
     hours: {
-      en: 'Usually 09:30–17:00; some evenings run later. Monday closures have holiday exceptions. Check the calendar.',
-      ja: '通常9:30〜17:00。延長開館日あり。月曜休館は祝日の例外があるためカレンダーを確認。',
-      th: 'ปกติ 09:30–17:00 น. บางวันเปิดเย็น ปิดวันจันทร์โดยมีข้อยกเว้นวันหยุด โปรดตรวจปฏิทิน',
+      en: '09:30–17:00; extended evenings on the official calendar. Last entry 30 minutes before closing. Mondays normally closed; holiday exceptions apply.',
+      ja: '9:30〜17:00。延長開館は公式カレンダーを確認。入館は閉館30分前まで。原則月曜休館、祝日は例外あり。',
+      th: '09:30–17:00 น. วันเปิดค่ำให้ดูปฏิทินทางการ เข้าก่อนปิด 30 นาที ปกติปิดจันทร์โดยมีข้อยกเว้นวันหยุด',
     },
     admission: {
-      en: 'Collection admission: adults ¥1,000 at review. Special exhibitions use separate pricing.',
-      ja: '確認時の総合文化展は一般1,000円。特別展は別料金。',
-      th: 'ราคาที่ตรวจ: นิทรรศการประจำผู้ใหญ่ 1,000 เยน นิทรรศการพิเศษคิดต่างหาก',
+      en: 'Collection: adults ¥1,000, university students ¥500. Special exhibitions are priced separately; check ID and concession rules.',
+      ja: '総合文化展：一般1,000円、大学生500円。特別展は別料金。学生証・減免条件を確認。',
+      th: 'นิทรรศการประจำ: ผู้ใหญ่ 1,000 เยน นักศึกษามหาวิทยาลัย 500 เยน นิทรรศการพิเศษต่างราคา ตรวจหลักฐานและเงื่อนไขส่วนลด',
+    },
+    booking: {
+      en: 'Collection tickets are available online, valid for two months during opening hours. Check special-exhibition ticket conditions separately.',
+      ja: '総合文化展のオンライン券は購入から2か月間、開館時間内に有効。特別展の条件は別途確認。',
+      th: 'ตั๋วนิทรรศการประจำซื้อออนไลน์ได้ ใช้ภายในสองเดือนในเวลาเปิด ตรวจเงื่อนไขนิทรรศการพิเศษแยกต่างหาก',
+    },
+    entrance: {
+      en: 'Use the Main Gate; consult the museum’s entrance access map.',
+      ja: '正門を利用。公式の入口周辺バリアフリー図を確認。',
+      th: 'ใช้ประตูหลัก Main Gate และตรวจแผนที่ทางเข้าของพิพิธภัณฑ์',
+    },
+    accessibility: {
+      en: 'Accessible toilets in exhibition buildings except Hyokeikan. Some entrances have steep ramps; ask staff for assistance. Wheelchair loans are available.',
+      ja: '表慶館以外の展示館に多目的トイレ。一部入口は急勾配のため職員に相談。車いす貸出あり。',
+      th: 'อาคารจัดแสดงมีห้องน้ำรถเข็นยกเว้น Hyokeikan บางทางเข้ามีทางลาดชัน ขอความช่วยเหลือเจ้าหน้าที่ได้ มีรถเข็นให้ยืม',
+    },
+    fieldSources: {
+      hours: {
+        source:
+          'https://www.tnm.jp/modules/r_free_page/index.php?id=113&lang=en',
+        reviewedAt: '2026-10-26',
+      },
+      admission: {
+        source:
+          'https://www.tnm.jp/modules/r_free_page/index.php?id=113&lang=en',
+        reviewedAt: '2026-10-26',
+      },
+      booking: {
+        source:
+          'https://www.tnm.jp/modules/r_free_page/index.php?id=113&lang=en',
+        reviewedAt: '2026-10-26',
+      },
+      entrance: {
+        source: 'https://www.tnm.jp/modules/r_free_page/index.php?id=128',
+        reviewedAt: '2026-10-26',
+      },
+      accessibility: {
+        source: 'https://www.tnm.jp/modules/r_free_page/index.php?id=128',
+        reviewedAt: '2026-10-26',
+      },
     },
   },
   'kyoto-museum': {
@@ -418,14 +543,42 @@ export const visitDetails: Record<string, Visit> = {
       th: 'จากสถานีเคฮัง Shichijo เดินไปทางตะวันออกตามถนน Shichijo ประมาณ 7 นาที',
     },
     hours: {
-      en: 'Consult the exhibition calendar: gallery openings and garden-only days differ.',
-      ja: '展示カレンダーを確認。展示室の開館日と庭園のみの開館日は異なります。',
-      th: 'ตรวจปฏิทินนิทรรศการ บางวันเปิดเฉพาะสวนและไม่ได้เปิดห้องจัดแสดง',
+      en: 'Collection days: 09:30–17:00, Fridays until 20:00; last entry 30 minutes earlier. Special-exhibition and garden-only dates differ; check the calendar.',
+      ja: '名品ギャラリー開館日は9:30〜17:00、金曜20:00まで。入館は30分前まで。特別展・庭園のみの日は別途確認。',
+      th: 'วันที่เปิดนิทรรศการประจำ 09:30–17:00 น. ศุกร์ถึง 20:00 น. เข้าก่อนปิด 30 นาที นิทรรศการพิเศษและวันเปิดเฉพาะสวนต่างกัน',
     },
     admission: {
-      en: 'Prices vary by exhibition. Check Hours and Admission on the museum website.',
-      ja: '展示により料金が異なります。公式の開館時間・観覧料を確認。',
-      th: 'ราคาต่างกันตามนิทรรศการ โปรดตรวจหน้าเวลาเปิดและค่าเข้าบนเว็บไซต์พิพิธภัณฑ์',
+      en: 'Collection days: adults ¥700 / university ¥350; garden-only ¥300 / ¥150. Special exhibitions differ. Check the date and student-ID rules.',
+      ja: '名品ギャラリー：一般700円・大学生350円。庭園のみ300円・150円。特別展は別料金。日程と学生証条件を確認。',
+      th: 'นิทรรศการประจำผู้ใหญ่ 700/นักศึกษามหาวิทยาลัย 350 เยน เฉพาะสวน 300/150 เยน นิทรรศการพิเศษต่างราคา ตรวจวันและบัตรนักศึกษา',
+    },
+    entrance: {
+      en: 'Enter at the South Gate, which has a wheelchair ramp.',
+      ja: '車いす用スロープのある南門から入館。',
+      th: 'เข้าที่ South Gate ซึ่งมีทางลาดรถเข็น',
+    },
+    accessibility: {
+      en: 'Accessible toilets on every floor, in the garden and South Gate area. Limited loan wheelchairs; ask staff. Strollers may be restricted in crowded galleries.',
+      ja: '各階・庭園・南門に多目的トイレ。貸出車いすは台数制限あり、職員に相談。混雑時は展示室のベビーカー利用制限あり。',
+      th: 'มีห้องน้ำรถเข็นทุกชั้น ในสวนและบริเวณประตูใต้ รถเข็นให้ยืมมีจำนวนจำกัด ติดต่อเจ้าหน้าที่ ช่วงคนแน่นอาจจำกัดรถเข็นเด็กในห้องจัดแสดง',
+    },
+    fieldSources: {
+      hours: {
+        source: 'https://www.kyohaku.go.jp/eng/visit/info/',
+        reviewedAt: '2026-10-26',
+      },
+      admission: {
+        source: 'https://www.kyohaku.go.jp/eng/visit/info/',
+        reviewedAt: '2026-10-26',
+      },
+      entrance: {
+        source: 'https://www.kyohaku.go.jp/eng/visit/accessibility/',
+        reviewedAt: '2026-10-26',
+      },
+      accessibility: {
+        source: 'https://www.kyohaku.go.jp/eng/visit/accessibility/',
+        reviewedAt: '2026-10-26',
+      },
     },
   },
 }
@@ -439,6 +592,7 @@ export function visitSource(
   field: keyof NonNullable<Visit['fieldSources']>,
 ) {
   return (
+    visit.notApplicable?.[field] ||
     visit.fieldSources?.[field] || {
       source:
         (field === 'hours' || field === 'admission') && visit.infoSource
@@ -447,4 +601,28 @@ export function visitSource(
       reviewedAt: visit.reviewedAt,
     }
   )
+}
+
+export function fieldReview(
+  visit: Visit | undefined,
+  field: VisitField,
+  today: string,
+) {
+  if (!visit || (!visit[field] && !visit.notApplicable?.[field]))
+    return { status: 'unverified' as const }
+  const source = visitSource(visit, field)
+  const nextReviewBy = new Date(Date.parse(source.reviewedAt) + 90 * 86400000)
+    .toISOString()
+    .slice(0, 10)
+  return {
+    status:
+      today > nextReviewBy
+        ? ('overdue' as const)
+        : visit.notApplicable?.[field]
+          ? ('notApplicable' as const)
+          : ('reviewed' as const),
+    source: source.source,
+    reviewedAt: source.reviewedAt,
+    nextReviewBy,
+  }
 }

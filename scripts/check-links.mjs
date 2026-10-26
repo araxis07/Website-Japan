@@ -11,6 +11,7 @@ const files = [
   'src/data/visit-access.json',
   'src/data/visit-details.ts',
   'src/data/arrival-guides.ts',
+  'src/data/travel-notices.ts',
 ]
 const urls = [
   ...new Set(

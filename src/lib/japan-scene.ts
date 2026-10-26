@@ -196,7 +196,7 @@ export function createJapanScene(
   })
   const cabins = new THREE.Group()
   world.add(cabins)
-  cabins.userData.topic = 'sakura'
+  cabins.userData.topic = 'torii'
   for (const x of [-0.6, 0.65]) {
     mesh(box, wood, [x, 0.32, 1.1], [0.75, 0.55, 0.7], cabins)
     const roof = mesh(

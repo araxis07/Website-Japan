@@ -100,7 +100,12 @@ test('calendar uses Japan time, escapes injection and folds multilingual lines; 
       { id: 'kiyomizu', day: 0 },
     ],
   }
-  const calendar = tripCalendar(trip, 'ja', new Date('2026-10-25T00:00:00Z'))!
+  const calendar = tripCalendar(
+    trip,
+    'ja',
+    new Date('2026-10-25T00:00:00Z'),
+    true,
+  )!
   expect(calendar).toContain('DTSTART:20261102T000000Z')
   expect(calendar).toContain('DTEND:20261102T013000Z')
   expect(calendar.match(/\r\nBEGIN:VEVENT/g)).toHaveLength(1)
@@ -236,7 +241,9 @@ test('backup fingerprints persist, local copies restore with undo, and FX is exp
   ).toHaveCount(0)
   await page.locator('.trip-extras > summary').click()
   await page.locator('.trip-library summary').click()
-  await page.locator('.trip-library > button').click()
+  await page
+    .getByRole('button', { name: 'Save a trip copy', exact: true })
+    .click()
   await title.fill('Second trip')
   await expect(
     page.getByText('Changed since the last full backup request.', {
@@ -275,4 +282,32 @@ test('backup fingerprints persist, local copies restore with undo, and FX is exp
       .last()
       .getByRole('status'),
   ).toContainText('250.00')
+})
+
+test('saved FX settings survive reload without treating an empty budget category as zero', async ({
+  page,
+}) => {
+  await page.goto('/en/my-trip')
+  await page.locator('.trip-extras > summary').click()
+  const panel = page
+    .locator('.budget-panel')
+    .filter({ hasText: 'Your rate per 1 JPY' })
+    .last()
+  await panel.locator('summary').click()
+  await panel.getByRole('spinbutton').fill('0.25')
+  await panel.locator('input[type=date]').fill('2026-10-26')
+  await panel.getByRole('button').click()
+  await page.reload()
+  await page.locator('.trip-extras > summary').click()
+  await panel.locator('summary').click()
+  await expect(panel.getByRole('spinbutton')).toHaveValue('0.25')
+  await expect(panel.locator('input[type=date]')).toHaveValue('2026-10-26')
+  await page
+    .locator('.budget-panel')
+    .filter({ hasText: 'Your estimated budget (JPY)' })
+    .locator('summary')
+    .click()
+  await page.getByRole('spinbutton', { name: 'Food', exact: true }).fill('0')
+  await expect(page.locator('.budget-incomplete')).not.toContainText('Food')
+  await expect(page.locator('.budget-incomplete')).toContainText('Transport')
 })

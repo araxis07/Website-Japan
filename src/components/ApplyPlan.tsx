@@ -36,6 +36,12 @@ export default function ApplyPlan({
         <section className="import-preview" aria-label={tools.preview}>
           <h3>{tools.preview}</h3>
           <p>{tools.applyImpact}</p>
+          <p>
+            {tools.plannedDays}:{' '}
+            {new Set(entries.map((entry) => entry.day)).size} / {days} ·{' '}
+            {tools.blankDays}:{' '}
+            {days - new Set(entries.map((entry) => entry.day)).size}
+          </p>
           <label>
             {tools.startDay}
             <select

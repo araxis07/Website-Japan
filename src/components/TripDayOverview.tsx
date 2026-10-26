@@ -57,14 +57,20 @@ export default function TripDayOverview({
                     {places.find((p) => p.id === entry.id)!.names[lang]}
                   </strong>
                   <p>
-                    {tools.duration}: {entry.duration ?? '—'} min ·{' '}
-                    {tools.buffer}: {entry.buffer ?? '—'} min
+                    {tools.duration}: {entry.duration ?? '—'} {tools.minuteUnit}{' '}
+                    · {tools.buffer}: {entry.buffer ?? '—'} {tools.minuteUnit}
                   </p>
                   {gap !== null && (
                     <p>
-                      {gap < 0 ? tools.timeConflict : tools.freeTime}:{' '}
-                      {Math.abs(gap)}
+                      {gap < 0 ? tools.overlapMinutes : tools.freeTime}:{' '}
+                      {Math.abs(gap)} {tools.minuteUnit}
                     </p>
+                  )}
+                  {next && entry.buffer === undefined && (
+                    <p className="source-note">{tools.uncheckedTransfer}</p>
+                  )}
+                  {entry.duration === undefined && (
+                    <p className="source-note">{tools.unknownDuration}</p>
                   )}
                 </li>
               )

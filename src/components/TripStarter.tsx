@@ -20,6 +20,7 @@ export default function TripStarter() {
         )
         .map((id) => ({ id, day: i + 1 })),
     )
+  const plannedDays = new Set(entries.map((entry) => entry.day)).size
   return (
     <details className="trip-starter">
       <summary>{tools.starter}</summary>
@@ -65,6 +66,11 @@ export default function TripStarter() {
         </label>
       </div>
       <p>{plans[base].note[lang]}</p>
+      <p className="starter-coverage" role="status">
+        {tools.plannedDays}: {plannedDays} / {days} · {tools.blankDays}:{' '}
+        {days - plannedDays}
+      </p>
+      <p className="source-note">{tools.starterScope}</p>
       {entries.length ? (
         <ApplyPlan
           key={`${base}:${days}:${interest}`}

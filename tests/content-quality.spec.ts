@@ -4,7 +4,7 @@ import { test, expect } from './fixtures'
 import { places, canonicalPlaceId } from '../src/data/places'
 import { prefectures } from '../src/data/prefectures'
 import plans from '../src/data/prefecture-plans.json'
-import { visitFor, visitSource } from '../src/data/visit-details'
+import { visitFor, visitSource, fieldReview } from '../src/data/visit-details'
 import photos from '../src/data/entrance-photos.json'
 import { normalizeSearch, placeSearchText } from '../src/data/place-search'
 
@@ -30,39 +30,40 @@ test('content schema covers every place, local plan, language, credit and review
     ).toBeDefined()
     const fieldReviews = Object.fromEntries(
       fields.map((field) => {
-        const checked = visit?.[field] && visitSource(visit, field)
         return [
           field,
-          checked
-            ? {
-                ...checked,
-                nextReviewBy: new Date(
-                  Date.parse(checked.reviewedAt) + 90 * 86400000,
-                )
-                  .toISOString()
-                  .slice(0, 10),
-              }
-            : { status: 'needs primary-source review' },
+          fieldReview(visit, field, new Date().toISOString().slice(0, 10)),
         ]
       }),
     )
-    const missing = fields.filter((field) => !visit?.[field])
+    const missing = fields.filter(
+      (field) => !visit?.[field] && !visit?.notApplicable?.[field],
+    )
     if (visit)
       for (const field of fields)
-        if (visit[field]) {
+        if (visit[field] || visit.notApplicable?.[field]) {
+          expect(Boolean(visit[field] && visit.notApplicable?.[field])).toBe(
+            false,
+          )
           const provenance = visitSource(visit, field)
           expect(new URL(provenance.source).protocol).toBe('https:')
           expect(provenance.reviewedAt).toMatch(/^\d{4}-\d{2}-\d{2}$/)
+          expect(
+            new Date(provenance.reviewedAt).toISOString().slice(0, 10),
+          ).toBe(provenance.reviewedAt)
           for (const lang of ['en', 'ja', 'th'] as const)
-            expect(visit[field]![lang].length).toBeGreaterThan(5)
+            expect(
+              (visit[field] || visit.notApplicable![field]!.reason)![lang]
+                .length,
+            ).toBeGreaterThan(5)
         }
     report.push({
       id: place.id,
       name: place.names.en,
       reviewedAt: visit?.reviewedAt || null,
-      overdue: visit
-        ? Date.now() - Date.parse(visit.reviewedAt) > 90 * 86400000
-        : true,
+      overdue: Object.values(fieldReviews).some(
+        (review) => review.status === 'overdue',
+      ),
       missing,
       suggestedOwner: 'repository maintainer',
       fieldReviews,

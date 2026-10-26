@@ -1,9 +1,14 @@
 import EmergencyCard from '@/components/EmergencyCard'
+import TravelNotices from '@/components/TravelNotices'
+import ReadinessChecklist from '@/components/ReadinessChecklist'
 import {
   arrivalGuides,
   arrivalChecks,
+  moreTrainRoutes,
+  travelerProfiles,
   trainExample,
   workedTrainRoute,
+  workedTrainRouteReview,
 } from '@/data/arrival-guides'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
@@ -42,18 +47,16 @@ export default async function FirstVisit({ params }: Props) {
         <h1>{dict.beginner.title}</h1>
         <p>{dict.beginner.subtitle}</p>
       </div>
-      <details className="readiness-checklist">
-        <summary>{dict.tools.checklist}</summary>
-        <fieldset>
-          <legend>{dict.tools.checklist}</legend>
-          <p>{dict.tools.checklistHelp}</p>
-          {firstVisitSteps.map((step) => (
-            <label key={step.id}>
-              <input type="checkbox" />
-              {step.copy[lang].title}
-            </label>
-          ))}
-        </fieldset>
+      <ReadinessChecklist />
+      <TravelNotices />
+      <details className="visit-details traveler-profiles">
+        <summary>{dict.tools.practicalProfile}</summary>
+        {travelerProfiles.map((profile) => (
+          <section key={profile.id}>
+            <h2>{profile[lang].title}</h2>
+            <p>{profile[lang].text}</p>
+          </section>
+        ))}
       </details>
       <nav className="first-visit-toc" aria-label={dict.guide.toc}>
         {firstVisitSteps.map((step, index) => (
@@ -96,7 +99,10 @@ export default async function FirstVisit({ params }: Props) {
                       </ol>
                       <a href={airport.source}>{dict.tools.official} ↗</a>
                       <p className="source-note">
-                        {dict.tools.reviewed}: 2026-10-25
+                        {dict.tools.reviewed}:{' '}
+                        <time dateTime={airport.reviewedAt}>
+                          {airport.reviewedAt}
+                        </time>
                       </p>
                     </details>
                   ))}
@@ -106,7 +112,10 @@ export default async function FirstVisit({ params }: Props) {
                       <p>{check[lang].text}</p>
                       <a href={check.source}>{dict.tools.official} ↗</a>
                       <p className="source-note">
-                        {dict.tools.reviewed}: 2026-10-25
+                        {dict.tools.reviewed}:{' '}
+                        <time dateTime={check.reviewedAt}>
+                          {check.reviewedAt}
+                        </time>
                       </p>
                     </details>
                   ))}
@@ -127,13 +136,33 @@ export default async function FirstVisit({ params }: Props) {
                         <li key={text}>{text}</li>
                       ))}
                     </ol>
-                    <a href="https://www.jreast.co.jp/en/multi/nex/">
+                    <a href={workedTrainRouteReview.source}>
                       JR East · Narita Express ↗
                     </a>
                     <p className="source-note">
-                      {dict.tools.reviewed}: 2026-10-25
+                      {dict.tools.reviewed}:{' '}
+                      <time dateTime={workedTrainRouteReview.reviewedAt}>
+                        {workedTrainRouteReview.reviewedAt}
+                      </time>
                     </p>
                   </details>
+                  {moreTrainRoutes.map((route) => (
+                    <details className="visit-details" key={route.code}>
+                      <summary>{route.code}</summary>
+                      <ol>
+                        {route.steps[lang].map((text) => (
+                          <li key={text}>{text}</li>
+                        ))}
+                      </ol>
+                      <p className="source-note">
+                        <a href={route.source}>{dict.tools.official} ↗</a> ·{' '}
+                        {dict.tools.reviewed}:{' '}
+                        <time dateTime={route.reviewedAt}>
+                          {route.reviewedAt}
+                        </time>
+                      </p>
+                    </details>
+                  ))}
                   <a href="https://www.jreast.co.jp/en/multi/ticket/guide.html">
                     JR East ↗
                   </a>

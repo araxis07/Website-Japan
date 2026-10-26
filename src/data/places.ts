@@ -55,7 +55,7 @@ export function mapUrl(
 ) {
   const target =
     place.query ??
-    `${place.names.ja} ${destinations.find((d) => d.slug === place.destination)?.ja.name ?? ''} 日本`
+    `${place.names.ja} ${place.address || destinations.find((d) => d.slug === place.destination)?.ja.name || ''} 日本`
   return directions
     ? `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(target)}${mode ? `&travelmode=${mode}` : ''}`
     : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(target)}`

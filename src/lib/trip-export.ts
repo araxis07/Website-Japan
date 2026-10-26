@@ -30,7 +30,7 @@ export function offlineTrip(
       return `<section><h2>${escape(dayLabel(day))}</h2><p>${escape(trip.notes?.[day] || '')}</p>${day > trip.days ? `<p>${escape(tools.outOfRange)}</p>` : ''}<ol>${entries
         .map((item) => {
           const place = places.find((p) => p.id === item.id)!
-          return `<li><h3>${escape(place.names[lang])}</h3><p lang="ja">${escape(place.address || place.names.ja)}</p><p>${escape(item.time || '')} ${escape(item.note || '')}</p><p>${escape(tools.duration)}: ${item.duration ?? '—'} · ${escape(tools.buffer)}: ${item.buffer ?? '—'}</p><a href="${escape(mapUrl(place, true))}">${escape(copy.directions)}</a></li>`
+          return `<li><h3>${escape(place.names[lang])}</h3><p lang="ja">${escape(place.address || place.names.ja)}</p><p>${escape(item.time || '')} ${escape(item.note || '')}</p><p>${escape(tools.duration)}: ${item.duration ?? '—'} ${escape(tools.minuteUnit)} · ${escape(tools.buffer)}: ${item.buffer ?? '—'} ${escape(tools.minuteUnit)}</p><a href="${escape(mapUrl(place, true))}">${escape(copy.directions)}</a></li>`
         })
         .join('')}</ol></section>`
     })
