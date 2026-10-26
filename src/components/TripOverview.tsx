@@ -76,12 +76,12 @@ export default function TripOverview({
           <p className="preserve-lines">{trip.notes[day]}</p>
         )}
         <ol>
-          {entries.map((entry, index) => {
+          {entries.map((entry) => {
             const place = places.find((place) => place.id === entry.id)!
             return (
               <li key={entryKey(entry)}>
                 <strong>
-                  {index + 1}. {entry.time || '—'} · {place.names[lang]}
+                  {entry.time || '—'} · {place.names[lang]}
                 </strong>
                 <p lang="ja">{place.address || place.names.ja}</p>
                 {entry.note && <p className="preserve-lines">{entry.note}</p>}
