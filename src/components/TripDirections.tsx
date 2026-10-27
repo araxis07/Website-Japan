@@ -7,22 +7,37 @@ type Destination = Pick<Place, 'names' | 'address' | 'query' | 'destination'>
 export default function TripDirections({
   place,
   previous,
+  day,
 }: {
   place: Destination
   previous?: Destination
+  day?: number
 }) {
   const { trip, tools, copy, lang } = useTrip()
-  const [origin, setOrigin] = useState(previous ? 'previous' : 'device')
+  const [selectedOrigin, setOrigin] = useState(previous ? 'previous' : 'device')
   const [address, setAddress] = useState('')
+  const stays =
+    trip?.stays?.filter(
+      (stay) => day && stay.from <= day && stay.to > day && stay.address,
+    ) || []
+  const stay = stays.find((stay) => `stay:${stay.id}` === selectedOrigin)
+  const origin =
+    (selectedOrigin.startsWith('stay:') && !stay) ||
+    (selectedOrigin === 'previous' && !previous) ||
+    (selectedOrigin === 'base' && !trip?.base)
+      ? 'device'
+      : selectedOrigin
   const url = new URL(mapUrl(place, true, 'transit'))
   const start =
     origin === 'previous' && previous
       ? previous.query || `${previous.names.ja} ${previous.address || '日本'}`
-      : origin === 'base'
-        ? trip?.base
-        : origin === 'manual'
-          ? address.trim()
-          : ''
+      : stay
+        ? `${stay.name} ${stay.address}`
+        : origin === 'base'
+          ? trip?.base
+          : origin === 'manual'
+            ? address.trim()
+            : ''
   if (start) url.searchParams.set('origin', start)
   return (
     <div className="trip-directions">
@@ -49,6 +64,11 @@ export default function TripDirections({
                 {tools.originBase}: {trip.base}
               </option>
             )}
+            {stays.map((stay) => (
+              <option key={stay.id} value={`stay:${stay.id}`}>
+                {tools.originStay}: {stay.name}
+              </option>
+            ))}
             <option value="manual">{tools.originManual}</option>
           </select>
         </label>

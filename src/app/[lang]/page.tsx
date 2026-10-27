@@ -92,17 +92,20 @@ export default async function LocalePage({
         </div>
       </div>
       <FeaturedDestinations dict={dict} lang={lang} />
+      <Journeys dict={dict} lang={lang} />
       <DestinationMap
         copy={dict.map}
         mapCopy={dict.streetMap}
         exploreLabel={dict.navigation.explore}
         lang={lang}
       />
-      <Experiences dict={dict} lang={lang} />
-      <RegionsList dict={dict} lang={lang} />
-      <SeasonalHighlights dict={dict} lang={lang} />
-      <Journeys dict={dict} lang={lang} />
-      <TravelPlanning dict={dict} />
+      <details className="home-more">
+        <summary>{dict.tools.homeMore}</summary>
+        <Experiences dict={dict} lang={lang} />
+        <RegionsList dict={dict} lang={lang} />
+        <SeasonalHighlights dict={dict} lang={lang} />
+        <TravelPlanning dict={dict} />
+      </details>
     </main>
   )
 }

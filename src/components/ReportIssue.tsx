@@ -56,7 +56,10 @@ export default function ReportIssue({ contact }: { contact?: string }) {
       )}
       <a
         className="button"
-        href={contact || 'https://github.com/araxis07/Website-Japan/issues/new'}
+        href={
+          contact ||
+          'https://github.com/araxis07/Website-Japan/issues/new?template=visitor-feedback.yml'
+        }
       >
         {tools.report} ↗
       </a>

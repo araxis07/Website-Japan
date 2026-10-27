@@ -40,6 +40,7 @@ export default function TripPlanner({
     canReset,
     tools,
     downloadRaw,
+    drafts,
   } = useTrip()
   const [viewDay, setViewDay] = useState('all')
   const [showEmpty, setShowEmpty] = useState(false)
@@ -109,7 +110,7 @@ export default function TripPlanner({
         )}
         {trip.stays?.map((stay, i) => (
           <p key={i}>
-            {stay.name}: {dayLabel(stay.from)} (
+            {stay.name} · {stay.address}: {dayLabel(stay.from)} (
             {tripDate(trip.startDate, stay.from)}) → {dayLabel(stay.to)} (
             {tripDate(trip.startDate, stay.to)})
           </p>
@@ -133,7 +134,7 @@ export default function TripPlanner({
         )}
       </div>
       <nav className="trip-task-links" aria-label={copy.title}>
-        <a href="#trip-tools">{tools.moreTools}</a>
+        <a href="#trip-tools">{tools.editPlan}</a>
         {trip.items.length > 0 && (
           <a
             href="#travel-day"
@@ -152,10 +153,22 @@ export default function TripPlanner({
         </Link>
         <Link href={`/${lang}/first-visit#help`}>{tools.emergency}</Link>
       </nav>
-      {!trip.items.length && <TripStarter />}
+      <p className="save-status" role="status">
+        {error ||
+          (Object.keys(drafts).length ? tools.pendingDrafts : tools.savedLocal)}
+      </p>
+      {!trip.items.length && (
+        <>
+          <TripStarter />
+          <div className="trip-empty-choices">
+            <Link href={`/${lang}/explore?scope=places&view=list`}>
+              {tools.manualStart} ↗
+            </Link>
+            <a href="#trip-import">{tools.importStart} ↓</a>
+          </div>
+        </>
+      )}
       <TravelNotices forTrip />
-      <PersonalStop />
-      <TripTools />
       {trip.items.length > 0 && (
         <TripOverview
           selectDay={(day) => {
@@ -379,147 +392,153 @@ export default function TripPlanner({
                             </Link>
                           )}
                         </h3>
-                        <TripDirections place={place} previous={previous} />
+                        <TripDirections
+                          place={place}
+                          previous={previous}
+                          day={day}
+                        />
                       </div>
-                      {entry.custom && (
+                      {entry.custom?.url && (
                         <p>
-                          {entry.custom.address}
-                          {entry.custom.url && (
-                            <>
-                              {' '}
-                              ·{' '}
-                              <a href={entry.custom.url}>
-                                {tools.personalLink} ↗
-                              </a>
-                            </>
-                          )}
+                          <a href={entry.custom.url}>{tools.personalLink} ↗</a>
                         </p>
                       )}
                       <p
-                        className="print-address"
+                        className="trip-stop-address"
                         lang={entry.custom ? undefined : 'ja'}
                       >
                         {place.address || place.names.ja}
                       </p>
-                      <p className="print-address">
+                      <p className="trip-stop-summary print-address">
                         {entry.time} {entry.note}{' '}
                         {entry.duration !== undefined &&
                           `${tools.duration}: ${entry.duration} ${tools.minuteUnit}`}{' '}
                         {entry.buffer !== undefined &&
                           `${tools.buffer}: ${entry.buffer} ${tools.minuteUnit}`}
                       </p>
-                      <div className="trip-reservation">
-                        <TripField
-                          fieldKey={`visit:${entryKey(entry)}:time`}
-                          label={`${tools.time}: ${place.names[lang]}`}
-                          type="time"
-                          value={entry.time || ''}
-                          save={(time) => updateEntry(entry, { time })}
-                        />
-                        <TripField
-                          fieldKey={`visit:${entryKey(entry)}:note`}
-                          label={`${tools.notes}: ${place.names[lang]}`}
-                          maxLength={500}
-                          value={entry.note || ''}
-                          save={(note) => updateEntry(entry, { note })}
-                        />
-                        {(['duration', 'buffer'] as const).map((key) => (
+                      {entry.custom && <PersonalStop entry={entry} />}
+                      <details className="trip-visit-editor">
+                        <summary>{tools.editVisit}</summary>
+                        <div className="trip-reservation">
                           <TripField
-                            key={key}
-                            fieldKey={`visit:${entryKey(entry)}:${key}`}
-                            label={`${tools[key]}: ${place.names[lang]}`}
-                            type="number"
-                            min={0}
-                            max={1440}
-                            value={entry[key] ?? ''}
-                            save={(value) =>
-                              updateEntry(entry, {
-                                [key]: value === '' ? undefined : Number(value),
-                              })
-                            }
+                            fieldKey={`visit:${entryKey(entry)}:time`}
+                            label={`${tools.time}: ${place.names[lang]}`}
+                            type="time"
+                            value={entry.time || ''}
+                            save={(time) => updateEntry(entry, { time })}
                           />
-                        ))}
-                      </div>
-                      <div className="trip-item-controls">
-                        <label>
-                          <span className="sr-only">
-                            {copy.assign}: {place.names[lang]}
-                          </span>
-                          <select
-                            value={entry.day}
-                            onChange={(event) =>
-                              updateEntry(entry, {
-                                day: Number(event.target.value),
-                              })
+                          <TripField
+                            fieldKey={`visit:${entryKey(entry)}:note`}
+                            label={`${tools.notes}: ${place.names[lang]}`}
+                            maxLength={500}
+                            value={entry.note || ''}
+                            save={(note) => updateEntry(entry, { note })}
+                          />
+                          {(['duration', 'buffer'] as const).map((key) => (
+                            <TripField
+                              key={key}
+                              fieldKey={`visit:${entryKey(entry)}:${key}`}
+                              label={`${tools[key]}: ${place.names[lang]}`}
+                              type="number"
+                              min={0}
+                              max={1440}
+                              value={entry[key] ?? ''}
+                              save={(value) =>
+                                updateEntry(entry, {
+                                  [key]:
+                                    value === '' ? undefined : Number(value),
+                                })
+                              }
+                            />
+                          ))}
+                        </div>
+                        <div className="trip-item-controls">
+                          <label>
+                            <span className="sr-only">
+                              {copy.assign}: {place.names[lang]}
+                            </span>
+                            <select
+                              value={entry.day}
+                              onChange={(event) =>
+                                updateEntry(entry, {
+                                  day: Number(event.target.value),
+                                })
+                              }
+                            >
+                              <option value={0}>{copy.unplanned}</option>
+                              {Array.from({ length: trip.days }, (_, i) => (
+                                <option key={i} value={i + 1}>
+                                  {dayLabel(i + 1)}
+                                </option>
+                              ))}
+                            </select>
+                          </label>
+                          <button
+                            type="button"
+                            aria-label={`${copy.up}: ${place.names[lang]}`}
+                            disabled={index === 0}
+                            onClick={() => move(-1)}
+                          >
+                            ↑
+                          </button>
+                          <button
+                            type="button"
+                            aria-label={`${copy.down}: ${place.names[lang]}`}
+                            disabled={index === entries.length - 1}
+                            onClick={() => move(1)}
+                          >
+                            ↓
+                          </button>
+                          <button
+                            type="button"
+                            aria-label={`${tools.repeat}: ${place.names[lang]}`}
+                            onClick={() =>
+                              change(
+                                (current) => ({
+                                  ...current,
+                                  items: [
+                                    ...current.items,
+                                    {
+                                      id: entry.id,
+                                      ...(entry.custom
+                                        ? { custom: entry.custom }
+                                        : {}),
+                                      day: 0,
+                                      entryId: tripId(),
+                                    },
+                                  ],
+                                }),
+                                copy.added,
+                              )
                             }
                           >
-                            <option value={0}>{copy.unplanned}</option>
-                            {Array.from({ length: trip.days }, (_, i) => (
-                              <option key={i} value={i + 1}>
-                                {dayLabel(i + 1)}
-                              </option>
-                            ))}
-                          </select>
-                        </label>
-                        <button
-                          type="button"
-                          aria-label={`${copy.up}: ${place.names[lang]}`}
-                          disabled={index === 0}
-                          onClick={() => move(-1)}
-                        >
-                          ↑
-                        </button>
-                        <button
-                          type="button"
-                          aria-label={`${copy.down}: ${place.names[lang]}`}
-                          disabled={index === entries.length - 1}
-                          onClick={() => move(1)}
-                        >
-                          ↓
-                        </button>
-                        <button
-                          type="button"
-                          aria-label={`${tools.repeat}: ${place.names[lang]}`}
-                          onClick={() =>
-                            change(
-                              (current) => ({
-                                ...current,
-                                items: [
-                                  ...current.items,
-                                  {
-                                    id: entry.id,
-                                    ...(entry.custom
-                                      ? { custom: entry.custom }
-                                      : {}),
-                                    day: 0,
-                                    entryId: tripId(),
-                                  },
-                                ],
-                              }),
-                              copy.added,
-                            )
-                          }
-                        >
-                          {tools.repeat}
-                        </button>
-                        <button
-                          type="button"
-                          aria-label={`${copy.remove}: ${place.names[lang]}`}
-                          onClick={() =>
-                            change(
-                              (current) => ({
-                                ...current,
-                                items: current.items.filter(
+                            {tools.repeat}
+                          </button>
+                          <button
+                            type="button"
+                            aria-label={`${copy.remove}: ${place.names[lang]}`}
+                            onClick={() =>
+                              change((current) => {
+                                const items = current.items.filter(
                                   (item) => entryKey(item) !== entryKey(entry),
-                                ),
-                              }),
-                              copy.removed,
-                            )
-                          }
-                        >
-                          {copy.remove}
-                        </button>
-                      </div>
+                                )
+                                return {
+                                  ...current,
+                                  items,
+                                  stays: current.stays?.map((stay) =>
+                                    stay.placeId === entry.id &&
+                                    !items.some((item) => item.id === entry.id)
+                                      ? { ...stay, placeId: undefined }
+                                      : stay,
+                                  ),
+                                }
+                              }, copy.removed)
+                            }
+                          >
+                            {copy.remove}
+                          </button>
+                        </div>
+                      </details>
                     </li>
                   )
                 })}
@@ -528,6 +547,8 @@ export default function TripPlanner({
           )
         })}
       </div>
+      <PersonalStop />
+      <TripTools />
       <p className="planner-note">
         {tools.timingHelp} {copy.note}
       </p>

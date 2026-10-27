@@ -14,8 +14,16 @@ export default defineConfig({
   projects: [
     {
       name: 'desktop-chromium',
-      use: { ...devices['Desktop Chrome'], viewport: { width: 1440, height: 1000 } },
+      use: {
+        ...devices['Desktop Chrome'],
+        viewport: { width: 1440, height: 1000 },
+      },
     },
     { name: 'mobile-webkit', use: { ...devices['iPhone 13'] } },
+    {
+      name: 'desktop-firefox',
+      testMatch: /refinement\.spec\.ts/,
+      use: { ...devices['Desktop Firefox'] },
+    },
   ],
 })

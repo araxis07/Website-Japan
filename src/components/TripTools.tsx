@@ -29,7 +29,6 @@ export default function TripTools() {
     canUndo,
     undoLabel,
     drafts,
-    error: storageError,
   } = useTrip()
   const [incoming, setIncoming] = useState<{
     trip: Trip
@@ -95,10 +94,6 @@ export default function TripTools() {
   )
   return (
     <div className="trip-tools" id="trip-tools">
-      <p className="save-status" role="status">
-        {storageError ||
-          (Object.keys(drafts).length ? tools.pendingDrafts : tools.savedLocal)}
-      </p>
       <div className="trip-meta">
         {(['title', 'startDate', 'base'] as const).map((key) => (
           <TripField
@@ -143,19 +138,82 @@ export default function TripTools() {
         )}
         {(trip.stays || []).map((stay, index) => (
           <div className="trip-meta lodging-row" key={stay.id}>
-            <TripField
-              fieldKey={`stay:${stay.id}:name`}
-              label={tools.hotel}
-              value={stay.name}
-              save={(name) =>
-                save((current) => ({
-                  ...current,
-                  stays: current.stays!.map((s, i) =>
-                    i === index ? { ...s, name } : s,
-                  ),
-                }))
-              }
-            />
+            <label>
+              {tools.linkStay}
+              <select
+                value={stay.placeId || ''}
+                onChange={(event) => {
+                  const placeId = event.target.value
+                  const custom = trip.items.find(
+                    (item) => item.id === placeId,
+                  )?.custom
+                  save((current) => ({
+                    ...current,
+                    stays: current.stays!.map((s, i) =>
+                      i === index
+                        ? {
+                            ...s,
+                            placeId: placeId || undefined,
+                            ...(custom
+                              ? { name: custom.name, address: custom.address }
+                              : {}),
+                          }
+                        : s,
+                    ),
+                  }))
+                }}
+              >
+                <option value="">{tools.unlinkedStay}</option>
+                {trip.items
+                  .filter(
+                    (item, i, items) =>
+                      item.custom &&
+                      items.findIndex((other) => other.id === item.id) === i,
+                  )
+                  .map((item) => (
+                    <option key={item.id} value={item.id}>
+                      {item.custom!.name}
+                    </option>
+                  ))}
+              </select>
+            </label>
+            {stay.placeId ? (
+              <p>
+                {stay.name}
+                <br />
+                {stay.address}
+              </p>
+            ) : (
+              <>
+                <TripField
+                  fieldKey={`stay:${stay.id}:name`}
+                  label={tools.hotel}
+                  value={stay.name}
+                  save={(name) =>
+                    save((current) => ({
+                      ...current,
+                      stays: current.stays!.map((s, i) =>
+                        i === index ? { ...s, name } : s,
+                      ),
+                    }))
+                  }
+                />
+                <TripField
+                  fieldKey={`stay:${stay.id}:address`}
+                  label={tools.stayAddress}
+                  value={stay.address || ''}
+                  maxLength={300}
+                  save={(address) =>
+                    save((current) => ({
+                      ...current,
+                      stays: current.stays!.map((s, i) =>
+                        i === index ? { ...s, address } : s,
+                      ),
+                    }))
+                  }
+                />
+              </>
+            )}
             {(['from', 'to'] as const).map((key) => (
               <TripField
                 key={key}
@@ -336,7 +394,7 @@ export default function TripTools() {
         >
           {tools.backup}
         </button>
-        <label className="file-import">
+        <label className="file-import" id="trip-import">
           {tools.import}
           <input
             type="file"
@@ -477,7 +535,7 @@ export default function TripTools() {
             {incoming.trip.stays?.map((stay, i) => (
               <p key={i}>
                 {stay.name} · {tools.checkIn}: {stay.from} → {tools.checkOut}:{' '}
-                {stay.to}
+                {stay.to} · {stay.address}
               </p>
             ))}
           </details>

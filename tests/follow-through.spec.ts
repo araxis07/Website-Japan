@@ -120,15 +120,18 @@ test('archive validation accepts legacy copies but rejects invalid dates and UTF
     ),
   ).toBeNull()
 })
-test('starter preview reports unfilled days and readiness belongs to the saved trip', async ({
+test('starter preview offers only published days and readiness belongs to the saved trip', async ({
   page,
 }) => {
   await page.goto('/en/my-trip')
-  await expect(page.locator('.trip-starter')).toHaveAttribute('open', '')
-  await page.locator('.trip-starter select').nth(1).selectOption('14')
-  await expect(page.locator('.starter-coverage')).toContainText('2 / 14')
+  await page.locator('.trip-starter > summary').click()
+  await expect(
+    page.locator('.trip-starter select').nth(1).locator('option'),
+  ).toHaveText(['1', '2'])
+  await page.locator('.trip-starter select').nth(1).selectOption('2')
+  await expect(page.locator('.starter-coverage')).toContainText('2 / 2')
   await page.locator('.trip-starter .apply-plan > button').click()
-  await expect(page.locator('.apply-plan .import-preview')).toContainText('12')
+  await expect(page.locator('.apply-plan .import-preview')).toContainText('2')
   await page.goto('/en/first-visit')
   await page.locator('.readiness-checklist > summary').click()
   await page.locator('.readiness-checklist input').first().check()

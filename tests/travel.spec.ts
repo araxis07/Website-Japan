@@ -1,4 +1,4 @@
-import { test, expect } from './fixtures'
+import { test, expect, openDetails } from './fixtures'
 import { copyFile, mkdtemp, rm } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
@@ -172,6 +172,7 @@ test('search and category filters combine, clear and handle no results', async (
 
 test('season tabs support clicks and keyboard navigation', async ({ page }) => {
   await page.goto('/en')
+  await openDetails(page.locator('.home-more'))
   const winter = page.getByRole('tab', { name: /Winter/ })
   await winter.click()
   await expect(winter).toHaveAttribute('aria-selected', 'true')
@@ -218,6 +219,7 @@ test('navigation, language switching and FAQ disclosure work', async ({
       .click()
   }
   await expect(page).toHaveURL(/#journeys$/)
+  await openDetails(page.locator('.home-more'))
   await page
     .locator('summary')
     .filter({ hasText: 'When should I visit Japan?' })
@@ -339,6 +341,7 @@ test('interactive miniature responds to lighting, seasons, rotation and motion c
 }) => {
   await page.goto('/en')
   // Ambient petals would otherwise move over the miniature's screenshot.
+  await openDetails(page.locator('.appearance-panel'))
   await page.getByRole('button', { name: 'Pause effects', exact: true }).click()
   const scene = page.locator('.diorama')
   await expect(scene).toHaveAttribute('data-scene-status', 'preview')
@@ -569,12 +572,21 @@ test('trip saves, schedules, reorders, survives reload and language changes, and
     .click()
   await page.locator('a[href="/en/my-trip"]:visible').first().click()
   await expect(page.locator('.trip-day li')).toHaveCount(2)
+  await openDetails(
+    page.locator('.trip-day li:has(h3 a[href*=kiyomizu]) .trip-visit-editor'),
+  )
   await page
     .getByRole('combobox', { name: 'Schedule for: Kiyomizu-dera', exact: true })
     .selectOption('2')
+  await openDetails(
+    page.locator('.trip-day li[data-place-id=gion] .trip-visit-editor'),
+  )
   await page
     .getByRole('combobox', { name: 'Schedule for: Gion', exact: true })
     .selectOption('2')
+  await openDetails(
+    page.locator('.trip-day li[data-place-id=gion] .trip-visit-editor'),
+  )
   await page
     .getByRole('button', { name: 'Move earlier: Gion', exact: true })
     .click()
@@ -583,6 +595,9 @@ test('trip saves, schedules, reorders, survives reload and language changes, and
     'gion',
   )
   await page.reload()
+  await openDetails(
+    page.locator('.trip-day li[data-place-id=gion] .trip-visit-editor'),
+  )
   await expect(
     page.getByRole('combobox', { name: 'Schedule for: Gion', exact: true }),
   ).toHaveValue('2')
@@ -599,12 +614,18 @@ test('trip saves, schedules, reorders, survives reload and language changes, and
   await page
     .getByRole('button', { name: 'ใช้จำนวนวันนี้: 1', exact: true })
     .click()
+  await openDetails(
+    page.locator('.trip-day li[data-place-id=gion] .trip-visit-editor'),
+  )
   await expect(
     page.getByRole('combobox', { name: 'จัดลงวัน: กิออน', exact: true }),
   ).toHaveValue('0')
   await page
     .getByRole('combobox', { name: 'จัดลงวัน: กิออน', exact: true })
     .selectOption('1')
+  await openDetails(
+    page.locator('.trip-day li:has(h3 a[href*=kiyomizu]) .trip-visit-editor'),
+  )
   await page
     .getByRole('button', { name: 'นำออก: วัดคิโยมิซุเดระ', exact: true })
     .click()

@@ -4,7 +4,7 @@ import photos from '../src/data/prefecture-photos.json'
 import { prefectures } from '../src/data/prefectures'
 import { destinations } from '../src/data/travel'
 import { regionalPlanning } from '../src/data/regional-planning'
-import { test, expect } from './fixtures'
+import { test, expect, openDetails } from './fixtures'
 import {
   emptyTrip,
   mergeTrips,
@@ -161,6 +161,7 @@ test('one place stays saved across guide and prefecture pages; undo restores rem
     }),
   ).toHaveCount(1)
   await page.goto('/en/my-trip')
+  await openDetails(page.locator('.trip-visit-editor').first())
   await page
     .getByRole('button', { name: 'Remove: Kiyomizu-dera', exact: true })
     .click()
@@ -270,6 +271,7 @@ test('shared motion pause survives reload and appearance controls do not cover m
 }) => {
   await page.emulateMedia({ reducedMotion: 'no-preference' })
   await page.goto('/en')
+  await openDetails(page.locator('.appearance-panel'))
   await page.getByRole('button', { name: 'Pause effects', exact: true }).click()
   await page.reload()
   await expect(page.locator('html')).toHaveAttribute('data-motion', 'still')

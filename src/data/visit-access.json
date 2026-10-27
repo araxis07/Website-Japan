@@ -24,6 +24,35 @@
       "en": "From JR Hiraizumi on the Tohoku Line, take a bus (about 10 minutes) or walk about 30 minutes.",
       "ja": "JR東北本線平泉駅からバス約10分、または徒歩約30分。",
       "th": "จาก JR Hiraizumi สาย Tohoku นั่งบัสประมาณ 10 นาที หรือเดินประมาณ 30 นาที"
+    },
+    "hours": {
+      "en": "Mar 1–Nov 3 08:30–17:00; Nov 4–February end 08:30–16:30. Ticket sales finish 10 minutes before closing.",
+      "ja": "3/1〜11/3は8:30〜17:00、11/4〜2月末は8:30〜16:30。拝観券発行は終了10分前まで。",
+      "th": "1 มี.ค.–3 พ.ย. 08:30–17:00 น., 4 พ.ย.–สิ้น ก.พ. 08:30–16:30 น. หยุดขายตั๋วก่อนปิด 10 นาที"
+    },
+    "fieldSources": {
+      "hours": {
+        "source": "https://www.chusonji.or.jp/worship/index.html",
+        "reviewedAt": "2026-10-28"
+      },
+      "admission": {
+        "source": "https://www.chusonji.or.jp/worship/index.html",
+        "reviewedAt": "2026-10-28"
+      },
+      "entrance": {
+        "source": "https://chusonji.or.jp/around/index.html",
+        "reviewedAt": "2026-10-28"
+      }
+    },
+    "admission": {
+      "en": "Regular ticket: adults ¥1,000; high school ¥700; junior high ¥500; elementary ¥300. Hidden-Buddha viewing uses a separate or combined ticket.",
+      "ja": "通常券：大人1,000円、高校生700円、中学生500円、小学生300円。秘仏御開帳は別券または共通券。",
+      "th": "ตั๋วปกติ: ผู้ใหญ่ 1,000 เยน มัธยมปลาย 700 เยน มัธยมต้น 500 เยน ประถม 300 เยน การชมพระพุทธรูปที่เปิดให้ชมเป็นพิเศษใช้ตั๋วแยกหรือตั๋วรวม"
+    },
+    "entrance": {
+      "en": "The traditional approach climbs Tsukimizaka from the foot of the temple hill. Check the grounds map before choosing an approach suited to your mobility.",
+      "ja": "山下から月見坂を上るのが表参道。境内図で移動に適した進入経路を確認してください。",
+      "th": "ทางหลักขึ้นเนิน Tsukimizaka จากเชิงเขาวัด ตรวจผังพื้นที่เพื่อเลือกทางเข้าที่เหมาะกับการเคลื่อนไหวของคุณ"
     }
   },
   "pref:iwate:morioka-castle-site-park": {
@@ -130,6 +159,35 @@
       "en": "From Katsuta east exit, bus stand 2: about 15 minutes to the west gate or 30 minutes to the south gate. Choose the gate for your planned area.",
       "ja": "勝田駅東口2番乗り場から西口まで約15分、南口まで約30分。目的のエリアに合う入口を選びます。",
       "th": "จากทางออกตะวันออกสถานี Katsuta ป้ายหมายเลข 2 บัสถึงประตูตะวันตกราว 15 นาที หรือประตูใต้ราว 30 นาที เลือกประตูให้ตรงกับพื้นที่ที่จะเที่ยว"
+    },
+    "hours": {
+      "en": "09:30–17:00 March–July 17 and September–October; until 18:00 July 18–August, 16:30 November–February. Usually closed Tuesdays; seasonal exceptions and maintenance closures apply.",
+      "ja": "3〜7/17・9〜10月9:30〜17:00、7/18〜8月は18:00まで、11〜2月は16:30まで。原則火曜休園。季節の例外と整備休園は公式カレンダーを確認。",
+      "th": "มี.ค.–17 ก.ค. และ ก.ย.–ต.ค. 09:30–17:00 น., 18 ก.ค.–ส.ค. ถึง 18:00 น., พ.ย.–ก.พ. ถึง 16:30 น. ปกติปิดวันอังคาร มีข้อยกเว้นตามฤดูกาลและช่วงบำรุงรักษา"
+    },
+    "fieldSources": {
+      "hours": {
+        "source": "https://www.hitachikaihin.jp/guide/schedule.html",
+        "reviewedAt": "2026-10-28"
+      },
+      "admission": {
+        "source": "https://www.hitachikaihin.jp/guide/ticket.html",
+        "reviewedAt": "2026-10-28"
+      },
+      "accessibility": {
+        "source": "https://www.hitachikaihin.jp/guide/barrier-free.html",
+        "reviewedAt": "2026-10-28"
+      }
+    },
+    "admission": {
+      "en": "Standard admission: high-school age and older ¥450; 65+ ¥210; junior-high students and younger free. Seasonal surcharges apply: check the dated fee table before visiting.",
+      "ja": "通常入園料：高校生以上450円、65歳以上210円、中学生以下無料。季節料金の加算期間は公式料金表で確認。",
+      "th": "ค่าเข้าปกติ: มัธยมปลายขึ้นไป 450 เยน อายุ 65 ปีขึ้นไป 210 เยน มัธยมต้นลงมาฟรี มีค่าธรรมเนียมเพิ่มบางฤดูกาล ให้ตรวจตารางตามวันที่เดินทาง"
+    },
+    "accessibility": {
+      "en": "Wheelchairs are lent at the main gates without reservations. Accessible toilets and ramps are available; ask staff about wheelchair space on the Seaside Train.",
+      "ja": "主要ゲートで車いすを貸出（予約不可）。多目的トイレ・スロープあり。シーサイドトレインの車いす対応は係員へ確認。",
+      "th": "ยืมรถเข็นที่ประตูหลักได้โดยไม่รับจอง มีห้องน้ำสำหรับผู้ใช้รถเข็นและทางลาด สอบถามเจ้าหน้าที่เรื่องพื้นที่รถเข็นบน Seaside Train"
     }
   },
   "pref:tochigi:nikko-toshogu": {
@@ -175,6 +233,44 @@
       "en": "From JR Omiya take the New Shuttle to Tetsudo-Hakubutsukan Station.",
       "ja": "JR大宮駅からニューシャトルに乗り鉄道博物館駅下車。",
       "th": "จาก JR Omiya ใช้ New Shuttle ลงสถานี Tetsudo-Hakubutsukan"
+    },
+    "hours": {
+      "en": "10:00–17:00; last admission 16:30. Usually closed Tuesdays and over New Year; check the annual calendar.",
+      "ja": "10:00〜17:00、最終入館16:30。原則火曜・年末年始休館。年間カレンダーを確認。",
+      "th": "10:00–17:00 น. เข้าครั้งสุดท้าย 16:30 น. ปกติปิดวันอังคารและช่วงปีใหม่ ตรวจปฏิทินประจำปี"
+    },
+    "fieldSources": {
+      "hours": {
+        "source": "https://www.railway-museum.jp/information/",
+        "reviewedAt": "2026-10-28"
+      },
+      "admission": {
+        "source": "https://www.railway-museum.jp/information/",
+        "reviewedAt": "2026-10-28"
+      },
+      "booking": {
+        "source": "https://www.railway-museum.jp/information/",
+        "reviewedAt": "2026-10-28"
+      },
+      "accessibility": {
+        "source": "https://www.railway-museum.jp/contact/",
+        "reviewedAt": "2026-10-28"
+      }
+    },
+    "admission": {
+      "en": "Advance purchase by the previous day: adult ¥1,500, school student ¥500, preschool age 3+ ¥200. Same-day: ¥1,600 / ¥600 / ¥300 respectively.",
+      "ja": "前日までの前売：一般1,500円、小中高生500円、3歳以上未就学児200円。当日は順に1,600円・600円・300円。",
+      "th": "ซื้อล่วงหน้าภายในวันก่อนเข้า: ผู้ใหญ่ 1,500 เยน นักเรียนประถม–มัธยมปลาย 500 เยน เด็กก่อนวัยเรียนอายุ 3 ปีขึ้นไป 200 เยน ซื้อวันเข้าเป็น 1,600 / 600 / 300 เยนตามลำดับ"
+    },
+    "booking": {
+      "en": "Admission is sold online, at convenience stores and at the museum on open days. Selected experience-reservation admission tickets are sold only through Seven Ticket; an ordinary ticket does not reserve a simulator.",
+      "ja": "入館券はオンライン・コンビニ・開館日の券売機で購入可。一部の体験予約付き入館券はセブンチケット限定。通常入館券だけではシミュレータの予約になりません。",
+      "th": "ซื้อตั๋วเข้าชมออนไลน์ ร้านสะดวกซื้อ หรือเครื่องขายที่พิพิธภัณฑ์ในวันเปิดได้ ตั๋วรวมการจองกิจกรรมบางชนิดขายเฉพาะ Seven Ticket ตั๋วเข้าชมทั่วไปไม่ได้จองเครื่องจำลองให้"
+    },
+    "accessibility": {
+      "en": "Wheelchairs and strollers are allowed. Wheelchair loans are available at the entrance; stroller rental uses the paid Babycal service and requires registration.",
+      "ja": "車いす・ベビーカーで入館可。車いす貸出はエントランスへ。ベビーカーの貸出は有料のベビカルで会員登録が必要。",
+      "th": "นำรถเข็นและรถเข็นเด็กเข้าได้ ยืมรถเข็นที่ทางเข้า ส่วนรถเข็นเด็กใช้บริการ Babycal แบบเสียเงินและต้องสมัครสมาชิก"
     }
   },
   "pref:saitama:kawagoe-toki-no-kane": {
@@ -328,6 +424,44 @@
       "en": "JR Morinomiya serves the southeast park edge; Osakajokoen serves the northeast. Tanimachi Yonchome is another approach. Allow time to walk inside the park.",
       "ja": "JR森ノ宮駅は公園南東側、大阪城公園駅は北東側。谷町四丁目駅からもアクセス可。園内の徒歩時間を確保。",
       "th": "JR Morinomiya เข้าด้านตะวันออกเฉียงใต้ ส่วน Osakajokoen เข้าด้านตะวันออกเฉียงเหนือ หรือใช้ Tanimachi Yonchome เผื่อเวลาเดินภายในสวน"
+    },
+    "hours": {
+      "en": "Castle tower 09:00–18:00, entry until 17:30; ticket queues may close earlier. Closed Dec 28–Jan 1.",
+      "ja": "天守閣9:00〜18:00、入館17:30まで。混雑時は購入列を早めに締め切る場合あり。12/28〜1/1休館。",
+      "th": "หอปราสาท 09:00–18:00 น. รับเข้าถึง 17:30 น. คิวซื้อตั๋วอาจปิดก่อนเมื่อคนมาก ปิด 28 ธ.ค.–1 ม.ค."
+    },
+    "fieldSources": {
+      "hours": {
+        "source": "https://www.osakacastle.net/guide/",
+        "reviewedAt": "2026-10-28"
+      },
+      "admission": {
+        "source": "https://www.osakacastle.net/guide/",
+        "reviewedAt": "2026-10-28"
+      },
+      "booking": {
+        "source": "https://www.osakacastle.net/guide/",
+        "reviewedAt": "2026-10-28"
+      },
+      "accessibility": {
+        "source": "https://www.osakacastle.net/guide/",
+        "reviewedAt": "2026-10-28"
+      }
+    },
+    "admission": {
+      "en": "Tower: adults ¥1,200; university/high-school students ¥600 with proof (ISIC for overseas students); junior-high age and younger free with proof. Park facilities have separate rules.",
+      "ja": "天守閣：大人1,200円、大学生・高校生600円（要証明、海外の学生はISIC）、中学生以下無料（要証明）。公園内の他施設は別条件。",
+      "th": "หอปราสาท: ผู้ใหญ่ 1,200 เยน นักศึกษามหาวิทยาลัย/มัธยมปลาย 600 เยนพร้อมหลักฐาน นักเรียนต่างชาติใช้ ISIC มัธยมต้นหรือต่ำกว่าฟรีพร้อมหลักฐาน สถานที่อื่นในสวนใช้เงื่อนไขแยก"
+    },
+    "booking": {
+      "en": "Online tickets are available. The tower does not accept entry reservations; advance contact for groups does not reserve admission.",
+      "ja": "オンライン券あり。入館予約は受け付けていません。団体の事前連絡も予約扱いではありません。",
+      "th": "มีตั๋วออนไลน์ หอปราสาทไม่รับจองเวลาเข้า การแจ้งล่วงหน้าสำหรับหมู่คณะไม่ถือเป็นการจองเข้า"
+    },
+    "accessibility": {
+      "en": "Staff assist wheelchair users with outside and internal lifts to visitor floors. Strollers are normally left at the entrance because upper floors are narrow and busy.",
+      "ja": "車いす利用者などはスタッフ案内で館外・館内エレベーターを利用できます。上層階は狭く混雑するため、ベビーカーは原則入口で預けます。",
+      "th": "เจ้าหน้าที่ช่วยผู้ใช้รถเข็นใช้ลิฟต์ภายนอกและภายในไปชั้นจัดแสดง โดยปกติให้ฝากรถเข็นเด็กที่ทางเข้าเนื่องจากชั้นบนแคบและคนมาก"
     }
   },
   "osaka-castle": {
@@ -535,6 +669,44 @@
       "en": "Use Yoshinogari-Koen on the JR Nagasaki Main Line, then walk about 15 minutes to the park.",
       "ja": "JR長崎本線吉野ケ里公園駅から徒歩約15分。",
       "th": "ลง Yoshinogari-Koen สาย JR Nagasaki Main Line แล้วเดินประมาณ 15 นาทีถึงสวน"
+    },
+    "hours": {
+      "en": "09:00–17:00, extended to 18:00 in June–August. Closed Dec 31 and the third Monday of January plus the following day.",
+      "ja": "9:00〜17:00、6〜8月は18:00まで。12/31と1月第3月曜・翌日休園。",
+      "th": "09:00–17:00 น. มิ.ย.–ส.ค. ปิด 18:00 น. ปิด 31 ธ.ค. และวันจันทร์ที่สามของ ม.ค. กับวันถัดไป"
+    },
+    "fieldSources": {
+      "hours": {
+        "source": "https://www.yoshinogari.jp/information/use/",
+        "reviewedAt": "2026-10-28"
+      },
+      "admission": {
+        "source": "https://www.yoshinogari.jp/information/use/",
+        "reviewedAt": "2026-10-28"
+      },
+      "entrance": {
+        "source": "https://www.yoshinogari.jp/en/information/access/",
+        "reviewedAt": "2026-10-28"
+      },
+      "accessibility": {
+        "source": "https://www.yoshinogari.jp/en/information/special-needs/",
+        "reviewedAt": "2026-10-28"
+      }
+    },
+    "admission": {
+      "en": "Adults age 15+ ¥460; age 65+ ¥200 with age proof. Junior-high students and younger enter free.",
+      "ja": "大人15歳以上460円、65歳以上200円（年齢確認書類）。中学生以下無料。",
+      "th": "ผู้ใหญ่อายุ 15 ปีขึ้นไป 460 เยน อายุ 65 ปีขึ้นไป 200 เยนพร้อมหลักฐานอายุ นักเรียนมัธยมต้นหรือต่ำกว่าฟรี"
+    },
+    "entrance": {
+      "en": "From JR Yoshinogari-koen walk about 15 minutes to the East Entrance; from JR Kanzaki walk about 15 minutes to the West Entrance (Asobinohara).",
+      "ja": "JR吉野ケ里公園駅から東口へ徒歩約15分、JR神埼駅から西口（あそびの原）へ徒歩約15分。",
+      "th": "จาก JR Yoshinogari-koen เดินราว 15 นาทีไปทางเข้าตะวันออก หรือจาก JR Kanzaki เดินราว 15 นาทีไปทางเข้าตะวันตก Asobinohara"
+    },
+    "accessibility": {
+      "en": "The operator lists ramps, accessible toilets and wheelchair/stroller loans at entrance service centers. Electric wheelchairs are at the East Gate; check availability before relying on a loan.",
+      "ja": "公式案内にスロープ、多目的トイレ、入口サービスセンターの車いす・ベビーカー貸出あり。電動車いすは東口。貸出状況は事前確認。",
+      "th": "ผู้ดูแลระบุว่ามีทางลาด ห้องน้ำรองรับผู้พิการ และยืมรถเข็น/รถเข็นเด็กที่ศูนย์บริการทางเข้า รถเข็นไฟฟ้าอยู่ทางเข้าตะวันออก ควรตรวจจำนวนที่พร้อมให้ยืมก่อน"
     }
   },
   "pref:saga:yutoku-inari-shrine": {
@@ -685,6 +857,53 @@
       "en": "From Kamakura, take Enoden to Hase (third stop, about seven minutes), then walk about seven minutes to Kotoku-in.",
       "ja": "鎌倉駅から江ノ電で3駅・約7分の長谷駅へ。長谷駅から高徳院まで徒歩約7分。",
       "th": "จาก Kamakura นั่ง Enoden ไป Hase สามสถานีประมาณ 7 นาที แล้วเดินอีกประมาณ 7 นาทีถึง Kotoku-in"
+    },
+    "hours": {
+      "en": "Apr–Sep 08:00–17:30; Oct–Mar 08:00–17:00. Last entry 15 minutes before closing. Statue interior 08:00–16:30, last entry 16:20.",
+      "ja": "4〜9月8:00〜17:30、10〜3月8:00〜17:00。入場は閉門15分前まで。大仏胎内は8:00〜16:30、受付16:20まで。",
+      "th": "เม.ย.–ก.ย. 08:00–17:30 น., ต.ค.–มี.ค. 08:00–17:00 น. รับเข้าก่อนปิด 15 นาที ภายในองค์พระ 08:00–16:30 น. รับเข้าถึง 16:20 น."
+    },
+    "fieldSources": {
+      "hours": {
+        "source": "https://www.kotoku-in.jp/en/",
+        "reviewedAt": "2026-10-28"
+      },
+      "admission": {
+        "source": "https://www.kotoku-in.jp/en/",
+        "reviewedAt": "2026-10-28"
+      },
+      "booking": {
+        "source": "https://www.kotoku-in.jp/en/",
+        "reviewedAt": "2026-10-28"
+      },
+      "entrance": {
+        "source": "https://www.kotoku-in.jp/en/grounds_info.html",
+        "reviewedAt": "2026-10-28"
+      },
+      "accessibility": {
+        "source": "https://www.kotoku-in.jp/en/grounds_info.html",
+        "reviewedAt": "2026-10-28"
+      }
+    },
+    "admission": {
+      "en": "General ¥300; ages 6–12 ¥150; under six free. Entering the statue costs an additional ¥50.",
+      "ja": "一般300円、6〜12歳150円、6歳未満無料。大仏胎内は別途50円。",
+      "th": "ทั่วไป 300 เยน อายุ 6–12 ปี 150 เยน ต่ำกว่า 6 ปีฟรี เข้าในองค์พระเพิ่ม 50 เยน"
+    },
+    "booking": {
+      "en": "Ordinary temple visits do not require a reservation.",
+      "ja": "通常の拝観は予約不要。",
+      "th": "การเข้าชมวัดตามปกติไม่ต้องจอง"
+    },
+    "entrance": {
+      "en": "Use the main entrance and ticket office shown on the temple's grounds map; ramps lead toward the Buddha viewing area.",
+      "ja": "公式境内図の正面入口と拝観券売場へ。大仏前の見学エリアへはスロープがあります。",
+      "th": "ใช้ทางเข้าหลักและจุดขายตั๋วตามผังวัด มีทางลาดไปยังบริเวณชมองค์พระ"
+    },
+    "accessibility": {
+      "en": "Ramps serve the main entrance and Buddha viewing area. Use the marked route to avoid uneven ground; the operator recommends an accompanying helper for wheelchair users.",
+      "ja": "正面入口・大仏前にスロープがあります。凹凸を避ける公式ルートを利用。車いす利用者には介助者の同伴を推奨しています。",
+      "th": "มีทางลาดที่ทางเข้าหลักและบริเวณชมองค์พระ ใช้เส้นทางที่ระบุเพื่อหลีกเลี่ยงพื้นขรุขระ ผู้ดูแลแนะนำให้ผู้ใช้รถเข็นมีผู้ช่วยร่วมทาง"
     }
   },
   "pref:niigata:bandai-bridge": {
@@ -836,6 +1055,26 @@
       "en": "Use Sengan-en Station on the JR Nippo Main Line and walk to the site. Some trains do not stop here: check JR Kyushu’s timetable. The City View bus also serves Sengan-en (Iso Teien)-mae.",
       "ja": "JR日豊本線仙巌園駅から徒歩。一部列車は停車しないためJR九州の時刻表を確認。シティビューの仙巌園（磯庭園）前バス停も利用できます。",
       "th": "ลงสถานี Sengan-en สาย JR Nippo Main Line แล้วเดินไปสถานที่ รถบางขบวนไม่จอด ต้องตรวจตาราง JR Kyushu รถบัส City View จอดที่ Sengan-en (Iso Teien)-mae ได้เช่นกัน"
+    },
+    "hours": {
+      "en": "09:00–17:00; last admission 16:30. Closed on the first Sunday in March for the Kagoshima Marathon.",
+      "ja": "9:00〜17:00、最終入場16:30。3月第1日曜は鹿児島マラソンのため休園。",
+      "th": "09:00–17:00 น. เข้าครั้งสุดท้าย 16:30 น. ปิดวันอาทิตย์แรกของเดือนมีนาคมเนื่องจาก Kagoshima Marathon"
+    },
+    "fieldSources": {
+      "hours": {
+        "source": "https://www.senganen.jp/about/",
+        "reviewedAt": "2026-10-28"
+      },
+      "admission": {
+        "source": "https://www.senganen.jp/about/",
+        "reviewedAt": "2026-10-28"
+      }
+    },
+    "admission": {
+      "en": "General admission ¥1,600; elementary through high-school students ¥800. Includes the Goten residence and Shoko Shuseikan museum.",
+      "ja": "一般1,600円、小中高生800円。御殿と尚古集成館を含みます。",
+      "th": "ผู้ใหญ่ทั่วไป 1,600 เยน นักเรียนประถมถึงมัธยมปลาย 800 เยน รวมเรือน Goten และพิพิธภัณฑ์ Shoko Shuseikan"
     }
   },
   "pref:kagoshima:shiroyama-observatory": {

@@ -172,35 +172,43 @@ export function AppearanceControls({
     toggleMotion,
   } = useAtmosphere()
   return (
-    <div className="atmosphere-controls" role="group" aria-label={copy.label}>
-      <button
-        type="button"
-        onClick={toggleTheme}
-        aria-label={theme === 'dark' ? copy.light : copy.dark}
-      >
-        <Icon name={theme === 'dark' ? 'sun' : 'moon'} />
-        <span>{theme === 'dark' ? copy.light : copy.dark}</span>
-      </button>
-      <button
-        type="button"
-        onClick={resetTheme}
-        disabled={preference === 'system'}
-        aria-label={copy.system}
-        title={copy.system}
-      >
-        <Icon name="globe" />
-        <span>{copy.system}</span>
-      </button>
-      <button
-        type="button"
-        onClick={toggleMotion}
-        disabled={reduced}
-        aria-pressed={!moving}
-        aria-label={reduced ? copy.reduced : moving ? copy.pause : copy.play}
-      >
-        <Icon name={moving ? 'pause' : 'play'} />
-        <span>{reduced ? copy.reduced : moving ? copy.pause : copy.play}</span>
-      </button>
-    </div>
+    <details className="appearance-panel">
+      <summary>
+        <Icon name={theme === 'dark' ? 'moon' : 'sun'} />
+        {copy.label}
+      </summary>
+      <div className="atmosphere-controls" role="group" aria-label={copy.label}>
+        <button
+          type="button"
+          onClick={toggleTheme}
+          aria-label={theme === 'dark' ? copy.light : copy.dark}
+        >
+          <Icon name={theme === 'dark' ? 'sun' : 'moon'} />
+          <span>{theme === 'dark' ? copy.light : copy.dark}</span>
+        </button>
+        <button
+          type="button"
+          onClick={resetTheme}
+          disabled={preference === 'system'}
+          aria-label={copy.system}
+          title={copy.system}
+        >
+          <Icon name="globe" />
+          <span>{copy.system}</span>
+        </button>
+        <button
+          type="button"
+          onClick={toggleMotion}
+          disabled={reduced}
+          aria-pressed={!moving}
+          aria-label={reduced ? copy.reduced : moving ? copy.pause : copy.play}
+        >
+          <Icon name={moving ? 'pause' : 'play'} />
+          <span>
+            {reduced ? copy.reduced : moving ? copy.pause : copy.play}
+          </span>
+        </button>
+      </div>
+    </details>
   )
 }

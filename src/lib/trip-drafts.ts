@@ -1,7 +1,7 @@
 // Invalid drafts belong to one tab and never replace validated trip data.
 export type Drafts = Record<
   string,
-  { value: string; label: string; reason?: 'invalid' }
+  { value: string; label: string; reason?: 'invalid'; original?: string }
 >
 const key = 'japan-travel-drafts-v1'
 let memory: string | null = null
@@ -21,6 +21,9 @@ export function readDrafts(raw: string): Drafts {
           'value' in value &&
           typeof value.value === 'string' &&
           value.value.length <= 1000 &&
+          (!('original' in value) ||
+            (typeof value.original === 'string' &&
+              value.original.length <= 1000)) &&
           'label' in value &&
           typeof value.label === 'string' &&
           value.label.length <= 200,

@@ -1,0 +1,38 @@
+name: Website or visitor information / แจ้งปัญหา / 情報の訂正
+description: Report an incorrect travel fact, translation, map or website problem.
+title: "[Feedback] "
+body:
+  - type: markdown
+    attributes:
+      value: "Reports are public. Do not attach your trip backup, booking references, hotel dates or personal details. Security vulnerabilities: use the repository's private vulnerability reporting option if available."
+  - type: dropdown
+    id: category
+    attributes:
+      label: What needs attention?
+      options:
+        - Hours, admission or booking
+        - Entrance, map or accessibility
+        - Translation
+        - Website interaction or appearance
+        - Other visitor information
+    validations:
+      required: true
+  - type: input
+    id: page
+    attributes:
+      label: Page and language
+      placeholder: /th/prefectures/kyoto
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened, and what did you expect?
+      description: For an interaction problem, include the steps, browser and device. Use sample data.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Official source and date / แหล่งทางการและวันที่ / 公式情報と確認日
+      description: For a content correction, link to the operator's announcement. A map screenshot alone does not establish an accessible entrance.

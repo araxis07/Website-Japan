@@ -49,7 +49,7 @@ export function offlineTrip(
     })
     .join(
       '',
-    )}${(trip.stays || []).map((stay) => `<p>${escape(stay.name)}: ${stay.from} (${tripDate(trip.startDate, stay.from)}) → ${stay.to} (${tripDate(trip.startDate, stay.to)})</p>`).join('')}<p>${escape(tools.travelers)}: ${trip.travelers || 1}</p>${budgetNote}${Object.keys(trip.budget || {}).length ? `<p>${escape(tools.total)}: ${new Intl.NumberFormat(lang, { style: 'currency', currency: 'JPY' }).format(Object.values(trip.budget || {}).reduce((a, b) => a + b, 0))}</p>` : ''}<section><h2>${escape(tools.emergency)}</h2>${firstVisitSteps
+    )}${(trip.stays || []).map((stay) => `<p>${escape(stay.name)} · ${escape(stay.address || '')}: ${stay.from} (${tripDate(trip.startDate, stay.from)}) → ${stay.to} (${tripDate(trip.startDate, stay.to)})</p>`).join('')}<p>${escape(tools.travelers)}: ${trip.travelers || 1}</p>${budgetNote}${Object.keys(trip.budget || {}).length ? `<p>${escape(tools.total)}: ${new Intl.NumberFormat(lang, { style: 'currency', currency: 'JPY' }).format(Object.values(trip.budget || {}).reduce((a, b) => a + b, 0))}</p>` : ''}<section><h2>${escape(tools.emergency)}</h2>${firstVisitSteps
     .find((step) => step.id === 'help')!
     .copy[lang].items.map((text) => `<p>${escape(text)}</p>`)
     .join(

@@ -22,7 +22,12 @@ export type TripEntry = {
   note?: string
   duration?: number
   buffer?: number
-  custom?: { name: string; address: string; url?: string }
+  custom?: {
+    name: string
+    address: string
+    url?: string
+    coordinates?: [number, number]
+  }
 }
 export function tripPlace(entry: TripEntry) {
   if (!entry.custom) return places.find((place) => place.id === entry.id)!
@@ -37,7 +42,7 @@ export function tripPlace(entry: TripEntry) {
     },
     address: entry.custom.address,
     query: `${entry.custom.name} ${entry.custom.address}`,
-    coordinates: undefined,
+    coordinates: entry.custom.coordinates,
     prefecture: undefined,
   }
 }
@@ -47,7 +52,14 @@ export type Trip = {
   days: number
   items: TripEntry[]
   travelers?: number
-  stays?: { id?: string; name: string; from: number; to: number }[]
+  stays?: {
+    id?: string
+    name: string
+    address?: string
+    placeId?: string
+    from: number
+    to: number
+  }[]
   title?: string
   startDate?: string
   base?: string
@@ -146,12 +158,26 @@ export function parseTrip(raw: string): Trip | null {
           if (url.protocol !== 'https:' || url.username || url.password)
             return null
         }
+        const coordinates = item.custom.coordinates
+        if (
+          coordinates !== undefined &&
+          (!Array.isArray(coordinates) ||
+            coordinates.length !== 2 ||
+            coordinates.some(
+              (value: unknown) =>
+                typeof value !== 'number' || !Number.isFinite(value),
+            ) ||
+            Math.abs(coordinates[0]) > 90 ||
+            Math.abs(coordinates[1]) > 180)
+        )
+          return null
         const other = result.items.find((entry) => entry.id === item.id)?.custom
         if (
           other &&
           (other.name !== item.custom.name ||
             other.address !== item.custom.address ||
-            other.url !== item.custom.url)
+            other.url !== item.custom.url ||
+            JSON.stringify(other.coordinates) !== JSON.stringify(coordinates))
         )
           return null
       } else if (item.custom !== undefined) return null
@@ -206,6 +232,14 @@ export function parseTrip(raw: string): Trip | null {
                 address: item.custom.address,
                 ...(item.custom.url !== undefined
                   ? { url: item.custom.url }
+                  : {}),
+                ...(item.custom.coordinates !== undefined
+                  ? {
+                      coordinates: [...item.custom.coordinates] as [
+                        number,
+                        number,
+                      ],
+                    }
                   : {}),
               },
             }
@@ -295,7 +329,26 @@ export function parseTrip(raw: string): Trip | null {
           result.stays.some((other) => other.id === id)
         )
           return null
-        result.stays.push({ id, name: stay.name, from: stay.from, to: stay.to })
+        if (stay.address !== undefined && !text(stay.address, 300)) return null
+        if (stay.placeId !== undefined) {
+          const place = result.items.find(
+            (item) => item.id === stay.placeId,
+          )?.custom
+          if (
+            !place ||
+            place.name !== stay.name ||
+            place.address !== stay.address
+          )
+            return null
+        }
+        result.stays.push({
+          id,
+          name: stay.name,
+          from: stay.from,
+          to: stay.to,
+          ...(stay.address !== undefined ? { address: stay.address } : {}),
+          ...(stay.placeId !== undefined ? { placeId: stay.placeId } : {}),
+        })
       }
     }
     return result
@@ -311,10 +364,17 @@ export function mergeTrips(current: Trip, incoming: Trip): Trip | null {
       days: Math.max(current.days, incoming.days),
       items: [
         ...current.items,
-        ...incoming.items.filter(
-          (item) =>
-            !current.items.some((old) => entryKey(old) === entryKey(item)),
-        ),
+        ...incoming.items
+          .filter(
+            (item) =>
+              !current.items.some((old) => entryKey(old) === entryKey(item)),
+          )
+          .map((item) => {
+            const custom = current.items.find(
+              (old) => old.id === item.id,
+            )?.custom
+            return custom ? { ...item, custom } : item
+          }),
       ],
     }),
   )

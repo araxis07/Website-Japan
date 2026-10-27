@@ -127,8 +127,27 @@ export default async function PrefecturePage({ params }: Props) {
           </figcaption>
         </figure>
       </section>
+      <section className="guide-at-a-glance" aria-label={dict.tools.quickFacts}>
+        <h2>{dict.tools.quickFacts}</h2>
+        <dl>
+          <div>
+            <dt>{dict.explorer.base}</dt>
+            <dd>{p.base[lang]}</dd>
+          </div>
+          <div>
+            <dt>{dict.tools.planCoverage}</dt>
+            <dd>{plan.groups.length}</dd>
+          </div>
+          <div>
+            <dt>{dict.tools.visitCount}</dt>
+            <dd>{points.length}</dd>
+          </div>
+        </dl>
+        <p className="source-note">{dict.tools.contentScope}</p>
+      </section>
       <nav className="guide-toc" aria-label={dict.guide.toc}>
         <a href="#arrival">{dict.explorer.arrival}</a>
+        <a href="#suggested-plan">{dict.tools.apply}</a>
         <a href="#places">{dict.explorer.places}</a>
         <a href="#nearby">{dict.tools.nearby}</a>
         <Link href={`/${lang}/first-visit#help`}>{dict.tools.emergency}</Link>
@@ -187,7 +206,11 @@ export default async function PrefecturePage({ params }: Props) {
           </Link>
         </article>
       </div>
-      <section className="prefecture-day-plan" aria-label={dict.tools.apply}>
+      <section
+        id="suggested-plan"
+        className="prefecture-day-plan"
+        aria-label={dict.tools.apply}
+      >
         <h2>{dict.tools.apply}</h2>
         <p>{plan.note[lang]}</p>
         <p className="source-note">{dict.tools.planEstimate}</p>

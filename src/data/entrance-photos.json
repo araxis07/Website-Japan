@@ -63,5 +63,18 @@
       "th": "ประตูหลัก Tokyo National Museum และป้ายทางเข้า ถ่าย ก.ย. 2018 เป็นภาพอ้างอิงในอดีต ให้ตามป้ายปัจจุบัน"
     },
     "taken": "2018-09"
+  },
+  "pref:kanagawa:kotoku-in": {
+    "source": "https://commons.wikimedia.org/wiki/File:Main_Archway_into_K%C5%8Dtoku-in,_Kamakura.jpg",
+    "artist": "Ethan Doyle White",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "src": "/images/entrances/kotoku-in.jpg",
+    "taken": "2019",
+    "alt": {
+      "en": "Nio-mon entrance gate at Kotoku-in, Kamakura, photographed in 2019. Historical reference; check the current accessible route.",
+      "ja": "2019年撮影、鎌倉・高徳院の仁王門。過去の写真です。現在の段差のない経路は公式案内を確認。",
+      "th": "ประตู Nio-mon ทางเข้า Kotoku-in คามาคุระ ถ่ายปี 2019 เป็นภาพอ้างอิงในอดีต ตรวจเส้นทางไร้บันไดปัจจุบันจากเว็บไซต์วัด"
+    }
   }
 }

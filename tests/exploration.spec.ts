@@ -1,4 +1,4 @@
-import { test, expect } from './fixtures'
+import { test, expect, openDetails } from './fixtures'
 import { prefectures } from '../src/data/prefectures'
 import { prefecturePlaces } from '../src/data/prefecture-places'
 import { spots, placePath, canonicalPlaceId } from '../src/data/places'
@@ -94,6 +94,7 @@ test('prefecture filters combine with multilingual landmark search and map selec
 }) => {
   await page.goto('/en/explore')
   await expect(page.locator('.prefecture-card')).toHaveCount(12)
+  await openDetails(page.locator('.search-options'))
   await page
     .getByRole('combobox', { name: 'Region', exact: true })
     .selectOption('kansai')
@@ -230,6 +231,7 @@ test('night mode follows the system, persists and synchronizes across tabs', asy
   await page.emulateMedia({ colorScheme: 'dark', reducedMotion: 'reduce' })
   await page.goto('/en/explore')
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark')
+  await openDetails(page.locator('.appearance-panel'))
   await page.getByRole('button', { name: 'Day mode', exact: true }).click()
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'light')
   expect(
@@ -239,6 +241,7 @@ test('night mode follows the system, persists and synchronizes across tabs', asy
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'light')
   const other = await context.newPage()
   await other.goto('/en/first-visit')
+  await openDetails(page.locator('.appearance-panel'))
   await page.getByRole('button', { name: 'Night mode', exact: true }).click()
   await expect(other.locator('html')).toHaveAttribute('data-theme', 'dark')
   await expect(
@@ -258,8 +261,10 @@ test('appearance still works when browser storage is blocked', async ({
     }
   })
   await page.goto('/en/first-visit')
+  await openDetails(page.locator('.appearance-panel'))
   await page.getByRole('button', { name: 'Night mode', exact: true }).click()
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark')
+  await openDetails(page.locator('.appearance-panel'))
   await page.getByRole('button', { name: 'Day mode', exact: true }).click()
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'light')
 })
@@ -271,9 +276,11 @@ test('3D petals can be paused and resumed on guide pages', async ({ page }) => {
   await expect(petal).toBeVisible()
   await expect(petal).toHaveCSS('animation-play-state', 'running')
   await expect(petal).toHaveCSS('transform', /matrix3d/)
+  await openDetails(page.locator('.appearance-panel'))
   await page.getByRole('button', { name: 'Pause effects', exact: true }).click()
   await expect(petal).toHaveCSS('animation-play-state', 'paused')
   await expect(page.locator('html')).toHaveAttribute('data-motion', 'still')
+  await openDetails(page.locator('.appearance-panel'))
   await page
     .getByRole('button', { name: 'Resume effects', exact: true })
     .click()

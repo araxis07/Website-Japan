@@ -1,4 +1,4 @@
-import { test, expect } from './fixtures'
+import { test, expect, openDetails } from './fixtures'
 import { emptyTrip, tripKey, conflictPairs } from '../src/lib/trip'
 import { tripCalendar } from '../src/lib/trip-calendar'
 import { parseLibrary } from '../src/components/TripExtras'
@@ -192,6 +192,7 @@ test('reviewed-information filters, spelling suggestions and map return retain c
   page,
 }) => {
   await page.goto('/en/explore?view=list')
+  await openDetails(page.locator('.search-options'))
   for (const select of await page.locator('.explorer-filters select').all())
     expect((await select.boundingBox())!.height).toBeGreaterThanOrEqual(44)
   await page

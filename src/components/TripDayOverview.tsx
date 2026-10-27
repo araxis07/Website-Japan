@@ -41,6 +41,9 @@ export default function TripDayOverview({
         <summary>{tools.dayMap}</summary>
         <p>{tools.routeOrder}</p>
         {points.length < entries.length && <p>{tools.unmappedPersonal}</p>}
+        {entries.some((entry) => entry.custom?.coordinates) && (
+          <p>{tools.personalPinNotice}</p>
+        )}
         {open && points.length > 0 && (
           <StreetMap points={points} lang={lang} copy={mapCopy} tools={tools} />
         )}

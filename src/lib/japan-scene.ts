@@ -158,14 +158,17 @@ export function createJapanScene(
   const evergreen = material(0x355c4b)
   const cedars = new THREE.Group()
   world.add(cedars)
+  const treeTrunks = new THREE.Group()
+  world.add(treeTrunks)
   treePositions.forEach(([x, size, z], t) => {
-    mesh(cylinder, wood, [x, size * 0.5, z], [0.09, size, 0.09])
+    mesh(cylinder, wood, [x, size * 0.5, z], [0.09, size, 0.09], treeTrunks)
     for (const direction of [-1, 1]) {
       const branch = mesh(
         cylinder,
         wood,
         [x + direction * 0.15, size * 0.8, z],
         [0.045, size * 0.6, 0.045],
+        treeTrunks,
       )
       branch.rotation.z = direction * -0.6
     }
@@ -227,6 +230,21 @@ export function createJapanScene(
   }
   const boat = mesh(box, wood, [0, 0.08, 2], [0.35, 0.12, 1.2], island)
   boat.userData.topic = 'fuji'
+  for (const x of [-2.2, 2.2]) {
+    mesh(cylinder, wood, [x, 0.65, -0.8], [0.07, 1.3, 0.07], island)
+    for (let i = 0; i < 5; i++) {
+      const angle = (i * Math.PI * 2) / 5
+      const frond = mesh(
+        sphere,
+        evergreen,
+        [x + Math.cos(angle) * 0.32, 1.3, -0.8 + Math.sin(angle) * 0.32],
+        [0.5, 0.06, 0.15],
+        island,
+      )
+      frond.rotation.y = -angle
+      frond.userData.topic = 'sakura'
+    }
+  }
   world.add(pagoda)
   pagoda.userData.topic = 'torii'
   // A small pagoda at the far side of the garden.
@@ -358,8 +376,9 @@ export function createJapanScene(
     peak.scale.x = region === 'hokkaido' ? 2.8 : 1.9
     peak.scale.z = region === 'hokkaido' ? 1.1 : 1.7
     cedars.visible = region === 'hokkaido'
+    treeTrunks.visible = region !== 'okinawa'
     canopy.forEach((leaves) => {
-      leaves.visible = region !== 'hokkaido'
+      leaves.visible = region !== 'hokkaido' && region !== 'okinawa'
     })
     peak.scale.y = region === 'fuji' ? 2.5 : 1.1
     peak.position.y = region === 'fuji' ? 1.1 : 0.45
@@ -375,6 +394,9 @@ export function createJapanScene(
     blossom.color.setHex(colors[0])
     blossomLight.color.setHex(colors[1])
     grass.color.setHex(colors[2])
+    evergreen.color.setHex(
+      region === 'hokkaido' && next.season === 3 ? 0xcbded8 : 0x355c4b,
+    )
     if (region === 'okinawa') grass.color.setHex(0xd8ca9e)
     petalMaterial.color.setHex(next.season === 3 ? 0xffffff : colors[1])
     ambient.intensity = next.night ? 1.25 : 2.5

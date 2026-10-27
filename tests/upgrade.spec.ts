@@ -1,6 +1,6 @@
 import fs from 'node:fs/promises'
 import { pathToFileURL } from 'node:url'
-import { test, expect } from './fixtures'
+import { test, expect, openDetails } from './fixtures'
 import { chromium, webkit } from '@playwright/test'
 import {
   emptyTrip,
@@ -144,15 +144,23 @@ test('trip editing, personal stops and backups work without secure-context crypt
   await page
     .getByRole('textbox', { name: 'Trip name', exact: true })
     .fill('HTTP trip')
-  await page.locator('.personal-stop > summary').click()
+  await page.locator('.personal-stop > summary').last().click()
   await page
+    .locator('.personal-stop')
+    .last()
     .getByLabel('Place name', { exact: true })
     .fill('Private restaurant')
-  await page.getByLabel('Full address', { exact: true }).fill('Kyoto, Japan')
-  await page.locator('.personal-stop button[type=submit]').click()
+  await page
+    .locator('.personal-stop')
+    .last()
+    .getByLabel('Full address', { exact: true })
+    .fill('Kyoto, Japan')
+  await page.locator('.personal-stop button[type=submit]').last().click()
   const stop = page.locator('.trip-day li[data-place-id^=custom-]')
   await expect(stop).toHaveCount(1)
+  await openDetails(stop.locator('.trip-visit-editor'))
   await stop.getByRole('combobox').selectOption('1')
+  await openDetails(stop.locator('.trip-visit-editor'))
   await stop.getByRole('button', { name: /Add another visit/ }).click()
   await expect(
     page.locator('.trip-day li[data-place-id^=custom-]'),
@@ -220,16 +228,19 @@ test('device theme can be restored and paused motion also disables document scro
   })
   await page.goto('/en/my-trip')
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark')
+  await openDetails(page.locator('.appearance-panel'))
   await page
     .getByRole('button', { name: en.atmosphere.light, exact: true })
     .click()
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'light')
+  await openDetails(page.locator('.appearance-panel'))
   await page
     .getByRole('button', { name: en.atmosphere.system, exact: true })
     .click()
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark')
   await page.emulateMedia({ colorScheme: 'light' })
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'light')
+  await openDetails(page.locator('.appearance-panel'))
   await page
     .getByRole('button', { name: en.atmosphere.pause, exact: true })
     .click()
@@ -363,9 +374,17 @@ test('personal-stop drafts survive a failed write and sanitized downloads exclud
     { key: tripKey, trip: portable },
   )
   await page.goto('/en/my-trip')
-  await page.locator('.personal-stop > summary').click()
-  await page.getByLabel('Place name', { exact: true }).fill('A private cafe')
-  await page.getByLabel('Full address', { exact: true }).fill('Kyoto, Japan')
+  await page.locator('.personal-stop > summary').last().click()
+  await page
+    .locator('.personal-stop')
+    .last()
+    .getByLabel('Place name', { exact: true })
+    .fill('A private cafe')
+  await page
+    .locator('.personal-stop')
+    .last()
+    .getByLabel('Full address', { exact: true })
+    .fill('Kyoto, Japan')
   await page.evaluate(() => {
     const write = Storage.prototype.setItem
     Storage.prototype.setItem = function (key, value) {
@@ -374,21 +393,27 @@ test('personal-stop drafts survive a failed write and sanitized downloads exclud
       return write.call(this, key, value)
     }
   })
-  await page.locator('.personal-stop button[type=submit]').click()
-  await expect(page.getByLabel('Place name', { exact: true })).toHaveValue(
-    'A private cafe',
-  )
+  await page.locator('.personal-stop button[type=submit]').last().click()
+  await expect(
+    page
+      .locator('.personal-stop')
+      .last()
+      .getByLabel('Place name', { exact: true }),
+  ).toHaveValue('A private cafe')
   expect(
     JSON.parse(
       (await page.evaluate((key) => localStorage.getItem(key), tripKey))!,
     ),
   ).toEqual(portable)
   await page.reload()
-  await page.locator('.personal-stop > summary').click()
-  await expect(page.getByLabel('Place name', { exact: true })).toHaveValue(
-    'A private cafe',
-  )
-  await page.locator('.personal-stop button[type=submit]').click()
+  await page.locator('.personal-stop > summary').last().click()
+  await expect(
+    page
+      .locator('.personal-stop')
+      .last()
+      .getByLabel('Place name', { exact: true }),
+  ).toHaveValue('A private cafe')
+  await page.locator('.personal-stop button[type=submit]').last().click()
   await page.getByLabel(en.tools.sanitized, { exact: true }).check()
   await page.locator('.export-preview > summary').click()
   await expect(page.locator('.export-preview')).not.toContainText(
@@ -409,7 +434,7 @@ test('enlarged text keeps new planner controls usable without horizontal overflo
   for (const lang of ['en', 'ja', 'th']) {
     await page.goto(`/${lang}/my-trip`)
     await page.addStyleTag({ content: 'html { font-size:200% !important; }' })
-    await page.locator('.personal-stop > summary').click()
+    await page.locator('.personal-stop > summary').last().click()
     expect(
       await page.evaluate(
         () => document.documentElement.scrollWidth <= innerWidth,
@@ -417,7 +442,7 @@ test('enlarged text keeps new planner controls usable without horizontal overflo
       lang,
     ).toBe(true)
     await expect(
-      page.locator('.personal-stop button[type=submit]'),
+      page.locator('.personal-stop button[type=submit]').last(),
     ).toBeVisible()
   }
 })

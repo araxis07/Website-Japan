@@ -210,65 +210,86 @@ export default function PrefectureExplorer({
             }}
           />
         </label>
-        <label>
-          {copy.region}
-          <select
-            value={region}
-            onChange={(e) => {
-              updateFilters(
-                { region: e.target.value, place: '', page: '' },
-                true,
-              )
-            }}
-          >
-            <option value="all">{copy.all}</option>
-            {regions.map((r) => (
-              <option key={r.id} value={r.id}>
-                {r.name}
-              </option>
-            ))}
-          </select>
-        </label>
-        <label>
-          {tools.category}
-          <select
-            value={category}
-            onChange={(e) =>
-              updateFilters({ type: e.target.value, place: '', page: '' }, true)
+        <details className="search-options">
+          <summary>
+            {tools.filters} ·{' '}
+            {
+              [
+                region !== 'all',
+                category !== 'all',
+                Boolean(information),
+              ].filter(Boolean).length
             }
-          >
-            <option value="all">{tools.allCategories}</option>
-            {(['culture', 'nature', 'city', 'museum'] as const).map((type) => (
-              <option key={type} value={type}>
-                {tools[type]}
-              </option>
-            ))}
-          </select>
-        </label>
-        <label>
-          {tools.informationFilter}
-          <select
-            value={information || 'all'}
-            onChange={(event) =>
-              updateFilters(
-                {
-                  info: event.target.value,
-                  scope: 'places',
-                  place: '',
-                  page: '',
-                },
-                true,
-              )
-            }
-          >
-            <option value="all">{tools.allInformation}</option>
-            {(['hours', 'booking', 'accessibility'] as const).map((field) => (
-              <option key={field} value={field}>
-                {tools[field]}
-              </option>
-            ))}
-          </select>
-        </label>
+          </summary>
+          <div className="search-filter-fields">
+            <label>
+              {copy.region}
+              <select
+                value={region}
+                onChange={(e) => {
+                  updateFilters(
+                    { region: e.target.value, place: '', page: '' },
+                    true,
+                  )
+                }}
+              >
+                <option value="all">{copy.all}</option>
+                {regions.map((r) => (
+                  <option key={r.id} value={r.id}>
+                    {r.name}
+                  </option>
+                ))}
+              </select>
+            </label>
+            <label>
+              {tools.category}
+              <select
+                value={category}
+                onChange={(e) =>
+                  updateFilters(
+                    { type: e.target.value, place: '', page: '' },
+                    true,
+                  )
+                }
+              >
+                <option value="all">{tools.allCategories}</option>
+                {(['culture', 'nature', 'city', 'museum'] as const).map(
+                  (type) => (
+                    <option key={type} value={type}>
+                      {tools[type]}
+                    </option>
+                  ),
+                )}
+              </select>
+            </label>
+            <label>
+              {tools.informationFilter}
+              <select
+                value={information || 'all'}
+                onChange={(event) =>
+                  updateFilters(
+                    {
+                      info: event.target.value,
+                      scope: 'places',
+                      place: '',
+                      page: '',
+                    },
+                    true,
+                  )
+                }
+              >
+                <option value="all">{tools.allInformation}</option>
+                {(['hours', 'booking', 'accessibility'] as const).map(
+                  (field) => (
+                    <option key={field} value={field}>
+                      {tools[field]}
+                    </option>
+                  ),
+                )}
+              </select>
+            </label>
+          </div>
+        </details>
         <p role="status">
           {filtered.length} / 47 {copy.results} · {foundPlaces.length}{' '}
           {tools.placeResults}

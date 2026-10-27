@@ -30,10 +30,10 @@ jobs:
       - run: npm run typecheck
       - name: Install browser system dependencies
         timeout-minutes: 8
-        run: npx playwright install-deps chromium webkit
+        run: npx playwright install-deps chromium webkit firefox
       - name: Install test browsers
         timeout-minutes: 6
-        run: npx playwright install chromium webkit
+        run: npx playwright install chromium webkit firefox
       - run: node scripts/check-deployment.mjs --self-test
       - run: npm test
       - run: npm audit --audit-level=high

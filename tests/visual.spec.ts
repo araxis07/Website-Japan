@@ -2,7 +2,9 @@ import { test, expect } from './fixtures'
 import { emptyTrip, tripKey } from '../src/lib/trip'
 
 for (const theme of ['light', 'dark'])
-  test(`trip tools visual layout in ${theme}`, async ({ page }) => {
+  test(`trip tools visual layout in ${theme}`, async ({ page, isMobile }) => {
+    // Fit the full desktop panel so Chromium captures its controls below the fold.
+    if (!isMobile) await page.setViewportSize({ width: 1440, height: 1600 })
     await page.emulateMedia({
       reducedMotion: 'reduce',
       colorScheme: theme as 'light' | 'dark',
@@ -38,6 +40,7 @@ for (const theme of ['light', 'dark'])
     await page.addStyleTag({
       content: '.site-header, .skip-link { visibility: hidden !important; }',
     })
+    await page.mouse.move(0, 0)
     await expect(page.locator('.trip-tools')).toHaveScreenshot(
       `trip-tools-${theme}.png`,
       {

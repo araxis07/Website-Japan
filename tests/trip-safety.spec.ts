@@ -1,4 +1,4 @@
-import { test, expect } from './fixtures'
+import { test, expect, openDetails } from './fixtures'
 import {
   emptyTrip,
   entryKey,
@@ -113,10 +113,12 @@ test('same place can be scheduled twice and removing one visit preserves the oth
     },
     { key: tripKey, trip: { ...emptyTrip, items: [{ id: 'gion', day: 1 }] } },
   )
+  await openDetails(page.locator('.trip-visit-editor').first())
   await page
     .getByRole('button', { name: 'Add another visit: Gion', exact: true })
     .click()
   await expect(page.locator('.trip-day li[data-place-id=gion]')).toHaveCount(2)
+  await openDetails(page.locator('.trip-visit-editor').first())
   await page
     .locator('.trip-day li[data-place-id=gion]')
     .first()
@@ -154,7 +156,9 @@ test('removing a hotel keeps an invalid draft attached to the correct remaining 
   )
   await rows.first().getByRole('button').click()
   await expect(rows).toHaveCount(1)
-  await expect(rows.getByRole('textbox')).toHaveValue('Kyoto hotel')
+  await expect(
+    rows.getByRole('textbox', { name: en.tools.hotel, exact: true }),
+  ).toHaveValue('Kyoto hotel')
   await expect(rows.getByRole('spinbutton').last()).toHaveValue('2')
   const saved = JSON.parse(
     (await page.evaluate((key) => localStorage.getItem(key), tripKey))!,

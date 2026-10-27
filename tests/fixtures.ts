@@ -1,4 +1,4 @@
-import { test as base, expect } from '@playwright/test'
+import { test as base, expect, type Locator } from '@playwright/test'
 
 // Test interactions without repeatedly downloading public map tiles. Live tiles are checked separately.
 export const test = base.extend({
@@ -16,3 +16,8 @@ export const test = base.extend({
   },
 })
 export { expect }
+
+export async function openDetails(panel: Locator) {
+  if ((await panel.getAttribute('open')) === null)
+    await panel.locator(':scope > summary').click()
+}

@@ -84,7 +84,17 @@ export default function TripOverview({
           </p>
         )}
         <h3>{tools.stays}</h3>
-        <p>{stays.map((stay) => stay.name).join(' · ') || tools.noStay}</p>
+        {stays.length ? (
+          stays.map((stay) => (
+            <p key={stay.id}>
+              {stay.name}
+              <br />
+              {stay.address}
+            </p>
+          ))
+        ) : (
+          <p>{tools.noStay}</p>
+        )}
         {trip.notes?.[day] && (
           <p className="preserve-lines">{trip.notes[day]}</p>
         )}
@@ -102,6 +112,7 @@ export default function TripOverview({
                 {entry.note && <p className="preserve-lines">{entry.note}</p>}
                 <TripDirections
                   place={place}
+                  day={day}
                   previous={index ? tripPlace(entries[index - 1]) : undefined}
                 />
               </li>

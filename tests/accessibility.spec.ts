@@ -1,4 +1,4 @@
-import { test, expect } from './fixtures'
+import { test, expect, openDetails } from './fixtures'
 import axe from 'axe-core'
 import { emptyTrip, tripKey } from '../src/lib/trip'
 for (const theme of ['light', 'dark']) {
@@ -20,6 +20,9 @@ for (const theme of ['light', 'dark']) {
     ]) {
       await page.goto(path)
       await expect(page.locator('html')).toHaveAttribute('data-theme', theme)
+      await openDetails(page.locator('.appearance-panel'))
+      if (path.includes('explore'))
+        await openDetails(page.locator('.search-options'))
       if (path.includes('first-visit'))
         await page.locator('.readiness-checklist > summary').click()
       if (path.includes('my-trip')) {
@@ -30,7 +33,31 @@ for (const theme of ['light', 'dark']) {
           },
           {
             key: tripKey,
-            trip: { ...emptyTrip, items: [{ id: 'gion', day: 1 }] },
+            trip: {
+              ...emptyTrip,
+              items: [
+                { id: 'gion', day: 1 },
+                {
+                  id: `custom-${'c'.repeat(32)}`,
+                  day: 1,
+                  custom: {
+                    name: 'Hotel',
+                    address: 'Kyoto Station',
+                    coordinates: [34.9858, 135.7588],
+                  },
+                },
+              ],
+              stays: [
+                {
+                  id: 'stay-a11y',
+                  name: 'Hotel',
+                  address: 'Kyoto Station',
+                  placeId: `custom-${'c'.repeat(32)}`,
+                  from: 1,
+                  to: 2,
+                },
+              ],
+            },
           },
         )
         await page.locator('.trip-overview > summary').click()
@@ -38,7 +65,11 @@ for (const theme of ['light', 'dark']) {
         await page.locator('.trip-extras > summary').click()
         await page.locator('.trip-library > summary').click()
         await page.locator('.trip-library > button').first().click()
-        await page.locator('.personal-stop > summary').click()
+        for (const panel of await page
+          .locator('.personal-stop, .personal-coordinates, .trip-visit-editor')
+          .all())
+          await openDetails(panel)
+        await openDetails(page.locator('.trip-tools .budget-panel').first())
         await page.locator('.trip-tools > .export-preview > summary').click()
         await page
           .locator('.trip-on-the-go .trip-directions summary')

@@ -188,6 +188,9 @@ export default function JapanDiorama({ copy }: { copy: Dictionary['scene'] }) {
           className="scene-canvas"
           role="img"
           aria-label={copy.description}
+          aria-describedby={
+            status === 'ready' ? 'scene-instructions' : undefined
+          }
           hidden={status === 'preview' || status === 'fallback'}
         />
         <span className="scene-stamp" lang="ja" aria-hidden="true">
@@ -311,7 +314,9 @@ export default function JapanDiorama({ copy }: { copy: Dictionary['scene'] }) {
           </div>
         </div>
         {status === 'ready' && (
-          <p className="source-note">{tools.sceneInstructions}</p>
+          <p className="source-note" id="scene-instructions">
+            {tools.sceneInstructions}
+          </p>
         )}
         <p className="scene-hint" role="status">
           {status === 'loading'

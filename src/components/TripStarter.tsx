@@ -7,7 +7,8 @@ import ApplyPlan from './ApplyPlan'
 export default function TripStarter() {
   const { tools, copy, lang } = useTrip()
   const [base, setBase] = useState<keyof typeof plans>('tokyo')
-  const [days, setDays] = useState(3)
+  const [requestedDays, setDays] = useState(2)
+  const days = Math.min(requestedDays, plans[base].groups.length)
   const [interest, setInterest] = useState('all')
   const entries = plans[base].groups
     .slice(0, days)
@@ -22,7 +23,7 @@ export default function TripStarter() {
     )
   const plannedDays = new Set(entries.map((entry) => entry.day)).size
   return (
-    <details className="trip-starter" open>
+    <details className="trip-starter" id="trip-starter">
       <summary>{tools.starter}</summary>
       <p>{tools.starterHelp}</p>
       <div className="trip-meta">
@@ -40,12 +41,15 @@ export default function TripStarter() {
           </select>
         </label>
         <label>
-          {copy.days}
+          {tools.planLength}
           <select
             value={days}
             onChange={(e) => setDays(Number(e.target.value))}
           >
-            {[1, 2, 3, 5, 7, 10, 14].map((day) => (
+            {Array.from(
+              { length: plans[base].groups.length },
+              (_, index) => index + 1,
+            ).map((day) => (
               <option key={day}>{day}</option>
             ))}
           </select>

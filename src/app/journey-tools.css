@@ -1020,3 +1020,171 @@ html[lang='th'] .place-search-results {
   color: var(--ink);
   background: var(--paper);
 }
+
+.appearance-panel {
+  position: relative;
+  z-index: 30;
+  padding-inline: max(20px, calc((100vw - 1280px) / 2));
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+}
+.appearance-panel > summary {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+.appearance-panel > summary::after {
+  content: '+';
+}
+.appearance-panel[open] > summary::after {
+  content: '−';
+}
+.appearance-panel .atmosphere-controls {
+  padding: 0;
+  border: 0;
+}
+.appearance-panel svg {
+  width: 18px;
+  height: 18px;
+}
+.search-options {
+  flex: 1;
+  min-width: 0;
+}
+.search-options > summary,
+.trip-visit-editor > summary,
+.personal-coordinates > summary {
+  cursor: pointer;
+  min-height: 44px;
+  padding: 0.6rem 0;
+  font-weight: 600;
+}
+.search-filter-fields {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+.trip-visit-editor {
+  margin-block: 0.75rem;
+  border-top: 1px solid var(--line);
+}
+.trip-stop-address {
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+.trip-stop-summary {
+  display: block;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.trip-empty-choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-block: 1rem;
+}
+.trip-empty-choices a {
+  min-height: 44px;
+  padding: 0.6rem;
+}
+.trip-tools {
+  scroll-margin-top: 10rem;
+}
+.trip-on-the-go a {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+}
+.guide-at-a-glance {
+  padding: 1rem;
+  border-block: 1px solid var(--line);
+  margin-block: 1.5rem;
+}
+.guide-at-a-glance dl {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+.guide-at-a-glance dt {
+  color: var(--muted);
+}
+.guide-at-a-glance dd {
+  margin: 0.25rem 0;
+  font-weight: 600;
+}
+.home-more > summary {
+  cursor: pointer;
+  padding: 1.5rem;
+  text-align: center;
+  font: 1.5rem var(--serif);
+}
+@media (max-width: 700px) {
+  .search-filter-fields {
+    grid-template-columns: 1fr;
+  }
+  .explorer-filters {
+    display: block;
+    padding-block: 0.75rem;
+  }
+  .explorer-filters > p {
+    margin: 0.5rem 0;
+    font-size: 0.85rem;
+  }
+  .explorer-page .page-intro {
+    padding-block: 0.5rem;
+    margin-block: 0.5rem;
+  }
+  .explorer-page .page-intro h1 {
+    font-size: 2rem;
+  }
+  .explorer-page .page-intro > p {
+    margin-block: 0.5rem;
+  }
+  .explorer-page .beginner-note {
+    padding: 0.5rem 0.75rem;
+    margin-block: 0.75rem;
+  }
+  .explorer-toolbar {
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+  .trip-task-links {
+    gap: 0.5rem;
+  }
+  .trip-on-the-go {
+    border-left: 3px solid var(--red);
+  }
+}
+@media print {
+  .appearance-panel,
+  .trip-empty-choices,
+  .trip-visit-editor {
+    display: none !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .explorer-page .page-intro .section-japanese {
+    display: none;
+  }
+  .explorer-page .beginner-note {
+    display: block;
+    font-size: 0.85rem;
+  }
+  .explorer-page .beginner-note a {
+    display: inline;
+    margin: 0;
+  }
+  .explorer-page .explorer-filters {
+    display: block;
+    padding-block: 0.5rem;
+    gap: 0.5rem;
+  }
+  .explorer-page .explorer-toolbar {
+    margin-block: 0.75rem;
+  }
+}
