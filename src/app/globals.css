@@ -503,13 +503,13 @@ html[lang='ja'] h2 {
   transition: border-color 0.6s;
 }
 .scene-kanji {
+  display: grid;
   position: absolute;
   top: 104px;
   right: 42px;
-  writing-mode: vertical-rl;
   font-family: var(--serif);
   font-size: 74px;
-  letter-spacing: 0.2em;
+  line-height: 1.2;
   color: rgba(110, 79, 54, 0.13);
 }
 .scene-heading {

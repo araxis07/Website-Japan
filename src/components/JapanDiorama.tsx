@@ -162,7 +162,8 @@ export default function JapanDiorama({ copy }: { copy: Dictionary['scene'] }) {
         <span className="scene-sun" />
         <span className="scene-orbit" />
         <span className="scene-kanji" lang="ja">
-          日本
+          <span>日</span>
+          <span>本</span>
         </span>
       </div>
       <div className="scene-heading">
