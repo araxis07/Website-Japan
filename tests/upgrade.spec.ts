@@ -446,6 +446,15 @@ test('JSON and library exports move from Chromium to WebKit and back without los
         buffer: Buffer.from(tripData),
       })
       await page
+        .locator('.trip-tools > .import-preview details > summary')
+        .click()
+      await expect(
+        page.locator('.trip-tools > .import-preview details'),
+      ).toContainText(portable.items[1].custom!.address)
+      await expect(
+        page.locator('.trip-tools > .import-preview details'),
+      ).toContainText(en.trip.unplanned)
+      await page
         .locator('.trip-tools > .import-preview')
         .getByRole('button', { name: en.tools.replace, exact: true })
         .click()

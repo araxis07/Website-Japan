@@ -434,6 +434,17 @@ export default function TripTools() {
                     ? dayLabel(item.day, lang, copy.day)
                     : copy.unplanned}{' '}
                   · {item.time}
+                  {item.custom && (
+                    <p>
+                      {item.custom.address}
+                      {item.custom.url && (
+                        <>
+                          {' '}
+                          · <a href={item.custom.url}>{tools.personalLink} ↗</a>
+                        </>
+                      )}
+                    </p>
+                  )}
                   <p>{item.note}</p>
                   <p>
                     {tools.duration}: {item.duration ?? '—'} {tools.minuteUnit}{' '}
@@ -444,7 +455,10 @@ export default function TripTools() {
             </ol>
             {Object.entries(incoming.trip.notes || {}).map(([day, note]) => (
               <p key={day}>
-                {dayLabel(Number(day), lang, copy.day)}: {note}
+                {Number(day)
+                  ? dayLabel(Number(day), lang, copy.day)
+                  : copy.unplanned}
+                : {note}
               </p>
             ))}
             <p>
