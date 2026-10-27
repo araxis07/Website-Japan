@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import Image from 'next/image'
 import type { Photo } from '@/data/photos'
 import type { Locale } from '@/i18n/config'
@@ -19,14 +19,6 @@ export default function PhotoGallery({
   const dialog = useRef<HTMLDialogElement>(null)
   const trigger = useRef<HTMLAnchorElement | null>(null)
   const [index, setIndex] = useState<number | null>(null)
-  useEffect(() => {
-    if (index === null) return
-    const previous = document.body.style.overflow
-    document.body.style.overflow = 'hidden'
-    return () => {
-      document.body.style.overflow = previous
-    }
-  }, [index])
   const next = (amount: number) =>
     setIndex(
       (current) => ((current ?? 0) + amount + photos.length) % photos.length,

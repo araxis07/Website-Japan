@@ -805,15 +805,20 @@ test('gallery supports keyboard navigation, escape and focus restoration', async
   page,
 }) => {
   await page.goto('/th/destinations/tokyo')
+  const previousOverflow = await page
+    .locator('body')
+    .evaluate((element) => getComputedStyle(element).overflow)
   const first = page.locator('.photo-gallery a').first()
   await first.click()
   const dialog = page.getByRole('dialog')
   await expect(dialog).toBeVisible()
+  await expect(page.locator('body')).toHaveCSS('overflow', 'hidden')
   await expect(dialog.locator('.photo-dialog-controls')).toContainText('1 / 2')
   await page.keyboard.press('ArrowRight')
   await expect(dialog.locator('.photo-dialog-controls')).toContainText('2 / 2')
   await page.keyboard.press('Escape')
   await expect(dialog).toBeHidden()
   await expect(first).toBeFocused()
+  await expect(page.locator('body')).toHaveCSS('overflow', previousOverflow)
   expect(await page.evaluate(() => document.body.style.overflow)).toBe('')
 })

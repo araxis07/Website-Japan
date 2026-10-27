@@ -2977,6 +2977,9 @@ html[data-theme='dark'] .save-button[aria-pressed='true'] {
   font-size: 12px;
   color: var(--muted);
 }
+body:has(.photo-dialog[open]) {
+  overflow: hidden;
+}
 .photo-dialog {
   max-width: min(1100px, 96vw);
   width: 100%;
