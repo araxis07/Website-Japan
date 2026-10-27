@@ -1,6 +1,6 @@
 import * as THREE from 'three'
 
-export type SceneRegion = 'fuji' | 'kyoto' | 'hokkaido'
+export type SceneRegion = 'fuji' | 'kyoto' | 'hokkaido' | 'okinawa'
 export type SceneOptions = {
   night: boolean
   season: number
@@ -101,7 +101,7 @@ export function createJapanScene(
     [0, -0.16, 0],
     [1, 1, 1],
   )
-  mesh(cylinder, water, [0, -0.045, 0.15], [2.9, 0.08, 2.1])
+  const lagoon = mesh(cylinder, water, [0, -0.045, 0.15], [2.9, 0.08, 2.1])
   mesh(cylinder, grass, [-1.7, 0.04, 0], [1.55, 0.14, 2.3])
   mesh(cylinder, grass, [2, 0.04, 0], [1.1, 0.15, 2.25])
   const peak = mesh(cone, mountain, [0, 1.1, -1.45], [1.9, 2.5, 1.7])
@@ -210,6 +210,23 @@ export function createJapanScene(
     mesh(box, glow, [x, 0.35, 1.46], [0.25, 0.2, 0.02], cabins)
   }
   const pagoda = new THREE.Group()
+  const island = new THREE.Group()
+  world.add(island)
+  island.userData.topic = 'torii'
+  for (const x of [-0.7, 0.7]) {
+    mesh(box, cream, [x, 0.35, 0.1], [1.1, 0.65, 1], island)
+    const roof = mesh(
+      new THREE.ConeGeometry(1, 1, 4),
+      red,
+      [x, 0.9, 0.1],
+      [1, 0.55, 0.9],
+      island,
+    )
+    roof.rotation.y = Math.PI / 4
+    mesh(box, glow, [x, 0.4, 0.61], [0.3, 0.3, 0.02], island)
+  }
+  const boat = mesh(box, wood, [0, 0.08, 2], [0.35, 0.12, 1.2], island)
+  boat.userData.topic = 'fuji'
   world.add(pagoda)
   pagoda.userData.topic = 'torii'
   // A small pagoda at the far side of the garden.
@@ -328,7 +345,14 @@ export function createJapanScene(
     settings = next
     const region = next.region || 'fuji'
     gates.visible = region === 'kyoto'
-    torii.visible = region !== 'hokkaido'
+    torii.visible = region === 'fuji' || region === 'kyoto'
+    island.visible = region === 'okinawa'
+    peak.visible = region !== 'okinawa'
+    lagoon.scale.set(
+      region === 'okinawa' ? 3.2 : 2.9,
+      0.08,
+      region === 'okinawa' ? 2.7 : 2.1,
+    )
     pagoda.visible = region === 'kyoto'
     cabins.visible = region === 'hokkaido'
     peak.scale.x = region === 'hokkaido' ? 2.8 : 1.9
@@ -351,6 +375,7 @@ export function createJapanScene(
     blossom.color.setHex(colors[0])
     blossomLight.color.setHex(colors[1])
     grass.color.setHex(colors[2])
+    if (region === 'okinawa') grass.color.setHex(0xd8ca9e)
     petalMaterial.color.setHex(next.season === 3 ? 0xffffff : colors[1])
     ambient.intensity = next.night ? 1.25 : 2.5
     ambient.color.setHex(next.night ? 0x9bafff : 0xfff3df)

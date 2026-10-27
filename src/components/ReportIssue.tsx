@@ -1,12 +1,22 @@
 'use client'
 import { useState } from 'react'
 import { useTrip } from './TripProvider'
+import { usePageLocation } from './usePageLocation'
+import { reportContext } from '@/lib/report-context'
 export default function ReportIssue({ contact }: { contact?: string }) {
   const { tools, lang } = useTrip()
+  const suffix = usePageLocation()
+  const path = reportContext(
+    new URLSearchParams(suffix.split('#')[0]).get('from') || '',
+    lang,
+  )
   const [text, setText] = useState('')
   const [status, setStatus] = useState('')
   return (
-    <section className="report-issue">
+    <section className="report-issue" id="report-issue">
+      <p>
+        {tools.reportContext}: <a href={path}>{path}</a>
+      </p>
       <label>
         {tools.reportTemplate}
         <textarea
@@ -23,7 +33,7 @@ export default function ReportIssue({ contact }: { contact?: string }) {
         onClick={async () => {
           try {
             await navigator.clipboard.writeText(
-              `${location.origin}${location.pathname}\nLanguage: ${lang}\n\n${text}`,
+              `${location.origin}${path}\nLanguage: ${lang}\n\n${text}`,
             )
             setStatus(tools.copied)
           } catch {
@@ -34,6 +44,16 @@ export default function ReportIssue({ contact }: { contact?: string }) {
         {tools.copyReport}
       </button>
       <p role="status">{status}</p>
+      {status === tools.copyFail && (
+        <label>
+          {tools.manualCopy}
+          <textarea
+            readOnly
+            value={`${location.origin}${path}\nLanguage: ${lang}\n\n${text}`}
+            onFocus={(event) => event.target.select()}
+          />
+        </label>
+      )}
       <a
         className="button"
         href={contact || 'https://github.com/araxis07/Website-Japan/issues/new'}

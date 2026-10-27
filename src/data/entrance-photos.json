@@ -9,7 +9,8 @@
       "en": "Nio-mon gate and steps at Kiyomizu-dera; use the official route for step-free access.",
       "ja": "清水寺の仁王門と階段。段差のない経路は公式案内を確認。",
       "th": "ประตู Nio-mon และบันไดวัดคิโยมิซุเดระ เส้นทางไร้บันไดให้ตรวจจากเว็บไซต์วัด"
-    }
+    },
+    "taken": "2020-02-06"
   },
   "pref:nagano:matsumoto-castle": {
     "source": "https://commons.wikimedia.org/wiki/File:Matsumoto_castle_Kuromon.jpg",
@@ -21,7 +22,8 @@
       "en": "Kuromon gate at Matsumoto Castle, seen from the approach.",
       "ja": "松本城の黒門を入口側から見た様子。",
       "th": "ประตู Kuromon ปราสาทมัตสึโมโตะ มองจากทางเดินเข้า"
-    }
+    },
+    "taken": "2010-03-22"
   },
   "pref:kyoto:fushimi-inari-taisha": {
     "source": "https://commons.wikimedia.org/wiki/File:Fushimi_Inari_R%C5%8Dmon.jpg",
@@ -33,7 +35,8 @@
       "en": "Romon gate at Fushimi Inari Taisha, seen from the forecourt.",
       "ja": "前庭から見た伏見稲荷大社の楼門。",
       "th": "ประตู Romon ศาลเจ้าฟุชิมิอินาริ มองจากลานด้านหน้า"
-    }
+    },
+    "taken": "2019-06-05"
   },
   "pref:gifu:takayama-jinya": {
     "source": "https://commons.wikimedia.org/wiki/File:Entrance_of_Takayama_Jinya_House_in_a_snowy_day_2.JPG",
@@ -45,7 +48,8 @@
       "en": "Takayama Jinya entrance and cleared stone approach in snow, photographed January 2015. Historical view; check current winter conditions.",
       "ja": "2015年1月撮影、高山陣屋の玄関と除雪された石畳。過去の景観であり、現在の積雪状況は要確認。",
       "th": "ทางเข้า Takayama Jinya และทางหินที่กวาดหิมะ ถ่าย ม.ค. 2015 เป็นภาพในอดีต ต้องตรวจสภาพหิมะปัจจุบัน"
-    }
+    },
+    "taken": "2015-01"
   },
   "tokyo-museum": {
     "source": "https://commons.wikimedia.org/wiki/File:Tokyo_National_Museum_P9234926.jpg",
@@ -57,6 +61,7 @@
       "en": "Tokyo National Museum Main Gate and entrance sign, photographed September 2018. Historical reference; follow current signs.",
       "ja": "2018年9月撮影、東京国立博物館の正門と入口案内。過去の写真です。現在の案内に従ってください。",
       "th": "ประตูหลัก Tokyo National Museum และป้ายทางเข้า ถ่าย ก.ย. 2018 เป็นภาพอ้างอิงในอดีต ให้ตามป้ายปัจจุบัน"
-    }
+    },
+    "taken": "2018-09"
   }
 }

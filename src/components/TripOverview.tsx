@@ -1,7 +1,8 @@
 'use client'
 import { useState, useSyncExternalStore } from 'react'
-import { japanDate, tripDate, entryKey } from '@/lib/trip'
-import { places, mapUrl } from '@/data/places'
+import { japanDate, tripDate, entryKey, dayLabel, tripPlace } from '@/lib/trip'
+import TripDirections from './TripDirections'
+import { usePageLocation } from './usePageLocation'
 import { useTrip } from './TripProvider'
 const subscribe = (changed: () => void) => {
   const timer = setInterval(changed, 60000)
@@ -13,12 +14,13 @@ export default function TripOverview({
   selectDay: (day: number) => void
 }) {
   const { trip, tools, copy, lang } = useTrip()
+  const location = usePageLocation()
   const today = useSyncExternalStore(subscribe, japanDate, () => '')
-  const [chosen, setChosen] = useState(1)
+  const [chosen, setChosen] = useState<number | null>(null)
   if (!trip) return null
   const days = Array.from({ length: trip.days }, (_, i) => i + 1)
-  const day = Math.min(chosen, trip.days)
   const todayDay = days.find((day) => tripDate(trip.startDate, day) === today)
+  const day = Math.min(chosen ?? todayDay ?? 1, trip.days)
   const entries = trip.items.filter((item) => item.day === day)
   const stays =
     trip.stays?.filter((stay) => stay.from <= day && stay.to > day) || []
@@ -32,7 +34,8 @@ export default function TripOverview({
             return (
               <li key={day}>
                 <button type="button" onClick={() => selectDay(day)}>
-                  {copy.day} {day} · {tripDate(trip.startDate, day)}
+                  {dayLabel(day, lang, copy.day)} ·{' '}
+                  {tripDate(trip.startDate, day)}
                 </button>
                 <span>
                   {entries.length} {copy.count} · {tools.unscheduledTimes}:{' '}
@@ -49,7 +52,11 @@ export default function TripOverview({
           })}
         </ol>
       </details>
-      <details className="trip-on-the-go">
+      <details
+        className="trip-on-the-go"
+        id="travel-day"
+        open={location.endsWith('#travel-day')}
+      >
         <summary>{tools.onTheGo}</summary>
         <p>{tools.onTheGoHelp}</p>
         <label>
@@ -60,7 +67,8 @@ export default function TripOverview({
           >
             {days.map((day) => (
               <option value={day} key={day}>
-                {copy.day} {day} · {tripDate(trip.startDate, day)}
+                {dayLabel(day, lang, copy.day)} ·{' '}
+                {tripDate(trip.startDate, day)}
               </option>
             ))}
           </select>
@@ -70,24 +78,32 @@ export default function TripOverview({
             {tools.todayJapan}: {today}
           </button>
         )}
+        {trip.base && (
+          <p>
+            {tools.base}: {trip.base}
+          </p>
+        )}
         <h3>{tools.stays}</h3>
         <p>{stays.map((stay) => stay.name).join(' · ') || tools.noStay}</p>
         {trip.notes?.[day] && (
           <p className="preserve-lines">{trip.notes[day]}</p>
         )}
         <ol>
-          {entries.map((entry) => {
-            const place = places.find((place) => place.id === entry.id)!
+          {entries.map((entry, index) => {
+            const place = tripPlace(entry)
             return (
               <li key={entryKey(entry)}>
                 <strong>
                   {entry.time || '—'} · {place.names[lang]}
                 </strong>
-                <p lang="ja">{place.address || place.names.ja}</p>
+                <p lang={entry.custom ? undefined : 'ja'}>
+                  {place.address || place.names.ja}
+                </p>
                 {entry.note && <p className="preserve-lines">{entry.note}</p>}
-                <a className="button" href={mapUrl(place, true, 'transit')}>
-                  {copy.directions} ↗
-                </a>
+                <TripDirections
+                  place={place}
+                  previous={index ? tripPlace(entries[index - 1]) : undefined}
+                />
               </li>
             )
           })}

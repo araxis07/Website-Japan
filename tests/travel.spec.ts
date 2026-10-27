@@ -303,7 +303,7 @@ test('content and navigation stay readable without JavaScript', async ({
   await page.getByRole('link', { name: 'Back to top', exact: true }).click()
   await expect.poll(() => page.evaluate(() => window.scrollY)).toBeLessThan(2)
   await page.goto('/en/explore')
-  await expect(page.locator('.prefecture-card')).toHaveCount(47)
+  await expect(page.locator('.prefecture-static li')).toHaveCount(47)
   const prefecture = await page.goto('/en/prefectures/nara')
   await expect(page.locator('.map-place-list li')).toHaveCount(2)
   expect(await prefecture!.text()).toContain(
@@ -403,6 +403,26 @@ test('interactive miniature responds to lighting, seasons, rotation and motion c
     'href',
     '/en/destinations/hokkaido#place-hokkaido-museum',
   )
+  const hokkaido = await snapshot()
+  await scene.locator('.scene-region select').selectOption('okinawa')
+  await expect(scene.locator('.scene-topic a')).toHaveAttribute(
+    'href',
+    '/en/destinations/okinawa#place-okinawa-museum',
+  )
+  expect((await snapshot()).equals(hokkaido)).toBe(false)
+  await scene.locator('.scene-hotspots button').first().click()
+  await expect(scene.locator('.scene-place-actions a')).toHaveAttribute(
+    'href',
+    /Makishi|%E7%89%A7%E5%BF%97/,
+  )
+  await scene.locator('.scene-place-actions button').click()
+  expect(
+    JSON.parse(
+      (await page.evaluate(() =>
+        localStorage.getItem('japan-travel-trip-v1'),
+      ))!,
+    ).items.some((entry: { id: string }) => entry.id === 'makishi'),
+  ).toBe(true)
   await page
     .getByRole('button', { name: 'Play animation', exact: true })
     .click()
@@ -547,7 +567,7 @@ test('trip saves, schedules, reorders, survives reload and language changes, and
   await page
     .getByRole('button', { name: 'Save to my trip: Gion', exact: true })
     .click()
-  await page.locator('.header-trip').click()
+  await page.locator('a[href="/en/my-trip"]:visible').first().click()
   await expect(page.locator('.trip-day li')).toHaveCount(2)
   await page
     .getByRole('combobox', { name: 'Schedule for: Kiyomizu-dera', exact: true })

@@ -1,8 +1,19 @@
 import { places, canonicalPlaceId } from '@/data/places'
+import type { Locale } from '@/i18n/config'
 
 // Keep the storage key and accept old version-1 plans without additional fields.
 export const tripKey = 'japan-travel-trip-v1'
 export const maxTripBytes = 512_000
+// Local record identifiers also work on HTTP previews; they are not credentials.
+export const tripId = () =>
+  Array.from(crypto.getRandomValues(new Uint8Array(16)), (n) =>
+    n.toString(16).padStart(2, '0'),
+  ).join('')
+export const dayLabel = (day: number, lang: Locale, label: string) =>
+  lang === 'ja' ? `${day}${label}` : `${label} ${day}`
+export const budgetFields = ['stay', 'transport', 'food', 'activities'] as const
+export const missingBudget = (trip: Trip) =>
+  budgetFields.filter((field) => trip.budget?.[field] === undefined)
 export type TripEntry = {
   id: string
   day: number
@@ -11,6 +22,24 @@ export type TripEntry = {
   note?: string
   duration?: number
   buffer?: number
+  custom?: { name: string; address: string; url?: string }
+}
+export function tripPlace(entry: TripEntry) {
+  if (!entry.custom) return places.find((place) => place.id === entry.id)!
+  return {
+    id: entry.id,
+    category: 'city' as const,
+    destination: '',
+    names: {
+      en: entry.custom.name,
+      ja: entry.custom.name,
+      th: entry.custom.name,
+    },
+    address: entry.custom.address,
+    query: `${entry.custom.name} ${entry.custom.address}`,
+    coordinates: undefined,
+    prefecture: undefined,
+  }
 }
 export const entryKey = (item: TripEntry) => item.entryId || item.id
 export type Trip = {
@@ -92,13 +121,40 @@ export function parseTrip(raw: string): Trip | null {
       if (
         !item ||
         typeof item.id !== 'string' ||
-        !knownPlaces.has(canonicalPlaceId(item.id)) ||
+        !(
+          knownPlaces.has(canonicalPlaceId(item.id)) ||
+          /^custom-[a-f0-9]{32}$/.test(item.id)
+        ) ||
         originalIds.has(item.entryId || item.id) ||
         !Number.isInteger(item.day) ||
         item.day < 0 ||
         item.day > value.days
       )
         return null
+      if (item.id.startsWith('custom-')) {
+        if (
+          !item.custom ||
+          !text(item.custom.name, 160) ||
+          !item.custom.name.trim() ||
+          !text(item.custom.address, 300) ||
+          !item.custom.address.trim()
+        )
+          return null
+        if (item.custom.url !== undefined) {
+          if (!text(item.custom.url, 1000)) return null
+          const url = new URL(item.custom.url)
+          if (url.protocol !== 'https:' || url.username || url.password)
+            return null
+        }
+        const other = result.items.find((entry) => entry.id === item.id)?.custom
+        if (
+          other &&
+          (other.name !== item.custom.name ||
+            other.address !== item.custom.address ||
+            other.url !== item.custom.url)
+        )
+          return null
+      } else if (item.custom !== undefined) return null
       if (
         item.time !== undefined &&
         (typeof item.time !== 'string' ||
@@ -143,6 +199,17 @@ export function parseTrip(raw: string): Trip | null {
         ...(item.buffer !== undefined ? { buffer: item.buffer } : {}),
         ...(item.time !== undefined ? { time: item.time } : {}),
         ...(item.note !== undefined ? { note: item.note } : {}),
+        ...(item.custom
+          ? {
+              custom: {
+                name: item.custom.name,
+                address: item.custom.address,
+                ...(item.custom.url !== undefined
+                  ? { url: item.custom.url }
+                  : {}),
+              },
+            }
+          : {}),
       })
     }
     for (const key of ['title', 'base'] as const) {
@@ -311,11 +378,13 @@ export function publicTrip(trip: Trip): Trip {
   return {
     version: 1,
     days: trip.days,
-    items: trip.items.map(({ id, day, entryId }) => ({
-      id,
-      day,
-      ...(entryId ? { entryId } : {}),
-    })),
+    items: trip.items
+      .filter((item) => !item.custom)
+      .map(({ id, day, entryId }) => ({
+        id,
+        day,
+        ...(entryId ? { entryId } : {}),
+      })),
   }
 }
 export function tripFilename(extension: 'json' | 'html' | 'ics') {

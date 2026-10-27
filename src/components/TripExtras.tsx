@@ -1,6 +1,6 @@
 'use client'
 import { useState, useSyncExternalStore } from 'react'
-import { parseTrip, tripFilename, type Trip } from '@/lib/trip'
+import { parseTrip, tripFilename, tripId, type Trip } from '@/lib/trip'
 import { downloadTrip } from '@/lib/trip-export'
 import { tripCalendar } from '@/lib/trip-calendar'
 import { useTrip } from './TripProvider'
@@ -140,7 +140,7 @@ export default function TripExtras() {
                 write([
                   ...library,
                   {
-                    id: crypto.randomUUID(),
+                    id: tripId(),
                     trip,
                     savedAt: new Date().toISOString(),
                   },

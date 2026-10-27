@@ -348,7 +348,9 @@ test('every prefecture has a real local cover, localized planning and reusable p
 test('regional guide, spelling aliases and print notes remain useful on small screens', async ({
   page,
 }) => {
-  await page.goto('/th/explore?q=' + encodeURIComponent('โอซากา'))
+  await page.goto(
+    '/th/explore?scope=prefectures&q=' + encodeURIComponent('โอซากา'),
+  )
   await expect(page.locator('.prefecture-grid > *')).toHaveCount(1)
   await page.goto('/en/prefectures/nara')
   await expect(

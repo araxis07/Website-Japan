@@ -93,7 +93,7 @@ test('prefecture filters combine with multilingual landmark search and map selec
   page,
 }) => {
   await page.goto('/en/explore')
-  await expect(page.locator('.prefecture-card')).toHaveCount(47)
+  await expect(page.locator('.prefecture-card')).toHaveCount(12)
   await page
     .getByRole('combobox', { name: 'Region', exact: true })
     .selectOption('kansai')
@@ -111,7 +111,7 @@ test('prefecture filters combine with multilingual landmark search and map selec
   await page.getByRole('searchbox').fill('no-such-prefecture')
   await expect(page.locator('.empty-state')).toBeVisible()
   await page.getByRole('button', { name: 'Clear filters', exact: true }).click()
-  await expect(page.locator('.prefecture-card')).toHaveCount(47)
+  await expect(page.locator('.prefecture-card')).toHaveCount(12)
   await expect(page.locator('.street-map')).toHaveAttribute(
     'data-point-count',
     '47',
@@ -124,7 +124,7 @@ test('first-time visitor can find, save and revisit a prefecture place across la
   await page.goto('/en')
   await page
     .locator('.hero')
-    .getByRole('link', { name: 'Prepare for arrival', exact: false })
+    .getByRole('link', { name: 'First time in Japan', exact: false })
     .click()
   await expect(page).toHaveURL('/en/first-visit')
   await expect(page.locator('.first-step')).toHaveCount(6)
@@ -139,7 +139,7 @@ test('first-time visitor can find, save and revisit a prefecture place across la
       exact: true,
     })
     .click()
-  await page.locator('.header-trip').click()
+  await page.locator('a[href="/en/my-trip"]:visible').first().click()
   await expect(page.locator('.trip-day li')).toHaveCount(1)
   await expect(page.locator('.trip-place-copy h3 a')).toHaveAttribute(
     'href',

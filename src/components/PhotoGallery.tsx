@@ -63,6 +63,13 @@ export default function PhotoGallery({
             </a>
             <figcaption>
               {photo.alt[lang]}
+              {photo.taken && (
+                <small className="field-source">
+                  {copy.taken}:{' '}
+                  <time dateTime={photo.taken}>{photo.taken}</time>.{' '}
+                  {copy.historicalPhoto}
+                </small>
+              )}
               {photo.source && (
                 <small className="field-source">
                   <a href={photo.source}>{photo.artist}</a> ·{' '}
@@ -112,6 +119,21 @@ export default function PhotoGallery({
               sizes="95vw"
             />
             <h2 id="photo-caption">{photos[index].alt[lang]}</h2>
+            {photos[index].taken && (
+              <p>
+                {copy.taken}:{' '}
+                <time dateTime={photos[index].taken}>
+                  {photos[index].taken}
+                </time>
+                . {copy.historicalPhoto}
+              </p>
+            )}
+            {photos[index].source && (
+              <p>
+                <a href={photos[index].source}>{photos[index].artist}</a> /{' '}
+                <a href={photos[index].licenseUrl}>{photos[index].license}</a>
+              </p>
+            )}
             <div className="photo-dialog-controls">
               <button type="button" onClick={() => next(-1)}>
                 {copy.previous}

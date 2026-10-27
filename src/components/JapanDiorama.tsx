@@ -4,6 +4,8 @@ import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useTrip } from './TripProvider'
+import { places, placePath, mapUrl } from '@/data/places'
+import SavePlace from './SavePlace'
 import type { Dictionary } from '@/i18n/dictionaries'
 import type {
   createJapanScene,
@@ -97,23 +99,56 @@ export default function JapanDiorama({ copy }: { copy: Dictionary['scene'] }) {
               path: '/prefectures/hokkaido',
             },
           }
-        : {
-            fuji: {
-              label: tools.sceneFuji,
-              text: tools.hotspotFuji,
-              path: '/destinations/mount-fuji',
-            },
-            torii: {
-              label: tools.sceneTorii,
-              text: tools.hotspotTorii,
-              path: '/prefectures/kyoto#place-pref:kyoto:fushimi-inari-taisha',
-            },
-            sakura: {
-              label: tools.sceneSakura,
-              text: tools.typicalSeason,
-              path: '/prefectures/yamanashi',
-            },
-          }
+        : region === 'okinawa'
+          ? {
+              fuji: {
+                label: tools.okinawaCity,
+                text: tools.okinawaCityText,
+                path: '/destinations/okinawa#place-makishi',
+              },
+              torii: {
+                label: tools.okinawaCraft,
+                text: tools.okinawaCraftText,
+                path: '/destinations/okinawa#place-tsuboya',
+              },
+              sakura: {
+                label: tools.okinawaMuseum,
+                text: tools.okinawaMuseumText,
+                path: '/destinations/okinawa#place-okinawa-museum',
+              },
+            }
+          : {
+              fuji: {
+                label: tools.sceneFuji,
+                text: tools.hotspotFuji,
+                path: '/destinations/mount-fuji',
+              },
+              torii: {
+                label: tools.sceneTorii,
+                text: tools.hotspotTorii,
+                path: '/prefectures/kyoto#place-pref:kyoto:fushimi-inari-taisha',
+              },
+              sakura: {
+                label: tools.sceneSakura,
+                text: tools.typicalSeason,
+                path: '/prefectures/yamanashi',
+              },
+            }
+  const topicPlace =
+    places.find(
+      (place) => placePath(place, lang) === `/${lang}${topics[topic].path}`,
+    ) ||
+    places.find(
+      (place) =>
+        place.id ===
+        (region === 'kyoto'
+          ? 'gion'
+          : region === 'hokkaido'
+            ? 'odori'
+            : topic === 'fuji'
+              ? 'destination:mount-fuji'
+              : 'oishi'),
+    )!
   return (
     <div
       className="diorama"
@@ -180,6 +215,7 @@ export default function JapanDiorama({ copy }: { copy: Dictionary['scene'] }) {
             <option value="fuji">{tools.sceneFuji}</option>
             <option value="kyoto">{tools.sceneKyoto}</option>
             <option value="hokkaido">{tools.sceneHokkaido}</option>
+            <option value="okinawa">{tools.sceneOkinawa}</option>
           </select>
         </label>
         {status === 'preview' && (
@@ -308,6 +344,12 @@ export default function JapanDiorama({ copy }: { copy: Dictionary['scene'] }) {
         {topics[topic].text}{' '}
         <Link href={`/${lang}${topics[topic].path}`}>{tools.readTopic} ↗</Link>
       </p>
+      <div className="scene-place-actions">
+        <SavePlace id={topicPlace.id} name={topicPlace.names[lang]} />
+        <a href={mapUrl(topicPlace)}>
+          {tools.map}: {topicPlace.names[lang]} ↗
+        </a>
+      </div>
     </div>
   )
 }

@@ -55,6 +55,12 @@ export default async function FirstVisit({ params }: Props) {
           <section key={profile.id}>
             <h2>{profile[lang].title}</h2>
             <p>{profile[lang].text}</p>
+            {'source' in profile && (
+              <p className="source-note">
+                <a href={profile.source}>{dict.tools.official}</a> /{' '}
+                <time dateTime={profile.reviewedAt}>{profile.reviewedAt}</time>
+              </p>
+            )}
           </section>
         ))}
       </details>
@@ -119,6 +125,20 @@ export default async function FirstVisit({ params }: Props) {
                       </p>
                     </details>
                   ))}
+                  <section className="arrival-next">
+                    <h4>{dict.tools.arrivalNext}</h4>
+                    <ol>
+                      <li>{dict.tools.arrivalSaveBase}</li>
+                      <li>{dict.tools.arrivalPlan}</li>
+                      <li>{dict.tools.arrivalBackup}</li>
+                    </ol>
+                    <Link
+                      className="text-link"
+                      href={`/${lang}/my-trip#trip-tools`}
+                    >
+                      {dict.trip.title} ↗
+                    </Link>
+                  </section>
                 </section>
               )}
               {step.id === 'transport' && (

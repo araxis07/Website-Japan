@@ -22,7 +22,7 @@ export default function TripStarter() {
     )
   const plannedDays = new Set(entries.map((entry) => entry.day)).size
   return (
-    <details className="trip-starter">
+    <details className="trip-starter" open>
       <summary>{tools.starter}</summary>
       <p>{tools.starterHelp}</p>
       <div className="trip-meta">

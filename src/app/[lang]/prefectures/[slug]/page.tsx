@@ -1,3 +1,5 @@
+import { dayLabel } from '@/lib/trip'
+import TravelNotices from '@/components/TravelNotices'
 import { seasonPlanning } from '@/data/season-planning'
 import entrancePhotos from '@/data/entrance-photos.json'
 import PhotoGallery from '@/components/PhotoGallery'
@@ -7,7 +9,7 @@ import { regionalPlanning } from '@/data/regional-planning'
 import commonsPhotos from '@/data/prefecture-photos.json'
 import Image from 'next/image'
 import { guides } from '@/data/guides'
-import { spots, canonicalPlaceId, distanceKm } from '@/data/places'
+import { spots, canonicalPlaceId, distanceKm, mapUrl } from '@/data/places'
 import ApplyPlan from '@/components/ApplyPlan'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
@@ -131,6 +133,7 @@ export default async function PrefecturePage({ params }: Props) {
         <a href="#nearby">{dict.tools.nearby}</a>
         <Link href={`/${lang}/first-visit#help`}>{dict.tools.emergency}</Link>
       </nav>
+      <TravelNotices area={slug} />
       <div id="arrival" className="prefecture-arrival depth-surface">
         <div>
           <h2>{dict.explorer.base}</h2>
@@ -191,9 +194,7 @@ export default async function PrefecturePage({ params }: Props) {
         <ol>
           {plan.groups.map((ids, i) => (
             <li key={i}>
-              <strong>
-                {dict.trip.day} {i + 1}
-              </strong>
+              <strong>{dayLabel(i + 1, lang, dict.trip.day)}</strong>
               <ul>
                 {ids.map((id, index) => {
                   const point = points.find(
@@ -202,6 +203,13 @@ export default async function PrefecturePage({ params }: Props) {
                   return (
                     <li key={id}>
                       <a href={`#place-${id}`}>{point.names[lang]}</a>
+                      {index === 0 && <p>{visitFor(point)?.access?.[lang]}</p>}
+                      <a
+                        className="text-link"
+                        href={mapUrl(point, true, 'transit')}
+                      >
+                        {dict.trip.directions}
+                      </a>
                       {index > 0 && (
                         <p className="source-note">
                           {dict.tools.legDistance}:{' '}

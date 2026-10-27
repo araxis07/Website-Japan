@@ -1,0 +1,30 @@
+name: Deployed website check
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 2 * * *'
+permissions:
+  contents: read
+concurrency:
+  group: deployment-check
+  cancel-in-progress: false
+jobs:
+  check:
+    if: vars.PRODUCTION_ORIGIN != ''
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    env:
+      PRODUCTION_ORIGIN: ${{ vars.PRODUCTION_ORIGIN }}
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '24'
+      - name: Check public pages, metadata and response headers
+        run: node scripts/check-deployment.mjs "$PRODUCTION_ORIGIN"
+      - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
+        if: always()
+        with:
+          name: deployment-check
+          path: test-results/deployment-check.json
+          retention-days: 7

@@ -46,16 +46,24 @@ function subscribe(callback: () => void) {
 }
 const reducedSnapshot = () =>
   matchMedia('(prefers-reduced-motion: reduce)').matches
-const themeSnapshot = () => {
+const preferenceSnapshot = () => {
   if (memoryTheme) return memoryTheme
   try {
     const saved = localStorage.getItem(appearanceKey)
     if (saved === 'dark' || saved === 'light') return saved
   } catch {}
-  return matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+  return 'system'
 }
+const themeSnapshot = () =>
+  preferenceSnapshot() === 'system'
+    ? matchMedia('(prefers-color-scheme: dark)').matches
+      ? 'dark'
+      : 'light'
+    : preferenceSnapshot()
 const ThemeContext = createContext({
   theme: 'light',
+  preference: 'system',
+  resetTheme: () => {},
   toggleTheme: () => {},
   moving: false,
   reduced: true,
@@ -69,6 +77,11 @@ export default function Atmosphere({
   children: React.ReactNode
 }) {
   const theme = useSyncExternalStore(subscribe, themeSnapshot, () => 'light')
+  const preference = useSyncExternalStore(
+    subscribe,
+    preferenceSnapshot,
+    () => 'system',
+  )
   const reduced = useSyncExternalStore(subscribe, reducedSnapshot, () => true)
   const paused = useSyncExternalStore(subscribe, pausedSnapshot, () => true)
   const toggleMotion = () => {
@@ -79,6 +92,13 @@ export default function Atmosphere({
     window.dispatchEvent(new Event('appearance-change'))
   }
   const moving = !reduced && !paused
+  const resetTheme = () => {
+    memoryTheme = 'system'
+    try {
+      localStorage.removeItem(appearanceKey)
+    } catch {}
+    window.dispatchEvent(new Event('appearance-change'))
+  }
   const toggleTheme = () => {
     const value =
       document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark'
@@ -98,7 +118,15 @@ export default function Atmosphere({
   }, [moving])
   return (
     <ThemeContext.Provider
-      value={{ theme, toggleTheme, moving, reduced, toggleMotion }}
+      value={{
+        theme,
+        preference,
+        resetTheme,
+        toggleTheme,
+        moving,
+        reduced,
+        toggleMotion,
+      }}
     >
       <div
         className="sakura-atmosphere"
@@ -134,7 +162,15 @@ export function AppearanceControls({
 }: {
   copy: Dictionary['atmosphere']
 }) {
-  const { theme, toggleTheme, moving, reduced, toggleMotion } = useAtmosphere()
+  const {
+    theme,
+    preference,
+    resetTheme,
+    toggleTheme,
+    moving,
+    reduced,
+    toggleMotion,
+  } = useAtmosphere()
   return (
     <div className="atmosphere-controls" role="group" aria-label={copy.label}>
       <button
@@ -144,6 +180,16 @@ export function AppearanceControls({
       >
         <Icon name={theme === 'dark' ? 'sun' : 'moon'} />
         <span>{theme === 'dark' ? copy.light : copy.dark}</span>
+      </button>
+      <button
+        type="button"
+        onClick={resetTheme}
+        disabled={preference === 'system'}
+        aria-label={copy.system}
+        title={copy.system}
+      >
+        <Icon name="globe" />
+        <span>{copy.system}</span>
       </button>
       <button
         type="button"

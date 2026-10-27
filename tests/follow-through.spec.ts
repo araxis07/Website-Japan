@@ -124,7 +124,7 @@ test('starter preview reports unfilled days and readiness belongs to the saved t
   page,
 }) => {
   await page.goto('/en/my-trip')
-  await page.locator('.trip-starter > summary').click()
+  await expect(page.locator('.trip-starter')).toHaveAttribute('open', '')
   await page.locator('.trip-starter select').nth(1).selectOption('14')
   await expect(page.locator('.starter-coverage')).toContainText('2 / 14')
   await page.locator('.trip-starter .apply-plan > button').click()
@@ -220,7 +220,7 @@ test('daily overview moves focus and travel-day view keeps Japanese address and 
   await page.locator('.trip-overview li button').nth(1).click()
   await expect(page.locator('#trip-day-2')).toBeFocused()
   await page.locator('.trip-on-the-go > summary').click()
-  await page.locator('.trip-on-the-go select').selectOption('2')
+  await page.locator('.trip-on-the-go > label select').selectOption('2')
   await expect(page.locator('.trip-on-the-go')).toContainText(
     'Meet at the corner',
   )

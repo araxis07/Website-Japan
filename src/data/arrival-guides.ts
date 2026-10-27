@@ -262,6 +262,41 @@ export const moreTrainRoutes: Arrival[] = [
 
 export const travelerProfiles = [
   {
+    id: 'vegetarian',
+    source: 'https://www.japan.travel/en/guide/vegetarian-guide/',
+    reviewedAt: '2026-10-27',
+    en: {
+      title: 'Vegetarian or vegan meals',
+      text: 'Ask about fish stock (dashi), bonito flakes and sauces, even in vegetable dishes. Carry a Japanese dietary card and contact restaurants before booking a set menu. Save suitable restaurants as personal stops in your trip.',
+    },
+    ja: {
+      title: 'ベジタリアン・ヴィーガンの食事',
+      text: '野菜料理でも、魚のだし・かつお節・たれを確認。日本語の食事条件カードを用意し、コース予約前に店へ相談。候補の店は旅程に自分の場所として保存できます。',
+    },
+    th: {
+      title: 'อาหารมังสวิรัติหรือวีแกน',
+      text: 'ถามเรื่องน้ำซุปปลา (ดาชิ) ปลาแห้ง และซอส แม้เป็นจานผัก เตรียมบัตรข้อจำกัดอาหารภาษาญี่ปุ่นและติดต่อร้านก่อนจองคอร์ส บันทึกร้านที่เหมาะเป็นสถานที่ส่วนตัวในทริปได้',
+    },
+  },
+  {
+    id: 'halal',
+    source: 'https://www.japan.travel/en/plan/muslim-travelers/',
+    reviewedAt: '2026-10-27',
+    en: {
+      title: 'Halal meals and prayer stops',
+      text: 'Check the restaurant’s certification and preparation practices directly. “Halal-friendly” may include shared kitchens; seasonings can contain sake or mirin. Find prayer facilities along your route before the travel day.',
+    },
+    ja: {
+      title: 'ハラールの食事と礼拝場所',
+      text: '認証と調理方法は店に直接確認。「ハラール対応」でも共用厨房の場合があり、調味料に酒やみりんが含まれることも。移動前に経路上の礼拝場所を確認。',
+    },
+    th: {
+      title: 'อาหารฮาลาลและจุดละหมาด',
+      text: 'ตรวจการรับรองและวิธีเตรียมอาหารกับร้านโดยตรง คำว่า “รองรับฮาลาล” อาจหมายถึงใช้ครัวร่วมกัน เครื่องปรุงอาจมีสาเกหรือมิริน ค้นหาห้องละหมาดตามเส้นทางก่อนวันเดินทาง',
+    },
+  },
+
+  {
     id: 'family',
     en: {
       title: 'Children or a slower pace',
@@ -306,4 +341,7 @@ export const travelerProfiles = [
       text: 'จัดสถานที่รอบฐานพักเดียวก่อนเทียบพาสกับค่าโดยสารแยก ใส่งบทุกหมวดรวมเงินสำรอง ช่องว่างไม่ได้หมายถึงไม่เสียเงิน',
     },
   },
-] satisfies ({ id: string } & Record<Locale, { title: string; text: string }>)[]
+] satisfies ({ id: string; source?: string; reviewedAt?: string } & Record<
+  Locale,
+  { title: string; text: string }
+>)[]

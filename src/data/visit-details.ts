@@ -142,14 +142,20 @@ export const visitDetails: Record<string, Visit> = {
       th: '09:00–17:00 น. เข้าถึง 16:00 น. กำหนดปิด 29–30 ธ.ค. ตรวจการเปลี่ยนเส้นทางจากสภาพอากาศ',
     },
     admission: {
-      en: 'Adult visitor admission: ¥2,500; resident and age-based exceptions apply.',
-      ja: '一般大人2,500円。市民・年齢による区分あり。',
-      th: 'ผู้ใหญ่ทั่วไป 2,500 เยน มีเงื่อนไขแยกตามอายุและผู้มีถิ่นพำนัก',
+      en: 'Visitors aged 18+: ¥2,500; castle + Kokoen ¥2,600. Under 18 free, including through the first March 31 after turning 18. Himeji residents have separate rates.',
+      ja: '18歳以上2,500円、好古園共通券2,600円。18歳未満（18歳到達後最初の3月31日までを含む）は無料。姫路市民は別料金。',
+      th: 'ผู้มาเยือนอายุ 18 ปีขึ้นไป 2,500 เยน รวมสวน Kokoen 2,600 เยน อายุต่ำกว่า 18 ปีฟรี รวมถึงวันที่ 31 มี.ค. ครั้งแรกหลังอายุครบ 18 ปี ชาวเมืองฮิเมจิใช้อัตราแยก',
     },
     accessibility: {
       en: 'Steep stairs and slopes; no lifts in the keep. Wheelchairs cannot enter the keep buildings.',
       ja: '急な階段・坂があり、天守にエレベーターはありません。天守などの建物内は車いす不可。',
       th: 'มีบันไดและทางลาดชัน หอปราสาทไม่มีลิฟต์และรถเข็นเข้าอาคารหอปราสาทไม่ได้',
+    },
+    fieldSources: {
+      admission: {
+        source: 'https://www.himejicastle.jp/en/',
+        reviewedAt: '2026-10-27',
+      },
     },
   },
   'pref:nara:todaiji-temple': {
@@ -218,9 +224,9 @@ export const visitDetails: Record<string, Visit> = {
       th: '1 มี.ค.–15 ต.ค. 07:00–18:00 น. 16 ต.ค.–สิ้น ก.พ. 08:00–17:00 น. เข้าสุดท้ายก่อนปิด 30 นาที',
     },
     admission: {
-      en: 'Adult admission: ¥320; check age exemptions and announced free-entry days.',
-      ja: '大人320円。年齢による免除や無料開園日は公式案内を確認。',
-      th: 'ผู้ใหญ่ 320 เยน ตรวจข้อยกเว้นอายุและวันที่ประกาศให้เข้าฟรี',
+      en: 'Ages 18+: ¥320; ages 6–17: ¥100. Visitors aged 65+ can request free entry with proof of age; bring a passport.',
+      ja: '18歳以上320円、6〜17歳100円。65歳以上は年齢確認で無料。旅行者はパスポートを持参。',
+      th: 'อายุ 18 ปีขึ้นไป 320 เยน อายุ 6–17 ปี 100 เยน อายุ 65 ปีขึ้นไปขอเข้าฟรีโดยแสดงหลักฐานอายุ เช่น พาสปอร์ต',
     },
     accessibility: {
       en: 'Wheelchairs are available at listed gates. The garden has slopes and gravel; use the official recommended accessible route.',
@@ -232,6 +238,21 @@ export const visitDetails: Record<string, Visit> = {
         source: 'https://shiro-niwa.pref.ishikawa.lg.jp/access.html',
         reviewedAt: '2026-10-25',
       },
+      admission: {
+        source:
+          'https://shiro-niwa.pref.ishikawa.lg.jp/kenrokuen-garden/e/info.html',
+        reviewedAt: '2026-10-27',
+      },
+      entrance: {
+        source:
+          'https://shiro-niwa.pref.ishikawa.lg.jp/kenrokuen-garden/e/info.html',
+        reviewedAt: '2026-10-27',
+      },
+    },
+    entrance: {
+      en: 'Early free entry uses Renchi-mon and Zuishinzaka only. Leave 15 minutes before paid opening hours; daytime gate choices differ.',
+      ja: '早朝無料入園は蓮池門・随身坂口のみ。有料開園の15分前までに退園。日中の入口とは異なります。',
+      th: 'เข้าฟรีช่วงเช้ามืดได้เฉพาะ Renchi-mon และ Zuishinzaka ต้องออกก่อนเวลาเปิดเก็บค่าเข้า 15 นาที ประตูช่วงกลางวันต่างกัน',
     },
   },
   'pref:nagano:matsumoto-castle': {
@@ -249,9 +270,9 @@ export const visitDetails: Record<string, Visit> = {
       th: 'ปกติ 08:30–17:00 น. เข้าสุดท้าย 16:30 น. ปิด 29–31 ธ.ค. วันขยายเวลาต้องตรวจเพิ่ม',
     },
     admission: {
-      en: 'Adult timed e-ticket ¥1,200; on-site paper ticket ¥1,300.',
-      ja: '大人の日時指定電子券1,200円、当日紙券1,300円。',
-      th: 'ผู้ใหญ่ ตั๋วอิเล็กทรอนิกส์ระบุเวลา 1,200 เยน ตั๋วกระดาษหน้างาน 1,300 เยน',
+      en: 'Adults: timed e-ticket ¥1,200 / paper ticket ¥1,300. Ages 6–15: ¥400; ages 5 and under free.',
+      ja: '大人：日時指定電子券1,200円／紙券1,300円。6〜15歳400円、5歳以下無料。',
+      th: 'ผู้ใหญ่: ตั๋วออนไลน์ระบุเวลา 1,200 เยน / ตั๋วกระดาษ 1,300 เยน อายุ 6–15 ปี 400 เยน อายุไม่เกิน 5 ปีฟรี',
     },
     booking: {
       en: 'Choose a time for online tickets. Read the no-cancellation terms before payment.',
@@ -272,6 +293,19 @@ export const visitDetails: Record<string, Visit> = {
         source: 'https://www.matsumoto-castle.jp/eng/faq',
         reviewedAt: '2026-10-25',
       },
+      admission: {
+        source: 'https://www.matsumoto-castle.jp/eng/info',
+        reviewedAt: '2026-10-27',
+      },
+      accessibility: {
+        source: 'https://www.matsumoto-castle.jp/eng/faq',
+        reviewedAt: '2026-10-27',
+      },
+    },
+    accessibility: {
+      en: 'No wheelchair entry or lift in the keep. Borrow wheelchairs at Kuromon; limited stock, no reservations. Accessible toilets: one inside the paid grounds, two in the park; none in the keep.',
+      ja: '天守は車いす入場不可・エレベーターなし。黒門の貸出車いすは台数限定・予約不可。多目的トイレは有料区域1か所、公園2か所。天守内にはありません。',
+      th: 'รถเข็นเข้าหอปราสาทไม่ได้และไม่มีลิฟต์ ยืมรถเข็นที่ Kuromon มีจำกัดและจองไม่ได้ ห้องน้ำผู้พิการ: ในเขตเสียค่าเข้า 1 แห่ง ในสวน 2 แห่ง ไม่มีในหอปราสาท',
     },
   },
   'pref:fukui:fukui-prefectural-dinosaur-museum': {
@@ -581,6 +615,142 @@ export const visitDetails: Record<string, Visit> = {
       },
     },
   },
+  'pref:kumamoto:suizenji-jojuen': {
+    source:
+      'https://www.japan.travel/en/japans-local-treasures/suizenji-jojuen-garden-2020/',
+    reviewedAt: '2026-10-25',
+    access: {
+      en: 'About four minutes on foot from Suizenji Park tram stop, or ten minutes from JR Shin-Suizenji Station.',
+      ja: '市電水前寺公園停留場から徒歩約4分、JR新水前寺駅から約10分。',
+      th: 'เดินประมาณ 4 นาทีจากป้ายรถราง Suizenji Park หรือประมาณ 10 นาทีจาก JR Shin-Suizenji',
+    },
+    fieldSources: {
+      hours: {
+        source: 'https://www.suizenji.or.jp/en/guide/',
+        reviewedAt: '2026-10-27',
+      },
+      admission: {
+        source: 'https://www.suizenji.or.jp/en/guide/',
+        reviewedAt: '2026-10-27',
+      },
+      booking: {
+        source: 'https://www.suizenji.or.jp/en/guide/',
+        reviewedAt: '2026-10-27',
+      },
+      entrance: {
+        source: 'https://www.suizenji.or.jp/en/guide/',
+        reviewedAt: '2026-10-27',
+      },
+      accessibility: {
+        source: 'https://www.suizenji.or.jp/en/guide/',
+        reviewedAt: '2026-10-27',
+      },
+    },
+    hours: {
+      en: 'Daily 08:30–17:00; last entry 16:30. Event hours can differ.',
+      ja: '毎日8:30〜17:00、最終入園16:30。催事時は変更あり。',
+      th: 'ทุกวัน 08:30–17:00 น. เข้าสุดท้าย 16:30 น. ช่วงงานกิจกรรมอาจเปลี่ยนเวลา',
+    },
+    admission: {
+      en: 'Ages 16+: ¥500; ages 6–15: ¥200. Check separate group and certificate-holder rules.',
+      ja: '16歳以上500円、6〜15歳200円。団体・手帳割引は別途条件を確認。',
+      th: 'อายุ 16 ปีขึ้นไป 500 เยน อายุ 6–15 ปี 200 เยน ส่วนลดหมู่คณะและผู้ถือบัตรมีเงื่อนไขแยก',
+    },
+    booking: {
+      en: 'Japanese/English guided tours require advance contact and an extra fee.',
+      ja: '日本語・英語ガイドは事前連絡が必要で別料金。',
+      th: 'ทัวร์มีไกด์ภาษาญี่ปุ่นหรืออังกฤษต้องติดต่อล่วงหน้าและมีค่าใช้จ่ายเพิ่ม',
+    },
+    entrance: {
+      en: 'Use Main or North Gate. East, South and Soseki gates are closed at review.',
+      ja: '正門・北門を利用。確認時点で東門・南門・漱石門は閉鎖中。',
+      th: 'ใช้ประตูหลักหรือประตูเหนือ ประตูตะวันออก ใต้ และ Soseki ปิดอยู่ ณ วันที่ตรวจสอบ',
+    },
+    accessibility: {
+      en: 'Four loan wheelchairs at the Main Gate ticket office. Ostomate facilities at east toilets; nursing room in the exhibition hall. This does not confirm every path is step-free.',
+      ja: '正門券売所に貸出車いす4台。東トイレにオストメイト設備、展示館に授乳室。全経路の段差解消を保証する情報ではありません。',
+      th: 'ยืมรถเข็นได้ 4 คันที่เคาน์เตอร์ประตูหลัก ห้องน้ำตะวันออกมีอุปกรณ์รองรับถุงทวารเทียม ห้องให้นมอยู่ในอาคารนิทรรศการ ไม่ได้ยืนยันว่าทุกทางไร้บันได',
+    },
+  },
+  'pref:tochigi:nikko-toshogu': {
+    source: 'https://www.japan.travel/en/spot/1482/',
+    reviewedAt: '2026-10-25',
+    access: {
+      en: 'From JR or Tobu Nikko, take the World Heritage sightseeing bus (about 15 minutes). Walking from the station takes about 45 minutes.',
+      ja: 'JR・東武日光駅から世界遺産めぐりバス約15分。駅から徒歩では約45分。',
+      th: 'จาก JR หรือ Tobu Nikko ใช้บัสชมมรดกโลกประมาณ 15 นาที หากเดินจากสถานีใช้ประมาณ 45 นาที',
+    },
+    fieldSources: {
+      booking: {
+        source: 'https://www.visitnikko.jp/en/spots/nikko-toshogu-shrine/',
+        reviewedAt: '2026-10-27',
+      },
+    },
+    booking: {
+      en: 'The city guide’s linked online vouchers must be exchanged at Tobu-Nikko Station Tourist Center, not the shrine entrance. Check your selected product’s exchange instructions.',
+      ja: '市観光案内のオンライン引換券は東武日光駅ツーリストセンターで交換。神社入口では交換不可。購入商品の引換条件を確認。',
+      th: 'เวาเชอร์ออนไลน์ที่คู่มือท่องเที่ยวเมืองลิงก์ไว้ต้องแลกที่ Tobu-Nikko Station Tourist Center ไม่ใช่ทางเข้าศาลเจ้า ตรวจเงื่อนไขของตั๋วที่เลือก',
+    },
+  },
+  'pref:fukuoka:dazaifu-tenmangu': {
+    source: 'https://www.japan.travel/en/spot/798/',
+    reviewedAt: '2026-10-25',
+    access: {
+      en: 'From Nishitetsu Fukuoka (Tenjin), change at Futsukaichi for Dazaifu. The shrine is about five minutes on foot from Dazaifu Station.',
+      ja: '西鉄福岡（天神）から二日市で乗り換え太宰府へ。太宰府駅から徒歩約5分。',
+      th: 'จาก Nishitetsu Fukuoka (Tenjin) เปลี่ยนที่ Futsukaichi ไป Dazaifu แล้วเดินจากสถานีประมาณ 5 นาที',
+    },
+    fieldSources: {
+      hours: {
+        source: 'https://www.dazaifutenmangu.or.jp/',
+        reviewedAt: '2026-10-27',
+      },
+      admission: {
+        source: 'https://www.dazaifutenmangu.or.jp/en/plan/faq/',
+        reviewedAt: '2026-10-27',
+      },
+    },
+    hours: {
+      en: 'Opens 06:00 from the spring equinox, 06:30 from the autumn equinox. Closes 19:00 Apr–May/Sep–Nov, 19:30 Jun–Aug, 18:30 Dec–Mar. Check temporary changes.',
+      ja: '春分の日から6:00、秋分の日から6:30開門。閉門は4〜5月・9〜11月19:00、6〜8月19:30、12〜3月18:30。臨時変更も確認。',
+      th: 'เปิด 06:00 น. ตั้งแต่วันวสันตวิษุวัต และ 06:30 น. ตั้งแต่วันศารทวิษุวัต ปิด 19:00 น. เม.ย.–พ.ค./ก.ย.–พ.ย., 19:30 น. มิ.ย.–ส.ค., 18:30 น. ธ.ค.–มี.ค. ตรวจการเปลี่ยนเวลาชั่วคราวด้วย',
+    },
+    admission: {
+      en: 'Ordinary worship and shrine grounds are free. On-site museums and nearby attractions charge separately.',
+      ja: '通常参拝・境内は無料。境内の博物館や周辺施設は別途有料。',
+      th: 'สักการะตามปกติและเดินในบริเวณศาลเจ้าฟรี พิพิธภัณฑ์ในพื้นที่และสถานที่ใกล้เคียงคิดค่าเข้าแยก',
+    },
+  },
+  'pref:hiroshima:itsukushima-shrine': {
+    source:
+      'https://www.japan.travel/en/world-heritage/itsukushima-shinto-shrine/',
+    reviewedAt: '2026-10-25',
+    access: {
+      en: 'From Hiroshima take JR to Miyajimaguchi (about 30 minutes), a ferry to Miyajima (about 10 minutes), then walk about 10 minutes to the shrine.',
+      ja: '広島からJRで宮島口へ約30分、フェリーで宮島へ約10分、神社まで徒歩約10分。',
+      th: 'จาก Hiroshima ใช้ JR ถึง Miyajimaguchi ราว 30 นาที ต่อเรือไป Miyajima ราว 10 นาที แล้วเดินถึงศาลเจ้าอีกประมาณ 10 นาที',
+    },
+    fieldSources: {
+      hours: {
+        source: 'https://itsukushimajinja.jp/en/admission.html',
+        reviewedAt: '2026-10-27',
+      },
+      admission: {
+        source: 'https://itsukushimajinja.jp/en/admission.html',
+        reviewedAt: '2026-10-27',
+      },
+    },
+    hours: {
+      en: 'Normally opens 06:30. Closes 18:00 Mar 1–Oct 14, 17:30 Oct 15–Nov and Jan 4–Feb, 17:00 Dec. Jan 1–3 use special hours.',
+      ja: '通常6:30開門。閉門は3/1〜10/14が18:00、10/15〜11月・1/4〜2月が17:30、12月17:00。1/1〜3は特別時間。',
+      th: 'ปกติเปิด 06:30 น. ปิด 18:00 น. วันที่ 1 มี.ค.–14 ต.ค., 17:30 น. วันที่ 15 ต.ค.–พ.ย. และ 4 ม.ค.–ก.พ., 17:00 น. ใน ธ.ค. วันที่ 1–3 ม.ค. ใช้เวลาพิเศษ',
+    },
+    admission: {
+      en: 'Shrine: adults ¥300; high school ¥200; elementary/junior high ¥100. Treasure Hall and combined tickets differ.',
+      ja: '神社：大人300円、高校生200円、小中学生100円。宝物館・共通券は別料金。',
+      th: 'ศาลเจ้า: ผู้ใหญ่ 300 เยน มัธยมปลาย 200 เยน ประถมและมัธยมต้น 100 เยน หอสมบัติและตั๋วรวมมีราคาแยก',
+    },
+  },
 }
 export function visitFor(place: Place) {
   return visitDetails[canonicalPlaceId(place.id)]
@@ -603,6 +773,15 @@ export function visitSource(
   )
 }
 
+export const reviewDays: Record<VisitField, number> = {
+  access: 180,
+  entrance: 180,
+  hours: 30,
+  admission: 30,
+  booking: 30,
+  accessibility: 90,
+}
+
 export function fieldReview(
   visit: Visit | undefined,
   field: VisitField,
@@ -611,7 +790,9 @@ export function fieldReview(
   if (!visit || (!visit[field] && !visit.notApplicable?.[field]))
     return { status: 'unverified' as const }
   const source = visitSource(visit, field)
-  const nextReviewBy = new Date(Date.parse(source.reviewedAt) + 90 * 86400000)
+  const nextReviewBy = new Date(
+    Date.parse(source.reviewedAt) + reviewDays[field] * 86400000,
+  )
     .toISOString()
     .slice(0, 10)
   return {

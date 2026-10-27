@@ -1,16 +1,25 @@
 'use client'
 import { useSyncExternalStore } from 'react'
 import { japanDate } from '@/lib/trip'
-import { currentNotices } from '@/data/travel-notices'
+import { currentNotices, tripNotices } from '@/data/travel-notices'
+import { prefectures } from '@/data/prefectures'
 import { useTrip } from './TripProvider'
 const subscribe = (changed: () => void) => {
   const timer = setInterval(changed, 60000)
   return () => clearInterval(timer)
 }
-export default function TravelNotices() {
-  const { lang, tools } = useTrip()
+export default function TravelNotices({
+  area,
+  forTrip = false,
+}: {
+  area?: string
+  forTrip?: boolean
+}) {
+  const { lang, tools, trip } = useTrip()
   const today = useSyncExternalStore(subscribe, japanDate, () => '')
-  const notices = currentNotices(today)
+  const notices = (
+    forTrip && trip ? tripNotices(trip, today) : currentNotices(today)
+  ).filter((notice) => !area || notice.areas.includes(area))
   if (!notices.length) return null
   return (
     <details className="visit-details travel-notices">
@@ -18,6 +27,18 @@ export default function TravelNotices() {
       <ul>
         {notices.map((notice) => (
           <li key={notice.id}>
+            <strong>
+              {today < notice.from ? tools.noticeUpcoming : tools.noticeActive}
+            </strong>
+            <p>
+              {tools.noticeArea}:{' '}
+              {notice.areas
+                .map(
+                  (area) =>
+                    prefectures.find((p) => p.slug === area)!.names[lang],
+                )
+                .join(' · ')}
+            </p>
             <p>
               <time dateTime={notice.from}>{notice.from}</time> –{' '}
               <time dateTime={notice.through}>{notice.through}</time>

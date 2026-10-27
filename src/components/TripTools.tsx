@@ -1,11 +1,13 @@
 'use client'
 import { useEffect, useState } from 'react'
-import { places } from '@/data/places'
 import { useTrip } from './TripProvider'
 import TripField from './TripField'
 import TripExtras from './TripExtras'
 import {
   entryKey,
+  tripPlace,
+  tripId,
+  dayLabel,
   maxTripBytes,
   mergeTrips,
   parseTrip,
@@ -42,7 +44,7 @@ export default function TripTools() {
   const [hash, setHash] = useState('')
   useEffect(() => {
     let cancelled = false
-    if (trip)
+    if (trip && crypto.subtle)
       crypto.subtle
         .digest('SHA-256', new TextEncoder().encode(JSON.stringify(trip)))
         .then((buffer) => {
@@ -92,7 +94,7 @@ export default function TripTools() {
         .some((other) => stay.from < other.to && other.from < stay.to),
   )
   return (
-    <div className="trip-tools">
+    <div className="trip-tools" id="trip-tools">
       <p className="save-status" role="status">
         {storageError ||
           (Object.keys(drafts).length ? tools.pendingDrafts : tools.savedLocal)}
@@ -203,7 +205,7 @@ export default function TripTools() {
                 ...current,
                 stays: [
                   ...(current.stays || []),
-                  { id: crypto.randomUUID(), name: '', from: 1, to: 2 },
+                  { id: tripId(), name: '', from: 1, to: 2 },
                 ],
               }),
               copy.updated,
@@ -280,6 +282,21 @@ export default function TripTools() {
         />{' '}
         {tools.sanitized}
       </label>
+      <details className="export-preview">
+        <summary>{tools.exportPreview}</summary>
+        <p>{sanitized ? tools.publicExports : tools.privateExports}</p>
+        <p>
+          {tools.exportPlaces}: {exportTrip.items.length} / {trip.items.length}
+        </p>
+        <ul>
+          {exportTrip.items.map((item) => (
+            <li key={entryKey(item)}>
+              {tripPlace(item).names[lang]} ·{' '}
+              {item.day ? dayLabel(item.day, lang, copy.day) : copy.unplanned}
+            </li>
+          ))}
+        </ul>
+      </details>
       <div className="trip-file-actions">
         <button type="button" onClick={undo} disabled={!canUndo}>
           {tools.undo}
@@ -412,8 +429,11 @@ export default function TripTools() {
             <ol>
               {incoming.trip.items.map((item) => (
                 <li key={entryKey(item)}>
-                  {places.find((p) => p.id === item.id)!.names[lang]} ·{' '}
-                  {item.day || copy.unplanned} · {item.time}
+                  {tripPlace(item).names[lang]} ·{' '}
+                  {item.day
+                    ? dayLabel(item.day, lang, copy.day)
+                    : copy.unplanned}{' '}
+                  · {item.time}
                   <p>{item.note}</p>
                   <p>
                     {tools.duration}: {item.duration ?? '—'} {tools.minuteUnit}{' '}
@@ -424,7 +444,7 @@ export default function TripTools() {
             </ol>
             {Object.entries(incoming.trip.notes || {}).map(([day, note]) => (
               <p key={day}>
-                {copy.day} {day}: {note}
+                {dayLabel(Number(day), lang, copy.day)}: {note}
               </p>
             ))}
             <p>

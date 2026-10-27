@@ -110,6 +110,14 @@ export default function Navigation({
           </button>
         </div>
       </div>
+      <nav className="mobile-task-nav" aria-label={dict.beginner.heading}>
+        <Link href={`/${lang}/explore?scope=places&view=list`}>
+          <Icon name="search" />
+          {dict.tools.place}
+        </Link>
+        <Link href={`/${lang}/my-trip`}>{dict.trip.title}</Link>
+        <Link href={`/${lang}/first-visit#help`}>{dict.tools.emergency}</Link>
+      </nav>
       <nav
         id="mobile-navigation"
         className="mobile-navigation"

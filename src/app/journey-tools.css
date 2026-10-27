@@ -439,6 +439,7 @@ html[data-motion='still'] .destination-card {
 :lang(th) {
   line-height: 1.8;
 }
+html[data-motion='still'],
 html[data-motion='still'] *,
 html[data-motion='still'] *::before,
 html[data-motion='still'] *::after {
@@ -866,4 +867,156 @@ textarea:focus-visible {
 .readiness-checklist button:disabled {
   cursor: not-allowed;
   opacity: 0.6;
+}
+
+.trip-task-links,
+.results-pagination {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-block: 1.25rem;
+}
+.trip-task-links a,
+.results-pagination button,
+.personal-stop button,
+.data-privacy button {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0.65rem 0.9rem;
+  border: 1px solid var(--line);
+  background: var(--white);
+  color: var(--ink);
+  border-radius: 4px;
+}
+.personal-stop input,
+.trip-directions input,
+.trip-directions select {
+  width: 100%;
+  min-height: 44px;
+  padding: 0.65rem;
+  color: var(--ink);
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+}
+.personal-stop form {
+  display: grid;
+  gap: 1rem;
+}
+.trip-directions {
+  max-width: 100%;
+}
+.trip-directions label {
+  display: grid;
+  gap: 0.4rem;
+  margin-block: 0.75rem;
+}
+.export-preview {
+  margin-block: 1rem;
+}
+.export-preview summary {
+  min-height: 44px;
+  cursor: pointer;
+}
+.export-preview ul {
+  max-height: 18rem;
+  overflow-y: auto;
+}
+.mobile-task-nav {
+  display: none;
+}
+body:has(.planner-page) .sakura-petal:nth-child(n + 9),
+body:has(.first-visit-page) .sakura-petal:nth-child(n + 9) {
+  display: none;
+}
+body:has(.planner-page) .sakura-atmosphere {
+  opacity: 0.35;
+}
+html[lang='th'] .trip-task-links,
+html[lang='th'] .trip-meta,
+html[lang='th'] .place-search-results {
+  line-height: 1.85;
+  word-break: normal;
+}
+.data-privacy button {
+  margin: 0.75rem;
+}
+@media (max-width: 900px) {
+  .header-actions .header-trip {
+    display: none;
+  }
+  .mobile-task-nav {
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid var(--line);
+  }
+  .mobile-task-nav a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    flex: 1;
+    min-height: 44px;
+    padding: 0.4rem;
+    font-size: 0.8rem;
+  }
+}
+@media (max-width: 700px) {
+  .atmosphere-controls {
+    flex-wrap: wrap;
+    gap: 0;
+  }
+  .atmosphere-controls button {
+    padding-inline: 0.5rem;
+  }
+  .atmosphere-controls button span {
+    max-width: 8rem;
+  }
+  .results-pagination {
+    justify-content: space-between;
+    gap: 0.4rem;
+  }
+  .results-pagination button {
+    padding-inline: 0.5rem;
+  }
+}
+@media print {
+  .trip-task-links,
+  .personal-stop,
+  .trip-directions details,
+  .travel-notices,
+  .mobile-task-nav,
+  .data-privacy {
+    display: none !important;
+  }
+}
+
+.scene-place-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0 1rem 1rem;
+  font-size: 0.85rem;
+}
+.scene-place-actions .save-place {
+  width: auto;
+  margin: 0;
+}
+.active-filters {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-block: 1rem;
+}
+.active-filters button {
+  min-height: 44px;
+  padding: 0.4rem 0.8rem;
+  border: 1px solid var(--line);
+  border-radius: 2rem;
+  color: var(--ink);
+  background: var(--paper);
 }

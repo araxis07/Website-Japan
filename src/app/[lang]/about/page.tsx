@@ -1,4 +1,5 @@
 import ReportIssue from '@/components/ReportIssue'
+import DataPrivacy from '@/components/DataPrivacy'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { isLocale } from '@/i18n/config'
@@ -37,6 +38,7 @@ export default async function About({ params }: Props) {
       ))}
       <p>{dict.tools.reportHelp}</p>
       <ReportIssue contact={contact} />
+      <DataPrivacy />
       <p>
         <Link href={`/${lang}/credits`}>{dict.footer.credits}</Link> ·{' '}
         <a href="https://osmfoundation.org/wiki/Privacy_Policy">

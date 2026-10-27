@@ -1,5 +1,6 @@
 import type { Locale } from '@/i18n/config'
 export type Photo = {
+  taken?: string
   src: string
   alt: Record<Locale, string>
   source?: string

@@ -2,19 +2,26 @@
 import Link from 'next/link'
 import { useState } from 'react'
 import TripTools from './TripTools'
+import TravelNotices from './TravelNotices'
 import TripField from './TripField'
 import TripDayOverview from './TripDayOverview'
 import TripStarter from './TripStarter'
+import PersonalStop from './PersonalStop'
 import TripOverview from './TripOverview'
+import TripDirections from './TripDirections'
 import type { Dictionary } from '@/i18n/dictionaries'
 import {
   entryKey,
+  tripPlace,
+  tripId,
+  dayLabel as formatDay,
+  missingBudget,
   conflictPairs,
   tripDate,
   tripDays,
   type TripEntry,
 } from '@/lib/trip'
-import { places, mapUrl, placePath, distanceKm } from '@/data/places'
+import { placePath, distanceKm } from '@/data/places'
 import { useTrip } from './TripProvider'
 
 export default function TripPlanner({
@@ -54,8 +61,7 @@ export default function TripPlanner({
         )}
       </div>
     )
-  const dayLabel = (n: number) =>
-    lang === 'ja' ? `${n}${copy.day}` : `${copy.day} ${n}`
+  const dayLabel = (n: number) => formatDay(n, lang, copy.day)
   const days = tripDays(trip)
   const updateEntry = (entry: TripEntry, patch: Partial<TripEntry>) =>
     change(
@@ -108,16 +114,47 @@ export default function TripPlanner({
             {tripDate(trip.startDate, stay.to)})
           </p>
         ))}
-        {trip.budget && (
+        {missingBudget(trip).length > 0 && (
+          <p>
+            {tools.budgetMissing}:{' '}
+            {missingBudget(trip)
+              .map((key) => tools[key])
+              .join(' · ')}
+            . {tools.budgetIncomplete}
+          </p>
+        )}
+        {Object.keys(trip.budget || {}).length > 0 && (
           <p>
             {tools.total}: ¥
-            {Object.values(trip.budget)
+            {Object.values(trip.budget || {})
               .reduce((sum, amount) => sum + amount, 0)
               .toLocaleString(lang)}
           </p>
         )}
       </div>
+      <nav className="trip-task-links" aria-label={copy.title}>
+        <a href="#trip-tools">{tools.moreTools}</a>
+        {trip.items.length > 0 && (
+          <a
+            href="#travel-day"
+            onClick={() => {
+              const panel = document.getElementById(
+                'travel-day',
+              ) as HTMLDetailsElement | null
+              if (panel) panel.open = true
+            }}
+          >
+            {tools.onTheGo}
+          </a>
+        )}
+        <Link href={`/${lang}/explore?scope=places&view=list`}>
+          {copy.explore}
+        </Link>
+        <Link href={`/${lang}/first-visit#help`}>{tools.emergency}</Link>
+      </nav>
       {!trip.items.length && <TripStarter />}
+      <TravelNotices forTrip />
+      <PersonalStop />
       <TripTools />
       {trip.items.length > 0 && (
         <TripOverview
@@ -174,8 +211,7 @@ export default function TripPlanner({
               .filter((item) => item.day > pendingDays)
               .map((item) => (
                 <li key={entryKey(item)}>
-                  {places.find((p) => p.id === item.id)!.names[lang]} ·{' '}
-                  {dayLabel(item.day)}
+                  {tripPlace(item).names[lang]} · {dayLabel(item.day)}
                 </li>
               ))}
             {Object.keys(trip.notes || {})
@@ -277,15 +313,11 @@ export default function TripPlanner({
               </div>
               {day > 0 &&
                 entries.some((entry, index) =>
-                  entries
-                    .slice(index + 1)
-                    .some(
-                      (other) =>
-                        distanceKm(
-                          places.find((p) => p.id === entry.id)!.coordinates,
-                          places.find((p) => p.id === other.id)!.coordinates,
-                        ) > 30,
-                    ),
+                  entries.slice(index + 1).some((other) => {
+                    const a = tripPlace(entry).coordinates
+                    const b = tripPlace(other).coordinates
+                    return a && b && distanceKm(a, b) > 30
+                  }),
                 ) && <p className="trip-travel-note">{tools.distance}</p>}
               {day > 0 &&
                 conflictPairs(entries).map(([a, b]) => (
@@ -293,10 +325,8 @@ export default function TripPlanner({
                     className="trip-travel-note"
                     key={`${entryKey(a)}:${entryKey(b)}`}
                   >
-                    {tools.timeConflict}:{' '}
-                    {places.find((p) => p.id === a.id)!.names[lang]} ({a.time})
-                    ↔ {places.find((p) => p.id === b.id)!.names[lang]} ({b.time}
-                    )
+                    {tools.timeConflict}: {tripPlace(a).names[lang]} ({a.time})
+                    ↔ {tripPlace(b).names[lang]} ({b.time})
                   </p>
                 ))}
               {day > 0 && entries.length > 0 && (
@@ -304,17 +334,16 @@ export default function TripPlanner({
               )}
               {day > 0 &&
                 new Set(
-                  entries.map(
-                    (entry) =>
-                      places.find((p) => p.id === entry.id)?.destination,
-                  ),
+                  entries
+                    .map((entry) => tripPlace(entry).destination)
+                    .filter(Boolean),
                 ).size > 1 && (
                   <p className="trip-travel-note">{copy.crossCity}</p>
                 )}
               {!entries.length && <p className="empty-day">{copy.emptyDay}</p>}
               <ol>
                 {entries.map((entry, index) => {
-                  const place = places.find((p) => p.id === entry.id)!
+                  const place = tripPlace(entry)
                   const move = (offset: number) =>
                     change((current) => {
                       const items = [...current.items],
@@ -329,33 +358,47 @@ export default function TripPlanner({
                       return { ...current, items }
                     }, copy.updated)
                   const previous = index
-                    ? places.find((p) => p.id === entries[index - 1].id)!
+                    ? tripPlace(entries[index - 1])
                     : undefined
-                  const directions = new URL(mapUrl(place, true, 'transit'))
-                  if (previous)
-                    directions.searchParams.set(
-                      'origin',
-                      previous.query || `${previous.names.ja} 日本`,
-                    )
                   return (
                     <li key={entryKey(entry)} data-place-id={entry.id}>
                       <div className="trip-place-copy">
                         <span className="place-kind">
-                          {place.id.startsWith('destination:')
-                            ? tools.destination
-                            : tools.place}
+                          {entry.custom
+                            ? tools.personalStop
+                            : place.id.startsWith('destination:')
+                              ? tools.destination
+                              : tools.place}
                         </span>
                         <h3>
-                          <Link href={placePath(place, lang)}>
-                            {place.names[lang]}
-                          </Link>
+                          {entry.custom ? (
+                            place.names[lang]
+                          ) : (
+                            <Link href={placePath(place, lang)}>
+                              {place.names[lang]}
+                            </Link>
+                          )}
                         </h3>
-                        <a className="text-link" href={directions.toString()}>
-                          {previous ? `${previous.names[lang]} → ` : ''}
-                          {copy.directions} ↗
-                        </a>
+                        <TripDirections place={place} previous={previous} />
                       </div>
-                      <p className="print-address" lang="ja">
+                      {entry.custom && (
+                        <p>
+                          {entry.custom.address}
+                          {entry.custom.url && (
+                            <>
+                              {' '}
+                              ·{' '}
+                              <a href={entry.custom.url}>
+                                {tools.personalLink} ↗
+                              </a>
+                            </>
+                          )}
+                        </p>
+                      )}
+                      <p
+                        className="print-address"
+                        lang={entry.custom ? undefined : 'ja'}
+                      >
                         {place.address || place.names.ja}
                       </p>
                       <p className="print-address">
@@ -445,8 +488,11 @@ export default function TripPlanner({
                                   ...current.items,
                                   {
                                     id: entry.id,
+                                    ...(entry.custom
+                                      ? { custom: entry.custom }
+                                      : {}),
                                     day: 0,
-                                    entryId: crypto.randomUUID(),
+                                    entryId: tripId(),
                                   },
                                 ],
                               }),

@@ -198,6 +198,7 @@ test('reviewed-information filters, spelling suggestions and map return retain c
     .getByRole('combobox', { name: 'Published visitor information' })
     .selectOption('accessibility')
   await expect(page).toHaveURL(/info=accessibility/)
+  await page.getByRole('button', { name: 'Next page', exact: true }).click()
   await expect(page.locator('.place-search-results')).toContainText('Makishi')
   await expect(page.locator('.place-search-results')).not.toContainText('Gion')
   await page.getByRole('searchbox').fill('Gionn')

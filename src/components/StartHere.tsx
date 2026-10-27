@@ -13,7 +13,13 @@ export default function StartHere({
     <section className="start-here container" aria-labelledby="start-title">
       <h2 id="start-title">{copy.heading}</h2>
       <ol>
-        {(['first-visit', 'explore', 'my-trip'] as const).map((path, index) => {
+        {(
+          [
+            'first-visit',
+            'explore?scope=places&view=list',
+            'my-trip#travel-day',
+          ] as const
+        ).map((path, index) => {
           const step = `step${index + 1}` as 'step1' | 'step2' | 'step3'
           return (
             <li key={path}>

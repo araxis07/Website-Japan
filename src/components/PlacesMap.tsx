@@ -1,9 +1,16 @@
 'use client'
 import { useRef, useState } from 'react'
-import { canonicalPlaceId, mapUrl, type Place } from '@/data/places'
+import {
+  canonicalPlaceId,
+  mapUrl,
+  placePath,
+  pinKind,
+  type Place,
+} from '@/data/places'
 import type { Locale } from '@/i18n/config'
 import type { Dictionary } from '@/i18n/dictionaries'
 import SavePlace from './SavePlace'
+import ReportLink from './ReportLink'
 import VisitFacts from './VisitFacts'
 import StreetMap from './StreetMap'
 import { visitFor, placeCategory } from '@/data/visit-details'
@@ -62,7 +69,9 @@ export default function PlacesMap({
             {tools.hours}: {visitFor(selectedPlace)!.hours![lang]}
           </p>
         )}
-        <p className="source-note">{tools.pinReference}</p>
+        <p className="source-note">
+          {tools[pinKind(selectedPlace)]}. {tools.pinReference}
+        </p>
         <a className="button" href={mapUrl(selectedPlace, true)}>
           {mapCopy.route} ↗
         </a>
@@ -118,7 +127,9 @@ export default function PlacesMap({
                 </p>
               )}
               <span className="place-kind">{tools[placeCategory(point)]}</span>
-              <p className="source-note">{tools.pinReference}</p>
+              <p className="source-note">
+                {tools[pinKind(point)]}. {tools.pinReference}
+              </p>
               {visit?.access && <p>{visit.access[lang]}</p>}
               {visit?.hours && (
                 <p>
@@ -128,6 +139,7 @@ export default function PlacesMap({
               <details className="visit-details">
                 <summary>{tools.visitInfo}</summary>
                 <VisitFacts visit={visit} />
+                <ReportLink path={placePath(point, lang)} />
                 <p>{tools.locationNote}</p>
                 {source && <a href={source}>{tools.official} ↗</a>}
                 {visit?.infoSource && (

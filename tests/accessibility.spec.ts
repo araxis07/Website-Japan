@@ -16,6 +16,7 @@ for (const theme of ['light', 'dark']) {
       '/en/explore?view=list&scope=places',
       '/ja/first-visit',
       '/en/destinations/kyoto',
+      '/th/about',
     ]) {
       await page.goto(path)
       await expect(page.locator('html')).toHaveAttribute('data-theme', theme)
@@ -37,6 +38,12 @@ for (const theme of ['light', 'dark']) {
         await page.locator('.trip-extras > summary').click()
         await page.locator('.trip-library > summary').click()
         await page.locator('.trip-library > button').first().click()
+        await page.locator('.personal-stop > summary').click()
+        await page.locator('.trip-tools > .export-preview > summary').click()
+        await page
+          .locator('.trip-on-the-go .trip-directions summary')
+          .first()
+          .click()
       }
       if (path.includes('destinations'))
         for (const summary of await page

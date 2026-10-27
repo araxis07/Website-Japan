@@ -49,7 +49,7 @@ export const places: Place[] = [
   ),
 ]
 export function mapUrl(
-  place: Place,
+  place: Pick<Place, 'names' | 'address' | 'query' | 'destination'>,
   directions = false,
   mode?: 'walking' | 'transit',
 ) {
@@ -71,6 +71,12 @@ export function distanceKm(a: Place['coordinates'], b: Place['coordinates']) {
   return 6371 * 2 * Math.asin(Math.sqrt(Math.min(1, d)))
 }
 
-export function placePath(place: Place, lang: Locale) {
+export function placePath(
+  place: Pick<Place, 'id' | 'prefecture' | 'destination'>,
+  lang: Locale,
+) {
   return `/${lang}/${place.prefecture ? 'prefectures' : 'destinations'}/${place.prefecture ?? place.destination}#place-${canonicalPlaceId(place.id)}`
 }
+
+export const pinKind = (place: Pick<Place, 'category'>) =>
+  place.category === 'city' ? 'pinArea' : 'pinVenue'

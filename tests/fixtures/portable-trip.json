@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "days": 3,
+  "title": "Autumn / 秋 / ฤดูใบไม้ร่วง",
+  "startDate": "2026-11-01",
+  "base": "Kyoto Station",
+  "travelers": 2,
+  "budget": { "stay": 30000, "food": 10000 },
+  "stays": [{ "id": "stay-test", "name": "京都の宿", "from": 1, "to": 4 }],
+  "notes": { "0": "Arrival note", "2": "พักช่วงบ่าย\n予約済み" },
+  "preparation": ["documents"],
+  "fx": { "currency": "THB", "rate": 0.25, "date": "2026-10-27" },
+  "items": [
+    { "id": "gion", "day": 1, "time": "09:00", "duration": 60, "buffer": 30 },
+    {
+      "id": "custom-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "day": 1,
+      "time": "12:00",
+      "note": "Private booking",
+      "custom": {
+        "name": "京都の宿 / My hotel",
+        "address": "Kyoto, Japan",
+        "url": "https://www.google.com/maps/search/?api=1&query=Kyoto"
+      }
+    },
+    {
+      "id": "custom-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "entryId": "second-visit",
+      "day": 2,
+      "custom": {
+        "name": "京都の宿 / My hotel",
+        "address": "Kyoto, Japan",
+        "url": "https://www.google.com/maps/search/?api=1&query=Kyoto"
+      }
+    }
+  ]
+}

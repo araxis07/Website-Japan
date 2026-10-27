@@ -1,6 +1,5 @@
-import { places } from '@/data/places'
 import type { Locale } from '@/i18n/config'
-import { entryKey, tripDate, type Trip } from './trip'
+import { entryKey, tripDate, tripPlace, type Trip } from './trip'
 const escape = (value: string) =>
   value
     .replace(/\\/g, '\\\\')
@@ -42,7 +41,7 @@ export function tripCalendar(
   for (const item of trip.items.filter((item) => item.day > 0)) {
     const date = tripDate(trip.startDate, item.day)
     if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) return null
-    const place = places.find((p) => p.id === item.id)!
+    const place = tripPlace(item)
     lines.push(
       'BEGIN:VEVENT',
       `UID:${encodeURIComponent(entryKey(item))}-${date}@website-japan`,

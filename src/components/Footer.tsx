@@ -3,6 +3,7 @@ import { reviewedAt } from '@/data/travel'
 import type { Locale } from '@/i18n/config'
 import type { Dictionary } from '@/i18n/dictionaries'
 import Icon from './Icon'
+import ReportLink from './ReportLink'
 
 export default function Footer({
   dict,
@@ -55,9 +56,7 @@ export default function Footer({
             <Link href={`/${lang}/first-visit#help`}>
               {dict.tools.emergency}
             </Link>
-            <a href="https://github.com/araxis07/Website-Japan/issues/new">
-              {dict.tools.report} ↗
-            </a>
+            <ReportLink />
             <p className="review-date">
               {dict.footer.reviewed}{' '}
               <time dateTime={reviewedAt}>{reviewedAt}</time>

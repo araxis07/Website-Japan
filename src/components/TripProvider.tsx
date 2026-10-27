@@ -14,6 +14,7 @@ import type { Dictionary } from '@/i18n/dictionaries'
 import type { Locale } from '@/i18n/config'
 import {
   emptyTrip,
+  tripId,
   parseTrip,
   tripKey,
   tripFilename,
@@ -96,7 +97,7 @@ export default function TripProvider({
   const drafts = useMemo(() => readDrafts(draftRaw), [draftRaw])
   const edit = useRef<{ key: string; label: string } | null>(null)
   const beginEdit = useCallback((key: string, label: string) => {
-    edit.current = { key: `${key}:${crypto.randomUUID()}`, label }
+    edit.current = { key: `${key}:${tripId()}`, label }
   }, [])
   const endEdit = useCallback(() => {
     edit.current = null
@@ -123,6 +124,21 @@ export default function TripProvider({
     group?: string
     label: string
   } | null>(null)
+  useEffect(() => {
+    const removed = (event: StorageEvent) => {
+      if (
+        (event.key === tripKey || event.key === null) &&
+        event.newValue === null
+      ) {
+        setHistory(null)
+        Object.keys(readDrafts(draftSnapshot())).forEach((key) =>
+          writeDraft(key, null),
+        )
+      }
+    }
+    window.addEventListener('storage', removed)
+    return () => window.removeEventListener('storage', removed)
+  }, [])
   const showFeedback = (error: string, message: string) =>
     setFeedback((previous) => ({
       error,

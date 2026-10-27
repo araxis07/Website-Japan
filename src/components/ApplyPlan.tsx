@@ -1,7 +1,7 @@
 'use client'
 import { useState } from 'react'
 import { canonicalPlaceId, places } from '@/data/places'
-import { mergeTrips } from '@/lib/trip'
+import { mergeTrips, dayLabel } from '@/lib/trip'
 import { useTrip } from './TripProvider'
 export default function ApplyPlan({
   entries,
@@ -58,13 +58,14 @@ export default function ApplyPlan({
           <ol>
             {incoming.items.map((item) => (
               <li key={item.id}>
-                {places.find((p) => p.id === item.id)?.names[lang]} · {copy.day}{' '}
-                {trip?.items.find((old) => old.id === item.id && !old.entryId)
-                  ?.day === 0
-                  ? copy.unplanned
-                  : (trip?.items.find(
+                {places.find((p) => p.id === item.id)?.names[lang]} ·{' '}
+                {(() => {
+                  const day =
+                    trip?.items.find(
                       (old) => old.id === item.id && !old.entryId,
-                    )?.day ?? item.day)}
+                    )?.day ?? item.day
+                  return day ? dayLabel(day, lang, copy.day) : copy.unplanned
+                })()}
               </li>
             ))}
           </ol>

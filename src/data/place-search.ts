@@ -12,6 +12,21 @@ export const placeSearchAliases: Record<string, string> = {
   'beer-museum': 'さっぽろびーるはくぶつかん',
   makishi: 'まきしこうせついちば มาคิชิ',
   tsuboya: 'つぼややちむんどおり สึโบยะ',
+  'pref:kyoto:fushimi-inari-taisha':
+    'fushimi inari ふしみいなり ฟูชิมิอินาริ ฟุชิมิอินาริ',
+  'pref:nagano:matsumoto-castle':
+    'matsumoto jo まつもとじょう มัตสึโมโตะ มัตสึโมโต',
+  'pref:hyogo:himeji-castle': 'himeji jo ひめじじょう ฮิเมจิ ฮิเมะจิ',
+  'pref:ishikawa:kenrokuen': 'kenroku en けんろくえん เคนโรคุเอ็น เค็นโรคุเอ็น',
+  'pref:tochigi:nikko-toshogu':
+    'nikko toshogu nikkō tōshōgū にっこうとうしょうぐう นิกโก้โทโชกุ นิกโกโทโชกุ',
+  'pref:nara:todaiji-temple': 'todai ji tōdaiji とうだいじ โทไดจิ โทไดจิ',
+  'pref:kanagawa:kotoku-in':
+    'kotoku in kōtokuin kamakura daibutsu こうとくいん かまくらだいぶつ โคโตคุอิน ไดบุตสึคามาคุระ',
+  'pref:gifu:takayama-jinya':
+    'takayama jinya たかやまじんや ทาคายามะจินยะ ทะคะยะมะจินยะ',
+  'pref:aichi:nagoya-castle': 'nagoya jo なごやじょう นาโกย่า นาโกยา',
+  'pref:aomori:hirosaki-castle': 'hirosaki jo ひろさきじょう ฮิโรซากิ ฮิโรซะกิ',
 }
 export const normalizeSearch = (text: string) =>
   text
@@ -24,10 +39,10 @@ export const placeSearchText = (place: Place) =>
   ' ' +
   (placeSearchAliases[place.id] || '')
 
-// Suggest a single missing/extra/changed Latin letter; never rewrite the query.
+// Suggest a single missing/extra/changed Latin or Thai character; never rewrite the query.
 export function searchSuggestions(query: string, candidates: Place[]) {
   const q = normalizeSearch(query.trim())
-  if (!/^[a-z]{4,40}$/.test(q)) return []
+  if (!/^[a-z\u0e00-\u0e7f]{4,60}$/.test(q)) return []
   const near = (word: string) => {
     if (Math.abs(word.length - q.length) > 1) return false
     let a = 0,
@@ -47,9 +62,10 @@ export function searchSuggestions(query: string, candidates: Place[]) {
   }
   return candidates
     .filter((place) =>
-      [place.names.en, ...(placeSearchAliases[place.id] || '').split(' ')].some(
-        (name) => near(normalizeSearch(name)),
-      ),
+      [
+        ...Object.values(place.names),
+        ...(placeSearchAliases[place.id] || '').split(' '),
+      ].some((name) => near(normalizeSearch(name))),
     )
     .slice(0, 5)
 }

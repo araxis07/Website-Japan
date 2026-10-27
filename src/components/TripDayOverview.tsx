@@ -1,7 +1,6 @@
 'use client'
 import { useMemo, useState } from 'react'
-import { places } from '@/data/places'
-import { entryKey, timeMinutes, type TripEntry } from '@/lib/trip'
+import { entryKey, tripPlace, timeMinutes, type TripEntry } from '@/lib/trip'
 import type { Dictionary } from '@/i18n/dictionaries'
 import StreetMap from './StreetMap'
 import { useTrip } from './TripProvider'
@@ -16,10 +15,18 @@ export default function TripDayOverview({
   const [open, setOpen] = useState(false)
   const points = useMemo(
     () =>
-      entries.map((entry) => ({
-        ...places.find((p) => p.id === entry.id)!,
-        id: entryKey(entry),
-      })),
+      entries.flatMap((entry) => {
+        const place = tripPlace(entry)
+        return place.coordinates
+          ? [
+              {
+                id: entryKey(entry),
+                names: place.names,
+                coordinates: place.coordinates,
+              },
+            ]
+          : []
+      }),
     [entries],
   )
   const timed = entries
@@ -33,7 +40,8 @@ export default function TripDayOverview({
       >
         <summary>{tools.dayMap}</summary>
         <p>{tools.routeOrder}</p>
-        {open && (
+        {points.length < entries.length && <p>{tools.unmappedPersonal}</p>}
+        {open && points.length > 0 && (
           <StreetMap points={points} lang={lang} copy={mapCopy} tools={tools} />
         )}
       </details>
@@ -53,8 +61,7 @@ export default function TripDayOverview({
               return (
                 <li key={entryKey(entry)}>
                   <strong>
-                    {entry.time} ·{' '}
-                    {places.find((p) => p.id === entry.id)!.names[lang]}
+                    {entry.time} · {tripPlace(entry).names[lang]}
                   </strong>
                   <p>
                     {tools.duration}: {entry.duration ?? '—'} {tools.minuteUnit}{' '}

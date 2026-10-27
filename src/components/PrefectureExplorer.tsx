@@ -5,7 +5,7 @@ import Link from 'next/link'
 import type { Locale } from '@/i18n/config'
 import type { Dictionary } from '@/i18n/dictionaries'
 import StreetMap from './StreetMap'
-import { placePath, type Place } from '@/data/places'
+import { placePath, pinKind, type Place } from '@/data/places'
 import {
   normalizeSearch,
   placeSearchText,
@@ -59,7 +59,11 @@ export default function PrefectureExplorer({
   const information = (['hours', 'booking', 'accessibility'] as const).find(
     (field) => field === params.get('info'),
   )
-  const scope = params.get('scope') === 'places' ? 'places' : 'prefectures'
+  const scope =
+    params.get('scope') === 'places' ||
+    (!params.has('scope') && (query || category !== 'all' || information))
+      ? 'places'
+      : 'prefectures'
   const view = params.get('view') === 'list' ? 'list' : 'map'
   const filtered = useMemo(
     () =>
@@ -106,6 +110,28 @@ export default function PrefectureExplorer({
         ),
     [filtered, category, query, information],
   )
+  const pageCount = Math.max(
+    1,
+    Math.ceil((scope === 'places' ? foundPlaces.length : filtered.length) / 12),
+  )
+  const page = Math.max(
+    1,
+    Math.min(
+      pageCount,
+      /^\d{1,4}$/.test(params.get('page') || '')
+        ? Number(params.get('page'))
+        : 1,
+    ),
+  )
+  const start = (page - 1) * 12
+  const changePage = (page: number) => {
+    updateFilters({ page: String(page) }, true)
+    requestAnimationFrame(() => {
+      const heading = document.getElementById('search-results-heading')
+      heading?.focus({ preventScroll: true })
+      heading?.scrollIntoView({ block: 'start' })
+    })
+  }
   const suggestions = !foundPlaces.length
     ? searchSuggestions(
         query,
@@ -155,6 +181,23 @@ export default function PrefectureExplorer({
   }
   return (
     <>
+      <noscript>
+        <style>
+          {
+            '.explorer-filters,.explorer-toolbar,.explore-map-panel,.prefecture-grid,.prefecture-list-title,.results-pagination{display:none}'
+          }
+        </style>
+        <p>{mapCopy.nojs}</p>
+        <ul className="prefecture-static">
+          {entries.map((entry) => (
+            <li key={entry.slug}>
+              <Link href={`/${lang}/prefectures/${entry.slug}`}>
+                {entry.names[lang]}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </noscript>
       <div className="explorer-filters">
         <label>
           {copy.search}
@@ -163,7 +206,7 @@ export default function PrefectureExplorer({
             value={query}
             placeholder={copy.placeholder}
             onChange={(e) => {
-              updateFilters({ q: e.target.value, place: '' })
+              updateFilters({ q: e.target.value, scope, place: '', page: '' })
             }}
           />
         </label>
@@ -172,7 +215,10 @@ export default function PrefectureExplorer({
           <select
             value={region}
             onChange={(e) => {
-              updateFilters({ region: e.target.value, place: '' }, true)
+              updateFilters(
+                { region: e.target.value, place: '', page: '' },
+                true,
+              )
             }}
           >
             <option value="all">{copy.all}</option>
@@ -188,7 +234,7 @@ export default function PrefectureExplorer({
           <select
             value={category}
             onChange={(e) =>
-              updateFilters({ type: e.target.value, place: '' }, true)
+              updateFilters({ type: e.target.value, place: '', page: '' }, true)
             }
           >
             <option value="all">{tools.allCategories}</option>
@@ -205,7 +251,12 @@ export default function PrefectureExplorer({
             value={information || 'all'}
             onChange={(event) =>
               updateFilters(
-                { info: event.target.value, scope: 'places', place: '' },
+                {
+                  info: event.target.value,
+                  scope: 'places',
+                  place: '',
+                  page: '',
+                },
                 true,
               )
             }
@@ -223,6 +274,47 @@ export default function PrefectureExplorer({
           {tools.placeResults}
         </p>
       </div>
+      {(query || region !== 'all' || category !== 'all' || information) && (
+        <div
+          className="active-filters"
+          role="group"
+          aria-label={tools.filterActive}
+        >
+          <span>{tools.filterActive}</span>
+          {[
+            ['q', query],
+            [
+              'region',
+              region !== 'all'
+                ? regions.find((r) => r.id === region)?.name
+                : '',
+            ],
+            [
+              'type',
+              category !== 'all'
+                ? tools[category as 'culture' | 'nature' | 'city' | 'museum']
+                : '',
+            ],
+            ['info', information ? tools[information] : ''],
+          ]
+            .filter(([, label]) => label)
+            .map(([key, label]) => (
+              <button
+                key={key}
+                type="button"
+                aria-label={`${tools.clear}: ${label}`}
+                onClick={() =>
+                  updateFilters(
+                    { [key!]: '', scope, place: '', page: '' },
+                    true,
+                  )
+                }
+              >
+                {label} <span aria-hidden="true">×</span>
+              </button>
+            ))}
+        </div>
+      )}
       {information && <p className="source-note">{tools.informationHelp}</p>}
       <div className="explorer-toolbar" role="group" aria-label={tools.view}>
         <label>
@@ -230,7 +322,10 @@ export default function PrefectureExplorer({
           <select
             value={scope}
             onChange={(e) =>
-              updateFilters({ scope: e.target.value, place: '' }, true)
+              updateFilters(
+                { scope: e.target.value, place: '', page: '' },
+                true,
+              )
             }
           >
             <option value="prefectures">{copy.results}</option>
@@ -261,7 +356,9 @@ export default function PrefectureExplorer({
                   region: '',
                   type: '',
                   info: '',
+                  scope,
                   place: '',
+                  page: '',
                 })
               }
             >
@@ -288,6 +385,7 @@ export default function PrefectureExplorer({
                         info: '',
                         scope: 'places',
                         place: place.id,
+                        page: '',
                       },
                       true,
                     )
@@ -305,8 +403,10 @@ export default function PrefectureExplorer({
                 q: '',
                 region: '',
                 place: '',
+                page: '',
                 type: '',
                 info: '',
+                scope,
               })
             }}
           >
@@ -351,7 +451,9 @@ export default function PrefectureExplorer({
                   <p>
                     {visitFor(selectedPlace)?.access?.[lang] || tools.verify}
                   </p>
-                  <p className="source-note">{tools.pinReference}</p>
+                  <p className="source-note">
+                    {tools[pinKind(selectedPlace)]}. {tools.pinReference}
+                  </p>
                   <SavePlace
                     id={selectedPlace.id}
                     name={selectedPlace.names[lang]}
@@ -417,19 +519,16 @@ export default function PrefectureExplorer({
               {copy.read} ↗
             </Link>
           </dialog>
-          {(query ||
-            category !== 'all' ||
-            scope === 'places' ||
-            information) && (
+          {scope === 'places' && (
             <section
               className="place-search-results"
               aria-label={tools.placeResults}
             >
-              <h2>
+              <h2 id="search-results-heading" tabIndex={-1}>
                 {tools.placeResults} ({foundPlaces.length})
               </h2>
               <ul>
-                {foundPlaces.map((place) => (
+                {foundPlaces.slice(start, start + 12).map((place) => (
                   <li
                     key={place.id}
                     data-selected={
@@ -440,6 +539,14 @@ export default function PrefectureExplorer({
                       {place.names[lang]}
                     </Link>
                     <span lang="ja">{place.names.ja}</span>
+                    <span>
+                      {tools[place.category]} /{' '}
+                      {
+                        entries.find((p) =>
+                          p.places.some((item) => item.id === place.id),
+                        )?.names[lang]
+                      }
+                    </span>
                     <button
                       type="button"
                       onClick={(event) =>
@@ -457,43 +564,70 @@ export default function PrefectureExplorer({
           <p className="source-note">
             {tools.mapNote} {copy.mapNote}
           </p>
-          <h2 className="prefecture-list-title" id="prefecture-list-title">
-            {copy.list}
-          </h2>
-          <ul
-            className="prefecture-grid"
-            aria-labelledby="prefecture-list-title"
-          >
-            {filtered.map((p) => (
-              <li
-                className="prefecture-card depth-surface"
-                key={p.slug}
-                data-selected={p.slug === active.slug}
+          {scope === 'prefectures' && (
+            <>
+              <h2
+                className="prefecture-list-title"
+                id="search-results-heading"
+                tabIndex={-1}
               >
-                <p>{regions.find((r) => r.id === p.region)?.name}</p>
-                <h3>
-                  <Link href={`/${lang}/prefectures/${p.slug}`}>
-                    {p.names[lang]}
-                  </Link>
-                </h3>
-                <p>{p.summary}</p>
-                <div>
-                  <Link href={`/${lang}/prefectures/${p.slug}`}>
-                    {copy.read} ↗
-                  </Link>
-                  <button
-                    type="button"
-                    aria-pressed={p.slug === active.slug}
-                    onClick={(event) =>
-                      showPlace(event.currentTarget, p.slug, 'prefectures')
-                    }
+                {copy.list}
+              </h2>
+              <ul
+                className="prefecture-grid"
+                aria-labelledby="search-results-heading"
+              >
+                {filtered.slice(start, start + 12).map((p) => (
+                  <li
+                    className="prefecture-card depth-surface"
+                    key={p.slug}
+                    data-selected={p.slug === active.slug}
                   >
-                    {copy.show}
-                  </button>
-                </div>
-              </li>
-            ))}
-          </ul>
+                    <p>{regions.find((r) => r.id === p.region)?.name}</p>
+                    <h3>
+                      <Link href={`/${lang}/prefectures/${p.slug}`}>
+                        {p.names[lang]}
+                      </Link>
+                    </h3>
+                    <p>{p.summary}</p>
+                    <div>
+                      <Link href={`/${lang}/prefectures/${p.slug}`}>
+                        {copy.read} ↗
+                      </Link>
+                      <button
+                        type="button"
+                        aria-pressed={p.slug === active.slug}
+                        onClick={(event) =>
+                          showPlace(event.currentTarget, p.slug, 'prefectures')
+                        }
+                      >
+                        {copy.show}
+                      </button>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </>
+          )}
+          <nav className="results-pagination" aria-label={tools.page}>
+            <button
+              type="button"
+              disabled={page === 1}
+              onClick={() => changePage(page - 1)}
+            >
+              {tools.previousPage}
+            </button>
+            <span role="status">
+              {tools.page} {page} / {pageCount}
+            </span>
+            <button
+              type="button"
+              disabled={page === pageCount}
+              onClick={() => changePage(page + 1)}
+            >
+              {tools.nextPage}
+            </button>
+          </nav>
         </>
       )}
     </>

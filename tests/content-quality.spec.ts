@@ -7,6 +7,7 @@ import plans from '../src/data/prefecture-plans.json'
 import { visitFor, visitSource, fieldReview } from '../src/data/visit-details'
 import photos from '../src/data/entrance-photos.json'
 import { normalizeSearch, placeSearchText } from '../src/data/place-search'
+import { japanDate } from '../src/lib/trip'
 
 test('content schema covers every place, local plan, language, credit and review gap', async ({}, info) => {
   const fields = [
@@ -17,59 +18,59 @@ test('content schema covers every place, local plan, language, credit and review
     'booking',
     'accessibility',
   ] as const
-  const report = []
-  for (const place of places.filter((p) => !p.id.startsWith('destination:'))) {
-    expect(['museum', 'nature', 'culture', 'city']).toContain(place.category)
-    expect(new URL(place.source!).protocol).toBe('https:')
-    for (const lang of ['en', 'ja', 'th'] as const)
-      expect(place.names[lang].trim()).not.toBe('')
-    const visit = visitFor(place)
-    expect(
-      visit?.access,
-      `${place.id}: reviewed last-mile access`,
-    ).toBeDefined()
-    const fieldReviews = Object.fromEntries(
-      fields.map((field) => {
-        return [
-          field,
-          fieldReview(visit, field, new Date().toISOString().slice(0, 10)),
-        ]
-      }),
-    )
-    const missing = fields.filter(
-      (field) => !visit?.[field] && !visit?.notApplicable?.[field],
-    )
-    if (visit)
-      for (const field of fields)
-        if (visit[field] || visit.notApplicable?.[field]) {
-          expect(Boolean(visit[field] && visit.notApplicable?.[field])).toBe(
-            false,
-          )
-          const provenance = visitSource(visit, field)
-          expect(new URL(provenance.source).protocol).toBe('https:')
-          expect(provenance.reviewedAt).toMatch(/^\d{4}-\d{2}-\d{2}$/)
-          expect(
-            new Date(provenance.reviewedAt).toISOString().slice(0, 10),
-          ).toBe(provenance.reviewedAt)
-          for (const lang of ['en', 'ja', 'th'] as const)
+  const today = japanDate()
+  const report = places
+    .filter((p) => !p.id.startsWith('destination:'))
+    .map((place) => {
+      expect(['museum', 'nature', 'culture', 'city']).toContain(place.category)
+      expect(new URL(place.source!).protocol).toBe('https:')
+      for (const lang of ['en', 'ja', 'th'] as const)
+        expect(place.names[lang].trim()).not.toBe('')
+      const visit = visitFor(place)
+      expect(
+        visit?.access,
+        `${place.id}: reviewed last-mile access`,
+      ).toBeDefined()
+      const fieldReviews = Object.fromEntries(
+        fields.map((field) => {
+          return [field, fieldReview(visit, field, today)]
+        }),
+      )
+      const missing = fields.filter(
+        (field) => !visit?.[field] && !visit?.notApplicable?.[field],
+      )
+      if (visit)
+        for (const field of fields)
+          if (visit[field] || visit.notApplicable?.[field]) {
+            expect(Boolean(visit[field] && visit.notApplicable?.[field])).toBe(
+              false,
+            )
+            const provenance = visitSource(visit, field)
+            expect(new URL(provenance.source).protocol).toBe('https:')
+            expect(provenance.reviewedAt).toMatch(/^\d{4}-\d{2}-\d{2}$/)
             expect(
-              (visit[field] || visit.notApplicable![field]!.reason)![lang]
-                .length,
-            ).toBeGreaterThan(5)
-        }
-    report.push({
-      id: place.id,
-      name: place.names.en,
-      reviewedAt: visit?.reviewedAt || null,
-      overdue: Object.values(fieldReviews).some(
-        (review) => review.status === 'overdue',
-      ),
-      missing,
-      suggestedOwner: 'repository maintainer',
-      fieldReviews,
-      source: visit?.source || place.source,
+              new Date(provenance.reviewedAt).toISOString().slice(0, 10),
+            ).toBe(provenance.reviewedAt)
+            for (const lang of ['en', 'ja', 'th'] as const)
+              expect(
+                (visit[field] || visit.notApplicable![field]!.reason)![lang]
+                  .length,
+              ).toBeGreaterThan(5)
+          }
+      return {
+        id: place.id,
+        name: place.names.en,
+        reviewedAt: visit?.reviewedAt || null,
+        overdue: Object.values(fieldReviews).some(
+          (review) => review.status === 'overdue',
+        ),
+        missing,
+        notApplicable: fields.filter((field) => visit?.notApplicable?.[field]),
+        suggestedOwner: 'repository maintainer',
+        fieldReviews,
+        source: visit?.source || place.source,
+      }
     })
-  }
   for (const p of prefectures) {
     const plan = plans[p.slug as keyof typeof plans]
     const expected = places
@@ -105,7 +106,28 @@ test('content schema covers every place, local plan, language, credit and review
     JSON.stringify(
       {
         generatedAt: new Date().toISOString(),
+        japanDate: today,
         reviewedPlaces: report.filter((row) => row.reviewedAt).length,
+        fieldCoverage: Object.fromEntries(
+          fields.map((field) => [
+            field,
+            {
+              published: report.filter(
+                (row) =>
+                  !row.missing.includes(field) &&
+                  !row.notApplicable.includes(field),
+              ).length,
+              notApplicable: report.filter((row) =>
+                row.notApplicable.includes(field),
+              ).length,
+              missing: report.filter((row) => row.missing.includes(field))
+                .length,
+              overdue: report.filter(
+                (row) => row.fieldReviews[field].status === 'overdue',
+              ).length,
+            },
+          ]),
+        ),
         places: report,
       },
       null,

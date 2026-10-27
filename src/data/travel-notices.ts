@@ -1,7 +1,9 @@
 import type { Locale } from '@/i18n/config'
+import { tripDate, tripPlace, type Trip } from '@/lib/trip'
 export const travelNotices = [
   {
     id: 'nex-2026-11',
+    areas: ['chiba', 'tokyo', 'kanagawa'],
     from: '2026-11-06',
     through: '2026-11-08',
     reviewedAt: '2026-10-26',
@@ -14,6 +16,7 @@ export const travelNotices = [
   },
   {
     id: 'kyoto-genji-2026',
+    areas: ['kyoto'],
     from: '2026-10-06',
     through: '2026-11-29',
     reviewedAt: '2026-10-26',
@@ -26,6 +29,7 @@ export const travelNotices = [
   },
 ] satisfies {
   id: string
+  areas: string[]
   from: string
   through: string
   reviewedAt: string
@@ -34,3 +38,22 @@ export const travelNotices = [
 }[]
 export const currentNotices = (today: string) =>
   travelNotices.filter((notice) => today && today <= notice.through)
+
+export function tripNotices(trip: Trip, today: string) {
+  const areas = trip.items
+    .map((item) => {
+      const place = tripPlace(item)
+      return (
+        place.prefecture ||
+        (place.destination === 'mount-fuji' ? 'yamanashi' : place.destination)
+      )
+    })
+    .filter(Boolean)
+  return currentNotices(today).filter(
+    (notice) =>
+      (!areas.length || notice.areas.some((area) => areas.includes(area))) &&
+      (!trip.startDate ||
+        (trip.startDate <= notice.through &&
+          tripDate(trip.startDate, trip.days) >= notice.from)),
+  )
+}

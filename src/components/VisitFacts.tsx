@@ -6,15 +6,15 @@ import {
   visitSource,
   type Visit,
 } from '@/data/visit-details'
+import { japanDate } from '@/lib/trip'
 import { useTrip } from './TripProvider'
 const subscribe = (changed: () => void) => {
   const timer = setInterval(changed, 60000)
   return () => clearInterval(timer)
 }
-const today = () => new Date().toISOString().slice(0, 10)
 export default function VisitFacts({ visit }: { visit: Visit | undefined }) {
   const { lang, tools } = useTrip()
-  const date = useSyncExternalStore(subscribe, today, () => '')
+  const date = useSyncExternalStore(subscribe, japanDate, () => '')
   return (
     <dl className="visit-facts">
       {visitFields.map((field) => {
