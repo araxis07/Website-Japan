@@ -47,6 +47,7 @@ export default async function Explore({ params }: Props) {
       <PrefectureExplorer
         lang={lang}
         copy={dict.explorer}
+        placeEmpty={dict.destinations.empty}
         mapCopy={dict.streetMap}
         tools={dict.tools}
         regions={regions.map((r) => ({ id: r.id, name: r[lang][0] }))}

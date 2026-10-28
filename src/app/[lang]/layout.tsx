@@ -73,7 +73,30 @@ export default async function LocaleLayout({
         <Atmosphere>
           <TripProvider copy={dict.trip} tools={dict.tools} lang={lang}>
             <JourneyEffects />
-            <Navigation dict={dict} lang={lang} />
+            <Navigation
+              dict={{
+                brand: dict.brand,
+                brandSub: dict.brandSub,
+                navigation: {
+                  explore: dict.navigation.explore,
+                  journeys: dict.navigation.journeys,
+                  label: dict.navigation.label,
+                  language: dict.navigation.language,
+                  close: dict.navigation.close,
+                  menu: dict.navigation.menu,
+                },
+                beginner: {
+                  nav: dict.beginner.nav,
+                  heading: dict.beginner.heading,
+                },
+                trip: { title: dict.trip.title },
+                tools: {
+                  emergency: dict.tools.emergency,
+                  place: dict.tools.place,
+                },
+              }}
+              lang={lang}
+            />
             <AppearanceControls copy={dict.atmosphere} />
             {children}
             <Footer dict={dict} lang={lang} />

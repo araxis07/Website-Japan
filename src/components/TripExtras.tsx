@@ -64,13 +64,10 @@ export function parseLibrary(
   }
 }
 export default function TripExtras() {
-  const { trip, change, tools, copy, lang, drafts } = useTrip()
+  const { trip, change, tools, copy, lang, drafts, setDraft } = useTrip()
   const raw = useSyncExternalStore(subscribe, snapshot, () => '[]')
   const library = parseLibrary(raw)
   const [error, setError] = useState('')
-  const [rateDraft, setRate] = useState<string | null>(null)
-  const [currencyDraft, setCurrency] = useState<string | null>(null)
-  const [dateDraft, setDate] = useState<string | null>(null)
   const [includeNotes, setIncludeNotes] = useState(false)
   const [incoming, setIncoming] = useState<{
     rows: NonNullable<ReturnType<typeof parseLibrary>>
@@ -92,10 +89,29 @@ export default function TripExtras() {
       return false
     }
   }
-  const rate = rateDraft ?? String(trip.fx?.rate ?? '')
-  const date = dateDraft ?? trip.fx?.date ?? ''
-  const currency = currencyDraft ?? trip.fx?.currency ?? 'THB'
+  const fxFields = ['currency', 'rate', 'date'] as const
+  const savedFx = JSON.stringify(trip.fx ?? null)
+  const editFx = (
+    field: (typeof fxFields)[number],
+    value: string,
+    label: string,
+  ) =>
+    setDraft(`fx:${field}`, {
+      value,
+      label,
+      original: drafts[`fx:${field}`]?.original ?? savedFx,
+    })
+  const clearFxDrafts = () =>
+    fxFields.forEach((field) => setDraft(`fx:${field}`, null))
+  const fxConflict = fxFields.some((field) => {
+    const original = drafts[`fx:${field}`]?.original
+    return original !== undefined && original !== savedFx
+  })
+  const rate = drafts['fx:rate']?.value ?? String(trip.fx?.rate ?? '')
+  const date = drafts['fx:date']?.value ?? trip.fx?.date ?? ''
+  const currency = drafts['fx:currency']?.value ?? trip.fx?.currency ?? 'THB'
   const total = Object.values(trip.budget || {}).reduce((a, b) => a + b, 0)
+  const validCurrency = ['THB', 'USD', 'EUR'].includes(currency)
   const validRate =
     Number.isFinite(Number(rate)) && Number(rate) > 0 && Number(rate) <= 1000000
   return (
@@ -196,9 +212,6 @@ export default function TripExtras() {
                           JSON.stringify(trip),
                         )
                       ) {
-                        setRate(null)
-                        setDate(null)
-                        setCurrency(null)
                         setIncoming(null)
                       }
                     }}
@@ -306,7 +319,8 @@ export default function TripExtras() {
             {tools.fx}
             <select
               value={currency}
-              onChange={(e) => setCurrency(e.target.value)}
+              onChange={(e) => editFx('currency', e.target.value, tools.fx)}
+              aria-invalid={fxConflict || !validCurrency}
             >
               {['THB', 'USD', 'EUR'].map((code) => (
                 <option key={code}>{code}</option>
@@ -321,8 +335,8 @@ export default function TripExtras() {
               max="1000000"
               step="any"
               value={rate}
-              onChange={(e) => setRate(e.target.value)}
-              aria-invalid={Boolean(rate && !validRate)}
+              onChange={(e) => editFx('rate', e.target.value, tools.fxRate)}
+              aria-invalid={fxConflict || Boolean(rate && !validRate)}
             />
           </label>
           <label>
@@ -330,11 +344,13 @@ export default function TripExtras() {
             <input
               type="date"
               value={date}
-              onChange={(e) => setDate(e.target.value)}
+              onChange={(e) => editFx('date', e.target.value, tools.fxDate)}
+              aria-invalid={fxConflict}
             />
           </label>
         </div>
-        {validRate && date && (
+        {fxConflict && <p role="alert">{tools.conflict}</p>}
+        {validCurrency && validRate && date && (
           <p role="status">
             {tools.total}:{' '}
             {new Intl.NumberFormat(lang, {
@@ -346,23 +362,38 @@ export default function TripExtras() {
         )}
         <button
           type="button"
-          disabled={!validRate || !date || Object.keys(drafts).length > 0}
-          onClick={() =>
-            change(
-              (current) => ({
-                ...current,
-                fx: {
-                  currency: currency as 'THB' | 'USD' | 'EUR',
-                  rate: Number(rate),
-                  date,
-                },
-              }),
-              copy.updated,
-              JSON.stringify(trip),
+          disabled={
+            !validCurrency ||
+            !validRate ||
+            !date ||
+            fxConflict ||
+            Object.keys(drafts).some(
+              (key) => !fxFields.some((field) => key === `fx:${field}`),
             )
           }
+          onClick={() => {
+            if (
+              !fxConflict &&
+              change(
+                (current) => ({
+                  ...current,
+                  fx: {
+                    currency: currency as 'THB' | 'USD' | 'EUR',
+                    rate: Number(rate),
+                    date,
+                  },
+                }),
+                copy.updated,
+                JSON.stringify(trip),
+              )
+            )
+              clearFxDrafts()
+          }}
         >
           {tools.fxSave}
+        </button>
+        <button type="button" onClick={clearFxDrafts}>
+          {tools.cancel}
         </button>
       </details>
       <details className="budget-panel">

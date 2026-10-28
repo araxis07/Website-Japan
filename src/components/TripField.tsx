@@ -27,11 +27,15 @@ export default function TripField({
   const { tools, drafts, setDraft: storeDraft, beginEdit, endEdit } = useTrip()
   const id = useId()
   const rejected = drafts[fieldKey]
-  const issue = rejected
-    ? rejected.reason === 'invalid'
-      ? tools.fieldInvalid
-      : tools.unsaved
-    : ''
+  const conflict =
+    rejected?.original !== undefined && rejected.original !== String(value)
+  const issue = conflict
+    ? tools.conflict
+    : rejected
+      ? rejected.reason === 'invalid'
+        ? tools.fieldInvalid
+        : tools.unsaved
+      : ''
   const props = {
     id,
     value: rejected?.value ?? String(value),
@@ -44,12 +48,21 @@ export default function TripField({
       event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
     ) => {
       const next = event.target.value
+      const draft = {
+        value: next,
+        label,
+        original: rejected?.original ?? String(value),
+      }
       if (!event.target.validity.valid) {
-        storeDraft(fieldKey, { value: next, label, reason: 'invalid' })
+        storeDraft(fieldKey, { ...draft, reason: 'invalid' })
+        return
+      }
+      if (conflict) {
+        storeDraft(fieldKey, draft)
         return
       }
       const saved = save(next)
-      storeDraft(fieldKey, saved ? null : { value: next, label })
+      storeDraft(fieldKey, saved ? null : draft)
     },
   }
   return (

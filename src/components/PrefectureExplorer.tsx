@@ -31,6 +31,7 @@ export default function PrefectureExplorer({
   regions,
   lang,
   copy,
+  placeEmpty,
   mapCopy,
   tools,
 }: {
@@ -38,6 +39,7 @@ export default function PrefectureExplorer({
   regions: { id: string; name: string }[]
   lang: Locale
   copy: Dictionary['explorer']
+  placeEmpty: string
   mapCopy: Dictionary['streetMap']
   tools: Dictionary['tools']
 }) {
@@ -387,9 +389,9 @@ export default function PrefectureExplorer({
             </button>
           )}
       </div>
-      {!active ? (
+      {!(scope === 'places' ? foundPlaces.length : filtered.length) ? (
         <div className="empty-state">
-          <p>{copy.empty}</p>
+          <p>{scope === 'places' ? placeEmpty : copy.empty}</p>
           {suggestions.length > 0 && (
             <div>
               <p>{tools.suggestions}</p>

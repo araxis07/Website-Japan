@@ -298,7 +298,9 @@ test('saved FX settings survive reload without treating an empty budget category
   await panel.locator('summary').click()
   await panel.getByRole('spinbutton').fill('0.25')
   await panel.locator('input[type=date]').fill('2026-10-26')
-  await panel.getByRole('button').click()
+  await panel
+    .getByRole('button', { name: 'Save this rate with the trip', exact: true })
+    .click()
   await page.reload()
   await page.locator('.trip-extras > summary').click()
   await panel.locator('summary').click()

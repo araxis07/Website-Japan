@@ -12,7 +12,15 @@ export default function Navigation({
   dict,
   lang,
 }: {
-  dict: Dictionary
+  dict: Pick<Dictionary, 'brand' | 'brandSub'> & {
+    navigation: Pick<
+      Dictionary['navigation'],
+      'explore' | 'journeys' | 'label' | 'language' | 'close' | 'menu'
+    >
+    beginner: Pick<Dictionary['beginner'], 'nav' | 'heading'>
+    trip: Pick<Dictionary['trip'], 'title'>
+    tools: Pick<Dictionary['tools'], 'emergency' | 'place'>
+  }
   lang: Locale
 }) {
   const [open, setOpen] = useState(false)
