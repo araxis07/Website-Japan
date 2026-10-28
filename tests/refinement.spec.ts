@@ -288,6 +288,32 @@ test('homepage section links reveal content and keyboard appearance controls ret
   await other.close()
 })
 
+test('maps reconnect after navigation without adding markers to a removed instance', async ({
+  page,
+}) => {
+  const errors: string[] = []
+  page.on('pageerror', (error) => errors.push(error.stack || error.message))
+  await page.goto('/en#map')
+  const map = page.locator('.street-map:visible')
+  for (let visit = 0; visit < 3; visit++) {
+    await map.scrollIntoViewIfNeeded()
+    await expect(map.locator('.leaflet-marker-icon').first()).toBeVisible()
+    await page.locator('.atlas-map-panel a[href="/en/explore"]').click()
+    await expect(page).toHaveURL('/en/explore')
+    await map.scrollIntoViewIfNeeded()
+    await expect(map.locator('.leaflet-marker-icon').first()).toBeVisible()
+    await page.goBack()
+    await expect(page).toHaveURL('/en#map')
+  }
+  await map.scrollIntoViewIfNeeded()
+  await expect(map.locator('.leaflet-marker-icon').first()).toBeVisible()
+  await map
+    .getByRole('button', { name: en.streetMap.zoomIn, exact: true })
+    .click()
+  await expect(map.locator('.leaflet-marker-icon').first()).toBeVisible()
+  expect(errors).toEqual([])
+})
+
 test('personal editing updates repeat visits and linked stays without losing visit details', async ({
   page,
 }) => {

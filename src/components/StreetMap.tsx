@@ -25,6 +25,7 @@ export default function StreetMap({
   tools?: Dictionary['tools']
 }) {
   const host = useRef<HTMLDivElement>(null)
+  const liveMap = useRef<LeafletMap | null>(null)
   const markers = useRef(new Map<string, Marker>())
   const callback = useRef(onSelect)
   const fitted = useRef(false)
@@ -59,6 +60,7 @@ export default function StreetMap({
               maxZoom: 18,
               zoomAnimation: false,
             }).setView([36, 138], 5)
+            liveMap.current = map
             const current = map
             map.attributionControl.setPrefix(false)
             L.control
@@ -84,7 +86,9 @@ export default function StreetMap({
                 if (!cancelled && !failed) setStatus('ready')
               })
               .addTo(map)
-            resize = new ResizeObserver(() => current.invalidateSize())
+            resize = new ResizeObserver(() => {
+              if (!cancelled) current.invalidateSize()
+            })
             resize.observe(element)
             fitted.current = false
             focused.current = undefined
@@ -102,23 +106,26 @@ export default function StreetMap({
       clearTimeout(timer)
       observer.disconnect()
       resize?.disconnect()
+      // State can still hold this instance while a replacement map is loading.
+      if (liveMap.current === map) liveMap.current = null
       map?.remove()
     }
-  }, [copy, attempt])
+  }, [copy.zoomIn, copy.zoomOut, attempt])
   useEffect(() => {
     if (!instance) return
     let cancelled = false
     const store = markers.current
     let cleanupMarkers = () => {}
     const overview = () => {
-      if (host.current)
+      if (host.current && liveMap.current === instance)
         host.current.dataset.overview = String(
           points.length > 10 && instance.getZoom() < 7,
         )
     }
     import('leaflet').then((L) => {
-      if (cancelled) return
+      if (cancelled || liveMap.current !== instance) return
       const renderMarkers = () => {
+        if (liveMap.current !== instance) return
         store.forEach((marker) => marker.remove())
         store.clear()
         const groups = new Map<string, MapPoint[]>()
@@ -211,7 +218,7 @@ export default function StreetMap({
     }
   }, [points, instance, lang])
   useEffect(() => {
-    if (!instance) return
+    if (!instance || liveMap.current !== instance) return
     new Set(markers.current.values()).forEach((marker) => {
       marker.getElement()?.classList.remove('is-selected')
       marker.getElement()?.setAttribute('aria-pressed', 'false')
@@ -243,7 +250,7 @@ export default function StreetMap({
     if (!selected) focused.current = undefined
   }, [selected, focusZoom, instance, revision, points])
   const fit = () => {
-    if (instance && points.length)
+    if (instance && liveMap.current === instance && points.length)
       instance.fitBounds(
         points.map((p) => p.coordinates),
         { padding: [35, 35], maxZoom: 14, animate: false },
