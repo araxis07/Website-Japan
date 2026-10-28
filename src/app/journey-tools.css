@@ -48,10 +48,21 @@
   align-items: center;
   flex-wrap: wrap;
 }
+.explorer-toolbar > label {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  max-width: 100%;
+}
+.explorer-toolbar select {
+  max-width: 100%;
+}
 .trip-file-actions button,
 .file-import,
 .import-preview button,
 .explorer-toolbar button,
+.place-search-results li > button,
 .map-toolbar button,
 .copy-address,
 .trip-feedback button {
@@ -76,6 +87,17 @@
 .explorer-toolbar [aria-pressed='true'] {
   background: var(--ink);
   color: var(--paper);
+}
+.planner-page .planner-toolbar .button {
+  width: auto;
+  min-height: 44px;
+  padding: 0.6rem 0.9rem;
+  background: var(--white);
+  color: var(--ink);
+  border-color: var(--line);
+  font-weight: 400;
+  transform: none;
+  box-shadow: none;
 }
 .budget-panel,
 .visit-details,
@@ -412,8 +434,18 @@ html[data-motion='still'] .destination-card {
 .place-search-results [data-selected='true'] {
   border-color: var(--red);
 }
-.place-search-results button {
+.place-search-results li > button {
+  justify-self: start;
+  max-width: 100%;
+}
+.menu-toggle,
+.language-picker > summary,
+.map-place-list h3 button {
+  min-width: 44px;
   min-height: 44px;
+}
+.language-picker > summary {
+  justify-content: center;
 }
 .place-extra-actions summary,
 .map-links summary {
@@ -444,6 +476,12 @@ html[data-motion='still'] *,
 html[data-motion='still'] *::before,
 html[data-motion='still'] *::after {
   scroll-behavior: auto !important;
+  transition: none !important;
+}
+html[data-motion='still'] *:not(.sakura-petal):not(.trip-feedback),
+html[data-motion='still'] *::before,
+html[data-motion='still'] *::after {
+  animation: none !important;
 }
 @media print {
   .map-sheet,
@@ -877,7 +915,6 @@ textarea:focus-visible {
   gap: 0.75rem;
   margin-block: 1.25rem;
 }
-.trip-task-links a,
 .results-pagination button,
 .personal-stop button,
 .data-privacy button {
@@ -889,6 +926,19 @@ textarea:focus-visible {
   background: var(--white);
   color: var(--ink);
   border-radius: 4px;
+}
+.trip-task-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding-block: 0.5rem;
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+.trip-task-links a[href='#travel-day'] {
+  color: var(--red);
+  font-weight: 600;
 }
 .personal-stop input,
 .trip-directions input,
@@ -931,8 +981,15 @@ body:has(.planner-page) .sakura-petal:nth-child(n + 9),
 body:has(.first-visit-page) .sakura-petal:nth-child(n + 9) {
   display: none;
 }
-body:has(.planner-page) .sakura-atmosphere {
-  opacity: 0.35;
+body:has(
+    .planner-page,
+    .first-visit-page,
+    .explorer-page,
+    .detail-hero,
+    .prefecture-page
+  )
+  .sakura-atmosphere {
+  opacity: 0.16;
 }
 html[lang='th'] .trip-task-links,
 html[lang='th'] .trip-meta,

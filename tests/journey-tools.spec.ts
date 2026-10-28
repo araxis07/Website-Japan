@@ -156,7 +156,7 @@ test('one place stays saved across guide and prefecture pages; undo restores rem
   await page.goto('/en/prefectures/kyoto')
   await expect(
     page.getByRole('button', {
-      name: 'Saved to my trip: Kiyomizu-dera',
+      name: 'Remove: Kiyomizu-dera',
       exact: true,
     }),
   ).toHaveCount(1)

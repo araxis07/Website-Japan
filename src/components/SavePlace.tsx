@@ -12,8 +12,19 @@ export default function SavePlace({
 }) {
   const id = canonicalPlaceId(sourceId)
   const { trip, ready, copy, change, lang } = useTrip()
-  const saved = trip?.items.some((item) => item.id === id) ?? false
-  if ((trip?.items.filter((item) => item.id === id).length || 0) > 1)
+  const entries = trip?.items.filter((item) => item.id === id) || []
+  const saved = entries.length > 0
+  if (
+    entries.length > 1 ||
+    entries.some(
+      (entry) =>
+        entry.day > 0 ||
+        entry.time ||
+        entry.note ||
+        entry.duration !== undefined ||
+        entry.buffer !== undefined,
+    )
+  )
     return (
       <div className="save-place">
         <Link className="save-button" href={`/${lang}/my-trip`}>
@@ -28,7 +39,7 @@ export default function SavePlace({
         type="button"
         disabled={!ready || !trip}
         aria-pressed={saved}
-        aria-label={`${saved ? copy.saved : copy.save}: ${name}`}
+        aria-label={`${saved ? copy.remove : copy.save}: ${name}`}
         onClick={() =>
           change(
             (current) => ({
@@ -38,11 +49,12 @@ export default function SavePlace({
                 : [...current.items, { id, day: 0 }],
             }),
             saved ? copy.removed : copy.added,
+            saved ? JSON.stringify(trip) : undefined,
           )
         }
       >
-        <span aria-hidden="true">{saved ? '✓' : '+'}</span>{' '}
-        {saved ? copy.saved : copy.save}
+        <span aria-hidden="true">{saved ? '−' : '+'}</span>{' '}
+        {saved ? copy.remove : copy.save}
       </button>
       {ready && !trip && <Link href={`/${lang}/my-trip`}>{copy.plan}</Link>}
     </div>

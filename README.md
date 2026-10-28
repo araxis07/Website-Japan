@@ -129,6 +129,8 @@ General guidance reviewed on 2026-10-22; expanded city guides, all prefectures, 
 
 The site is an independent editorial guide and is not affiliated with JNTO.
 
+Latest design and visitor-detail changes: [2026-10-29 design balance](docs/design-balance-2026-10-29.md). [Team ownership and next priorities](docs/engineering-plan-2026-10-29.md) defines coordinated file ownership and acceptance checks.
+
 Current delivery and validation: [2026-10-28 refinement ledger](docs/upgrade-2026-10-28.md), covering all 44 follow-up recommendations and explicit remaining editorial/external work. This release reduces mobile control clutter, puts the itinerary first, adds safe personal-place editing, optional pins and linked accommodation origins, and expands facts at seven venues. Three languages, 47 prefectures and the four regional miniatures remain supported. Field-level unknowns remain visible. [Release operations](docs/release-operations.md) explains content review, deployment checks and storage/privacy behavior.
 
 Previous releases: [2026-10-26 follow-through](docs/follow-through-2026-10-26.md), [travel tools](docs/travel-tools-upgrade.md), [47-prefecture upgrade](docs/next-upgrade.md). Earlier performance measurements and test totals are historical, not measurements of this release.

@@ -446,6 +446,10 @@
       "accessibility": {
         "source": "https://www.osakacastle.net/guide/",
         "reviewedAt": "2026-10-28"
+      },
+      "entrance": {
+        "source": "https://www.osakacastlepark.jp/pdf/OsakaCastleMainTower_BFmap_w_jp.pdf?lang=ja",
+        "reviewedAt": "2026-10-29"
       }
     },
     "admission": {
@@ -462,6 +466,11 @@
       "en": "Staff assist wheelchair users with outside and internal lifts to visitor floors. Strollers are normally left at the entrance because upper floors are narrow and busy.",
       "ja": "車いす利用者などはスタッフ案内で館外・館内エレベーターを利用できます。上層階は狭く混雑するため、ベビーカーは原則入口で預けます。",
       "th": "เจ้าหน้าที่ช่วยผู้ใช้รถเข็นใช้ลิฟต์ภายนอกและภายในไปชั้นจัดแสดง โดยปกติให้ฝากรถเข็นเด็กที่ทางเข้าเนื่องจากชั้นบนแคบและคนมาก"
+    },
+    "entrance": {
+      "en": "From Morinomiya, the signed barrier-free approach follows Chuo-odori past Peace Osaka to Sakuramon. The direct park route requires stairs or a roughly 1.8 km detour.",
+      "ja": "森ノ宮からのバリアフリー経路は、中央大通り沿いにピースおおさかを越え、案内に従って桜門へ。園内を直接進む経路は階段、または約1.8kmの迂回が必要です。",
+      "th": "จาก Morinomiya เส้นทางตามป้ายสำหรับผู้มีข้อจำกัดการเคลื่อนไหวเลียบถนน Chuo-odori ผ่าน Peace Osaka ไปประตู Sakuramon ทางตรงผ่านสวนต้องใช้บันไดหรืออ้อมประมาณ 1.8 กม."
     }
   },
   "osaka-castle": {
@@ -471,6 +480,26 @@
       "en": "JR Morinomiya on the Osaka Loop Line is beside Osaka Castle Park. The castle tower is farther inside the grounds.",
       "ja": "大阪環状線森ノ宮駅は大阪城公園に隣接。天守閣は公園内をさらに歩きます。",
       "th": "JR Morinomiya สาย Osaka Loop Line อยู่ติดสวนปราสาท ส่วนตัวปราสาทต้องเดินเข้าไปในสวนอีก"
+    },
+    "entrance": {
+      "en": "From Morinomiya, the signed barrier-free approach follows Chuo-odori past Peace Osaka to Sakuramon. The direct park route requires stairs or a roughly 1.8 km detour.",
+      "ja": "森ノ宮からのバリアフリー経路は、中央大通り沿いにピースおおさかを越え、案内に従って桜門へ。園内を直接進む経路は階段、または約1.8kmの迂回が必要です。",
+      "th": "จาก Morinomiya เส้นทางตามป้ายสำหรับผู้มีข้อจำกัดการเคลื่อนไหวเลียบถนน Chuo-odori ผ่าน Peace Osaka ไปประตู Sakuramon ทางตรงผ่านสวนต้องใช้บันไดหรืออ้อมประมาณ 1.8 กม."
+    },
+    "fieldSources": {
+      "entrance": {
+        "source": "https://www.osakacastlepark.jp/pdf/OsakaCastleMainTower_BFmap_w_jp.pdf?lang=ja",
+        "reviewedAt": "2026-10-29"
+      },
+      "accessibility": {
+        "source": "https://www.osakacastlepark.jp/pdf/OsakaCastleMainTower_BFmap_w_jp.pdf?lang=ja",
+        "reviewedAt": "2026-10-29"
+      }
+    },
+    "accessibility": {
+      "en": "The tower has lifts. The northern Gokurakubashi approach includes steep slopes and sections without handrails; consult the operator’s barrier-free map before choosing an approach.",
+      "ja": "天守閣にはエレベーターがあります。北側の極楽橋からの経路には急な坂や手すりのない区間があります。進入経路は運営者のバリアフリーマップで確認してください。",
+      "th": "หอปราสาทมีลิฟต์ เส้นทางจากสะพาน Gokurakubashi ด้านเหนือมีทางชันและบางช่วงไม่มีราวจับ ตรวจแผนที่การเข้าถึงของผู้ดูแลก่อนเลือกเส้นทาง"
     }
   },
   "pref:hyogo:meriken-park": {
@@ -743,6 +772,17 @@
       "en": "Walk from Keihan Gion-Shijo or Hankyu Kyoto-Kawaramachi. Use public streets and follow local photography signs.",
       "ja": "京阪祇園四条駅、または阪急京都河原町駅から徒歩。公道を歩き、現地の撮影表示を守りましょう。",
       "th": "เดินจาก Keihan Gion-Shijo หรือ Hankyu Kyoto-Kawaramachi ใช้ถนนสาธารณะและปฏิบัติตามป้ายถ่ายภาพในพื้นที่"
+    },
+    "entrance": {
+      "en": "Southern Gion’s streets carry vehicles. Keep sidewalks clear and follow access restrictions at temples, shrines and private properties; do not enter restricted areas without permission.",
+      "ja": "祇園町南側の道路は歩行者専用ではありません。歩道をふさがず、寺社・私有地の立入規制に従い、許可なく立入禁止区域へ入らないでください。",
+      "th": "ถนนในกิออนตอนใต้มีรถสัญจร อย่ากีดขวางทางเท้า ปฏิบัติตามข้อจำกัดการเข้าวัด ศาลเจ้า และพื้นที่ส่วนบุคคล ห้ามเข้าเขตหวงห้ามโดยไม่ได้รับอนุญาต"
+    },
+    "fieldSources": {
+      "entrance": {
+        "source": "https://kyoto.travel/en/responsible-travel/gion-manner-message-from-southern-gionmachi/",
+        "reviewedAt": "2026-10-29"
+      }
     }
   },
   "sumida": {
@@ -752,6 +792,17 @@
       "en": "For the Taito/Asakusa bank shown here, walk about five minutes from Asakusa Station (Ginza, Toei Asakusa or Tobu lines). The park also extends across the river.",
       "ja": "この地点は台東区・浅草側。銀座線・都営浅草線・東武線の浅草駅から徒歩約5分。対岸にも隅田公園があります。",
       "th": "จุดนี้อยู่ฝั่ง Taito/Asakusa เดินประมาณ 5 นาทีจากสถานี Asakusa สาย Ginza, Toei Asakusa หรือ Tobu สวนมีพื้นที่อยู่อีกฝั่งแม่น้ำด้วย"
+    },
+    "accessibility": {
+      "en": "On the Taito bank, the park information office near the Tobu railway bridge has resting benches, a nursing room and a multipurpose toilet. This does not verify every park path.",
+      "ja": "台東区側の東武鉄橋付近にある公園案内所に、休憩用ベンチ・授乳室・だれでもトイレがあります。園内すべての経路を確認した情報ではありません。",
+      "th": "ฝั่ง Taito ศูนย์ข้อมูลสวนใกล้สะพานรถไฟ Tobu มีม้านั่งพัก ห้องให้นม และห้องน้ำอเนกประสงค์ ข้อมูลนี้ไม่ได้ยืนยันการเข้าถึงของทุกเส้นทางในสวน"
+    },
+    "fieldSources": {
+      "accessibility": {
+        "source": "https://www.city.taito.lg.jp/kenchiku/hanamidori/koen/annnaijonogoannnai.html",
+        "reviewedAt": "2026-10-29"
+      }
     }
   },
   "oishi": {
@@ -779,6 +830,17 @@
       "en": "Use Namba Station, including the Midosuji subway line, then walk north toward the Dotonbori River. Choose a meeting point before entering the busy streets.",
       "ja": "御堂筋線などのなんば駅から道頓堀川へ北向きに徒歩。混雑する通りに入る前に集合場所を決めましょう。",
       "th": "ลง Namba เช่นสายรถไฟใต้ดิน Midosuji แล้วเดินขึ้นเหนือไปแม่น้ำ Dotonbori นัดจุดพบกันก่อนเข้าถนนที่คนหนาแน่น"
+    },
+    "entrance": {
+      "en": "For the riverside Tonbori Riverwalk, the operator’s walking map shows access down the stairs at Ebisubashi Bridge. This entrance note does not identify a step-free alternative.",
+      "ja": "川沿いのとんぼりリバーウォークへは、運営者のお散歩マップで戎橋の階段を下りる経路を案内しています。この入口情報は段差のない代替経路を確認したものではありません。",
+      "th": "สำหรับทางเดินริมน้ำ Tonbori Riverwalk แผนที่เดินของผู้ดูแลระบุให้ลงบันไดที่สะพาน Ebisubashi ข้อมูลทางเข้านี้ยังไม่ได้ยืนยันเส้นทางอื่นที่ไม่มีขั้นบันได"
+    },
+    "fieldSources": {
+      "entrance": {
+        "source": "https://tonbori.jp/osanpo/",
+        "reviewedAt": "2026-10-29"
+      }
     }
   },
   "odori": {
