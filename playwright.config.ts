@@ -22,7 +22,8 @@ export default defineConfig({
     { name: 'mobile-webkit', use: { ...devices['iPhone 13'] } },
     {
       name: 'desktop-firefox',
-      testMatch: /refinement\.spec\.ts/,
+      testMatch:
+        /(?:refinement|next-phase|trip-safety|design-balance|travel-reliability)\.spec\.ts$/,
       use: { ...devices['Desktop Firefox'] },
     },
   ],

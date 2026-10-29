@@ -5,6 +5,7 @@ import {
   visitFields,
   visitSource,
   type Visit,
+  type VisitField,
 } from '@/data/visit-details'
 import { japanDate } from '@/lib/trip'
 import { useTrip } from './TripProvider'
@@ -12,12 +13,18 @@ const subscribe = (changed: () => void) => {
   const timer = setInterval(changed, 60000)
   return () => clearInterval(timer)
 }
-export default function VisitFacts({ visit }: { visit: Visit | undefined }) {
+export default function VisitFacts({
+  visit,
+  fields,
+}: {
+  visit: Visit | undefined
+  fields?: readonly VisitField[]
+}) {
   const { lang, tools } = useTrip()
   const date = useSyncExternalStore(subscribe, japanDate, () => '')
   return (
     <dl className="visit-facts">
-      {visitFields.map((field) => {
+      {(fields ?? visitFields).map((field) => {
         const review = fieldReview(visit, field, date)
         const note =
           visit?.[field]?.[lang] || visit?.notApplicable?.[field]?.reason[lang]
@@ -47,7 +54,7 @@ export default function VisitFacts({ visit }: { visit: Visit | undefined }) {
           </div>
         )
       })}
-      {visit?.minutes !== undefined && (
+      {!fields && visit?.minutes !== undefined && (
         <div>
           <dt>{tools.duration}</dt>
           <dd>

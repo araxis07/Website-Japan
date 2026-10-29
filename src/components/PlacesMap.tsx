@@ -46,6 +46,7 @@ export default function PlacesMap({
         ?.scrollIntoView({ block: 'nearest' })
   }
   const selectedPlace = points.find((p) => p.id === active)!
+  const selectedVisit = visitFor(selectedPlace)
 
   return (
     <div className="local-map-layout">
@@ -63,15 +64,24 @@ export default function PlacesMap({
         </button>
         <h2>{selectedPlace.names[lang]}</h2>
         <p lang="ja">{selectedPlace.address}</p>
-        <p>{visitFor(selectedPlace)?.access?.[lang] || tools.verify}</p>
-        {visitFor(selectedPlace)?.hours && (
+        <p>{selectedVisit?.access?.[lang] || tools.verify}</p>
+        {selectedVisit?.hours && (
           <p>
-            {tools.hours}: {visitFor(selectedPlace)!.hours![lang]}
+            {tools.hours}: {selectedVisit.hours[lang]}
           </p>
         )}
         <p className="source-note">
           {tools[pinKind(selectedPlace)]}. {tools.pinReference}
         </p>
+        <details className="visit-details">
+          <summary>
+            {tools.entrance} / {tools.accessibility}
+          </summary>
+          <VisitFacts
+            visit={selectedVisit}
+            fields={['entrance', 'accessibility']}
+          />
+        </details>
         <a className="button" href={mapUrl(selectedPlace, true)}>
           {mapCopy.route} ↗
         </a>
@@ -146,11 +156,6 @@ export default function PlacesMap({
                   <a className="text-link" href={visit.infoSource}>
                     {tools.hours} / {tools.admission} ↗
                   </a>
-                )}
-                {visit && (
-                  <p className="source-note">
-                    {tools.reviewed}: <time>{visit.reviewedAt}</time>
-                  </p>
                 )}
               </details>
               <div className="map-links">

@@ -66,7 +66,7 @@ Map pins are reference locations, not verified entrances. Venue details link to 
 Keep translation keys aligned, preserve stable place IDs, and update only facts and review dates checked against their sources. Photo sources and licenses are listed on each language's `/credits` page.
 
 - [Release setup, content review and privacy](docs/release-operations.md)
-- [Team ownership and next priorities](docs/engineering-plan-2026-10-29.md)
+- [Team ownership and development roadmap](docs/roadmap-2026-10-29.md)
 - [Design and content decisions — 2026-10-29](docs/design-balance-2026-10-29.md)
 
 This project is not affiliated with JNTO.

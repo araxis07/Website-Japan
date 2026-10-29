@@ -18,7 +18,7 @@ export default function TripDirections({
   const [address, setAddress] = useState('')
   const stays =
     trip?.stays?.filter(
-      (stay) => day && stay.from <= day && stay.to > day && stay.address,
+      (stay) => day && stay.from <= day && stay.to >= day && stay.address,
     ) || []
   const stay = stays.find((stay) => `stay:${stay.id}` === selectedOrigin)
   const origin =
@@ -66,7 +66,8 @@ export default function TripDirections({
             )}
             {stays.map((stay) => (
               <option key={stay.id} value={`stay:${stay.id}`}>
-                {tools.originStay}: {stay.name}
+                {stay.to === day ? tools.originCheckout : tools.originStay}:{' '}
+                {stay.name}
               </option>
             ))}
             <option value="manual">{tools.originManual}</option>

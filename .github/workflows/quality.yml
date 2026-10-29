@@ -25,6 +25,9 @@ jobs:
           cache: npm
       - run: npm ci
       - run: node scripts/check-secrets.mjs
+      - run: npm audit --audit-level=high
+      - run: node scripts/check-links.mjs
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
       - run: npm run lint
       - run: npm run build
       - run: npm run typecheck
@@ -36,9 +39,6 @@ jobs:
         run: npx playwright install chromium webkit firefox
       - run: node scripts/check-deployment.mjs --self-test
       - run: npm test
-      - run: npm audit --audit-level=high
-      - run: node scripts/check-links.mjs
-        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
       - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
         if: always()
         with:

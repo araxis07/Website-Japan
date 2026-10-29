@@ -244,9 +244,10 @@ export default function TripTools() {
                 change(
                   (current) => ({
                     ...current,
-                    stays: current.stays!.filter((_, i) => i !== index),
+                    stays: current.stays!.filter((item) => item.id !== stay.id),
                   }),
                   copy.updated,
+                  JSON.stringify(trip),
                 )
               }
             >

@@ -1,6 +1,6 @@
 'use client'
 import Link from 'next/link'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import TripTools from './TripTools'
 import TravelNotices from './TravelNotices'
 import TripField from './TripField'
@@ -45,6 +45,13 @@ export default function TripPlanner({
   const [viewDay, setViewDay] = useState('all')
   const [showEmpty, setShowEmpty] = useState(false)
   const [pendingDays, setPendingDays] = useState<number | null>(null)
+  const [assignment, setAssignment] = useState<{ day: number } | null>(null)
+  useEffect(() => {
+    if (!assignment) return
+    const heading = document.getElementById(`trip-day-${assignment.day}`)
+    heading?.focus({ preventScroll: true })
+    heading?.scrollIntoView({ block: 'start' })
+  }, [assignment])
   if (!ready) return <p className="trip-loading">{copy.loading}</p>
   if (!trip)
     return (
@@ -64,7 +71,11 @@ export default function TripPlanner({
     )
   const dayLabel = (n: number) => formatDay(n, lang, copy.day)
   const days = tripDays(trip)
-  const updateEntry = (entry: TripEntry, patch: Partial<TripEntry>) =>
+  const updateEntry = (
+    entry: TripEntry,
+    patch: Partial<TripEntry>,
+    message = '',
+  ) =>
     change(
       (current) => ({
         ...current,
@@ -72,7 +83,7 @@ export default function TripPlanner({
           entryKey(item) === entryKey(entry) ? { ...item, ...patch } : item,
         ),
       }),
-      '',
+      message,
       JSON.stringify(trip),
     )
   const applyDays = (days: number) => {
@@ -459,11 +470,19 @@ export default function TripPlanner({
                             </span>
                             <select
                               value={entry.day}
-                              onChange={(event) =>
-                                updateEntry(entry, {
-                                  day: Number(event.target.value),
-                                })
-                              }
+                              onChange={(event) => {
+                                const day = Number(event.target.value)
+                                if (
+                                  updateEntry(
+                                    entry,
+                                    { day },
+                                    `${copy.updated} ${place.names[lang]} · ${day ? dayLabel(day) : copy.unplanned}`,
+                                  )
+                                ) {
+                                  if (viewDay !== 'all') setViewDay(String(day))
+                                  setAssignment({ day })
+                                }
+                              }}
                             >
                               <option value={0}>{copy.unplanned}</option>
                               {Array.from({ length: trip.days }, (_, i) => (

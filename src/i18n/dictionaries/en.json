@@ -359,7 +359,7 @@
   },
   "tools": {
     "undo": "Undo",
-    "conflict": "The trip changed in another tab. Reload the backup preview before importing.",
+    "conflict": "The trip changed in another tab. Review the latest saved values before retrying. For imports, reopen the preview.",
     "title": "Trip name",
     "start": "Start date",
     "base": "Accommodation / base",
@@ -658,6 +658,7 @@
     "unlinkedStay": "Enter accommodation separately",
     "stayAddress": "Accommodation address",
     "originStay": "Accommodation for this night",
+    "originCheckout": "Accommodation checking out today",
     "editPlan": "Plan settings and backups",
     "manualStart": "Choose places myself",
     "importStart": "Import an existing trip",
