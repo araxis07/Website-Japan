@@ -212,8 +212,11 @@ for (const importer of ['trip', 'library'] as const) {
           page.evaluate(
             (name) =>
               Boolean(
-                (window as unknown as { hardeningReads: Record<string, unknown> })
-                  .hardeningReads[name],
+                (
+                  window as unknown as {
+                    hardeningReads: Record<string, unknown>
+                  }
+                ).hardeningReads[name],
               ),
             name,
           ),
@@ -427,8 +430,16 @@ test('calendar UIDs hide private identifiers and retain entry identity across ex
       .replace(/\r\n /g, '')
       .split('\r\n')
       .filter((line) => line.startsWith('UID:'))
-  const first = (await tripCalendar(trip, 'en', new Date('2026-10-30T00:00:00Z')))!
-  const second = (await tripCalendar(trip, 'en', new Date('2026-10-31T00:00:00Z')))!
+  const first = (await tripCalendar(
+    trip,
+    'en',
+    new Date('2026-10-30T00:00:00Z'),
+  ))!
+  const second = (await tripCalendar(
+    trip,
+    'en',
+    new Date('2026-10-31T00:00:00Z'),
+  ))!
   expect(uids(first)).toHaveLength(4)
   expect(new Set(uids(first)).size).toBe(4)
   expect(uids(first)).toEqual(uids(second))
@@ -436,13 +447,21 @@ test('calendar UIDs hide private identifiers and retain entry identity across ex
     /PrivateReservation|PrivateHotel|Hotel A|Hotel B|Address/,
   )
   expect(first).not.toContain('PRIVATE NOTE')
-  expect(await tripCalendar(trip, 'en', undefined, true)).toContain('PRIVATE NOTE')
-  const reordered = (await tripCalendar({ ...trip, items: [...trip.items].reverse() }, 'en'))!
+  expect(await tripCalendar(trip, 'en', undefined, true)).toContain(
+    'PRIVATE NOTE',
+  )
+  const reordered = (await tripCalendar(
+    { ...trip, items: [...trip.items].reverse() },
+    'en',
+  ))!
   expect(uids(reordered)).toEqual([...uids(first)].reverse())
-  const independent = (await tripCalendar({
-    ...trip,
-    items: [{ id: 'gion', day: 1, entryId: 'AnotherPlansReservation' }],
-  }, 'en'))!
+  const independent = (await tripCalendar(
+    {
+      ...trip,
+      items: [{ id: 'gion', day: 1, entryId: 'AnotherPlansReservation' }],
+    },
+    'en',
+  ))!
   expect(uids(independent)).toHaveLength(1)
   expect(uids(independent)[0]).not.toBe(uids(first)[0])
 })
@@ -589,23 +608,44 @@ test('3D secondary topics open by keyboard and global theme and motion controls 
   await expect(target).toBeFocused()
   await expect(target).toHaveAttribute('aria-pressed', 'false')
   await page.keyboard.press('Space')
-  await expect(target).toHaveAttribute(
-    'aria-pressed',
-    'true',
-  )
+  await expect(target).toHaveAttribute('aria-pressed', 'true')
+  const supportsWebGL = await page.evaluate(() => {
+    const context = document.createElement('canvas').getContext('webgl2', {
+      alpha: true,
+      antialias: true,
+    })
+    if (!context) return false
+    context.getExtension('WEBGL_lose_context')?.loseContext()
+    return true
+  })
   await page.getByRole('button', { name: en.scene.start, exact: true }).click()
-  await expect(scene).toHaveAttribute('data-scene-status', 'ready', {
-    timeout: 15000,
-  })
-  const theme = scene.getByRole('button', {
-    name: new RegExp(en.tools.sceneGlobalTheme),
-  })
+  await expect(scene).toHaveAttribute(
+    'data-scene-status',
+    supportsWebGL ? 'ready' : 'fallback',
+    { timeout: 15000 },
+  )
+  if (!supportsWebGL) {
+    await expect(scene.locator('.scene-fallback img')).toBeVisible()
+    await expect(scene.locator('.scene-hint')).toHaveText(en.scene.fallback)
+    await expect(scene.locator('.scene-toolbar')).toBeHidden()
+    await expect(target).toHaveAttribute('aria-pressed', 'true')
+    await openDetails(page.locator('header .appearance-panel'))
+  }
+  const theme = supportsWebGL
+    ? scene.getByRole('button', { name: new RegExp(en.tools.sceneGlobalTheme) })
+    : page
+        .locator('header')
+        .getByRole('button', { name: en.atmosphere.dark, exact: true })
   await theme.focus()
   await page.keyboard.press('Space')
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark')
-  const motion = scene.getByRole('button', {
-    name: new RegExp(en.tools.sceneGlobalMotion),
-  })
+  const motion = supportsWebGL
+    ? scene.getByRole('button', {
+        name: new RegExp(en.tools.sceneGlobalMotion),
+      })
+    : page
+        .locator('header')
+        .getByRole('button', { name: en.atmosphere.pause, exact: true })
   await motion.focus()
   await page.keyboard.press('Space')
   await expect(page.locator('html')).toHaveAttribute('data-motion', 'still')
@@ -636,7 +676,10 @@ for (const [lang, dict] of [
       await expect(
         panel.getByRole('button', { name: dict.atmosphere.dark, exact: true }),
       ).toBeVisible()
-      for (const target of [summary, ...await panel.getByRole('button').all()]) {
+      for (const target of [
+        summary,
+        ...(await panel.getByRole('button').all()),
+      ]) {
         const bounds = await target.boundingBox()
         expect(Number(bounds!.width.toFixed(3))).toBeGreaterThanOrEqual(44)
         expect(Number(bounds!.height.toFixed(3))).toBeGreaterThanOrEqual(44)
