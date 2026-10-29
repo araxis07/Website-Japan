@@ -80,6 +80,26 @@ export const visitDetails: Record<string, Visit> = {
       ja: '浅草駅から徒歩約5分。都営浅草線はA4出口の案内。',
       th: 'เดินประมาณ 5 นาทีจากสถานี Asakusa สาย Toei Asakusa ระบุทางออก A4',
     },
+    entrance: {
+      en: 'Kaminarimon is the main gate; the approach continues from there to the main hall.',
+      ja: '雷門は総門で、そこから本堂まで参道が続きます。',
+      th: 'Kaminarimon เป็นประตูหลัก และมีทางเดินไปจนถึงวิหารหลัก',
+    },
+    accessibility: {
+      en: 'A lift is on the left when facing the main hall. Multipurpose toilets are to the right of Hozomon and behind the main hall. Check the route from the station separately.',
+      ja: '本堂に向かって左側にエレベーターがあります。多目的トイレは宝蔵門の右側と本堂裏にあります。駅からの経路は別途確認してください。',
+      th: 'มีลิฟต์ทางซ้ายเมื่อหันหน้าเข้าวิหารหลัก ห้องน้ำอเนกประสงค์อยู่ด้านขวาของประตู Hozomon และด้านหลังวิหารหลัก โปรดตรวจเส้นทางจากสถานีแยกต่างหาก',
+    },
+    fieldSources: {
+      entrance: {
+        source: 'https://www.senso-ji.jp/faq/',
+        reviewedAt: '2026-10-30',
+      },
+      accessibility: {
+        source: 'https://www.senso-ji.jp/faq/',
+        reviewedAt: '2026-10-30',
+      },
+    },
     hours: {
       en: 'Main hall: 06:00–17:00; opens 06:30 October–March. Other halls may differ.',
       ja: '本堂6:00〜17:00。10〜3月は6:30開堂。他のお堂は別途確認。',
@@ -94,6 +114,17 @@ export const visitDetails: Record<string, Visit> = {
       en: 'Beside JR Inari Station, or a five-minute walk east from Keihan Fushimi-inari.',
       ja: 'JR稲荷駅すぐ。京阪伏見稲荷駅から東へ徒歩約5分。',
       th: 'ติดสถานี JR Inari หรือเดินไปทางตะวันออกประมาณ 5 นาทีจาก Keihan Fushimi-inari',
+    },
+    entrance: {
+      en: 'Use the Romon (main gate) on the official map as a landmark for the lower shrine grounds. The path beyond Senbon Torii continues towards Inariyama; station directions do not take you to the summit.',
+      ja: 'ふもとの境内へ向かう際は、公式境内図の楼門を目印にしてください。千本鳥居の先には稲荷山へ続く山道があります。駅からの案内は山頂までの案内ではありません。',
+      th: 'ใช้ประตู Romon (ประตูหลัก) บนแผนที่ทางการเป็นจุดสังเกตสำหรับบริเวณศาลเจ้าด้านล่าง ทางเลย Senbon Torii จะต่อไปยังภูเขา Inariyama เส้นทางจากสถานีไม่ได้พาไปถึงยอดเขา',
+    },
+    fieldSources: {
+      entrance: {
+        source: 'https://inari.jp/en/map/',
+        reviewedAt: '2026-10-30',
+      },
     },
   },
   'beer-museum': {
@@ -403,7 +434,16 @@ export const visitDetails: Record<string, Visit> = {
       ja: '各階に多目的トイレ、車いす貸出あり。混雑時はベビーカー利用制限あり。授乳室は1階。',
       th: 'มีห้องน้ำรถเข็นทุกชั้นและรถเข็นให้ยืม ช่วงคนแน่นอาจจำกัดรถเข็นเด็ก มีห้องให้นมชั้นหนึ่ง',
     },
+    booking: {
+      en: 'For group visits, the museum asks visitors to submit a group application by mail or fax. Check the separate arrangements for special exhibitions.',
+      ja: '団体見学は申込書を郵送またはFAXで提出するよう博物館が案内しています。特別展の取扱いは別途確認してください。',
+      th: 'พิพิธภัณฑ์ขอให้ผู้เข้าชมเป็นกลุ่มส่งแบบฟอร์มทางไปรษณีย์หรือแฟกซ์ โปรดตรวจเงื่อนไขนิทรรศการพิเศษแยกต่างหาก',
+    },
     fieldSources: {
+      booking: {
+        source: 'https://www.osakamushis.jp/eng/about/faq.html',
+        reviewedAt: '2026-10-30',
+      },
       accessibility: {
         source: 'https://www.osakamushis.jp/eng/about/faq.html',
         reviewedAt: '2026-10-26',

@@ -542,7 +542,7 @@
     "mapHop": "Check the actual walking or transit route",
     "moreTools": "More planning tools",
     "resetCopies": "Reset saved copies",
-    "calendarError": "Calendar export could not represent these dates. Use dates within years 0001–9999.",
+    "calendarError": "The calendar could not be generated. Check your trip start date and try again. Your saved trip is unchanged.",
     "minuteUnit": "min",
     "plannedDays": "Days with suggested visits",
     "blankDays": "Days left for you to plan",
@@ -569,7 +569,7 @@
     "incomingCopies": "Copies in this file",
     "calendarNotes": "Include private visit notes",
     "calendarPreview": "Scheduled visits to export",
-    "calendarPrivacy": "Notes are omitted unless selected. Review the file before sharing. Calendar apps may display Japan times in your device’s time zone. Importing again can duplicate events; review the destination calendar first.",
+    "calendarPrivacy": "Includes personal-place names and addresses, plus scheduled visits. Notes are optional. Calendar files are copies, not live synchronization; importing again can create duplicate events.",
     "fxSave": "Save this rate with the trip",
     "fxSaved": "Saved rate for this trip",
     "daySummary": "Day overview",
@@ -667,6 +667,19 @@
     "planCoverage": "Days with suggested stops",
     "visitCount": "Places in this guide",
     "homeMore": "Keep exploring Japan",
-    "contentScope": "This guide is a starting selection. Check the details and official sources before booking."
+    "contentScope": "This guide is a starting selection. Check the details and official sources before booking.",
+    "checklistClearConfirm": "Clear the completed preparation checks for this trip?",
+    "checklistPendingHelp": "Finish or discard pending edits before changing these checks.",
+    "editDay": "Day to edit",
+    "travelDay": "Travel day",
+    "copyDeleteConfirm": "Delete this saved copy? Your current trip will stay unchanged.",
+    "libraryResetConfirm": "Reset the unreadable copy library? Download the original file first if you need to recover it. Your current trip will stay unchanged.",
+    "libraryConflict": "The saved copies changed in another tab. Review the latest copy before loading it.",
+    "shareDownload": "Download shareable JSON",
+    "shareHtml": "Download shareable HTML",
+    "shareExportHelp": "This choice applies to JSON and offline HTML. Use a full backup to recover all saved details. Print and calendar have their own settings.",
+    "sceneMore": "Topics and trip actions",
+    "sceneGlobalTheme": "Theme applies to the whole website.",
+    "sceneGlobalMotion": "Pause applies to animations across the website."
   }
 }

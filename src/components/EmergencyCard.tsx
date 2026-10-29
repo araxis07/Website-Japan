@@ -1,6 +1,6 @@
 'use client'
 import { firstVisitSteps } from '@/data/first-visit'
-import { downloadTrip } from '@/lib/trip-export'
+import { downloadTrip } from '@/lib/download'
 import { useTrip } from './TripProvider'
 export default function EmergencyCard() {
   const { lang, tools } = useTrip()

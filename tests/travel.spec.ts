@@ -362,7 +362,7 @@ test('interactive miniature responds to lighting, seasons, rotation and motion c
     })
   const day = await snapshot()
   await page
-    .getByRole('button', { name: 'Light the lanterns', exact: true })
+    .getByRole('button', { name: `${en.scene.lightsOff}: ${en.tools.sceneGlobalTheme}`, exact: true })
     .click()
   await expect(scene).toHaveAttribute('data-night', 'true')
   await scene.evaluate((element) =>
@@ -401,6 +401,7 @@ test('interactive miniature responds to lighting, seasons, rotation and motion c
     '/en/prefectures/hokkaido',
   )
   expect((await snapshot()).equals(kyoto)).toBe(false)
+  await openDetails(scene.locator('details'))
   await scene.locator('.scene-hotspots button').nth(1).click()
   await expect(scene.locator('.scene-topic a')).toHaveAttribute(
     'href',
@@ -427,7 +428,7 @@ test('interactive miniature responds to lighting, seasons, rotation and motion c
     ).items.some((entry: { id: string }) => entry.id === 'makishi'),
   ).toBe(true)
   await page
-    .getByRole('button', { name: 'Play animation', exact: true })
+    .getByRole('button', { name: `${en.scene.play}: ${en.tools.sceneGlobalMotion}`, exact: true })
     .click()
   await expect(scene).toHaveAttribute('data-moving', 'true')
 })
@@ -447,7 +448,7 @@ test('reduced motion and unavailable WebGL retain readable, usable content', asy
   )
   await expect(
     page.getByRole('button', {
-      name: 'Still scene · reduced motion is enabled',
+      name: `${en.scene.reduced}: ${en.tools.sceneGlobalMotion}`,
       exact: true,
     }),
   ).toBeDisabled()

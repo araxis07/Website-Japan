@@ -7,10 +7,12 @@ import { i18n, localeNames, type Locale } from '@/i18n/config'
 import type { Dictionary } from '@/i18n/dictionaries'
 import Icon from './Icon'
 import { usePageLocation } from './usePageLocation'
+import { AppearanceControls } from './Atmosphere'
 
 export default function Navigation({
   dict,
   lang,
+  appearance,
 }: {
   dict: Pick<Dictionary, 'brand' | 'brandSub'> & {
     navigation: Pick<
@@ -22,6 +24,7 @@ export default function Navigation({
     tools: Pick<Dictionary['tools'], 'emergency' | 'place'>
   }
   lang: Locale
+  appearance: Dictionary['atmosphere']
 }) {
   const [open, setOpen] = useState(false)
   const toggle = useRef<HTMLButtonElement>(null)
@@ -73,6 +76,7 @@ export default function Navigation({
           <Link href={`/${lang}/first-visit#help`}>{dict.tools.emergency}</Link>
         </nav>
         <div className="header-actions">
+          <AppearanceControls copy={appearance} />
           <Link className="header-trip" href={`/${lang}/my-trip`}>
             {dict.trip.title}
           </Link>

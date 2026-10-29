@@ -1,5 +1,5 @@
 import type { Locale } from '@/i18n/config'
-import { entryKey, tripDate, tripPlace, type Trip } from './trip'
+import { entryKey, tripDate, tripId, tripPlace, type Trip } from './trip'
 const escape = (value: string) =>
   value
     .replace(/\\/g, '\\\\')
@@ -25,7 +25,7 @@ function fold(line: string) {
   }
   return result
 }
-export function tripCalendar(
+export async function tripCalendar(
   trip: Trip,
   lang: Locale,
   now = new Date(),
@@ -42,9 +42,21 @@ export function tripCalendar(
     const date = tripDate(trip.startDate, item.day)
     if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) return null
     const place = tripPlace(item)
+    // shortcut: HTTP previews use fresh UIDs on each export, use HTTPS for stable reimports.
+    const identity = crypto.subtle
+      ? Array.from(
+          new Uint8Array(
+            await crypto.subtle.digest(
+              'SHA-256',
+              new TextEncoder().encode(entryKey(item)),
+            ),
+          ),
+          (byte) => byte.toString(16).padStart(2, '0'),
+        ).join('')
+      : tripId()
     lines.push(
       'BEGIN:VEVENT',
-      `UID:${encodeURIComponent(entryKey(item))}-${date}@website-japan`,
+      `UID:${identity}-${date}@website-japan`,
       `DTSTAMP:${utc(now)}`,
     )
     if (item.time) {

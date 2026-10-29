@@ -7,6 +7,12 @@ export default function ReadinessChecklist() {
   return (
     <details className="readiness-checklist">
       <summary>{tools.checklist}</summary>
+      {Object.keys(drafts).length > 0 && (
+        <p>
+          {tools.checklistPendingHelp}{' '}
+          <a href="#trip-drafts">{tools.pendingDrafts} ↗</a>
+        </p>
+      )}
       <fieldset disabled={!trip || !ready || Object.keys(drafts).length > 0}>
         <legend>
           {tools.checklistTrip}: {trip?.title || copy.title}
@@ -14,32 +20,37 @@ export default function ReadinessChecklist() {
         <p>{tools.checklistHelp}</p>
         <Link href={`/${lang}/my-trip`}>{copy.title} ↗</Link>
         {firstVisitSteps.map((step) => (
-          <label key={step.id}>
-            <input
-              type="checkbox"
-              checked={trip?.preparation?.includes(step.id) || false}
-              onChange={(event) => {
-                const checked = event.target.checked
-                change(
-                  (current) => ({
-                    ...current,
-                    preparation: checked
-                      ? [...(current.preparation || []), step.id]
-                      : current.preparation?.filter((id) => id !== step.id),
-                  }),
-                  copy.updated,
-                  JSON.stringify(trip),
-                )
-              }}
-            />
-            {step.copy[lang].title}
-          </label>
+          <div key={step.id}>
+            <label>
+              <input
+                type="checkbox"
+                checked={trip?.preparation?.includes(step.id) || false}
+                onChange={(event) => {
+                  const checked = event.target.checked
+                  change(
+                    (current) => ({
+                      ...current,
+                      preparation: checked
+                        ? [...(current.preparation || []), step.id]
+                        : current.preparation?.filter((id) => id !== step.id),
+                    }),
+                    copy.updated,
+                    JSON.stringify(trip),
+                  )
+                }}
+              />
+              {step.copy[lang].title}
+            </label>
+            <Link href={`/${lang}/first-visit#${step.id}`}>
+              {tools.readTopic}: {step.copy[lang].title} ↗
+            </Link>
+          </div>
         ))}
         <button
           type="button"
           disabled={!trip?.preparation?.length}
           onClick={() => {
-            if (window.confirm(copy.confirm))
+            if (window.confirm(tools.checklistClearConfirm))
               change(
                 (current) => ({ ...current, preparation: [] }),
                 copy.updated,

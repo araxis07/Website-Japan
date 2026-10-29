@@ -1119,6 +1119,64 @@ html[lang='th'] .place-search-results {
   width: 18px;
   height: 18px;
 }
+
+.header-actions .appearance-panel {
+  z-index: 1;
+  padding: 0;
+  background: transparent;
+  border: 0;
+}
+.scene-topics-panel > summary {
+  min-height: 44px;
+  padding-block: 8px;
+  cursor: pointer;
+}
+.header-actions .appearance-panel > summary {
+  min-width: 44px;
+  justify-content: center;
+  list-style: none;
+}
+.header-actions .appearance-panel > summary::-webkit-details-marker {
+  display: none;
+}
+.header-actions .appearance-panel > summary::after {
+  content: none;
+}
+.header-actions .appearance-panel .atmosphere-controls {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  display: grid;
+  width: max-content;
+  max-width: min(280px, calc(100vw - 40px));
+  padding: 8px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  box-shadow: 0 8px 20px #23333d12;
+}
+.header-actions .appearance-panel .atmosphere-controls button {
+  min-height: 44px;
+  justify-content: flex-start;
+  text-align: start;
+}
+.header-actions .appearance-panel .atmosphere-controls button span {
+  max-width: none;
+}
+@media (max-width: 1180px) {
+  .header-actions .appearance-panel > summary > span {
+    display: none;
+  }
+}
+@media (max-width: 900px) {
+  .header-actions .appearance-panel .atmosphere-controls {
+    right: -96px;
+  }
+}
+@media (max-width: 480px) {
+  .site-header .header-actions {
+    gap: 4px;
+  }
+}
 .search-options {
   flex: 1;
   min-width: 0;

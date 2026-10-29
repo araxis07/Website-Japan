@@ -69,7 +69,7 @@ test('personal places validate, preserve repeat visits, and leave no private con
   expect(new Set(Array.from({ length: 100 }, tripId)).size).toBe(100)
 })
 
-test('offline and calendar exports preserve language, missing budgets and escaped personal details', () => {
+test('offline and calendar exports preserve language, missing budgets and escaped personal details', async () => {
   const html = offlineTrip(portable, 'ja', ja.trip, ja.tools)
   expect(html).toContain('1日目')
   expect(html).not.toContain('日目 1')
@@ -93,7 +93,7 @@ test('offline and calendar exports preserve language, missing budgets and escape
   const output = offlineTrip(hostile, 'en', en.trip, en.tools)
   expect(output).not.toContain('<script>')
   expect(output).toContain('&lt;script&gt;')
-  const calendar = tripCalendar(hostile, 'en')!
+  const calendar = (await tripCalendar(hostile, 'en'))!
   expect(calendar.match(/\r\nBEGIN:VEVENT/g)).toHaveLength(1)
   expect(calendar).toContain('Line 1\\nBEGIN:VEVENT')
 })
@@ -421,7 +421,7 @@ test('personal-stop drafts survive a failed write and sanitized downloads exclud
   )
   await expect(page.locator('.export-preview')).toContainText('1 / 4')
   const downloaded = page.waitForEvent('download')
-  await page.getByRole('button', { name: en.tools.backup, exact: true }).click()
+  await page.getByRole('button', { name: en.tools.shareDownload, exact: true }).click()
   const contents = await fs.readFile((await (await downloaded).path())!, 'utf8')
   expect(contents).not.toMatch(/Private|custom-|Kyoto Station|cafe/)
   expect(JSON.parse(contents)).toEqual(publicTrip(portable))

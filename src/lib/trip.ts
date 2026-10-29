@@ -214,6 +214,16 @@ export function parseTrip(raw: string): Trip | null {
             return null
           if (!existing[key] && item[key]) existing[key] = item[key]
         }
+        for (const key of ['duration', 'buffer'] as const) {
+          if (
+            existing[key] !== undefined &&
+            item[key] !== undefined &&
+            existing[key] !== item[key]
+          )
+            return null
+          if (existing[key] === undefined && item[key] !== undefined)
+            existing[key] = item[key]
+        }
         if (!existing.day) existing.day = item.day
         continue
       }

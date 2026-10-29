@@ -13,7 +13,7 @@ import { currentNotices, travelNotices } from '../src/data/travel-notices'
 import { mapUrl, places } from '../src/data/places'
 
 const libraryKey = 'japan-travel-library-v1'
-test('new optional data validates without breaking old backups or leaking into public copies', () => {
+test('new optional data validates without breaking old backups or leaking into public copies', async () => {
   expect(parseTrip(JSON.stringify(emptyTrip))).toEqual(emptyTrip)
   const trip = {
     ...emptyTrip,
@@ -34,14 +34,14 @@ test('new optional data validates without breaking old backups or leaking into p
   expect(clean.fx).toBeUndefined()
   expect(japanDate(new Date('2026-10-25T15:01:00Z'))).toBe('2026-10-26')
   expect(japanDate(new Date('2026-10-25T14:59:00Z'))).toBe('2026-10-25')
-  const calendar = tripCalendar(
+  const calendar = (await tripCalendar(
     {
       ...emptyTrip,
       startDate: '2026-11-01',
       items: [{ id: 'gion', day: 1, note: 'PRIVATE BOOKING' }],
     },
     'en',
-  )!
+  ))!
   expect(calendar).toContain('DTSTART;VALUE=DATE:20261101')
   expect(calendar).not.toContain('PRIVATE BOOKING')
 })

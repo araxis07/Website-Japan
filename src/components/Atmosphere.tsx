@@ -5,6 +5,7 @@ import {
   useContext,
   useEffect,
   useLayoutEffect,
+  useRef,
   useSyncExternalStore,
   type CSSProperties,
 } from 'react'
@@ -171,11 +172,21 @@ export function AppearanceControls({
     reduced,
     toggleMotion,
   } = useAtmosphere()
+  const summary = useRef<HTMLElement>(null)
   return (
-    <details className="appearance-panel">
-      <summary>
+    <details
+      className="appearance-panel"
+      onKeyDown={(event) => {
+        if (event.key === 'Escape' && event.currentTarget.open) {
+          event.stopPropagation()
+          event.currentTarget.open = false
+          summary.current?.focus()
+        }
+      }}
+    >
+      <summary ref={summary} aria-label={copy.label} title={copy.label}>
         <Icon name={theme === 'dark' ? 'moon' : 'sun'} />
-        {copy.label}
+        <span>{copy.label}</span>
       </summary>
       <div className="atmosphere-controls" role="group" aria-label={copy.label}>
         <button

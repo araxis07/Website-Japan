@@ -108,7 +108,7 @@ export default function PhotoGallery({
               alt={photos[index].alt[lang]}
               width={1400}
               height={1000}
-              sizes="95vw"
+              sizes="min(1060px, calc(96vw - 40px))"
             />
             <h2 id="photo-caption">{photos[index].alt[lang]}</h2>
             {photos[index].taken && (

@@ -47,6 +47,13 @@ export default async function FirstVisit({ params }: Props) {
         <h1>{dict.beginner.title}</h1>
         <p>{dict.beginner.subtitle}</p>
       </div>
+      <nav className="first-visit-toc" aria-label={dict.guide.toc}>
+        {firstVisitSteps.map((step, index) => (
+          <a key={step.id} href={`#${step.id}`}>
+            {index + 1}. {step.copy[lang].title}
+          </a>
+        ))}
+      </nav>
       <ReadinessChecklist />
       <TravelNotices />
       <details className="visit-details traveler-profiles">
@@ -64,13 +71,6 @@ export default async function FirstVisit({ params }: Props) {
           </section>
         ))}
       </details>
-      <nav className="first-visit-toc" aria-label={dict.guide.toc}>
-        {firstVisitSteps.map((step, index) => (
-          <a key={step.id} href={`#${step.id}`}>
-            {index + 1}. {step.copy[lang].title}
-          </a>
-        ))}
-      </nav>
       <div className="first-visit-steps">
         {firstVisitSteps.map((step, index) => (
           <section

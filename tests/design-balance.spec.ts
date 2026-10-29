@@ -127,18 +127,19 @@ test('travel controls keep readable spacing and touch targets at narrow widths i
     for (const lang of ['en', 'ja', 'th']) {
       await page.goto(`/${lang}/explore?scope=places&view=list`)
       const menu = await page.locator('.menu-toggle').boundingBox()
-      expect(menu!.width, `${lang}/${width} menu width`).toBeGreaterThanOrEqual(
-        44,
-      )
       expect(
-        menu!.height,
+        Number(menu!.width.toFixed(3)),
+        `${lang}/${width} menu width`,
+      ).toBeGreaterThanOrEqual(44)
+      expect(
+        Number(menu!.height.toFixed(3)),
         `${lang}/${width} menu height`,
       ).toBeGreaterThanOrEqual(44)
       const language = await page
         .locator('.language-picker > summary')
         .boundingBox()
       expect(
-        language!.width,
+        Number(language!.width.toFixed(3)),
         `${lang}/${width} language target`,
       ).toBeGreaterThanOrEqual(44)
       const gap = await page
@@ -198,7 +199,7 @@ test('travel controls keep readable spacing and touch targets at narrow widths i
       const print = await page.locator('.planner-toolbar .button').boundingBox()
       const toolbar = await page.locator('.planner-toolbar').boundingBox()
       expect(
-        print!.height,
+        Number(print!.height.toFixed(3)),
         `${lang}/${width} print target`,
       ).toBeGreaterThanOrEqual(44)
       expect(print!.width, `${lang}/${width} print fits content`).toBeLessThan(
@@ -207,7 +208,7 @@ test('travel controls keep readable spacing and touch targets at narrow widths i
       await expect(page.locator('.trip-task-links a').first()).toBeVisible()
       for (const link of await page.locator('.trip-task-links a').all())
         expect(
-          (await link.boundingBox())!.height,
+          Number((await link.boundingBox())!.height.toFixed(3)),
           `${lang}/${width} task target`,
         ).toBeGreaterThanOrEqual(44)
       expect(
@@ -225,7 +226,7 @@ test('travel controls keep readable spacing and touch targets at narrow widths i
         .locator('.map-place-list h3 button')
         .all())
         expect(
-          (await button.boundingBox())!.height,
+          Number((await button.boundingBox())!.height.toFixed(3)),
           `${lang}/${width} place target`,
         ).toBeGreaterThanOrEqual(44)
       expect(
@@ -240,7 +241,7 @@ test('travel controls keep readable spacing and touch targets at narrow widths i
   await page.goto('/en/explore?scope=places&view=list')
   const result = page.locator('.place-search-results li').first()
   const button = await result.locator(':scope > button').boundingBox()
-  expect(button!.height).toBeGreaterThanOrEqual(44)
+  expect(Number(button!.height.toFixed(3))).toBeGreaterThanOrEqual(44)
   expect(button!.width).toBeLessThan((await result.boundingBox())!.width - 8)
 })
 

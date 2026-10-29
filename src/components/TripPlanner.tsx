@@ -264,7 +264,7 @@ export default function TripPlanner({
       <p className="source-note print-help">{copy.printNote}</p>
       <div className="planner-view">
         <label>
-          {tools.viewDay}
+          {tools.editDay}
           <select value={viewDay} onChange={(e) => setViewDay(e.target.value)}>
             <option value="all">{tools.allDays}</option>
             {days.map((day) => (

@@ -85,7 +85,7 @@ test('undo reverts an entire focused edit and corrupt data can be downloaded bef
     '{"broken":',
   )
 })
-test('calendar uses Japan time, escapes injection and folds multilingual lines; archives validate all copies', () => {
+test('calendar uses Japan time, escapes injection and folds multilingual lines; archives validate all copies', async () => {
   const trip = {
     ...emptyTrip,
     startDate: '2026-11-02',
@@ -100,12 +100,12 @@ test('calendar uses Japan time, escapes injection and folds multilingual lines; 
       { id: 'kiyomizu', day: 0 },
     ],
   }
-  const calendar = tripCalendar(
+  const calendar = (await tripCalendar(
     trip,
     'ja',
     new Date('2026-10-25T00:00:00Z'),
     true,
-  )!
+  ))!
   expect(calendar).toContain('DTSTART:20261102T000000Z')
   expect(calendar).toContain('DTEND:20261102T013000Z')
   expect(calendar.match(/\r\nBEGIN:VEVENT/g)).toHaveLength(1)
@@ -113,9 +113,9 @@ test('calendar uses Japan time, escapes injection and folds multilingual lines; 
   expect(
     calendar.split('\r\n').every((line) => Buffer.byteLength(line) <= 75),
   ).toBe(true)
-  expect(tripCalendar(emptyTrip, 'en')).toBeNull()
+  expect(await tripCalendar(emptyTrip, 'en')).toBeNull()
   expect(
-    tripCalendar(
+    await tripCalendar(
       {
         ...trip,
         startDate: '9999-12-31',
@@ -125,7 +125,7 @@ test('calendar uses Japan time, escapes injection and folds multilingual lines; 
     ),
   ).toBeNull()
   expect(
-    tripCalendar(
+    await tripCalendar(
       {
         ...trip,
         startDate: '0000-01-01',

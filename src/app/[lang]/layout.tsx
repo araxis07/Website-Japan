@@ -4,7 +4,7 @@ import { i18n, isLocale, ogLocales } from '@/i18n/config'
 import { getDictionary } from '@/i18n/dictionaries'
 import { siteUrl } from '@/utils/site'
 import TripProvider from '@/components/TripProvider'
-import Atmosphere, { AppearanceControls } from '@/components/Atmosphere'
+import Atmosphere from '@/components/Atmosphere'
 import ThemeScript from '@/components/ThemeScript'
 import JourneyEffects from '@/components/JourneyEffects'
 import Navigation from '@/components/Navigation'
@@ -110,8 +110,8 @@ export default async function LocaleLayout({
                 },
               }}
               lang={lang}
+              appearance={dict.atmosphere}
             />
-            <AppearanceControls copy={dict.atmosphere} />
             {children}
             <Footer dict={dict} lang={lang} />
           </TripProvider>

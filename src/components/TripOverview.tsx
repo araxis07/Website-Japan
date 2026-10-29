@@ -60,7 +60,7 @@ export default function TripOverview({
         <summary>{tools.onTheGo}</summary>
         <p>{tools.onTheGoHelp}</p>
         <label>
-          {tools.viewDay}
+          {tools.travelDay}
           <select
             value={day}
             onChange={(event) => setChosen(Number(event.target.value))}

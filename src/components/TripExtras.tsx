@@ -1,7 +1,14 @@
 'use client'
-import { useState, useSyncExternalStore } from 'react'
-import { parseTrip, tripFilename, tripId, type Trip } from '@/lib/trip'
-import { downloadTrip } from '@/lib/trip-export'
+import { useEffect, useRef, useState, useSyncExternalStore } from 'react'
+import {
+  emptyTrip,
+  parseTrip,
+  tripFilename,
+  tripId,
+  tripKey,
+  type Trip,
+} from '@/lib/trip'
+import { downloadTrip } from '@/lib/download'
 import { tripCalendar } from '@/lib/trip-calendar'
 import { useTrip } from './TripProvider'
 import TripField from './TripField'
@@ -73,6 +80,24 @@ export default function TripExtras() {
     rows: NonNullable<ReturnType<typeof parseLibrary>>
     before: string
   } | null>(null)
+  const importSelection = useRef(0)
+  useEffect(() => {
+    const invalidate = () => importSelection.current++
+    const clear = (event: StorageEvent) => {
+      if (
+        (event.key === null || event.key === key) &&
+        event.newValue === null
+      ) {
+        invalidate()
+        setIncoming(null)
+      }
+    }
+    window.addEventListener('storage', clear)
+    return () => {
+      invalidate()
+      window.removeEventListener('storage', clear)
+    }
+  }, [])
   if (!trip) return null
   const write = (rows: NonNullable<typeof library>, expected = raw) => {
     try {
@@ -140,7 +165,7 @@ export default function TripExtras() {
               <button
                 type="button"
                 onClick={() => {
-                  if (window.confirm(copy.confirm)) write([])
+                  if (window.confirm(tools.libraryResetConfirm)) write([])
                 }}
               >
                 {tools.resetCopies}
@@ -204,15 +229,33 @@ export default function TripExtras() {
                     type="button"
                     disabled={Object.keys(drafts).length > 0}
                     onClick={() => {
-                      if (
-                        window.confirm(tools.replaceConfirm) &&
-                        change(
-                          () => row.trip,
-                          copy.updated,
-                          JSON.stringify(trip),
+                      const expected = JSON.stringify(trip)
+                      try {
+                        if (snapshot() !== raw) {
+                          setError(tools.libraryConflict)
+                          return
+                        }
+                        const current = parseTrip(
+                          localStorage.getItem(tripKey) ??
+                            JSON.stringify(emptyTrip),
                         )
-                      ) {
+                        if (JSON.stringify(current) !== expected) {
+                          setError(tools.conflict)
+                          return
+                        }
+                      } catch {
+                        setError(copy.error)
+                        return
+                      }
+                      if (!window.confirm(tools.replaceConfirm)) return
+                      if (snapshot() !== raw) {
+                        setError(tools.libraryConflict)
+                        return
+                      }
+                      if (change(() => row.trip, copy.updated, expected)) {
+                        importSelection.current++
                         setIncoming(null)
+                        setError('')
                       }
                     }}
                   >
@@ -222,7 +265,7 @@ export default function TripExtras() {
                     type="button"
                     disabled={Boolean(drafts[`library:${row.id}:title`])}
                     onClick={() => {
-                      if (window.confirm(copy.confirm))
+                      if (window.confirm(tools.copyDeleteConfirm))
                         write(library.filter((item) => item.id !== row.id))
                     }}
                   >
@@ -254,18 +297,23 @@ export default function TripExtras() {
             accept=".json,application/json"
             disabled={!library || Object.keys(drafts).length > 0}
             onChange={async (event) => {
+              const selection = ++importSelection.current
               const file = event.target.files?.[0]
               event.target.value = ''
               setIncoming(null)
+              setError('')
               if (!file) return
               try {
                 if (file.size > 5_120_000) throw new Error('size')
-                const rows = parseLibrary(await file.text())
+                const text = await file.text()
+                if (selection !== importSelection.current) return
+                const rows = parseLibrary(text)
                 if (!rows) throw new Error('schema')
                 setIncoming({ rows, before: raw })
                 setError('')
               } catch {
-                setError(tools.invalid)
+                if (selection === importSelection.current)
+                  setError(tools.invalid)
               }
             }}
           />
@@ -299,7 +347,13 @@ export default function TripExtras() {
             >
               {tools.libraryRestore}
             </button>
-            <button type="button" onClick={() => setIncoming(null)}>
+            <button
+              type="button"
+              onClick={() => {
+                importSelection.current++
+                setIncoming(null)
+              }}
+            >
               {tools.cancel}
             </button>
           </section>
@@ -419,12 +473,21 @@ export default function TripExtras() {
             !trip.items.some((item) => item.day > 0) ||
             Object.keys(drafts).length > 0
           }
-          onClick={() => {
-            const text = tripCalendar(trip, lang, new Date(), includeNotes)
-            if (text) {
-              downloadTrip(text, tripFilename('ics'), 'text/calendar')
-              setError('')
-            } else setError(tools.calendarError)
+          onClick={async () => {
+            try {
+              const text = await tripCalendar(
+                trip,
+                lang,
+                new Date(),
+                includeNotes,
+              )
+              if (text) {
+                downloadTrip(text, tripFilename('ics'), 'text/calendar')
+                setError('')
+              } else setError(tools.calendarError)
+            } catch {
+              setError(tools.calendarError)
+            }
           }}
         >
           {tools.calendar}

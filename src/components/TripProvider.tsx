@@ -20,7 +20,7 @@ import {
   tripFilename,
   type Trip,
 } from '@/lib/trip'
-import { downloadTrip } from '@/lib/trip-export'
+import { downloadTrip } from '@/lib/download'
 import {
   readDrafts,
   writeDraft,
@@ -251,7 +251,7 @@ export default function TripProvider({
     >
       {children}
       {Object.keys(drafts).length > 0 && (
-        <details className="trip-drafts">
+        <details className="trip-drafts" id="trip-drafts">
           <summary>{tools.pendingDrafts}</summary>
           <ul>
             {Object.entries(drafts).map(([key, draft]) => (

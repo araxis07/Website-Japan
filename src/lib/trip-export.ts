@@ -56,12 +56,3 @@ export function offlineTrip(
       '',
     )}<a href="https://www.japan.travel/en/plan/emergencies/">JNTO</a></section></html>`
 }
-
-export function downloadTrip(contents: string, name: string, type: string) {
-  const url = URL.createObjectURL(new Blob([contents], { type }))
-  const link = document.createElement('a')
-  link.href = url
-  link.download = name
-  link.click()
-  setTimeout(() => URL.revokeObjectURL(url), 1000)
-}

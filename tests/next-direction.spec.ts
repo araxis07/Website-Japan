@@ -191,7 +191,7 @@ test('downloaded public JSON removes imported private visit identifiers and leav
   ).toEqual(privateTrip)
   await page.getByLabel(en.tools.sanitized, { exact: true }).check()
   const publicDownload = page.waitForEvent('download')
-  await backup.click()
+  await page.getByRole('button', { name: en.tools.shareDownload, exact: true }).click()
   const raw = await fs.readFile((await (await publicDownload).path())!, 'utf8')
   expect(raw).not.toMatch(/PrivateBooking|PrivateHotel|Private note/)
   expect(

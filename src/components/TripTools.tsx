@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { useTrip } from './TripProvider'
 import TripField from './TripField'
 import TripExtras from './TripExtras'
@@ -7,6 +7,7 @@ import {
   entryKey,
   tripPlace,
   tripId,
+  tripKey,
   dayLabel,
   maxTripBytes,
   mergeTrips,
@@ -16,7 +17,8 @@ import {
   tripFilename,
   type Trip,
 } from '@/lib/trip'
-import { downloadTrip, offlineTrip } from '@/lib/trip-export'
+import { offlineTrip } from '@/lib/trip-export'
+import { downloadTrip } from '@/lib/download'
 
 export default function TripTools() {
   const { trip, change, copy, tools, lang, undo, canUndo, undoLabel, drafts } =
@@ -25,6 +27,24 @@ export default function TripTools() {
     trip: Trip
     before: string
   } | null>(null)
+  const importSelection = useRef(0)
+  useEffect(() => {
+    const invalidate = () => importSelection.current++
+    const clear = (event: StorageEvent) => {
+      if (
+        (event.key === null || event.key === tripKey) &&
+        event.newValue === null
+      ) {
+        invalidate()
+        setIncoming(null)
+      }
+    }
+    window.addEventListener('storage', clear)
+    return () => {
+      invalidate()
+      window.removeEventListener('storage', clear)
+    }
+  }, [])
   const [error, setError] = useState('')
   const [sanitized, setSanitized] = useState(false)
   const exportTrip = useMemo(
@@ -361,7 +381,12 @@ export default function TripTools() {
           onClick={async () => {
             downloadTrip(
               JSON.stringify(exportTrip, null, 2),
-              tripFilename('json'),
+              sanitized
+                ? tripFilename('json').replace(
+                    'japan-trip-',
+                    'japan-trip-share-',
+                  )
+                : tripFilename('json'),
               'application/json',
             )
             if (!sanitized) {
@@ -387,7 +412,7 @@ export default function TripTools() {
             }
           }}
         >
-          {tools.backup}
+          {sanitized ? tools.shareDownload : tools.backup}
         </button>
         <label className="file-import" id="trip-import">
           {tools.import}
@@ -395,6 +420,7 @@ export default function TripTools() {
             type="file"
             accept=".json,application/json"
             onChange={async (event) => {
+              const selection = ++importSelection.current
               const file = event.target.files?.[0]
               event.target.value = ''
               setIncoming(null)
@@ -405,14 +431,17 @@ export default function TripTools() {
                 return
               }
               try {
-                const parsed = parseTrip(await file.text())
+                const text = await file.text()
+                if (selection !== importSelection.current) return
+                const parsed = parseTrip(text)
                 if (!parsed) {
                   setError(tools.invalid)
                   return
                 }
                 setIncoming({ trip: parsed, before: JSON.stringify(trip) })
               } catch {
-                setError(tools.invalid)
+                if (selection === importSelection.current)
+                  setError(tools.invalid)
               }
             }}
           />
@@ -423,12 +452,17 @@ export default function TripTools() {
           onClick={() =>
             downloadTrip(
               offlineTrip(exportTrip, lang, copy, tools),
-              tripFilename('html'),
+              sanitized
+                ? tripFilename('html').replace(
+                    'japan-trip-',
+                    'japan-trip-share-',
+                  )
+                : tripFilename('html'),
               'text/html',
             )
           }
         >
-          {tools.offline}
+          {sanitized ? tools.shareHtml : tools.offline}
         </button>
       </div>
       {lastBackup && (
@@ -442,7 +476,9 @@ export default function TripTools() {
       )}
       <p className="source-note">{tools.privacy}</p>
       <p className="source-note">
-        {tools.backupHelp} {tools.offlineHelp}
+        {sanitized
+          ? tools.shareExportHelp
+          : `${tools.backupHelp} ${tools.offlineHelp}`}
       </p>
       {error && <p role="alert">{error}</p>}
       {incoming && (
@@ -567,7 +603,13 @@ export default function TripTools() {
           >
             {tools.replace}
           </button>
-          <button type="button" onClick={() => setIncoming(null)}>
+          <button
+            type="button"
+            onClick={() => {
+              importSelection.current++
+              setIncoming(null)
+            }}
+          >
             {tools.cancel}
           </button>
         </section>

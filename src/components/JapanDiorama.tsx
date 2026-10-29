@@ -17,6 +17,7 @@ import { useAtmosphere } from './Atmosphere'
 
 export default function JapanDiorama({ copy }: { copy: Dictionary['scene'] }) {
   const host = useRef<HTMLDivElement>(null)
+  const topicsDisclosure = useRef<HTMLDetailsElement>(null)
   const scene = useRef<ReturnType<typeof createJapanScene> | null>(null)
   const settings = useRef<SceneOptions>({
     night: false,
@@ -49,7 +50,10 @@ export default function JapanDiorama({ copy }: { copy: Dictionary['scene'] }) {
           settings.current,
           () => lightToggle.current(),
           () => setStatus('fallback'),
-          setTopic,
+          (topic) => {
+            setTopic(topic)
+            if (topicsDisclosure.current) topicsDisclosure.current.open = true
+          },
         )
         setStatus('ready')
       })
@@ -269,6 +273,7 @@ export default function JapanDiorama({ copy }: { copy: Dictionary['scene'] }) {
             className="light-switch"
             type="button"
             aria-pressed={night}
+            aria-label={`${night ? copy.lightsOn : copy.lightsOff}: ${tools.sceneGlobalTheme}`}
             onClick={toggleTheme}
             disabled={status !== 'ready'}
           >
@@ -302,9 +307,7 @@ export default function JapanDiorama({ copy }: { copy: Dictionary['scene'] }) {
             </button>
             <button
               type="button"
-              aria-label={
-                reduced ? copy.reduced : !moving ? copy.play : copy.pause
-              }
+              aria-label={`${reduced ? copy.reduced : !moving ? copy.play : copy.pause}: ${tools.sceneGlobalMotion}`}
               aria-pressed={!moving}
               onClick={toggleMotion}
               disabled={reduced || status !== 'ready'}
@@ -314,9 +317,14 @@ export default function JapanDiorama({ copy }: { copy: Dictionary['scene'] }) {
           </div>
         </div>
         {status === 'ready' && (
-          <p className="source-note" id="scene-instructions">
-            {tools.sceneInstructions}
-          </p>
+          <>
+            <p className="source-note">
+              {tools.sceneGlobalTheme} {tools.sceneGlobalMotion}
+            </p>
+            <p className="source-note" id="scene-instructions">
+              {tools.sceneInstructions}
+            </p>
+          </>
         )}
         <p className="scene-hint" role="status">
           {status === 'loading'
@@ -330,32 +338,37 @@ export default function JapanDiorama({ copy }: { copy: Dictionary['scene'] }) {
                   : copy.hint}
         </p>
       </div>
-      <div
-        className="scene-hotspots"
-        role="group"
-        aria-label={tools.sceneExplore}
-      >
-        {(['fuji', 'torii', 'sakura'] as const).map((key) => (
-          <button
-            key={key}
-            type="button"
-            aria-pressed={topic === key}
-            onClick={() => setTopic(key)}
-          >
-            {topics[key].label}
-          </button>
-        ))}
-      </div>
-      <p className="scene-topic" aria-live="polite">
-        {topics[topic].text}{' '}
-        <Link href={`/${lang}${topics[topic].path}`}>{tools.readTopic} ↗</Link>
-      </p>
-      <div className="scene-place-actions">
-        <SavePlace id={topicPlace.id} name={topicPlace.names[lang]} />
-        <a href={mapUrl(topicPlace)}>
-          {tools.map}: {topicPlace.names[lang]} ↗
-        </a>
-      </div>
+      <details ref={topicsDisclosure} className="scene-topics-panel">
+        <summary>{tools.sceneMore}</summary>
+        <div
+          className="scene-hotspots"
+          role="group"
+          aria-label={tools.sceneExplore}
+        >
+          {(['fuji', 'torii', 'sakura'] as const).map((key) => (
+            <button
+              key={key}
+              type="button"
+              aria-pressed={topic === key}
+              onClick={() => setTopic(key)}
+            >
+              {topics[key].label}
+            </button>
+          ))}
+        </div>
+        <p className="scene-topic" aria-live="polite">
+          {topics[topic].text}{' '}
+          <Link href={`/${lang}${topics[topic].path}`}>
+            {tools.readTopic} ↗
+          </Link>
+        </p>
+        <div className="scene-place-actions">
+          <SavePlace id={topicPlace.id} name={topicPlace.names[lang]} />
+          <a href={mapUrl(topicPlace)}>
+            {tools.map}: {topicPlace.names[lang]} ↗
+          </a>
+        </div>
+      </details>
     </div>
   )
 }

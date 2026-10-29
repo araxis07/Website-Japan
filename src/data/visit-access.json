@@ -190,15 +190,6 @@
       "th": "ยืมรถเข็นที่ประตูหลักได้โดยไม่รับจอง มีห้องน้ำสำหรับผู้ใช้รถเข็นและทางลาด สอบถามเจ้าหน้าที่เรื่องพื้นที่รถเข็นบน Seaside Train"
     }
   },
-  "pref:tochigi:nikko-toshogu": {
-    "source": "https://www.japan.travel/en/spot/1482/",
-    "reviewedAt": "2026-10-25",
-    "access": {
-      "en": "From JR or Tobu Nikko, take the World Heritage sightseeing bus (about 15 minutes). Walking from the station takes about 45 minutes.",
-      "ja": "JR・東武日光駅から世界遺産めぐりバス約15分。駅から徒歩では約45分。",
-      "th": "จาก JR หรือ Tobu Nikko ใช้บัสชมมรดกโลกประมาณ 15 นาที หากเดินจากสถานีใช้ประมาณ 45 นาที"
-    }
-  },
   "pref:tochigi:oya-history-museum": {
     "source": "https://www.japan.travel/en/spot/1476/",
     "reviewedAt": "2026-10-25",
@@ -601,15 +592,6 @@
       "th": "จากสถานี Hiroshima ใช้รถรางหรือบัสไป Genbaku-Dome-mae แล้วเดินเข้าสวน เผื่อเวลานั่งรถประมาณ 20 นาที"
     }
   },
-  "pref:hiroshima:itsukushima-shrine": {
-    "source": "https://www.japan.travel/en/world-heritage/itsukushima-shinto-shrine/",
-    "reviewedAt": "2026-10-25",
-    "access": {
-      "en": "From Hiroshima take JR to Miyajimaguchi (about 30 minutes), a ferry to Miyajima (about 10 minutes), then walk about 10 minutes to the shrine.",
-      "ja": "広島からJRで宮島口へ約30分、フェリーで宮島へ約10分、神社まで徒歩約10分。",
-      "th": "จาก Hiroshima ใช้ JR ถึง Miyajimaguchi ราว 30 นาที ต่อเรือไป Miyajima ราว 10 นาที แล้วเดินถึงศาลเจ้าอีกประมาณ 10 นาที"
-    }
-  },
   "pref:yamaguchi:kintaikyo-bridge": {
     "source": "https://www.japan.travel/en/spot/861/",
     "reviewedAt": "2026-10-25",
@@ -680,15 +662,6 @@
       "en": "From JR Kochi use a tram journey to Kochijo-mae (about 15 minutes), then walk about five minutes to the castle area.",
       "ja": "JR高知駅から高知城前まで電車で約15分、城周辺へ徒歩約5分。",
       "th": "จาก JR Kochi ใช้รถรางไป Kochijo-mae ประมาณ 15 นาที แล้วเดินไปบริเวณปราสาทราว 5 นาที"
-    }
-  },
-  "pref:fukuoka:dazaifu-tenmangu": {
-    "source": "https://www.japan.travel/en/spot/798/",
-    "reviewedAt": "2026-10-25",
-    "access": {
-      "en": "From Nishitetsu Fukuoka (Tenjin), change at Futsukaichi for Dazaifu. The shrine is about five minutes on foot from Dazaifu Station.",
-      "ja": "西鉄福岡（天神）から二日市で乗り換え太宰府へ。太宰府駅から徒歩約5分。",
-      "th": "จาก Nishitetsu Fukuoka (Tenjin) เปลี่ยนที่ Futsukaichi ไป Dazaifu แล้วเดินจากสถานีประมาณ 5 นาที"
     }
   },
   "pref:saga:yoshinogari-historical-park": {
@@ -1063,15 +1036,6 @@
       "en": "About seven minutes on foot from Ohorikoen or Tojinmachi Station on the Airport subway line. Kuromon and Ohorikoen bus stops are about five minutes away.",
       "ja": "地下鉄空港線大濠公園駅・唐人町駅から徒歩約7分。黒門・大濠公園バス停から徒歩約5分。",
       "th": "เดินประมาณ 7 นาทีจากสถานี Ohorikoen หรือ Tojinmachi สาย Airport หรือประมาณ 5 นาทีจากป้ายรถบัส Kuromon และ Ohorikoen"
-    }
-  },
-  "pref:kumamoto:suizenji-jojuen": {
-    "source": "https://www.japan.travel/en/japans-local-treasures/suizenji-jojuen-garden-2020/",
-    "reviewedAt": "2026-10-25",
-    "access": {
-      "en": "About four minutes on foot from Suizenji Park tram stop, or ten minutes from JR Shin-Suizenji Station.",
-      "ja": "市電水前寺公園停留場から徒歩約4分、JR新水前寺駅から約10分。",
-      "th": "เดินประมาณ 4 นาทีจากป้ายรถราง Suizenji Park หรือประมาณ 10 นาทีจาก JR Shin-Suizenji"
     }
   },
   "pref:oita:umi-jigoku": {
