@@ -590,6 +590,11 @@ html[data-motion='still'] *::after {
 }
 
 @media (max-width: 480px) {
+  .site-header .header-inner {
+    height: auto;
+    min-height: 70px;
+    padding-block: 8px;
+  }
   .site-header .brand {
     flex-shrink: 1;
     min-width: 0;

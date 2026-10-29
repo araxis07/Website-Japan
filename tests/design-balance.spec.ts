@@ -169,9 +169,10 @@ test('travel controls keep readable spacing and touch targets at narrow widths i
 
       if (lang === 'th' && width === 390) {
         await expect(page.locator('.site-header .brand small')).toBeVisible()
-        // Exercise wider fallback-font metrics independently of the host OS.
+        // Exercise larger text and wider font metrics independently of the host OS.
         await page.addStyleTag({
-          content: '.site-header .brand small { letter-spacing: 2px; }',
+          content:
+            '.site-header .brand small { font-size: 16px; letter-spacing: 2px; }',
         })
         const header = await page.locator('.header-inner').boundingBox()
         const brand = await page.locator('.site-header .brand').boundingBox()
