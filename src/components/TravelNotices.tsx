@@ -2,7 +2,6 @@
 import { useSyncExternalStore } from 'react'
 import { japanDate } from '@/lib/trip'
 import { currentNotices, tripNotices } from '@/data/travel-notices'
-import { prefectures } from '@/data/prefectures'
 import { useTrip } from './TripProvider'
 const subscribe = (changed: () => void) => {
   const timer = setInterval(changed, 60000)
@@ -15,7 +14,7 @@ export default function TravelNotices({
   area?: string
   forTrip?: boolean
 }) {
-  const { lang, tools, trip } = useTrip()
+  const { lang, tools, trip, noticeAreaNames } = useTrip()
   const today = useSyncExternalStore(subscribe, japanDate, () => '')
   const notices = (
     forTrip && trip ? tripNotices(trip, today) : currentNotices(today)
@@ -32,12 +31,7 @@ export default function TravelNotices({
             </strong>
             <p>
               {tools.noticeArea}:{' '}
-              {notice.areas
-                .map(
-                  (area) =>
-                    prefectures.find((p) => p.slug === area)!.names[lang],
-                )
-                .join(' · ')}
+              {notice.areas.map((area) => noticeAreaNames[area]).join(' · ')}
             </p>
             <p>
               <time dateTime={notice.from}>{notice.from}</time> –{' '}

@@ -293,7 +293,12 @@ export default async function PrefecturePage({ params }: Props) {
       >
         <h2 id="prefecture-places-title">{dict.explorer.places}</h2>
         <p className="prefecture-plan-note">{dict.explorer.planNote}</p>
-        <PlacesMap points={points} lang={lang} mapCopy={dict.streetMap} />
+        <PlacesMap
+          points={points}
+          lang={lang}
+          mapCopy={dict.streetMap}
+          fallbackSource={p.source}
+        />
         <p className="source-note">{dict.explorer.mapNote}</p>
       </section>
       {points.some((point) => canonicalPlaceId(point.id) in entrancePhotos) && (

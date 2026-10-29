@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { useTrip } from './TripProvider'
 import TripField from './TripField'
 import TripExtras from './TripExtras'
@@ -19,23 +19,18 @@ import {
 import { downloadTrip, offlineTrip } from '@/lib/trip-export'
 
 export default function TripTools() {
-  const {
-    trip,
-    change,
-    copy,
-    tools,
-    lang,
-    undo,
-    canUndo,
-    undoLabel,
-    drafts,
-  } = useTrip()
+  const { trip, change, copy, tools, lang, undo, canUndo, undoLabel, drafts } =
+    useTrip()
   const [incoming, setIncoming] = useState<{
     trip: Trip
     before: string
   } | null>(null)
   const [error, setError] = useState('')
   const [sanitized, setSanitized] = useState(false)
+  const exportTrip = useMemo(
+    () => trip && (sanitized ? publicTrip(trip) : trip),
+    [trip, sanitized],
+  )
   const [lastBackup, setLastBackup] = useState<{
     time: string
     hash: string
@@ -76,7 +71,7 @@ export default function TripTools() {
       cancelled = true
     }
   }, [trip])
-  if (!trip) return null
+  if (!trip || !exportTrip) return null
   const save = (update: (current: Trip) => Trip) =>
     change(update, '', JSON.stringify(trip))
   const total = Object.values(trip.budget || {}).reduce((a, b) => a + b, 0)
@@ -84,7 +79,6 @@ export default function TripTools() {
     new Intl.NumberFormat(lang, { style: 'currency', currency: 'JPY' }).format(
       amount,
     )
-  const exportTrip = sanitized ? publicTrip(trip) : trip
   const lodgingConflict = trip.stays?.some(
     (stay, index) =>
       stay.to > trip.days + 1 ||

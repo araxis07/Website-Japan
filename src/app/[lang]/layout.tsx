@@ -9,6 +9,8 @@ import ThemeScript from '@/components/ThemeScript'
 import JourneyEffects from '@/components/JourneyEffects'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
+import { prefectures } from '@/data/prefectures'
+import { travelNotices } from '@/data/travel-notices'
 import '../globals.css'
 import 'leaflet/dist/leaflet.css'
 
@@ -71,7 +73,19 @@ export default async function LocaleLayout({
           {dict.a11y.skip}
         </a>
         <Atmosphere>
-          <TripProvider copy={dict.trip} tools={dict.tools} lang={lang}>
+          <TripProvider
+            copy={dict.trip}
+            tools={dict.tools}
+            lang={lang}
+            noticeAreaNames={Object.fromEntries(
+              travelNotices.flatMap((notice) =>
+                notice.areas.map((area) => [
+                  area,
+                  prefectures.find((p) => p.slug === area)!.names[lang],
+                ]),
+              ),
+            )}
+          >
             <JourneyEffects />
             <Navigation
               dict={{

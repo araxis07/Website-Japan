@@ -1,6 +1,6 @@
 import type { Locale } from '@/i18n/config'
 import { places, placePath } from '@/data/places'
-import { prefectures } from '@/data/prefectures'
+import { prefecturePlaces } from '@/data/prefecture-places'
 
 // Reports may include public guide context, never trip/query parameters.
 export function reportContext(value: string, lang: Locale) {
@@ -15,7 +15,9 @@ export function reportContext(value: string, lang: Locale) {
   ].map((part) => `/${lang}${part}`)
   const valid =
     publicPages.includes(path) ||
-    prefectures.some((p) => path === `/${lang}/prefectures/${p.slug}`) ||
+    prefecturePlaces.some(
+      (p) => p.prefecture && path === `/${lang}/prefectures/${p.prefecture}`,
+    ) ||
     places.some((place) => placePath(place, lang).split('#')[0] === path)
   if (!valid) return `/${lang}/about`
   const hash = value.includes('#') ? value.slice(value.indexOf('#')) : ''

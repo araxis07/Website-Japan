@@ -415,6 +415,9 @@ html[data-motion='still'] .destination-card {
   line-height: 1.8;
   margin-block: 1rem;
 }
+.map-sheet > .save-place {
+  margin-block: 1rem;
+}
 .place-search-results {
   margin-block: 2rem;
 }

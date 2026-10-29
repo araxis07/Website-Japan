@@ -70,7 +70,10 @@ test('all-place search, mobile sheet and suggested-plan preview work', async ({
     .click()
   if (isMobile) {
     await expect(page.locator('.map-sheet')).toBeVisible()
-    await page.locator('.map-sheet').getByRole('button').click()
+    await page
+      .locator('.map-sheet')
+      .getByRole('button', { name: 'Close expanded map', exact: true })
+      .click()
     await expect(page.locator('.map-sheet')).not.toBeVisible()
     await expect(
       page

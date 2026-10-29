@@ -57,6 +57,7 @@ type Context = {
   lang: Locale
   copy: Dictionary['trip']
   tools: Dictionary['tools']
+  noticeAreaNames: Record<string, string>
   change: (
     update: (trip: Trip) => Trip | null,
     message: string,
@@ -83,11 +84,13 @@ export default function TripProvider({
   copy,
   lang,
   tools,
+  noticeAreaNames,
 }: {
   children: React.ReactNode
   copy: Dictionary['trip']
   lang: Locale
   tools: Dictionary['tools']
+  noticeAreaNames: Record<string, string>
 }) {
   const draftRaw = useSyncExternalStore(
     subscribeDrafts,
@@ -211,6 +214,7 @@ export default function TripProvider({
         copy,
         lang,
         tools,
+        noticeAreaNames,
         undo,
         canUndo: Boolean(history),
         undoLabel: history?.label || '',

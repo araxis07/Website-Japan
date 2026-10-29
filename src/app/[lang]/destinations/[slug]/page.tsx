@@ -12,6 +12,7 @@ import { siteUrl } from '@/utils/site'
 import { generateBreadcrumbSchema } from '@/utils/schema'
 import { guides } from '@/data/guides'
 import { spots } from '@/data/places'
+import { prefectures } from '@/data/prefectures'
 import { detailPhotos } from '@/data/photos'
 import SavePlace from '@/components/SavePlace'
 import PlacesMap from '@/components/PlacesMap'
@@ -221,6 +222,11 @@ export default async function DestinationPage({ params }: Props) {
           points={spots.filter((spot) => spot.destination === slug)}
           mapCopy={dict.streetMap}
           lang={lang}
+          fallbackSource={
+            prefectures.find(
+              (p) => p.slug === (slug === 'mount-fuji' ? 'yamanashi' : slug),
+            )?.source
+          }
         />
       </section>
       <section

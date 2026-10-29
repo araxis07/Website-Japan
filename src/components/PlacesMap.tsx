@@ -14,7 +14,6 @@ import ReportLink from './ReportLink'
 import VisitFacts from './VisitFacts'
 import StreetMap from './StreetMap'
 import { visitFor, placeCategory } from '@/data/visit-details'
-import { prefectures } from '@/data/prefectures'
 import { useTrip } from './TripProvider'
 import { usePageLocation } from './usePageLocation'
 
@@ -22,10 +21,12 @@ export default function PlacesMap({
   points,
   lang,
   mapCopy,
+  fallbackSource,
 }: {
   points: Place[]
   lang: Locale
   mapCopy: Dictionary['streetMap']
+  fallbackSource?: string
 }) {
   const { tools } = useTrip()
   const [copied, setCopied] = useState('')
@@ -103,16 +104,7 @@ export default function PlacesMap({
       <ol className="map-place-list">
         {points.map((point, index) => {
           const visit = visitFor(point)
-          const source =
-            visit?.source ||
-            prefectures.find(
-              (p) =>
-                p.slug ===
-                (point.prefecture ||
-                  (point.destination === 'mount-fuji'
-                    ? 'yamanashi'
-                    : point.destination)),
-            )?.source
+          const source = visit?.source || fallbackSource
           return (
             <li
               key={point.id}

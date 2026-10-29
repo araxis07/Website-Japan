@@ -44,6 +44,7 @@ export default function PrefectureExplorer({
   tools: Dictionary['tools']
 }) {
   const revealMap = useRef(false)
+  const revealResults = useRef(false)
   const returnTarget = useRef<HTMLButtonElement | null>(null)
   const sheet = useRef<HTMLDialogElement>(null)
   const suffix = usePageLocation()
@@ -168,6 +169,15 @@ export default function PrefectureExplorer({
     panel?.scrollIntoView({ block: 'start' })
     panel?.focus({ preventScroll: true })
   }, [view, selected, scope])
+  useEffect(() => {
+    if (!revealResults.current || view !== 'list') return
+    revealResults.current = false
+    const target = returnTarget.current?.isConnected
+      ? returnTarget.current
+      : document.getElementById('search-results-heading')
+    target?.scrollIntoView({ block: 'center' })
+    target?.focus({ preventScroll: true })
+  }, [view])
   const showPlace = (
     button: HTMLButtonElement,
     place: string,
@@ -494,11 +504,8 @@ export default function PrefectureExplorer({
               <button
                 type="button"
                 onClick={() => {
+                  revealResults.current = true
                   updateFilters({ view: 'list' })
-                  requestAnimationFrame(() => {
-                    returnTarget.current?.scrollIntoView({ block: 'center' })
-                    returnTarget.current?.focus({ preventScroll: true })
-                  })
                 }}
               >
                 {tools.returnResults}
@@ -528,9 +535,15 @@ export default function PrefectureExplorer({
                 ? selectedPlace?.names[lang]
                 : active.names[lang]}
             </h2>
-            <p>
+            <p lang={scope === 'places' ? 'ja' : undefined}>
               {scope === 'places' ? selectedPlace?.address : active.summary}
             </p>
+            {scope === 'places' && selectedPlace && (
+              <SavePlace
+                id={selectedPlace.id}
+                name={selectedPlace.names[lang]}
+              />
+            )}
             <Link
               className="button"
               href={

@@ -440,10 +440,11 @@ export function publicTrip(trip: Trip): Trip {
     days: trip.days,
     items: trip.items
       .filter((item) => !item.custom)
+      // Imported visit identifiers can contain private references.
       .map(({ id, day, entryId }) => ({
         id,
         day,
-        ...(entryId ? { entryId } : {}),
+        ...(entryId ? { entryId: tripId() } : {}),
       })),
   }
 }
