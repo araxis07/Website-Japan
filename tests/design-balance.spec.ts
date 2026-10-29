@@ -167,6 +167,32 @@ test('travel controls keep readable spacing and touch targets at narrow widths i
         `${lang}/${width} explorer overflow`,
       ).toBe(true)
 
+      if (lang === 'th' && width === 390) {
+        await expect(page.locator('.site-header .brand small')).toBeVisible()
+        // Exercise wider fallback-font metrics independently of the host OS.
+        await page.addStyleTag({
+          content: '.site-header .brand small { letter-spacing: 2px; }',
+        })
+        const header = await page.locator('.header-inner').boundingBox()
+        const brand = await page.locator('.site-header .brand').boundingBox()
+        const actions = await page.locator('.header-actions').boundingBox()
+        const menu = await page.locator('.menu-toggle').boundingBox()
+        expect(brand!.x + brand!.width).toBeLessThanOrEqual(actions!.x)
+        expect(brand!.y).toBeGreaterThanOrEqual(header!.y)
+        expect(brand!.y + brand!.height).toBeLessThanOrEqual(
+          header!.y + header!.height,
+        )
+        expect(menu!.x + menu!.width).toBeLessThanOrEqual(
+          header!.x + header!.width,
+        )
+        expect(
+          await page.evaluate(
+            () => document.documentElement.scrollWidth <= innerWidth,
+          ),
+          'Thai header with wider text metrics',
+        ).toBe(true)
+      }
+
       await page.goto(`/${lang}/my-trip`)
       const print = await page.locator('.planner-toolbar .button').boundingBox()
       const toolbar = await page.locator('.planner-toolbar').boundingBox()

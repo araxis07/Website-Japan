@@ -587,6 +587,9 @@ html[data-motion='still'] *::after {
   .site-header .brand small {
     display: none;
   }
+}
+
+@media (max-width: 480px) {
   .site-header .brand {
     flex-shrink: 1;
     min-width: 0;
