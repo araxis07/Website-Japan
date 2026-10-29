@@ -448,6 +448,8 @@ test('enlarged text keeps new planner controls usable without horizontal overflo
 })
 
 test('JSON and library exports move from Chromium to WebKit and back without losing private records', async ({}, info) => {
+  // Budget covers browser startup and three complete import/export roundtrips.
+  test.setTimeout(60_000)
   test.skip(
     info.project.name !== 'desktop-chromium',
     'One bidirectional cross-engine check per run',

@@ -3,6 +3,8 @@ import axe from 'axe-core'
 import { emptyTrip, tripKey } from '../src/lib/trip'
 for (const theme of ['light', 'dark']) {
   test(`WCAG checks for beginner tasks in ${theme}`, async ({ page }, info) => {
+    // Budget covers browser startup and five complete axe audits.
+    test.setTimeout(60_000)
     await page.emulateMedia({
       reducedMotion: 'reduce',
       colorScheme: theme as 'light' | 'dark',
