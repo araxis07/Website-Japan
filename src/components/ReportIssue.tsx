@@ -1,10 +1,10 @@
 'use client'
 import { useState } from 'react'
-import { useTrip } from './TripProvider'
+import { useTripCopy } from './TripProvider'
 import { usePageLocation } from './usePageLocation'
 import { reportContext } from '@/lib/report-context'
 export default function ReportIssue({ contact }: { contact?: string }) {
-  const { tools, lang } = useTrip()
+  const { tools, lang } = useTripCopy()
   const suffix = usePageLocation()
   const path = reportContext(
     new URLSearchParams(suffix.split('#')[0]).get('from') || '',

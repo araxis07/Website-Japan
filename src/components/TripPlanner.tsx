@@ -169,7 +169,8 @@ export default function TripPlanner({
           (Object.keys(drafts).length ? tools.pendingDrafts : tools.savedLocal)}
       </p>
       {!trip.items.length && (
-        <>
+        <section className="trip-empty-intro" aria-labelledby="trip-start-title">
+          <h2 id="trip-start-title">{copy.empty}</h2>
           <TripStarter />
           <div className="trip-empty-choices">
             <Link href={`/${lang}/explore?scope=places&view=list`}>
@@ -177,7 +178,7 @@ export default function TripPlanner({
             </Link>
             <a href="#trip-import">{tools.importStart} ↓</a>
           </div>
-        </>
+        </section>
       )}
       <TravelNotices forTrip />
       {trip.items.length > 0 && (
@@ -283,14 +284,6 @@ export default function TripPlanner({
           {tools.showEmpty}
         </label>
       </div>
-      {!trip.items.length && (
-        <div className="empty-state">
-          <h2>{copy.empty}</h2>
-          <Link className="text-link" href={`/${lang}/explore`}>
-            {copy.explore} ↗
-          </Link>
-        </div>
-      )}
       <div className="trip-days">
         {days.map((day) => {
           const entries = trip.items.filter((item) => item.day === day)
@@ -571,7 +564,10 @@ export default function TripPlanner({
       <p className="planner-note">
         {tools.timingHelp} {copy.note}
       </p>
-      <Link className="text-link planner-explore" href={`/${lang}/explore`}>
+      <Link
+        className="text-link planner-explore"
+        href={`/${lang}/explore?scope=places&view=list`}
+      >
         {copy.explore} ↗
       </Link>
     </>

@@ -56,6 +56,15 @@ export default function SavePlace({
         <span aria-hidden="true">{saved ? '−' : '+'}</span>{' '}
         {saved ? copy.remove : copy.save}
       </button>
+      {saved && (
+        <Link
+          className="save-next-step"
+          href={`/${lang}/my-trip#trip-day-0`}
+          aria-label={`${copy.schedule}: ${name}`}
+        >
+          {copy.schedule} ↗
+        </Link>
+      )}
       {ready && !trip && <Link href={`/${lang}/my-trip`}>{copy.plan}</Link>}
     </div>
   )

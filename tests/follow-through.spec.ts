@@ -227,9 +227,8 @@ test('daily overview moves focus and travel-day view keeps Japanese address and 
   await expect(page.locator('.trip-on-the-go')).toContainText(
     'Meet at the corner',
   )
-  await expect(page.locator('.trip-on-the-go li a')).toHaveAttribute(
-    'href',
-    /travelmode=transit/,
-  )
+  await expect(
+    page.locator('.trip-on-the-go li .trip-directions > a'),
+  ).toHaveAttribute('href', /travelmode=transit/)
   await expect(page.locator('.trip-on-the-go p[lang=ja]')).not.toBeEmpty()
 })

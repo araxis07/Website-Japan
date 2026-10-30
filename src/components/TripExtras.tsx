@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useRef, useState, useSyncExternalStore } from 'react'
+import { useEffect, useMemo, useRef, useState, useSyncExternalStore } from 'react'
 import {
   emptyTrip,
   parseTrip,
@@ -73,7 +73,7 @@ export function parseLibrary(
 export default function TripExtras() {
   const { trip, change, tools, copy, lang, drafts, setDraft } = useTrip()
   const raw = useSyncExternalStore(subscribe, snapshot, () => '[]')
-  const library = parseLibrary(raw)
+  const library = useMemo(() => parseLibrary(raw), [raw])
   const [error, setError] = useState('')
   const [includeNotes, setIncludeNotes] = useState(false)
   const [incoming, setIncoming] = useState<{

@@ -362,6 +362,18 @@ html[data-motion='still'] .destination-card {
   color: var(--muted);
   font-size: 0.85rem;
 }
+.save-next-step {
+  display: inline-flex;
+  align-items: center;
+  min-width: 44px;
+  min-height: 44px;
+  max-width: 100%;
+  padding: 0.5rem 0.25rem;
+  font-size: 0.85rem;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  overflow-wrap: anywhere;
+}
 .trip-meta [aria-invalid='true'],
 .trip-reservation [aria-invalid='true'] {
   border-color: var(--red);
@@ -618,9 +630,6 @@ html[data-motion='still'] *::after {
   align-content: start;
   gap: 0.45rem;
   min-width: 0;
-}
-.trip-field label {
-  font-weight: 600;
 }
 .trip-field input,
 .trip-field textarea {
@@ -1224,6 +1233,12 @@ html[lang='th'] .place-search-results {
   display: inline-flex;
   min-height: 44px;
   align-items: center;
+}
+.trip-on-the-go li strong a {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
 }
 .guide-at-a-glance {
   padding: 1rem;

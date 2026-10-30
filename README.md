@@ -67,6 +67,6 @@ Keep translation keys aligned, preserve stable place IDs, and update only facts 
 
 - [Release setup, content review and privacy](docs/release-operations.md)
 - [Team ownership and development roadmap](docs/roadmap-2026-10-29.md)
-- [Latest hardening, content and measured results](docs/hardening-2026-10-30.md)
+- [Latest visitor-flow, Kyoto and measured results](docs/visitor-flow-2026-10-30.md)
 
 This project is not affiliated with JNTO.

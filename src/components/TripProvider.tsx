@@ -74,8 +74,14 @@ type Context = {
   downloadRaw: () => void
 }
 const TripContext = createContext<Context | null>(null)
+const TripCopyContext = createContext<Pick<Context, 'lang' | 'tools'> | null>(null)
 export function useTrip() {
   const context = useContext(TripContext)
+  if (!context) throw new Error('TripProvider is missing')
+  return context
+}
+export function useTripCopy() {
+  const context = useContext(TripCopyContext)
   if (!context) throw new Error('TripProvider is missing')
   return context
 }
@@ -92,6 +98,7 @@ export default function TripProvider({
   tools: Dictionary['tools']
   noticeAreaNames: Record<string, string>
 }) {
+  const staticCopy = useMemo(() => ({ lang, tools }), [lang, tools])
   const draftRaw = useSyncExternalStore(
     subscribeDrafts,
     draftSnapshot,
@@ -249,7 +256,9 @@ export default function TripProvider({
         },
       }}
     >
-      {children}
+      <TripCopyContext.Provider value={staticCopy}>
+        {children}
+      </TripCopyContext.Provider>
       {Object.keys(drafts).length > 0 && (
         <details className="trip-drafts" id="trip-drafts">
           <summary>{tools.pendingDrafts}</summary>

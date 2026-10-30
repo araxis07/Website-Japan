@@ -1,6 +1,8 @@
 'use client'
+import Link from 'next/link'
 import { useState, useSyncExternalStore } from 'react'
 import { japanDate, tripDate, entryKey, dayLabel, tripPlace } from '@/lib/trip'
+import { placePath } from '@/data/places'
 import TripDirections from './TripDirections'
 import { usePageLocation } from './usePageLocation'
 import { useTrip } from './TripProvider'
@@ -104,7 +106,14 @@ export default function TripOverview({
             return (
               <li key={entryKey(entry)}>
                 <strong>
-                  {entry.time || '—'} · {place.names[lang]}
+                  {entry.time || '—'} ·{' '}
+                  {entry.custom ? (
+                    place.names[lang]
+                  ) : (
+                    <Link href={placePath(place, lang)}>
+                      {place.names[lang]}
+                    </Link>
+                  )}
                 </strong>
                 <p lang={entry.custom ? undefined : 'ja'}>
                   {place.address || place.names.ja}

@@ -74,6 +74,8 @@ Before switching trips, repair or discard pending input and export the current p
 
 For current per-item acceptance and external checks, see [the 2026-10-28 delivery ledger](upgrade-2026-10-28.md). Earlier release ledgers remain historical evidence.
 
+Track participant, assistive-technology, device recovery, calendar-client and live-operator evidence in [visitor and release acceptance](visitor-acceptance.md). Its initial **Not Run** status must change only after the named checks are performed.
+
 
 ## Feedback and editorial triage
 

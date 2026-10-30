@@ -41,6 +41,19 @@ export const visitDetails: Record<string, Visit> = {
   ...accessRecords,
   gion: {
     ...accessRecords.gion,
+    accessibility: {
+      en: 'Keihan Gion-Shijo Station’s map shows an elevator at Exit 7. Check street routes and individual Gion buildings separately; this does not verify access across the district.',
+      ja: '京阪祇園四条駅の構内図では7番出口にエレベーターが示されています。公道の経路や各建物の利用条件は別途確認してください。祇園全域の移動を確認した情報ではありません。',
+      th: 'แผนผังสถานี Keihan Gion-Shijo ระบุลิฟต์ที่ทางออก 7 ตรวจเส้นทางถนนและอาคารแต่ละแห่งในกิออนแยกต่างหาก ข้อมูลนี้ไม่ได้ยืนยันการเข้าถึงทั่วทั้งย่าน',
+    },
+    fieldSources: {
+      ...accessRecords.gion.fieldSources,
+      accessibility: {
+        source:
+          'https://www.keihan.co.jp/traffic/station/assets/pdf/info/station-162.pdf',
+        reviewedAt: '2026-10-30',
+      },
+    },
     notApplicable: {
       hours: {
         reason: {
@@ -525,6 +538,16 @@ export const visitDetails: Record<string, Visit> = {
       ja: '開門は6時。閉門と夜間特別拝観は日付によって異なります。',
       th: 'เปิด 06:00 น. เวลาปิดและการเปิดกลางคืนพิเศษขึ้นกับวันที่',
     },
+    admission: {
+      en: 'No group discount. The temple lists free entry for a disability-handbook holder and one companion on presenting the original. Confirm accepted documents and the regular admission price with the temple.',
+      ja: '団体割引はありません。障がい者手帳・療育手帳の原本提示で本人と付添1名は無料。通常の拝観料と手帳の適用条件は寺院に確認してください。',
+      th: 'ไม่มีส่วนลดหมู่คณะ วัดระบุว่ายกเว้นค่าเข้าให้ผู้แสดงสมุดประจำตัวผู้พิการฉบับจริงและผู้ติดตาม 1 คน สอบถามวัดเรื่องเอกสารที่รับและค่าเข้าปกติ',
+    },
+    booking: {
+      en: 'No reservation is needed for the 2026 special night viewings. For ordinary visits and other events, confirm the current requirements with the temple.',
+      ja: '2026年の夜間特別拝観は予約不要です。通常拝観やその他の行事の条件は寺院に確認してください。',
+      th: 'การเข้าชมกลางคืนพิเศษปี 2026 ไม่ต้องจอง สำหรับการเข้าชมปกติและกิจกรรมอื่น โปรดตรวจเงื่อนไขปัจจุบันกับวัด',
+    },
     accessibility: {
       en: 'Follow the temple’s wheelchair route; accessible toilets are provided. Wheelchairs cannot be borrowed at the temple.',
       ja: '寺院の車いす用経路図に従ってください。多目的トイレあり。車いすの貸出はありません。',
@@ -536,6 +559,14 @@ export const visitDetails: Record<string, Visit> = {
       th: 'หากต้องการเลี่ยงบันได ตรวจเส้นทางผ่านทางเข้ารถฉุกเฉินด้านบน Chawan-zaka รับแผนที่ทางสู่วิหารหลักที่ Todoroki-mon',
     },
     fieldSources: {
+      admission: {
+        source: 'https://www.kiyomizudera.or.jp/faq/',
+        reviewedAt: '2026-10-30',
+      },
+      booking: {
+        source: 'https://www.kiyomizudera.or.jp/event/yakan.php',
+        reviewedAt: '2026-10-30',
+      },
       entrance: {
         source: 'https://www.kiyomizudera.or.jp/en/faq/',
         reviewedAt: '2026-10-26',
@@ -626,6 +657,11 @@ export const visitDetails: Record<string, Visit> = {
       ja: '名品ギャラリー：一般700円・大学生350円。庭園のみ300円・150円。特別展は別料金。日程と学生証条件を確認。',
       th: 'นิทรรศการประจำผู้ใหญ่ 700/นักศึกษามหาวิทยาลัย 350 เยน เฉพาะสวน 300/150 เยน นิทรรศการพิเศษต่างราคา ตรวจวันและบัตรนักศึกษา',
     },
+    booking: {
+      en: 'The Tale of Genji special exhibition (October 6–November 29, 2026) does not require advance ticket reservations. Check the museum’s requirements for other exhibitions.',
+      ja: '特別展「源氏物語 王朝のかがやき」（2026年10月6日〜11月29日）はチケットの事前予約不要。その他の展覧会の条件は博物館に確認してください。',
+      th: 'นิทรรศการพิเศษ The Tale of Genji (6 ต.ค.–29 พ.ย. 2026) ไม่ต้องจองตั๋วล่วงหน้า ตรวจเงื่อนไขของนิทรรศการอื่นกับพิพิธภัณฑ์',
+    },
     entrance: {
       en: 'Enter at the South Gate, which has a wheelchair ramp.',
       ja: '車いす用スロープのある南門から入館。',
@@ -637,6 +673,10 @@ export const visitDetails: Record<string, Visit> = {
       th: 'มีห้องน้ำรถเข็นทุกชั้น ในสวนและบริเวณประตูใต้ รถเข็นให้ยืมมีจำนวนจำกัด ติดต่อเจ้าหน้าที่ ช่วงคนแน่นอาจจำกัดรถเข็นเด็กในห้องจัดแสดง',
     },
     fieldSources: {
+      booking: {
+        source: 'https://www.kyohaku.go.jp/eng/',
+        reviewedAt: '2026-10-30',
+      },
       hours: {
         source: 'https://www.kyohaku.go.jp/eng/visit/info/',
         reviewedAt: '2026-10-26',
