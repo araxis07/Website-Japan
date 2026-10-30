@@ -8,6 +8,7 @@ import th from '../src/i18n/dictionaries/th.json'
 
 const gion = places.find((place) => place.id === 'gion')!
 const castle = places.find((place) => place.id === 'pref:aomori:hirosaki-castle')!
+const kyoto = places.find((place) => place.id === 'destination:kyoto')!
 
 const storedTrip = (page: Page) =>
   page.evaluate((key) => JSON.parse(localStorage.getItem(key)!) as Trip, tripKey)
@@ -87,6 +88,7 @@ for (const [lang, copy] of [
       items: [
         { id: 'gion', day: 1 },
         { id: castle.id, day: 1 },
+        { id: 'destination:kyoto', day: 1 },
         {
           id: `custom-${'a'.repeat(32)}`,
           day: 1,
@@ -115,6 +117,14 @@ for (const [lang, copy] of [
       'href',
       `/${lang}/prefectures/aomori#place-pref:aomori:hirosaki-castle`,
     )
+    const center = travel.getByRole('link', {
+      name: kyoto.names[lang],
+      exact: true,
+    })
+    await expect(center).toHaveAttribute(
+      'href',
+      `/${lang}/destinations/kyoto#place-destination:kyoto`,
+    )
     const personal = travel.locator('ol > li').filter({
       has: page.locator('strong', { hasText: 'Example private hotel' }),
     })
@@ -136,6 +146,17 @@ for (const [lang, copy] of [
     await page.keyboard.press('Enter')
     await expect(page).toHaveURL(`/${lang}/destinations/kyoto#place-gion`)
     await expect(page.locator('#place-gion')).toBeVisible()
+    expect(await storedTrip(page)).toEqual(trip)
+    await page.goBack()
+    await expect(travel).toHaveAttribute('open', '')
+    await center.focus()
+    await page.keyboard.press('Enter')
+    await expect(page).toHaveURL(
+      `/${lang}/destinations/kyoto#place-destination:kyoto`,
+    )
+    const centerTarget = page.locator('[id="place-destination:kyoto"]')
+    await expect(centerTarget).toBeVisible()
+    await expect(centerTarget).toBeInViewport()
     expect(await storedTrip(page)).toEqual(trip)
   })
 

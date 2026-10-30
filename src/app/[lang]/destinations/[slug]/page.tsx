@@ -84,7 +84,11 @@ export default async function DestinationPage({ params }: Props) {
         <span aria-hidden="true">/</span>
         <span aria-current="page">{copy.name}</span>
       </nav>
-      <section className="detail-hero">
+      <section
+        className="detail-hero"
+        id={`place-destination:${slug}`}
+        tabIndex={-1}
+      >
         <div className="detail-photo">
           <Image
             src={place.image}
