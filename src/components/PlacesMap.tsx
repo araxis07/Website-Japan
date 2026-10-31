@@ -14,7 +14,7 @@ import ReportLink from './ReportLink'
 import VisitFacts from './VisitFacts'
 import StreetMap from './StreetMap'
 import { visitFor, placeCategory } from '@/data/visit-details'
-import { useTrip } from './TripProvider'
+import { useTripCopy } from './TripProvider'
 import { usePageLocation } from './usePageLocation'
 
 export default function PlacesMap({
@@ -28,7 +28,7 @@ export default function PlacesMap({
   mapCopy: Dictionary['streetMap']
   fallbackSource?: string
 }) {
-  const { tools } = useTrip()
+  const { tools } = useTripCopy()
   const [copied, setCopied] = useState('')
   const [selected, setSelected] = useState('')
   const location = usePageLocation()

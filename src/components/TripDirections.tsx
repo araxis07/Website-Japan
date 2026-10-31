@@ -39,8 +39,23 @@ export default function TripDirections({
             ? address.trim()
             : ''
   if (start) url.searchParams.set('origin', start)
+  const originSummary =
+    origin === 'previous' && previous
+      ? `${tools.originPrevious}: ${previous.names[lang]}`
+      : stay
+        ? `${stay.to === day ? tools.originCheckout : tools.originStay}: ${stay.name}`
+        : origin === 'base'
+          ? `${tools.originBase}: ${trip?.base}`
+          : origin === 'manual'
+            ? start
+              ? `${tools.originManual}: ${start}`
+              : tools.originManualEmpty
+            : tools.originDevice
   return (
     <div className="trip-directions">
+      <p className="trip-origin-summary">
+        {tools.origin}: {originSummary}
+      </p>
       <a className="text-link" href={url.toString()}>
         {origin === 'previous' && previous ? `${previous.names[lang]} → ` : ''}
         {copy.directions} ↗

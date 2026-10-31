@@ -681,6 +681,14 @@
     "shareExportHelp": "This choice applies to JSON and offline HTML. Use a full backup to recover all saved details. Print and calendar have their own settings.",
     "sceneMore": "Topics and trip actions",
     "sceneGlobalTheme": "Theme applies to the whole website.",
-    "sceneGlobalMotion": "Pause applies to animations across the website."
+    "sceneGlobalMotion": "Pause applies to animations across the website.",
+    "calendarTimed": "With a set time",
+    "calendarAllDay": "All-day visits (no time set)",
+    "calendarExcluded": "Not exported (no day assigned)",
+    "originManualEmpty": "No start address entered. Choose it in Google Maps.",
+    "exportPurpose": "Choose a file for your task",
+    "advancedPlan": "Optional plan details",
+    "claimExpired": "This event period has ended. Check the current requirements.",
+    "validThrough": "Applies through"
   }
 }

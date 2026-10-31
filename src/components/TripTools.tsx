@@ -27,6 +27,19 @@ export default function TripTools() {
     trip: Trip
     before: string
   } | null>(null)
+  useEffect(() => {
+    // These targets mount only after the browser's saved plan is available.
+    const id = location.hash.slice(1)
+    if (!['trip-tools', 'trip-import'].includes(id)) return
+    const frame = requestAnimationFrame(() => {
+      if (document.activeElement === document.body)
+        document.getElementById(id)?.scrollIntoView({
+          behavior: 'instant',
+          block: 'start',
+        })
+    })
+    return () => cancelAnimationFrame(frame)
+  }, [])
   const importSelection = useRef(0)
   useEffect(() => {
     const invalidate = () => importSelection.current++
@@ -343,7 +356,7 @@ export default function TripTools() {
           {tools.perDay}: {money(total / trip.days)}
         </p>
       </details>
-      <details className="budget-panel trip-extras">
+      <details className="budget-panel trip-extras" id="trip-more-tools">
         <summary>{tools.moreTools}</summary>
         <TripExtras />
       </details>
@@ -358,6 +371,41 @@ export default function TripTools() {
       <details className="export-preview">
         <summary>{tools.exportPreview}</summary>
         <p>{sanitized ? tools.publicExports : tools.privateExports}</p>
+        <p className="export-purpose-title">{tools.exportPurpose}</p>
+        <dl className="export-purpose">
+          <div>
+            <dt>{tools.backup}</dt>
+            <dd>{tools.backupHelp}</dd>
+          </div>
+          <div>
+            <dt>{tools.offline}</dt>
+            <dd>{tools.offlineHelp}</dd>
+          </div>
+          <div>
+            <dt>
+              {tools.shareDownload} / {tools.shareHtml}
+            </dt>
+            <dd>{tools.shareExportHelp}</dd>
+          </div>
+          <div>
+            <dt>
+              <a
+                href="#trip-calendar"
+                onClick={() => {
+                  for (const id of ['trip-more-tools', 'trip-calendar']) {
+                    const panel = document.getElementById(
+                      id,
+                    ) as HTMLDetailsElement | null
+                    if (panel) panel.open = true
+                  }
+                }}
+              >
+                {tools.calendar}
+              </a>
+            </dt>
+            <dd>{tools.calendarHelp}</dd>
+          </div>
+        </dl>
         <p>
           {tools.exportPlaces}: {exportTrip.items.length} / {trip.items.length}
         </p>

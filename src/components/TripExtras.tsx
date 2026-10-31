@@ -139,6 +139,8 @@ export default function TripExtras() {
   const validCurrency = ['THB', 'USD', 'EUR'].includes(currency)
   const validRate =
     Number.isFinite(Number(rate)) && Number(rate) > 0 && Number(rate) <= 1000000
+  const scheduled = trip.items.filter((item) => item.day > 0)
+  const timed = scheduled.filter((item) => item.time).length
   return (
     <>
       <details className="budget-panel trip-library">
@@ -450,13 +452,26 @@ export default function TripExtras() {
           {tools.cancel}
         </button>
       </details>
-      <details className="budget-panel">
+      <details className="budget-panel" id="trip-calendar">
         <summary>{tools.calendar}</summary>
         <p>{tools.calendarHelp}</p>
         <p>
-          {tools.calendarPreview}:{' '}
-          {trip.items.filter((item) => item.day > 0).length}
+          {tools.calendarPreview}: {scheduled.length}
         </p>
+        <dl className="calendar-counts">
+          <div>
+            <dt>{tools.calendarTimed}</dt>
+            <dd>{timed}</dd>
+          </div>
+          <div>
+            <dt>{tools.calendarAllDay}</dt>
+            <dd>{scheduled.length - timed}</dd>
+          </div>
+          <div>
+            <dt>{tools.calendarExcluded}</dt>
+            <dd>{trip.items.length - scheduled.length}</dd>
+          </div>
+        </dl>
         <label>
           <input
             type="checkbox"

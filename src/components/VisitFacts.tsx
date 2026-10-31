@@ -8,7 +8,7 @@ import {
   type VisitField,
 } from '@/data/visit-details'
 import { japanDate } from '@/lib/trip'
-import { useTrip } from './TripProvider'
+import { useTripCopy } from './TripProvider'
 const subscribe = (changed: () => void) => {
   const timer = setInterval(changed, 60000)
   return () => clearInterval(timer)
@@ -20,7 +20,7 @@ export default function VisitFacts({
   visit: Visit | undefined
   fields?: readonly VisitField[]
 }) {
-  const { lang, tools } = useTrip()
+  const { lang, tools } = useTripCopy()
   const date = useSyncExternalStore(subscribe, japanDate, () => '')
   return (
     <dl className="visit-facts">
@@ -36,11 +36,13 @@ export default function VisitFacts({
               {note && visit && (
                 <small className="field-source">
                   <span>
-                    {review.status === 'overdue'
-                      ? tools.reviewDue
-                      : review.status === 'notApplicable'
-                        ? tools.notApplicable
-                        : tools.reviewCurrent}
+                    {review.status === 'expired'
+                      ? tools.claimExpired
+                      : review.status === 'overdue'
+                        ? tools.reviewDue
+                        : review.status === 'notApplicable'
+                          ? tools.notApplicable
+                          : tools.reviewCurrent}
                   </span>
                   {' · '}
                   <a href={visitSource(visit, field).source}>
@@ -48,6 +50,15 @@ export default function VisitFacts({
                   </a>
                   {' · '}
                   <time dateTime={review.reviewedAt}>{review.reviewedAt}</time>
+                  {review.validThrough && (
+                    <>
+                      {' · '}
+                      {tools.validThrough}:{' '}
+                      <time dateTime={review.validThrough}>
+                        {review.validThrough}
+                      </time>
+                    </>
+                  )}
                 </small>
               )}
             </dd>

@@ -681,6 +681,14 @@
     "shareExportHelp": "この選択はJSONとオフラインHTMLに適用されます。すべての保存情報を復元するには完全なバックアップを使用してください。印刷とカレンダーは別の設定です。",
     "sceneMore": "テーマと旅程の操作",
     "sceneGlobalTheme": "配色はサイト全体に適用されます。",
-    "sceneGlobalMotion": "一時停止はサイト全体のアニメーションに適用されます。"
+    "sceneGlobalMotion": "一時停止はサイト全体のアニメーションに適用されます。",
+    "calendarTimed": "時刻を指定した予定",
+    "calendarAllDay": "時刻未設定の終日予定",
+    "calendarExcluded": "日程未定のため出力しない予定",
+    "originManualEmpty": "出発地が未入力です。Google マップで選んでください。",
+    "exportPurpose": "目的に合わせてファイルを選ぶ",
+    "advancedPlan": "計画の詳細（任意）",
+    "claimExpired": "対象期間は終了しました。現在の条件は公式情報を確認してください。",
+    "validThrough": "対象期間の終了日"
   }
 }

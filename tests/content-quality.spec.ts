@@ -51,6 +51,12 @@ test('content schema covers every place, local plan, language, credit and review
             expect(
               new Date(provenance.reviewedAt).toISOString().slice(0, 10),
             ).toBe(provenance.reviewedAt)
+            if (provenance.validThrough !== undefined) {
+              expect(provenance.validThrough).toMatch(/^\d{4}-\d{2}-\d{2}$/)
+              expect(
+                new Date(provenance.validThrough).toISOString().slice(0, 10),
+              ).toBe(provenance.validThrough)
+            }
             for (const lang of ['en', 'ja', 'th'] as const)
               expect(
                 (visit[field] || visit.notApplicable![field]!.reason)![lang]
@@ -63,6 +69,9 @@ test('content schema covers every place, local plan, language, credit and review
         reviewedAt: visit?.reviewedAt || null,
         overdue: Object.values(fieldReviews).some(
           (review) => review.status === 'overdue',
+        ),
+        expired: Object.values(fieldReviews).some(
+          (review) => review.status === 'expired',
         ),
         missing,
         notApplicable: fields.filter((field) => visit?.notApplicable?.[field]),
@@ -124,6 +133,9 @@ test('content schema covers every place, local plan, language, credit and review
                 .length,
               overdue: report.filter(
                 (row) => row.fieldReviews[field].status === 'overdue',
+              ).length,
+              expired: report.filter(
+                (row) => row.fieldReviews[field].status === 'expired',
               ).length,
             },
           ]),

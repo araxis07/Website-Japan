@@ -11,6 +11,12 @@ export const visitFields = [
   'accessibility',
 ] as const
 export type VisitField = (typeof visitFields)[number]
+export type VisitSource = {
+  source: string
+  reviewedAt: string
+  // Inclusive Japan calendar date; this does not describe continuous opening.
+  validThrough?: string
+}
 export type Visit = {
   source: string
   infoSource?: string
@@ -21,20 +27,10 @@ export type Visit = {
   accessibility?: Text
   entrance?: Text
   booking?: Text
-  fieldSources?: Partial<
-    Record<
-      | 'access'
-      | 'hours'
-      | 'admission'
-      | 'accessibility'
-      | 'entrance'
-      | 'booking',
-      { source: string; reviewedAt: string }
-    >
-  >
+  fieldSources?: Partial<Record<VisitField, VisitSource>>
   minutes?: number
   notApplicable?: Partial<
-    Record<VisitField, { reason: Text; source: string; reviewedAt: string }>
+    Record<VisitField, VisitSource & { reason: Text }>
   >
 }
 export const visitDetails: Record<string, Visit> = {
@@ -566,6 +562,7 @@ export const visitDetails: Record<string, Visit> = {
       booking: {
         source: 'https://www.kiyomizudera.or.jp/event/yakan.php',
         reviewedAt: '2026-10-30',
+        validThrough: '2026-11-30',
       },
       entrance: {
         source: 'https://www.kiyomizudera.or.jp/en/faq/',
@@ -676,6 +673,7 @@ export const visitDetails: Record<string, Visit> = {
       booking: {
         source: 'https://www.kyohaku.go.jp/eng/',
         reviewedAt: '2026-10-30',
+        validThrough: '2026-11-29',
       },
       hours: {
         source: 'https://www.kyohaku.go.jp/eng/visit/info/',
@@ -840,7 +838,7 @@ export const placeCategory = (place: Place) => place.category
 export function visitSource(
   visit: Visit,
   field: keyof NonNullable<Visit['fieldSources']>,
-) {
+): VisitSource {
   return (
     visit.notApplicable?.[field] ||
     visit.fieldSources?.[field] || {
@@ -877,13 +875,16 @@ export function fieldReview(
     .slice(0, 10)
   return {
     status:
-      today > nextReviewBy
-        ? ('overdue' as const)
-        : visit.notApplicable?.[field]
-          ? ('notApplicable' as const)
-          : ('reviewed' as const),
+      source.validThrough && today > source.validThrough
+        ? ('expired' as const)
+        : today > nextReviewBy
+          ? ('overdue' as const)
+          : visit.notApplicable?.[field]
+            ? ('notApplicable' as const)
+            : ('reviewed' as const),
     source: source.source,
     reviewedAt: source.reviewedAt,
     nextReviewBy,
+    validThrough: source.validThrough,
   }
 }
