@@ -1,8 +1,11 @@
 'use client'
 import Link from 'next/link'
-import { firstVisitSteps } from '@/data/first-visit'
 import { useTrip } from './TripProvider'
-export default function ReadinessChecklist() {
+export default function ReadinessChecklist({
+  steps,
+}: {
+  steps: { id: string; title: string }[]
+}) {
   const { trip, ready, tools, copy, lang, change, drafts } = useTrip()
   return (
     <details className="readiness-checklist">
@@ -19,7 +22,7 @@ export default function ReadinessChecklist() {
         </legend>
         <p>{tools.checklistHelp}</p>
         <Link href={`/${lang}/my-trip`}>{copy.title} ↗</Link>
-        {firstVisitSteps.map((step) => (
+        {steps.map((step) => (
           <div key={step.id}>
             <label>
               <input
@@ -39,10 +42,10 @@ export default function ReadinessChecklist() {
                   )
                 }}
               />
-              {step.copy[lang].title}
+              {step.title}
             </label>
             <Link href={`/${lang}/first-visit#${step.id}`}>
-              {tools.readTopic}: {step.copy[lang].title} ↗
+              {tools.readTopic}: {step.title} ↗
             </Link>
           </div>
         ))}

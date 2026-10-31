@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useTrip } from './TripProvider'
+import { useTripCopy } from './TripProvider'
 import { places, placePath, mapUrl } from '@/data/places'
 import SavePlace from './SavePlace'
 import type { Dictionary } from '@/i18n/dictionaries'
@@ -32,7 +32,7 @@ export default function JapanDiorama({ copy }: { copy: Dictionary['scene'] }) {
   const [season, setSeason] = useState(0)
   const [region, setRegion] = useState<SceneRegion>('fuji')
   const [topic, setTopic] = useState<'fuji' | 'torii' | 'sakura'>('fuji')
-  const { lang, tools } = useTrip()
+  const { lang, tools } = useTripCopy()
   useEffect(() => {
     lightToggle.current = toggleTheme
     settings.current = { night, season, moving, region }

@@ -139,7 +139,7 @@ test('mobile place sheets save the selected canonical place and Undo restores th
     })
     const saveBox = await save.boundingBox()
     const guideBox = await sheet
-      .getByRole('link', { name: `${copy.explorer.read} ↗`, exact: true })
+      .getByRole('link', { name: `${copy.tools.readTopic} ↗`, exact: true })
       .boundingBox()
     expect(guideBox!.y - saveBox!.y - saveBox!.height).toBeGreaterThanOrEqual(
       12,

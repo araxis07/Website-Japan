@@ -279,13 +279,15 @@ test('only a pristine editor starts collapsed while metadata, notes, drafts and 
   test.setTimeout(90_000)
   page.on('dialog', (dialog) => dialog.accept())
   const advanced = page.locator('.trip-advanced')
+  const advancedContent = advanced.locator('#trip-advanced-content')
+  const advancedToggle = advanced.locator('.trip-advanced-toggle')
   for (const [lang, copy] of languages) {
     await page.goto(`/${lang}/my-trip`)
     await expect(advanced).toHaveAttribute('data-pristine', 'true')
-    await expect(advanced).not.toHaveAttribute('open')
-    await expect(advanced.locator(':scope > summary')).toHaveText(
-      copy.tools.advancedPlan,
-    )
+    await expect(advancedContent).toBeHidden()
+    await expect(advancedToggle).toHaveAccessibleName(copy.tools.advancedPlan)
+    await expect(advancedToggle).toHaveAttribute('aria-expanded', 'false')
+    await expect(advancedToggle).toHaveAttribute('aria-controls', 'trip-advanced-content')
     await expect(page.locator('.planner-toolbar')).toBeHidden()
     await expect(page.getByLabel(copy.tools.title, { exact: true })).toBeVisible()
     await expect(page.locator('.personal-stop > summary')).toBeVisible()
@@ -294,15 +296,17 @@ test('only a pristine editor starts collapsed while metadata, notes, drafts and 
     ).toBeVisible()
   }
   await page.goto('/en/my-trip')
-  await openDetails(advanced)
+  await advancedToggle.focus()
+  await page.keyboard.press('Enter')
+  await expect(advancedToggle).toHaveAttribute('aria-expanded', 'true')
   const note = advanced
     .locator('.trip-day[aria-labelledby="trip-day-1"]')
     .getByLabel(en.tools.notes, { exact: true })
   await note.fill('Notes without visits')
   await expect(note).toBeFocused()
   await expect(advanced).toHaveAttribute('data-pristine', 'false')
-  await expect(advanced).toHaveAttribute('open', '')
-  await expect(advanced.locator(':scope > summary')).toBeHidden()
+  await expect(advancedContent).toBeVisible()
+  await expect(advancedToggle).toBeHidden()
   await page.reload()
   await expect(note).toHaveValue('Notes without visits')
 
@@ -319,7 +323,7 @@ test('only a pristine editor starts collapsed while metadata, notes, drafts and 
     await seed(page, trip)
     await page.reload()
     await expect(advanced).toHaveAttribute('data-pristine', 'false')
-    await expect(advanced).toHaveAttribute('open', '')
+    await expect(advancedContent).toBeVisible()
     await expect(page.locator('.planner-toolbar')).toBeVisible()
     expect(await storedTrip(page)).toEqual(trip)
   }
@@ -328,7 +332,7 @@ test('only a pristine editor starts collapsed while metadata, notes, drafts and 
     await page.goto(`/en/my-trip#${hash}`)
     await page.reload()
     await expect(page.locator(`#${hash}`)).toBeInViewport()
-    await expect(advanced).not.toHaveAttribute('open')
+    await expect(advancedContent).toBeHidden()
   }
   await page.locator('#trip-import input').setInputFiles({
     name: 'incoming.json',
@@ -348,13 +352,13 @@ test('only a pristine editor starts collapsed while metadata, notes, drafts and 
   await openDetails(budget)
   await budget.getByLabel(en.tools.travelers, { exact: true }).fill('0')
   await expect(advanced).toHaveAttribute('data-pristine', 'false')
-  await expect(advanced).toHaveAttribute('open', '')
+  await expect(advancedContent).toBeVisible()
   await expect(page.locator('.save-status')).toHaveText(en.tools.pendingDrafts)
   await expect(
     page.getByRole('button', { name: en.tools.backup, exact: true }),
   ).toBeDisabled()
   await page.reload()
-  await expect(advanced).toHaveAttribute('open', '')
+  await expect(advancedContent).toBeVisible()
   await openDetails(budget)
   await expect(
     budget.getByLabel(en.tools.travelers, { exact: true }),

@@ -302,9 +302,18 @@ export default function PrefectureExplorer({
             </label>
           </div>
         </details>
-        <p role="status">
-          {filtered.length} / 47 {copy.results} · {foundPlaces.length}{' '}
-          {tools.placeResults}
+        <p className="explorer-result-status" role="status">
+          <strong>
+            {scope === 'places'
+              ? `${foundPlaces.length} ${tools.placeResults}`
+              : `${filtered.length} / 47 ${copy.results}`}
+          </strong>
+          {' · '}
+          <span>
+            {scope === 'places'
+              ? `${filtered.length} / 47 ${copy.results}`
+              : `${foundPlaces.length} ${tools.placeResults}`}
+          </span>
         </p>
       </div>
       {(query || region !== 'all' || category !== 'all' || information) && (
@@ -518,7 +527,7 @@ export default function PrefectureExplorer({
                     : `/${lang}/prefectures/${active.slug}`
                 }
               >
-                {copy.read} ↗
+                {scope === 'places' ? tools.readTopic : copy.read} ↗
               </Link>
             </div>
           </div>
@@ -552,7 +561,7 @@ export default function PrefectureExplorer({
                   : `/${lang}/prefectures/${active.slug}`
               }
             >
-              {copy.read} ↗
+              {scope === 'places' ? tools.readTopic : copy.read} ↗
             </Link>
           </dialog>
           {scope === 'places' && (

@@ -50,7 +50,11 @@ for (const [lang, copy] of [
       has: page.locator('#trip-day-0'),
     })
     await expect(unscheduled.locator('li[data-place-id="gion"]')).toBeVisible()
-    await openDetails(unscheduled.locator('.trip-visit-editor'))
+    await expect(unscheduled.locator('.trip-visit-editor')).not.toHaveAttribute('open')
+    await expect(unscheduled.getByRole('combobox', {
+      name: `${copy.trip.assign}: ${gion.names[lang]}`,
+      exact: true,
+    })).toBeVisible()
     await unscheduled
       .getByRole('combobox', {
         name: `${copy.trip.assign}: ${gion.names[lang]}`,

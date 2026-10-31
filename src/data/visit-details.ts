@@ -47,7 +47,7 @@ export const visitDetails: Record<string, Visit> = {
       accessibility: {
         source:
           'https://www.keihan.co.jp/traffic/station/assets/pdf/info/station-162.pdf',
-        reviewedAt: '2026-10-30',
+        reviewedAt: '2026-10-31',
       },
     },
     notApplicable: {
@@ -120,9 +120,9 @@ export const visitDetails: Record<string, Visit> = {
     reviewedAt: '2026-10-25',
     minutes: 90,
     access: {
-      en: 'Beside JR Inari Station, or a five-minute walk east from Keihan Fushimi-inari.',
-      ja: 'JR稲荷駅すぐ。京阪伏見稲荷駅から東へ徒歩約5分。',
-      th: 'ติดสถานี JR Inari หรือเดินไปทางตะวันออกประมาณ 5 นาทีจาก Keihan Fushimi-inari',
+      en: 'Beside Inari Station on the JR Nara Line, or a five-minute walk east from Fushimi-inari Station on the Keihan Main Line. These are different stations; check the lower-ground entrance separately from any mountain walk.',
+      ja: 'JR奈良線の稲荷駅すぐ、または京阪本線の伏見稲荷駅から東へ徒歩約5分。別々の駅です。ふもとの境内への入口と山道の行程は分けて確認してください。',
+      th: 'ติดสถานี Inari สาย JR Nara หรือเดินไปทางตะวันออกประมาณ 5 นาทีจากสถานี Fushimi-inari สาย Keihan Main ทั้งสองเป็นคนละสถานี ตรวจทางเข้าบริเวณศาลเจ้าด้านล่างแยกจากเส้นทางขึ้นภูเขา',
     },
     entrance: {
       en: 'Use the Romon (main gate) on the official map as a landmark for the lower shrine grounds. The path beyond Senbon Torii continues towards Inariyama; station directions do not take you to the summit.',
@@ -130,6 +130,10 @@ export const visitDetails: Record<string, Visit> = {
       th: 'ใช้ประตู Romon (ประตูหลัก) บนแผนที่ทางการเป็นจุดสังเกตสำหรับบริเวณศาลเจ้าด้านล่าง ทางเลย Senbon Torii จะต่อไปยังภูเขา Inariyama เส้นทางจากสถานีไม่ได้พาไปถึงยอดเขา',
     },
     fieldSources: {
+      access: {
+        source: 'https://inari.jp/en/access/',
+        reviewedAt: '2026-10-31',
+      },
       entrance: {
         source: 'https://inari.jp/en/map/',
         reviewedAt: '2026-10-30',
@@ -525,9 +529,9 @@ export const visitDetails: Record<string, Visit> = {
     reviewedAt: '2026-10-24',
     minutes: 120,
     access: {
-      en: 'Allow about 25 minutes on foot from Keihan Kiyomizu-Gojo. Follow the temple’s entrance map; map apps can suggest inaccessible approaches.',
-      ja: '京阪清水五条駅から徒歩約25分。地図アプリが通れない経路を示す場合があるため、寺院の入口案内を確認。',
-      th: 'จากสถานีเคฮัง Kiyomizu-Gojo เดินประมาณ 25 นาที ตรวจแผนที่ทางเข้าของวัด เพราะแอปอาจแนะนำทางที่เข้าไม่ได้',
+      en: 'Allow about 25 minutes on foot from Keihan Kiyomizu-Gojo. The temple lists only two approaches: Kiyomizu-zaka to Nio-mon, or Chawan-zaka to the emergency road entrance. Map apps may suggest routes that do not enter the grounds.',
+      ja: '京阪清水五条駅から徒歩約25分。境内への経路は清水坂を上り仁王門前から入る道と、茶わん坂を上り防災道路から入る道の2つのみです。地図アプリが入山できない経路を示す場合があります。',
+      th: 'จาก Keihan Kiyomizu-Gojo เดินประมาณ 25 นาที วัดระบุทางเข้าเพียง 2 ทาง: ขึ้น Kiyomizu-zaka ไปประตู Nio-mon หรือขึ้น Chawan-zaka ไปทางเข้าถนนฉุกเฉิน แอปแผนที่อาจแนะนำเส้นทางที่เข้าบริเวณวัดไม่ได้',
     },
     hours: {
       en: 'Opens at 06:00. Closing and special evening openings depend on the date.',
@@ -555,9 +559,13 @@ export const visitDetails: Record<string, Visit> = {
       th: 'หากต้องการเลี่ยงบันได ตรวจเส้นทางผ่านทางเข้ารถฉุกเฉินด้านบน Chawan-zaka รับแผนที่ทางสู่วิหารหลักที่ Todoroki-mon',
     },
     fieldSources: {
+      access: {
+        source: 'https://www.kiyomizudera.or.jp/access.php',
+        reviewedAt: '2026-10-31',
+      },
       admission: {
         source: 'https://www.kiyomizudera.or.jp/faq/',
-        reviewedAt: '2026-10-30',
+        reviewedAt: '2026-10-31',
       },
       booking: {
         source: 'https://www.kiyomizudera.or.jp/event/yakan.php',
@@ -660,14 +668,14 @@ export const visitDetails: Record<string, Visit> = {
       th: 'นิทรรศการพิเศษ The Tale of Genji (6 ต.ค.–29 พ.ย. 2026) ไม่ต้องจองตั๋วล่วงหน้า ตรวจเงื่อนไขของนิทรรศการอื่นกับพิพิธภัณฑ์',
     },
     entrance: {
-      en: 'Enter at the South Gate, which has a wheelchair ramp.',
-      ja: '車いす用スロープのある南門から入館。',
-      th: 'เข้าที่ South Gate ซึ่งมีทางลาดรถเข็น',
+      en: 'Use the South Gate visitor entrance. The museum’s bus-arrival guide says visitors cannot enter at the West Gate and must continue to the South Gate.',
+      ja: '来館者入口は南門です。博物館のバス乗降案内では、西門から入館できないため南門まで徒歩で移動するよう案内しています。',
+      th: 'ใช้ทางเข้าผู้เข้าชมที่ South Gate คู่มือจุดรับส่งรถบัสของพิพิธภัณฑ์ระบุว่าเข้าทาง West Gate ไม่ได้ และต้องเดินต่อไปที่ South Gate',
     },
     accessibility: {
-      en: 'Accessible toilets on every floor, in the garden and South Gate area. Limited loan wheelchairs; ask staff. Strollers may be restricted in crowded galleries.',
-      ja: '各階・庭園・南門に多目的トイレ。貸出車いすは台数制限あり、職員に相談。混雑時は展示室のベビーカー利用制限あり。',
-      th: 'มีห้องน้ำรถเข็นทุกชั้น ในสวนและบริเวณประตูใต้ รถเข็นให้ยืมมีจำนวนจำกัด ติดต่อเจ้าหน้าที่ ช่วงคนแน่นอาจจำกัดรถเข็นเด็กในห้องจัดแสดง',
+      en: 'A wheelchair ramp is at the South Gate. Accessible toilets on every floor, in the garden and South Gate area. Limited loan wheelchairs; ask staff. Strollers may be restricted in crowded galleries. Check the street approach separately.',
+      ja: '南門に車いす用スロープがあります。各階・庭園・南門に多目的トイレ。貸出車いすは台数制限あり、職員に相談。混雑時は展示室のベビーカー利用制限あり。駅からの公道の経路は別途確認してください。',
+      th: 'South Gate มีทางลาดรถเข็น มีห้องน้ำรถเข็นทุกชั้น ในสวนและบริเวณประตูใต้ รถเข็นให้ยืมมีจำนวนจำกัด ติดต่อเจ้าหน้าที่ ช่วงคนแน่นอาจจำกัดรถเข็นเด็กในห้องจัดแสดง ตรวจเส้นทางถนนจากสถานีแยกต่างหาก',
     },
     fieldSources: {
       booking: {
@@ -684,12 +692,12 @@ export const visitDetails: Record<string, Visit> = {
         reviewedAt: '2026-10-26',
       },
       entrance: {
-        source: 'https://www.kyohaku.go.jp/eng/visit/accessibility/',
-        reviewedAt: '2026-10-26',
+        source: 'https://www.kyohaku.go.jp/jp/assets/visit/access/bus-map.pdf',
+        reviewedAt: '2026-10-31',
       },
       accessibility: {
         source: 'https://www.kyohaku.go.jp/eng/visit/accessibility/',
-        reviewedAt: '2026-10-26',
+        reviewedAt: '2026-10-31',
       },
     },
   },

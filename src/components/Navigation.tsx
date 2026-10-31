@@ -30,6 +30,7 @@ export default function Navigation({
   const toggle = useRef<HTMLButtonElement>(null)
   const pathname = usePathname()
   const suffix = usePageLocation()
+  const closeMenu = () => setOpen(false)
   const links = [
     { href: `/${lang}/first-visit`, label: dict.beginner.nav },
     { href: `/${lang}/explore`, label: dict.navigation.explore },
@@ -47,7 +48,7 @@ export default function Navigation({
       }}
     >
       <div className="container header-inner">
-        <Link href={`/${lang}`} className="brand">
+        <Link href={`/${lang}`} className="brand" onNavigate={closeMenu}>
           <span className="brand-mark" aria-hidden="true">
             日
           </span>
@@ -61,6 +62,7 @@ export default function Navigation({
             <Link
               key={href}
               href={href}
+              onNavigate={closeMenu}
               aria-current={
                 pathname === href ||
                 (href.endsWith('/explore') &&
@@ -73,11 +75,17 @@ export default function Navigation({
               {label}
             </Link>
           ))}
-          <Link href={`/${lang}/first-visit#help`}>{dict.tools.emergency}</Link>
+          <Link href={`/${lang}/first-visit#help`} onNavigate={closeMenu}>
+            {dict.tools.emergency}
+          </Link>
         </nav>
         <div className="header-actions">
           <AppearanceControls copy={appearance} />
-          <Link className="header-trip" href={`/${lang}/my-trip`}>
+          <Link
+            className="header-trip"
+            href={`/${lang}/my-trip`}
+            onNavigate={closeMenu}
+          >
             {dict.trip.title}
           </Link>
           <details className="language-picker">
@@ -98,6 +106,7 @@ export default function Navigation({
                   hrefLang={locale}
                   lang={locale}
                   aria-current={locale === lang ? 'page' : undefined}
+                  onNavigate={closeMenu}
                   onClick={(event) =>
                     event.currentTarget
                       .closest('details')
@@ -123,12 +132,19 @@ export default function Navigation({
         </div>
       </div>
       <nav className="mobile-task-nav" aria-label={dict.beginner.heading}>
-        <Link href={`/${lang}/explore?scope=places&view=list`}>
+        <Link
+          href={`/${lang}/explore?scope=places&view=list`}
+          onNavigate={closeMenu}
+        >
           <Icon name="search" />
           {dict.tools.place}
         </Link>
-        <Link href={`/${lang}/my-trip`}>{dict.trip.title}</Link>
-        <Link href={`/${lang}/first-visit#help`}>{dict.tools.emergency}</Link>
+        <Link href={`/${lang}/my-trip`} onNavigate={closeMenu}>
+          {dict.trip.title}
+        </Link>
+        <Link href={`/${lang}/first-visit#help`} onNavigate={closeMenu}>
+          {dict.tools.emergency}
+        </Link>
       </nav>
       <nav
         id="mobile-navigation"
@@ -137,12 +153,12 @@ export default function Navigation({
         aria-label={dict.navigation.label}
       >
         {links.map(({ href, label }) => (
-          <Link key={href} href={href} onClick={() => setOpen(false)}>
+          <Link key={href} href={href} onNavigate={closeMenu}>
             {label}
             <Icon name="arrow" />
           </Link>
         ))}
-        <Link href={`/${lang}/first-visit#help`} onClick={() => setOpen(false)}>
+        <Link href={`/${lang}/first-visit#help`} onNavigate={closeMenu}>
           {dict.tools.emergency}
         </Link>
       </nav>

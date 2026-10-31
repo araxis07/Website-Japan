@@ -1,10 +1,10 @@
 'use client'
-import { firstVisitSteps } from '@/data/first-visit'
+import { firstVisitHelp } from '@/data/first-visit-help'
 import { downloadTrip } from '@/lib/download'
-import { useTrip } from './TripProvider'
+import { useTripCopy } from './TripProvider'
 export default function EmergencyCard() {
-  const { lang, tools } = useTrip()
-  const help = firstVisitSteps.find((step) => step.id === 'help')!
+  const { lang, tools } = useTripCopy()
+  const help = firstVisitHelp
   return (
     <aside className="emergency-card">
       <h2>{tools.emergency}</h2>

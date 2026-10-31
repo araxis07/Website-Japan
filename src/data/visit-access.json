@@ -742,9 +742,9 @@
     "source": "https://www.japan.travel/en/spot/84/",
     "reviewedAt": "2026-10-25",
     "access": {
-      "en": "Walk from Keihan Gion-Shijo or Hankyu Kyoto-Kawaramachi. Use public streets and follow local photography signs.",
-      "ja": "京阪祇園四条駅、または阪急京都河原町駅から徒歩。公道を歩き、現地の撮影表示を守りましょう。",
-      "th": "เดินจาก Keihan Gion-Shijo หรือ Hankyu Kyoto-Kawaramachi ใช้ถนนสาธารณะและปฏิบัติตามป้ายถ่ายภาพในพื้นที่"
+      "en": "Approach Gion from Keihan Gion-Shijo or Hankyu Kyoto-Kawaramachi. The city guide places Gion east of Shijo-Ohashi. Follow public streets and current local signs; do not use restricted private lanes.",
+      "ja": "京阪祇園四条駅、または阪急京都河原町駅から祇園へ。市の案内では四条大橋の東側が祇園です。公道と現地の表示に従い、立入禁止の私道を通らないでください。",
+      "th": "เข้าย่านกิออนจาก Keihan Gion-Shijo หรือ Hankyu Kyoto-Kawaramachi คู่มือเมืองระบุว่ากิออนอยู่ฝั่งตะวันออกของสะพาน Shijo-Ohashi ใช้ถนนสาธารณะและตามป้ายปัจจุบัน ห้ามใช้ซอยส่วนบุคคลที่ห้ามเข้า"
     },
     "entrance": {
       "en": "Southern Gion’s streets carry vehicles. Keep sidewalks clear and follow access restrictions at temples, shrines and private properties; do not enter restricted areas without permission.",
@@ -752,6 +752,10 @@
       "th": "ถนนในกิออนตอนใต้มีรถสัญจร อย่ากีดขวางทางเท้า ปฏิบัติตามข้อจำกัดการเข้าวัด ศาลเจ้า และพื้นที่ส่วนบุคคล ห้ามเข้าเขตหวงห้ามโดยไม่ได้รับอนุญาต"
     },
     "fieldSources": {
+      "access": {
+        "source": "https://ja.kyoto.travel/area/area06.php",
+        "reviewedAt": "2026-10-31"
+      },
       "entrance": {
         "source": "https://kyoto.travel/en/responsible-travel/gion-manner-message-from-southern-gionmachi/",
         "reviewedAt": "2026-10-29"

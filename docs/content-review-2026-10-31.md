@@ -1,6 +1,6 @@
 # Content review queue and claim expiry — 2026-10-31
 
-This is an actionable queue snapshot from the committed venue model at `4b9dc74`, evaluated for the fixed Japan calendar date **2026-10-31**, plus two additive expiry dates. It does not record a mass factual refresh or claim that the queued operator pages were read again. Existing statements, source URLs, source review dates and stable IDs remain unchanged.
+This queue began with the venue model at `4b9dc74`, evaluated for the fixed Japan calendar date **2026-10-31**, plus two additive expiry dates. The later [targeted Kyoto approach research](kyoto-approach-2026-10-31.md) rechecked only one field in this thirty-day queue: Kiyomizu admission. Its limited-policy review date is October 31 and its next review is November 30. The other 72 queue fields are not renewed by that research; this is not a mass factual refresh.
 
 ## Claim expiry
 
@@ -22,9 +22,9 @@ On the final applicable date a claim can still be `overdue` for source review: K
 
 ## Thirty-day review queue
 
-The queue contains **73 field records in 32 places**, displayed as **39 rows grouped by stable ID and due date**. It includes three Gion N/A statements that also need review. The count is 70 earlier records plus three Kyoto additions; Osaka Museum booking was already part of the earlier 70 and is not counted again. The two expiry rows above are a prioritized view of existing queue entries, not two extra review records.
+The queue contains **73 field records in 32 places**, displayed as **40 rows grouped by stable ID and due date** after the targeted admission recheck. It includes three Gion N/A statements that also need review. The count is 70 earlier records plus three Kyoto additions; Osaka Museum booking was already part of the earlier 70 and is not counted again. The two expiry rows above are a prioritized view of existing queue entries, not two extra review records.
 
-All owners are **Unassigned** and all statuses are **Pending**: no queued field is marked fact-reviewed by this document. Repository owner **`araxis07`** is the existing escalation contact for assigning an actual issue owner, not an invented assignee or a claim of a staffed rota. Each accepted item needs an owner, due date, operator evidence and completion/blocked follow-up; follow the [editorial triage procedure](release-operations.md#feedback-and-editorial-triage).
+Human owners remain **Unassigned** and human review is **Pending**. Kiyomizu admission alone records **Codex content-research agent** source research completed for its limited existing policy, with ordinary-price follow-up still Pending; it does not claim native-language or human acceptance. The other queue fields remain Pending. Repository owner **`araxis07`** is the existing escalation contact for assigning an actual issue owner, not an invented assignee or a claim of a staffed rota. Each accepted item needs an owner, due date, operator evidence and completion/blocked follow-up; follow the [editorial triage procedure](release-operations.md#feedback-and-editorial-triage).
 
 | Review by (JST) | Field records |
 | --- | ---: |
@@ -33,9 +33,10 @@ All owners are **Unassigned** and all statuses are **Pending**: no queued field 
 | 2026-11-25 | 9 |
 | 2026-11-26 | 11 |
 | 2026-11-27 | 17 |
-| 2026-11-29 | 4 |
+| 2026-11-29 | 3 |
+| 2026-11-30 | 1 |
 
-Each field link below is the existing resolved provenance for that field, using its field-specific override, N/A source or record fallback. These links are review work items, not newly checked facts. “Source reviewed” is the existing data date, not a completion date for this Pending queue.
+Each field link below is the resolved provenance for that field, using its field-specific override, N/A source or record fallback. Except for the explicitly marked Kiyomizu admission recheck, these links are review work items, not newly checked facts. “Source reviewed” is a source-check date, not human acceptance of the Pending queue.
 
 | Review by (JST) | Stable place ID | Fields → existing source | Source reviewed | Owner | Status |
 | --- | --- | --- | --- | --- | --- |
@@ -75,9 +76,10 @@ Each field link below is the existing resolved provenance for that field, using 
 | 2026-11-27 | `pref:osaka:osaka-castle` | [hours](https://www.osakacastle.net/guide/), [admission](https://www.osakacastle.net/guide/), [booking](https://www.osakacastle.net/guide/) | 2026-10-28 | Unassigned | Pending |
 | 2026-11-27 | `pref:saga:yoshinogari-historical-park` | [hours](https://www.yoshinogari.jp/information/use/), [admission](https://www.yoshinogari.jp/information/use/) | 2026-10-28 | Unassigned | Pending |
 | 2026-11-27 | `pref:saitama:railway-museum` | [hours](https://www.railway-museum.jp/information/), [admission](https://www.railway-museum.jp/information/), [booking](https://www.railway-museum.jp/information/) | 2026-10-28 | Unassigned | Pending |
-| 2026-11-29 | `kiyomizu` | [admission](https://www.kiyomizudera.or.jp/faq/), [booking](https://www.kiyomizudera.or.jp/event/yakan.php) | 2026-10-30 | Unassigned | Pending |
+| 2026-11-29 | `kiyomizu` | [booking](https://www.kiyomizudera.or.jp/event/yakan.php) | 2026-10-30 | Unassigned | Pending |
 | 2026-11-29 | `kyoto-museum` | [booking](https://www.kyohaku.go.jp/eng/) | 2026-10-30 | Unassigned | Pending |
 | 2026-11-29 | `osaka-museum` | [booking](https://www.osakamushis.jp/eng/about/faq.html) | 2026-10-30 | Unassigned | Pending |
+| 2026-11-30 | `kiyomizu` | [admission](https://www.kiyomizudera.or.jp/faq/) | 2026-10-31 | Codex content-research agent (source only); human Unassigned | Limited-policy source research completed; ordinary price / native review Pending |
 
 ## Coverage and remaining acceptance
 

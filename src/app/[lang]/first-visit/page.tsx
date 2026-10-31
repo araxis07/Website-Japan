@@ -54,7 +54,12 @@ export default async function FirstVisit({ params }: Props) {
           </a>
         ))}
       </nav>
-      <ReadinessChecklist />
+      <ReadinessChecklist
+        steps={firstVisitSteps.map((step) => ({
+          id: step.id,
+          title: step.copy[lang].title,
+        }))}
+      />
       <TravelNotices />
       <details className="visit-details traveler-profiles">
         <summary>{dict.tools.practicalProfile}</summary>

@@ -1,4 +1,4 @@
-import { firstVisitSteps } from '@/data/first-visit'
+import { firstVisitHelp } from '@/data/first-visit-help'
 import { mapUrl } from '@/data/places'
 import type { Locale } from '@/i18n/config'
 import type { Dictionary } from '@/i18n/dictionaries'
@@ -49,9 +49,7 @@ export function offlineTrip(
     })
     .join(
       '',
-    )}${(trip.stays || []).map((stay) => `<p>${escape(stay.name)} · ${escape(stay.address || '')}: ${stay.from} (${tripDate(trip.startDate, stay.from)}) → ${stay.to} (${tripDate(trip.startDate, stay.to)})</p>`).join('')}<p>${escape(tools.travelers)}: ${trip.travelers || 1}</p>${budgetNote}${Object.keys(trip.budget || {}).length ? `<p>${escape(tools.total)}: ${new Intl.NumberFormat(lang, { style: 'currency', currency: 'JPY' }).format(Object.values(trip.budget || {}).reduce((a, b) => a + b, 0))}</p>` : ''}<section><h2>${escape(tools.emergency)}</h2>${firstVisitSteps
-    .find((step) => step.id === 'help')!
-    .copy[lang].items.map((text) => `<p>${escape(text)}</p>`)
+    )}${(trip.stays || []).map((stay) => `<p>${escape(stay.name)} · ${escape(stay.address || '')}: ${stay.from} (${tripDate(trip.startDate, stay.from)}) → ${stay.to} (${tripDate(trip.startDate, stay.to)})</p>`).join('')}<p>${escape(tools.travelers)}: ${trip.travelers || 1}</p>${budgetNote}${Object.keys(trip.budget || {}).length ? `<p>${escape(tools.total)}: ${new Intl.NumberFormat(lang, { style: 'currency', currency: 'JPY' }).format(Object.values(trip.budget || {}).reduce((a, b) => a + b, 0))}</p>` : ''}<section><h2>${escape(tools.emergency)}</h2>${firstVisitHelp.copy[lang].items.map((text) => `<p>${escape(text)}</p>`)
     .join(
       '',
     )}<a href="https://www.japan.travel/en/plan/emergencies/">JNTO</a></section></html>`

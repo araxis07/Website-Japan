@@ -1083,7 +1083,11 @@ textarea:focus-visible {
   margin: 0.25rem 0 0;
   font-weight: 600;
 }
-.trip-advanced > summary {
+.trip-advanced-toggle {
+  width: 100%;
+  color: var(--ink);
+  font: inherit;
+  text-align: left;
   min-height: 44px;
   padding: 0.65rem 0.9rem;
   border: 1px solid var(--line);
@@ -1160,7 +1164,7 @@ html[lang='th'] .place-search-results {
   }
 }
 @media print {
-  .trip-advanced > summary,
+  .trip-advanced-toggle,
   .trip-task-links,
   .personal-stop,
   .trip-directions details,

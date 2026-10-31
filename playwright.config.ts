@@ -23,7 +23,7 @@ export default defineConfig({
     {
       name: 'desktop-firefox',
       testMatch:
-        /(?:refinement|next-phase|trip-safety|design-balance|travel-reliability|next-direction|october-hardening|visitor-flow|planning-clarity)\.spec\.ts$/,
+        /(?:refinement|next-phase|trip-safety|design-balance|travel-reliability|next-direction|october-hardening|visitor-flow|planning-clarity|next-journey)\.spec\.ts$/,
       use: { ...devices['Desktop Firefox'] },
     },
   ],
