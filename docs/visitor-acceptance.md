@@ -2,6 +2,8 @@
 
 This checklist covers evidence that automated browser tests cannot establish. It extends [release operations](release-operations.md), including its privacy, editorial and rollback procedures. The October 30 [hardening results](hardening-2026-10-30.md) remain automated/local evidence; they do not complete any item below.
 
+The [November 1 trip-recovery and visit-date changes](november-journey-2026-11-01.md) add local regression evidence without completing these external checks. Include returning to an unsaved field and distinguishing event-period applicability from opening/booking confirmation in the next visitor session.
+
 All sessions use invented trip details. Do not collect real bookings, private backup files or personal coordinates. Record the tested commit, date, device/browser or calendar version, locale, outcome and a short redacted observation. Use **Passed**, **Failed**, **Blocked** or **Not Run**; name the remaining blocker when applicable.
 
 | Acceptance | Current status | Required reviewer | Smallest completion evidence |

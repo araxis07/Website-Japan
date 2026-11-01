@@ -34,6 +34,7 @@ export default function PersonalStop({ entry }: { entry?: TripEntry }) {
       <label key={field}>
         {labels[field]}
         <input
+          data-trip-field={`${prefix}:${field}`}
           type={coordinate ? 'number' : field === 'url' ? 'url' : 'text'}
           required={
             coordinate
@@ -52,9 +53,16 @@ export default function PersonalStop({ entry }: { entry?: TripEntry }) {
           }}
           onChange={(event) => {
             setError('')
+            if (event.target.value === savedValue(field)) {
+              setDraft(`${prefix}:${field}`, null)
+              return
+            }
             setDraft(`${prefix}:${field}`, {
               value: event.target.value,
-              label: labels[field],
+              label: `${labels[field]}: ${entry?.custom?.name || tools.addPersonal}`.slice(
+                0,
+                200,
+              ),
               ...(entry
                 ? {
                     original:

@@ -1016,6 +1016,14 @@ textarea:focus-visible {
   line-height: 1.7;
   overflow-wrap: anywhere;
 }
+.trip-approach small {
+  display: block;
+  color: var(--muted);
+}
+.trip-drafts li {
+  padding-block: 0.5rem;
+  overflow-wrap: anywhere;
+}
 .trip-directions label {
   display: grid;
   gap: 0.4rem;
@@ -1381,11 +1389,12 @@ html[lang='th'] .place-search-results {
     font-size: 0.85rem;
   }
   .explorer-page .page-intro {
-    padding-block: 0.5rem;
-    margin-block: 0.5rem;
+    padding-block: 0;
+    margin-block: 0;
   }
   .explorer-page .page-intro h1 {
     font-size: 2rem;
+    margin-block: 8px 12px;
   }
   .explorer-page .page-intro > p {
     margin-block: 0.5rem;
@@ -1431,6 +1440,6 @@ html[lang='th'] .place-search-results {
     gap: 0.5rem;
   }
   .explorer-page .explorer-toolbar {
-    margin-block: 0.75rem;
+    margin-block: 0.5rem;
   }
 }

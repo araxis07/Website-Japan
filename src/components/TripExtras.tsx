@@ -370,6 +370,7 @@ export default function TripExtras() {
           <label>
             {tools.fx}
             <select
+              data-trip-field="fx:currency"
               value={currency}
               onChange={(e) => editFx('currency', e.target.value, tools.fx)}
               aria-invalid={fxConflict || !validCurrency}
@@ -382,6 +383,7 @@ export default function TripExtras() {
           <label>
             {tools.fxRate}
             <input
+              data-trip-field="fx:rate"
               type="number"
               min="0.000001"
               max="1000000"
@@ -394,6 +396,7 @@ export default function TripExtras() {
           <label>
             {tools.fxDate}
             <input
+              data-trip-field="fx:date"
               type="date"
               value={date}
               onChange={(e) => editFx('date', e.target.value, tools.fxDate)}

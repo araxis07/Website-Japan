@@ -6,10 +6,16 @@ export default function ReadinessChecklist({
 }: {
   steps: { id: string; title: string }[]
 }) {
-  const { trip, ready, tools, copy, lang, change, drafts } = useTrip()
+  const { trip, ready, error, tools, copy, lang, change, drafts } = useTrip()
   return (
     <details className="readiness-checklist">
       <summary>{tools.checklist}</summary>
+      {ready && !trip && (
+        <p role="alert">
+          {error}{' '}
+          <Link href={`/${lang}/my-trip`}>{copy.plan} ↗</Link>
+        </p>
+      )}
       {Object.keys(drafts).length > 0 && (
         <p>
           {tools.checklistPendingHelp}{' '}
@@ -21,7 +27,7 @@ export default function ReadinessChecklist({
           {tools.checklistTrip}: {trip?.title || copy.title}
         </legend>
         <p>{tools.checklistHelp}</p>
-        <Link href={`/${lang}/my-trip`}>{copy.title} ↗</Link>
+        {trip && <Link href={`/${lang}/my-trip`}>{copy.title} ↗</Link>}
         {steps.map((step) => (
           <div key={step.id}>
             <label>

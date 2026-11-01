@@ -1,9 +1,12 @@
 'use client'
 import { useState } from 'react'
 import { mapUrl, type Place } from '@/data/places'
+import { visitFor } from '@/data/visit-details'
+import { tripDate } from '@/lib/trip'
 import { useTrip } from './TripProvider'
+import VisitFacts, { ApproachLink } from './VisitFacts'
 
-type Destination = Pick<Place, 'names' | 'address' | 'query' | 'destination'>
+type Destination = Pick<Place, 'id' | 'names' | 'address' | 'query' | 'destination'>
 export default function TripDirections({
   place,
   previous,
@@ -14,6 +17,8 @@ export default function TripDirections({
   day?: number
 }) {
   const { trip, tools, copy, lang } = useTrip()
+  const visit = visitFor(place)
+  const visitDate = tripDate(trip?.startDate, day || 0)
   const [selectedOrigin, setOrigin] = useState(previous ? 'previous' : 'device')
   const [address, setAddress] = useState('')
   const stays =
@@ -60,6 +65,16 @@ export default function TripDirections({
         {origin === 'previous' && previous ? `${previous.names[lang]} → ` : ''}
         {copy.directions} ↗
       </a>
+      <ApproachLink visit={visit} />
+      {visit?.fieldSources?.booking?.applicablePeriods && (
+        <details className="visit-details trip-booking">
+          <summary>
+            {tools.booking}
+            {visitDate && <> · <time dateTime={visitDate}>{visitDate}</time></>}
+          </summary>
+          <VisitFacts visit={visit} fields={['booking']} visitDate={visitDate} />
+        </details>
+      )}
       <details className="place-extra-actions">
         <summary>{tools.origin}</summary>
         <label>

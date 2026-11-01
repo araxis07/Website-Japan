@@ -188,7 +188,7 @@ test('shrinking a plan previews affected visits and keeps orphaned notes', async
   )
 })
 
-test('reviewed-information filters, spelling suggestions and map return retain context', async ({
+test('topic-note filters, spelling suggestions and map return retain context', async ({
   page,
 }) => {
   await page.goto('/en/explore?view=list')
@@ -196,7 +196,7 @@ test('reviewed-information filters, spelling suggestions and map return retain c
   for (const select of await page.locator('.explorer-filters select').all())
     expect((await select.boundingBox())!.height).toBeGreaterThanOrEqual(44)
   await page
-    .getByRole('combobox', { name: 'Published visitor information' })
+    .getByRole('combobox', { name: 'Has notes on this topic' })
     .selectOption('accessibility')
   await expect(page).toHaveURL(/info=accessibility/)
   await expect(page.locator('.place-search-results')).toContainText('Sensoji')

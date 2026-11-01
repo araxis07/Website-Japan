@@ -11,7 +11,7 @@ import type { Locale } from '@/i18n/config'
 import type { Dictionary } from '@/i18n/dictionaries'
 import SavePlace from './SavePlace'
 import ReportLink from './ReportLink'
-import VisitFacts from './VisitFacts'
+import VisitFacts, { ApproachLink } from './VisitFacts'
 import StreetMap from './StreetMap'
 import { visitFor, placeCategory } from '@/data/visit-details'
 import { useTripCopy } from './TripProvider'
@@ -86,6 +86,7 @@ export default function PlacesMap({
         <a className="button" href={mapUrl(selectedPlace, true)}>
           {mapCopy.route} ↗
         </a>
+        <ApproachLink visit={selectedVisit} />
         <button
           type="button"
           onClick={() => {
@@ -150,6 +151,7 @@ export default function PlacesMap({
                   </a>
                 )}
               </details>
+              <ApproachLink visit={visit} />
               <div className="map-links">
                 <a href={mapUrl(point, true)}>{mapCopy.route} ↗</a>
                 <details className="place-extra-actions">

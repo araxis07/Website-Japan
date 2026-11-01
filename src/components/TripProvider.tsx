@@ -1,5 +1,6 @@
 'use client'
 
+import { useRouter } from 'next/navigation'
 import {
   createContext,
   useContext,
@@ -71,6 +72,8 @@ type Context = {
   setDraft: typeof writeDraft
   beginEdit: (key: string, label: string) => void
   endEdit: () => void
+  draftTarget: string | null
+  clearDraftTarget: (missing?: boolean) => void
   downloadRaw: () => void
 }
 const TripContext = createContext<Context | null>(null)
@@ -98,6 +101,8 @@ export default function TripProvider({
   tools: Dictionary['tools']
   noticeAreaNames: Record<string, string>
 }) {
+  const router = useRouter()
+  const [draftTarget, setDraftTarget] = useState<string | null>(null)
   const staticCopy = useMemo(() => ({ lang, tools }), [lang, tools])
   const draftRaw = useSyncExternalStore(
     subscribeDrafts,
@@ -128,6 +133,15 @@ export default function TripProvider({
     message: '',
     sequence: 0,
   })
+  const clearDraftTarget = useCallback((missing = false) => {
+    setDraftTarget(null)
+    if (missing)
+      setFeedback((previous) => ({
+        error: tools.draftFieldMissing,
+        message: '',
+        sequence: previous.sequence + 1,
+      }))
+  }, [tools.draftFieldMissing])
   const [history, setHistory] = useState<{
     before: Trip
     after: string
@@ -229,6 +243,8 @@ export default function TripProvider({
         setDraft: writeDraft,
         beginEdit,
         endEdit,
+        draftTarget,
+        clearDraftTarget,
         downloadRaw: () => {
           if (raw !== null && raw !== 'unavailable')
             downloadTrip(raw, tripFilename('json'), 'application/json')
@@ -266,6 +282,16 @@ export default function TripProvider({
             {Object.entries(drafts).map(([key, draft]) => (
               <li key={key}>
                 {draft.label}
+                <button
+                  type="button"
+                  onClick={() => {
+                    setDraftTarget(key)
+                    const path = `/${lang}/my-trip`
+                    if (window.location.pathname !== path) router.push(path)
+                  }}
+                >
+                  {tools.returnToField}
+                </button>
                 <button type="button" onClick={() => writeDraft(key, null)}>
                   {tools.discardDraft}
                 </button>

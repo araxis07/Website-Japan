@@ -6,6 +6,7 @@ import { useTrip } from './TripProvider'
 export default function TripField({
   fieldKey,
   label,
+  draftLabel = label,
   value,
   save,
   type = 'text',
@@ -16,6 +17,7 @@ export default function TripField({
 }: {
   fieldKey: string
   label: string
+  draftLabel?: string
   value: string | number
   save: (value: string) => boolean
   type?: 'text' | 'number' | 'date' | 'time'
@@ -26,6 +28,7 @@ export default function TripField({
 }) {
   const { tools, drafts, setDraft: storeDraft, beginEdit, endEdit } = useTrip()
   const id = useId()
+  const editLabel = draftLabel.slice(0, 200)
   const rejected = drafts[fieldKey]
   const conflict =
     rejected?.original !== undefined && rejected.original !== String(value)
@@ -38,8 +41,9 @@ export default function TripField({
       : ''
   const props = {
     id,
+    'data-trip-field': fieldKey,
     value: rejected?.value ?? String(value),
-    onFocus: () => beginEdit(fieldKey, label),
+    onFocus: () => beginEdit(fieldKey, editLabel),
     onBlur: endEdit,
     maxLength,
     'aria-invalid': Boolean(issue),
@@ -50,7 +54,7 @@ export default function TripField({
       const next = event.target.value
       const draft = {
         value: next,
-        label,
+        label: editLabel,
         original: rejected?.original ?? String(value),
       }
       if (!event.target.validity.valid) {

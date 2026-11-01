@@ -43,6 +43,8 @@ export default function TripPlanner({
     downloadRaw,
     drafts,
     canUndo,
+    draftTarget,
+    clearDraftTarget,
   } = useTrip()
   const [viewDay, setViewDay] = useState('all')
   const [showEmpty, setShowEmpty] = useState(false)
@@ -55,6 +57,36 @@ export default function TripPlanner({
     heading?.focus({ preventScroll: true })
     heading?.scrollIntoView({ block: 'start' })
   }, [assignment])
+  useEffect(() => {
+    if (!draftTarget || !trip) return
+    const field = Array.from(
+      document.querySelectorAll<HTMLElement>('[data-trip-field]'),
+    ).find((element) => element.dataset.tripField === draftTarget)
+    if (!field) {
+      const frame = requestAnimationFrame(() => clearDraftTarget(true))
+      return () => cancelAnimationFrame(frame)
+    }
+    const day = field
+      .closest('.trip-day')
+      ?.getAttribute('aria-labelledby')
+      ?.slice('trip-day-'.length)
+    if (day !== undefined && viewDay !== day) {
+      const frame = requestAnimationFrame(() => setViewDay(day))
+      return () => cancelAnimationFrame(frame)
+    }
+    let parent = field.parentElement
+    while (parent) {
+      if (parent instanceof HTMLDetailsElement) parent.open = true
+      parent = parent.parentElement
+    }
+    const frame = requestAnimationFrame(() => {
+      if (!field.isConnected) return
+      field.focus({ preventScroll: true })
+      field.scrollIntoView({ block: 'center' })
+      clearDraftTarget(document.activeElement !== field)
+    })
+    return () => cancelAnimationFrame(frame)
+  }, [draftTarget, viewDay, trip, clearDraftTarget])
   if (!ready) return <p className="trip-loading">{copy.loading}</p>
   if (!trip)
     return (
@@ -74,6 +106,13 @@ export default function TripPlanner({
     )
   const dayLabel = (n: number) => formatDay(n, lang, copy.day)
   const days = tripDays(trip)
+  const effectiveViewDay = days.some((day) => String(day) === viewDay)
+    ? viewDay
+    : 'all'
+  const selectDay = (day: number) => {
+    setViewDay(String(day))
+    setAssignment({ day })
+  }
   // Explicit optional fields can belong to a saved or partially edited plan.
   const pristine =
     trip.items.length === 0 &&
@@ -159,6 +198,14 @@ export default function TripPlanner({
         )}
       </div>
       <nav className="trip-task-links" aria-label={copy.title}>
+        {trip.items.length > 0 && (
+          <a
+            href={`#trip-day-${trip.items[0].day}`}
+            onClick={() => selectDay(trip.items[0].day)}
+          >
+            {tools.editItinerary}
+          </a>
+        )}
         <a href="#trip-tools">{tools.editPlan}</a>
         {trip.items.length > 0 && (
           <a
@@ -196,16 +243,7 @@ export default function TripPlanner({
       )}
       <TravelNotices forTrip />
       {trip.items.length > 0 && (
-        <TripOverview
-          selectDay={(day) => {
-            setViewDay(String(day))
-            requestAnimationFrame(() => {
-              const heading = document.getElementById(`trip-day-${day}`)
-              heading?.focus()
-              heading?.scrollIntoView({ block: 'start' })
-            })
-          }}
-        />
+        <TripOverview selectDay={selectDay} />
       )}
       <div className="trip-advanced" id="trip-advanced" data-pristine={pristine}>
         <button
@@ -293,7 +331,10 @@ export default function TripPlanner({
           <div className="planner-view">
             <label>
               {tools.editDay}
-              <select value={viewDay} onChange={(e) => setViewDay(e.target.value)}>
+              <select
+                value={effectiveViewDay}
+                onChange={(e) => setViewDay(e.target.value)}
+              >
                 <option value="all">{tools.allDays}</option>
                 {days.map((day) => (
                   <option key={day} value={day}>
@@ -315,8 +356,8 @@ export default function TripPlanner({
             {days.map((day) => {
               const entries = trip.items.filter((item) => item.day === day)
               const hidden =
-                viewDay !== 'all'
-                  ? Number(viewDay) !== day
+                effectiveViewDay !== 'all'
+                  ? Number(effectiveViewDay) !== day
                   : !showEmpty &&
                     !entries.length &&
                     !trip.notes?.[day] &&
@@ -340,6 +381,7 @@ export default function TripPlanner({
                     <TripField
                       fieldKey={`day:${day}:notes`}
                       label={tools.notes}
+                      draftLabel={`${tools.notes} · ${day ? dayLabel(day) : copy.unplanned}`}
                       multiline
                       maxLength={1000}
                       value={trip.notes?.[day] || ''}
@@ -420,7 +462,8 @@ export default function TripPlanner({
                                   `${copy.updated} ${place.names[lang]} · ${day ? dayLabel(day) : copy.unplanned}`,
                                 )
                               ) {
-                                if (viewDay !== 'all') setViewDay(String(day))
+                                if (effectiveViewDay !== 'all')
+                                  setViewDay(String(day))
                                 setAssignment({ day })
                               }
                             }}
@@ -489,6 +532,7 @@ export default function TripPlanner({
                               <TripField
                                 fieldKey={`visit:${entryKey(entry)}:time`}
                                 label={`${tools.time}: ${place.names[lang]}`}
+                                draftLabel={`${tools.time}: ${place.names[lang]} · ${day ? dayLabel(day) : copy.unplanned}`}
                                 type="time"
                                 value={entry.time || ''}
                                 save={(time) => updateEntry(entry, { time })}
@@ -496,6 +540,7 @@ export default function TripPlanner({
                               <TripField
                                 fieldKey={`visit:${entryKey(entry)}:note`}
                                 label={`${tools.notes}: ${place.names[lang]}`}
+                                draftLabel={`${tools.notes}: ${place.names[lang]} · ${day ? dayLabel(day) : copy.unplanned}`}
                                 maxLength={500}
                                 value={entry.note || ''}
                                 save={(note) => updateEntry(entry, { note })}
@@ -505,6 +550,7 @@ export default function TripPlanner({
                                   key={key}
                                   fieldKey={`visit:${entryKey(entry)}:${key}`}
                                   label={`${tools[key]}: ${place.names[lang]}`}
+                                  draftLabel={`${tools[key]}: ${place.names[lang]} · ${day ? dayLabel(day) : copy.unplanned}`}
                                   type="number"
                                   min={0}
                                   max={1440}

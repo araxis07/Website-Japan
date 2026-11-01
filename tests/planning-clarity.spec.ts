@@ -68,6 +68,7 @@ test('event validity is inclusive and distinct from review age without changing 
     source: 'https://www.kyohaku.go.jp/eng/',
     reviewedAt: '2026-10-30',
     validThrough: '2026-11-29',
+    applicablePeriods: [{ from: '2026-10-06', through: '2026-11-29' }],
   })
   expect(fieldReview(museum, 'booking', '2026-11-29')).toMatchObject({
     status: 'reviewed',
@@ -111,7 +112,7 @@ test('resolved direction origins remain visible with the controls closed in ever
       '.trip-day[aria-labelledby="trip-day-2"] li[data-place-id="kiyomizu"] .trip-directions',
     )
     const summary = directions.locator('.trip-origin-summary')
-    const controls = directions.locator('details')
+    const controls = directions.locator('.place-extra-actions')
     const select = controls.getByRole('combobox')
     const link = directions.locator(':scope > a')
     await expect(summary).toBeVisible()
@@ -431,7 +432,7 @@ test('expired event claims, overdue checks and unknown facts remain distinct in 
     await expect(booking).toContainText(copy.tools.claimExpired)
     await expect(booking).toContainText(copy.tools.validThrough)
     await expect(booking.locator('time[datetime="2026-10-30"]')).toBeVisible()
-    await expect(booking.locator('time[datetime="2026-11-29"]')).toBeVisible()
+    await expect(booking.locator('.field-source time[datetime="2026-11-29"]')).toBeVisible()
     await expect(booking.locator('.field-source a')).toHaveAttribute(
       'href',
       'https://www.kyohaku.go.jp/eng/',

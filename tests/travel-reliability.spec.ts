@@ -124,7 +124,7 @@ test('hotel-change day offers checkout and tonight origins, excludes missing add
   const changingDay = page.locator(
     '.trip-day[aria-labelledby="trip-day-3"] .trip-directions',
   )
-  await openDetails(changingDay.locator('details'))
+  await openDetails(changingDay.locator('.place-extra-actions'))
   const origin = changingDay.getByRole('combobox')
   await expect(
     origin.getByRole('option', {
@@ -152,7 +152,7 @@ test('hotel-change day offers checkout and tonight origins, excludes missing add
   const nextDay = page.locator(
     '.trip-day[aria-labelledby="trip-day-4"] .trip-directions',
   )
-  await openDetails(nextDay.locator('details'))
+  await openDetails(nextDay.locator('.place-extra-actions'))
   await expect(nextDay.locator('option[value="stay:old"]')).toHaveCount(0)
   await expect(nextDay.locator('option[value="stay:new"]')).toHaveText(
     `${en.tools.originStay}: New hotel`,

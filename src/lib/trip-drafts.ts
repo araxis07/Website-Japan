@@ -5,6 +5,7 @@ export type Drafts = Record<
 >
 const key = 'japan-travel-drafts-v1'
 let memory: string | null = null
+let pendingPersistence = false
 export function readDrafts(raw: string): Drafts {
   try {
     if (raw.length > 1_000_000) return {}
@@ -42,13 +43,18 @@ export function draftSnapshot() {
   }
 }
 export function writeDraft(field: string, draft: Drafts[string] | null) {
-  const next = readDrafts(draftSnapshot())
+  const previous = draftSnapshot()
+  const next = readDrafts(previous)
   if (draft) next[field] = draft
   else delete next[field]
   memory = JSON.stringify(next)
+  // A matching in-memory value can still need persistence after a failed write.
+  if (memory === previous && !pendingPersistence) return
   try {
     sessionStorage.setItem(key, memory)
+    pendingPersistence = false
   } catch {
+    pendingPersistence = true
     /* beforeunload protects in-memory drafts */
   }
   window.dispatchEvent(new Event('trip-draft-change'))

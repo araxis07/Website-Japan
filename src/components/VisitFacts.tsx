@@ -1,6 +1,7 @@
 'use client'
 import { useSyncExternalStore } from 'react'
 import {
+  fieldApplicability,
   fieldReview,
   visitFields,
   visitSource,
@@ -13,12 +14,24 @@ const subscribe = (changed: () => void) => {
   const timer = setInterval(changed, 60000)
   return () => clearInterval(timer)
 }
+export function ApproachLink({ visit }: { visit: Visit | undefined }) {
+  const { lang } = useTripCopy()
+  if (!visit?.approach) return null
+  return (
+    <p className="trip-approach">
+      <a href={visit.approach.source}>{visit.approach.label[lang]} ↗</a>
+      <small>{visit.approach.note[lang]}</small>
+    </p>
+  )
+}
 export default function VisitFacts({
   visit,
   fields,
+  visitDate,
 }: {
   visit: Visit | undefined
   fields?: readonly VisitField[]
+  visitDate?: string
 }) {
   const { lang, tools } = useTripCopy()
   const date = useSyncExternalStore(subscribe, japanDate, () => '')
@@ -26,6 +39,7 @@ export default function VisitFacts({
     <dl className="visit-facts">
       {(fields ?? visitFields).map((field) => {
         const review = fieldReview(visit, field, date)
+        const applicability = fieldApplicability(visit, field, visitDate)
         const note =
           visit?.[field]?.[lang] || visit?.notApplicable?.[field]?.reason[lang]
         return (
@@ -33,6 +47,31 @@ export default function VisitFacts({
             <dt>{tools[field]}</dt>
             <dd>
               {note || tools.verify}
+              {applicability && visit && (
+                <p className="source-note" data-applicability={applicability}>
+                  {visitDate && applicability !== 'dateNeeded' && (
+                    <>
+                      <time dateTime={visitDate}>{visitDate}</time> ·{' '}
+                    </>
+                  )}
+                  {applicability === 'dateNeeded'
+                    ? tools.visitDateNeeded
+                    : applicability === 'inPeriod'
+                      ? tools.visitDateInPeriod
+                      : tools.visitDateOutsidePeriod}
+                  <br />
+                  {tools.eventPeriods}:{' '}
+                  {visitSource(visit, field).applicablePeriods!.map(
+                    ({ from, through }, index) => (
+                      <span key={from}>
+                        {index > 0 && '; '}
+                        <time dateTime={from}>{from}</time>–
+                        <time dateTime={through}>{through}</time>
+                      </span>
+                    ),
+                  )}
+                </p>
+              )}
               {note && visit && (
                 <small className="field-source">
                   <span>

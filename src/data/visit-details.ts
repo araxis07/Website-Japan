@@ -16,6 +16,7 @@ export type VisitSource = {
   reviewedAt: string
   // Inclusive Japan calendar date; this does not describe continuous opening.
   validThrough?: string
+  applicablePeriods?: { from: string; through: string }[]
 }
 export type Visit = {
   source: string
@@ -29,6 +30,7 @@ export type Visit = {
   booking?: Text
   fieldSources?: Partial<Record<VisitField, VisitSource>>
   minutes?: number
+  approach?: { source: string; label: Text; note: Text }
   notApplicable?: Partial<
     Record<VisitField, VisitSource & { reason: Text }>
   >
@@ -528,6 +530,19 @@ export const visitDetails: Record<string, Visit> = {
     source: 'https://www.kiyomizudera.or.jp/en/location/',
     reviewedAt: '2026-10-24',
     minutes: 120,
+    approach: {
+      source: 'https://www.kiyomizudera.or.jp/access.php',
+      label: {
+        en: 'Temple approach guide',
+        ja: '寺院の参道案内',
+        th: 'คู่มือเส้นทางเข้าของวัด',
+      },
+      note: {
+        en: 'The temple identifies the Kiyomizu-zaka/Nio-mon and Chawan-zaka/emergency-road approaches. A map app may suggest a route that does not enter the grounds.',
+        ja: '清水坂・仁王門と茶わん坂・防災道路からの2経路を寺院が案内しています。地図アプリでは境内に入れない経路が表示される場合があります。',
+        th: 'วัดระบุเส้นทาง Kiyomizu-zaka/ประตู Nio-mon และ Chawan-zaka/ถนนฉุกเฉิน แอปแผนที่อาจแนะนำเส้นทางที่เข้าบริเวณวัดไม่ได้',
+      },
+    },
     access: {
       en: 'Allow about 25 minutes on foot from Keihan Kiyomizu-Gojo. The temple lists only two approaches: Kiyomizu-zaka to Nio-mon, or Chawan-zaka to the emergency road entrance. Map apps may suggest routes that do not enter the grounds.',
       ja: '京阪清水五条駅から徒歩約25分。境内への経路は清水坂を上り仁王門前から入る道と、茶わん坂を上り防災道路から入る道の2つのみです。地図アプリが入山できない経路を示す場合があります。',
@@ -571,6 +586,11 @@ export const visitDetails: Record<string, Visit> = {
         source: 'https://www.kiyomizudera.or.jp/event/yakan.php',
         reviewedAt: '2026-10-30',
         validThrough: '2026-11-30',
+        applicablePeriods: [
+          { from: '2026-03-27', through: '2026-04-05' },
+          { from: '2026-08-14', through: '2026-08-16' },
+          { from: '2026-11-21', through: '2026-11-30' },
+        ],
       },
       entrance: {
         source: 'https://www.kiyomizudera.or.jp/en/faq/',
@@ -647,6 +667,19 @@ export const visitDetails: Record<string, Visit> = {
     infoSource: 'https://www.kyohaku.go.jp/eng/visit/info/',
     reviewedAt: '2026-10-24',
     minutes: 120,
+    approach: {
+      source: 'https://www.kyohaku.go.jp/jp/assets/visit/access/bus-map.pdf',
+      label: {
+        en: 'Bus-arrival map (PDF)',
+        ja: 'バス乗降案内図（PDF）',
+        th: 'แผนผังจุดรับส่งรถบัส (PDF)',
+      },
+      note: {
+        en: 'For bus arrivals: visitors cannot enter at the West Gate and must continue on foot to the South Gate. This map does not verify a station-to-gate step-free route.',
+        ja: 'バス乗降時の案内です。西門からは入館できず、南門まで徒歩で移動します。駅から南門までの段差のない経路を確認した地図ではありません。',
+        th: 'สำหรับผู้มาทางรถบัส: เข้าทาง West Gate ไม่ได้ ต้องเดินต่อไป South Gate แผนผังนี้ไม่ได้ยืนยันเส้นทางไร้ขั้นบันไดจากสถานีถึงประตู',
+      },
+    },
     access: {
       en: 'Walk east along Shichijo Street for about seven minutes from Keihan Shichijo Station.',
       ja: '京阪七条駅から七条通を東へ徒歩約7分。',
@@ -682,6 +715,9 @@ export const visitDetails: Record<string, Visit> = {
         source: 'https://www.kyohaku.go.jp/eng/',
         reviewedAt: '2026-10-30',
         validThrough: '2026-11-29',
+        applicablePeriods: [
+          { from: '2026-10-06', through: '2026-11-29' },
+        ],
       },
       hours: {
         source: 'https://www.kyohaku.go.jp/eng/visit/info/',
@@ -838,7 +874,7 @@ export const visitDetails: Record<string, Visit> = {
     },
   },
 }
-export function visitFor(place: Place) {
+export function visitFor(place: Pick<Place, 'id'>) {
   return visitDetails[canonicalPlaceId(place.id)]
 }
 export const placeCategory = (place: Place) => place.category
@@ -866,6 +902,28 @@ export const reviewDays: Record<VisitField, number> = {
   admission: 30,
   booking: 30,
   accessibility: 90,
+}
+
+export function fieldApplicability(
+  visit: Visit | undefined,
+  field: VisitField,
+  visitDate?: string,
+) {
+  if (!visit || (!visit[field] && !visit.notApplicable?.[field])) return
+  const periods = visitSource(visit, field).applicablePeriods
+  if (!periods?.length) return
+  if (
+    !visitDate ||
+    !/^\d{4}-\d{2}-\d{2}$/.test(visitDate) ||
+    !Number.isFinite(Date.parse(`${visitDate}T12:00:00Z`)) ||
+    new Date(`${visitDate}T12:00:00Z`).toISOString().slice(0, 10) !== visitDate
+  )
+    return 'dateNeeded' as const
+  return periods.some(
+    ({ from, through }) => from <= visitDate && visitDate <= through,
+  )
+    ? ('inPeriod' as const)
+    : ('outsidePeriod' as const)
 }
 
 export function fieldReview(
