@@ -3,18 +3,34 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { journeys } from '@/data/journeys'
 import type { Dictionary } from '@/i18n/dictionaries'
 import type { Locale } from '@/i18n/config'
 import Icon from './Icon'
 import ApplyPlan from './ApplyPlan'
 
+type Journey = {
+  days: number
+  image: string
+  title: string
+  text: string
+  transport: string
+  stops: {
+    slug: string
+    days: number
+    startDay: number
+    title: string
+    text: string
+  }[]
+}
+
 export default function Journeys({
-  dict,
+  copy,
   lang,
+  journeys,
 }: {
-  dict: Dictionary
+  copy: Dictionary['journeys']
   lang: Locale
+  journeys: Journey[]
 }) {
   const [selected, setSelected] = useState(0)
   const journey = journeys[selected]
@@ -30,13 +46,13 @@ export default function Journeys({
             <p className="section-japanese" lang="ja" aria-hidden="true">
               旅のしおり
             </p>
-            <h2 id="journeys-title">{dict.journeys.title}</h2>
-            <p>{dict.journeys.subtitle}</p>
+            <h2 id="journeys-title">{copy.title}</h2>
+            <p>{copy.subtitle}</p>
           </div>
           <div
             className="journey-tabs"
             role="group"
-            aria-label={dict.journeys.label}
+            aria-label={copy.label}
           >
             {journeys.map((item, index) => (
               <button
@@ -46,7 +62,7 @@ export default function Journeys({
                 onClick={() => setSelected(index)}
               >
                 {item.days}
-                <span>{dict.journeys.days}</span>
+                <span>{copy.days}</span>
               </button>
             ))}
           </div>
@@ -62,42 +78,38 @@ export default function Journeys({
               />
               <span className="journey-ticket">
                 {journey.days}
-                <small>{dict.journeys.days}</small>
+                <small>{copy.days}</small>
               </span>
             </div>
             <div className="journey-description">
-              <h3>{journey[lang].title}</h3>
-              <p>{journey[lang].text}</p>
+              <h3>{journey.title}</h3>
+              <p>{journey.text}</p>
               <div className="journey-transport">
                 <Icon name="train" />
                 <p>
-                  <strong>{dict.journeys.transport}</strong>
-                  {journey[lang].transport}
+                  <strong>{copy.transport}</strong>
+                  {journey.transport}
                 </p>
               </div>
             </div>
           </div>
-          <ol className="journey-route" aria-label={journey[lang].title}>
-            {journey.stops.map((stop, index) => {
-              const start =
-                1 +
-                journey.stops
-                  .slice(0, index)
-                  .reduce((total, item) => total + item.days, 0)
+          <ol className="journey-route" aria-label={journey.title}>
+            {journey.stops.map((stop) => {
+              const start = stop.startDay
               const range = `${start}${stop.days > 1 ? `–${start + stop.days - 1}` : ''}`
               return (
                 <li key={stop.slug}>
                   <span className="route-dot" aria-hidden="true" />
                   <span className="route-days">
                     {lang !== 'ja'
-                      ? `${dict.journeys.day} ${range}`
-                      : `${range}${dict.journeys.day}`}
+                      ? `${copy.day} ${range}`
+                      : `${range}${copy.day}`}
                   </span>
                   <Link href={`/${lang}/destinations/${stop.slug}`}>
-                    <h4>{stop[lang].title}</h4>
+                    <h4>{stop.title}</h4>
                     <Icon name="arrow" />
                   </Link>
-                  <p>{stop[lang].text}</p>
+                  <p>{stop.text}</p>
                 </li>
               )
             })}
@@ -105,16 +117,12 @@ export default function Journeys({
         </div>
         <ApplyPlan
           days={journey.days}
-          entries={journey.stops.map((stop, index) => ({
+          entries={journey.stops.map((stop) => ({
             id: `destination:${stop.slug}`,
-            day:
-              1 +
-              journey.stops
-                .slice(0, index)
-                .reduce((sum, previous) => sum + previous.days, 0),
+            day: stop.startDay,
           }))}
         />
-        <p className="source-note journey-note">{dict.journeys.note}</p>
+        <p className="source-note journey-note">{copy.note}</p>
       </div>
     </section>
   )

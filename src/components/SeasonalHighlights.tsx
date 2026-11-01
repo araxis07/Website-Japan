@@ -9,10 +9,12 @@ import type { Dictionary } from '@/i18n/dictionaries'
 import Icon from './Icon'
 
 export default function SeasonalHighlights({
-  dict,
+  copy,
+  typicalSeason,
   lang,
 }: {
-  dict: Dictionary
+  copy: Dictionary['seasons']
+  typicalSeason: Dictionary['tools']['typicalSeason']
   lang: Locale
 }) {
   const [selected, setSelected] = useState(2)
@@ -28,14 +30,14 @@ export default function SeasonalHighlights({
           <p className="section-japanese" lang="ja" aria-hidden="true">
             四季を旅する
           </p>
-          <h2 id="seasons-title">{dict.seasons.title}</h2>
-          <p>{dict.seasons.subtitle}</p>
+          <h2 id="seasons-title">{copy.title}</h2>
+          <p>{copy.subtitle}</p>
         </div>
       </div>
       <div
         className="season-tabs"
         role="tablist"
-        aria-label={dict.seasons.label}
+        aria-label={copy.label}
       >
         {seasons.map((season, index) => (
           <button
@@ -104,7 +106,7 @@ export default function SeasonalHighlights({
               className="text-link"
               href={`/${lang}/destinations/${season.slug}`}
             >
-              {dict.seasons.explore} {season[lang].destination}
+              {copy.explore} {season[lang].destination}
               <Icon name="arrow" />
             </Link>
           </div>
@@ -112,10 +114,10 @@ export default function SeasonalHighlights({
       ))}
       <div className="season-footnote">
         <p>
-          {dict.seasons.note} {dict.tools.typicalSeason}
+          {copy.note} {typicalSeason}
         </p>
         <a href="https://www.japan.travel/en/plan/weather/">
-          {dict.seasons.source}
+          {copy.source}
           <Icon name="external" />
         </a>
       </div>

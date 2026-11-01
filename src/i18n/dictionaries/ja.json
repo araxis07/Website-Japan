@@ -696,6 +696,10 @@
     "visitDateInPeriod": "訪問日は対象イベントの期間内です。開館日・時間は別途確認してください。予約の確定を示すものではありません。",
     "visitDateOutsidePeriod": "この案内は訪問日を対象としていません。施設の休業や予約が必要であることを示すものではありません。",
     "claimExpired": "対象期間は終了しました。現在の条件は公式情報を確認してください。",
+    "offlineSnapshotGenerated": "オフライン版の作成日（日本時間）",
+    "offlineSnapshotHelp": "このファイルは保存時点の内容です。案内やイベントの日付は自動更新されません。旅行前に公式情報を確認してください。",
+    "kyotoCityScope": "このページの{count}か所を追加します。府のプランには伏見稲荷大社も含まれます。",
+    "kyotoPrefecturePlan": "京都府のプランを見る",
     "validThrough": "対象期間の終了日"
   }
 }

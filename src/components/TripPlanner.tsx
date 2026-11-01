@@ -585,8 +585,8 @@ export default function TripPlanner({
                               <button
                                 type="button"
                                 aria-label={`${tools.repeat}: ${place.names[lang]}`}
-                                onClick={() =>
-                                  change(
+                                onClick={() => {
+                                  const added = change(
                                     (current) => ({
                                       ...current,
                                       items: [
@@ -603,7 +603,8 @@ export default function TripPlanner({
                                     }),
                                     copy.added,
                                   )
-                                }
+                                  if (added) selectDay(0)
+                                }}
                               >
                                 {tools.repeat}
                               </button>
@@ -642,7 +643,7 @@ export default function TripPlanner({
           </div>
         </div>
       </div>
-      <PersonalStop />
+      <PersonalStop onAdded={() => selectDay(0)} />
       <TripTools />
       <p className="planner-note">
         {tools.timingHelp} {copy.note}

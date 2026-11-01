@@ -4,6 +4,8 @@ This checklist covers evidence that automated browser tests cannot establish. It
 
 The [November 1 trip-recovery and visit-date changes](november-journey-2026-11-01.md) add local regression evidence without completing these external checks. Include returning to an unsaved field and distinguishing event-period applicability from opening/booking confirmation in the next visitor session.
 
+The [November 2 follow-through changes](november-follow-through-2026-11-02.md) add creation handoff, focus-safe feedback and Kyoto offline snapshots. Include finding a newly added visit while filtering a day, using Undo without losing focus, and explaining saved snapshot dates versus travel dates in the same external tasks; their status remains Not Run.
+
 All sessions use invented trip details. Do not collect real bookings, private backup files or personal coordinates. Record the tested commit, date, device/browser or calendar version, locale, outcome and a short redacted observation. Use **Passed**, **Failed**, **Blocked** or **Not Run**; name the remaining blocker when applicable.
 
 | Acceptance | Current status | Required reviewer | Smallest completion evidence |

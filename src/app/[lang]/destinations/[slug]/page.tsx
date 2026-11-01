@@ -65,6 +65,7 @@ export default async function DestinationPage({ params }: Props) {
   const notes = destinationNotes[slug][lang]
   const guide = guides[slug]
   const practical = guide[lang]
+  const citySpots = spots.filter((spot) => spot.destination === slug)
   const dict = await getDictionary(lang)
   const schema = generateBreadcrumbSchema(lang, { name: copy.name, slug })
   return (
@@ -122,11 +123,17 @@ export default async function DestinationPage({ params }: Props) {
           </Link>
         </div>
       </section>
+      {slug === 'kyoto' && (
+        <p className="source-note kyoto-plan-scope">
+          {dict.tools.kyotoCityScope.replace('{count}', String(citySpots.length))}{' '}
+          <Link href={`/${lang}/prefectures/kyoto#suggested-plan`}>
+            {dict.tools.kyotoPrefecturePlan} ↗
+          </Link>
+        </p>
+      )}
       <ApplyPlan
         days={2}
-        entries={spots
-          .filter((p) => p.destination === slug)
-          .map((p, i) => ({ id: p.id, day: i < 2 ? 1 : 2 }))}
+        entries={citySpots.map((p, i) => ({ id: p.id, day: i < 2 ? 1 : 2 }))}
       />
       <nav className="guide-toc" aria-label={dict.guide.toc}>
         <span>{dict.guide.toc}</span>
@@ -223,7 +230,7 @@ export default async function DestinationPage({ params }: Props) {
       >
         <h2 id="places-title">{dict.guide.spots}</h2>
         <PlacesMap
-          points={spots.filter((spot) => spot.destination === slug)}
+          points={citySpots}
           mapCopy={dict.streetMap}
           lang={lang}
           fallbackSource={

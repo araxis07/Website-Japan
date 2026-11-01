@@ -10,10 +10,10 @@ import SavePlace from './SavePlace'
 import Icon from './Icon'
 
 export default function FeaturedDestinations({
-  dict,
+  labels,
   lang,
 }: {
-  dict: Dictionary
+  labels: Dictionary['destinations']
   lang: Locale
 }) {
   const [category, setCategory] = useState<Category>('all')
@@ -23,7 +23,7 @@ export default function FeaturedDestinations({
     const copy = place[lang]
     return (
       (category === 'all' || place.category === category) &&
-      `${copy.name} ${copy.region} ${copy.description} ${dict.destinations[place.category]} ${place.en.name} ${place.th.name} ${place.japanese}`
+      `${copy.name} ${copy.region} ${copy.description} ${labels[place.category]} ${place.en.name} ${place.th.name} ${place.japanese}`
         .toLocaleLowerCase(lang)
         .includes(search)
     )
@@ -40,15 +40,15 @@ export default function FeaturedDestinations({
           <p className="section-japanese" lang="ja" aria-hidden="true">
             旅先を見つける
           </p>
-          <h2 id="destinations-title">{dict.destinations.title}</h2>
-          <p>{dict.destinations.subtitle}</p>
+          <h2 id="destinations-title">{labels.title}</h2>
+          <p>{labels.subtitle}</p>
         </div>
         <span className="section-stamp" aria-hidden="true">
           旅
         </span>
       </div>
       <div className="discovery-toolbar">
-        <div className="filters" role="group" aria-label={dict.destinations.title}>
+        <div className="filters" role="group" aria-label={labels.title}>
           {categories.map((item) => (
             <button
               key={item}
@@ -56,26 +56,26 @@ export default function FeaturedDestinations({
               aria-pressed={category === item}
               onClick={() => setCategory(item)}
             >
-              {dict.destinations[item]}
+              {labels[item]}
             </button>
           ))}
         </div>
         <div className="search-field">
           <Icon name="search" />
           <label className="sr-only" htmlFor="destination-search">
-            {dict.destinations.search}
+            {labels.search}
           </label>
           <input
             id="destination-search"
             type="search"
             value={query}
             onChange={(event) => setQuery(event.target.value)}
-            placeholder={dict.destinations.placeholder}
+            placeholder={labels.placeholder}
           />
         </div>
       </div>
       <p className="results-count" role="status">
-        {places.length} {dict.destinations.results}
+        {places.length} {labels.results}
       </p>
       <div className="destination-grid">
         {places.map((place) => {
@@ -90,7 +90,7 @@ export default function FeaturedDestinations({
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 960px) 50vw, 33vw"
                   />
-                  <span className="photo-tag">{dict.destinations[place.category]}</span>
+                  <span className="photo-tag">{labels[place.category]}</span>
                   <span className="photo-japanese" lang="ja" aria-hidden="true">
                     {place.japanese}
                   </span>
@@ -116,7 +116,7 @@ export default function FeaturedDestinations({
       </div>
       {places.length === 0 && (
         <div className="empty-state">
-          <p>{dict.destinations.empty}</p>
+          <p>{labels.empty}</p>
           <button
             className="button"
             type="button"
@@ -125,7 +125,7 @@ export default function FeaturedDestinations({
               setCategory('all')
             }}
           >
-            {dict.destinations.reset}
+            {labels.reset}
           </button>
         </div>
       )}

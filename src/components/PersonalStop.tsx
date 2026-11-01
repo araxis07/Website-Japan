@@ -3,7 +3,13 @@ import { useTrip } from './TripProvider'
 import { useState } from 'react'
 import { tripId, type TripEntry } from '@/lib/trip'
 
-export default function PersonalStop({ entry }: { entry?: TripEntry }) {
+export default function PersonalStop({
+  entry,
+  onAdded,
+}: {
+  entry?: TripEntry
+  onAdded?: () => void
+}) {
   const { trip, tools, copy, change, drafts, setDraft } = useTrip()
   const [error, setError] = useState('')
   if (!trip) return null
@@ -139,8 +145,10 @@ export default function PersonalStop({ entry }: { entry?: TripEntry }) {
               entry ? copy.updated : copy.added,
               JSON.stringify(trip),
             )
-          )
+          ) {
             clearDrafts()
+            if (!entry) onAdded?.()
+          }
         }}
       >
         {error && <p role="alert">{error}</p>}

@@ -2781,20 +2781,19 @@ html[data-theme='dark'] .save-button[aria-pressed='true'] {
   padding: 12px 24px;
   border-radius: 6px;
   pointer-events: auto;
-  animation: trip-notice 5s both;
+  animation: trip-notice 0.2s both;
   max-width: calc(100% - 32px);
 }
 @keyframes trip-notice {
-  0% {
+  from {
     opacity: 0;
   }
-  8%,
-  85% {
+  to {
     opacity: 1;
   }
-  100% {
-    opacity: 0;
-  }
+}
+html[data-motion='still'] .trip-feedback {
+  animation: none;
 }
 .trip-error-toast {
   position: fixed;

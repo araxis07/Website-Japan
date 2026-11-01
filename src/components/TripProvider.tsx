@@ -133,6 +133,7 @@ export default function TripProvider({
     message: '',
     sequence: 0,
   })
+  const feedbackPanel = useRef<HTMLDivElement>(null)
   const clearDraftTarget = useCallback((missing = false) => {
     setDraftTarget(null)
     if (missing)
@@ -170,12 +171,28 @@ export default function TripProvider({
       sequence: previous.sequence + 1,
     }))
   useEffect(() => {
-    if (!feedback.message) return
-    const timer = window.setTimeout(
-      () => setFeedback((previous) => ({ ...previous, message: '' })),
-      5000,
-    )
-    return () => window.clearTimeout(timer)
+    const panel = feedbackPanel.current
+    if (!feedback.message || !panel) return
+    let timer: number | undefined
+    const restart = () => {
+      window.clearTimeout(timer)
+      if (panel.matches(':hover, :focus-within')) return
+      timer = window.setTimeout(() => {
+        if (panel.matches(':hover, :focus-within')) return
+        setFeedback((previous) =>
+          previous.sequence === feedback.sequence
+            ? { ...previous, message: '' }
+            : previous,
+        )
+      }, 5000)
+    }
+    const events = ['pointerenter', 'pointerleave', 'focusin', 'focusout'] as const
+    events.forEach((event) => panel.addEventListener(event, restart))
+    restart()
+    return () => {
+      window.clearTimeout(timer)
+      events.forEach((event) => panel.removeEventListener(event, restart))
+    }
   }, [feedback.message, feedback.sequence])
   const persist = (next: Trip, message: string) => {
     const validated = parseTrip(JSON.stringify(next))
@@ -300,8 +317,8 @@ export default function TripProvider({
           </ul>
         </details>
       )}
-      <div className="trip-feedback" role="status" key={feedback.sequence}>
-        {feedback.message}
+      <div className="trip-feedback" role="status" ref={feedbackPanel}>
+        {feedback.message && <span key={feedback.sequence}>{feedback.message}</span>}
         {feedback.message && history && (
           <button type="button" onClick={undo}>
             {tools.undo}

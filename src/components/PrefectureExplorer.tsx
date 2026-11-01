@@ -50,6 +50,7 @@ export default function PrefectureExplorer({
   const suffix = usePageLocation()
   const params = new URLSearchParams(suffix.split('#')[0])
   const query = (params.get('q') || '').slice(0, 120)
+  const normalizedQuery = useMemo(() => normalizeSearch(query.trim()), [query])
   const region = regions.some((r) => r.id === params.get('region'))
     ? params.get('region')!
     : 'all'
@@ -81,11 +82,12 @@ export default function PrefectureExplorer({
                 (visitFor(place)?.[information] ||
                   visitFor(place)?.notApplicable?.[information]),
             )) &&
-          normalizeSearch(
-            `${Object.values(p.names).join(' ')} ${p.summary} ${p.keywords} ${p.places.map(placeSearchText).join(' ')}`,
-          ).includes(normalizeSearch(query.trim())),
+          (!normalizedQuery ||
+            normalizeSearch(
+              `${Object.values(p.names).join(' ')} ${p.summary} ${p.keywords} ${p.places.map(placeSearchText).join(' ')}`,
+            ).includes(normalizedQuery)),
       ),
-    [entries, region, query, category, information],
+    [entries, region, normalizedQuery, category, information],
   )
   const foundPlaces = useMemo(
     () =>
@@ -99,19 +101,19 @@ export default function PrefectureExplorer({
                 visitFor(place)?.[information] ||
                 visitFor(place)?.notApplicable?.[information],
               )) &&
-            (!query.trim() ||
+            (!normalizedQuery ||
               normalizeSearch(placeSearchText(place)).includes(
-                normalizeSearch(query.trim()),
+                normalizedQuery,
               ) ||
               filtered.some(
                 (p) =>
                   p.places.includes(place) &&
                   normalizeSearch(
                     Object.values(p.names).join(' ') + p.keywords,
-                  ).includes(normalizeSearch(query.trim())),
+                  ).includes(normalizedQuery),
               )),
         ),
-    [filtered, category, query, information],
+    [filtered, category, normalizedQuery, information],
   )
   const pageCount = Math.max(
     1,

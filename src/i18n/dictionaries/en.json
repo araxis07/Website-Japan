@@ -696,6 +696,10 @@
     "visitDateInPeriod": "This date is within the named event period. Check opening days and times; this does not confirm a booking.",
     "visitDateOutsidePeriod": "This note does not cover this date. It does not mean the venue is closed or reservations are required.",
     "claimExpired": "This event period has ended. Check the current requirements.",
+    "offlineSnapshotGenerated": "Offline snapshot generated (Japan date)",
+    "offlineSnapshotHelp": "This file is a saved snapshot. Guide notes and event dates do not update automatically; check official sources before travelling.",
+    "kyotoCityScope": "This selection adds {count} places from this guide. The prefecture plan also includes Fushimi Inari.",
+    "kyotoPrefecturePlan": "See Kyoto prefecture plan",
     "validThrough": "Applies through"
   }
 }

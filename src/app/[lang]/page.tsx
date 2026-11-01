@@ -8,6 +8,7 @@ import RegionsList from '@/components/RegionsList'
 import SeasonalHighlights from '@/components/SeasonalHighlights'
 import Experiences from '@/components/Experiences'
 import Journeys from '@/components/Journeys'
+import { journeys } from '@/data/journeys'
 import TravelPlanning from '@/components/TravelPlanning'
 import { getDictionary } from '@/i18n/dictionaries'
 import { isLocale, ogLocales } from '@/i18n/config'
@@ -91,8 +92,26 @@ export default async function LocalePage({
           </div>
         </div>
       </div>
-      <FeaturedDestinations dict={dict} lang={lang} />
-      <Journeys dict={dict} lang={lang} />
+      <FeaturedDestinations labels={dict.destinations} lang={lang} />
+      <Journeys
+        copy={dict.journeys}
+        lang={lang}
+        journeys={journeys.map((journey) => ({
+          days: journey.days,
+          image: journey.image,
+          ...journey[lang],
+          stops: journey.stops.map((stop, index) => ({
+            slug: stop.slug,
+            days: stop.days,
+            startDay:
+              1 +
+              journey.stops
+                .slice(0, index)
+                .reduce((total, previous) => total + previous.days, 0),
+            ...stop[lang],
+          })),
+        }))}
+      />
       <DestinationMap
         copy={dict.map}
         mapCopy={dict.streetMap}
@@ -103,7 +122,11 @@ export default async function LocalePage({
         <summary>{dict.tools.homeMore}</summary>
         <Experiences dict={dict} lang={lang} />
         <RegionsList dict={dict} lang={lang} />
-        <SeasonalHighlights dict={dict} lang={lang} />
+        <SeasonalHighlights
+          copy={dict.seasons}
+          typicalSeason={dict.tools.typicalSeason}
+          lang={lang}
+        />
         <TravelPlanning dict={dict} />
       </details>
     </main>

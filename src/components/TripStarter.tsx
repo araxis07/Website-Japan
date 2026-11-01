@@ -33,7 +33,7 @@ export default function TripStarter() {
             value={base}
             onChange={(e) => setBase(e.target.value as keyof typeof plans)}
           >
-            {(['tokyo', 'osaka', 'hokkaido', 'okinawa'] as const).map((id) => (
+            {(['tokyo', 'kyoto', 'osaka', 'hokkaido', 'okinawa'] as const).map((id) => (
               <option key={id} value={id}>
                 {places.find((p) => p.id === `destination:${id}`)!.names[lang]}
               </option>
