@@ -12,7 +12,7 @@ An independent Japan travel guide with practical advice, interactive maps and pe
 - JSON backup/import, offline HTML, calendar export and print/PDF.
 - Japanese-inspired light/dark themes, on-demand 3D scenery and motion controls.
 
-Built with **Next.js 16, React 19, TypeScript, Leaflet and Three.js**. No database or API key is required for local use.
+Built with **Next.js 16, React 19, TypeScript, Leaflet and Three.js**. No backend or API key is required for local use.
 
 ## Run locally
 
@@ -50,6 +50,8 @@ Maps use [OpenStreetMap](https://www.openstreetmap.org/copyright) tiles and requ
 
 ## Trip data and travel information
 
+Saving requires HTTPS (or localhost) and a browser with Web Locks and IndexedDB support. Trip and saved-copy writes use browser-local consistency checkpoints coordinated across tabs; reload tabs from older releases before editing.
+
 Plans stay in the current browser; there is no account or cloud sync. Clearing site data removes them, so download a JSON backup to keep a separate copy. Full backups can contain private notes, accommodation and personal coordinates; redacted JSON/HTML exports are also available.
 
 Map pins are reference locations, not verified entrances. Venue details link to official sources and review dates; missing information remains marked as unverified.
@@ -67,6 +69,6 @@ Keep translation keys aligned, preserve stable place IDs, and update only facts 
 
 - [Release setup, content review and privacy](docs/release-operations.md)
 - [Team ownership and development roadmap](docs/roadmap-2026-10-29.md)
-- [Latest UX, offline guidance, performance and security results](docs/november-follow-through-2026-11-02.md)
+- [Latest discovery, content, storage and security results](docs/november-next-steps-2026-11-03.md)
 
 This project is not affiliated with JNTO.

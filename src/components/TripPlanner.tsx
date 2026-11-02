@@ -30,7 +30,7 @@ export default function TripPlanner({
 }: {
   mapCopy: Dictionary['streetMap']
 }) {
-  const {
+  const { writing,
     trip,
     ready,
     error,
@@ -94,10 +94,10 @@ export default function TripPlanner({
         <p>{error}</p>
         {canReset && (
           <>
-            <button className="button" type="button" onClick={downloadRaw}>
+            <button className="button" type="button" onClick={downloadRaw} disabled={writing}>
               {tools.rawBackup}
             </button>
-            <button className="button" type="button" onClick={reset}>
+            <button className="button" type="button" onClick={reset} disabled={writing}>
               {copy.reset}
             </button>
           </>
@@ -139,9 +139,9 @@ export default function TripPlanner({
       message,
       JSON.stringify(trip),
     )
-  const applyDays = (days: number) => {
+  const applyDays = async (days: number) => {
     if (
-      change(
+      await change(
         (current) => ({
           ...current,
           days,
@@ -252,7 +252,7 @@ export default function TripPlanner({
           hidden={!pristine}
           aria-expanded={!pristine || advancedOpen}
           aria-controls="trip-advanced-content"
-          onClick={() => setAdvancedOpen((open) => !open)}
+          onClick={() => setAdvancedOpen((open) => !open)} disabled={writing}
         >
           <span aria-hidden="true">{advancedOpen ? '▾' : '▸'}</span>{' '}
           {tools.advancedPlan}
@@ -277,7 +277,7 @@ export default function TripPlanner({
                     return
                   }
                   applyDays(days)
-                }}
+                }} disabled={writing}
               >
                 {Array.from({ length: 30 }, (_, i) => (
                   <option key={i} value={i + 1}>
@@ -289,7 +289,7 @@ export default function TripPlanner({
             <span>
               {trip.items.length} {copy.count}
             </span>
-            <button className="button" type="button" onClick={() => window.print()}>
+            <button className="button" type="button" onClick={() => window.print()} disabled={writing}>
               {copy.print}
             </button>
           </div>
@@ -319,10 +319,10 @@ export default function TripPlanner({
                     </li>
                   ))}
               </ul>
-              <button type="button" onClick={() => applyDays(pendingDays)}>
+              <button type="button" onClick={() => applyDays(pendingDays)} disabled={writing}>
                 {tools.applyDays}: {pendingDays}
               </button>
-              <button type="button" onClick={() => setPendingDays(null)}>
+              <button type="button" onClick={() => setPendingDays(null)} disabled={writing}>
                 {tools.cancel}
               </button>
             </section>
@@ -333,7 +333,7 @@ export default function TripPlanner({
               {tools.editDay}
               <select
                 value={effectiveViewDay}
-                onChange={(e) => setViewDay(e.target.value)}
+                onChange={(e) => setViewDay(e.target.value)} disabled={writing}
               >
                 <option value="all">{tools.allDays}</option>
                 {days.map((day) => (
@@ -453,10 +453,10 @@ export default function TripPlanner({
                           </span>
                           <select
                             value={entry.day}
-                            onChange={(event) => {
+                            onChange={async (event) => {
                               const day = Number(event.target.value)
                               if (
-                                updateEntry(
+                                await updateEntry(
                                   entry,
                                   { day },
                                   `${copy.updated} ${place.names[lang]} · ${day ? dayLabel(day) : copy.unplanned}`,
@@ -466,7 +466,7 @@ export default function TripPlanner({
                                   setViewDay(String(day))
                                 setAssignment({ day })
                               }
-                            }}
+                            }} disabled={writing}
                           >
                             <option value={0}>{copy.unplanned}</option>
                             {Array.from({ length: trip.days }, (_, i) => (
@@ -569,7 +569,7 @@ export default function TripPlanner({
                               <button
                                 type="button"
                                 aria-label={`${copy.up}: ${place.names[lang]}`}
-                                disabled={index === 0}
+                                disabled={writing || (index === 0)}
                                 onClick={() => move(-1)}
                               >
                                 ↑
@@ -577,7 +577,7 @@ export default function TripPlanner({
                               <button
                                 type="button"
                                 aria-label={`${copy.down}: ${place.names[lang]}`}
-                                disabled={index === entries.length - 1}
+                                disabled={writing || (index === entries.length - 1)}
                                 onClick={() => move(1)}
                               >
                                 ↓
@@ -585,8 +585,8 @@ export default function TripPlanner({
                               <button
                                 type="button"
                                 aria-label={`${tools.repeat}: ${place.names[lang]}`}
-                                onClick={() => {
-                                  const added = change(
+                                onClick={async () => {
+                                  const added = await change(
                                     (current) => ({
                                       ...current,
                                       items: [
@@ -604,7 +604,7 @@ export default function TripPlanner({
                                     copy.added,
                                   )
                                   if (added) selectDay(0)
-                                }}
+                                }} disabled={writing}
                               >
                                 {tools.repeat}
                               </button>
@@ -627,7 +627,7 @@ export default function TripPlanner({
                                       ),
                                     }
                                   }, copy.removed)
-                                }
+                                } disabled={writing}
                               >
                                 {copy.remove}
                               </button>

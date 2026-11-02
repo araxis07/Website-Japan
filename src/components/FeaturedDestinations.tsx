@@ -117,16 +117,27 @@ export default function FeaturedDestinations({
       {places.length === 0 && (
         <div className="empty-state">
           <p>{labels.empty}</p>
-          <button
-            className="button"
-            type="button"
-            onClick={() => {
-              setQuery('')
-              setCategory('all')
-            }}
-          >
-            {labels.reset}
-          </button>
+          <div className="empty-state-actions">
+            <Link
+              className="button"
+              href={{
+                pathname: `/${lang}/explore`,
+                query: { scope: 'places', view: 'list', q: query },
+              }}
+            >
+              {labels.searchAll} ↗
+            </Link>
+            <button
+              className="save-button"
+              type="button"
+              onClick={() => {
+                setQuery('')
+                setCategory('all')
+              }}
+            >
+              {labels.reset}
+            </button>
+          </div>
         </div>
       )}
     </section>

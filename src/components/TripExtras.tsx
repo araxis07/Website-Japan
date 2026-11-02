@@ -1,4 +1,5 @@
 'use client'
+import { withStorageLock } from '@/lib/storage-lock'
 import { useEffect, useMemo, useRef, useState, useSyncExternalStore } from 'react'
 import {
   emptyTrip,
@@ -70,7 +71,7 @@ export function parseLibrary(
   }
 }
 export default function TripExtras() {
-  const { trip, change, tools, copy, lang, drafts, setDraft } = useTrip()
+  const { writing, trip, change, tools, copy, lang, drafts, setDraft } = useTrip()
   const raw = useSyncExternalStore(subscribe, snapshot, () => '[]')
   const library = useMemo(() => parseLibrary(raw), [raw])
   const [error, setError] = useState('')
@@ -78,6 +79,7 @@ export default function TripExtras() {
     rows: NonNullable<ReturnType<typeof parseLibrary>>
     before: string
   } | null>(null)
+  const lastWrite = useRef<{ after: string; field?: string } | null>(null)
   const importSelection = useRef(0)
   useEffect(() => {
     const invalidate = () => importSelection.current++
@@ -97,18 +99,26 @@ export default function TripExtras() {
     }
   }, [])
   if (!trip) return null
-  const write = (rows: NonNullable<typeof library>, expected = raw) => {
+  const write = async (rows: NonNullable<typeof library>, expected = raw, signal?: AbortSignal, field?: string, overwrite = false) => {
+    const acceptedAtEntry = Boolean(field && snapshot() === expected)
     try {
-      if (snapshot() !== expected || !parseLibrary(JSON.stringify(rows))) {
-        setError(tools.conflict)
-        return false
-      }
-      localStorage.setItem(key, JSON.stringify(rows))
-      window.dispatchEvent(new Event('trip-library-change'))
-      setError('')
-      return true
-    } catch {
-      setError(copy.error)
+      return await withStorageLock(key, (committed) => {
+        if ((snapshot() !== expected && !(acceptedAtEntry && field === lastWrite.current?.field && snapshot() === lastWrite.current?.after)) || !parseLibrary(JSON.stringify(rows))) {
+          setError(tools.conflict)
+          return false
+        }
+        const after = JSON.stringify(rows)
+        localStorage.setItem(key, after)
+        committed(() => {
+          lastWrite.current = { after, field }
+          window.dispatchEvent(new Event('trip-library-change'))
+          setError('')
+        })
+        return true
+      }, signal, overwrite)
+    } catch (error) {
+      if (!(signal?.aborted && error instanceof DOMException && error.name === 'AbortError'))
+        setError(error instanceof DOMException && error.name === 'NotSupportedError' ? tools.storageLockUnavailable : error instanceof DOMException && error.name === 'InvalidStateError' ? tools.conflict : copy.error)
       return false
     }
   }
@@ -154,7 +164,7 @@ export default function TripExtras() {
                     'japan-trip-library-original.json',
                     'application/json',
                   )
-                }
+                } disabled={writing}
               >
                 {tools.rawBackup}
               </button>
@@ -162,9 +172,9 @@ export default function TripExtras() {
             {raw !== 'unavailable' && (
               <button
                 type="button"
-                onClick={() => {
-                  if (window.confirm(tools.libraryResetConfirm)) write([])
-                }}
+                onClick={async () => {
+                  if (window.confirm(tools.libraryResetConfirm)) await write([], raw, undefined, undefined, true)
+                }} disabled={writing}
               >
                 {tools.resetCopies}
               </button>
@@ -174,7 +184,7 @@ export default function TripExtras() {
           <>
             <button
               type="button"
-              disabled={library.length >= 10 || Object.keys(drafts).length > 0}
+              disabled={writing || (library.length >= 10 || Object.keys(drafts).length > 0)}
               onClick={() =>
                 write([
                   ...library,
@@ -196,13 +206,14 @@ export default function TripExtras() {
                     label={tools.copyName}
                     value={row.trip.title || ''}
                     maxLength={160}
-                    save={(title) =>
+                    save={(title, signal) =>
                       write(
                         library.map((copy) =>
                           copy.id === row.id
                             ? { ...copy, trip: { ...copy.trip, title } }
                             : copy,
                         ),
+                        raw, signal, row.id,
                       )
                     }
                   />
@@ -225,8 +236,8 @@ export default function TripExtras() {
                   {row.trip.startDate} · {row.trip.items.length} {copy.count}
                   <button
                     type="button"
-                    disabled={Object.keys(drafts).length > 0}
-                    onClick={() => {
+                    disabled={writing || (Object.keys(drafts).length > 0)}
+                    onClick={async () => {
                       const expected = JSON.stringify(trip)
                       try {
                         if (snapshot() !== raw) {
@@ -250,7 +261,17 @@ export default function TripExtras() {
                         setError(tools.libraryConflict)
                         return
                       }
-                      if (change(() => row.trip, copy.updated, expected)) {
+                      try {
+                        const currentCopy = await withStorageLock(key, () => snapshot() === raw)
+                        if (!currentCopy) { setError(tools.libraryConflict); return }
+                      } catch (error) {
+                        setError(error instanceof DOMException && error.name === 'NotSupportedError' ? tools.storageLockUnavailable : tools.libraryConflict)
+                        return
+                      }
+                      if (await change(() => {
+                        if (snapshot() !== raw) throw new DOMException('Library changed', 'InvalidStateError')
+                        return row.trip
+                      }, copy.updated, expected)) {
                         importSelection.current++
                         setIncoming(null)
                         setError('')
@@ -261,10 +282,10 @@ export default function TripExtras() {
                   </button>
                   <button
                     type="button"
-                    disabled={Boolean(drafts[`library:${row.id}:title`])}
-                    onClick={() => {
+                    disabled={writing || (Boolean(drafts[`library:${row.id}:title`]))}
+                    onClick={async () => {
                       if (window.confirm(tools.copyDeleteConfirm))
-                        write(library.filter((item) => item.id !== row.id))
+                        await write(library.filter((item) => item.id !== row.id))
                     }}
                   >
                     {tools.deleteCopy}
@@ -275,7 +296,7 @@ export default function TripExtras() {
             <p>{tools.libraryBackupHelp}</p>
             <button
               type="button"
-              disabled={!library.length || Object.keys(drafts).length > 0}
+              disabled={writing || (!library.length || Object.keys(drafts).length > 0)}
               onClick={() =>
                 downloadTrip(
                   JSON.stringify(library, null, 2),
@@ -334,11 +355,11 @@ export default function TripExtras() {
             <p>{tools.libraryRestoreConfirm}</p>
             <button
               type="button"
-              disabled={Object.keys(drafts).length > 0}
-              onClick={() => {
+              disabled={writing || (Object.keys(drafts).length > 0)}
+              onClick={async () => {
                 if (
                   window.confirm(tools.libraryRestoreConfirm) &&
-                  write(incoming.rows, incoming.before)
+                  await write(incoming.rows, incoming.before)
                 )
                   setIncoming(null)
               }}
@@ -350,7 +371,7 @@ export default function TripExtras() {
               onClick={() => {
                 importSelection.current++
                 setIncoming(null)
-              }}
+              }} disabled={writing}
             >
               {tools.cancel}
             </button>
@@ -373,7 +394,7 @@ export default function TripExtras() {
               data-trip-field="fx:currency"
               value={currency}
               onChange={(e) => editFx('currency', e.target.value, tools.fx)}
-              aria-invalid={fxConflict || !validCurrency}
+              aria-invalid={fxConflict || !validCurrency} disabled={writing}
             >
               {['THB', 'USD', 'EUR'].map((code) => (
                 <option key={code}>{code}</option>
@@ -418,18 +439,18 @@ export default function TripExtras() {
         <button
           type="button"
           disabled={
-            !validCurrency ||
+            writing || (!validCurrency ||
             !validRate ||
             !date ||
             fxConflict ||
             Object.keys(drafts).some(
               (key) => !fxFields.some((field) => key === `fx:${field}`),
-            )
+            ))
           }
-          onClick={() => {
+          onClick={async () => {
             if (
               !fxConflict &&
-              change(
+              await change(
                 (current) => ({
                   ...current,
                   fx: {
@@ -447,7 +468,7 @@ export default function TripExtras() {
         >
           {tools.fxSave}
         </button>
-        <button type="button" onClick={clearFxDrafts}>
+        <button type="button" onClick={clearFxDrafts} disabled={writing}>
           {tools.cancel}
         </button>
       </details>

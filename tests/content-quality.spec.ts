@@ -92,8 +92,10 @@ test('content schema covers every place, local plan, language, credit and review
               : place.destination)) === p.slug,
       )
       .map((place) => place.id)
-    expect(plan.groups.flat().sort(), p.slug).toEqual(expected.sort())
-    expect(new Set(plan.groups.flat()).size).toBe(expected.length)
+    const alternatives = ['pref:niigata:marinepia-nihonkai', 'pref:toyama:toyama-glass-art-museum']
+    const scheduled = expected.filter((id) => !alternatives.includes(id))
+    expect(plan.groups.flat().sort(), p.slug).toEqual(scheduled.sort())
+    expect(new Set(plan.groups.flat()).size).toBe(scheduled.length)
     for (const lang of ['en', 'ja', 'th'] as const)
       expect(plan.note[lang].length).toBeGreaterThan(10)
   }

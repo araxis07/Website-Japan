@@ -133,24 +133,6 @@ export default function PlacesMap({
               <p className="source-note">
                 {tools[pinKind(point)]}. {tools.pinReference}
               </p>
-              {visit?.access && <p>{visit.access[lang]}</p>}
-              {visit?.hours && (
-                <p>
-                  <strong>{tools.hours}:</strong> {visit.hours[lang]}
-                </p>
-              )}
-              <details className="visit-details">
-                <summary>{tools.visitInfo}</summary>
-                <VisitFacts visit={visit} />
-                <ReportLink path={placePath(point, lang)} />
-                <p>{tools.locationNote}</p>
-                {source && <a href={source}>{tools.official} ↗</a>}
-                {visit?.infoSource && (
-                  <a className="text-link" href={visit.infoSource}>
-                    {tools.hours} / {tools.admission} ↗
-                  </a>
-                )}
-              </details>
               <ApproachLink visit={visit} />
               <div className="map-links">
                 <a href={mapUrl(point, true)}>{mapCopy.route} ↗</a>
@@ -186,6 +168,24 @@ export default function PlacesMap({
                 </details>
               </div>
               <SavePlace id={point.id} name={point.names[lang]} />
+              {visit?.access && <p>{visit.access[lang]}</p>}
+              {visit?.hours && (
+                <p>
+                  <strong>{tools.hours}:</strong> {visit.hours[lang]}
+                </p>
+              )}
+              <details className="visit-details">
+                <summary>{tools.visitInfo}</summary>
+                <VisitFacts visit={visit} />
+                <ReportLink path={placePath(point, lang)} />
+                <p>{tools.locationNote}</p>
+                {source && <a href={source}>{tools.official} ↗</a>}
+                {visit?.infoSource && (
+                  <a className="text-link" href={visit.infoSource}>
+                    {tools.hours} / {tools.admission} ↗
+                  </a>
+                )}
+              </details>
             </li>
           )
         })}

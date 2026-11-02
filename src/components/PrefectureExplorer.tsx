@@ -585,7 +585,9 @@ export default function PrefectureExplorer({
                     <Link href={placePath(place, lang)}>
                       {place.names[lang]}
                     </Link>
-                    <span lang="ja">{place.names.ja}</span>
+                    {place.names[lang] !== place.names.ja && (
+                      <span lang="ja">{place.names.ja}</span>
+                    )}
                     <span>
                       {tools[place.category]} /{' '}
                       {
@@ -596,6 +598,7 @@ export default function PrefectureExplorer({
                     </span>
                     <button
                       type="button"
+                      aria-label={`${copy.show}: ${place.names[lang]}`}
                       onClick={(event) =>
                         showPlace(event.currentTarget, place.id, 'places')
                       }
@@ -643,6 +646,7 @@ export default function PrefectureExplorer({
                       </Link>
                       <button
                         type="button"
+                        aria-label={`${copy.show}: ${p.names[lang]}`}
                         aria-pressed={p.slug === active.slug}
                         onClick={(event) =>
                           showPlace(event.currentTarget, p.slug, 'prefectures')

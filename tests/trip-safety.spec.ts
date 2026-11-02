@@ -1,4 +1,4 @@
-import { test, expect, openDetails } from './fixtures'
+import { readStorage, test, expect, openDetails } from './fixtures'
 import {
   emptyTrip,
   entryKey,
@@ -63,8 +63,8 @@ test('notes survive removing every place and shortening a trip, including offlin
 }) => {
   await page.goto('/en/my-trip')
   await page.evaluate(
-    ({ key, trip }) => {
-      localStorage.setItem(key, JSON.stringify(trip))
+    async ({ key, trip }) => {
+      await window.seedTestStorage(key, JSON.stringify(trip))
       dispatchEvent(new Event('trip-change'))
     },
     {
@@ -87,7 +87,7 @@ test('notes survive removing every place and shortening a trip, including offlin
   await expect(name).toBeFocused()
   expect(
     JSON.parse(
-      (await page.evaluate((key) => localStorage.getItem(key), tripKey))!,
+      (await readStorage(page, tripKey))!,
     ).title,
   ).toBe('No blur needed')
   await page.reload()
@@ -107,8 +107,8 @@ test('same place can be scheduled twice and removing one visit preserves the oth
 }) => {
   await page.goto('/en/my-trip')
   await page.evaluate(
-    ({ key, trip }) => {
-      localStorage.setItem(key, JSON.stringify(trip))
+    async ({ key, trip }) => {
+      await window.seedTestStorage(key, JSON.stringify(trip))
       dispatchEvent(new Event('trip-change'))
     },
     { key: tripKey, trip: { ...emptyTrip, items: [{ id: 'gion', day: 1 }] } },
@@ -132,8 +132,8 @@ test('removing a hotel keeps an invalid draft attached to the correct remaining 
 }) => {
   await page.goto('/en/my-trip')
   await page.evaluate(
-    ({ key, trip }) => {
-      localStorage.setItem(key, JSON.stringify(trip))
+    async ({ key, trip }) => {
+      await window.seedTestStorage(key, JSON.stringify(trip))
       dispatchEvent(new Event('trip-change'))
     },
     {
@@ -161,7 +161,7 @@ test('removing a hotel keeps an invalid draft attached to the correct remaining 
   ).toHaveValue('Kyoto hotel')
   await expect(rows.getByRole('spinbutton').last()).toHaveValue('2')
   const saved = JSON.parse(
-    (await page.evaluate((key) => localStorage.getItem(key), tripKey))!,
+    (await readStorage(page, tripKey))!,
   )
   expect(saved.stays).toEqual([
     { id: 'second', name: 'Kyoto hotel', from: 3, to: 5 },

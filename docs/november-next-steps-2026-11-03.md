@@ -1,0 +1,41 @@
+# Discovery, routing and safe browser writes — 2026-11-03
+
+This delivery follows `21507dc`. UX, Kyoto research, regional research, prefecture routing, Performance and Security/QA had separate ownership. Several agents reached their usage limit after partial delivery; the lead completed storage coordination, integration, remaining verification and release documentation. No dependencies, accounts, backend, paid services, trip/library version-1 formats or existing place IDs are changed.
+
+## Visitor outcomes
+
+- Focus and anchors use measured header height, with duplicate compensation margins removed. Header rows can grow with text. Static guides use a non-sticky header when JavaScript is disabled. Notices are stacked, and their measured height reserves scroll space; error messages no longer cover draft controls. Returning to a draft collapses its panel and focuses the requested field.
+- An empty Home destination search links to all places with the original query. Home categories are not incorrectly transferred to the different Explore taxonomy. Japanese result cards omit an identical secondary name; all map-action labels include the relevant name. Primary map route targets have a 44px minimum, with existing guide facts and operator scope preserved after moving actions earlier.
+- Prefecture plans identify current-location origins for each day's first stop and previous-stop origins for later legs. Later stops retain a current-location alternative. Labels and Google URLs agree; canonical aliases, coordinates, day groups and plan membership are unchanged. Google routes do not establish a verified entrance or step-free route. See [routing evidence](prefecture-routing-2026-11-03.md).
+- [Kyoto operations](kyoto-operations-2026-11-03.md) refresh only Kiyomizu hours and Museum hours/admission, with three-language seasonal/event/collection/garden and last-entry scope. Only those three existing field dates move to November 3. Existing booking periods/expiry and unsupported Fushimi facts remain unchanged.
+- [Two regional alternatives](regional-options-2026-11-03.md) add Marinepia Nihonkai and Toyama Glass Art Museum, with operator-sourced access/hours and municipal facility reference coordinates. They expand their prefecture shortlists without silently changing suggested-day groups. The aquarium has outdoor areas; neither record claims a verified entrance or step-free route. Native-language and physical-route acceptance remain pending.
+
+## Storage reliability and security
+
+A real two-tab probe found a silent lost update in the previous localStorage read/check/write sequence. Web Locks alone did not reliably close the WebKit case; task-turn experiments were insufficient and are not shipped. The final boundary combines native exclusive locks with a browser-local IndexedDB checkpoint of each last committed raw snapshot. A stale/mismatched cache is rejected with conflict feedback before it can overwrite data. Success/history/draft clearing occurs after checkpoint persistence. Checkpoint failure rolls back the local mirror; superseded/discarded pending edits are cancelled and retained text survives failures.
+
+These checkpoints contain local trip/copy data, never telemetry. Erasure clears both the local data and checkpoint payloads. Saving requires HTTPS or localhost, Web Locks and IndexedDB. Unsupported saving fails safely; existing recovery downloads remain available. Reload older-release tabs before editing, because older/uncoordinated writers do not participate. See [storage and checker details](security-reliability-2026-11-03.md).
+
+The CSP checker now validates directive tokens and duplicates instead of substring presence, with positive checks against the real config and negative self-tests. The actual application CSP is unchanged. Fresh November 3 audit: production 0 findings; full tree 16 Moderate affected entries in the existing development lint/minimatch chain; High/Critical 0. No forced override or relaxed gate is introduced.
+
+## Editorial state
+
+There are 106 canonical venues in 47 prefectures. Published notes cover 106 access, 16 entrance, 32 hours, 27 admission, 13 booking and 22 accessibility fields; Gion retains one N/A each for hours/admission/booking. Presence is not a complete route or accessibility endorsement. The three dictionaries have 631 aligned keys.
+
+The source checker now collects 224 unique URLs from its existing seven files. Five previously pending exact URLs were each attempted once on November 3; all remain retrieval Pending, with failures and limits in the Kyoto ledger. No URL/fact date is changed merely to avoid a network failure.
+
+For the November 3–December 3 review window there are 75 fields in 34 venues, with zero overdue or expired at November 3. Due counts are Nov23:5, Nov24:26, Nov25:7, Nov26:11, Nov27:17, Nov29:3, Nov30:1, Dec3:5. This supersedes the current-window count, not the fixed-date historical ledger. Human owners remain Unassigned; the repository owner remains the escalation contact, not an invented acceptance reviewer. Event follow-up can be due earlier than a newly checked hours/admission cadence; the Museum event ends November 29.
+
+## Verification
+
+Local production build (182 pages), TypeScript, lint, deployment/source checker self-tests and credential-pattern checks passed. The source checker covers 224 URLs; the credential check covers 276 non-ignored files. Existing equality/privacy checks remain; test fixtures seed coordinated snapshots and read committed checkpoints so asynchronous persistence is observed honestly. Fresh raw mirror/reload checks and injected stale-cache/checkpoint-failure cases additionally cover the consistency boundary. No automatic retry, new skip or increased timeout hides failures. [GitHub Actions](https://github.com/araxis07/Website-Japan/actions/workflows/quality.yml) runs the complete 503-case suite for the pushed commit; use that commit's run and release response for its final CI result.
+
+The first incomplete integration run was stopped after 207 passes/16 failures to update synchronous storage-read/setup assumptions. The next complete run had 491 passes/4 failures/2 existing skips: explicit new catalog expectations, one immediate library read, and the real WebKit concurrency case. They motivated the final fixes rather than relaxed integrity checks. The old Firefox disclosure intermittent is not declared fixed without a root cause.
+
+The subsequent complete local run had 497 passes, four failures and two existing skips: one Chromium scene-readiness timeout, one WebKit scheduling/disclosure race and two Firefox `newPage` browser-process crashes. Mutation controls now wait for pending persistence, and the scheduling test asserts both places reached the destination day before opening the remounted editor. All 36 new cross-engine cases passed; the eight scene/import/library focused cases and both scheduling cases then passed. One intermediate scheduling assertion incorrectly looked for items inside the heading instead of its section; correcting that selector retains the two-item check. Focused passes do not establish a fix for GPU readiness or browser-process crashes.
+
+## Deliberately retained and external acceptance
+
+The Japanese minimal identity, light/dark themes, on-demand 3D, map/list alternative, eager recovery tools and prefetch policy remain. [Performance measurements](performance-2026-11-03.md) did not justify an additional map cache/search worker/hash refactor. Coordinated persistence adds measured editing cost despite fewer commits; no speedup is claimed. Lab evidence is separate from field Core Web Vitals. Pure-data browser checks remain because their observed runtime is negligible compared with the full visitor suite; no claimed CI speedup is fabricated.
+
+Novice sessions, independent native-language review, physical iPhone/Android files/Maps, VoiceOver/TalkBack, calendar clients, operator-confirmed production headers/browser sessions and rollback/alert delivery remain **Not Run**. They cannot be accepted by agents or browser emulation. No external reviewer/operator was contacted and no production service was changed directly.

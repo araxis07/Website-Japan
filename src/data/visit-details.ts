@@ -549,9 +549,9 @@ export const visitDetails: Record<string, Visit> = {
       th: 'จาก Keihan Kiyomizu-Gojo เดินประมาณ 25 นาที วัดระบุทางเข้าเพียง 2 ทาง: ขึ้น Kiyomizu-zaka ไปประตู Nio-mon หรือขึ้น Chawan-zaka ไปทางเข้าถนนฉุกเฉิน แอปแผนที่อาจแนะนำเส้นทางที่เข้าบริเวณวัดไม่ได้',
     },
     hours: {
-      en: 'Opens at 06:00. Closing and special evening openings depend on the date.',
-      ja: '開門は6時。閉門と夜間特別拝観は日付によって異なります。',
-      th: 'เปิด 06:00 น. เวลาปิดและการเปิดกลางคืนพิเศษขึ้นกับวันที่',
+      en: '2026: opens 06:00. Normally closes 18:00; July–August closes 18:30 except night viewings. Night viewings March 27–April 5, August 14–16 and November 21–30 close 21:30, last entry 21:00. Check the temple calendar for other years.',
+      ja: '2026年は6:00開門。通常18:00閉門、7〜8月は18:30（夜間特別拝観を除く）。夜間は3/27〜4/5・8/14〜16・11/21〜30に21:30閉門、21:00受付終了。他年は公式日程を確認。',
+      th: 'ปี 2026 เปิด 06:00 น. ปกติปิด 18:00 น. ก.ค.–ส.ค. ปิด 18:30 น. ยกเว้นช่วงกลางคืน วันที่ 27 มี.ค.–5 เม.ย., 14–16 ส.ค. และ 21–30 พ.ย. ปิด 21:30 น. รับเข้าถึง 21:00 น. ปีอื่นตรวจปฏิทินวัด',
     },
     admission: {
       en: 'No group discount. The temple lists free entry for a disability-handbook holder and one companion on presenting the original. Confirm accepted documents and the regular admission price with the temple.',
@@ -577,6 +577,10 @@ export const visitDetails: Record<string, Visit> = {
       access: {
         source: 'https://www.kiyomizudera.or.jp/access.php',
         reviewedAt: '2026-10-31',
+      },
+      hours: {
+        source: 'https://www.kiyomizudera.or.jp/access.php',
+        reviewedAt: '2026-11-03',
       },
       admission: {
         source: 'https://www.kiyomizudera.or.jp/faq/',
@@ -686,14 +690,14 @@ export const visitDetails: Record<string, Visit> = {
       th: 'จากสถานีเคฮัง Shichijo เดินไปทางตะวันออกตามถนน Shichijo ประมาณ 7 นาที',
     },
     hours: {
-      en: 'Collection days: 09:30–17:00, Fridays until 20:00; last entry 30 minutes earlier. Special-exhibition and garden-only dates differ; check the calendar.',
-      ja: '名品ギャラリー開館日は9:30〜17:00、金曜20:00まで。入館は30分前まで。特別展・庭園のみの日は別途確認。',
-      th: 'วันที่เปิดนิทรรศการประจำ 09:30–17:00 น. ศุกร์ถึง 20:00 น. เข้าก่อนปิด 30 นาที นิทรรศการพิเศษและวันเปิดเฉพาะสวนต่างกัน',
+      en: 'Genji (October 6–November 29, 2026): 09:00–17:30, last entry 17:00. Collection/garden-only days: 09:30–17:00, last entry 16:30. Fridays: all close 20:00, last entry 19:30. Normally closed Mondays (holiday: following day), plus December 28, 2026–January 1, 2027. December 1–20, 2026 is garden-only: galleries closed. Collection resumes December 22; check the calendar.',
+      ja: '特別展「源氏物語」（2026/10/6〜11/29）は9:00〜17:30、最終入館17:00。名品ギャラリー・庭園のみは9:30〜17:00、最終16:30。金曜はいずれも20:00まで、最終19:30。原則月曜休館（祝日は翌日）、2026/12/28〜2027/1/1休館。2026/12/1〜20は庭園のみで展示室休止。名品ギャラリーは12/22再開。公式カレンダーも確認。',
+      th: 'Genji วันที่ 6 ต.ค.–29 พ.ย. 2026 เปิด 09:00–17:30 น. เข้าสุดท้าย 17:00 น. นิทรรศการประจำ/เฉพาะสวนเปิด 09:30–17:00 น. เข้าสุดท้าย 16:30 น. ศุกร์ทุกแบบปิด 20:00 น. เข้าสุดท้าย 19:30 น. ปกติปิดจันทร์ (หากเป็นวันหยุดเลื่อนไปวันถัดไป) และ 28 ธ.ค. 2026–1 ม.ค. 2027 วันที่ 1–20 ธ.ค. 2026 เปิดเฉพาะสวน ห้องจัดแสดงปิด นิทรรศการประจำกลับมา 22 ธ.ค. ตรวจปฏิทินด้วย',
     },
     admission: {
-      en: 'Collection days: adults ¥700 / university ¥350; garden-only ¥300 / ¥150. Special exhibitions differ. Check the date and student-ID rules.',
-      ja: '名品ギャラリー：一般700円・大学生350円。庭園のみ300円・150円。特別展は別料金。日程と学生証条件を確認。',
-      th: 'นิทรรศการประจำผู้ใหญ่ 700/นักศึกษามหาวิทยาลัย 350 เยน เฉพาะสวน 300/150 เยน นิทรรศการพิเศษต่างราคา ตรวจวันและบัตรนักศึกษา',
+      en: 'Genji (October 6–November 29, 2026), same-day: adult ¥2,200; university ¥1,200; high school ¥700. Collection: ¥700/¥350 adult/university; garden-only: ¥300/¥150. Student ID required. Genji advance ticket sales ended October 5; group rates and concessions have separate conditions. Confirm the visit type.',
+      ja: '特別展「源氏物語」（2026/10/6〜11/29）の当日券は一般2,200円・大学生1,200円・高校生700円。名品ギャラリーは一般700円・大学生350円、庭園のみ300円・150円。学生証が必要。源氏物語展の前売販売は10/5終了。団体料金・減免は別条件。訪問日の公開区分を確認。',
+      th: 'Genji วันที่ 6 ต.ค.–29 พ.ย. 2026 ตั๋ววันเข้า: ผู้ใหญ่ 2,200 นักศึกษามหาวิทยาลัย 1,200 มัธยมปลาย 700 เยน นิทรรศการประจำผู้ใหญ่/มหาวิทยาลัย 700/350 เยน เฉพาะสวน 300/150 เยน นักเรียน/นักศึกษาต้องแสดงบัตร การขายตั๋วล่วงหน้า Genji สิ้นสุด 5 ต.ค. หมู่คณะและการยกเว้นมีเงื่อนไขแยก ตรวจประเภทการเข้าชมตามวัน',
     },
     booking: {
       en: 'The Tale of Genji special exhibition (October 6–November 29, 2026) does not require advance ticket reservations. Check the museum’s requirements for other exhibitions.',
@@ -721,11 +725,11 @@ export const visitDetails: Record<string, Visit> = {
       },
       hours: {
         source: 'https://www.kyohaku.go.jp/eng/visit/info/',
-        reviewedAt: '2026-10-26',
+        reviewedAt: '2026-11-03',
       },
       admission: {
         source: 'https://www.kyohaku.go.jp/eng/visit/info/',
-        reviewedAt: '2026-10-26',
+        reviewedAt: '2026-11-03',
       },
       entrance: {
         source: 'https://www.kyohaku.go.jp/jp/assets/visit/access/bus-map.pdf',

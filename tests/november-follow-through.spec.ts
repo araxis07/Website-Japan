@@ -1,5 +1,5 @@
 import type { Page } from '@playwright/test'
-import { test, expect, openDetails } from './fixtures'
+import { readStorage, test, expect, openDetails } from './fixtures'
 import { emptyTrip, tripKey, publicTrip, type Trip } from '../src/lib/trip'
 import { offlineTrip } from '../src/lib/trip-export'
 import en from '../src/i18n/dictionaries/en.json'
@@ -30,16 +30,16 @@ const planned: Trip = {
 
 async function seed(page: Page, trip: Trip) {
   await page.evaluate(
-    ({ key, trip }) => {
-      localStorage.setItem(key, JSON.stringify(trip))
+    async ({ key, trip }) => {
+      await window.seedTestStorage(key, JSON.stringify(trip))
       dispatchEvent(new Event('trip-change'))
     },
     { key: tripKey, trip },
   )
 }
 
-const stored = (page: Page): Promise<Trip> =>
-  page.evaluate((key) => JSON.parse(localStorage.getItem(key)!), tripKey)
+const stored = async (page: Page): Promise<Trip> =>
+  (JSON.parse((await readStorage(page, tripKey))!))
 
 test('empty normalized searches retain the same ordered results and multilingual aliases', async ({ page }) => {
   for (const [lang, copy] of languages) {

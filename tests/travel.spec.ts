@@ -1,4 +1,4 @@
-import { test, expect, openDetails } from './fixtures'
+import { readStorage, test, expect, openDetails } from './fixtures'
 import { copyFile, mkdtemp, rm } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
@@ -585,6 +585,7 @@ test('trip saves, schedules, reorders, survives reload and language changes, and
   await page
     .getByRole('combobox', { name: 'Schedule for: Gion', exact: true })
     .selectOption('2')
+  await expect(page.locator('.trip-day:has(#trip-day-2) li[data-place-id]')).toHaveCount(2)
   await openDetails(
     page.locator('.trip-day li[data-place-id=gion] .trip-visit-editor'),
   )
@@ -680,7 +681,7 @@ test('saved trip syncs across tabs and failed writes keep the previous plan', as
   await expect(other.locator('.trip-day li')).toHaveCount(2)
   expect(
     JSON.parse(
-      (await page.evaluate((key) => localStorage.getItem(key), tripKey)) ||
+      (await readStorage(page, tripKey)) ||
         '{}',
     ).items,
   ).toHaveLength(2)
@@ -698,7 +699,7 @@ test('invalid saved data is not overwritten and can be explicitly reset', async 
   await expect(page.locator('.trip-storage-error')).toContainText(
     'has not been overwritten',
   )
-  expect(await page.evaluate((key) => localStorage.getItem(key), tripKey)).toBe(
+  expect(await readStorage(page, tripKey)).toBe(
     '{broken',
   )
   page.once('dialog', (dialog) => dialog.accept())
@@ -710,7 +711,7 @@ test('invalid saved data is not overwritten and can be explicitly reset', async 
   ).toBeVisible()
   expect(
     JSON.parse(
-      (await page.evaluate((key) => localStorage.getItem(key), tripKey)) ||
+      (await readStorage(page, tripKey)) ||
         '{}',
     ),
   ).toEqual(emptyTrip)
@@ -743,14 +744,14 @@ test('empty saved data stays intact and blocked storage gives an actionable erro
   page,
 }) => {
   await page.goto('/en/my-trip')
-  await page.evaluate((key) => {
-    localStorage.setItem(key, '')
+  await page.evaluate(async (key) => {
+    await window.seedTestStorage(key, '')
     window.dispatchEvent(new Event('trip-change'))
   }, tripKey)
   await expect(page.locator('.trip-storage-error')).toContainText(
     'has not been overwritten',
   )
-  expect(await page.evaluate((key) => localStorage.getItem(key), tripKey)).toBe(
+  expect(await readStorage(page, tripKey)).toBe(
     '',
   )
   await page.addInitScript(() => {

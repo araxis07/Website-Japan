@@ -4,7 +4,7 @@ import photos from '../src/data/prefecture-photos.json'
 import { prefectures } from '../src/data/prefectures'
 import { destinations } from '../src/data/travel'
 import { regionalPlanning } from '../src/data/regional-planning'
-import { test, expect, openDetails } from './fixtures'
+import { readStorage, test, expect, openDetails } from './fixtures'
 import {
   emptyTrip,
   mergeTrips,
@@ -230,7 +230,7 @@ test('backup import previews changes, merges safely and never overwrites on inva
     .getByRole('button', { name: 'Add new places to my trip', exact: true })
     .click()
   const saved = JSON.parse(
-    (await page.evaluate((key) => localStorage.getItem(key), tripKey))!,
+    (await readStorage(page, tripKey))!,
   )
   expect(saved.title).toBe('Autumn')
   expect(saved.items).toEqual([...incoming.items, second.items[1]])
@@ -364,10 +364,8 @@ test('regional guide, spelling aliases and print notes remain useful on small sc
   )
   await page.goto('/en/my-trip')
   await page.evaluate(
-    ({ tripKey, emptyTrip }) => {
-      localStorage.setItem(
-        tripKey,
-        JSON.stringify({
+    async ({ tripKey, emptyTrip }) => {
+      await window.seedTestStorage(tripKey, JSON.stringify({
           ...emptyTrip,
           title: 'November Kyoto',
           base: 'Kyoto Station',
@@ -376,8 +374,7 @@ test('regional guide, spelling aliases and print notes remain useful on small sc
           items: [
             { id: 'gion', day: 1, time: '10:00', note: 'Meet by the bridge' },
           ],
-        }),
-      )
+        }))
     },
     { tripKey, emptyTrip },
   )

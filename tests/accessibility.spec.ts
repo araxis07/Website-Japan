@@ -29,8 +29,8 @@ for (const theme of ['light', 'dark']) {
         await page.locator('.readiness-checklist > summary').click()
       if (path.includes('my-trip')) {
         await page.evaluate(
-          ({ key, trip }) => {
-            localStorage.setItem(key, JSON.stringify(trip))
+          async ({ key, trip }) => {
+            await window.seedTestStorage(key, JSON.stringify(trip))
             dispatchEvent(new Event('trip-change'))
           },
           {

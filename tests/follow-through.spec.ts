@@ -1,4 +1,4 @@
-import { test, expect } from './fixtures'
+import { readStorage, test, expect } from './fixtures'
 import {
   emptyTrip,
   parseTrip,
@@ -135,12 +135,13 @@ test('starter preview offers only published days and readiness belongs to the sa
   await page.goto('/en/first-visit')
   await page.locator('.readiness-checklist > summary').click()
   await page.locator('.readiness-checklist input').first().check()
+  await readStorage(page, tripKey)
   await page.reload()
   await page.locator('.readiness-checklist > summary').click()
   await expect(page.locator('.readiness-checklist input').first()).toBeChecked()
   await page.evaluate(
-    ({ key, trip }) => {
-      localStorage.setItem(key, JSON.stringify(trip))
+    async ({ key, trip }) => {
+      await window.seedTestStorage(key, JSON.stringify(trip))
       dispatchEvent(new Event('trip-change'))
     },
     { key: tripKey, trip: emptyTrip },
@@ -161,7 +162,7 @@ test('copy names, timestamps and archive restore are explicit and reject stale p
   await name.fill('Autumn backup')
   await expect(page.locator('.trip-library time')).toHaveCount(1)
   const rows = JSON.parse(
-    (await page.evaluate((key) => localStorage.getItem(key), libraryKey))!,
+    (await readStorage(page, libraryKey))!,
   )
   expect(rows[0].trip.title).toBe('Autumn backup')
   const file = page.locator('.trip-library input[type=file]')
@@ -176,13 +177,13 @@ test('copy names, timestamps and archive restore are explicit and reject stale p
   await expect(page.locator('.trip-library .import-preview')).toContainText(
     'Incoming copy',
   )
-  await page.evaluate((key) => {
-    localStorage.setItem(key, '[]')
+  await page.evaluate(async (key) => {
+    await window.seedTestStorage(key, '[]')
     dispatchEvent(new Event('trip-library-change'))
   }, libraryKey)
   await page.locator('.trip-library .import-preview button').first().click()
   expect(
-    await page.evaluate((key) => localStorage.getItem(key), libraryKey),
+    ((await readStorage(page, libraryKey))),
   ).toBe('[]')
   await expect(page.locator('.trip-extras p[role=alert]')).toBeVisible()
   await file.setInputFiles({
@@ -196,7 +197,7 @@ test('copy names, timestamps and archive restore are explicit and reject stale p
   )
   expect(
     JSON.parse(
-      (await page.evaluate((key) => localStorage.getItem(key), tripKey)) ||
+      (await readStorage(page, tripKey)) ||
         '{}',
     ).title,
   ).not.toBe('Incoming copy')
@@ -206,8 +207,8 @@ test('daily overview moves focus and travel-day view keeps Japanese address and 
 }) => {
   await page.goto('/en/my-trip')
   await page.evaluate(
-    ({ key, trip }) => {
-      localStorage.setItem(key, JSON.stringify(trip))
+    async ({ key, trip }) => {
+      await window.seedTestStorage(key, JSON.stringify(trip))
       dispatchEvent(new Event('trip-change'))
     },
     {

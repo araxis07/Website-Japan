@@ -1,4 +1,4 @@
-import { test, expect, openDetails } from './fixtures'
+import { readStorage, test, expect, openDetails } from './fixtures'
 import {
   emptyTrip,
   mergeTrips,
@@ -140,8 +140,8 @@ test('personal edit drafts survive failed writes and cannot overwrite a changed 
   page.on('dialog', (dialog) => dialog.accept())
   await page.goto('/en/my-trip')
   await page.evaluate(
-    ({ key, trip }) => {
-      localStorage.setItem(key, JSON.stringify(trip))
+    async ({ key, trip }) => {
+      await window.seedTestStorage(key, JSON.stringify(trip))
       dispatchEvent(new Event('trip-change'))
     },
     { key: tripKey, trip },
@@ -168,18 +168,15 @@ test('personal edit drafts survive failed writes and cannot overwrite a changed 
     editor.getByLabel(en.tools.personalName, { exact: true }),
   ).toHaveValue('My pending edit')
   expect(
-    await page.evaluate(
-      (key) => JSON.parse(localStorage.getItem(key)!).items[0].custom.name,
-      tripKey,
-    ),
+    (JSON.parse((await readStorage(page, tripKey))!).items[0].custom.name),
   ).toBe(personal.name)
   await page.reload()
-  await page.evaluate((key) => {
+  await page.evaluate(async (key) => {
     const latest = JSON.parse(localStorage.getItem(key)!)
     for (const item of latest.items)
       if (item.custom) item.custom.name = 'Edited in another tab'
     latest.stays[0].name = 'Edited in another tab'
-    localStorage.setItem(key, JSON.stringify(latest))
+    await window.seedTestStorage(key, JSON.stringify(latest))
     dispatchEvent(new Event('trip-change'))
   }, tripKey)
   await page.reload()
@@ -189,10 +186,7 @@ test('personal edit drafts survive failed writes and cannot overwrite a changed 
     .click()
   await expect(editor.getByRole('alert')).toHaveText(en.tools.conflict)
   expect(
-    await page.evaluate(
-      (key) => JSON.parse(localStorage.getItem(key)!).items[0].custom.name,
-      tripKey,
-    ),
+    (JSON.parse((await readStorage(page, tripKey))!).items[0].custom.name),
   ).toBe('Edited in another tab')
   await editor
     .getByRole('button', { name: en.tools.cancel, exact: true })
@@ -211,8 +205,8 @@ test('personal coordinates can be removed and accommodation links can be changed
 }) => {
   await page.goto('/en/my-trip')
   await page.evaluate(
-    ({ key, trip }) => {
-      localStorage.setItem(key, JSON.stringify(trip))
+    async ({ key, trip }) => {
+      await window.seedTestStorage(key, JSON.stringify(trip))
       dispatchEvent(new Event('trip-change'))
     },
     { key: tripKey, trip },
@@ -235,10 +229,7 @@ test('personal coordinates can be removed and accommodation links can be changed
   )
   await row.getByLabel(en.tools.stayAddress).fill('Independent hotel address')
   await page.reload()
-  const saved = await page.evaluate(
-    (key) => JSON.parse(localStorage.getItem(key)!),
-    tripKey,
-  )
+  const saved = (JSON.parse((await readStorage(page, tripKey))!))
   expect(saved.items[0].custom.coordinates).toBeUndefined()
   expect(saved.items[1].custom.coordinates).toBeUndefined()
   expect(saved.stays[0].placeId).toBeUndefined()
@@ -338,10 +329,7 @@ test('personal editing updates repeat visits and linked stays without losing vis
   await first
     .getByRole('button', { name: en.tools.savePersonal, exact: true })
     .click()
-  const saved = await page.evaluate(
-    (key) => JSON.parse(localStorage.getItem(key)!),
-    tripKey,
-  )
+  const saved = (JSON.parse((await readStorage(page, tripKey))!))
   expect(saved.items[0]).toMatchObject({
     time: '15:00',
     note: 'Keep my booking',
@@ -376,10 +364,7 @@ test('personal editing updates repeat visits and linked stays without losing vis
       })
       .click()
   }
-  const removed = await page.evaluate(
-    (key) => JSON.parse(localStorage.getItem(key)!),
-    tripKey,
-  )
+  const removed = (JSON.parse((await readStorage(page, tripKey))!))
   expect(removed.stays[0]).toMatchObject({
     name: 'Corrected hotel',
     address: 'Updated address in Kyoto',

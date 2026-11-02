@@ -1,4 +1,4 @@
-import { test, expect, openDetails } from './fixtures'
+import { readStorage, test, expect, openDetails } from './fixtures'
 import { emptyTrip, tripKey, conflictPairs } from '../src/lib/trip'
 import { tripCalendar } from '../src/lib/trip-calendar'
 import { parseLibrary } from '../src/components/TripExtras'
@@ -54,7 +54,7 @@ test('invalid drafts keep a stable accessible name and survive navigation and re
   await expect(page.locator('.save-status')).toHaveText('Saved on this device')
   expect(
     JSON.parse(
-      (await page.evaluate((key) => localStorage.getItem(key), tripKey))!,
+      (await readStorage(page, tripKey))!,
     ).travelers,
   ).toBe(2)
 })
@@ -69,8 +69,8 @@ test('undo reverts an entire focused edit and corrupt data can be downloaded bef
     .getByRole('button', { name: 'Undo: Trip name', exact: true })
     .click()
   await expect(title).toHaveValue('')
-  await page.evaluate((key) => {
-    localStorage.setItem(key, '{"broken":')
+  await page.evaluate(async (key) => {
+    await window.seedTestStorage(key, '{"broken":')
     dispatchEvent(new Event('trip-change'))
   }, tripKey)
   const download = page.waitForEvent('download')
@@ -81,7 +81,7 @@ test('undo reverts an entire focused edit and corrupt data can be downloaded bef
   const chunks: Buffer[] = []
   for await (const chunk of stream!) chunks.push(chunk)
   expect(Buffer.concat(chunks).toString()).toBe('{"broken":')
-  expect(await page.evaluate((key) => localStorage.getItem(key), tripKey)).toBe(
+  expect(await readStorage(page, tripKey)).toBe(
     '{"broken":',
   )
 })
@@ -159,8 +159,8 @@ test('shrinking a plan previews affected visits and keeps orphaned notes', async
 }) => {
   await page.goto('/en/my-trip')
   await page.evaluate(
-    ({ key, trip }) => {
-      localStorage.setItem(key, JSON.stringify(trip))
+    async ({ key, trip }) => {
+      await window.seedTestStorage(key, JSON.stringify(trip))
       dispatchEvent(new Event('trip-change'))
     },
     {
@@ -176,7 +176,7 @@ test('shrinking a plan previews affected visits and keeps orphaned notes', async
   await expect(page.locator('.import-preview')).toContainText('Gion')
   expect(
     JSON.parse(
-      (await page.evaluate((key) => localStorage.getItem(key), tripKey))!,
+      (await readStorage(page, tripKey))!,
     ).days,
   ).toBe(7)
   await page

@@ -22,6 +22,7 @@ import {
   type Trip,
 } from '@/lib/trip'
 import { downloadTrip } from '@/lib/download'
+import { hasPendingStorageWrite, subscribeStorageWrites, withStorageLock } from '@/lib/storage-lock'
 import {
   readDrafts,
   writeDraft,
@@ -54,6 +55,7 @@ type Context = {
   trip: Trip | null
   canReset: boolean
   ready: boolean
+  writing: boolean
   error: string
   lang: Locale
   copy: Dictionary['trip']
@@ -63,15 +65,15 @@ type Context = {
     update: (trip: Trip) => Trip | null,
     message: string,
     expected?: string,
-  ) => boolean
-  reset: () => void
-  undo: () => void
+  ) => Promise<boolean>
+  reset: () => Promise<void>
+  undo: () => Promise<void>
   canUndo: boolean
   undoLabel: string
   drafts: Drafts
   setDraft: typeof writeDraft
-  beginEdit: (key: string, label: string) => void
-  endEdit: () => void
+  beginEdit: (key: string, label: string, signal?: AbortSignal) => void
+  endEdit: (field?: string) => void
   draftTarget: string | null
   clearDraftTarget: (missing?: boolean) => void
   downloadRaw: () => void
@@ -102,6 +104,7 @@ export default function TripProvider({
   noticeAreaNames: Record<string, string>
 }) {
   const router = useRouter()
+  const writing = useSyncExternalStore(subscribeStorageWrites, hasPendingStorageWrite, () => false)
   const [draftTarget, setDraftTarget] = useState<string | null>(null)
   const staticCopy = useMemo(() => ({ lang, tools }), [lang, tools])
   const draftRaw = useSyncExternalStore(
@@ -110,22 +113,30 @@ export default function TripProvider({
     () => '{}',
   )
   const drafts = useMemo(() => readDrafts(draftRaw), [draftRaw])
-  const edit = useRef<{ key: string; label: string } | null>(null)
-  const beginEdit = useCallback((key: string, label: string) => {
-    edit.current = { key: `${key}:${tripId()}`, label }
+  const edit = useRef<{
+    key: string
+    field: string
+    label: string
+    signal?: AbortSignal
+    after?: string
+    pending?: { before: string; after: string }
+  } | null>(null)
+  const beginEdit = useCallback((field: string, label: string, signal?: AbortSignal) => {
+    if (signal && edit.current?.field === field) edit.current.signal = signal
+    else edit.current = { key: `${field}:${tripId()}`, field, label, signal }
   }, [])
-  const endEdit = useCallback(() => {
-    edit.current = null
+  const endEdit = useCallback((field?: string) => {
+    if (!field || edit.current?.field === field) edit.current = null
   }, [])
   useEffect(() => {
-    if (!Object.keys(drafts).length) return
     const warn = (event: BeforeUnloadEvent) => {
+      if (!hasPendingStorageWrite() && !Object.keys(readDrafts(draftSnapshot())).length) return
       event.preventDefault()
       event.returnValue = ''
     }
     window.addEventListener('beforeunload', warn)
     return () => window.removeEventListener('beforeunload', warn)
-  }, [drafts])
+  }, [])
   const raw = useSyncExternalStore(subscribe, snapshot, serverSnapshot)
   const trip = useMemo(() => (raw === null ? null : parseTrip(raw)), [raw])
   const [feedback, setFeedback] = useState({
@@ -134,6 +145,17 @@ export default function TripProvider({
     sequence: 0,
   })
   const feedbackPanel = useRef<HTMLDivElement>(null)
+  const notices = useRef<HTMLDivElement>(null)
+  useEffect(() => {
+    const element = notices.current
+    if (!element) return
+    const root = document.documentElement
+    const measure = () => root.style.setProperty('--trip-notices-height', `${element.getBoundingClientRect().height}px`)
+    const observer = new ResizeObserver(measure)
+    measure()
+    observer.observe(element)
+    return () => { observer.disconnect(); root.style.removeProperty('--trip-notices-height') }
+  }, [])
   const clearDraftTarget = useCallback((missing = false) => {
     setDraftTarget(null)
     if (missing)
@@ -194,7 +216,7 @@ export default function TripProvider({
       events.forEach((event) => panel.removeEventListener(event, restart))
     }
   }, [feedback.message, feedback.sequence])
-  const persist = (next: Trip, message: string) => {
+  const persist = (next: Trip, message: string, group: typeof edit.current, committed: (effect: () => void) => void) => {
     const validated = parseTrip(JSON.stringify(next))
     if (!validated) {
       showFeedback(next.items.length > 60 ? copy.limit : tools.fieldInvalid, '')
@@ -204,37 +226,56 @@ export default function TripProvider({
     try {
       const before = parseTrip(snapshot())
       localStorage.setItem(tripKey, serialized)
-      const group = edit.current
-      setHistory((previous) =>
-        before
-          ? {
-              before:
-                group &&
-                previous?.group === group.key &&
-                previous.after === JSON.stringify(before)
-                  ? previous.before
-                  : before,
-              after: serialized,
-              group: group?.key,
-              label: group?.label || message || copy.updated,
-            }
-          : null,
-      )
-      window.dispatchEvent(new Event('trip-change'))
-      showFeedback('', message)
+      if (group && before) group.pending = { before: JSON.stringify(before), after: serialized }
+      committed(() => {
+        setHistory((previous) =>
+          before
+            ? {
+                before:
+                  group &&
+                  previous?.group === group.key &&
+                  previous.after === JSON.stringify(before)
+                    ? previous.before
+                    : before,
+                after: serialized,
+                group: group?.key,
+                label: group?.label || message || copy.updated,
+              }
+            : null,
+        )
+        if (group) { group.after = serialized; group.pending = undefined }
+        window.dispatchEvent(new Event('trip-change'))
+        showFeedback('', message)
+      })
       return true
     } catch {
       showFeedback(copy.error, '')
       return false
     }
   }
-  const undo = () => {
-    if (!history) return
-    if (snapshot() !== history.after) {
-      showFeedback(tools.conflict, '')
-      return
+  const writeError = (error: unknown, cancelled = false) => {
+    if (cancelled && error instanceof DOMException && error.name === 'AbortError') return
+    const message = error instanceof DOMException && error.name === 'NotSupportedError'
+      ? tools.storageLockUnavailable
+      : error instanceof DOMException && error.name === 'InvalidStateError'
+        ? tools.conflict
+        : copy.error
+    showFeedback(message, '')
+  }
+  const undo = async () => {
+    const expectedHistory = history
+    if (!expectedHistory) return
+    try {
+      await withStorageLock(tripKey, (committed) => {
+        if (snapshot() !== expectedHistory.after) {
+          showFeedback(tools.conflict, '')
+          return
+        }
+        if (persist(expectedHistory.before, copy.updated, null, committed)) committed(() => setHistory(null))
+      })
+    } catch (error) {
+      writeError(error)
     }
-    if (persist(history.before, copy.updated)) setHistory(null)
   }
   const error =
     raw === 'unavailable'
@@ -247,6 +288,7 @@ export default function TripProvider({
       value={{
         trip,
         ready: raw !== null,
+        writing,
         canReset: raw !== null && raw !== 'unavailable' && !trip,
         error,
         copy,
@@ -266,77 +308,114 @@ export default function TripProvider({
           if (raw !== null && raw !== 'unavailable')
             downloadTrip(raw, tripFilename('json'), 'application/json')
         },
-        change: (update, message, expected) => {
-          const current = parseTrip(snapshot())
-          if (expected && JSON.stringify(current) !== expected) {
-            showFeedback(tools.conflict, '')
+        change: async (update, message, expected) => {
+          const group = edit.current
+          const signal = group?.signal
+          // Queued edits may follow only a snapshot observed before our own commits.
+          const observed = group && expected ? snapshot() : ''
+          const acceptedAtEntry = Boolean(group && expected && (
+            observed === expected ||
+            (group.pending?.before === expected && group.pending.after === observed) ||
+            JSON.stringify(parseTrip(observed)) === expected
+          ))
+          try {
+            return await withStorageLock(tripKey, (committed) => {
+              if (signal && group && !readDrafts(draftSnapshot())[group.field]) return false
+              const current = parseTrip(snapshot())
+              const serialized = JSON.stringify(current)
+              if (
+                expected && serialized !== expected &&
+                !(acceptedAtEntry && group?.after === serialized)
+              ) {
+                showFeedback(tools.conflict, '')
+                return false
+              }
+              if (current) {
+                const next = update(current)
+                if (!next) {
+                  showFeedback(copy.limit, '')
+                  return false
+                }
+                return persist(next, message, group, committed)
+              }
+              showFeedback(copy.invalid, '')
+              return false
+            }, signal)
+          } catch (error) {
+            writeError(error, signal?.aborted)
             return false
           }
-          if (current) {
-            const next = update(current)
-            if (!next) {
-              showFeedback(copy.limit, '')
-              return false
-            }
-            return persist(next, message)
-          }
-          showFeedback(copy.invalid, '')
-          return false
         },
-        reset: () => {
-          if (window.confirm(copy.confirm) && persist(emptyTrip, copy.updated))
-            Object.keys(drafts).forEach((key) => writeDraft(key, null))
+        reset: async () => {
+          const expected = snapshot()
+          if (!window.confirm(copy.confirm)) return
+          try {
+            await withStorageLock(tripKey, (committed) => {
+              if (snapshot() !== expected) {
+                showFeedback(tools.conflict, '')
+                return
+              }
+              if (persist(emptyTrip, copy.updated, null, committed))
+                committed(() => Object.keys(drafts).forEach((key) => writeDraft(key, null)))
+            }, undefined, true)
+          } catch (error) {
+            writeError(error)
+          }
         },
       }}
     >
       <TripCopyContext.Provider value={staticCopy}>
         {children}
       </TripCopyContext.Provider>
-      {Object.keys(drafts).length > 0 && (
-        <details className="trip-drafts" id="trip-drafts">
-          <summary>{tools.pendingDrafts}</summary>
-          <ul>
-            {Object.entries(drafts).map(([key, draft]) => (
-              <li key={key}>
-                {draft.label}
-                <button
-                  type="button"
-                  onClick={() => {
-                    setDraftTarget(key)
-                    const path = `/${lang}/my-trip`
-                    if (window.location.pathname !== path) router.push(path)
-                  }}
-                >
-                  {tools.returnToField}
-                </button>
-                <button type="button" onClick={() => writeDraft(key, null)}>
-                  {tools.discardDraft}
-                </button>
-              </li>
-            ))}
-          </ul>
-        </details>
-      )}
-      <div className="trip-feedback" role="status" ref={feedbackPanel}>
-        {feedback.message && <span key={feedback.sequence}>{feedback.message}</span>}
-        {feedback.message && history && (
-          <button type="button" onClick={undo}>
-            {tools.undo}
-          </button>
+      <div className="trip-notices" ref={notices}>
+        {Object.keys(drafts).length > 0 && (
+          <details className="trip-drafts" id="trip-drafts">
+            <summary>{tools.pendingDrafts}</summary>
+            <ul>
+              {Object.entries(drafts).map(([key, draft]) => (
+                <li key={key}>
+                  {draft.label}
+                  <button
+                    type="button"
+                    onClick={(event) => {
+                      const panel = event.currentTarget.closest('details')
+                      if (panel) panel.open = false
+                      setDraftTarget(key)
+                      const path = `/${lang}/my-trip`
+                      if (window.location.pathname !== path) router.push(path)
+                    }}
+                  >
+                    {tools.returnToField}
+                  </button>
+                  <button type="button" onClick={() => writeDraft(key, null)}>
+                    {tools.discardDraft}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </details>
+        )}
+        <div className="trip-feedback" role="status" ref={feedbackPanel}>
+          {feedback.message && <span key={feedback.sequence}>{feedback.message}</span>}
+          {feedback.message && history && (
+            <button type="button" onClick={undo} disabled={writing}>
+              {tools.undo}
+            </button>
+          )}
+        </div>
+        {feedback.error && (
+          <div className="trip-error-toast" role="alert">
+            {feedback.error}
+            <button
+              type="button"
+              aria-label={copy.dismiss}
+              onClick={() => showFeedback('', '')}
+            >
+              ×
+            </button>
+          </div>
         )}
       </div>
-      {feedback.error && (
-        <div className="trip-error-toast" role="alert">
-          {feedback.error}
-          <button
-            type="button"
-            aria-label={copy.dismiss}
-            onClick={() => showFeedback('', '')}
-          >
-            ×
-          </button>
-        </div>
-      )}
     </TripContext.Provider>
   )
 }

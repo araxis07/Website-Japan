@@ -1,5 +1,5 @@
 import type { Download, Page } from '@playwright/test'
-import { test, expect, openDetails } from './fixtures'
+import { readStorage, test, expect, openDetails } from './fixtures'
 import { emptyTrip, parseTrip, tripKey, type Trip } from '../src/lib/trip'
 import { tripCalendar } from '../src/lib/trip-calendar'
 import { firstVisitSteps } from '../src/data/first-visit'
@@ -23,7 +23,7 @@ async function seed(page: Page, trip: Trip, library = '[]') {
 }
 
 async function storedTrip(page: Page): Promise<Trip> {
-  return page.evaluate((key) => JSON.parse(localStorage.getItem(key)!), tripKey)
+  return (JSON.parse((await readStorage(page, tripKey))!))
 }
 
 async function openLibrary(page: Page) {
@@ -112,8 +112,8 @@ test('loading a stale saved copy rejects changed source data before and during c
     exact: true,
   })
   await load.evaluate(
-    (button, { libraryKey, updated }) => {
-      localStorage.setItem(libraryKey, JSON.stringify(updated))
+    async (button, { libraryKey, updated }) => {
+      await window.seedTestStorage(libraryKey, JSON.stringify(updated))
       ;(button as HTMLButtonElement).click()
     },
     { libraryKey, updated },
@@ -124,8 +124,8 @@ test('loading a stale saved copy rejects changed source data before and during c
   expect(await storedTrip(page)).toEqual(active)
 
   await page.evaluate(
-    ({ libraryKey, saved }) => {
-      localStorage.setItem(libraryKey, JSON.stringify(saved))
+    async ({ libraryKey, saved }) => {
+      await window.seedTestStorage(libraryKey, JSON.stringify(saved))
       dispatchEvent(new Event('trip-library-change'))
     },
     { libraryKey, saved },
@@ -146,8 +146,8 @@ test('loading a stale saved copy rejects changed source data before and during c
   expect(await storedTrip(page)).toEqual(active)
 
   await page.evaluate(
-    ({ libraryKey, saved }) => {
-      localStorage.setItem(libraryKey, JSON.stringify(saved))
+    async ({ libraryKey, saved }) => {
+      await window.seedTestStorage(libraryKey, JSON.stringify(saved))
       dispatchEvent(new Event('trip-library-change'))
       window.confirm = () => true
     },
@@ -301,7 +301,7 @@ test('checklist and saved-copy destructive actions name the exact action and res
   })
   await remove.click()
   expect(
-    await page.evaluate((key) => localStorage.getItem(key), libraryKey),
+    ((await readStorage(page, libraryKey))),
   ).toBe(JSON.stringify(copies))
   page.once('dialog', async (dialog) => {
     expect(dialog.message()).toBe(en.tools.copyDeleteConfirm)
@@ -312,8 +312,8 @@ test('checklist and saved-copy destructive actions name the exact action and res
     library.getByRole('button', { name: en.tools.loadCopy, exact: true }),
   ).toHaveCount(0)
 
-  await page.evaluate((key) => {
-    localStorage.setItem(key, '{malformed')
+  await page.evaluate(async (key) => {
+    await window.seedTestStorage(key, '{malformed')
     dispatchEvent(new Event('trip-library-change'))
   }, libraryKey)
   const resetCopies = library.getByRole('button', {
@@ -326,7 +326,7 @@ test('checklist and saved-copy destructive actions name the exact action and res
   })
   await resetCopies.click()
   expect(
-    await page.evaluate((key) => localStorage.getItem(key), libraryKey),
+    ((await readStorage(page, libraryKey))),
   ).toBe('{malformed')
   page.once('dialog', async (dialog) => {
     expect(dialog.message()).toBe(en.tools.libraryResetConfirm)
@@ -334,7 +334,7 @@ test('checklist and saved-copy destructive actions name the exact action and res
   })
   await resetCopies.click()
   expect(
-    await page.evaluate((key) => localStorage.getItem(key), libraryKey),
+    ((await readStorage(page, libraryKey))),
   ).toBe('[]')
 })
 
@@ -397,7 +397,7 @@ test('public JSON and HTML identify share copies while full exports retain priva
   }
   expect(await storedTrip(page)).toEqual(trip)
   expect(
-    await page.evaluate((key) => localStorage.getItem(key), libraryKey),
+    ((await readStorage(page, libraryKey))),
   ).toBe(library)
 })
 
@@ -526,10 +526,7 @@ test('first-visit TOC and checklist guide links reach every topic without markin
     await expect(checkbox).not.toBeChecked()
   }
   expect(
-    await page.evaluate(
-      (key) => JSON.parse(localStorage.getItem(key) || '{}').preparation,
-      tripKey,
-    ),
+    (JSON.parse((await readStorage(page, tripKey)) || '{}').preparation),
   ).toBeUndefined()
 })
 

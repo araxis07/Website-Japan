@@ -1,5 +1,5 @@
 import type { Page } from '@playwright/test'
-import { test, expect, openDetails } from './fixtures'
+import { readStorage, test, expect, openDetails } from './fixtures'
 import { emptyTrip, tripKey, type Trip } from '../src/lib/trip'
 import { fieldApplicability, visitDetails } from '../src/data/visit-details'
 import { places, placePath } from '../src/data/places'
@@ -23,8 +23,8 @@ const shortTrip: Trip = {
 }
 
 async function seed(page: Page, trip: Trip) {
-  await page.evaluate(({ key, trip }) => {
-    localStorage.setItem(key, JSON.stringify(trip))
+  await page.evaluate(async ({ key, trip }) => {
+    await window.seedTestStorage(key, JSON.stringify(trip))
     dispatchEvent(new Event('trip-change'))
   }, { key: tripKey, trip })
 }
@@ -51,7 +51,7 @@ test('replacing the plan after viewing day seven restores a valid editor filter 
   page.once('dialog', (dialog) => dialog.accept())
   await page.getByRole('button', { name: en.tools.replace, exact: true }).click()
   await expectShortTripVisible(page)
-  expect(await page.evaluate((key) => JSON.parse(localStorage.getItem(key)!), tripKey)).toEqual(shortTrip)
+  expect((JSON.parse((await readStorage(page, tripKey))!))).toEqual(shortTrip)
   await page.reload()
   await expectShortTripVisible(page)
 })
@@ -59,8 +59,8 @@ test('replacing the plan after viewing day seven restores a valid editor filter 
 test('library load, undo and another tab keep the day filter valid', async ({ page, context }) => {
   await page.goto('/en/my-trip')
   await seed(page, longTrip)
-  await page.evaluate(({ key, trip }) => {
-    localStorage.setItem(key, JSON.stringify([{ id: 'short-copy', trip }]))
+  await page.evaluate(async ({ key, trip }) => {
+    await window.seedTestStorage(key, JSON.stringify([{ id: 'short-copy', trip }]))
     dispatchEvent(new Event('trip-library-change'))
   }, { key: libraryKey, trip: shortTrip })
   await selectDaySeven(page)
@@ -78,7 +78,7 @@ test('library load, undo and another tab keep the day filter valid', async ({ pa
   await other.goto('/en/my-trip')
   await seed(other, shortTrip)
   await expectShortTripVisible(page)
-  expect(await page.evaluate((key) => JSON.parse(localStorage.getItem(key)!), tripKey)).toEqual(shortTrip)
+  expect((JSON.parse((await readStorage(page, tripKey))!))).toEqual(shortTrip)
   await other.close()
 })
 
@@ -100,15 +100,15 @@ test('reverting one personal field clears only its draft and preserves a conflic
   const drafts = await page.evaluate((key) => JSON.parse(sessionStorage.getItem(key)!), draftKey)
   expect(drafts[`personal:${id}:name`]).toBeUndefined()
   expect(drafts[`personal:${id}:address`].value).toBe('My draft address')
-  await page.evaluate(({ key, trip }) => {
+  await page.evaluate(async ({ key, trip }) => {
     trip.items[0].custom!.address = 'Changed elsewhere'
-    localStorage.setItem(key, JSON.stringify(trip))
+    await window.seedTestStorage(key, JSON.stringify(trip))
     dispatchEvent(new Event('trip-change'))
   }, { key: tripKey, trip: personalTrip })
   await editor.getByRole('button', { name: en.tools.savePersonal, exact: true }).click()
   await expect(editor.getByRole('alert')).toHaveText(en.tools.conflict)
   await expect(address).toHaveValue('My draft address')
-  expect(await page.evaluate((key) => JSON.parse(localStorage.getItem(key)!).items[0].custom.address, tripKey)).toBe('Changed elsewhere')
+  expect((JSON.parse((await readStorage(page, tripKey))!).items[0].custom.address)).toBe('Changed elsewhere')
 })
 
 test('clearing new personal-place fields removes only their drafts and re-enables backup', async ({ page }) => {
@@ -155,7 +155,7 @@ test('a 160-character personal place keeps its contextual draft label and value'
   await expect(editor.getByLabel(en.tools.personalAddress, { exact: true })).toHaveValue('Pending address')
 })
 
-test('saving a valid field without a draft does not write or broadcast draft state', async ({ page }) => {
+test('a valid asynchronous edit retains a pending draft until the transaction saves and clears it', async ({ page }) => {
   await page.goto('/en/my-trip')
   await seed(page, shortTrip)
   await page.evaluate((draftKey) => {
@@ -170,8 +170,10 @@ test('saving a valid field without a draft does not write or broadcast draft sta
   }, draftKey)
   await page.getByLabel(en.tools.title, { exact: true }).fill('Valid edit')
   await expect(page.getByLabel(en.tools.title, { exact: true })).toHaveValue('Valid edit')
-  expect(await page.evaluate(() => (window as unknown as { draftCounts: { writes: number; events: number } }).draftCounts)).toEqual({ writes: 0, events: 0 })
-  expect(await page.evaluate((key) => JSON.parse(localStorage.getItem(key)!).title, tripKey)).toBe('Valid edit')
+  await readStorage(page, tripKey)
+  await expect(page.locator('#trip-drafts')).toHaveCount(0)
+  expect(await page.evaluate(() => (window as unknown as { draftCounts: { writes: number; events: number } }).draftCounts)).toEqual({ writes: 2, events: 2 })
+  expect((JSON.parse((await readStorage(page, tripKey))!).title)).toBe('Valid edit')
 })
 
 test('a no-op draft clear retries pending session persistence after storage recovers', async ({ page }) => {
@@ -194,11 +196,11 @@ test('a no-op draft clear retries pending session persistence after storage reco
   await page.evaluate(() => { (window as unknown as { draftStorageState: { blocked: boolean } }).draftStorageState.blocked = false })
   await page.getByLabel(en.tools.base, { exact: true }).fill('Saved base')
   await expect.poll(() => page.evaluate((key) => JSON.parse(sessionStorage.getItem(key) || '{}').title?.value, draftKey)).toBe('Pending title')
-  expect(await page.evaluate((key) => JSON.parse(localStorage.getItem(key)!), tripKey)).toMatchObject({ title: 'Short plan', base: 'Saved base' })
+  expect((JSON.parse((await readStorage(page, tripKey))!))).toMatchObject({ title: 'Short plan', base: 'Saved base' })
   page.once('dialog', (dialog) => dialog.accept())
   await page.reload()
   await expect(title).toHaveValue('Pending title')
-  expect(await page.evaluate((key) => JSON.parse(localStorage.getItem(key)!).title, tripKey)).toBe('Short plan')
+  expect((JSON.parse((await readStorage(page, tripKey))!).title)).toBe('Short plan')
 })
 
 test('returning to a day-two draft selects and focuses its field without exposing draft data in the URL', async ({ page }) => {
@@ -407,7 +409,7 @@ for (const failure of ['malformed', 'blocked'] as const) {
     await openDetails(checklist)
     await expect(checklist).toContainText(failure === 'blocked' ? en.trip.error : en.trip.invalid)
     for (const checkbox of await checklist.getByRole('checkbox').all()) await expect(checkbox).toBeDisabled()
-    if (failure === 'malformed') expect(await page.evaluate((key) => localStorage.getItem(key), tripKey)).toBe('{malformed')
+    if (failure === 'malformed') expect(await readStorage(page, tripKey)).toBe('{malformed')
   })
 }
 

@@ -6,6 +6,8 @@ The [November 1 trip-recovery and visit-date changes](november-journey-2026-11-0
 
 The [November 2 follow-through changes](november-follow-through-2026-11-02.md) add creation handoff, focus-safe feedback and Kyoto offline snapshots. Include finding a newly added visit while filtering a day, using Undo without losing focus, and explaining saved snapshot dates versus travel dates in the same external tasks; their status remains Not Run.
 
+The [November 3 changes](november-next-steps-2026-11-03.md) add explicit route origins, regional alternatives, focus offsets and coordinated browser writes. Include a second-tab conflict/reload/retry, pending-edit cancellation and recovery when IndexedDB/Web Locks are unavailable; external statuses remain Not Run.
+
 All sessions use invented trip details. Do not collect real bookings, private backup files or personal coordinates. Record the tested commit, date, device/browser or calendar version, locale, outcome and a short redacted observation. Use **Passed**, **Failed**, **Blocked** or **Not Run**; name the remaining blocker when applicable.
 
 | Acceptance | Current status | Required reviewer | Smallest completion evidence |

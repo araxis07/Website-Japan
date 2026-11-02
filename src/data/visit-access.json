@@ -1115,5 +1115,39 @@
       "ja": "鹿児島中央駅から観光バスで城山へ約25分、展望所は停留所そば。夕景を見る場合は最終バスも確認。",
       "th": "จาก Kagoshima-Chuo นั่งรถบัสเที่ยวชมไป Shiroyama ประมาณ 25 นาที จุดชมวิวอยู่ใกล้ป้าย ตรวจบัสเที่ยวสุดท้ายก่อนวางแผนชมพระอาทิตย์ตก"
     }
+  },
+  "pref:niigata:marinepia-nihonkai": {
+    "source": "https://www.marinepia.or.jp/access/",
+    "reviewedAt": "2026-11-03",
+    "access": {
+      "en": "From JR Niigata Station bus terminal platform 9, C22 reaches Suizokukan-mae in about 25 minutes. Check current departures. The aquarium has indoor displays and outdoor areas; the facility reference pin does not verify an entrance or a step-free route.",
+      "ja": "JR新潟駅バスターミナル9番線からC22で水族館前まで約25分。最新の時刻を確認してください。屋内展示と屋外エリアがあります。施設の参考位置は入口や段差のない経路の確認ではありません。",
+      "th": "จากชานชาลารถบัส 9 ที่สถานี JR Niigata ใช้สาย C22 ถึง Suizokukan-mae ประมาณ 25 นาที ตรวจเวลาออกล่าสุด พิพิธภัณฑ์สัตว์น้ำมีทั้งส่วนในอาคารและกลางแจ้ง หมุดอ้างอิงสถานที่ไม่ได้ยืนยันทางเข้าหรือเส้นทางไร้บันได"
+    },
+    "hours": {
+      "en": "Normally 09:00–17:00; ticket sales end at 16:30. Closed December 29–January 1 and the first Thursday of March plus the following day. Busy-period schedules may differ; check the operator calendar.",
+      "ja": "通常9:00〜17:00、発券は16:30まで。12月29日〜1月1日、3月の第1木曜日と翌日が休館。繁忙期などは変更があるため公式カレンダーを確認してください。",
+      "th": "ปกติ 09:00–17:00 จำหน่ายบัตรถึง 16:30 ปิด 29 ธันวาคม–1 มกราคม และวันพฤหัสบดีแรกของมีนาคมกับวันถัดไป ช่วงคนหนาแน่นอาจเปลี่ยนเวลา โปรดตรวจปฏิทินของผู้ให้บริการ"
+    },
+    "fieldSources": {
+      "hours": {
+        "source": "https://www.marinepia.or.jp/info/",
+        "reviewedAt": "2026-11-03"
+      }
+    }
+  },
+  "pref:toyama:toyama-glass-art-museum": {
+    "source": "https://toyama-glass-art-museum.jp/visitor/",
+    "reviewedAt": "2026-11-03",
+    "access": {
+      "en": "From Toyama Station, take the circular tram to Grand Plaza-mae (about 12 minutes), then walk about two minutes; or use the Minami-Toyama-ekimae tram to Nishimachi and walk about one minute. The museum is inside TOYAMA Kirari. Check current services and the final approach; the reference pin does not verify an entrance or a step-free route.",
+      "ja": "富山駅から環状線でグランドプラザ前まで約12分、徒歩約2分。または南富山駅前行きで西町下車、徒歩約1分。TOYAMAキラリ内です。最新の運行と最後の経路を確認してください。参考位置は入口や段差のない経路の確認ではありません。",
+      "th": "จากสถานี Toyama ใช้รถรางสายวงแหวนถึง Grand Plaza-mae ประมาณ 12 นาทีแล้วเดินราว 2 นาที หรือสาย Minami-Toyama-ekimae ลง Nishimachi แล้วเดินราว 1 นาที พิพิธภัณฑ์อยู่ในอาคาร TOYAMA Kirari ตรวจบริการล่าสุดและทางเดินช่วงสุดท้าย หมุดอ้างอิงไม่ได้ยืนยันทางเข้าหรือเส้นทางไร้บันได"
+    },
+    "hours": {
+      "en": "Permanent and special exhibitions are normally 09:30–18:00, with last entry 30 minutes before closing. Usually closed the first and third Wednesdays and over New Year. Exhibition changes and individual exhibitions can alter closures; check the current operator calendar.",
+      "ja": "常設展・企画展は通常9:30〜18:00、最終入場は閉場30分前。原則第1・第3水曜日と年末年始休館。展示替えや展覧会により休館日が変わるため、公式の最新カレンダーを確認してください。",
+      "th": "นิทรรศการถาวรและพิเศษปกติ 09:30–18:00 รับเข้ารอบสุดท้ายก่อนปิด 30 นาที โดยทั่วไปปิดวันพุธที่ 1 และ 3 ของเดือนและช่วงปีใหม่ การเปลี่ยนนิทรรศการหรือแต่ละงานอาจทำให้วันปิดต่างกัน โปรดตรวจปฏิทินล่าสุดของพิพิธภัณฑ์"
+    }
   }
 }

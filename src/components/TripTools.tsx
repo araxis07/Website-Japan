@@ -21,7 +21,7 @@ import { offlineTrip } from '@/lib/trip-export'
 import { downloadTrip } from '@/lib/download'
 
 export default function TripTools() {
-  const { trip, change, copy, tools, lang, undo, canUndo, undoLabel, drafts } =
+  const { writing, trip, change, copy, tools, lang, undo, canUndo, undoLabel, drafts } =
     useTrip()
   const [incoming, setIncoming] = useState<{
     trip: Trip
@@ -188,7 +188,7 @@ export default function TripTools() {
                         : s,
                     ),
                   }))
-                }}
+                }} disabled={writing}
               >
                 <option value="">{tools.unlinkedStay}</option>
                 {trip.items
@@ -276,7 +276,7 @@ export default function TripTools() {
                   copy.updated,
                   JSON.stringify(trip),
                 )
-              }
+              } disabled={writing}
             >
               {tools.removeStay}
             </button>
@@ -284,7 +284,7 @@ export default function TripTools() {
         ))}
         <button
           type="button"
-          disabled={(trip.stays?.length || 0) >= 30}
+          disabled={writing || ((trip.stays?.length || 0) >= 30)}
           onClick={() =>
             change(
               (current) => ({
@@ -419,13 +419,13 @@ export default function TripTools() {
         </ul>
       </details>
       <div className="trip-file-actions">
-        <button type="button" onClick={undo} disabled={!canUndo}>
+        <button type="button" onClick={undo} disabled={writing || (!canUndo)}>
           {tools.undo}
           {undoLabel ? `: ${undoLabel}` : ''}
         </button>
         <button
           type="button"
-          disabled={Object.keys(drafts).length > 0}
+          disabled={writing || (Object.keys(drafts).length > 0)}
           onClick={async () => {
             downloadTrip(
               JSON.stringify(exportTrip, null, 2),
@@ -496,7 +496,7 @@ export default function TripTools() {
         </label>
         <button
           type="button"
-          disabled={Object.keys(drafts).length > 0}
+          disabled={writing || (Object.keys(drafts).length > 0)}
           onClick={() =>
             downloadTrip(
               offlineTrip(exportTrip, lang, copy, tools),
@@ -620,14 +620,14 @@ export default function TripTools() {
           </details>
           <button
             type="button"
-            disabled={Object.keys(drafts).length > 0}
-            onClick={() => {
+            disabled={writing || (Object.keys(drafts).length > 0)}
+            onClick={async () => {
               if (!mergeTrips(trip, incoming.trip)) {
                 setError(copy.limit)
                 return
               }
               if (
-                change(
+                await change(
                   (current) => mergeTrips(current, incoming.trip),
                   copy.updated,
                   incoming.before,
@@ -640,11 +640,11 @@ export default function TripTools() {
           </button>
           <button
             type="button"
-            disabled={Object.keys(drafts).length > 0}
-            onClick={() => {
+            disabled={writing || (Object.keys(drafts).length > 0)}
+            onClick={async () => {
               if (
                 window.confirm(tools.replaceConfirm) &&
-                change(() => incoming.trip, copy.updated, incoming.before)
+                await change(() => incoming.trip, copy.updated, incoming.before)
               )
                 setIncoming(null)
             }}
@@ -656,7 +656,7 @@ export default function TripTools() {
             onClick={() => {
               importSelection.current++
               setIncoming(null)
-            }}
+            }} disabled={writing}
           >
             {tools.cancel}
           </button>

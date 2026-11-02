@@ -11,7 +11,7 @@ export default function SavePlace({
   name: string
 }) {
   const id = canonicalPlaceId(sourceId)
-  const { trip, ready, copy, change, lang } = useTrip()
+  const { writing, trip, ready, copy, change, lang } = useTrip()
   const entries = trip?.items.filter((item) => item.id === id) || []
   const saved = entries.length > 0
   if (
@@ -37,7 +37,7 @@ export default function SavePlace({
       <button
         className="save-button"
         type="button"
-        disabled={!ready || !trip}
+        disabled={writing || (!ready || !trip)}
         aria-pressed={saved}
         aria-label={`${saved ? copy.remove : copy.save}: ${name}`}
         onClick={() =>

@@ -478,9 +478,6 @@ html[data-motion='still'] .destination-card {
   outline: 2px solid var(--red);
   outline-offset: 4px;
 }
-.map-place-list li {
-  scroll-margin-top: 100px;
-}
 .street-marker.map-cluster span {
   border: 3px double var(--paper);
   border-radius: 50%;
@@ -1338,9 +1335,6 @@ html[lang='th'] .place-search-results {
 .trip-empty-choices a {
   min-height: 44px;
   padding: 0.6rem;
-}
-.trip-tools {
-  scroll-margin-top: 10rem;
 }
 .trip-on-the-go a {
   display: inline-flex;

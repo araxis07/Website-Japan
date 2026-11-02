@@ -10,7 +10,7 @@ export default function ApplyPlan({
   entries: { id: string; day: number }[]
   days: number
 }) {
-  const { trip, change, copy, tools, lang } = useTrip()
+  const { writing, trip, change, copy, tools, lang } = useTrip()
   const [before, setBefore] = useState<string | null>(null)
   const [start, setStart] = useState(1)
   const incoming = {
@@ -26,7 +26,7 @@ export default function ApplyPlan({
       <button
         className="button"
         type="button"
-        disabled={!trip}
+        disabled={writing || (!trip)}
         onClick={() => setBefore(JSON.stringify(trip))}
       >
         {tools.apply}
@@ -46,7 +46,7 @@ export default function ApplyPlan({
             {tools.startDay}
             <select
               value={start}
-              onChange={(e) => setStart(Number(e.target.value))}
+              onChange={(e) => setStart(Number(e.target.value))} disabled={writing}
             >
               {Array.from({ length: 31 - days }, (_, i) => (
                 <option key={i} value={i + 1}>
@@ -71,20 +71,20 @@ export default function ApplyPlan({
           </ol>
           <button
             type="button"
-            onClick={() => {
+            onClick={async () => {
               if (
-                change(
+                await change(
                   (current) => mergeTrips(current, incoming),
                   copy.updated,
                   before,
                 )
               )
                 setBefore(null)
-            }}
+            }} disabled={writing}
           >
             {tools.applyConfirm}
           </button>
-          <button type="button" onClick={() => setBefore(null)}>
+          <button type="button" onClick={() => setBefore(null)} disabled={writing}>
             {tools.cancel}
           </button>
         </section>

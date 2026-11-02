@@ -1,4 +1,4 @@
-import { test, expect, openDetails } from './fixtures'
+import { readStorage, test, expect, openDetails } from './fixtures'
 import { emptyTrip, tripKey, type TripEntry } from '../src/lib/trip'
 import en from '../src/i18n/dictionaries/en.json'
 
@@ -21,10 +21,7 @@ test('a plain unscheduled save has an explicit Remove action and Undo restores i
   await remove.focus()
   await page.keyboard.press('Enter')
   expect(
-    await page.evaluate(
-      (key) => JSON.parse(localStorage.getItem(key)!).items,
-      tripKey,
-    ),
+    (JSON.parse((await readStorage(page, tripKey))!).items),
   ).toEqual([])
   await page
     .locator('.trip-feedback')
@@ -32,10 +29,7 @@ test('a plain unscheduled save has an explicit Remove action and Undo restores i
     .click()
   await expect(remove).toBeVisible()
   expect(
-    await page.evaluate(
-      (key) => JSON.parse(localStorage.getItem(key)!).items,
-      tripKey,
-    ),
+    (JSON.parse((await readStorage(page, tripKey))!).items),
   ).toEqual([{ id: 'kiyomizu', day: 0 }])
 })
 
@@ -71,8 +65,8 @@ for (const example of [
     await page.goto('/en/destinations/kyoto')
     const trip = { ...emptyTrip, items: example.items, title: 'Keep this trip' }
     await page.evaluate(
-      ({ key, trip }) => {
-        localStorage.setItem(key, JSON.stringify(trip))
+      async ({ key, trip }) => {
+        await window.seedTestStorage(key, JSON.stringify(trip))
         dispatchEvent(new Event('trip-change'))
       },
       { key: tripKey, trip },
@@ -95,10 +89,7 @@ for (const example of [
       page.locator('.trip-day li[data-place-id="kiyomizu"]'),
     ).toHaveCount(example.items.length)
     expect(
-      await page.evaluate(
-        (key) => JSON.parse(localStorage.getItem(key)!),
-        tripKey,
-      ),
+      (JSON.parse((await readStorage(page, tripKey))!)),
     ).toEqual(trip)
     if ('note' in example.items[0]) {
       await openDetails(page.locator('.trip-visit-editor').first())

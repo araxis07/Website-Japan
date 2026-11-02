@@ -1,6 +1,6 @@
 import fs from 'node:fs/promises'
 import type { Download, Page } from '@playwright/test'
-import { test, expect, openDetails } from './fixtures'
+import { readStorage, test, expect, openDetails } from './fixtures'
 import { emptyTrip, tripKey, type Trip } from '../src/lib/trip'
 import { places } from '../src/data/places'
 import { firstVisitSteps } from '../src/data/first-visit'
@@ -15,16 +15,16 @@ const stepIds = ['documents', 'airport', 'transport', 'essentials', 'etiquette',
 
 async function seed(page: Page, trip: Trip) {
   await page.evaluate(
-    ({ key, trip }) => {
-      localStorage.setItem(key, JSON.stringify(trip))
+    async ({ key, trip }) => {
+      await window.seedTestStorage(key, JSON.stringify(trip))
       dispatchEvent(new Event('trip-change'))
     },
     { key: tripKey, trip },
   )
 }
 
-const storedTrip = (page: Page): Promise<Trip> =>
-  page.evaluate((key) => JSON.parse(localStorage.getItem(key)!), tripKey)
+const storedTrip = async (page: Page): Promise<Trip> =>
+  (JSON.parse((await readStorage(page, tripKey))!))
 
 async function downloadText(download: Download) {
   return fs.readFile((await download.path())!, 'utf8')

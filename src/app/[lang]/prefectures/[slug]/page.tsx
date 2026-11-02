@@ -214,6 +214,7 @@ export default async function PrefecturePage({ params }: Props) {
         <h2>{dict.tools.apply}</h2>
         <p>{plan.note[lang]}</p>
         <p className="source-note">{dict.tools.planEstimate}</p>
+        <p className="source-note">{dict.tools.prefectureRouteHelp}</p>
         <ol>
           {plan.groups.map((ids, i) => (
             <li key={i}>
@@ -223,27 +224,54 @@ export default async function PrefecturePage({ params }: Props) {
                   const point = points.find(
                     (p) => canonicalPlaceId(p.id) === id,
                   )!
+                  const previous =
+                    index > 0
+                      ? points.find(
+                          (p) => canonicalPlaceId(p.id) === ids[index - 1],
+                        )!
+                      : undefined
+                  const directions = new URL(mapUrl(point, true, 'transit'))
+                  if (previous)
+                    directions.searchParams.set(
+                      'origin',
+                      new URL(
+                        mapUrl(previous, true, 'transit'),
+                      ).searchParams.get('destination')!,
+                    )
                   return (
                     <li key={id}>
                       <a href={`#place-${id}`}>{point.names[lang]}</a>
                       {index === 0 && <p>{visitFor(point)?.access?.[lang]}</p>}
                       <a
                         className="text-link"
-                        href={mapUrl(point, true, 'transit')}
+                        href={directions.toString()}
                       >
-                        {dict.trip.directions}
+                        {previous
+                          ? previous.names[lang]
+                          : dict.tools.prefectureCurrentOrigin}{' '}
+                        → {point.names[lang]} · {dict.trip.directions} ↗
                       </a>
-                      {index > 0 && (
-                        <p className="source-note">
-                          {dict.tools.legDistance}:{' '}
-                          {distanceKm(
-                            points.find(
-                              (p) => canonicalPlaceId(p.id) === ids[index - 1],
-                            )!.coordinates,
-                            point.coordinates,
-                          ).toFixed(1)}{' '}
-                          km · {dict.tools.mapHop}
-                        </p>
+                      {previous && (
+                        <>
+                          <details className="place-extra-actions">
+                            <summary>{dict.tools.origin}</summary>
+                            <a
+                              className="text-link"
+                              href={mapUrl(point, true, 'transit')}
+                            >
+                              {dict.tools.prefectureCurrentOrigin} →{' '}
+                              {point.names[lang]} · {dict.trip.directions} ↗
+                            </a>
+                          </details>
+                          <p className="source-note">
+                            {dict.tools.legDistance}:{' '}
+                            {distanceKm(
+                              previous.coordinates,
+                              point.coordinates,
+                            ).toFixed(1)}{' '}
+                            km · {dict.tools.mapHop}
+                          </p>
+                        </>
                       )}
                     </li>
                   )

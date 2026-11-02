@@ -1,5 +1,5 @@
 import fs from 'node:fs/promises'
-import { test, expect } from './fixtures'
+import { readStorage, test, expect } from './fixtures'
 import {
   emptyTrip,
   mergeTrips,
@@ -98,7 +98,7 @@ test('returning from a direct map or a removed result restores focus to visible 
   const show = page
     .locator('.place-search-results li')
     .first()
-    .getByRole('button', { name: en.explorer.show, exact: true })
+    .getByRole('button', { name: `${en.explorer.show}: Odori Park, Sapporo`, exact: true })
   await show.click()
   await page
     .locator('.prefecture-preview')
@@ -146,11 +146,8 @@ test('mobile place sheets save the selected canonical place and Undo restores th
     )
     await save.click()
     await expect
-      .poll(() =>
-        page.evaluate(
-          (key) => JSON.parse(localStorage.getItem(key)!).items,
-          tripKey,
-        ),
+      .poll(async () =>
+        (JSON.parse((await readStorage(page, tripKey))!).items),
       )
       .toEqual([{ id: 'gion', day: 0 }])
     await sheet
@@ -162,11 +159,8 @@ test('mobile place sheets save the selected canonical place and Undo restores th
       .getByRole('button', { name: copy.tools.undo, exact: true })
       .click()
     await expect
-      .poll(() =>
-        page.evaluate(
-          (key) => JSON.parse(localStorage.getItem(key)!).items,
-          tripKey,
-        ),
+      .poll(async () =>
+        (JSON.parse((await readStorage(page, tripKey))!).items),
       )
       .toEqual([])
   }
@@ -198,10 +192,7 @@ test('downloaded public JSON removes imported private visit identifiers and leav
     parseTrip(raw)?.items.filter((item) => item.id === 'gion'),
   ).toHaveLength(2)
   expect(
-    await page.evaluate(
-      (key) => JSON.parse(localStorage.getItem(key)!),
-      tripKey,
-    ),
+    (JSON.parse((await readStorage(page, tripKey))!)),
   ).toEqual(privateTrip)
 })
 

@@ -1,12 +1,12 @@
 import type { Page } from '@playwright/test'
-import { test, expect, openDetails } from './fixtures'
+import { readStorage, test, expect, openDetails } from './fixtures'
 import { emptyTrip, tripKey, type Trip } from '../src/lib/trip'
 import en from '../src/i18n/dictionaries/en.json'
 
 async function seedTrip(page: Page, trip: Trip) {
   await page.evaluate(
-    ({ key, trip }) => {
-      localStorage.setItem(key, JSON.stringify(trip))
+    async ({ key, trip }) => {
+      await window.seedTestStorage(key, JSON.stringify(trip))
       dispatchEvent(new Event('trip-change'))
     },
     { key: tripKey, trip },
@@ -14,7 +14,7 @@ async function seedTrip(page: Page, trip: Trip) {
 }
 
 async function storedTrip(page: Page): Promise<Trip> {
-  return page.evaluate((key) => JSON.parse(localStorage.getItem(key)!), tripKey)
+  return (JSON.parse((await readStorage(page, tripKey))!))
 }
 
 async function rejectTripWrites(page: Page) {

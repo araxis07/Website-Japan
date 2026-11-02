@@ -22,14 +22,21 @@ function checkHeaders(headers) {
   assert.equal(headers.get('x-content-type-options'), 'nosniff')
   assert.equal(headers.get('x-frame-options')?.toUpperCase(), 'DENY')
   const csp = headers.get('content-security-policy') || ''
-  for (const directive of [
-    "default-src 'self'",
-    "object-src 'none'",
-    "frame-ancestors 'none'",
-    "script-src-attr 'none'",
+  const directives = new Map()
+  for (const part of csp.split(';')) {
+    if (!part.trim()) continue
+    const [name, ...values] = part.trim().toLowerCase().split(/\s+/)
+    assert(!directives.has(name), `Duplicate CSP directive: ${name}`)
+    assert(!values.includes("'unsafe-eval'"), 'Production must not allow eval')
+    directives.set(name, values)
+  }
+  for (const [name, value] of [
+    ['default-src', "'self'"],
+    ['object-src', "'none'"],
+    ['frame-ancestors', "'none'"],
+    ['script-src-attr', "'none'"],
   ])
-    assert(csp.includes(directive), `Missing CSP: ${directive}`)
-  assert(!csp.includes("'unsafe-eval'"), 'Production must not allow eval')
+    assert.deepEqual(directives.get(name), [value], `Expected CSP: ${name} ${value}`)
   assert.equal(
     headers.get('referrer-policy'),
     'strict-origin-when-cross-origin',
@@ -57,11 +64,26 @@ if (process.argv[2] === '--self-test') {
   })
   checkHeaders(good)
   assert.throws(() => checkHeaders(new Headers()))
-  good.set(
-    'content-security-policy',
-    good.get('content-security-policy') + "; script-src 'unsafe-eval'",
-  )
-  assert.throws(() => checkHeaders(good))
+  const policy = good.get('content-security-policy')
+  for (const invalid of [
+    policy.replace("default-src 'self'", "default-src 'self' https://untrusted.example"),
+    policy.replace("object-src 'none'", "object-src *; object-src 'none'"),
+    policy + "; OBJECT-SRC 'none'",
+    policy.replace("frame-ancestors 'none'", "frame-ancestors 'none' https://untrusted.example"),
+    policy.replace("script-src-attr 'none'", "script-src-attr 'none' 'unsafe-inline'"),
+    policy.replace("default-src 'self'; ", ''),
+    policy + "; script-src 'UNSAFE-EVAL'",
+  ]) {
+    const rejected = new Headers(good)
+    rejected.set('content-security-policy', invalid)
+    assert.throws(() => checkHeaders(rejected))
+  }
+  const spaced = new Headers(good)
+  spaced.set('content-security-policy', `  ${policy.toUpperCase().replaceAll('; ', ';\t')} ; `)
+  checkHeaders(spaced)
+  const config = (await import('../next.config.mjs')).default
+  const rule = (await config.headers()).find((item) => item.source === '/(.*)')
+  checkHeaders(new Headers(rule.headers.map(({ key, value }) => [key, value])))
   console.log('Deployment checker self-test passed.')
 } else {
   const origin = originFor(process.argv[2] || '')

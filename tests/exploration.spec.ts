@@ -1,4 +1,4 @@
-import { test, expect, openDetails } from './fixtures'
+import { readStorage, test, expect, openDetails } from './fixtures'
 import { prefectures } from '../src/data/prefectures'
 import { prefecturePlaces } from '../src/data/prefecture-places'
 import { spots, placePath, canonicalPlaceId } from '../src/data/places'
@@ -11,13 +11,13 @@ import { appearanceKey } from '../src/lib/appearance'
 test('47 prefectures have complete translations, source links and real mapped places', () => {
   expect(prefectures).toHaveLength(47)
   expect(new Set(prefectures.map((p) => p.slug)).size).toBe(47)
-  expect(prefecturePlaces).toHaveLength(94)
+  expect(prefecturePlaces).toHaveLength(96)
   for (const p of prefectures) {
     expect(regions.some((r) => r.id === p.region)).toBe(true)
     expect(p.source).toMatch(
       /^https:\/\/www\.japan\.travel\/en\/destinations\//,
     )
-    expect(p.places).toHaveLength(2)
+    expect(p.places).toHaveLength(['niigata', 'toyama'].includes(p.slug) ? 3 : 2)
     for (const lang of i18n.locales) {
       expect(p.names[lang]).toBeTruthy()
       expect(p.base[lang]).toBeTruthy()
@@ -37,7 +37,12 @@ test('47 prefectures have complete translations, source links and real mapped pl
     expect(place.coordinates[0]).toBeLessThan(46)
     expect(place.coordinates[1]).toBeGreaterThan(122)
     expect(place.coordinates[1]).toBeLessThan(146)
-    expect(place.source).toMatch(
+    const operatorSources: Record<string, string> = {
+      'pref:niigata:marinepia-nihonkai': 'https://www.marinepia.or.jp/access/',
+      'pref:toyama:toyama-glass-art-museum': 'https://toyama-glass-art-museum.jp/visitor/',
+    }
+    if (operatorSources[place.id]) expect(place.source).toBe(operatorSources[place.id])
+    else expect(place.source).toMatch(
       /^https:\/\/www\.openstreetmap\.org\/(node|way|relation)\/\d+$/,
     )
     expect(place.address).toContain('日本')
@@ -103,7 +108,7 @@ test('prefecture filters combine with multilingual landmark search and map selec
   await expect(page.locator('.prefecture-card')).toHaveCount(1)
   await page
     .locator('.prefecture-card')
-    .getByRole('button', { name: 'Show on map', exact: true })
+    .getByRole('button', { name: 'Show on map: Nara', exact: true })
     .click()
   await expect(page.locator('.prefecture-preview h2')).toHaveText('Nara')
   await expect(
@@ -149,7 +154,7 @@ test('first-time visitor can find, save and revisit a prefecture place across la
   await page.reload()
   expect(
     JSON.parse(
-      (await page.evaluate((key) => localStorage.getItem(key), tripKey))!,
+      (await readStorage(page, tripKey))!,
     ).items,
   ).toHaveLength(1)
   await page.locator('.language-picker summary').click()
@@ -235,7 +240,7 @@ test('night mode follows the system, persists and synchronizes across tabs', asy
   await page.getByRole('button', { name: 'Day mode', exact: true }).click()
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'light')
   expect(
-    await page.evaluate((key) => localStorage.getItem(key), appearanceKey),
+    ((await readStorage(page, appearanceKey))),
   ).toBe('light')
   await page.reload()
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'light')

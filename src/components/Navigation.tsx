@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { i18n, localeNames, type Locale } from '@/i18n/config'
 import type { Dictionary } from '@/i18n/dictionaries'
 import Icon from './Icon'
@@ -27,10 +27,39 @@ export default function Navigation({
   appearance: Dictionary['atmosphere']
 }) {
   const [open, setOpen] = useState(false)
+  const header = useRef<HTMLElement>(null)
   const toggle = useRef<HTMLButtonElement>(null)
   const pathname = usePathname()
   const suffix = usePageLocation()
   const closeMenu = () => setOpen(false)
+  useEffect(() => {
+    const element = header.current
+    if (!element) return
+    const root = document.documentElement
+    const measure = () =>
+      root.style.setProperty(
+        '--site-header-height',
+        `${element.getBoundingClientRect().height}px`,
+      )
+    measure()
+    const observer = new ResizeObserver(measure)
+    observer.observe(element)
+    const frame = requestAnimationFrame(() => {
+      if (document.activeElement !== document.body || !window.location.hash) return
+      let id = window.location.hash.slice(1)
+      try {
+        id = decodeURIComponent(id)
+      } catch {
+        return
+      }
+      document.getElementById(id)?.scrollIntoView({ block: 'start' })
+    })
+    return () => {
+      cancelAnimationFrame(frame)
+      observer.disconnect()
+      root.style.removeProperty('--site-header-height')
+    }
+  }, [])
   const links = [
     { href: `/${lang}/first-visit`, label: dict.beginner.nav },
     { href: `/${lang}/explore`, label: dict.navigation.explore },
@@ -39,6 +68,7 @@ export default function Navigation({
 
   return (
     <header
+      ref={header}
       className="site-header"
       onKeyDown={(event) => {
         if (event.key === 'Escape' && open) {
@@ -47,6 +77,9 @@ export default function Navigation({
         }
       }}
     >
+      <noscript>
+        <style>{'.site-header{position:static}'}</style>
+      </noscript>
       <div className="container header-inner">
         <Link href={`/${lang}`} className="brand" onNavigate={closeMenu}>
           <span className="brand-mark" aria-hidden="true">

@@ -1,12 +1,14 @@
 'use client'
 import Link from 'next/link'
+import { useState } from 'react'
 import { useTrip } from './TripProvider'
 export default function ReadinessChecklist({
   steps,
 }: {
   steps: { id: string; title: string }[]
 }) {
-  const { trip, ready, error, tools, copy, lang, change, drafts } = useTrip()
+  const [pending, setPending] = useState<{ id: string; checked: boolean } | null>(null)
+  const { writing, trip, ready, error, tools, copy, lang, change, drafts } = useTrip()
   return (
     <details className="readiness-checklist">
       <summary>{tools.checklist}</summary>
@@ -22,7 +24,7 @@ export default function ReadinessChecklist({
           <a href="#trip-drafts">{tools.pendingDrafts} ↗</a>
         </p>
       )}
-      <fieldset disabled={!trip || !ready || Object.keys(drafts).length > 0}>
+      <fieldset disabled={writing || (!trip || !ready || Boolean(pending) || Object.keys(drafts).length > 0)}>
         <legend>
           {tools.checklistTrip}: {trip?.title || copy.title}
         </legend>
@@ -33,10 +35,11 @@ export default function ReadinessChecklist({
             <label>
               <input
                 type="checkbox"
-                checked={trip?.preparation?.includes(step.id) || false}
-                onChange={(event) => {
+                checked={pending?.id === step.id ? pending.checked : trip?.preparation?.includes(step.id) || false}
+                onChange={async (event) => {
                   const checked = event.target.checked
-                  change(
+                  setPending({ id: step.id, checked })
+                  await change(
                     (current) => ({
                       ...current,
                       preparation: checked
@@ -46,6 +49,7 @@ export default function ReadinessChecklist({
                     copy.updated,
                     JSON.stringify(trip),
                   )
+                  setPending(null)
                 }}
               />
               {step.title}
@@ -57,10 +61,10 @@ export default function ReadinessChecklist({
         ))}
         <button
           type="button"
-          disabled={!trip?.preparation?.length}
-          onClick={() => {
+          disabled={writing || (!trip?.preparation?.length)}
+          onClick={async () => {
             if (window.confirm(tools.checklistClearConfirm))
-              change(
+              await change(
                 (current) => ({ ...current, preparation: [] }),
                 copy.updated,
                 JSON.stringify(trip),

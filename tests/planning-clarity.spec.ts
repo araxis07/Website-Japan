@@ -1,6 +1,6 @@
 import fs from 'node:fs/promises'
 import type { Download, Page } from '@playwright/test'
-import { test, expect, openDetails } from './fixtures'
+import { readStorage, test, expect, openDetails } from './fixtures'
 import { emptyTrip, tripKey, type Trip } from '../src/lib/trip'
 import { fieldReview, visitDetails, visitSource } from '../src/data/visit-details'
 import en from '../src/i18n/dictionaries/en.json'
@@ -44,13 +44,13 @@ const fixture: Trip = {
   ],
 }
 
-const storedTrip = (page: Page) =>
-  page.evaluate((key) => JSON.parse(localStorage.getItem(key)!) as Trip, tripKey)
+const storedTrip = async (page: Page) =>
+  (JSON.parse((await readStorage(page, tripKey))!) as Trip)
 
 async function seed(page: Page, trip: Trip) {
   await page.evaluate(
-    ({ key, trip }) => {
-      localStorage.setItem(key, JSON.stringify(trip))
+    async ({ key, trip }) => {
+      await window.seedTestStorage(key, JSON.stringify(trip))
       dispatchEvent(new Event('trip-change'))
     },
     { key: tripKey, trip },
@@ -83,7 +83,7 @@ test('event validity is inclusive and distinct from review age without changing 
   })
   expect(fieldReview(temple, 'booking', '2026-11-30').status).toBe('overdue')
   expect(fieldReview(temple, 'booking', '2026-12-01').status).toBe('expired')
-  expect(visitSource(museum, 'hours').reviewedAt).toBe('2026-10-26')
+  expect(visitSource(museum, 'hours').reviewedAt).toBe('2026-11-03')
   expect(visitSource(temple, 'entrance').reviewedAt).toBe('2026-10-26')
   expect(fieldReview(museum, 'accessibility', '2026-11-30').status).toBe(
     'reviewed',
@@ -408,7 +408,7 @@ test('first offline use can export full JSON, readable HTML and a saved-copy lib
   expect(rows[0].trip).toEqual(fixture)
   expect(
     JSON.parse(
-      (await page.evaluate((key) => localStorage.getItem(key), libraryKey))!,
+      (await readStorage(page, libraryKey))!,
     ),
   ).toEqual(rows)
   expect(await storedTrip(page)).toEqual(fixture)
@@ -440,10 +440,16 @@ test('expired event claims, overdue checks and unknown facts remain distinct in 
     const hours = museum.locator('.visit-facts > div').filter({
       has: page.getByText(copy.tools.hours, { exact: true }),
     })
-    await expect(hours).toHaveAttribute('data-review-status', 'overdue')
-    await expect(hours).toContainText(copy.tools.reviewDue)
+    await expect(hours).toHaveAttribute('data-review-status', 'reviewed')
+    await expect(hours).toContainText(copy.tools.reviewCurrent)
     await expect(hours).not.toContainText(copy.tools.claimExpired)
-    await expect(hours.locator('time')).toHaveAttribute('datetime', '2026-10-26')
+    await expect(hours.locator('time')).toHaveAttribute('datetime', '2026-11-03')
+    const temple = page.locator('#place-kiyomizu > .visit-details')
+    await openDetails(temple)
+    const dueBooking = temple.locator('.visit-facts > div').filter({ has: page.getByText(copy.tools.booking, { exact: true }) })
+    await expect(dueBooking).toHaveAttribute('data-review-status', 'overdue')
+    await expect(dueBooking).toContainText(copy.tools.reviewDue)
+    await expect(dueBooking).not.toContainText(copy.tools.claimExpired)
     const inari = page.locator(
       '[id="place-pref:kyoto:fushimi-inari-taisha"] > .visit-details',
     )

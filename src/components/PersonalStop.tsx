@@ -10,7 +10,7 @@ export default function PersonalStop({
   entry?: TripEntry
   onAdded?: () => void
 }) {
-  const { trip, tools, copy, change, drafts, setDraft } = useTrip()
+  const { writing, trip, tools, copy, change, drafts, setDraft } = useTrip()
   const [error, setError] = useState('')
   if (!trip) return null
   const fields = ['name', 'address', 'url', 'latitude', 'longitude'] as const
@@ -87,7 +87,7 @@ export default function PersonalStop({
       <summary>{entry ? tools.editPersonal : tools.addPersonal}</summary>
       <p>{entry ? tools.editPersonalHelp : tools.personalHelp}</p>
       <form
-        onSubmit={(event) => {
+        onSubmit={async (event) => {
           event.preventDefault()
           if (
             entry &&
@@ -113,7 +113,7 @@ export default function PersonalStop({
               : {}),
           }
           if (
-            change(
+            await change(
               (current) => ({
                 ...current,
                 ...(entry
@@ -163,10 +163,10 @@ export default function PersonalStop({
             {input('longitude')}
           </div>
         </details>
-        <button type="submit" disabled={!entry && trip.items.length >= 60}>
+        <button type="submit" disabled={writing || (!entry && trip.items.length >= 60)}>
           {entry ? tools.savePersonal : tools.addPersonal}
         </button>
-        <button type="button" onClick={clearDrafts}>
+        <button type="button" onClick={clearDrafts} disabled={writing}>
           {tools.cancel}
         </button>
       </form>

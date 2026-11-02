@@ -1,6 +1,6 @@
 import fs from 'node:fs/promises'
 import { pathToFileURL } from 'node:url'
-import { test, expect, openDetails } from './fixtures'
+import { readStorage, test, expect, openDetails } from './fixtures'
 import { chromium, webkit } from '@playwright/test'
 import {
   emptyTrip,
@@ -320,9 +320,9 @@ test('deleting local site data requires confirmation and preserves unrelated sto
   await page
     .getByRole('textbox', { name: 'Trip name', exact: true })
     .fill('Private')
-  await page.evaluate(() => {
-    localStorage.setItem('unrelated-app', 'keep')
-    localStorage.setItem('japan-travel-library-v1', '[]')
+  await page.evaluate(async () => {
+    await window.seedTestStorage('unrelated-app', 'keep')
+    await window.seedTestStorage('japan-travel-library-v1', '[]')
   })
   await page.goto('/en/about')
   page.once('dialog', (dialog) => dialog.dismiss())
@@ -330,15 +330,16 @@ test('deleting local site data requires confirmation and preserves unrelated sto
     .getByRole('button', { name: en.tools.eraseData, exact: true })
     .click()
   expect(
-    await page.evaluate((key) => localStorage.getItem(key), tripKey),
+    ((await readStorage(page, tripKey))),
   ).toContain('Private')
   page.once('dialog', (dialog) => dialog.accept())
   await page
     .getByRole('button', { name: en.tools.eraseData, exact: true })
     .click()
   await expect(page.getByText(en.tools.erasedData)).toBeVisible()
+  expect(await readStorage(page, 'japan-travel-library-v1')).toBeNull()
   expect(
-    await page.evaluate((key) => localStorage.getItem(key), tripKey),
+    ((await readStorage(page, tripKey))),
   ).toBeNull()
   expect(await page.evaluate(() => localStorage.getItem('unrelated-app'))).toBe(
     'keep',
@@ -402,7 +403,7 @@ test('personal-stop drafts survive a failed write and sanitized downloads exclud
   ).toHaveValue('A private cafe')
   expect(
     JSON.parse(
-      (await page.evaluate((key) => localStorage.getItem(key), tripKey))!,
+      (await readStorage(page, tripKey))!,
     ),
   ).toEqual(portable)
   await page.reload()
@@ -487,7 +488,7 @@ test('JSON and library exports move from Chromium to WebKit and back without los
         .click()
       expect(
         JSON.parse(
-          (await page.evaluate((key) => localStorage.getItem(key), tripKey))!,
+          (await readStorage(page, tripKey))!,
         ),
       ).toEqual(portable)
       const tripDownload = page.waitForEvent('download')
@@ -505,9 +506,7 @@ test('JSON and library exports move from Chromium to WebKit and back without los
       await page.locator('.trip-library .import-preview button').first().click()
       expect(
         JSON.parse(
-          (await page.evaluate(() =>
-            localStorage.getItem('japan-travel-library-v1'),
-          ))!,
+          (await readStorage(page, 'japan-travel-library-v1'))!,
         )[0].trip,
       ).toEqual(portable)
       const libraryDownload = page.waitForEvent('download')

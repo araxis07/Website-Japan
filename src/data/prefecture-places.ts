@@ -1,7 +1,7 @@
 import { guidePlaces } from './guide-places'
 import type { Place } from './places'
 
-// Coordinates and Japanese location labels from OpenStreetMap, reviewed 2026-10-23.
+// Most coordinates and Japanese location labels are from OpenStreetMap, reviewed 2026-10-23.
 export const prefecturePlaces: Place[] = [
   {
     ...guidePlaces.find((place) => place.id === 'odori')!,
@@ -433,6 +433,21 @@ export const prefecturePlaces: Place[] = [
     source: 'https://www.openstreetmap.org/way/352707754',
   },
   {
+    id: 'pref:niigata:marinepia-nihonkai',
+    category: 'museum',
+    prefecture: 'niigata',
+    destination: 'niigata',
+    names: {
+      en: 'Niigata City Aquarium Marinepia Nihonkai',
+      ja: '新潟市水族館 マリンピア日本海',
+      th: 'พิพิธภัณฑ์สัตว์น้ำเมืองนีงาตะ มารีนเปีย นิฮงไค',
+    },
+    coordinates: [37.9234877, 139.0277849],
+    query: '新潟市水族館 マリンピア日本海 新潟市中央区西船見町5932-445 日本',
+    address: '新潟県新潟市中央区西船見町5932-445, 日本',
+    source: 'https://www.marinepia.or.jp/access/',
+  },
+  {
     id: 'pref:toyama:fugan-canal-kansui-park',
     category: 'nature',
     prefecture: 'toyama',
@@ -461,6 +476,21 @@ export const prefecturePlaces: Place[] = [
     query: '富山城 富山県 日本',
     address: '富山城址公園, 富山市, 富山県, 日本',
     source: 'https://www.openstreetmap.org/way/338862862',
+  },
+  {
+    id: 'pref:toyama:toyama-glass-art-museum',
+    category: 'museum',
+    prefecture: 'toyama',
+    destination: 'toyama',
+    names: {
+      en: 'Toyama Glass Art Museum',
+      ja: '富山市ガラス美術館',
+      th: 'พิพิธภัณฑ์ศิลปะแก้วเมืองโทยามะ',
+    },
+    coordinates: [36.68855, 137.215052],
+    query: '富山市ガラス美術館 富山市西町5番1号 日本',
+    address: '富山県富山市西町5番1号 TOYAMAキラリ, 日本',
+    source: 'https://toyama-glass-art-museum.jp/visitor/',
   },
   {
     id: 'pref:ishikawa:kenrokuen',

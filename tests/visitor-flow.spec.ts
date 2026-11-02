@@ -1,5 +1,5 @@
 import type { Page } from '@playwright/test'
-import { test, expect, openDetails } from './fixtures'
+import { readStorage, test, expect, openDetails } from './fixtures'
 import { emptyTrip, tripKey, type Trip } from '../src/lib/trip'
 import { places } from '../src/data/places'
 import en from '../src/i18n/dictionaries/en.json'
@@ -10,8 +10,8 @@ const gion = places.find((place) => place.id === 'gion')!
 const castle = places.find((place) => place.id === 'pref:aomori:hirosaki-castle')!
 const kyoto = places.find((place) => place.id === 'destination:kyoto')!
 
-const storedTrip = (page: Page) =>
-  page.evaluate((key) => JSON.parse(localStorage.getItem(key)!) as Trip, tripKey)
+const storedTrip = async (page: Page) =>
+  (JSON.parse((await readStorage(page, tripKey))!) as Trip)
 
 for (const [lang, copy] of [
   ['en', en],
@@ -195,7 +195,7 @@ for (const [lang, copy] of [
     await preview
       .getByRole('button', { name: copy.tools.cancel, exact: true })
       .click()
-    expect(await page.evaluate((key) => localStorage.getItem(key), tripKey)).toBeNull()
+    expect(await readStorage(page, tripKey)).toBeNull()
 
     const choices = intro.locator('.trip-empty-choices')
     await choices

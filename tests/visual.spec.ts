@@ -1,4 +1,4 @@
-import { test, expect } from './fixtures'
+import { readStorage, test, expect } from './fixtures'
 import { emptyTrip, tripKey } from '../src/lib/trip'
 
 for (const theme of ['light', 'dark'])
@@ -97,7 +97,7 @@ test('all-place search, mobile sheet and suggested-plan preview work', async ({
     .getByRole('button', { name: 'Add this plan', exact: true })
     .click()
   const saved = JSON.parse(
-    (await page.evaluate((key) => localStorage.getItem(key), tripKey))!,
+    (await readStorage(page, tripKey))!,
   )
   expect(
     saved.items.find((item: { id: string }) => item.id === 'kiyomizu').day,
