@@ -153,6 +153,7 @@ test('one place stays saved across guide and prefecture pages; undo restores rem
       exact: true,
     })
     .click()
+  await expect(page.getByRole('button', { name: 'Remove: Kiyomizu-dera', exact: true })).toBeVisible()
   await page.goto('/en/prefectures/kyoto')
   await expect(
     page.getByRole('button', {

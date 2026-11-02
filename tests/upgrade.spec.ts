@@ -160,6 +160,7 @@ test('trip editing, personal stops and backups work without secure-context crypt
   await expect(stop).toHaveCount(1)
   await openDetails(stop.locator('.trip-visit-editor'))
   await stop.getByRole('combobox').selectOption('1')
+  await expect(page.locator('.trip-day[aria-labelledby="trip-day-1"] li[data-place-id^=custom-]')).toHaveCount(1)
   await openDetails(stop.locator('.trip-visit-editor'))
   await stop.getByRole('button', { name: /Add another visit/ }).click()
   await expect(

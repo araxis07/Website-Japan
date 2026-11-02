@@ -55,6 +55,8 @@ export async function withStorageLock<T>(
 ): Promise<T> {
   if (!navigator.locks)
     throw new DOMException('Storage locking requires a secure supported browser', 'NotSupportedError')
+  const focused = document.activeElement
+  let failed = true
   pending++
   window.dispatchEvent(new Event('trip-write-state'))
   try {
@@ -80,10 +82,17 @@ export async function withStorageLock<T>(
         throw error
       }
       effects.forEach((effect) => effect())
+      failed = result === false
       return result
     })
   } finally {
     pending--
     window.dispatchEvent(new Event('trip-write-state'))
+    // Disabling a pending control can blur it; restore failed actions without stealing new focus.
+    if (failed && focused instanceof HTMLElement)
+      requestAnimationFrame(() => {
+        if (focused.isConnected && document.activeElement === document.body)
+          focused.focus({ preventScroll: true })
+      })
   }
 }

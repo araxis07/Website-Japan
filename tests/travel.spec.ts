@@ -422,9 +422,7 @@ test('interactive miniature responds to lighting, seasons, rotation and motion c
   await scene.locator('.scene-place-actions button').click()
   expect(
     JSON.parse(
-      (await page.evaluate(() =>
-        localStorage.getItem('japan-travel-trip-v1'),
-      ))!,
+      (await readStorage(page, tripKey))!,
     ).items.some((entry: { id: string }) => entry.id === 'makishi'),
   ).toBe(true)
   await page
