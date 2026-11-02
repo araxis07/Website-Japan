@@ -105,6 +105,26 @@ test('queued field edits remain drafts, discard cancels the write, and rapid typ
   await other.close()
 })
 
+test('a queued day assignment preserves a new focus target chosen while saving', async ({ page, context }) => {
+  await page.goto('/en/my-trip')
+  await page.evaluate(async ({ key, trip }) => {
+    await window.seedTestStorage(key, JSON.stringify({ ...trip, items: [{ id: 'gion', day: 0 }] }))
+    dispatchEvent(new Event('trip-change'))
+  }, { key: tripKey, trip: emptyTrip })
+  const other = await context.newPage()
+  await other.goto('/en/about')
+  await hold(other)
+  await page.getByRole('combobox', { name: `${en.trip.assign}: Gion`, exact: true }).selectOption('2')
+  const next = page.locator('.trip-task-links a[href="#trip-tools"]')
+  await next.focus()
+  await release(other)
+  await expect(page.locator('.trip-day[aria-labelledby="trip-day-2"] li[data-place-id="gion"]')).toHaveCount(1)
+  await page.evaluate(() => new Promise<void>((resolve) => requestAnimationFrame(() => requestAnimationFrame(() => resolve()))))
+  await expect(next).toBeFocused()
+  expect(JSON.parse((await readStorage(page, tripKey))!).items).toEqual([{ id: 'gion', day: 2 }])
+  await other.close()
+})
+
 test('missing Web Locks fails safely while the existing trip can still be downloaded', async ({ page }) => {
   await page.addInitScript(() => Object.defineProperty(navigator, 'locks', { configurable: true, value: undefined }))
   await page.goto('/en/destinations/kyoto')

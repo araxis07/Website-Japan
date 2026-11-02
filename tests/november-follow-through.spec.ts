@@ -212,7 +212,9 @@ for (const motion of ['no-preference', 'reduce'] as const) {
       name: en.tools.undo,
       exact: true,
     })
+    await expect(undo).toBeEnabled()
     await undo.focus()
+    await expect(undo).toBeFocused()
     await feedback.hover()
     await page.mouse.move(0, 0)
     await page.waitForTimeout(5500)

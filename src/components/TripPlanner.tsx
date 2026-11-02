@@ -49,10 +49,11 @@ export default function TripPlanner({
   const [viewDay, setViewDay] = useState('all')
   const [showEmpty, setShowEmpty] = useState(false)
   const [pendingDays, setPendingDays] = useState<number | null>(null)
-  const [assignment, setAssignment] = useState<{ day: number } | null>(null)
+  const [assignment, setAssignment] = useState<{ day: number; origin: Element | null } | null>(null)
   const [advancedOpen, setAdvancedOpen] = useState(false)
   useEffect(() => {
     if (!assignment) return
+    if (document.activeElement !== document.body && document.activeElement !== assignment.origin) return
     const heading = document.getElementById(`trip-day-${assignment.day}`)
     heading?.focus({ preventScroll: true })
     heading?.scrollIntoView({ block: 'start' })
@@ -109,9 +110,9 @@ export default function TripPlanner({
   const effectiveViewDay = days.some((day) => String(day) === viewDay)
     ? viewDay
     : 'all'
-  const selectDay = (day: number) => {
+  const selectDay = (day: number, origin = document.activeElement) => {
     setViewDay(String(day))
-    setAssignment({ day })
+    setAssignment({ day, origin })
   }
   // Explicit optional fields can belong to a saved or partially edited plan.
   const pristine =
@@ -454,6 +455,7 @@ export default function TripPlanner({
                           <select
                             value={entry.day}
                             onChange={async (event) => {
+                              const origin = event.currentTarget
                               const day = Number(event.target.value)
                               if (
                                 await updateEntry(
@@ -464,7 +466,7 @@ export default function TripPlanner({
                               ) {
                                 if (effectiveViewDay !== 'all')
                                   setViewDay(String(day))
-                                setAssignment({ day })
+                                setAssignment({ day, origin })
                               }
                             }} disabled={writing}
                           >
@@ -585,7 +587,8 @@ export default function TripPlanner({
                               <button
                                 type="button"
                                 aria-label={`${tools.repeat}: ${place.names[lang]}`}
-                                onClick={async () => {
+                                onClick={async (event) => {
+                                  const origin = event.currentTarget
                                   const added = await change(
                                     (current) => ({
                                       ...current,
@@ -603,7 +606,7 @@ export default function TripPlanner({
                                     }),
                                     copy.added,
                                   )
-                                  if (added) selectDay(0)
+                                  if (added) selectDay(0, origin)
                                 }} disabled={writing}
                               >
                                 {tools.repeat}
@@ -643,7 +646,7 @@ export default function TripPlanner({
           </div>
         </div>
       </div>
-      <PersonalStop onAdded={() => selectDay(0)} />
+      <PersonalStop onAdded={(origin) => selectDay(0, origin)} />
       <TripTools />
       <p className="planner-note">
         {tools.timingHelp} {copy.note}

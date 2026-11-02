@@ -8,7 +8,7 @@ export default function PersonalStop({
   onAdded,
 }: {
   entry?: TripEntry
-  onAdded?: () => void
+  onAdded?: (origin: Element | null) => void
 }) {
   const { writing, trip, tools, copy, change, drafts, setDraft } = useTrip()
   const [error, setError] = useState('')
@@ -89,6 +89,7 @@ export default function PersonalStop({
       <form
         onSubmit={async (event) => {
           event.preventDefault()
+          const origin = document.activeElement
           if (
             entry &&
             fields.some((field) => {
@@ -147,7 +148,7 @@ export default function PersonalStop({
             )
           ) {
             clearDrafts()
-            if (!entry) onAdded?.()
+            if (!entry) onAdded?.(origin)
           }
         }}
       >
