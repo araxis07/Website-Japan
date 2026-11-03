@@ -10,7 +10,7 @@ An independent Japan travel guide with practical advice, interactive maps and pe
 - Searchable street maps with filters and Google Maps directions.
 - Day-by-day trip plans with personal stops, accommodation, notes and budget estimates.
 - JSON backup/import, offline HTML, calendar export and print/PDF.
-- Japanese-inspired light/dark themes, on-demand 3D scenery and motion controls.
+- Japanese editorial design, culture stories, light/dark themes and on-demand 3D scenery with motion controls.
 
 Built with **Next.js 16, React 19, TypeScript, Leaflet and Three.js**. No backend or API key is required for local use.
 
@@ -68,6 +68,7 @@ Map pins are reference locations, not verified entrances. Venue details link to 
 Keep translation keys aligned, preserve stable place IDs, and update only facts and review dates checked against their sources. Photo sources and licenses are listed on each language's `/credits` page.
 
 - [Release setup, content review and privacy](docs/release-operations.md)
+- [Japanese visual identity and design checks](docs/japanese-identity-2026-11-03.md)
 - [Team ownership and development roadmap](docs/roadmap-2026-10-29.md)
 - [Latest discovery, content, storage and security results](docs/november-next-steps-2026-11-03.md)
 

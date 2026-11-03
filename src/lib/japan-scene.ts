@@ -53,17 +53,19 @@ export function createJapanScene(
     materials.add(result)
     return result
   }
-  const red = material(0xc34532),
-    dark = material(0x283033),
-    wood = material(0x6a4539)
-  const stone = material(0xb4ad98),
-    cream = material(0xeee1c2),
-    grass = material(0x879d78)
-  const mountain = material(0x748ea0),
-    snow = material(0xfff9ec)
-  const water = material(0x70b7bc, { roughness: 0.28, metalness: 0.22 })
-  const blossom = material(0xe9a6b8),
-    blossomLight = material(0xf8c9cb)
+  const red = material(0xb8402f),
+    dark = material(0x202e3c),
+    wood = material(0x70503d)
+  const stone = material(0xaaa895),
+    cream = material(0xf0e3c9),
+    grass = material(0x859779)
+  const mountain = material(0x708797),
+    snow = material(0xfff8e9)
+  const water = material(0x6f9fa0, { roughness: 0.28, metalness: 0.22 })
+  const blossom = material(0xdba7aa),
+    blossomLight = material(0xf1c9c4)
+  const brass = material(0xb59a68, { metalness: 0.25 })
+  const railing = material(0xb8402f)
   const glow = material(0xffe2ad, {
     emissive: 0xff962e,
     emissiveIntensity: 0.15,
@@ -91,7 +93,7 @@ export function createJapanScene(
   }
   mesh(
     new THREE.CylinderGeometry(3.55, 2.9, 0.8, 48),
-    stone,
+    dark,
     [0, -0.65, 0],
     [1, 1, 1],
   )
@@ -99,6 +101,12 @@ export function createJapanScene(
     new THREE.CylinderGeometry(3.6, 3.5, 0.18, 48),
     cream,
     [0, -0.16, 0],
+    [1, 1, 1],
+  )
+  mesh(
+    new THREE.CylinderGeometry(3.24, 3.15, 0.045, 48),
+    brass,
+    [0, -0.91, 0],
     [1, 1, 1],
   )
   const lagoon = mesh(cylinder, water, [0, -0.045, 0.15], [2.9, 0.08, 2.1])
@@ -142,8 +150,8 @@ export function createJapanScene(
     mesh(box, wood, [x, y, 0.1], [0.15, 0.1, 0.65])
     if (i % 2 === 0)
       for (const z of [-0.28, 0.48]) {
-        mesh(box, red, [x, y + 0.25, z], [0.06, 0.5, 0.06])
-        mesh(box, red, [x, y + 0.48, z], [0.33, 0.06, 0.06])
+        mesh(box, railing, [x, y + 0.25, z], [0.06, 0.5, 0.06])
+        mesh(box, railing, [x, y + 0.48, z], [0.33, 0.06, 0.06])
       }
   }
   // Cedar trunks and clustered, faceted canopies.
@@ -211,6 +219,8 @@ export function createJapanScene(
     )
     roof.rotation.y = Math.PI / 4
     mesh(box, glow, [x, 0.35, 1.46], [0.25, 0.2, 0.02], cabins)
+    mesh(box, dark, [x, 0.35, 1.48], [0.025, 0.22, 0.025], cabins)
+    mesh(box, dark, [x, 0.35, 1.48], [0.27, 0.025, 0.025], cabins)
   }
   const pagoda = new THREE.Group()
   const island = new THREE.Group()
@@ -227,6 +237,8 @@ export function createJapanScene(
     )
     roof.rotation.y = Math.PI / 4
     mesh(box, glow, [x, 0.4, 0.61], [0.3, 0.3, 0.02], island)
+    mesh(box, wood, [x, 0.4, 0.63], [0.025, 0.31, 0.025], island)
+    mesh(box, wood, [x, 0.4, 0.63], [0.31, 0.025, 0.025], island)
   }
   const boat = mesh(box, wood, [0, 0.08, 2], [0.35, 0.12, 1.2], island)
   boat.userData.topic = 'fuji'
@@ -246,8 +258,9 @@ export function createJapanScene(
     }
   }
   world.add(pagoda)
-  pagoda.userData.topic = 'torii'
-  // A small pagoda at the far side of the garden.
+  pagoda.userData.topic = 'fuji'
+  pagoda.position.set(0.25, 0, 1.7)
+  // Keep the temple visible from the initial camera angle.
   for (let i = 0; i < 3; i++) {
     const width = 0.65 - i * 0.13
     mesh(
@@ -271,6 +284,13 @@ export function createJapanScene(
       [0.1, 0.28, 0.04],
       pagoda,
     )
+    mesh(
+      box,
+      wood,
+      [1.8, 0.11 + i * 0.37, 0.1 - i * 0.06],
+      [width * 0.9, 0.04, 0.05],
+      pagoda,
+    )
   }
   mesh(cone, dark, [1.8, 1.51, -0.25], [0.07, 0.35, 0.07], pagoda)
   const lanterns: THREE.Mesh[] = []
@@ -279,6 +299,10 @@ export function createJapanScene(
     mesh(cylinder, dark, [x, 0.43, 1.85], [0.035, 0.85, 0.035])
     const lamp = mesh(sphere, glow, [x, 0.92, 1.85], [0.22, 0.28, 0.22])
     lanterns.push(lamp)
+    for (const offset of [-0.12, 0.12]) {
+      const rib = mesh(box, wood, [x + offset, 0.92, 2.04], [0.025, 0.37, 0.025])
+      lanterns.push(rib)
+    }
     mesh(cylinder, dark, [x, 1.2, 1.85], [0.14, 0.035, 0.14])
     mesh(cylinder, dark, [x, 0.66, 1.85], [0.13, 0.035, 0.13])
     const light = new THREE.PointLight(0xffb45f, 0, 5, 2)
@@ -386,10 +410,10 @@ export function createJapanScene(
     peak.userData.topic = region === 'fuji' ? 'fuji' : 'sakura'
     renderer.shadowMap.needsUpdate = true
     const colors = [
-      [0xe9a6b8, 0xf8c9cb, 0x879d78],
-      [0x609369, 0x94b777, 0x749461],
-      [0xc85a34, 0xe7a647, 0x999364],
-      [0xdfebee, 0xffffff, 0xc6cfd0],
+      [0xdba7aa, 0xf1c9c4, 0x859779],
+      [0x5c8166, 0x91aa7d, 0x728b69],
+      [0xb85338, 0xd49a56, 0x918d6c],
+      [0xd9e1df, 0xf9f7ed, 0xbccac8],
     ][next.season]
     blossom.color.setHex(colors[0])
     blossomLight.color.setHex(colors[1])
@@ -398,10 +422,14 @@ export function createJapanScene(
       region === 'hokkaido' && next.season === 3 ? 0xcbded8 : 0x355c4b,
     )
     if (region === 'okinawa') grass.color.setHex(0xd8ca9e)
+    railing.color.setHex(
+      region === 'hokkaido' ? 0x70503d : region === 'okinawa' ? 0x202e3c : 0xb8402f,
+    )
     petalMaterial.color.setHex(next.season === 3 ? 0xffffff : colors[1])
     ambient.intensity = next.night ? 1.25 : 2.5
     ambient.color.setHex(next.night ? 0x9bafff : 0xfff3df)
     sun.intensity = next.night ? 0.8 : 3
+    water.color.setHex(next.night ? 0x416c79 : 0x6f9fa0)
     glow.emissiveIntensity = next.night ? 3 : 0.15
     lights.forEach((light) => {
       light.intensity = next.night ? 8 : 0

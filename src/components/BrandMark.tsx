@@ -1,0 +1,32 @@
+export default function BrandMark({
+  className = 'brand-mark',
+}: {
+  className?: string
+}) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 128 128"
+      width="48"
+      height="48"
+      className={className}
+      aria-hidden="true"
+      focusable="false"
+    >
+      <rect width="128" height="128" rx="28" fill="#F6F2E9" />
+      <circle cx="84" cy="42" r="24" fill="#C54732" />
+      <path
+        d="M8 91 46 42H60L86 75 104 63 120 82V100C120 111 111 120 100 120H28C17 120 8 111 8 100Z"
+        fill="#163B4A"
+      />
+      <path d="M34 58 46 42H60L74 60 61 56 54 62 47 56Z" fill="#F6F2E9" />
+      <path
+        d="M43 120C42 104 83 104 83 91C83 81 63 83 65 71"
+        fill="none"
+        stroke="#F6F2E9"
+        strokeWidth="12"
+        strokeLinecap="round"
+      />
+    </svg>
+  )
+}

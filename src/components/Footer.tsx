@@ -3,6 +3,7 @@ import { reviewedAt } from '@/data/travel'
 import type { Locale } from '@/i18n/config'
 import type { Dictionary } from '@/i18n/dictionaries'
 import Icon from './Icon'
+import BrandMark from './BrandMark'
 import ReportLink from './ReportLink'
 
 export default function Footer({
@@ -18,9 +19,7 @@ export default function Footer({
         <div className="footer-top">
           <div className="footer-brand">
             <Link href={`/${lang}`} className="brand">
-              <span className="brand-mark" aria-hidden="true">
-                日
-              </span>
+              <BrandMark />
               <strong>{dict.brand}</strong>
             </Link>
             <h2>{dict.footer.title}</h2>
@@ -31,6 +30,8 @@ export default function Footer({
             <nav aria-label={dict.footer.explore}>
               <Link href={`/${lang}/first-visit`}>{dict.beginner.nav}</Link>
               <Link href={`/${lang}/explore`}>{dict.navigation.explore}</Link>
+              <Link href={`/${lang}#culture`}>{dict.identity.culture}</Link>
+              <Link href={`/${lang}#miniature`}>{dict.identity.miniature}</Link>
               {(
                 [
                   'destinations',

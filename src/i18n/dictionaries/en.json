@@ -705,5 +705,11 @@
     "kyotoCityScope": "This selection adds {count} places from this guide. The prefecture plan also includes Fushimi Inari.",
     "kyotoPrefecturePlan": "See Kyoto prefecture plan",
     "validThrough": "Applies through"
+  },
+  "identity": {
+    "culture": "Culture & stories",
+    "miniature": "Explore in 3D",
+    "sceneTitle": "A small world.\nA sense of wonder.",
+    "sceneDescription": "Turn the landscape, follow the seasons, and light a lantern at night. Explore four miniature scenes, then follow their stories into the real Japan."
   }
 }

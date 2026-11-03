@@ -182,8 +182,7 @@ export default function JapanDiorama({ copy }: { copy: Dictionary['scene'] }) {
               src="/images/miniature.png"
               alt={copy.description}
               fill
-              loading="eager"
-              sizes="(max-width: 600px) calc(100vw - 40px), (max-width: 750px) 560px, (max-width: 1150px) 55vw, (max-width: 1376px) 57vw, 734px"
+              sizes="(max-width: 750px) calc(100vw - 40px), (max-width: 1376px) 55vw, 700px"
             />
           </div>
         )}

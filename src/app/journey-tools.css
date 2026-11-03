@@ -174,7 +174,8 @@
   min-height: 280px;
   aspect-ratio: 4/3;
   overflow: hidden;
-  border-radius: 50% 50% 4px 4px;
+  border-radius: 2px;
+  box-shadow: 10px 10px 0 var(--wash);
 }
 .prefecture-photo img {
   object-fit: cover;
@@ -221,7 +222,10 @@
 .page-intro {
   padding-top: 1rem;
 }
-html[data-motion='still'] .destination-card {
+html[data-motion='still'] .destination-card,
+html[data-motion='still'] .hero-photograph,
+html[data-motion='still'] .culture-story,
+html[data-motion='still'] .culture-photo img {
   transform: none !important;
 }
 @media (max-width: 700px) {

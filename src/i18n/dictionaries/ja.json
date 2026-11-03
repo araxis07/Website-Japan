@@ -705,5 +705,11 @@
     "kyotoCityScope": "このページの{count}か所を追加します。府のプランには伏見稲荷大社も含まれます。",
     "kyotoPrefecturePlan": "京都府のプランを見る",
     "validThrough": "対象期間の終了日"
+  },
+  "identity": {
+    "culture": "文化と物語",
+    "miniature": "3Dで巡る",
+    "sceneTitle": "小さな景色から、\n旅がはじまる。",
+    "sceneDescription": "景色を回し、季節を変え、夜には灯籠に明かりを。四つのミニチュアを巡り、気になった場所のガイドから実際の旅へ。"
   }
 }

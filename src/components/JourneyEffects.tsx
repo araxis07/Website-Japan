@@ -37,7 +37,7 @@ export default function JourneyEffects() {
     )
     document
       .querySelectorAll(
-        '.section-heading, .region-photo, .detail-hero, .experience-card, .journey-paper',
+        '.section-heading, .region-photo, .detail-hero, .experience-card, .journey-paper, .culture-story',
       )
       .forEach((el) => observer.observe(el))
     const tilt = (event: PointerEvent) => {
@@ -48,7 +48,7 @@ export default function JourneyEffects() {
       )
         return
       const card = (event.target as HTMLElement).closest<HTMLElement>(
-        '.destination-card',
+        '.destination-card, .culture-story, .hero-photograph',
       )
       if (!card) return
       const rect = card.getBoundingClientRect()
@@ -63,7 +63,7 @@ export default function JourneyEffects() {
     }
     const reset = (event: PointerEvent) => {
       const card = (event.target as HTMLElement).closest<HTMLElement>(
-        '.destination-card',
+        '.destination-card, .culture-story, .hero-photograph',
       )
       if (card && !card.contains(event.relatedTarget as Node)) {
         card.style.removeProperty('--tilt-x')

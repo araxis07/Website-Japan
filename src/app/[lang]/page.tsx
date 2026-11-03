@@ -3,6 +3,8 @@ import { notFound } from 'next/navigation'
 import DestinationMap from '@/components/DestinationMap'
 import StartHere from '@/components/StartHere'
 import Hero from '@/components/Hero'
+import CultureStories from '@/components/CultureStories'
+import JapanDiorama from '@/components/JapanDiorama'
 import FeaturedDestinations from '@/components/FeaturedDestinations'
 import RegionsList from '@/components/RegionsList'
 import SeasonalHighlights from '@/components/SeasonalHighlights'
@@ -72,6 +74,7 @@ export default async function LocalePage({
       />
       <Hero dict={dict} lang={lang} />
       <StartHere lang={lang} copy={dict.beginner} />
+      <CultureStories lang={lang} />
       <div className="container intro-strip">
         <div className="intro-copy">
           <h2>{dict.intro.title}</h2>
@@ -92,6 +95,29 @@ export default async function LocalePage({
           </div>
         </div>
       </div>
+      <section
+        id="miniature"
+        className="scene-chapter section"
+        aria-labelledby="miniature-title"
+      >
+        <div className="container scene-chapter-inner">
+          <div className="scene-chapter-copy">
+            <p className="section-japanese" lang="ja" aria-hidden="true">
+              四季の旅
+            </p>
+            <h2 id="miniature-title">{dict.identity.sceneTitle}</h2>
+            <p>{dict.identity.sceneDescription}</p>
+            <div className="scene-chapter-seasons" aria-hidden="true" lang="ja">
+              <span>春</span>
+              <span>夏</span>
+              <span>秋</span>
+              <span>冬</span>
+            </div>
+            <p className="source-note">{dict.tools.sceneNote}</p>
+          </div>
+          <JapanDiorama copy={dict.scene} />
+        </div>
+      </section>
       <FeaturedDestinations labels={dict.destinations} lang={lang} />
       <Journeys
         copy={dict.journeys}

@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from 'react'
 import { i18n, localeNames, type Locale } from '@/i18n/config'
 import type { Dictionary } from '@/i18n/dictionaries'
 import Icon from './Icon'
+import BrandMark from './BrandMark'
 import { usePageLocation } from './usePageLocation'
 import { AppearanceControls } from './Atmosphere'
 
@@ -82,9 +83,7 @@ export default function Navigation({
       </noscript>
       <div className="container header-inner">
         <Link href={`/${lang}`} className="brand" onNavigate={closeMenu}>
-          <span className="brand-mark" aria-hidden="true">
-            日
-          </span>
+          <BrandMark />
           <span>
             <strong>{dict.brand}</strong>
             <small>{dict.brandSub}</small>
@@ -117,6 +116,7 @@ export default function Navigation({
           <Link
             className="header-trip"
             href={`/${lang}/my-trip`}
+            aria-current={pathname === `/${lang}/my-trip` ? 'page' : undefined}
             onNavigate={closeMenu}
           >
             {dict.trip.title}
@@ -167,12 +167,17 @@ export default function Navigation({
       <nav className="mobile-task-nav" aria-label={dict.beginner.heading}>
         <Link
           href={`/${lang}/explore?scope=places&view=list`}
+          aria-current={pathname === `/${lang}/explore` ? 'page' : undefined}
           onNavigate={closeMenu}
         >
           <Icon name="search" />
           {dict.tools.place}
         </Link>
-        <Link href={`/${lang}/my-trip`} onNavigate={closeMenu}>
+        <Link
+          href={`/${lang}/my-trip`}
+          aria-current={pathname === `/${lang}/my-trip` ? 'page' : undefined}
+          onNavigate={closeMenu}
+        >
           {dict.trip.title}
         </Link>
         <Link href={`/${lang}/first-visit#help`} onNavigate={closeMenu}>
