@@ -496,7 +496,7 @@ html[lang='ja'] h2 {
   right: 26px;
   display: grid;
   gap: 4px;
-  font: 44px / 1.2 var(--japanese-serif);
+  font: 44px / 1.4 var(--japanese-serif);
   text-align: center;
   color: #fffdf8;
   text-shadow: 0 2px 12px #0008;
@@ -531,7 +531,7 @@ html[lang='ja'] h2 {
 .culture-vertical {
   display: grid;
   gap: 2px;
-  font: 20px / 1.2 var(--japanese-serif);
+  font: 20px / 1.4 var(--japanese-serif);
   text-align: center;
   color: var(--red);
 }
@@ -1012,7 +1012,7 @@ html[lang='ja'] h2 {
   gap: 3px;
   font-family: var(--japanese-serif);
   font-size: 34px;
-  line-height: 1.2;
+  line-height: 1.4;
   text-align: center;
   color: white;
   text-shadow: 0 2px 15px #0008;
@@ -4001,7 +4001,7 @@ html[data-theme='dark'] .street-map .leaflet-tile-pane {
   gap: 2px;
   font-size: 20px;
   font-family: var(--japanese-serif);
-  line-height: 1.2;
+  line-height: 1.4;
   text-align: center;
   color: var(--red);
   transform: perspective(500px) rotateY(-25deg);
