@@ -57,7 +57,10 @@ export default function Hero({
               sizes="(max-width: 750px) calc(100vw - 40px), (max-width: 1376px) 50vw, 680px"
             />
             <span className="hero-calligraphy" lang="ja" aria-hidden="true">
-              日本の旅
+              <span>日</span>
+              <span>本</span>
+              <span>の</span>
+              <span>旅</span>
             </span>
           </div>
           <figcaption>

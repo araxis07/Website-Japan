@@ -479,7 +479,9 @@ export default function PrefectureExplorer({
               aria-live="polite"
             >
               <span className="prefecture-seal" lang="ja" aria-hidden="true">
-                {active.names.ja}
+                {[...active.names.ja].map((character, index) => (
+                  <span key={index}>{character}</span>
+                ))}
               </span>
               <p>{regions.find((r) => r.id === active.region)?.name}</p>
               <h2>

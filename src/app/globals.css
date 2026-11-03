@@ -8,6 +8,7 @@
   --line: #d5d4c9;
   --wash: #e9e9df;
   --indigo: #163b4a;
+  --japanese-serif: 'Yu Mincho', 'Hiragino Mincho ProN', 'Noto Serif CJK JP', serif;
   --serif: Baskerville, 'Yu Mincho', 'Hiragino Mincho ProN', Georgia, serif;
   --sans:
     'Avenir Next', 'Hiragino Kaku Gothic ProN', Meiryo, system-ui, sans-serif;
@@ -493,9 +494,10 @@ html[lang='ja'] h2 {
   z-index: 1;
   top: 30px;
   right: 26px;
-  writing-mode: vertical-rl;
-  font: 44px var(--serif);
-  letter-spacing: 0.2em;
+  display: grid;
+  gap: 4px;
+  font: 44px / 1.2 var(--japanese-serif);
+  text-align: center;
   color: #fffdf8;
   text-shadow: 0 2px 12px #0008;
 }
@@ -527,9 +529,10 @@ html[lang='ja'] h2 {
   padding-bottom: 64px;
 }
 .culture-vertical {
-  writing-mode: vertical-rl;
-  font: 20px var(--serif);
-  letter-spacing: 0.2em;
+  display: grid;
+  gap: 2px;
+  font: 20px / 1.2 var(--japanese-serif);
+  text-align: center;
   color: var(--red);
 }
 .culture-grid {
@@ -1005,10 +1008,12 @@ html[lang='ja'] h2 {
   position: absolute;
   right: 17px;
   bottom: 12px;
-  writing-mode: vertical-rl;
-  font-family: var(--serif);
+  display: grid;
+  gap: 3px;
+  font-family: var(--japanese-serif);
   font-size: 34px;
-  letter-spacing: 0.1em;
+  line-height: 1.2;
+  text-align: center;
   color: white;
   text-shadow: 0 2px 15px #0008;
 }
@@ -1077,18 +1082,6 @@ html[lang='ja'] h2 {
   color: var(--white);
   position: relative;
   overflow: hidden;
-}
-.experiences-section::before {
-  content: '一期一会';
-  position: absolute;
-  right: -30px;
-  top: 40px;
-  writing-mode: vertical-rl;
-  font-family: var(--serif);
-  font-size: 170px;
-  color: #ffffff04;
-  letter-spacing: 0.1em;
-  pointer-events: none;
 }
 .experiences-section .section-heading p {
   color: #bac7c5;
@@ -4004,9 +3997,12 @@ html[data-theme='dark'] .street-map .leaflet-tile-pane {
   position: absolute;
   top: 24px;
   right: 16px;
-  writing-mode: vertical-rl;
+  display: grid;
+  gap: 2px;
   font-size: 20px;
-  font-family: var(--serif);
+  font-family: var(--japanese-serif);
+  line-height: 1.2;
+  text-align: center;
   color: var(--red);
   transform: perspective(500px) rotateY(-25deg);
 }

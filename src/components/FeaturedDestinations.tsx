@@ -92,7 +92,9 @@ export default function FeaturedDestinations({
                   />
                   <span className="photo-tag">{labels[place.category]}</span>
                   <span className="photo-japanese" lang="ja" aria-hidden="true">
-                    {place.japanese}
+                    {[...place.japanese].map((character, index) => (
+                      <span key={index}>{character}</span>
+                    ))}
                   </span>
                 </div>
                 <div className="destination-content">

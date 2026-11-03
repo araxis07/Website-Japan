@@ -13,6 +13,35 @@ for (const theme of ['light', 'dark'] as const) {
       await expect(page.locator('.scene-fallback img')).toHaveAttribute('loading', 'lazy')
       await expect(page.locator('.site-header .brand')).toHaveAccessibleName(/\S/)
       await expect(page.locator('.site-header .brand-mark')).toHaveAttribute('aria-hidden', 'true')
+      for (const [selector, count] of [
+        ['.hero-calligraphy', 4],
+        ['.culture-vertical', 6],
+        ['.photo-japanese', null],
+      ] as const) {
+        for (const label of await page.locator(selector).all()) {
+          const boxes = await label.evaluate((element) => {
+            const text = document.createTreeWalker(element, NodeFilter.SHOW_TEXT)
+            const boxes = []
+            while (text.nextNode()) {
+              const node = text.currentNode
+              for (let offset = 0; offset < (node.textContent?.length ?? 0); offset++) {
+                if (!node.textContent![offset].trim()) continue
+                const range = document.createRange()
+                range.setStart(node, offset)
+                range.setEnd(node, offset + 1)
+                const box = range.getBoundingClientRect()
+                boxes.push({ top: box.top, bottom: box.bottom })
+              }
+            }
+            return boxes
+          })
+          expect(boxes).toHaveLength(
+            count ?? (await label.textContent())!.trim().length,
+          )
+          for (let i = 1; i < boxes.length; i++)
+            expect(boxes[i].top, `${selector}: glyphs must not overlap`).toBeGreaterThan(boxes[i - 1].bottom)
+        }
+      }
       await openDetails(page.locator('.appearance-panel'))
       await page.evaluate(axe.source)
       const violations = await page.evaluate(async () => {

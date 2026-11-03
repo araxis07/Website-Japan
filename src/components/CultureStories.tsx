@@ -120,7 +120,12 @@ export default function CultureStories({ lang }: { lang: Locale }) {
           <p>{labels.intro}</p>
         </div>
         <span className="culture-vertical" aria-hidden="true" lang="ja">
-          暮らしと文化
+          <span>暮</span>
+          <span>ら</span>
+          <span>し</span>
+          <span>と</span>
+          <span>文</span>
+          <span>化</span>
         </span>
       </div>
       <div className="culture-grid">
