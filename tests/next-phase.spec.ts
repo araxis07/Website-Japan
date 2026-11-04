@@ -182,6 +182,8 @@ test('saved FX inputs follow replacement and Undo instead of showing an earlier 
   await openDetails(fx)
   await fx.getByLabel(en.tools.fxRate, { exact: true }).fill('0.3')
   await fx.getByRole('button', { name: en.tools.fxSave, exact: true }).click()
+  await expect(page.locator('.save-status')).toHaveText(en.tools.savedLocal)
+  expect((await storedTrip(page)).fx?.rate).toBe(0.3)
   await page.locator('#trip-import input').setInputFiles({
     name: 'replacement.json',
     mimeType: 'application/json',
