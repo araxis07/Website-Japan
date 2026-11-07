@@ -92,6 +92,7 @@ export default async function LocaleLayout({
                 brand: dict.brand,
                 brandSub: dict.brandSub,
                 navigation: {
+                  helpShort: dict.navigation.helpShort,
                   explore: dict.navigation.explore,
                   journeys: dict.navigation.journeys,
                   label: dict.navigation.label,

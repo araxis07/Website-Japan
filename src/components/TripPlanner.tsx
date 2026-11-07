@@ -570,6 +570,7 @@ export default function TripPlanner({
                               {entry.day > 0 && dayAssignment}
                               <button
                                 type="button"
+                                className="trip-reorder-action"
                                 aria-label={`${copy.up}: ${place.names[lang]}`}
                                 disabled={writing || (index === 0)}
                                 onClick={() => move(-1)}
@@ -578,6 +579,7 @@ export default function TripPlanner({
                               </button>
                               <button
                                 type="button"
+                                className="trip-reorder-action"
                                 aria-label={`${copy.down}: ${place.names[lang]}`}
                                 disabled={writing || (index === entries.length - 1)}
                                 onClick={() => move(1)}
@@ -586,6 +588,7 @@ export default function TripPlanner({
                               </button>
                               <button
                                 type="button"
+                                className="trip-text-action"
                                 aria-label={`${tools.repeat}: ${place.names[lang]}`}
                                 onClick={async (event) => {
                                   const origin = event.currentTarget
@@ -613,6 +616,7 @@ export default function TripPlanner({
                               </button>
                               <button
                                 type="button"
+                                className="trip-text-action"
                                 aria-label={`${copy.remove}: ${place.names[lang]}`}
                                 onClick={() =>
                                   change((current) => {

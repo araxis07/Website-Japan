@@ -76,7 +76,11 @@
   border-radius: 4px;
   cursor: pointer;
 }
+.trip-file-actions {
+  margin-bottom: 12px;
+}
 .file-import {
+  flex-basis: 100%;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -437,7 +441,7 @@ html[data-motion='still'] .culture-photo img {
   margin-block: 1rem;
 }
 .place-search-results {
-  margin-block: 2rem;
+  margin-block: 1.25rem;
 }
 .place-search-results ul {
   list-style: none;
@@ -978,6 +982,10 @@ textarea:focus-visible {
   background: var(--white);
   color: var(--ink);
   border-radius: 4px;
+}
+.planner-page .trip-task-links {
+  gap: 8px 20px;
+  margin-block: 12px;
 }
 .trip-task-links a {
   display: inline-flex;

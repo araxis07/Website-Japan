@@ -462,6 +462,24 @@ export default function TripTools() {
         >
           {sanitized ? tools.shareDownload : tools.backup}
         </button>
+        <button
+          type="button"
+          disabled={writing || (Object.keys(drafts).length > 0)}
+          onClick={() =>
+            downloadTrip(
+              offlineTrip(exportTrip, lang, copy, tools),
+              sanitized
+                ? tripFilename('html').replace(
+                    'japan-trip-',
+                    'japan-trip-share-',
+                  )
+                : tripFilename('html'),
+              'text/html',
+            )
+          }
+        >
+          {sanitized ? tools.shareHtml : tools.offline}
+        </button>
         <label className="file-import" id="trip-import">
           {tools.import}
           <input
@@ -494,24 +512,6 @@ export default function TripTools() {
             }}
           />
         </label>
-        <button
-          type="button"
-          disabled={writing || (Object.keys(drafts).length > 0)}
-          onClick={() =>
-            downloadTrip(
-              offlineTrip(exportTrip, lang, copy, tools),
-              sanitized
-                ? tripFilename('html').replace(
-                    'japan-trip-',
-                    'japan-trip-share-',
-                  )
-                : tripFilename('html'),
-              'text/html',
-            )
-          }
-        >
-          {sanitized ? tools.shareHtml : tools.offline}
-        </button>
       </div>
       {lastBackup && (
         <p>

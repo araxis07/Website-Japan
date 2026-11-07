@@ -2,6 +2,7 @@
   "brand": "日本旅行",
   "brandSub": "街と、人と、小さな発見。",
   "navigation": {
+    "helpShort": "緊急時",
     "destinations": "旅先を探す",
     "regions": "地域を巡る",
     "seasons": "季節を楽しむ",

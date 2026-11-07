@@ -3245,20 +3245,20 @@ body:has(.photo-dialog[open]) {
   overflow-wrap: anywhere;
 }
 .planner-page {
-  padding-top: 60px;
+  padding-top: 40px;
   padding-bottom: 100px;
   max-width: 1080px;
 }
 .planner-heading h1 {
-  font-size: clamp(42px, 6vw, 76px);
-  margin: 10px 0 18px;
+  font-size: clamp(36px, 4.5vw, 56px);
+  margin: 8px 0 12px;
 }
 .planner-heading > p {
   font-size: 18px;
   color: var(--muted);
 }
 .trip-local-note {
-  padding: 18px 0 30px;
+  padding: 12px 0 20px;
   font-size: 13px;
   color: var(--muted);
 }
@@ -3331,9 +3331,15 @@ body:has(.photo-dialog[open]) {
   background: transparent;
   color: var(--ink);
 }
-.trip-item-controls button:last-child {
+.trip-item-controls .trip-text-action {
   padding: 8px 12px;
-  font-size: 12px;
+  font-size: 13px;
+}
+.trip-item-controls .trip-reorder-action {
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  flex-shrink: 0;
 }
 .trip-item-controls select {
   max-width: 175px;

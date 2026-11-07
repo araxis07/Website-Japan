@@ -18,7 +18,7 @@ export default function Navigation({
   dict: Pick<Dictionary, 'brand' | 'brandSub'> & {
     navigation: Pick<
       Dictionary['navigation'],
-      'explore' | 'journeys' | 'label' | 'language' | 'close' | 'menu'
+      'explore' | 'journeys' | 'label' | 'language' | 'close' | 'menu' | 'helpShort'
     >
     beginner: Pick<Dictionary['beginner'], 'nav' | 'heading'>
     trip: Pick<Dictionary['trip'], 'title'>
@@ -180,8 +180,12 @@ export default function Navigation({
         >
           {dict.trip.title}
         </Link>
-        <Link href={`/${lang}/first-visit#help`} onNavigate={closeMenu}>
-          {dict.tools.emergency}
+        <Link
+          href={`/${lang}/first-visit#help`}
+          aria-label={dict.tools.emergency}
+          onNavigate={closeMenu}
+        >
+          {dict.navigation.helpShort}
         </Link>
       </nav>
       <nav
