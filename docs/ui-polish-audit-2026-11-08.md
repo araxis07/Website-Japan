@@ -44,7 +44,9 @@ The initial audit made no application changes. Differences in button dimensions 
 
 ## Verification
 
-Production build (182 pages), TypeScript and ESLint passed. All 18 new UI test cases passed in the initial focused run; the five expected visual changes were inspected before updating macOS references. Full regression and Linux reference verification follow in the release checks.
+Production build (182 pages), TypeScript and ESLint passed. All 18 new UI test cases passed in the initial focused run; the five expected visual changes were inspected before updating macOS references. The macOS full run finished with 545 passed, two existing skipped tests and one Firefox FX draft-return failure (the page navigated away after the focus assertion). All 15 targeted repetitions of the three FX draft-return cases then passed without changing code or assertions; the intermittent failure remains a follow-up observation.
+
+Linux CI run `42419282783` completed with 541 passed, two existing skipped tests and only five expected screenshot mismatches. All functional tests, including FX draft return, passed there. The four trip-tools images and Thai mobile hero image were visually reviewed before replacing Linux references. The mobile hero differs by a one-pixel capture height after the shorter navigation; its content and composition are preserved. No screenshot tolerance was relaxed.
 
 Fresh security checks: production dependency audit found zero vulnerabilities; the complete audit reported eight Moderate findings in the development lint dependency chain, with no High/Critical findings. Credential-pattern, CSP-checker self-test and source-link-checker self-test passed. No force dependency downgrade was applied.
 
