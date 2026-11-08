@@ -30,3 +30,22 @@ The initial targeted run passed 111 cases with one Firefox geometry precision fa
 Fresh dependency audit: production zero vulnerabilities; full audit eight Moderate development-tool findings, zero High/Critical. No compatible patched minimatch 10 release was available during review; a forced Next lint downgrade or unrelated major override was not applied. Credential-pattern, source-link-checker and expanded deployment-checker self-tests passed. Self-tests do not establish live external-link availability or effective hosting headers.
 
 Native-speaker acceptance, five novice participants, VoiceOver/TalkBack, physical iPhone/Android Files/Downloads, real calendar clients and deployment/rollback acceptance remain Not Run in [visitor acceptance](visitor-acceptance.md). A confirmed public origin has not been supplied; no production change was performed. Traditional Chinese, additional 3D scenes, cloud accounts and AI chat are outside this stabilization scope.
+
+## Follow-up to Linux CI 42502709047
+
+The local full run passed 632 tests with two existing skips. Linux CI then passed 629 with two skips and exposed three failures: French Credits overflow on two engines, plus a WebKit two-tab test that clicked Gion while its save control was still disabled. Trace snapshots confirmed the latter was before storage initialization completed; visibility alone did not establish readiness.
+
+Credits headings now use language-aware hyphenation with an emergency word-wrap fallback. A wider-font 320px heading test checks both element and document overflow without hiding content. The two-tab test explicitly waits for both controls to be enabled before scheduling the same native concurrent clicks; click-result, conflict, saved-data and stale-Undo assertions remain intact. The final UI/international rerun passed 45 cases across Chromium, WebKit and Firefox. The two-tab stress run passed all 30 repetitions across three engines (150 rounds of paired native saves), with the original result and data-integrity assertions retained.
+
+## Live source-link availability
+
+A separate live run checked 224 URLs and flagged six for review. This is reachability evidence only and did not refresh factual review dates or replace source URLs.
+
+| Source | Observed result / follow-up |
+| --- | --- |
+| Makishi Public Market `/about/guide/` | 503 in checker and separate retrieval; operator availability needs follow-up. |
+| Nagoya tourism database `/en/spot/detail/1/` | Checker timeout; separate retrieval 502. |
+| Hokkaido University Museum `/english/visit/` | Retrieval timed out; no claim that its facts changed. |
+| Kansai Airport `/en/access/from-airport/train` | 403 in checker and separate retrieval; may be automated-client blocking. |
+| JR East `/en/multi/nex/` | Checker 403; separate retrieval succeeded, so it is not established as a broken link. |
+| JR East `/en/yokosuka-tunnel-koji/` | Checker 403; separate retrieval 404. Its notice expired on 8 November and is hidden by the existing expiry logic; the historical source was retained instead of substituting unrelated evidence. |

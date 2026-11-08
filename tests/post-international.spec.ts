@@ -102,3 +102,13 @@ for (const lang of i18n.locales) {
     expect(violations).toEqual([])
   })
 }
+
+test('French credits wrap long headings with wider system fonts', async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 900 })
+  await page.goto('/fr/credits')
+  await page.addStyleTag({ content: 'body, h1 { font-family: Verdana, monospace !important; }' })
+  const heading = page.getByRole('heading', { level: 1 })
+  await expect(heading).toHaveText(fr.footer.credits)
+  expect(await heading.evaluate((element) => element.scrollWidth <= element.clientWidth)).toBe(true)
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true)
+})

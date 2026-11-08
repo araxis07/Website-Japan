@@ -40,6 +40,8 @@ test('simultaneous native saves from two tabs keep both places and stale Undo ca
     await Promise.all([
       expect(page.getByRole('button', { name: `${en.trip.save}: Gion`, exact: true })).toBeVisible(),
       expect(other.getByRole('button', { name: `${en.trip.save}: Sensoji`, exact: true })).toBeVisible(),
+      expect(page.getByRole('button', { name: `${en.trip.save}: Gion`, exact: true })).toBeEnabled(),
+      expect(other.getByRole('button', { name: `${en.trip.save}: Sensoji`, exact: true })).toBeEnabled(),
     ])
     const deadline = Date.now() + 80
     expect(await Promise.all([

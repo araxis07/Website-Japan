@@ -1868,6 +1868,8 @@ html[lang='ja'] h2 {
   padding-block: 70px;
 }
 .credits-page h1 {
+  overflow-wrap: anywhere;
+  hyphens: auto;
   font-size: 60px;
   margin-bottom: 30px;
 }
