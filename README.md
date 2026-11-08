@@ -68,6 +68,7 @@ Map pins are reference locations, not verified entrances. Venue details link to 
 Keep translation keys aligned, preserve stable place IDs, and update only facts and review dates checked against their sources. Photo sources and licenses are listed on each language's `/credits` page.
 
 - [Release setup, content review and privacy](docs/release-operations.md)
+- [Eight-language stabilization, loading measurements and remaining acceptance](docs/post-international-stabilization-2026-11-09.md)
 - [International language coverage and review limits](docs/international-locales-2026-11-08.md)
 - [Japanese visual identity and design checks](docs/japanese-identity-2026-11-03.md)
 - [Team ownership and development roadmap](docs/roadmap-2026-10-29.md)

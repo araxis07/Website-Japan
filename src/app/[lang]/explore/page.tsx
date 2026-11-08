@@ -5,7 +5,7 @@ import { isLocale } from '@/i18n/config'
 import { getDictionary } from '@/i18n/dictionaries'
 import { prefectures } from '@/data/prefectures'
 import { places } from '@/data/places'
-import { placeCategory } from '@/data/visit-details'
+import { placeCategory, visitFor } from '@/data/visit-details'
 import { regions } from '@/data/travel'
 import { pageMetadata } from '@/utils/site'
 import PrefectureExplorer from '@/components/PrefectureExplorer'
@@ -69,7 +69,20 @@ export default async function Explore({ params }: Props) {
             keywords: searchAliases[p.slug] || '',
             summary: p.summary[lang],
             coordinates: points[0].coordinates,
-            places: points,
+            places: points.map((place) => {
+              const visit = visitFor(place)
+              return {
+                ...place,
+                accessNote: visit?.access?.[lang],
+                information: {
+                  hours: Boolean(visit?.hours || visit?.notApplicable?.hours),
+                  booking: Boolean(visit?.booking || visit?.notApplicable?.booking),
+                  accessibility: Boolean(
+                    visit?.accessibility || visit?.notApplicable?.accessibility,
+                  ),
+                },
+              }
+            }),
           }
         })}
       />

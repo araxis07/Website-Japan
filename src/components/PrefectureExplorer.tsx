@@ -12,7 +12,6 @@ import {
   searchSuggestions,
 } from '@/data/place-search'
 import SavePlace from './SavePlace'
-import { visitFor } from '@/data/visit-details'
 import { usePageLocation, updateFilters } from './usePageLocation'
 
 type Entry = {
@@ -24,7 +23,10 @@ type Entry = {
   keywords: string
   categories: string[]
   coordinates: [number, number]
-  places: Place[]
+  places: (Place & {
+    accessNote?: string
+    information: Record<'hours' | 'booking' | 'accessibility', boolean>
+  })[]
 }
 export default function PrefectureExplorer({
   entries,
@@ -79,12 +81,11 @@ export default function PrefectureExplorer({
             p.places.some(
               (place) =>
                 (category === 'all' || place.category === category) &&
-                (visitFor(place)?.[information] ||
-                  visitFor(place)?.notApplicable?.[information]),
+                place.information[information],
             )) &&
           (!normalizedQuery ||
             normalizeSearch(
-              `${Object.values(p.names).join(' ')} ${p.summary} ${p.keywords} ${p.places.map(placeSearchText).join(' ')}`,
+              [...Object.values(p.names), p.summary, p.keywords, ...p.places.map(placeSearchText)].join(' | '),
             ).includes(normalizedQuery)),
       ),
     [entries, region, normalizedQuery, category, information],
@@ -97,10 +98,7 @@ export default function PrefectureExplorer({
           (place) =>
             (category === 'all' || place.category === category) &&
             (!information ||
-              Boolean(
-                visitFor(place)?.[information] ||
-                visitFor(place)?.notApplicable?.[information],
-              )) &&
+              place.information[information]) &&
             (!normalizedQuery ||
               normalizeSearch(placeSearchText(place)).includes(
                 normalizedQuery,
@@ -109,7 +107,7 @@ export default function PrefectureExplorer({
                 (p) =>
                   p.places.includes(place) &&
                   normalizeSearch(
-                    Object.values(p.names).join(' ') + p.keywords,
+                    [...Object.values(p.names), p.keywords].join(' | '),
                   ).includes(normalizedQuery),
               )),
         ),
@@ -495,7 +493,7 @@ export default function PrefectureExplorer({
                     {selectedPlace.address || selectedPlace.names.ja}
                   </p>
                   <p>
-                    {visitFor(selectedPlace)?.access?.[lang] || tools.verify}
+                    {selectedPlace.accessNote || tools.verify}
                   </p>
                   <p className="source-note">
                     {tools[pinKind(selectedPlace)]}. {tools.pinReference}

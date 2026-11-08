@@ -24,3 +24,7 @@ The international test covers dictionary structure, placeholders and preserved U
 The combined focused regression run completed with 124 passed, two existing skips and four failures: the two browser variants of a changed 404 link label and a test that incorrectly still expected `/fr` to return 404. The original return-link labels were restored and the unsupported-locale test now uses `/zz`; the final targeted rerun passed all 22 cases, including the corrected 404/unsupported-locale tests and the international matrix.
 
 Fresh security checks: production dependency audit reported zero vulnerabilities; the full audit retained eight Moderate development-tool findings, with no High/Critical findings. Secret-pattern check, CSP-checker self-test, source-link-checker self-test and diff checks passed. No new dependency, runtime translation API or external credential was introduced. Full CI runs after the push; physical-device and native-editorial acceptance are not covered by these automated results.
+
+## Follow-up — 9 November 2026
+
+A second Chinese model review subsequently covered all 223 venue pairs and corrected 79 values. Targeted French and Spanish wording corrections were also applied. These are model reviews, not native-speaker certification. Four Chinese prefecture summaries were clarified without weakening the content assertions. The failed full CI run exposed cross-field search matching and system-font count overflow, addressed in the next stabilization release.

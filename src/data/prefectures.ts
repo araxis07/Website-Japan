@@ -273,7 +273,7 @@ export const prefectures: Prefecture[] = [
       en: 'Hot-spring towns and industrial heritage. Kusatsu is a mountain destination; avoid assuming it is beside a shinkansen station.',
       ja: '温泉街と産業遺産。草津は山間の目的地で、新幹線駅のすぐ隣ではありません。',
       th: 'เมืองออนเซ็นและมรดกอุตสาหกรรม คุซัตสึอยู่บนเขา ไม่ได้อยู่ใกล้สถานีชินคันเซ็นทันที',
-    "es":"Localidades termales y patrimonio industrial. Kusatsu es un destino de montaña; no supongas que está junto a una estación de Shinkansen.","fr":"Des villes thermales et un patrimoine industriel. Kusatsu est en montagne ; ne supposez pas qu’elle se trouve à côté d’une gare Shinkansen.","vi":"Thị trấn suối nước nóng và di sản công nghiệp. Kusatsu là một điểm đến trên núi; tránh cho rằng nó ở bên cạnh ga shinkansen.","zh-CN":"温泉小镇与工业遗产。草津位于山区，请勿以为就在新干线站旁。","ko":"온천 마을과 산업 유산이 있습니다. 구사쓰는 산간 지역이므로 신칸센역 바로 옆에 있다고 생각하면 안 됩니다.",},
+    "es":"Localidades termales y patrimonio industrial. Kusatsu es un destino de montaña; no supongas que está junto a una estación de Shinkansen.","fr":"Des villes thermales et un patrimoine industriel. Kusatsu est en montagne ; ne supposez pas qu’elle se trouve à côté d’une gare Shinkansen.","vi":"Thị trấn suối nước nóng và di sản công nghiệp. Kusatsu là một điểm đến trên núi; tránh cho rằng nó ở bên cạnh ga shinkansen.","zh-CN":"探索温泉小镇与工业遗产。草津是山区的温泉目的地，规划交通时请勿把它当作新干线车站旁的景点。","ko":"온천 마을과 산업 유산이 있습니다. 구사쓰는 산간 지역이므로 신칸센역 바로 옆에 있다고 생각하면 안 됩니다.",},
     access: {
       en: 'Takasaki is a shinkansen gateway from Tokyo. Continue by local train or bus for onsen towns, allowing time for the final connection.',
       ja: '東京から新幹線で高崎へ。温泉街は在来線やバスを乗り継ぎ、最後の接続にも余裕を。',
@@ -300,7 +300,7 @@ export const prefectures: Prefecture[] = [
       en: "An easy extension from Tokyo for rail history and Kawagoe's old streets. Chichibu's mountain area deserves a separate plan.",
       ja: '鉄道の歴史や川越の古い街並みを東京から気軽に。秩父の山側は別の計画で。',
       th: 'เที่ยวต่อจากโตเกียวเพื่อชมรถไฟและเมืองเก่าคาวาโกเอะ ส่วนภูเขาจิจิบุต้องวางแผนแยก',
-    "es":"Una extensión sencilla desde Tokio para conocer la historia ferroviaria y las calles antiguas de Kawagoe. La montaña de Chichibu merece otro programa.","fr":"Une excursion facile depuis Tokyo pour découvrir l’histoire ferroviaire et les vieilles rues de Kawagoe. Le secteur montagneux de Chichibu mérite un programme distinct.","vi":"Một phần mở rộng dễ dàng từ Tokyo để biết về lịch sử đường sắt và những con phố cổ của Kawagoe. Vùng núi Chichibu xứng đáng có một quy hoạch riêng.","zh-CN":"从东京可轻松延伸游览铁路历史与川越老街。秩父山区宜单独规划。","ko":"도쿄에서 철도 역사와 가와고에의 옛 거리를 쉽게 둘러볼 수 있습니다. 지치부 산간 지역은 별도로 계획하세요.",},
+    "es":"Una extensión sencilla desde Tokio para conocer la historia ferroviaria y las calles antiguas de Kawagoe. La montaña de Chichibu merece otro programa.","fr":"Une excursion facile depuis Tokyo pour découvrir l’histoire ferroviaire et les vieilles rues de Kawagoe. Le secteur montagneux de Chichibu mérite un programme distinct.","vi":"Một phần mở rộng dễ dàng từ Tokyo để biết về lịch sử đường sắt và những con phố cổ của Kawagoe. Vùng núi Chichibu xứng đáng có một quy hoạch riêng.","zh-CN":"从东京出发，可轻松延伸行程，探索铁路历史与川越老街。若想游览秩父山区，请另行规划交通与游览时间。","ko":"도쿄에서 철도 역사와 가와고에의 옛 거리를 쉽게 둘러볼 수 있습니다. 지치부 산간 지역은 별도로 계획하세요.",},
     access: {
       en: 'JR lines connect Tokyo with Omiya. Kawagoe can be reached via JR, Tobu or Seibu routes; the arrival stations are not identical.',
       ja: '東京から大宮へはJR各線。川越はJR・東武・西武などで行けますが、到着駅は異なります。',
@@ -489,7 +489,7 @@ export const prefectures: Prefecture[] = [
       en: 'Dinosaur discoveries, Zen temple grounds and a quieter coast. Museum visits outside the city need an onward connection.',
       ja: '恐竜、禅寺、静かな海岸。市外の博物館へは乗り継ぎ時間を見込んで。',
       th: 'ไดโนเสาร์ วัดเซน และชายฝั่งสงบ พิพิธภัณฑ์นอกเมืองต้องเผื่อเวลาต่อรถ',
-    "es":"Dinosaurios, recintos de templos zen y una costa tranquila. Los museos fuera de la ciudad requieren un enlace adicional.","fr":"Des découvertes sur les dinosaures, des temples zen et une côte tranquille. Les musées hors de la ville nécessitent une correspondance supplémentaire.","vi":"Khám phá khủng long, khuôn viên chùa Thiền và bờ biển yên tĩnh hơn. Các chuyến tham quan bảo tàng bên ngoài thành phố cần có sự kết nối trở đi.","zh-CN":"恐龙探索、禅寺与宁静海岸。游览市外博物馆还需换乘交通。","ko":"공룡 탐구, 선종 사찰과 한적한 해안을 즐길 수 있습니다. 시외 박물관을 방문하려면 추가 연결편이 필요합니다.",},
+    "es":"Dinosaurios, recintos de templos zen y una costa tranquila. Los museos fuera de la ciudad requieren un enlace adicional.","fr":"Des découvertes sur les dinosaures, des temples zen et une côte tranquille. Les musées hors de la ville nécessitent une correspondance supplémentaire.","vi":"Khám phá khủng long, khuôn viên chùa Thiền và bờ biển yên tĩnh hơn. Các chuyến tham quan bảo tàng bên ngoài thành phố cần có sự kết nối trở đi.","zh-CN":"探索恐龙世界、禅寺境内与较为宁静的海岸。若要参观市区以外的博物馆，请提前规划后续的换乘交通。","ko":"공룡 탐구, 선종 사찰과 한적한 해안을 즐길 수 있습니다. 시외 박물관을 방문하려면 추가 연결편이 필요합니다.",},
     access: {
       en: 'The Hokuriku Shinkansen serves Fukui. Travelers from Kyoto or Osaka transfer at Tsuruga; local rail and buses reach inland attractions.',
       ja: '北陸新幹線で福井へ。京都・大阪からは敦賀で乗り換え。内陸の施設はローカル線やバスで。',
@@ -981,7 +981,7 @@ export const prefectures: Prefecture[] = [
       en: "Awa Odori culture, Naruto's strait and mountain valleys. The Iya Valley needs a separate rural travel plan.",
       ja: '阿波おどり、鳴門の海峡、山の谷。祖谷は山間部への交通を別途計画しましょう。',
       th: 'วัฒนธรรมอาวะโอโดริ ช่องแคบนารุโตะ และหุบเขา หุบเขาอิยะต้องจัดเส้นทางชนบทแยกต่างหาก',
-    "es":"Cultura Awa Odori, el estrecho de Naruto y valles montañosos. El valle de Iya necesita un plan de transporte rural aparte.","fr":"La culture Awa Odori, le détroit de Naruto et des vallées de montagne. La vallée d’Iya nécessite un plan de transport rural distinct.","vi":"Văn hóa Awa Odori, eo biển Naruto và thung lũng núi. Thung lũng Iya cần một kế hoạch du lịch nông thôn riêng.","zh-CN":"阿波舞文化、鸣门海峡与山间谷地。祖谷需要另行安排乡村交通。","ko":"아와오도리 문화, 나루토 해협과 산의 계곡이 있습니다. 이야 계곡은 시골 지역 교통 계획을 따로 세워야 합니다.",},
+    "es":"Cultura Awa Odori, el estrecho de Naruto y valles montañosos. El valle de Iya necesita un plan de transporte rural aparte.","fr":"La culture Awa Odori, le détroit de Naruto et des vallées de montagne. La vallée d’Iya nécessite un plan de transport rural distinct.","vi":"Văn hóa Awa Odori, eo biển Naruto và thung lũng núi. Thung lũng Iya cần một kế hoạch du lịch nông thôn riêng.","zh-CN":"体验阿波舞文化，探索鸣门海峡与山间谷地。如果计划前往祖谷，请单独规划乡村地区的交通与游览行程。","ko":"아와오도리 문화, 나루토 해협과 산의 계곡이 있습니다. 이야 계곡은 시골 지역 교통 계획을 따로 세워야 합니다.",},
     access: {
       en: 'Fly to Tokushima, take a highway bus from Kansai, or use rail via Takamatsu. Confirm connections before planning mountain stops.',
       ja: '徳島への航空便、関西からの高速バス、高松経由の鉄道などを比較。山側の乗り継ぎは事前確認を。',

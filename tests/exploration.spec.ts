@@ -72,7 +72,7 @@ test('47 prefectures have complete translations, source links and real mapped pl
   })
 })
 
-test('every prefecture and beginner route renders in all three languages', async ({
+test('every prefecture and beginner route renders in every supported language', async ({
   request,
 }) => {
   test.setTimeout(90_000)

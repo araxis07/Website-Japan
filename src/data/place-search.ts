@@ -34,10 +34,9 @@ export const normalizeSearch = (text: string) =>
     .replace(/[\u0300-\u036f]/g, '')
     .toLowerCase()
     .replace(/[-\s]/g, '')
+// Keep locale fields separate so repeated Tokyo names cannot match Kyoto.
 export const placeSearchText = (place: Place) =>
-  Object.values(place.names).join(' ') +
-  ' ' +
-  (placeSearchAliases[place.id] || '')
+  [...Object.values(place.names), ...(placeSearchAliases[place.id] || '').split(' ')].join(' | ')
 
 // Suggest a single missing/extra/changed Latin or Thai character; never rewrite the query.
 export function searchSuggestions(query: string, candidates: Place[]) {

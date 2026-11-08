@@ -45,7 +45,7 @@
       "ja": "3/1〜11/3は8:30〜17:00、11/4〜2月末は8:30〜16:30。拝観券発行は終了10分前まで。",
       "th": "1 มี.ค.–3 พ.ย. 08:30–17:00 น., 4 พ.ย.–สิ้น ก.พ. 08:30–16:30 น. หยุดขายตั๋วก่อนปิด 10 นาที",
       "ko": "3월 1일~11월 3일은 08:30~17:00, 11월 4일~2월 말은 08:30~16:30에 운영합니다. 입장권 판매는 폐관 10분 전에 종료됩니다.",
-      "zh-CN": "3月1日至11月3日 08:30–17:00； 11 月 4 日至 2 月底 08:30–16:30。售票在闭幕前 10 分钟结束。",
+      "zh-CN": "3月1日至11月3日08:30–17:00；11月4日至2月底08:30–16:30。闭门前10分钟停止售票。",
       "vi": "Ngày 1 tháng 3–ngày 3 tháng 11 08:30–17:00; Ngày 4 tháng 11–cuối tháng 2 08:30–16:30. Việc bán vé kết thúc 10 phút trước khi đóng cửa.",
       "fr": "Du 1er mars au 3 novembre de 8h30 à 17h00 ; Du 4 novembre à fin février, de 8h30 à 16h30. La vente des billets se termine 10 minutes avant la fermeture.",
       "es": "1 de marzo a 3 de noviembre de 08:30 a 17:00; Del 4 de noviembre al final de febrero de 08:30 a 16:30. La venta de entradas finaliza 10 minutos antes del cierre."
@@ -79,10 +79,10 @@
       "ja": "山下から月見坂を上るのが表参道。境内図で移動に適した進入経路を確認してください。",
       "th": "ทางหลักขึ้นเนิน Tsukimizaka จากเชิงเขาวัด ตรวจผังพื้นที่เพื่อเลือกทางเข้าที่เหมาะกับการเคลื่อนไหวของคุณ",
       "ko": "기존 참배길은 사찰 언덕 기슭에서 쓰키미자카를 따라 올라갑니다. 자신의 이동 조건에 맞는 경로를 고르기 전에 경내 지도를 확인하세요.",
-      "zh-CN": "传统的方法是从寺庙山麓登上月见坂。在选择适合您行动能力的方法之前，请检查场地地图。",
+      "zh-CN": "传统参拜路线从寺院山脚沿月见坂上行。请选择适合自身行动能力的路线，并先查看境内地图。",
       "vi": "Cách leo truyền thống là leo Tsukimizaka từ chân đồi chùa. Kiểm tra bản đồ căn cứ trước khi chọn cách tiếp cận phù hợp với khả năng di chuyển của bạn.",
       "fr": "L'approche traditionnelle monte Tsukimizaka depuis le pied de la colline du temple. Consultez le plan du terrain avant de choisir une approche adaptée à votre mobilité.",
-      "es": "El método tradicional sube a Tsukimizaka desde el pie de la colina del templo. Consulte el mapa del terreno antes de elegir un acceso adecuado a su movilidad."
+      "es": "El acceso tradicional asciende por Tsukimizaka desde el pie de la colina del templo. Consulte el mapa del recinto antes de elegir un acceso adecuado a su movilidad."
     }
   },
   "pref:iwate:morioka-castle-site-park": {
@@ -93,7 +93,7 @@
       "ja": "JR盛岡駅から循環バスで盛岡城跡公園へ約10分。",
       "th": "จาก JR Morioka นั่งรถบัสวนเมืองประมาณ 10 นาทีลง Morioka Joato Koen",
       "ko": "JR 모리오카에서 시내 순환 버스를 타면 모리오카 조아토 공원까지 약 10분 걸립니다.",
-      "zh-CN": "从 JR 盛冈出发，乘坐市内循环巴士约 10 分钟即可抵达盛冈城市公园。",
+      "zh-CN": "从JR盛冈站乘市内循环巴士，约10分钟到盛冈城迹公园。",
       "vi": "Từ JR Morioka, đi xe buýt vòng quanh thành phố đến Morioka Joato Koen trong khoảng 10 phút.",
       "fr": "Depuis JR Morioka, le bus urbain en boucle atteint Morioka Joato Koen en 10 minutes environ.",
       "es": "Desde JR Morioka, el autobús urbano llega a Morioka Joato Koen en unos 10 minutos."
@@ -117,7 +117,7 @@
       "ja": "受付まで急な坂と約80段、境内にも約30段。運営者は車いすでの拝観が非常に困難と案内しています。",
       "th": "ทางเข้ามีทางชันและบันไดราว 80 ขั้น ภายในมีอีกราว 30 ขั้น ผู้ดูแลระบุว่าการเข้าชมด้วยรถเข็นทำได้ยากมาก",
       "ko": "접근 경로에는 가파른 계단이 약 80개 있으며 경내에도 약 30개가 더 있습니다. 운영 기관은 휠체어 이용자의 방문이 매우 어렵다고 안내합니다.",
-      "zh-CN": "该步道大约有 80 级陡峭台阶，辖区内还有大约 30 级台阶。运营方警告说，轮椅探访非常困难。",
+      "zh-CN": "前往境内的路线约有80级陡峭台阶，境内另有约30级台阶。运营方提醒，使用轮椅参观非常困难。",
       "vi": "Cách tiếp cận này có khoảng 80 bậc dốc, với khoảng 30 bậc nữa trong khuôn viên. Nhà điều hành cảnh báo rằng việc đi lại bằng xe lăn rất khó khăn.",
       "fr": "L'approche comporte environ 80 marches raides, dont environ 30 autres dans l'enceinte. L'opérateur prévient que les visites en fauteuil roulant sont très difficiles.",
       "es": "El acceso tiene aproximadamente 80 escalones empinados, con alrededor de 30 más dentro del recinto. El operador advierte que las visitas en silla de ruedas son muy difíciles."
@@ -127,7 +127,7 @@
       "ja": "2〜11月9:00〜16:50（受付16:30まで）、12〜1月9:00〜16:20（受付16:00まで）。12月31日休館、資料館は1月1日も休館。",
       "th": "ก.พ.–พ.ย. 09:00–16:50 น. รับเข้าถึง 16:30 น. ธ.ค.–ม.ค. 09:00–16:20 น. รับเข้าถึง 16:00 น. ปิด 31 ธ.ค. พิพิธภัณฑ์ปิด 1 ม.ค. ด้วย",
       "ko": "2월~11월은 09:00~16:50(마지막 입장 16:30), 12월~1월은 09:00~16:20(마지막 입장 16:00)에 운영합니다. 12월 31일에 쉬며 박물관은 1월 1일에도 쉽니다.",
-      "zh-CN": "2 月至 11 月：09:00–16:50（入场时间为 16:30）。 12 月至 1 月：09:00–16:20（16:00 入场）。 12 月 31 日关闭；博物馆也是1月1日。",
+      "zh-CN": "2月至11月09:00–16:50，最后入场16:30；12月至1月09:00–16:20，最后入场16:00。12月31日休园；博物馆另于1月1日休馆。",
       "vi": "Tháng 2 – tháng 11: 09:00–16:50 (vào cửa đến 16:30). Tháng 12 – tháng 1: 09:00–16:20 (vào cửa đến 16:00). Đóng cửa vào ngày 31 tháng 12; bảo tàng cũng vào ngày 1 tháng 1.",
       "fr": "Février-novembre : de 9h00 à 16h50 (entrée à 16h30). Décembre-janvier : de 9h00 à 16h20 (entrée à 16h00). Fermé le 31 décembre ; musée également le 1er janvier.",
       "es": "Febrero-noviembre: 09:00-16:50 (última entrada a las 16:30). Diciembre-enero: 09:00-16:20 (última entrada a las 16:00). Cerrado el 31 de diciembre; museo también el 1 de enero."
@@ -161,7 +161,7 @@
       "ja": "8:30開門。閉門は冬の15:30から4〜9月の17:00まで月により変動。最終受付は30分前。",
       "th": "เปิด 08:30 น. ปิดระหว่าง 15:30 น. ช่วงกลางฤดูหนาว ถึง 17:00 น. เม.ย.–ก.ย. รับเข้าสุดท้ายก่อนปิด 30 นาที",
       "ko": "08:30에 개장합니다. 마감 시간은 한겨울 15:30부터 4월~9월 17:00까지입니다. 마지막 입장은 30분 전입니다.",
-      "zh-CN": "08:30 开放。闭馆时间为仲冬的 15:30 至 4 月至 9 月的 17:00；最后入场时间为 30 分钟前。",
+      "zh-CN": "08:30开放。闭门时间随季节变化：隆冬最早为15:30，4月至9月为17:00；闭门前30分钟停止入场。",
       "vi": "Mở cửa lúc 08:30. Thời gian đóng cửa thay đổi từ 15:30 vào giữa mùa đông đến 17:00 từ tháng 4 đến tháng 9; lượt vào cuối cùng là 30 phút trước đó.",
       "fr": "Ouvre à 08h30. La fermeture varie de 15h30 en plein hiver à 17h00 d'avril à septembre ; la dernière entrée a lieu 30 minutes plus tôt.",
       "es": "Abre a las 08:30. El cierre varía desde las 15:30 en pleno invierno hasta las 17:00 de abril a septiembre; La última entrada es 30 minutos antes."
@@ -189,7 +189,7 @@
       "ja": "下部のお堂へはJR山寺駅から徒歩約7分。上部の境内へは長い石段を上ります。",
       "th": "จาก JR Yamadera เดินประมาณ 7 นาทีถึงวัดส่วนล่าง ส่วนบนต้องขึ้นบันไดจำนวนมาก",
       "ko": "하부 사원은 JR 야마데라에서 도보로 약 7분 거리에 있습니다. 상부 단지에는 긴 계단 오르기가 필요합니다.",
-      "zh-CN": "下寺院距离JR山寺步行约7分钟。上层建筑群需要爬很长的楼梯。",
+      "zh-CN": "从JR山寺站步行约7分钟可到山脚的寺院区域。前往山上殿宇需要攀登较长的台阶。",
       "vi": "Các ngôi chùa phía dưới cách JR Yamadera khoảng bảy phút đi bộ. Khu phức hợp phía trên yêu cầu phải leo cầu thang dài.",
       "fr": "Les temples inférieurs se trouvent à environ sept minutes à pied de JR Yamadera. Le complexe supérieur nécessite une longue montée d'escalier.",
       "es": "Los templos inferiores están a unos siete minutos a pie desde JR Yamadera. El complejo superior requiere subir una larga escalera."
@@ -199,7 +199,7 @@
       "ja": "上部へは約1,000段の石段があり、段差のない経路ではありません。",
       "th": "ทางขึ้นวัดส่วนบนมีบันไดประมาณ 1,000 ขั้น ไม่ใช่เส้นทางไร้ขั้นบันได",
       "ko": "상부 사원까지 올라가는 계단은 약 1,000개입니다. 계단이 없는 경로는 아닙니다.",
-      "zh-CN": "登上上寺大约有1000级台阶；这不是一条无障碍的路线。",
+      "zh-CN": "前往山上殿宇约需攀登1,000级台阶，并非无台阶路线。",
       "vi": "Đường lên chùa trên là khoảng 1.000 bậc thang; nó không phải là lối đi không có bậc thang.",
       "fr": "L'ascension vers le temple supérieur est d'environ 1 000 marches ; ce n'est pas un itinéraire sans marches.",
       "es": "El ascenso al templo superior es de unos 1.000 escalones; No es una ruta sin escalones."
@@ -265,10 +265,10 @@
       "ja": "3〜7/17・9〜10月9:30〜17:00、7/18〜8月は18:00まで、11〜2月は16:30まで。原則火曜休園。季節の例外と整備休園は公式カレンダーを確認。",
       "th": "มี.ค.–17 ก.ค. และ ก.ย.–ต.ค. 09:30–17:00 น., 18 ก.ค.–ส.ค. ถึง 18:00 น., พ.ย.–ก.พ. ถึง 16:30 น. ปกติปิดวันอังคาร มีข้อยกเว้นตามฤดูกาลและช่วงบำรุงรักษา",
       "ko": "3월~7월 17일과 9~10월은 09:30~17:00에 운영합니다. 7월 18일~8월은 18:00까지, 11월~2월은 16:30까지 운영합니다. 보통 화요일에 쉬지만 계절별 예외와 유지보수 휴원이 있습니다.",
-      "zh-CN": "3月至7月17日和9月至10月 09:30–17:00； 7 月 18 日至 8 月 18:00 截止，11 月至 2 月 16:30 截止。通常周二休息；季节性例外和维护关闭适用。",
+      "zh-CN": "3月至7月17日及9月至10月09:30–17:00；7月18日至8月底延长至18:00，11月至2月开放至16:30。通常周二休园，季节性例外及维护休园安排请另行确认。",
       "vi": "09:30–17:00 Tháng 3 – 17 tháng 7 và Tháng 9 – Tháng 10; cho đến 18:00 ngày 18 tháng 7–tháng 8, 16:30 tháng 11–tháng 2. Thường đóng cửa vào thứ Ba; áp dụng các trường hợp ngoại lệ theo mùa và đóng cửa bảo trì.",
       "fr": "9h30-17h00 de mars au 17 juillet et de septembre à octobre ; jusqu'à 18h00 du 18 juillet au août, 16h30 de novembre à février. Généralement fermé le mardi ; des exceptions saisonnières et des fermetures pour maintenance s’appliquent.",
-      "es": "09:30–17:00 de marzo a 17 de julio y de septiembre a octubre; hasta las 18:00 del 18 de julio al agosto, 16:30 de noviembre a febrero. Generalmente cerrado los martes; Se aplican excepciones estacionales y cierres de mantenimiento."
+      "es": "09:30–17:00 de marzo a 17 de julio y de septiembre a octubre; hasta las 18:00 del 18 de julio al final de agosto, 16:30 de noviembre a febrero. Generalmente cerrado los martes; Se aplican excepciones estacionales y cierres de mantenimiento."
     },
     "fieldSources": {
       "hours": {
@@ -289,7 +289,7 @@
       "ja": "通常入園料：高校生以上450円、65歳以上210円、中学生以下無料。季節料金の加算期間は公式料金表で確認。",
       "th": "ค่าเข้าปกติ: มัธยมปลายขึ้นไป 450 เยน อายุ 65 ปีขึ้นไป 210 เยน มัธยมต้นลงมาฟรี มีค่าธรรมเนียมเพิ่มบางฤดูกาล ให้ตรวจตารางตามวันที่เดินทาง",
       "ko": "일반 입장료: 고등학생 이상 450엔; 65세 이상 210엔; 중학생 이하 무료. 계절별 추가 요금이 적용됩니다. 방문하기 전에 날짜가 표시된 요금표를 확인하세요.",
-      "zh-CN": "标准票价：高中生以上450日元； 65+ 210日元；初中生及以下免费。季节性附加费适用：参观前请查看注明日期的费用表。",
+      "zh-CN": "普通票：高中生及以上450日元；65岁及以上210日元；初中生及以下免费。部分季节另收附加费，到访前请查看注明适用日期的票价表。",
       "vi": "Tiêu chuẩn vào cửa: học sinh trung học trở lên 450 yên; 65+ ¥210; học sinh trung học cơ sở trở xuống miễn phí. Áp dụng phụ phí theo mùa: kiểm tra bảng phí ngày trước khi đến thăm.",
       "fr": "Admission standard : lycéen et plus 450 ¥ ; 65+ 210 ¥ ; étudiants du premier cycle du secondaire et plus jeunes gratuits. Des suppléments saisonniers s'appliquent : vérifiez le barème des tarifs daté avant de visiter.",
       "es": "Entrada ordinaria: desde la edad de bachillerato 450 ¥; personas de 65 años o más 210 ¥; estudiantes de secundaria básica y menores, gratis. Hay suplementos de temporada: consulte la tabla de precios con fecha antes de visitar."
@@ -327,7 +327,7 @@
       "ja": "草津温泉に鉄道駅はありません。長野原草津口駅からバス約25分。湯畑は温泉街の中心にあります。",
       "th": "เมือง Kusatsu ไม่มีสถานีรถไฟ ต่อบัสจาก Naganohara-Kusatsuguchi ประมาณ 25 นาที Yubatake อยู่กลางเมืองออนเซ็น",
       "ko": "구사쓰에는 철도역이 없습니다. 나가노하라쿠사쓰구치역에서 버스로 갈아타세요(약 25분). 유바타케는 마을 중심에 있습니다.",
-      "zh-CN": "草津没有车站。从长野原-草津口乘坐巴士（约25分钟）； Yubatake位于市中心。",
+      "zh-CN": "草津没有铁路车站。请从长野原草津口站换乘巴士，约25分钟；汤畑位于温泉街中心。",
       "vi": "Không có nhà ga ở Kusatsu. Kết nối từ Naganohara-Kusatsuguchi bằng xe buýt (khoảng 25 phút); Yubatake nằm ở trung tâm thị trấn.",
       "fr": "Il n’y a pas de gare à Kusatsu. Connexion depuis Naganohara-Kusatsuguchi en bus (environ 25 minutes) ; Yubatake est au centre-ville.",
       "es": "No hay ninguna estación en Kusatsu. Conexión desde Naganohara-Kusatsuguchi en autobús (unos 25 minutos); Yubatake está en el centro de la ciudad."
@@ -403,7 +403,7 @@
       "ja": "入館券はオンライン・コンビニ・開館日の券売機で購入可。一部の体験予約付き入館券はセブンチケット限定。通常入館券だけではシミュレータの予約になりません。",
       "th": "ซื้อตั๋วเข้าชมออนไลน์ ร้านสะดวกซื้อ หรือเครื่องขายที่พิพิธภัณฑ์ในวันเปิดได้ ตั๋วรวมการจองกิจกรรมบางชนิดขายเฉพาะ Seven Ticket ตั๋วเข้าชมทั่วไปไม่ได้จองเครื่องจำลองให้",
       "ko": "입장권은 온라인, 편의점, 개장일 박물관에서 판매됩니다. 일부 체험-예약 입장권은 세븐티켓에서만 판매됩니다. 일반 티켓은 시뮬레이터를 예약하지 않습니다.",
-      "zh-CN": "门票可在网上、便利店和开放日的博物馆出售。精选体验预约门票仅通过Seven Ticket出售；普通票不预留模拟器。",
+      "zh-CN": "可通过网上、便利店，以及博物馆开放日的现场售票处购买门票。部分含体验预约的门票仅通过Seven Ticket出售；普通门票不包含模拟器预约。",
       "vi": "Vé vào cửa được bán trực tuyến, tại các cửa hàng tiện lợi và tại bảo tàng vào những ngày mở cửa. Vé vào cửa đặt chỗ trải nghiệm chọn lọc chỉ được bán thông qua Seven Ticket; một vé thông thường không đặt trước một trình mô phỏng.",
       "fr": "L'entrée est vendue en ligne, dans les supérettes et au musée lors des journées portes ouvertes. Les billets d'entrée avec réservation d'expériences sélectionnés sont vendus uniquement via Seven Ticket ; un billet ordinaire ne réserve pas de simulateur.",
       "es": "La entrada se vende en línea, en tiendas de conveniencia y en el museo los días de puertas abiertas. Los boletos de admisión para reserva de experiencias seleccionadas se venden únicamente a través de Seven Ticket; un billete normal no reserva simulador."
@@ -427,7 +427,7 @@
       "ja": "西武新宿線本川越駅が蔵造りの町並み・時の鐘への拠点の一つ。駅からは現地の散策地図を確認。",
       "th": "Hon-Kawagoe สาย Seibu Shinjuku เป็นจุดเริ่มเดินเที่ยวย่านโกดังและหอระฆัง ดูแผนที่เดินจากสถานีเพิ่มเติม",
       "ko": "세이부 신주쿠선의 혼가와고에를 창고 지구와 종탑으로 가는 하나의 관문으로 활용하세요. 역에서 지역 도보 지도를 따라가세요.",
-      "zh-CN": "使用西武新宿线的本川越作为通往仓库区和钟楼的门户之一；从车站出发，遵循当地的步行地图。",
+      "zh-CN": "可从西武新宿线本川越站前往藏造街区和时之钟。出站后请参照当地步行地图。",
       "vi": "Sử dụng Hon-Kawagoe trên Tuyến Seibu Shinjuku làm cửa ngõ vào khu nhà kho và tháp chuông; theo bản đồ đi bộ địa phương từ nhà ga.",
       "fr": "Utilisez Hon-Kawagoe sur la ligne Seibu Shinjuku comme porte d'entrée vers le quartier des entrepôts et le clocher ; suivez la carte de randonnée locale depuis la gare.",
       "es": "Utilice Hon-Kawagoe en la línea Seibu Shinjuku como puerta de entrada al distrito de almacenes y al campanario; Siga el mapa local para caminar desde la estación."
@@ -455,7 +455,7 @@
       "ja": "JR京葉線・千葉モノレール千葉みなと駅から徒歩約12分。強風時は当日のエレベーター運行案内を確認。",
       "th": "เดินประมาณ 12 นาทีจาก Chiba-Minato สาย JR Keiyo หรือ Chiba Monorail หากลมแรงให้ตรวจประกาศลิฟต์ในวันเดินทาง",
       "ko": "치바미나토(JR 게이요선 또는 치바 모노레일)에서 도보 약 12분. 강풍시 당일 엘리베이터 공지를 확인하세요.",
-      "zh-CN": "从千叶港（JR 京叶线或千叶单轨电车）步行约 12 分钟。强风期间查看当天的电梯通知。",
+      "zh-CN": "从千叶港站（JR京叶线或千叶都市单轨电车）步行约12分钟。强风时请查看当天的电梯运行通知。",
       "vi": "Đi bộ khoảng 12 phút từ Chiba-Minato (Tuyến JR Keiyo hoặc Chiba Monorail). Kiểm tra thông báo thang máy trong ngày khi có gió mạnh.",
       "fr": "Marchez environ 12 minutes depuis Chiba-Minato (ligne JR Keiyo ou Chiba Monorail). Vérifiez les avis d’ascenseur le jour même en cas de vent fort.",
       "es": "Camine unos 12 minutos desde Chiba-Minato (línea JR Keiyo o monorraíl de Chiba). Consulte los avisos de ascensor del mismo día durante vientos fuertes."
@@ -469,7 +469,7 @@
       "ja": "みなとみらい線馬車道・日本大通り駅を利用。JR桜木町・関内駅からは徒歩約15分。",
       "th": "ใช้ Bashamichi หรือ Nihon-Odori สาย Minatomirai หากลง JR Sakuragicho หรือ Kannai เดินประมาณ 15 นาที",
       "ko": "미나토미라이선에서는 바샤미치 또는 니혼오도리를 이용하세요. JR 사쿠라기초와 간나이까지는 도보로 약 15분이 소요됩니다.",
-      "zh-CN": "乘坐港未来线的马车道或日本大通； JR樱木町和关内距离约有15分钟步行路程。",
+      "zh-CN": "可从港未来线马车道站或日本大通站前往；从JR樱木町站或关内站步行约15分钟。",
       "vi": "Sử dụng Bashamichi hoặc Nihon-Odori trên Tuyến Minatomirai; JR Sakuragicho và Kannai cách đó khoảng 15 phút đi bộ.",
       "fr": "Utilisez Bashamichi ou Nihon-Odori sur la ligne Minatomirai ; JR Sakuragicho et Kannai sont à environ 15 minutes à pied.",
       "es": "Utilice Bashamichi o Nihon-Odori en la línea Minatomirai; JR Sakuragicho y Kannai están a unos 15 minutos a pie."
@@ -609,7 +609,7 @@
       "ja": "五十鈴川駅からバス約6分、外宮から約10〜15分。内宮と外宮は別の場所です。",
       "th": "ใช้บัสจาก Isuzugawa ประมาณ 6 นาที หรือจาก Geku ประมาณ 10–15 นาที Naiku กับ Geku อยู่คนละแห่ง",
       "ko": "이스즈가와역(약 6분) 또는 게쿠(약 10~15분)에서 버스를 타세요. Naiku와 Geku는 서로 다른 장소입니다.",
-      "zh-CN": "从五十铃川站乘坐巴士（约 6 分钟），或从外宫出发（约 10 至 15 分钟）。 Naiku 和 Geku 是不同的地点。",
+      "zh-CN": "从五十铃川站乘巴士约6分钟，或从外宫乘巴士约10至15分钟。内宫与外宫是两个不同的地点。",
       "vi": "Đi xe buýt từ Ga Isuzugawa (khoảng sáu phút) hoặc từ Geku (khoảng 10–15 phút). Naiku và Geku là hai địa điểm riêng biệt.",
       "fr": "Prenez un bus depuis la gare d'Isuzugawa (environ six minutes) ou depuis Geku (environ 10 à 15 minutes). Naiku et Geku sont des sites distincts.",
       "es": "Tome un autobús desde la estación Isuzugawa (unos seis minutos) o desde Geku (unos 10 a 15 minutos). Naiku y Geku son sitios separados."
@@ -651,17 +651,17 @@
       "ja": "JR森ノ宮駅は公園南東側、大阪城公園駅は北東側。谷町四丁目駅からもアクセス可。園内の徒歩時間を確保。",
       "th": "JR Morinomiya เข้าด้านตะวันออกเฉียงใต้ ส่วน Osakajokoen เข้าด้านตะวันออกเฉียงเหนือ หรือใช้ Tanimachi Yonchome เผื่อเวลาเดินภายในสวน",
       "ko": "JR 모리노미야역은 공원 남동쪽, 오사카조코엔역은 북동쪽과 가깝습니다. 다니마치 4초메역에서도 접근할 수 있습니다. 공원 안을 걸어 이동할 시간도 고려하세요.",
-      "zh-CN": "JR森之宫服务于东南公园边缘；大阪城公园服务于东北地区。谷町四丁目是另一种方法。留出时间在公园内散步。",
+      "zh-CN": "JR森之宫站位于公园东南侧，大阪城公园站位于东北侧，也可从谷町四丁目站前往。请为公园内的步行留出时间。",
       "vi": "JR Morinomiya phục vụ rìa công viên phía đông nam; Osakajokoen phục vụ phía đông bắc. Tanimachi Yonchome là một cách tiếp cận khác. Dành thời gian để đi bộ bên trong công viên.",
       "fr": "JR Morinomiya dessert la limite sud-est du parc ; Osakajokoen dessert le nord-est. Tanimachi Yonchome est une autre approche. Prévoyez du temps pour vous promener à l’intérieur du parc.",
-      "es": "JR Morinomiya sirve al borde sureste del parque; Osakajokoen sirve al noreste. Tanimachi Yonchome es otro enfoque. Deje tiempo para caminar dentro del parque."
+      "es": "JR Morinomiya sirve al borde sureste del parque; Osakajokoen sirve al noreste. Tanimachi Yonchome ofrece otro acceso. Deje tiempo para caminar dentro del parque."
     },
     "hours": {
       "en": "Castle tower 09:00–18:00, entry until 17:30; ticket queues may close earlier. Closed Dec 28–Jan 1.",
       "ja": "天守閣9:00〜18:00、入館17:30まで。混雑時は購入列を早めに締め切る場合あり。12/28〜1/1休館。",
       "th": "หอปราสาท 09:00–18:00 น. รับเข้าถึง 17:30 น. คิวซื้อตั๋วอาจปิดก่อนเมื่อคนมาก ปิด 28 ธ.ค.–1 ม.ค.",
       "ko": "천수각 09:00~18:00, 입장은 17:30까지. 티켓 대기열이 더 일찍 마감될 수 있습니다. 12월 28일부터 1월 1일까지는 휴무입니다.",
-      "zh-CN": "城堡塔楼 09:00–18:00，入馆时间截至 17:30；售票队列可能会提前关闭。 12 月 28 日至 1 月 1 日关闭。",
+      "zh-CN": "天守阁09:00–18:00，最后入场17:30；排队购票可能提前截止。12月28日至1月1日休馆。",
       "vi": "Tháp lâu đài 09:00–18:00, vào cửa đến 17:30; hàng đợi mua vé có thể đóng cửa sớm hơn. Đóng cửa từ ngày 28 tháng 12 đến ngày 1 tháng 1.",
       "fr": "Tour du château de 9h00 à 18h00, entrée jusqu'à 17h30 ; les files d'attente pour les billets peuvent fermer plus tôt. Fermé du 28 décembre au 1er janvier.",
       "es": "Torre del castillo de 09:00 a 18:00, entrada hasta las 17:30; las colas de boletos pueden cerrar antes. Cerrado del 28 de diciembre al 1 de enero."
@@ -693,7 +693,7 @@
       "ja": "天守閣：大人1,200円、大学生・高校生600円（要証明、海外の学生はISIC）、中学生以下無料（要証明）。公園内の他施設は別条件。",
       "th": "หอปราสาท: ผู้ใหญ่ 1,200 เยน นักศึกษามหาวิทยาลัย/มัธยมปลาย 600 เยนพร้อมหลักฐาน นักเรียนต่างชาติใช้ ISIC มัธยมต้นหรือต่ำกว่าฟรีพร้อมหลักฐาน สถานที่อื่นในสวนใช้เงื่อนไขแยก",
       "ko": "타워: 어른 1,200엔 대학생/고등학생 증빙서류 지참 시 600엔(유학생은 ISIC), 중학생 이하는 증빙서류 지참 시 무료입니다. 공원 시설에는 별도의 규칙이 있습니다.",
-      "zh-CN": "塔楼：成人1,200日元；大学/高中生 600 日元（有证明）（海外学生为 ISIC）；初中生及以下凭证明免费。公园设施有单独的规则。",
+      "zh-CN": "天守阁：成人1,200日元；大学生及高中生凭证明600日元（海外学生须出示ISIC国际学生证）；初中生及以下凭证明免费。公园其他设施另有规定。",
       "vi": "Tháp: người lớn 1.200 yên; sinh viên đại học/trung học ¥600 có bằng chứng (ISIC dành cho sinh viên nước ngoài); tuổi trung học cơ sở trở xuống miễn phí có bằng chứng. Cơ sở công viên có quy định riêng.",
       "fr": "Tour : adultes 1 200 ¥ ; étudiants et lycéens 600 ¥ sur justificatif (carte ISIC pour les étudiants étrangers) ; collégiens et enfants plus jeunes gratuits sur justificatif. Les équipements du parc ont des règles distinctes.",
       "es": "Torre: adultos 1.200 ¥; universitarios y estudiantes de bachillerato 600 ¥ con acreditación (ISIC para estudiantes extranjeros); escolares de secundaria básica y menores, gratis con acreditación. Las instalaciones del parque tienen reglas propias."
@@ -703,7 +703,7 @@
       "ja": "オンライン券あり。入館予約は受け付けていません。団体の事前連絡も予約扱いではありません。",
       "th": "มีตั๋วออนไลน์ หอปราสาทไม่รับจองเวลาเข้า การแจ้งล่วงหน้าสำหรับหมู่คณะไม่ถือเป็นการจองเข้า",
       "ko": "온라인 티켓을 이용할 수 있습니다. 타워는 입장 예약을 받지 않습니다. 단체의 경우 사전 연락으로 입장을 예약하지 않습니다.",
-      "zh-CN": "可在线购票。塔楼不接受入场预约；团体提前联系不保留入场资格。",
+      "zh-CN": "可在线购票。天守阁不接受入场预约；团体提前联系也不代表已预约入场。",
       "vi": "Vé trực tuyến có sẵn. Tháp không chấp nhận đặt chỗ vào cửa; liên hệ trước cho các nhóm không bảo đảm chỗ vào cửa.",
       "fr": "Des billets en ligne sont disponibles. La tour n'accepte pas les réservations d'entrée ; Un contact préalable pour les groupes ne réserve pas l'admission.",
       "es": "Los boletos en línea están disponibles. La torre no acepta reservas de entrada; contacto previo para grupos no reserva entrada."
@@ -767,7 +767,7 @@
       "ja": "天守閣にはエレベーターがあります。北側の極楽橋からの経路には急な坂や手すりのない区間があります。進入経路は運営者のバリアフリーマップで確認してください。",
       "th": "หอปราสาทมีลิฟต์ เส้นทางจากสะพาน Gokurakubashi ด้านเหนือมีทางชันและบางช่วงไม่มีราวจับ ตรวจแผนที่การเข้าถึงของผู้ดูแลก่อนเลือกเส้นทาง",
       "ko": "타워에는 엘리베이터가 있습니다. 북부 고쿠라쿠바시 접근로는 가파른 경사면과 난간이 없는 구간이 있습니다. 접근 방식을 선택하기 전에 운영자의 무장애 지도를 참조하세요.",
-      "zh-CN": "塔楼设有电梯。极乐桥北部的引道包括陡坡和没有扶手的路段；在选择路线之前，请查阅运营商的无障碍地图。",
+      "zh-CN": "天守阁设有电梯。从北侧极乐桥前往的路线有陡坡，部分路段没有扶手；选择路线前请查看运营方的无障碍地图。",
       "vi": "Tháp có thang máy. Lối Gokurakubashi ở phía bắc có đoạn dốc và đoạn không có tay vịn. Hãy xem bản đồ tiếp cận không rào cản của đơn vị quản lý trước khi chọn lối đi.",
       "fr": "La tour dispose d'ascenseurs. L'approche nord de Gokurakubashi comprend des pentes raides et des sections sans mains courantes ; consultez la carte des accès accessibles de l’opérateur avant de choisir une approche.",
       "es": "La torre dispone de ascensores. El acceso al norte de Gokurakubashi incluye pendientes pronunciadas y tramos sin pasamanos; Consulte el mapa sin barreras del operador antes de elegir un enfoque."
@@ -921,7 +921,7 @@
       "ja": "広島駅から原爆ドーム前方面へ電車またはバス、その後徒歩で公園へ。乗車の目安は約20分。",
       "th": "จากสถานี Hiroshima ใช้รถรางหรือบัสไป Genbaku-Dome-mae แล้วเดินเข้าสวน เผื่อเวลานั่งรถประมาณ 20 นาที",
       "ko": "히로시마역에서 겐바쿠돔마에 행 트램이나 버스를 타고 공원으로 걸어가세요. 환승 구간에는 약 20분 정도 소요됩니다.",
-      "zh-CN": "从广岛站乘坐电车或巴士前往原爆巨蛋前，然后步行进入公园。中转行程大约需要 20 分钟。",
+      "zh-CN": "从广岛站乘电车或巴士前往原爆圆顶馆前，再步行进入公园。乘车一段请预留约20分钟。",
       "vi": "Từ Ga Hiroshima, bắt xe điện hoặc xe buýt về hướng Genbaku-Dome-mae, sau đó đi bộ vào công viên. Dành khoảng 20 phút cho chặng quá cảnh.",
       "fr": "Depuis la gare d'Hiroshima, prenez un tramway ou un bus en direction de Genbaku-Dome-mae, puis entrez dans le parc. Comptez environ 20 minutes pour le trajet en transit.",
       "es": "Desde la estación de Hiroshima, tome un tranvía o autobús hacia Genbaku-Dome-mae y luego camine hacia el parque. Espere unos 20 minutos para el tramo de tránsito."
@@ -949,7 +949,7 @@
       "ja": "新山口駅から秋芳洞までバス約40分。バスターミナルから正面入口へ徒歩約5分。",
       "th": "จาก Shin-Yamaguchi นั่งบัสถึง Akiyoshido ประมาณ 40 นาที จากท่ารถเดินราว 5 นาทีถึงทางเข้าหลัก",
       "ko": "신야마구치에서 아키요시도까지 버스를 타세요(약 40분). 주요 동굴 입구는 터미널에서 도보로 약 5분 거리에 있습니다.",
-      "zh-CN": "从新山口乘坐巴士到秋芳堂（约40分钟）；主洞穴入口距离巴士总站步行约五分钟。",
+      "zh-CN": "从新山口站乘巴士约40分钟至秋芳洞；从巴士总站步行约5分钟到洞穴主入口。",
       "vi": "Từ Shin-Yamaguchi đi xe buýt đến Akiyoshido (khoảng 40 phút); lối vào hang chính cách nhà ga khoảng năm phút đi bộ.",
       "fr": "Depuis Shin-Yamaguchi, prendre un bus pour Akiyoshido (environ 40 minutes) ; l'entrée principale de la grotte se trouve à environ cinq minutes à pied du terminal.",
       "es": "Desde Shin-Yamaguchi tomar un autobús hasta Akiyoshido (unos 40 minutos); La entrada principal a la cueva está a unos cinco minutos a pie desde la terminal."
@@ -991,7 +991,7 @@
       "ja": "石段の登り口へはJR琴平駅から徒歩約10分、ことでん琴平駅から約8分。その後に参道の登りがあります。",
       "th": "เดินถึงจุดเริ่มบันไดประมาณ 10 นาทีจาก JR Kotohira หรือ 8 นาทีจาก Kotoden Kotohira จากนั้นยังต้องขึ้นบันไดไปศาลเจ้า",
       "ko": "돌계단 시작점은 JR 고토히라에서 도보로 약 10분, 고토덴 고토히라에서 8분 거리입니다. 이 산책 후에는 신사 등반이 이어집니다.",
-      "zh-CN": "石阶的起点从JR琴平站步行约10分钟，从琴电琴平站步行约8分钟。步行之后就是攀登神社。",
+      "zh-CN": "从JR琴平站步行约10分钟，或从琴电琴平站步行约8分钟，可到石阶起点。此后还需登阶前往神社。",
       "vi": "Điểm bắt đầu của các bậc đá là khoảng 10 phút đi bộ từ JR Kotohira hoặc 8 phút từ Kotoden Kotohira. Việc leo lên đền thờ diễn ra sau chuyến đi bộ này.",
       "fr": "Le départ des marches de pierre se trouve à environ 10 minutes à pied de JR Kotohira ou à huit minutes de Kotoden Kotohira. La montée du sanctuaire vient après cette promenade.",
       "es": "El inicio de las escaleras de piedra está a unos 10 minutos a pie desde JR Kotohira u ocho minutos desde Kotoden Kotohira. Después de esta caminata viene la subida al santuario."
@@ -1005,7 +1005,7 @@
       "ja": "大街道電停からロープウェイ方面へ徒歩約5分。城は勝山山上にあり、ロープウェイ・リフト・徒歩の登城路を選びます。",
       "th": "ลงรถราง Okaido แล้วเดินประมาณ 5 นาทีถึงบริเวณกระเช้า ปราสาทอยู่บนเขา Katsuyama เลือกกระเช้า ลิฟต์เก้าอี้ หรือเส้นทางเดินขึ้น",
       "ko": "오카이도 트램 정류장을 이용하여 로프웨이 지역까지 약 5분 정도 걸어가세요. 성은 가쓰야마 산에 있습니다. 로프웨이, 체어리프트 또는 오르막길 도보 경로를 선택하세요.",
-      "zh-CN": "使用大街道电车站步行约5分钟即可到达缆车站。城堡位于胜山山上；选择索道、缆车或上坡步行路线。",
+      "zh-CN": "从大街道电车站步行约5分钟到索道区域。城堡位于胜山上，可选择箱式索道、吊椅索道或上山步道。",
       "vi": "Từ trạm xe điện Okaido, đi bộ khoảng 5 phút đến khu cáp treo. Lâu đài ở trên Núi Katsuyama; chọn cáp treo cabin, ghế treo hoặc đường đi bộ lên dốc.",
       "fr": "Utilisez l'arrêt de tramway Okaido et marchez environ cinq minutes jusqu'au téléphérique. Le château se trouve sur le mont Katsuyama ; choisissez le téléphérique, le télésiège ou la randonnée pédestre.",
       "es": "Utilice la parada de tranvía de Okaido y camine unos cinco minutos hasta la zona del teleférico. El castillo está en el monte Katsuyama; Elija el teleférico, el telesilla o la ruta a pie cuesta arriba."
@@ -1085,7 +1085,7 @@
       "ja": "大人15歳以上460円、65歳以上200円（年齢確認書類）。中学生以下無料。",
       "th": "ผู้ใหญ่อายุ 15 ปีขึ้นไป 460 เยน อายุ 65 ปีขึ้นไป 200 เยนพร้อมหลักฐานอายุ นักเรียนมัธยมต้นหรือต่ำกว่าฟรี",
       "ko": "15세 이상 성인 460엔; 65세 이상 200엔(연령 증명 필요) 중학생 이하는 무료입니다.",
-      "zh-CN": "15岁及以上成人460日元； 65岁及以上有年龄证明200日元。中学生以下免费。",
+      "zh-CN": "15岁及以上成人460日元；65岁及以上凭年龄证明200日元。初中生及以下免费。",
       "vi": "Người lớn từ 15 tuổi trở lên 460 yên; tuổi 65+ 200 yên với bằng chứng về độ tuổi. Học sinh trung học cơ sở trở xuống được vào cửa miễn phí.",
       "fr": "Adultes de 15 ans et plus 460 ¥ ; 65 ans et plus 200 ¥ avec preuve d'âge. Les collégiens et les plus jeunes entrent gratuitement.",
       "es": "Personas de 15 años o más: 460 ¥; de 65 años o más: 200 ¥ con acreditación de edad. Estudiantes de secundaria básica y menores, gratis."
@@ -1105,7 +1105,7 @@
       "ja": "公式案内にスロープ、多目的トイレ、入口サービスセンターの車いす・ベビーカー貸出あり。電動車いすは東口。貸出状況は事前確認。",
       "th": "ผู้ดูแลระบุว่ามีทางลาด ห้องน้ำรองรับผู้พิการ และยืมรถเข็น/รถเข็นเด็กที่ศูนย์บริการทางเข้า รถเข็นไฟฟ้าอยู่ทางเข้าตะวันออก ควรตรวจจำนวนที่พร้อมให้ยืมก่อน",
       "ko": "운영사는 입구 서비스 센터의 경사로, 장애인용 화장실, 휠체어·유모차 대여를 안내합니다. 전동 휠체어는 동문에 있습니다. 대여할 수 있는지 미리 확인하세요.",
-      "zh-CN": "运营商在入口服务中心列出了坡道、无障碍厕所和轮椅/婴儿车借用服务。电动轮椅在东门；在依赖轮椅借用服务之前检查可用性。",
+      "zh-CN": "运营方列有入口服务中心的坡道、无障碍厕所，以及轮椅和婴儿车借用服务。东门提供电动轮椅；如需借用，请提前确认是否有可用设备。",
       "vi": "Đơn vị vận hành công bố có đường dốc, nhà vệ sinh phù hợp cho người khuyết tật và dịch vụ cho mượn xe lăn/xe đẩy tại các trung tâm dịch vụ ở lối vào. Xe lăn điện ở Cổng Đông; hãy kiểm tra còn xe trước khi dự định mượn.",
       "fr": "L'opérateur répertorie les rampes, les toilettes accessibles et les prêts de fauteuils roulants/poussettes dans les centres de services d'entrée. Les fauteuils roulants électriques se trouvent à la porte Est ; vérifiez la disponibilité avant de recourir à un prêt.",
       "es": "El operador enumera rampas, baños accesibles y préstamo de sillas de ruedas/cochecitos en los centros de servicio de entrada. Las sillas de ruedas eléctricas están en la puerta este; Verifique la disponibilidad antes de depender de un préstamo."
@@ -1147,7 +1147,7 @@
       "ja": "熊本駅から市電で熊本城・市役所前へ、入口まで徒歩約10分。復旧工事に伴う通行案内を確認。",
       "th": "จากสถานี Kumamoto ใช้รถรางลง Kumamoto Castle/City Hall แล้วเดินประมาณ 10 นาทีถึงทางเข้า ตรวจเส้นทางปัจจุบันระหว่างการบูรณะด้วย",
       "ko": "구마모토역에서 구마모토성/시청까지 시영전차를 타고 입구까지 도보로 약 10분 소요됩니다. 현재 재건축 접근 공지를 확인하세요.",
-      "zh-CN": "从熊本站乘坐市内电车到熊本城/市政厅，然后步行约10分钟到达入口。检查当前的重建访问通知。",
+      "zh-CN": "从熊本站乘市内电车至熊本城・市役所前，再步行约10分钟到入口。请查看重建期间最新的通行通知。",
       "vi": "Hãy sử dụng xe điện thành phố từ Ga Kumamoto đến Lâu đài Kumamoto/Tòa thị chính, sau đó đi bộ khoảng 10 phút đến lối vào. Kiểm tra các thông báo truy cập tái thiết hiện tại.",
       "fr": "Utilisez le tramway depuis la gare de Kumamoto jusqu'au château/hôtel de ville de Kumamoto, puis marchez environ 10 minutes jusqu'à l'entrée. Consultez les avis d’accès à la reconstruction actuels.",
       "es": "Utilice el tranvía urbano desde la estación de Kumamoto hasta el castillo/ayuntamiento de Kumamoto y luego camine unos 10 minutos hasta la entrada. Consulta los avisos de acceso a la reconstrucción vigentes."
@@ -1161,7 +1161,7 @@
       "ja": "京阪祇園四条駅、または阪急京都河原町駅から祇園へ。市の案内では四条大橋の東側が祇園です。公道と現地の表示に従い、立入禁止の私道を通らないでください。",
       "th": "เข้าย่านกิออนจาก Keihan Gion-Shijo หรือ Hankyu Kyoto-Kawaramachi คู่มือเมืองระบุว่ากิออนอยู่ฝั่งตะวันออกของสะพาน Shijo-Ohashi ใช้ถนนสาธารณะและตามป้ายปัจจุบัน ห้ามใช้ซอยส่วนบุคคลที่ห้ามเข้า",
       "ko": "게이한 기온시조 또는 한큐 교토 가와라마치에서 기온으로 가세요. 도시 가이드에서는 기온을 시조오하시 동쪽에 배치합니다. 공공 도로와 현재 지역 표지판을 따르십시오. 제한된 사유 골목길을 사용하지 마십시오.",
-      "zh-CN": "从京阪祇园四条或阪急京都河原町前往祇园。城市指南将祇园定位在四条大桥以东。遵循公共街道和当地现行标志；不要使用受限制的私人车道。",
+      "zh-CN": "可从京阪祇园四条站或阪急京都河原町站前往祇园。城市指南将祇园标在四条大桥以东。请走公共街道并遵循当地最新标识，不要进入限制通行的私人巷道。",
       "vi": "Tiếp cận Gion từ Keihan Gion-Shijo hoặc Hankyu Kyoto-Kawaramachi. Hướng dẫn thành phố đặt Gion ở phía đông Shijo-Ohashi. Đi theo các đường phố công cộng và các biển báo địa phương hiện tại; không sử dụng làn đường riêng bị hạn chế.",
       "fr": "Approchez-vous de Gion depuis Keihan Gion-Shijo ou Hankyu Kyoto-Kawaramachi. Le guide de la ville place Gion à l’est de Shijo-Ohashi. Suivez les rues publiques et les panneaux locaux actuels ; n’utilisez pas de voies privées restreintes.",
       "es": "Acércate a Gion desde Keihan Gion-Shijo o Hankyu Kyoto-Kawaramachi. La guía de la ciudad sitúa a Gion al este de Shijo-Ohashi. Siga las calles públicas y las señales locales vigentes; no utilice carriles privados restringidos."
@@ -1171,7 +1171,7 @@
       "ja": "祇園町南側の道路は歩行者専用ではありません。歩道をふさがず、寺社・私有地の立入規制に従い、許可なく立入禁止区域へ入らないでください。",
       "th": "ถนนในกิออนตอนใต้มีรถสัญจร อย่ากีดขวางทางเท้า ปฏิบัติตามข้อจำกัดการเข้าวัด ศาลเจ้า และพื้นที่ส่วนบุคคล ห้ามเข้าเขตหวงห้ามโดยไม่ได้รับอนุญาต",
       "ko": "기온 남부의 거리에는 차량이 다닙니다. 보도를 막지 말고 사찰, 신사, 사유지의 출입 제한을 따르세요. 허가 없이 제한 구역에 들어가지 마세요.",
-      "zh-CN": "南祇园的街道上车辆熙熙攘攘。保持人行道畅通，并遵守寺庙、神社和私人财产的出入限制；未经许可，不得进入限制区域。",
+      "zh-CN": "祇园南部的街道有车辆通行。请保持人行道畅通，遵守寺院、神社及私人场所的通行限制；未经许可不要进入限制区域。",
       "vi": "Đường phố Nam Gion tấp nập xe cộ. Giữ vỉa hè thông thoáng và tuân thủ các hạn chế ra vào tại các đền, miếu và khu vực tư nhân; không vào khu vực cấm mà không được phép.",
       "fr": "Les rues du sud de Gion sont fréquentées par des véhicules. Gardez les trottoirs dégagés et respectez les restrictions d'accès aux temples, sanctuaires et propriétés privées ; n’entrez pas dans les zones réglementées sans autorisation.",
       "es": "Las calles del sur de Gion transitan vehículos. Mantenga las aceras despejadas y respete las restricciones de acceso en templos, santuarios y propiedades privadas; no ingrese a áreas restringidas sin permiso."
@@ -1205,10 +1205,10 @@
       "ja": "台東区側の東武鉄橋付近にある公園案内所に、休憩用ベンチ・授乳室・だれでもトイレがあります。園内すべての経路を確認した情報ではありません。",
       "th": "ฝั่ง Taito ศูนย์ข้อมูลสวนใกล้สะพานรถไฟ Tobu มีม้านั่งพัก ห้องให้นม และห้องน้ำอเนกประสงค์ ข้อมูลนี้ไม่ได้ยืนยันการเข้าถึงของทุกเส้นทางในสวน",
       "ko": "다이토 쪽 강변의 도부 철교 근처 공원 안내소에는 휴식용 벤치, 수유실, 다목적 화장실이 있습니다. 이 정보가 공원의 모든 경로에 대한 접근성을 확인한 것은 아닙니다.",
-      "zh-CN": "台东岸、东武铁桥附近的公园咨询处设有休息长椅、哺乳室和多功能厕所。这并不能验证每条公园路径。",
+      "zh-CN": "台东一侧河岸、东武铁桥附近的公园咨询处设有休息长椅、哺乳室和多功能厕所。此信息并未核实公园所有道路的通行情况。",
       "vi": "Trên bờ Taito, văn phòng thông tin công viên gần cầu đường sắt Tobu có ghế nghỉ, phòng cho con bú và nhà vệ sinh đa năng. Điều này không xác minh mọi con đường công viên.",
       "fr": "Sur la rive Taito, le bureau d'information du parc près du pont ferroviaire de Tobu dispose de bancs de repos, d'une salle d’allaitement et de toilettes polyvalentes. Cela ne vérifie pas tous les sentiers du parc.",
-      "es": "En el ribera de Taito, la oficina de información del parque, cerca del puente ferroviario de Tobu, cuenta con bancos de descanso, una sala de lactancia y un baño multiusos. Esto no verifica todos los caminos del parque."
+      "es": "En la ribera de Taito, la oficina de información del parque, cerca del puente ferroviario de Tobu, cuenta con bancos de descanso, una sala de lactancia y un baño multiusos. Esto no verifica todos los caminos del parque."
     },
     "fieldSources": {
       "accessibility": {
@@ -1263,7 +1263,7 @@
       "ja": "川沿いのとんぼりリバーウォークへは、運営者のお散歩マップで戎橋の階段を下りる経路を案内しています。この入口情報は段差のない代替経路を確認したものではありません。",
       "th": "สำหรับทางเดินริมน้ำ Tonbori Riverwalk แผนที่เดินของผู้ดูแลระบุให้ลงบันไดที่สะพาน Ebisubashi ข้อมูลทางเข้านี้ยังไม่ได้ยืนยันเส้นทางอื่นที่ไม่มีขั้นบันได",
       "ko": "강변 산책로 톤보리 리버워크의 운영사 도보 지도에는 에비스바시 다리에서 계단을 내려가는 접근 경로가 표시되어 있습니다. 이 입구 안내에는 계단 없는 대안이 나와 있지 않습니다.",
-      "zh-CN": "对于河边的道堀河滨步道，运营商的步行地图显示了从戎桥的楼梯下去的通道。本入口说明并未指出无台阶替代方案。",
+      "zh-CN": "运营方的步行地图显示，前往河岸的Tonbori Riverwalk（道顿堀河畔步道）可从戎桥处走楼梯下去。本入口说明未提供无台阶替代路线。",
       "vi": "Bản đồ của đơn vị quản lý cho thấy lối xuống đường dạo ven sông Tonbori qua cầu thang tại cầu Ebisubashi. Thông tin này chưa xác định lối đi thay thế không có bậc thang.",
       "fr": "Pour le Tonbori Riverwalk au bord de la rivière, la carte de marche de l'opérateur montre l'accès par les escaliers du pont Ebisubashi. Cette note d’entrée n’identifie pas d’alternative sans marches.",
       "es": "Para el paseo fluvial Tonbori Riverwalk, el mapa para caminar del operador muestra el acceso por las escaleras en el puente Ebisubashi. Esta nota de entrada no identifica una alternativa sin escalones."
@@ -1469,7 +1469,7 @@
       "ja": "正面入口・大仏前にスロープがあります。凹凸を避ける公式ルートを利用。車いす利用者には介助者の同伴を推奨しています。",
       "th": "มีทางลาดที่ทางเข้าหลักและบริเวณชมองค์พระ ใช้เส้นทางที่ระบุเพื่อหลีกเลี่ยงพื้นขรุขระ ผู้ดูแลแนะนำให้ผู้ใช้รถเข็นมีผู้ช่วยร่วมทาง",
       "ko": "정문과 대불 관람 구역으로 이어지는 경사로가 있습니다. 울퉁불퉁한 지면을 피하려면 표시된 경로를 이용하세요. 운영 측은 휠체어 이용자에게 동반 도움 인원을 권합니다.",
-      "zh-CN": "坡道服务于主入口和佛像观赏区。使用标记路线，避免地面不平坦；运营方会为轮椅使用者推荐一名陪同助手。",
+      "zh-CN": "主入口和大佛观赏区域设有坡道。请沿标示路线行进，避开不平地面；运营方建议轮椅使用者由他人陪同协助。",
       "vi": "Lối vào chính và khu vực ngắm tượng Phật có đường dốc. Đi theo lối được đánh dấu để tránh mặt đất gồ ghề; đơn vị quản lý khuyến nghị người dùng xe lăn có người đi cùng hỗ trợ.",
       "fr": "Des rampes desservent l'entrée principale et la zone d'observation de Bouddha. Utilisez l'itinéraire balisé pour éviter les terrains accidentés ; l'exploitant recommande un accompagnateur pour les utilisateurs de fauteuils roulants.",
       "es": "Las rampas sirven a la entrada principal y al área de observación de Buda. Utilice la ruta marcada para evitar terrenos irregulares; El operador recomienda un acompañante para los usuarios de sillas de ruedas."
@@ -1507,7 +1507,7 @@
       "ja": "観光案内にバリアフリートイレの記載あり。すべての園路の段差なしを保証する情報ではありません。",
       "th": "แหล่งท่องเที่ยวระบุว่ามีห้องน้ำรองรับผู้ใช้รถเข็น ไม่ได้ยืนยันว่าทุกทางเดินไม่มีขั้นบันได",
       "ko": "관광 안내에 장애인용 화장실이 명시되어 있습니다. 모든 길에 계단이 없다는 뜻은 아닙니다.",
-      "zh-CN": "旅游清单确认了无障碍厕所。这并不能确认每条路径都是无障碍的。",
+      "zh-CN": "旅游信息页面确认设有无障碍厕所，但这并不代表每条道路均无台阶。",
       "vi": "Thông tin du lịch xác nhận có nhà vệ sinh phù hợp cho người khuyết tật. Điều này không có nghĩa là mọi lối đi đều không có bậc thang.",
       "fr": "Le listing touristique confirme l'accessibilité des toilettes. Cela ne confirme pas que chaque chemin est sans marches.",
       "es": "El listado turístico confirma baños accesibles. Esto no confirma que todos los caminos estén sin escalones."
@@ -1593,7 +1593,7 @@
       "ja": "正門へはことでん栗林公園駅から徒歩約10分。北門へはJR栗林公園北口駅から徒歩約5分。使う門を決めてから経路を確認。",
       "th": "ทางเข้าหลักเดินประมาณ 10 นาทีจาก Kotoden Ritsurin-Koen ส่วนทางเข้าเหนือเดินประมาณ 5 นาทีจาก JR Ritsurinkoen-Kitaguchi เลือกประตูให้ตรงก่อนค้นเส้นทาง",
       "ko": "정문은 고토덴 리쓰린코엔에서 도보로 약 10분 거리에 있습니다. JR 리쓰린코엔 기타구치는 북쪽 입구에서 약 5분 거리에 있습니다. 경로를 지정하기 전에 입구를 선택하세요.",
-      "zh-CN": "从琴电栗林公园步行约10分钟即可到达正门。 JR栗林公园北口距北口约5分钟；在规划路线之前选择入口。",
+      "zh-CN": "从琴电栗林公园站步行约10分钟到正门。从JR栗林公园北口站步行约5分钟到北门；查询路线前请先选好入口。",
       "vi": "Để vào cổng chính, hãy đi bộ khoảng mười phút từ Kotoden Ritsurin-Koen. JR Ritsurinkoen-Kitaguchi cách lối vào phía bắc khoảng năm phút; chọn lối vào trước khi định tuyến.",
       "fr": "Pour l’entrée principale, marchez une dizaine de minutes depuis Kotoden Ritsurin-Koen. JR Ritsurinkoen-Kitaguchi se trouve à environ cinq minutes de l'entrée nord ; choisissez l'entrée avant de planifier le trajet.",
       "es": "Para llegar a la entrada principal, camine unos diez minutos desde Kotoden Ritsurin-Koen. JR Ritsurinkoen-Kitaguchi está a unos cinco minutos de la entrada norte; Elija la entrada antes de la ruta."
@@ -1701,7 +1701,7 @@
       "ja": "9:00〜17:00、最終入場16:30。3月第1日曜は鹿児島マラソンのため休園。",
       "th": "09:00–17:00 น. เข้าครั้งสุดท้าย 16:30 น. ปิดวันอาทิตย์แรกของเดือนมีนาคมเนื่องจาก Kagoshima Marathon",
       "ko": "09:00~17:00; 마지막 입장 시간은 16:30입니다. 가고시마 마라톤 개최 기간인 3월 첫째 주 일요일은 휴관합니다.",
-      "zh-CN": "09:00–17:00；最后入场时间为 16:30。鹿儿岛马拉松比赛于 3 月的第一个周日闭馆。",
+      "zh-CN": "09:00–17:00，最后入场16:30。每年3月的第一个周日因鹿儿岛马拉松而休园。",
       "vi": "09:00–17:00; lượt vào cuối cùng là 16:30. Đóng cửa vào Chủ nhật đầu tiên của tháng 3 để tổ chức cuộc thi Kagoshima Marathon.",
       "fr": "09h00-17h00 ; dernière entrée 16h30. Fermé le premier dimanche de mars pour le Marathon de Kagoshima.",
       "es": "09:00–17:00; última entrada 16:30. Cerrado el primer domingo de marzo por el maratón de Kagoshima."
@@ -1721,7 +1721,7 @@
       "ja": "一般1,600円、小中高生800円。御殿と尚古集成館を含みます。",
       "th": "ผู้ใหญ่ทั่วไป 1,600 เยน นักเรียนประถมถึงมัธยมปลาย 800 เยน รวมเรือน Goten และพิพิธภัณฑ์ Shoko Shuseikan",
       "ko": "일반 입장료 1,600엔; 초등학생~고등학생 800엔. 고텐저택과 쇼코 슈세이칸 박물관이 포함되어 있습니다.",
-      "zh-CN": "普通票1,600日元，小学生至高中生800日元。包含御殿和尚古集成馆。",
+      "zh-CN": "普通票1,600日元；小学生至高中生800日元。包含御殿和尚古集成馆博物馆。",
       "vi": "Vé vào chung 1.600 yên; học sinh tiểu học đến trung học 800 yên. Bao gồm dinh thự Goten và bảo tàng Shoko Shuseikan.",
       "fr": "Admission générale 1 600 ¥ ; élèves du primaire au lycée 800 ¥. Comprend la résidence Goten et le musée Shoko Shuseikan.",
       "es": "Entrada general: 1.600 ¥; estudiantes de primaria a bachillerato: 800 ¥. Incluye la residencia Goten y el museo Shoko Shuseikan."
