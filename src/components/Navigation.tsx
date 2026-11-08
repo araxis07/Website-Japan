@@ -133,7 +133,7 @@ export default function Navigation({
                 <Link
                   key={locale}
                   href={
-                    pathname.replace(/^\/(ja|en|th)(?=\/|$)/, `/${locale}`) +
+                    pathname.replace(/^\/[^/]+(?=\/|$)/, `/${locale}`) +
                     suffix
                   }
                   hrefLang={locale}

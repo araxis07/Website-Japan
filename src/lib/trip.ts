@@ -10,7 +10,11 @@ export const tripId = () =>
     n.toString(16).padStart(2, '0'),
   ).join('')
 export const dayLabel = (day: number, lang: Locale, label: string) =>
-  lang === 'ja' ? `${day}${label}` : `${label} ${day}`
+  lang === 'zh-CN'
+    ? `第${day}${label}`
+    : lang === 'ja' || lang === 'ko'
+      ? `${day}${label}`
+      : `${label} ${day}`
 export const budgetFields = ['stay', 'transport', 'food', 'activities'] as const
 export const missingBudget = (trip: Trip) =>
   budgetFields.filter((field) => trip.budget?.[field] === undefined)
@@ -36,6 +40,11 @@ export function tripPlace(entry: TripEntry) {
     category: 'city' as const,
     destination: '',
     names: {
+      ko: entry.custom.name,
+      'zh-CN': entry.custom.name,
+      vi: entry.custom.name,
+      fr: entry.custom.name,
+      es: entry.custom.name,
       en: entry.custom.name,
       ja: entry.custom.name,
       th: entry.custom.name,

@@ -13,7 +13,7 @@ import Journeys from '@/components/Journeys'
 import { journeys } from '@/data/journeys'
 import TravelPlanning from '@/components/TravelPlanning'
 import { getDictionary } from '@/i18n/dictionaries'
-import { isLocale, ogLocales } from '@/i18n/config'
+import { i18n, isLocale, ogLocales } from '@/i18n/config'
 import { siteUrl } from '@/utils/site'
 import {
   generateTravelGuideSchema,
@@ -34,9 +34,7 @@ export async function generateMetadata({
     alternates: {
       canonical: `${siteUrl}/${lang}`,
       languages: {
-        ja: `${siteUrl}/ja`,
-        en: `${siteUrl}/en`,
-        th: `${siteUrl}/th`,
+        ...Object.fromEntries(i18n.locales.map((locale) => [locale, `${siteUrl}/${locale}`])),
         'x-default': `${siteUrl}/ja`,
       },
     },

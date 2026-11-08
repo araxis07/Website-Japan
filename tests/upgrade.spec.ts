@@ -102,8 +102,8 @@ test('review cadence, trip notice relevance, Thai suggestions and report paths h
   const detail = {
     source: 'https://example.org',
     reviewedAt: '2026-01-01',
-    access: { en: 'Access', ja: '案内', th: 'ทางเข้า' },
-    hours: { en: 'Hours', ja: '時間', th: 'เวลา' },
+    access: { en: 'Access', ja: '案内', th: 'ทางเข้า', ko: '교통', 'zh-CN': '交通', vi: 'Di chuyển', fr: 'Accès', es: 'Acceso' },
+    hours: { en: 'Hours', ja: '時間', th: 'เวลา', ko: '시간', 'zh-CN': '时间', vi: 'Giờ', fr: 'Horaires', es: 'Horario' },
   }
   expect(fieldReview(detail, 'hours', '2026-02-15').status).toBe('overdue')
   expect(fieldReview(detail, 'access', '2026-02-15').status).toBe('reviewed')

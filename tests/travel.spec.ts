@@ -267,7 +267,7 @@ test('every destination route, locale and metadata asset is valid', async ({
   }
   expect((await request.get('/')).url()).toMatch(/\/ja$/)
   for (const route of [
-    '/fr',
+    '/zz',
     '/ja/not-real',
     '/en/destinations/not-real',
     '/missing/path',

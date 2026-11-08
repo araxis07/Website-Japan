@@ -41,7 +41,7 @@ export const places: Place[] = [
     destination: d.slug,
     category: 'city' as const,
     coordinates: bases[d.slug],
-    names: { en: d.en.name, ja: d.ja.name, th: d.th.name },
+    names: { en: d.en.name, ja: d.ja.name, th: d.th.name, ko: d.ko.name, 'zh-CN': d['zh-CN'].name, vi: d.vi.name, fr: d.fr.name, es: d.es.name },
   })),
   ...spots,
   ...prefecturePlaces.filter(

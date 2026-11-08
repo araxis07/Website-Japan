@@ -2,7 +2,7 @@
 
 An independent Japan travel guide with practical advice, interactive maps and personal trip planning for all 47 prefectures.
 
-**Languages:** Japanese (`/ja`, default), English (`/en`) and Thai (`/th`).
+**Languages:** Japanese (`/ja`, default), English (`/en`), Thai (`/th`), Korean (`/ko`), Simplified Chinese (`/zh-CN`), Vietnamese (`/vi`), French (`/fr`) and Spanish (`/es`).
 
 ## Features
 
@@ -62,12 +62,13 @@ Map pins are reference locations, not verified entrances. Venue details link to 
 | --- | --- |
 | `src/app/`, `src/components/` | Pages, UI and shared interactions |
 | `src/data/` | Places, guides, itineraries, visitor facts and photo credits |
-| `src/i18n/dictionaries/` | Japanese, English and Thai interface text |
+| `src/i18n/dictionaries/` | Interface text for all eight languages |
 | `public/images/` | Local images |
 
 Keep translation keys aligned, preserve stable place IDs, and update only facts and review dates checked against their sources. Photo sources and licenses are listed on each language's `/credits` page.
 
 - [Release setup, content review and privacy](docs/release-operations.md)
+- [International language coverage and review limits](docs/international-locales-2026-11-08.md)
 - [Japanese visual identity and design checks](docs/japanese-identity-2026-11-03.md)
 - [Team ownership and development roadmap](docs/roadmap-2026-10-29.md)
 - [Latest discovery, content, storage and security results](docs/november-next-steps-2026-11-03.md)

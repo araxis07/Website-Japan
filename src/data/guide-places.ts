@@ -6,7 +6,16 @@ export const guidePlaces: Place[] = [
     category: 'culture',
     destination: 'kyoto',
     coordinates: [34.994303, 135.784439],
-    names: { en: 'Kiyomizu-dera', ja: '清水寺', th: 'วัดคิโยมิซุเดระ' },
+    names: {
+      "ko": "기요미즈데라",
+      "zh-CN": "清水寺",
+      "vi": "Chùa Kiyomizu-dera",
+      "fr": "Temple Kiyomizu-dera",
+      "es": "Templo Kiyomizu-dera",
+      en: 'Kiyomizu-dera',
+      ja: '清水寺',
+      th: 'วัดคิโยมิซุเดระ'
+    },
     query: '清水寺 京都府 日本',
     address:
       '清水寺, 茶わん坂, 清水一丁目, 辰巳町, 東山区, 京都市, 京都府, 605-0862, 日本',
@@ -17,7 +26,16 @@ export const guidePlaces: Place[] = [
     category: 'city',
     destination: 'kyoto',
     coordinates: [35.00469, 135.778403],
-    names: { en: 'Gion', ja: '祇園', th: 'กิออน' },
+    names: {
+      "ko": "기온",
+      "zh-CN": "祇园",
+      "vi": "Gion",
+      "fr": "Gion",
+      "es": "Gion",
+      en: 'Gion',
+      ja: '祇園',
+      th: 'กิออน'
+    },
     query: '祇園 京都府 日本',
     address: '祇園, 東山区, 京都市, 京都府, 日本',
     source: 'https://www.openstreetmap.org/relation/9541222',
@@ -28,9 +46,14 @@ export const guidePlaces: Place[] = [
     destination: 'kyoto',
     coordinates: [34.989896, 135.772861],
     names: {
+      "ko": "교토 국립박물관",
+      "zh-CN": "京都国立博物馆",
+      "vi": "Bảo tàng quốc gia Kyoto",
+      "fr": "Musée national de Kyoto",
+      "es": "Museo Nacional de Kioto",
       en: 'Kyoto National Museum',
       ja: '京都国立博物館',
-      th: 'พิพิธภัณฑสถานแห่งชาติเกียวโต',
+      th: 'พิพิธภัณฑสถานแห่งชาติเกียวโต'
     },
     query: '京都国立博物館 京都府 日本',
     address:
@@ -42,7 +65,16 @@ export const guidePlaces: Place[] = [
     category: 'culture',
     destination: 'tokyo',
     coordinates: [35.713403, 139.795526],
-    names: { en: 'Sensoji', ja: '浅草寺', th: 'วัดเซ็นโซจิ' },
+    names: {
+      "ko": "센소지",
+      "zh-CN": "浅草寺",
+      "vi": "Chùa Sensoji",
+      "fr": "Temple Sensoji",
+      "es": "Templo Sensoji",
+      en: 'Sensoji',
+      ja: '浅草寺',
+      th: 'วัดเซ็นโซจิ'
+    },
     query: '浅草寺 東京都 日本',
     address: '浅草寺, 1, 浅草二丁目, 浅草, 台東区, 東京, 111-0032, 日本',
     source: 'https://www.openstreetmap.org/way/173154847',
@@ -52,7 +84,16 @@ export const guidePlaces: Place[] = [
     category: 'nature',
     destination: 'tokyo',
     coordinates: [35.715506, 139.803143],
-    names: { en: 'Sumida Park', ja: '隅田公園', th: 'สวนสุมิดะ' },
+    names: {
+      "ko": "스미다 공원",
+      "zh-CN": "隅田公园",
+      "vi": "Công viên Sumida",
+      "fr": "Parc Sumida",
+      "es": "Parque Sumida",
+      en: 'Sumida Park',
+      ja: '隅田公園',
+      th: 'สวนสุมิดะ'
+    },
     query: '隅田公園 東京都 日本',
     address: '隅田公園, 台東区, 東京, 日本',
     source: 'https://www.openstreetmap.org/relation/14235095',
@@ -63,9 +104,14 @@ export const guidePlaces: Place[] = [
     destination: 'tokyo',
     coordinates: [35.719045, 139.775968],
     names: {
+      "ko": "도쿄 국립박물관",
+      "zh-CN": "东京国立博物馆",
+      "vi": "Bảo tàng quốc gia Tokyo",
+      "fr": "Musée national de Tokyo",
+      "es": "Museo Nacional de Tokio",
       en: 'Tokyo National Museum',
       ja: '東京国立博物館',
-      th: 'พิพิธภัณฑสถานแห่งชาติโตเกียว',
+      th: 'พิพิธภัณฑสถานแห่งชาติโตเกียว'
     },
     query: '東京国立博物館 東京都 日本',
     address: '東京国立博物館, 9, 上野公園, 台東区, 東京, 110-8712, 日本',
@@ -76,7 +122,16 @@ export const guidePlaces: Place[] = [
     category: 'nature',
     destination: 'mount-fuji',
     coordinates: [35.52329, 138.746537],
-    names: { en: 'Oishi Park', ja: '大石公園', th: 'สวนโออิชิ' },
+    names: {
+      "ko": "오이시 공원",
+      "zh-CN": "大石公园",
+      "vi": "Công viên Oishi",
+      "fr": "Parc Oishi",
+      "es": "Parque Oishi",
+      en: 'Oishi Park',
+      ja: '大石公園',
+      th: 'สวนโออิชิ'
+    },
     query: '大石公園 山梨県 日本',
     address: '大石公園, 大石, 富士河口湖町, 南都留郡, 山梨県, 401-0392, 日本',
     source: 'https://www.openstreetmap.org/way/1220560079',
@@ -87,9 +142,14 @@ export const guidePlaces: Place[] = [
     destination: 'mount-fuji',
     coordinates: [35.498033, 138.76898],
     names: {
+      "ko": "가와구치코역",
+      "zh-CN": "河口湖站",
+      "vi": "Ga Kawaguchiko",
+      "fr": "Gare de Kawaguchiko",
+      "es": "Estación de Kawaguchiko",
       en: 'Kawaguchiko Station',
       ja: '河口湖駅',
-      th: 'สถานีคาวากุจิโกะ',
+      th: 'สถานีคาวากุจิโกะ'
     },
     query: '河口湖駅 山梨県 日本',
     address:
@@ -102,9 +162,14 @@ export const guidePlaces: Place[] = [
     destination: 'mount-fuji',
     coordinates: [35.485872, 138.770659],
     names: {
+      "ko": "야마나시 현립 후지산 세계유산센터",
+      "zh-CN": "山梨县立富士山世界遗产中心",
+      "vi": "Trung tâm di sản thế giới núi Phú Sĩ tỉnh Yamanashi",
+      "fr": "Centre du patrimoine mondial du mont Fuji de Yamanashi",
+      "es": "Centro del Patrimonio Mundial del Monte Fuji de Yamanashi",
       en: 'Yamanashi Fujisan World Heritage Center',
       ja: '山梨県立富士山世界遺産センター',
-      th: 'ศูนย์มรดกโลกฟูจิ จังหวัดยามานาชิ',
+      th: 'ศูนย์มรดกโลกฟูจิ จังหวัดยามานาชิ'
     },
     query: '山梨県立富士山世界遺産センター 山梨県 日本',
     address:
@@ -117,9 +182,14 @@ export const guidePlaces: Place[] = [
     destination: 'osaka',
     coordinates: [34.686527, 135.527246],
     names: {
+      "ko": "오사카성 공원",
+      "zh-CN": "大阪城公园",
+      "vi": "Công viên lâu đài Osaka",
+      "fr": "Parc du château d’Osaka",
+      "es": "Parque del castillo de Osaka",
       en: 'Osaka Castle Park',
       ja: '大阪城公園',
-      th: 'สวนปราสาทโอซาก้า',
+      th: 'สวนปราสาทโอซาก้า'
     },
     query: '大阪城公園 大阪府 日本',
     address: '大阪城公園, 大阪市, 大阪府, 540-0002, 日本',
@@ -131,9 +201,14 @@ export const guidePlaces: Place[] = [
     destination: 'osaka',
     coordinates: [34.682618, 135.520813],
     names: {
+      "ko": "오사카 역사박물관",
+      "zh-CN": "大阪历史博物馆",
+      "vi": "Bảo tàng lịch sử Osaka",
+      "fr": "Musée d’histoire d’Osaka",
+      "es": "Museo de Historia de Osaka",
       en: 'Osaka Museum of History',
       ja: '大阪歴史博物館',
-      th: 'พิพิธภัณฑ์ประวัติศาสตร์โอซาก้า',
+      th: 'พิพิธภัณฑ์ประวัติศาสตร์โอซาก้า'
     },
     query: '大阪歴史博物館 大阪府 日本',
     address:
@@ -145,7 +220,16 @@ export const guidePlaces: Place[] = [
     category: 'city',
     destination: 'osaka',
     coordinates: [34.669031, 135.501572],
-    names: { en: 'Dotonbori', ja: '道頓堀', th: 'โดทงโบริ' },
+    names: {
+      "ko": "도톤보리",
+      "zh-CN": "道顿堀",
+      "vi": "Dotonbori",
+      "fr": "Dotonbori",
+      "es": "Dotonbori",
+      en: 'Dotonbori',
+      ja: '道頓堀',
+      th: 'โดทงโบริ'
+    },
     query: '道頓堀 大阪府 日本',
     address: '道頓堀, 道頓堀一丁目, 中央区, 大阪市, 大阪府, 542-0071, 日本',
     source: 'https://www.openstreetmap.org/node/4029007869',
@@ -156,9 +240,14 @@ export const guidePlaces: Place[] = [
     destination: 'hokkaido',
     coordinates: [43.059902, 141.34751],
     names: {
+      "ko": "삿포로 오도리 공원",
+      "zh-CN": "札幌大通公园",
+      "vi": "Công viên Odori ở Sapporo",
+      "fr": "Parc Odori à Sapporo",
+      "es": "Parque Odori de Sapporo",
       en: 'Odori Park, Sapporo',
       ja: '札幌・大通公園',
-      th: 'สวนโอโดริ ซัปโปโร',
+      th: 'สวนโอโดริ ซัปโปโร'
     },
     query: '大通公園 北海道 日本',
     address:
@@ -171,9 +260,14 @@ export const guidePlaces: Place[] = [
     destination: 'hokkaido',
     coordinates: [43.0726, 141.342212],
     names: {
+      "ko": "홋카이도 대학 종합박물관",
+      "zh-CN": "北海道大学综合博物馆",
+      "vi": "Bảo tàng Đại học Hokkaido",
+      "fr": "Musée de l’université d’Hokkaido",
+      "es": "Museo de la Universidad de Hokkaido",
       en: 'Hokkaido University Museum',
       ja: '北海道大学総合博物館',
-      th: 'พิพิธภัณฑ์มหาวิทยาลัยฮอกไกโด',
+      th: 'พิพิธภัณฑ์มหาวิทยาลัยฮอกไกโด'
     },
     query: '北海道大学総合博物館 北海道 日本',
     address:
@@ -186,9 +280,14 @@ export const guidePlaces: Place[] = [
     destination: 'hokkaido',
     coordinates: [43.071408, 141.368996],
     names: {
+      "ko": "삿포로 맥주박물관",
+      "zh-CN": "札幌啤酒博物馆",
+      "vi": "Bảo tàng bia Sapporo",
+      "fr": "Musée de la bière de Sapporo",
+      "es": "Museo de la Cerveza de Sapporo",
       en: 'Sapporo Beer Museum',
       ja: 'サッポロビール博物館',
-      th: 'พิพิธภัณฑ์เบียร์ซัปโปโร',
+      th: 'พิพิธภัณฑ์เบียร์ซัปโปโร'
     },
     query: 'サッポロビール博物館 北海道 日本',
     address:
@@ -201,9 +300,14 @@ export const guidePlaces: Place[] = [
     destination: 'okinawa',
     coordinates: [26.214546, 127.688288],
     names: {
+      "ko": "마키시 공설시장",
+      "zh-CN": "牧志公设市场",
+      "vi": "Chợ công cộng Makishi",
+      "fr": "Marché public Makishi",
+      "es": "Mercado público Makishi",
       en: 'Makishi Public Market',
       ja: '第一牧志公設市場',
-      th: 'ตลาดมาคิชิ',
+      th: 'ตลาดมาคิชิ'
     },
     query: '第一牧志公設市場 沖縄県 日本',
     address:
@@ -216,9 +320,14 @@ export const guidePlaces: Place[] = [
     destination: 'okinawa',
     coordinates: [26.212911, 127.691807],
     names: {
+      "ko": "쓰보야 도자기 거리",
+      "zh-CN": "壶屋陶器街",
+      "vi": "Phố gốm Tsuboya",
+      "fr": "Rue des potiers de Tsuboya",
+      "es": "Calle de la cerámica de Tsuboya",
       en: 'Tsuboya pottery street',
       ja: '壺屋やちむん通り',
-      th: 'ถนนเครื่องปั้นดินเผาสึโบยะ',
+      th: 'ถนนเครื่องปั้นดินเผาสึโบยะ'
     },
     query: '壺屋やちむん通り 那覇市 沖縄県 日本',
     address:
@@ -231,9 +340,14 @@ export const guidePlaces: Place[] = [
     destination: 'okinawa',
     coordinates: [26.227159, 127.693718],
     names: {
+      "ko": "오키나와 현립 박물관·미술관",
+      "zh-CN": "冲绳县立博物馆与美术馆",
+      "vi": "Bảo tàng và bảo tàng mỹ thuật tỉnh Okinawa",
+      "fr": "Musée préfectoral et musée des beaux-arts d’Okinawa",
+      "es": "Museo Prefectural y Museo de Arte de Okinawa",
       en: 'Okinawa Prefectural Museum & Art Museum',
       ja: '沖縄県立博物館・美術館',
-      th: 'พิพิธภัณฑ์และหอศิลป์จังหวัดโอกินาว่า',
+      th: 'พิพิธภัณฑ์และหอศิลป์จังหวัดโอกินาว่า'
     },
     query: '沖縄県立博物館・美術館 沖縄県 日本',
     address:

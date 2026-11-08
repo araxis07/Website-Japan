@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { destinationNotes } from '@/data/journeys'
 import { destinations } from '@/data/travel'
-import { isLocale, ogLocales } from '@/i18n/config'
+import { i18n, isLocale, ogLocales } from '@/i18n/config'
 import { getDictionary } from '@/i18n/dictionaries'
 import { siteUrl } from '@/utils/site'
 import { generateBreadcrumbSchema } from '@/utils/schema'
@@ -37,11 +37,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       ? {
           alternates: {
             canonical: `${siteUrl}/${lang}/destinations/${slug}`,
-            languages: {
-              ja: `${siteUrl}/ja/destinations/${slug}`,
-              en: `${siteUrl}/en/destinations/${slug}`,
-              th: `${siteUrl}/th/destinations/${slug}`,
-            },
+            languages: Object.fromEntries(i18n.locales.map((locale) => [locale, `${siteUrl}/${locale}/destinations/${slug}`])),
           },
           openGraph: {
             title: place[lang].name,
@@ -256,6 +252,11 @@ export default async function DestinationPage({ params }: Props) {
                 en: place.en.imageAlt,
                 ja: place.ja.imageAlt,
                 th: place.th.imageAlt,
+                'ko': place['ko'].imageAlt,
+                'zh-CN': place['zh-CN'].imageAlt,
+                'vi': place['vi'].imageAlt,
+                'fr': place['fr'].imageAlt,
+                'es': place['es'].imageAlt,
               },
             },
             detailPhotos[slug],

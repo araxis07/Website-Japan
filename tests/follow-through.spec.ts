@@ -47,6 +47,11 @@ test('new optional data validates without breaking old backups or leaking into p
 })
 test('review freshness follows each field, notices expire, and map queries include the address', () => {
   const text = {
+    ko: '검토된 정보',
+    'zh-CN': '已核实的信息',
+    vi: 'Thông tin đã kiểm tra',
+    fr: 'Information vérifiée',
+    es: 'Información revisada',
     en: 'Reviewed detail',
     ja: '確認済みの情報',
     th: 'ข้อมูลที่ตรวจแล้ว',

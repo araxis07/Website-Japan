@@ -5,7 +5,12 @@
     "access": {
       "en": "Walk about 10 minutes from JR Otaru toward the port to Chuo Bridge; the cruise ticket office is here.",
       "ja": "JR小樽駅から港方面へ徒歩約10分で中央橋。クルーズの発券所があります。",
-      "th": "จาก JR Otaru เดินไปทางท่าเรือประมาณ 10 นาทีถึงสะพาน Chuo จุดขายตั๋วเรืออยู่ที่นี่"
+      "th": "จาก JR Otaru เดินไปทางท่าเรือประมาณ 10 นาทีถึงสะพาน Chuo จุดขายตั๋วเรืออยู่ที่นี่",
+      "ko": "JR 오타루에서 항구 방향으로 약 10분 정도 걸어가면 주오교가 나옵니다. 크루즈 매표소가 여기 있어요.",
+      "zh-CN": "从JR小樽向港口方向步行约10分钟即可到达中央桥；游轮售票处就在这里。",
+      "vi": "Đi bộ khoảng 10 phút từ JR Otaru về phía cảng tới cầu Chuo; phòng vé du thuyền ở đây.",
+      "fr": "Marchez environ 10 minutes depuis JR Otaru en direction du port jusqu'au pont Chuo ; la billetterie des croisières est ici.",
+      "es": "Camine unos 10 minutos desde JR Otaru hacia el puerto hasta el Puente Chuo; la taquilla del crucero está aquí."
     }
   },
   "pref:aomori:hirosaki-castle": {
@@ -14,7 +19,12 @@
     "access": {
       "en": "From Hirosaki Station, walk about 30 minutes or take a bus to Shiyakusho-mae (about 15 minutes).",
       "ja": "弘前駅から徒歩約30分、または市役所前までバス約15分。",
-      "th": "จากสถานี Hirosaki เดินประมาณ 30 นาที หรือนั่งบัสประมาณ 15 นาทีลง Shiyakusho-mae"
+      "th": "จากสถานี Hirosaki เดินประมาณ 30 นาที หรือนั่งบัสประมาณ 15 นาทีลง Shiyakusho-mae",
+      "ko": "히로사키역에서 약 30분 정도 걷거나 버스를 타고 시야쿠쇼마에까지 이동하세요(약 15분).",
+      "zh-CN": "从弘前站步行约30分钟或乘坐巴士到市役所前（约15分钟）。",
+      "vi": "Từ Ga Hirosaki, đi bộ khoảng 30 phút hoặc bắt xe buýt đến Shiyakusho-mae (khoảng 15 phút).",
+      "fr": "Depuis la gare de Hirosaki, marchez environ 30 minutes ou prenez un bus jusqu'à Shiyakusho-mae (environ 15 minutes).",
+      "es": "Desde la estación de Hirosaki, camine unos 30 minutos o tome un autobús hasta Shiyakusho-mae (unos 15 minutos)."
     }
   },
   "pref:iwate:chusonji-temple": {
@@ -23,12 +33,22 @@
     "access": {
       "en": "From JR Hiraizumi on the Tohoku Line, take a bus (about 10 minutes) or walk about 30 minutes.",
       "ja": "JR東北本線平泉駅からバス約10分、または徒歩約30分。",
-      "th": "จาก JR Hiraizumi สาย Tohoku นั่งบัสประมาณ 10 นาที หรือเดินประมาณ 30 นาที"
+      "th": "จาก JR Hiraizumi สาย Tohoku นั่งบัสประมาณ 10 นาที หรือเดินประมาณ 30 นาที",
+      "ko": "JR 도호쿠선 히라이즈미역에서 버스로 약 10분 또는 도보로 약 30분입니다.",
+      "zh-CN": "从东北线 JR 平泉乘坐巴士（约 10 分钟）或步行约 30 分钟。",
+      "vi": "Từ JR Hiraizumi trên Tuyến Tohoku, đi xe buýt (khoảng 10 phút) hoặc đi bộ khoảng 30 phút.",
+      "fr": "Depuis JR Hiraizumi sur la ligne Tohoku, prenez un bus (environ 10 minutes) ou marchez environ 30 minutes.",
+      "es": "Desde JR Hiraizumi en la línea Tohoku, toma un autobús (unos 10 minutos) o camina unos 30 minutos."
     },
     "hours": {
       "en": "Mar 1–Nov 3 08:30–17:00; Nov 4–February end 08:30–16:30. Ticket sales finish 10 minutes before closing.",
       "ja": "3/1〜11/3は8:30〜17:00、11/4〜2月末は8:30〜16:30。拝観券発行は終了10分前まで。",
-      "th": "1 มี.ค.–3 พ.ย. 08:30–17:00 น., 4 พ.ย.–สิ้น ก.พ. 08:30–16:30 น. หยุดขายตั๋วก่อนปิด 10 นาที"
+      "th": "1 มี.ค.–3 พ.ย. 08:30–17:00 น., 4 พ.ย.–สิ้น ก.พ. 08:30–16:30 น. หยุดขายตั๋วก่อนปิด 10 นาที",
+      "ko": "3월 1일~11월 3일은 08:30~17:00, 11월 4일~2월 말은 08:30~16:30에 운영합니다. 입장권 판매는 폐관 10분 전에 종료됩니다.",
+      "zh-CN": "3月1日至11月3日 08:30–17:00； 11 月 4 日至 2 月底 08:30–16:30。售票在闭幕前 10 分钟结束。",
+      "vi": "Ngày 1 tháng 3–ngày 3 tháng 11 08:30–17:00; Ngày 4 tháng 11–cuối tháng 2 08:30–16:30. Việc bán vé kết thúc 10 phút trước khi đóng cửa.",
+      "fr": "Du 1er mars au 3 novembre de 8h30 à 17h00 ; Du 4 novembre à fin février, de 8h30 à 16h30. La vente des billets se termine 10 minutes avant la fermeture.",
+      "es": "1 de marzo a 3 de noviembre de 08:30 a 17:00; Del 4 de noviembre al final de febrero de 08:30 a 16:30. La venta de entradas finaliza 10 minutos antes del cierre."
     },
     "fieldSources": {
       "hours": {
@@ -47,12 +67,22 @@
     "admission": {
       "en": "Regular ticket: adults ¥1,000; high school ¥700; junior high ¥500; elementary ¥300. Hidden-Buddha viewing uses a separate or combined ticket.",
       "ja": "通常券：大人1,000円、高校生700円、中学生500円、小学生300円。秘仏御開帳は別券または共通券。",
-      "th": "ตั๋วปกติ: ผู้ใหญ่ 1,000 เยน มัธยมปลาย 700 เยน มัธยมต้น 500 เยน ประถม 300 เยน การชมพระพุทธรูปที่เปิดให้ชมเป็นพิเศษใช้ตั๋วแยกหรือตั๋วรวม"
+      "th": "ตั๋วปกติ: ผู้ใหญ่ 1,000 เยน มัธยมปลาย 700 เยน มัธยมต้น 500 เยน ประถม 300 เยน การชมพระพุทธรูปที่เปิดให้ชมเป็นพิเศษใช้ตั๋วแยกหรือตั๋วรวม",
+      "ko": "일반 입장권은 성인 1,000엔, 고등학생 700엔, 중학생 500엔, 초등학생 300엔입니다. 비불 관람에는 별도 입장권 또는 통합권이 필요합니다.",
+      "zh-CN": "普通票：成人1,000日元、高中生700日元、初中生500日元、小学生300日元。秘佛参观须另购门票或联票。",
+      "vi": "Vé thường: người lớn 1.000 yên; học sinh trung học phổ thông 700 yên; trung học cơ sở 500 yên; tiểu học 300 yên. Để chiêm bái tượng Phật thường không công khai, cần vé riêng hoặc vé kết hợp.",
+      "fr": "Billet ordinaire : adultes 1 000 ¥ ; lycéens 700 ¥ ; collégiens 500 ¥ ; écoliers 300 ¥. La présentation du Bouddha habituellement caché nécessite un billet distinct ou combiné.",
+      "es": "Entrada ordinaria: adultos 1.000 ¥; estudiantes de bachillerato 700 ¥; de secundaria básica 500 ¥; de primaria 300 ¥. La visita al Buda Oculto requiere una entrada aparte o combinada."
     },
     "entrance": {
       "en": "The traditional approach climbs Tsukimizaka from the foot of the temple hill. Check the grounds map before choosing an approach suited to your mobility.",
       "ja": "山下から月見坂を上るのが表参道。境内図で移動に適した進入経路を確認してください。",
-      "th": "ทางหลักขึ้นเนิน Tsukimizaka จากเชิงเขาวัด ตรวจผังพื้นที่เพื่อเลือกทางเข้าที่เหมาะกับการเคลื่อนไหวของคุณ"
+      "th": "ทางหลักขึ้นเนิน Tsukimizaka จากเชิงเขาวัด ตรวจผังพื้นที่เพื่อเลือกทางเข้าที่เหมาะกับการเคลื่อนไหวของคุณ",
+      "ko": "기존 참배길은 사찰 언덕 기슭에서 쓰키미자카를 따라 올라갑니다. 자신의 이동 조건에 맞는 경로를 고르기 전에 경내 지도를 확인하세요.",
+      "zh-CN": "传统的方法是从寺庙山麓登上月见坂。在选择适合您行动能力的方法之前，请检查场地地图。",
+      "vi": "Cách leo truyền thống là leo Tsukimizaka từ chân đồi chùa. Kiểm tra bản đồ căn cứ trước khi chọn cách tiếp cận phù hợp với khả năng di chuyển của bạn.",
+      "fr": "L'approche traditionnelle monte Tsukimizaka depuis le pied de la colline du temple. Consultez le plan du terrain avant de choisir une approche adaptée à votre mobilité.",
+      "es": "El método tradicional sube a Tsukimizaka desde el pie de la colina del templo. Consulte el mapa del terreno antes de elegir un acceso adecuado a su movilidad."
     }
   },
   "pref:iwate:morioka-castle-site-park": {
@@ -61,7 +91,12 @@
     "access": {
       "en": "From JR Morioka, the city loop bus reaches Morioka Joato Koen in about 10 minutes.",
       "ja": "JR盛岡駅から循環バスで盛岡城跡公園へ約10分。",
-      "th": "จาก JR Morioka นั่งรถบัสวนเมืองประมาณ 10 นาทีลง Morioka Joato Koen"
+      "th": "จาก JR Morioka นั่งรถบัสวนเมืองประมาณ 10 นาทีลง Morioka Joato Koen",
+      "ko": "JR 모리오카에서 시내 순환 버스를 타면 모리오카 조아토 공원까지 약 10분 걸립니다.",
+      "zh-CN": "从 JR 盛冈出发，乘坐市内循环巴士约 10 分钟即可抵达盛冈城市公园。",
+      "vi": "Từ JR Morioka, đi xe buýt vòng quanh thành phố đến Morioka Joato Koen trong khoảng 10 phút.",
+      "fr": "Depuis JR Morioka, le bus urbain en boucle atteint Morioka Joato Koen en 10 minutes environ.",
+      "es": "Desde JR Morioka, el autobús urbano llega a Morioka Joato Koen en unos 10 minutos."
     }
   },
   "pref:miyagi:zuihoden": {
@@ -70,17 +105,32 @@
     "access": {
       "en": "Use Loople Sendai to Zuihoden-mae, or walk 15–20 minutes from Omachi Nishi-koen on the Tozai subway. The return bus route differs.",
       "ja": "るーぷる仙台の瑞鳳殿前下車、または地下鉄東西線大町西公園駅から徒歩15〜20分。帰りのバス経路は異なります。",
-      "th": "ใช้ Loople Sendai ลง Zuihoden-mae หรือเดิน 15–20 นาทีจากสถานี Omachi Nishi-koen สาย Tozai เส้นทางรถบัสขากลับต่างจากขาไป"
+      "th": "ใช้ Loople Sendai ลง Zuihoden-mae หรือเดิน 15–20 นาทีจากสถานี Omachi Nishi-koen สาย Tozai เส้นทางรถบัสขากลับต่างจากขาไป",
+      "ko": "루플 센다이 버스로 즈이호덴마에까지 가거나, 지하철 도자이선 오마치니시코엔역에서 도보로 15~20분 이동하세요. 돌아오는 버스의 경로는 다릅니다.",
+      "zh-CN": "乘坐Loople Sendai观光巴士至瑞凤殿前，或从地铁东西线大町西公园站步行15–20分钟。回程巴士路线不同。",
+      "vi": "Đi xe buýt Loople Sendai đến Zuihoden-mae, hoặc đi bộ 15–20 phút từ Ga Omachi Nishi-koen trên tuyến tàu điện ngầm Tozai. Tuyến xe buýt chiều về khác chiều đi.",
+      "fr": "Prenez le bus Loople Sendai jusqu’à Zuihoden-mae, ou marchez 15–20 minutes depuis la station Omachi Nishi-koen de la ligne de métro Tozai. Le trajet du bus retour est différent.",
+      "es": "Tome el autobús Loople Sendai hasta Zuihoden-mae, o camine 15–20 minutos desde la estación Omachi Nishi-koen de la línea de metro Tozai. La ruta del autobús de vuelta es distinta."
     },
     "accessibility": {
       "en": "The approach has roughly 80 steep steps, with about 30 more within the precinct. The operator warns that wheelchair visits are very difficult.",
       "ja": "受付まで急な坂と約80段、境内にも約30段。運営者は車いすでの拝観が非常に困難と案内しています。",
-      "th": "ทางเข้ามีทางชันและบันไดราว 80 ขั้น ภายในมีอีกราว 30 ขั้น ผู้ดูแลระบุว่าการเข้าชมด้วยรถเข็นทำได้ยากมาก"
+      "th": "ทางเข้ามีทางชันและบันไดราว 80 ขั้น ภายในมีอีกราว 30 ขั้น ผู้ดูแลระบุว่าการเข้าชมด้วยรถเข็นทำได้ยากมาก",
+      "ko": "접근 경로에는 가파른 계단이 약 80개 있으며 경내에도 약 30개가 더 있습니다. 운영 기관은 휠체어 이용자의 방문이 매우 어렵다고 안내합니다.",
+      "zh-CN": "该步道大约有 80 级陡峭台阶，辖区内还有大约 30 级台阶。运营方警告说，轮椅探访非常困难。",
+      "vi": "Cách tiếp cận này có khoảng 80 bậc dốc, với khoảng 30 bậc nữa trong khuôn viên. Nhà điều hành cảnh báo rằng việc đi lại bằng xe lăn rất khó khăn.",
+      "fr": "L'approche comporte environ 80 marches raides, dont environ 30 autres dans l'enceinte. L'opérateur prévient que les visites en fauteuil roulant sont très difficiles.",
+      "es": "El acceso tiene aproximadamente 80 escalones empinados, con alrededor de 30 más dentro del recinto. El operador advierte que las visitas en silla de ruedas son muy difíciles."
     },
     "hours": {
       "en": "February–November: 09:00–16:50 (entry to 16:30). December–January: 09:00–16:20 (entry to 16:00). Closed December 31; museum also January 1.",
       "ja": "2〜11月9:00〜16:50（受付16:30まで）、12〜1月9:00〜16:20（受付16:00まで）。12月31日休館、資料館は1月1日も休館。",
-      "th": "ก.พ.–พ.ย. 09:00–16:50 น. รับเข้าถึง 16:30 น. ธ.ค.–ม.ค. 09:00–16:20 น. รับเข้าถึง 16:00 น. ปิด 31 ธ.ค. พิพิธภัณฑ์ปิด 1 ม.ค. ด้วย"
+      "th": "ก.พ.–พ.ย. 09:00–16:50 น. รับเข้าถึง 16:30 น. ธ.ค.–ม.ค. 09:00–16:20 น. รับเข้าถึง 16:00 น. ปิด 31 ธ.ค. พิพิธภัณฑ์ปิด 1 ม.ค. ด้วย",
+      "ko": "2월~11월은 09:00~16:50(마지막 입장 16:30), 12월~1월은 09:00~16:20(마지막 입장 16:00)에 운영합니다. 12월 31일에 쉬며 박물관은 1월 1일에도 쉽니다.",
+      "zh-CN": "2 月至 11 月：09:00–16:50（入场时间为 16:30）。 12 月至 1 月：09:00–16:20（16:00 入场）。 12 月 31 日关闭；博物馆也是1月1日。",
+      "vi": "Tháng 2 – tháng 11: 09:00–16:50 (vào cửa đến 16:30). Tháng 12 – tháng 1: 09:00–16:20 (vào cửa đến 16:00). Đóng cửa vào ngày 31 tháng 12; bảo tàng cũng vào ngày 1 tháng 1.",
+      "fr": "Février-novembre : de 9h00 à 16h50 (entrée à 16h30). Décembre-janvier : de 9h00 à 16h20 (entrée à 16h00). Fermé le 31 décembre ; musée également le 1er janvier.",
+      "es": "Febrero-noviembre: 09:00-16:50 (última entrada a las 16:30). Diciembre-enero: 09:00-16:20 (última entrada a las 16:00). Cerrado el 31 de diciembre; museo también el 1 de enero."
     }
   },
   "pref:miyagi:zuiganji-temple": {
@@ -89,17 +139,32 @@
     "access": {
       "en": "Walk about 10 minutes from Matsushima-Kaigan on the JR Senseki Line, or 25 minutes from JR Matsushima.",
       "ja": "JR仙石線松島海岸駅から徒歩約10分、JR松島駅から約25分。",
-      "th": "เดินประมาณ 10 นาทีจาก Matsushima-Kaigan สาย JR Senseki หรือ 25 นาทีจาก JR Matsushima"
+      "th": "เดินประมาณ 10 นาทีจาก Matsushima-Kaigan สาย JR Senseki หรือ 25 นาทีจาก JR Matsushima",
+      "ko": "JR 센세키선 마쓰시마카이간역에서 도보 약 10분, JR 마쓰시마역에서는 도보 약 25분입니다.",
+      "zh-CN": "从JR仙石线松岛海岸步行约10分钟，从JR松岛步行约25分钟。",
+      "vi": "Đi bộ khoảng 10 phút từ Matsushima-Kaigan trên Tuyến JR Senseki hoặc 25 phút từ JR Matsushima.",
+      "fr": "Marchez environ 10 minutes depuis Matsushima-Kaigan sur la ligne JR Senseki, ou 25 minutes depuis JR Matsushima.",
+      "es": "Camine unos 10 minutos desde Matsushima-Kaigan en la línea JR Senseki, o 25 minutos desde JR Matsushima."
     },
     "admission": {
       "en": "Adult admission ¥1,000; elementary and junior-high students ¥500.",
       "ja": "大人1,000円、小中学生500円。",
-      "th": "ผู้ใหญ่ 1,000 เยน นักเรียนประถมและมัธยมต้น 500 เยน"
+      "th": "ผู้ใหญ่ 1,000 เยน นักเรียนประถมและมัธยมต้น 500 เยน",
+      "ko": "성인 입장료 1,000엔; 초중학생 500엔.",
+      "zh-CN": "成人门票1,000日元；小学生、初中生500日元。",
+      "vi": "Vé vào cửa người lớn 1.000 yên; học sinh tiểu học và trung học cơ sở 500 yên.",
+      "fr": "Entrée adulte 1 000 ¥ ; étudiants du primaire et du premier cycle du secondaire 500 ¥.",
+      "es": "Entrada para adultos ¥1.000; estudiantes de primaria y secundaria ¥ 500."
     },
     "hours": {
       "en": "Opens 08:30. Closing varies from 15:30 in midwinter to 17:00 April–September; last entry is 30 minutes earlier.",
       "ja": "8:30開門。閉門は冬の15:30から4〜9月の17:00まで月により変動。最終受付は30分前。",
-      "th": "เปิด 08:30 น. ปิดระหว่าง 15:30 น. ช่วงกลางฤดูหนาว ถึง 17:00 น. เม.ย.–ก.ย. รับเข้าสุดท้ายก่อนปิด 30 นาที"
+      "th": "เปิด 08:30 น. ปิดระหว่าง 15:30 น. ช่วงกลางฤดูหนาว ถึง 17:00 น. เม.ย.–ก.ย. รับเข้าสุดท้ายก่อนปิด 30 นาที",
+      "ko": "08:30에 개장합니다. 마감 시간은 한겨울 15:30부터 4월~9월 17:00까지입니다. 마지막 입장은 30분 전입니다.",
+      "zh-CN": "08:30 开放。闭馆时间为仲冬的 15:30 至 4 月至 9 月的 17:00；最后入场时间为 30 分钟前。",
+      "vi": "Mở cửa lúc 08:30. Thời gian đóng cửa thay đổi từ 15:30 vào giữa mùa đông đến 17:00 từ tháng 4 đến tháng 9; lượt vào cuối cùng là 30 phút trước đó.",
+      "fr": "Ouvre à 08h30. La fermeture varie de 15h30 en plein hiver à 17h00 d'avril à septembre ; la dernière entrée a lieu 30 minutes plus tôt.",
+      "es": "Abre a las 08:30. El cierre varía desde las 15:30 en pleno invierno hasta las 17:00 de abril a septiembre; La última entrada es 30 minutos antes."
     }
   },
   "pref:akita:senshu-park": {
@@ -108,7 +173,12 @@
     "access": {
       "en": "Walk about 15 minutes from JR Akita Station.",
       "ja": "JR秋田駅から徒歩約15分。",
-      "th": "เดินประมาณ 15 นาทีจากสถานี JR Akita"
+      "th": "เดินประมาณ 15 นาทีจากสถานี JR Akita",
+      "ko": "JR 아키타역에서 도보 약 15분",
+      "zh-CN": "从JR秋田站步行约15分钟。",
+      "vi": "Đi bộ khoảng 15 phút từ Ga JR Akita.",
+      "fr": "Marchez environ 15 minutes depuis la gare JR Akita.",
+      "es": "Camine unos 15 minutos desde la estación JR Akita."
     }
   },
   "pref:yamagata:yamadera-risshakuji": {
@@ -117,12 +187,22 @@
     "access": {
       "en": "The lower temples are about seven minutes on foot from JR Yamadera. The upper complex requires a long stair climb.",
       "ja": "下部のお堂へはJR山寺駅から徒歩約7分。上部の境内へは長い石段を上ります。",
-      "th": "จาก JR Yamadera เดินประมาณ 7 นาทีถึงวัดส่วนล่าง ส่วนบนต้องขึ้นบันไดจำนวนมาก"
+      "th": "จาก JR Yamadera เดินประมาณ 7 นาทีถึงวัดส่วนล่าง ส่วนบนต้องขึ้นบันไดจำนวนมาก",
+      "ko": "하부 사원은 JR 야마데라에서 도보로 약 7분 거리에 있습니다. 상부 단지에는 긴 계단 오르기가 필요합니다.",
+      "zh-CN": "下寺院距离JR山寺步行约7分钟。上层建筑群需要爬很长的楼梯。",
+      "vi": "Các ngôi chùa phía dưới cách JR Yamadera khoảng bảy phút đi bộ. Khu phức hợp phía trên yêu cầu phải leo cầu thang dài.",
+      "fr": "Les temples inférieurs se trouvent à environ sept minutes à pied de JR Yamadera. Le complexe supérieur nécessite une longue montée d'escalier.",
+      "es": "Los templos inferiores están a unos siete minutos a pie desde JR Yamadera. El complejo superior requiere subir una larga escalera."
     },
     "accessibility": {
       "en": "The ascent to the upper temple is around 1,000 steps; it is not a step-free route.",
       "ja": "上部へは約1,000段の石段があり、段差のない経路ではありません。",
-      "th": "ทางขึ้นวัดส่วนบนมีบันไดประมาณ 1,000 ขั้น ไม่ใช่เส้นทางไร้ขั้นบันได"
+      "th": "ทางขึ้นวัดส่วนบนมีบันไดประมาณ 1,000 ขั้น ไม่ใช่เส้นทางไร้ขั้นบันได",
+      "ko": "상부 사원까지 올라가는 계단은 약 1,000개입니다. 계단이 없는 경로는 아닙니다.",
+      "zh-CN": "登上上寺大约有1000级台阶；这不是一条无障碍的路线。",
+      "vi": "Đường lên chùa trên là khoảng 1.000 bậc thang; nó không phải là lối đi không có bậc thang.",
+      "fr": "L'ascension vers le temple supérieur est d'environ 1 000 marches ; ce n'est pas un itinéraire sans marches.",
+      "es": "El ascenso al templo superior es de unos 1.000 escalones; No es una ruta sin escalones."
     }
   },
   "pref:yamagata:kajo-park": {
@@ -131,7 +211,12 @@
     "access": {
       "en": "Walk about 15 minutes from Yamagata Station to Kajo Park.",
       "ja": "山形駅から霞城公園まで徒歩約15分。",
-      "th": "เดินประมาณ 15 นาทีจากสถานี Yamagata ถึงสวน Kajo"
+      "th": "เดินประมาณ 15 นาทีจากสถานี Yamagata ถึงสวน Kajo",
+      "ko": "야마가타역에서 카조 공원까지 도보로 약 15분.",
+      "zh-CN": "从山形站步行约15分钟至霞城公园。",
+      "vi": "Đi bộ khoảng 15 phút từ Ga Yamagata đến Công viên Kajo.",
+      "fr": "Marchez environ 15 minutes depuis la gare de Yamagata jusqu'au parc Kajo.",
+      "es": "Camine unos 15 minutos desde la estación Yamagata hasta el parque Kajo."
     }
   },
   "pref:fukushima:tsurugajo-castle": {
@@ -140,7 +225,12 @@
     "access": {
       "en": "Use the Tsurugajo Godo-chosha-mae bus stop for the castle area.",
       "ja": "鶴ヶ城・合同庁舎前バス停を利用して城周辺へ。",
-      "th": "ใช้ป้ายรถบัส Tsurugajo Godo-chosha-mae สำหรับบริเวณปราสาท"
+      "th": "ใช้ป้ายรถบัส Tsurugajo Godo-chosha-mae สำหรับบริเวณปราสาท",
+      "ko": "성 주변으로 가려면 쓰루가조 고도초샤마에(Tsurugajo Godo-chosha-mae) 버스 정류장을 이용하세요.",
+      "zh-CN": "前往城堡区域可利用Tsurugajo Godo-chosha-mae巴士站。",
+      "vi": "Hãy sử dụng trạm xe buýt Tsurugajo Godo-chosha-mae để đến khu vực lâu đài.",
+      "fr": "Utilisez l'arrêt de bus Tsurugajo Godo-chosha-mae pour rejoindre le quartier du château.",
+      "es": "Utilice la parada de autobús Tsurugajo Godo-chosha-mae para llegar a la zona del castillo."
     }
   },
   "pref:ibaraki:kairakuen": {
@@ -149,7 +239,12 @@
     "access": {
       "en": "From JR Mito Station, allow about 20 minutes by bus to Kairakuen.",
       "ja": "JR水戸駅から偕楽園までバス約20分。",
-      "th": "จากสถานี JR Mito นั่งรถบัสประมาณ 20 นาทีถึง Kairakuen"
+      "th": "จากสถานี JR Mito นั่งรถบัสประมาณ 20 นาทีถึง Kairakuen",
+      "ko": "JR 미토역에서 가이라쿠엔까지는 버스로 약 20분이 소요됩니다.",
+      "zh-CN": "从 JR 水户站乘坐巴士约 20 分钟即可到达偕乐园。",
+      "vi": "Từ Ga JR Mito, đi xe buýt khoảng 20 phút đến Kairakuen.",
+      "fr": "Depuis la gare JR Mito, comptez environ 20 minutes en bus jusqu'à Kairakuen.",
+      "es": "Desde la estación JR Mito, espere unos 20 minutos en autobús hasta Kairakuen."
     }
   },
   "pref:ibaraki:hitachi-seaside-park": {
@@ -158,12 +253,22 @@
     "access": {
       "en": "From Katsuta east exit, bus stand 2: about 15 minutes to the west gate or 30 minutes to the south gate. Choose the gate for your planned area.",
       "ja": "勝田駅東口2番乗り場から西口まで約15分、南口まで約30分。目的のエリアに合う入口を選びます。",
-      "th": "จากทางออกตะวันออกสถานี Katsuta ป้ายหมายเลข 2 บัสถึงประตูตะวันตกราว 15 นาที หรือประตูใต้ราว 30 นาที เลือกประตูให้ตรงกับพื้นที่ที่จะเที่ยว"
+      "th": "จากทางออกตะวันออกสถานี Katsuta ป้ายหมายเลข 2 บัสถึงประตูตะวันตกราว 15 นาที หรือประตูใต้ราว 30 นาที เลือกประตูให้ตรงกับพื้นที่ที่จะเที่ยว",
+      "ko": "가쓰타 동쪽 출구에서 2번 버스 정류장: 서쪽 게이트까지 약 15분, 남쪽 게이트까지 약 30분. 계획된 지역에 맞는 게이트를 선택하세요.",
+      "zh-CN": "从胜田东口2号巴士站出发：到西门约15分钟，到南门约30分钟。选择适合您规划区域的大门。",
+      "vi": "Từ lối ra phía đông Katsuta, trạm xe buýt số 2: khoảng 15 phút đến cổng phía tây hoặc 30 phút đến cổng phía nam. Chọn cổng cho khu vực dự kiến của bạn.",
+      "fr": "Depuis la sortie est de Katsuta, arrêt de bus 2 : environ 15 minutes jusqu'à la porte ouest ou 30 minutes jusqu'à la porte sud. Choisissez le portail pour votre zone prévue.",
+      "es": "Desde la salida este de Katsuta, parada de autobús 2: unos 15 minutos hasta la puerta oeste o 30 minutos hasta la puerta sur. Elija la puerta para su área planificada."
     },
     "hours": {
       "en": "09:30–17:00 March–July 17 and September–October; until 18:00 July 18–August, 16:30 November–February. Usually closed Tuesdays; seasonal exceptions and maintenance closures apply.",
       "ja": "3〜7/17・9〜10月9:30〜17:00、7/18〜8月は18:00まで、11〜2月は16:30まで。原則火曜休園。季節の例外と整備休園は公式カレンダーを確認。",
-      "th": "มี.ค.–17 ก.ค. และ ก.ย.–ต.ค. 09:30–17:00 น., 18 ก.ค.–ส.ค. ถึง 18:00 น., พ.ย.–ก.พ. ถึง 16:30 น. ปกติปิดวันอังคาร มีข้อยกเว้นตามฤดูกาลและช่วงบำรุงรักษา"
+      "th": "มี.ค.–17 ก.ค. และ ก.ย.–ต.ค. 09:30–17:00 น., 18 ก.ค.–ส.ค. ถึง 18:00 น., พ.ย.–ก.พ. ถึง 16:30 น. ปกติปิดวันอังคาร มีข้อยกเว้นตามฤดูกาลและช่วงบำรุงรักษา",
+      "ko": "3월~7월 17일과 9~10월은 09:30~17:00에 운영합니다. 7월 18일~8월은 18:00까지, 11월~2월은 16:30까지 운영합니다. 보통 화요일에 쉬지만 계절별 예외와 유지보수 휴원이 있습니다.",
+      "zh-CN": "3月至7月17日和9月至10月 09:30–17:00； 7 月 18 日至 8 月 18:00 截止，11 月至 2 月 16:30 截止。通常周二休息；季节性例外和维护关闭适用。",
+      "vi": "09:30–17:00 Tháng 3 – 17 tháng 7 và Tháng 9 – Tháng 10; cho đến 18:00 ngày 18 tháng 7–tháng 8, 16:30 tháng 11–tháng 2. Thường đóng cửa vào thứ Ba; áp dụng các trường hợp ngoại lệ theo mùa và đóng cửa bảo trì.",
+      "fr": "9h30-17h00 de mars au 17 juillet et de septembre à octobre ; jusqu'à 18h00 du 18 juillet au août, 16h30 de novembre à février. Généralement fermé le mardi ; des exceptions saisonnières et des fermetures pour maintenance s’appliquent.",
+      "es": "09:30–17:00 de marzo a 17 de julio y de septiembre a octubre; hasta las 18:00 del 18 de julio al agosto, 16:30 de noviembre a febrero. Generalmente cerrado los martes; Se aplican excepciones estacionales y cierres de mantenimiento."
     },
     "fieldSources": {
       "hours": {
@@ -182,12 +287,22 @@
     "admission": {
       "en": "Standard admission: high-school age and older ¥450; 65+ ¥210; junior-high students and younger free. Seasonal surcharges apply: check the dated fee table before visiting.",
       "ja": "通常入園料：高校生以上450円、65歳以上210円、中学生以下無料。季節料金の加算期間は公式料金表で確認。",
-      "th": "ค่าเข้าปกติ: มัธยมปลายขึ้นไป 450 เยน อายุ 65 ปีขึ้นไป 210 เยน มัธยมต้นลงมาฟรี มีค่าธรรมเนียมเพิ่มบางฤดูกาล ให้ตรวจตารางตามวันที่เดินทาง"
+      "th": "ค่าเข้าปกติ: มัธยมปลายขึ้นไป 450 เยน อายุ 65 ปีขึ้นไป 210 เยน มัธยมต้นลงมาฟรี มีค่าธรรมเนียมเพิ่มบางฤดูกาล ให้ตรวจตารางตามวันที่เดินทาง",
+      "ko": "일반 입장료: 고등학생 이상 450엔; 65세 이상 210엔; 중학생 이하 무료. 계절별 추가 요금이 적용됩니다. 방문하기 전에 날짜가 표시된 요금표를 확인하세요.",
+      "zh-CN": "标准票价：高中生以上450日元； 65+ 210日元；初中生及以下免费。季节性附加费适用：参观前请查看注明日期的费用表。",
+      "vi": "Tiêu chuẩn vào cửa: học sinh trung học trở lên 450 yên; 65+ ¥210; học sinh trung học cơ sở trở xuống miễn phí. Áp dụng phụ phí theo mùa: kiểm tra bảng phí ngày trước khi đến thăm.",
+      "fr": "Admission standard : lycéen et plus 450 ¥ ; 65+ 210 ¥ ; étudiants du premier cycle du secondaire et plus jeunes gratuits. Des suppléments saisonniers s'appliquent : vérifiez le barème des tarifs daté avant de visiter.",
+      "es": "Entrada ordinaria: desde la edad de bachillerato 450 ¥; personas de 65 años o más 210 ¥; estudiantes de secundaria básica y menores, gratis. Hay suplementos de temporada: consulte la tabla de precios con fecha antes de visitar."
     },
     "accessibility": {
       "en": "Wheelchairs are lent at the main gates without reservations. Accessible toilets and ramps are available; ask staff about wheelchair space on the Seaside Train.",
       "ja": "主要ゲートで車いすを貸出（予約不可）。多目的トイレ・スロープあり。シーサイドトレインの車いす対応は係員へ確認。",
-      "th": "ยืมรถเข็นที่ประตูหลักได้โดยไม่รับจอง มีห้องน้ำสำหรับผู้ใช้รถเข็นและทางลาด สอบถามเจ้าหน้าที่เรื่องพื้นที่รถเข็นบน Seaside Train"
+      "th": "ยืมรถเข็นที่ประตูหลักได้โดยไม่รับจอง มีห้องน้ำสำหรับผู้ใช้รถเข็นและทางลาด สอบถามเจ้าหน้าที่เรื่องพื้นที่รถเข็นบน Seaside Train",
+      "ko": "휠체어는 예약 없이 정문에서 대여해 드립니다. 접근 가능한 화장실과 경사로를 이용할 수 있습니다. 해변 열차의 휠체어 공간에 대해서는 직원에게 문의하세요.",
+      "zh-CN": "正门提供无需预约的轮椅借用服务，并设有无障碍厕所和坡道。请向工作人员询问Seaside Train的轮椅空间。",
+      "vi": "Xe lăn được cho mượn tại cổng chính mà không cần đặt trước. Có sẵn nhà vệ sinh và đường dốc dành cho người khuyết tật; hỏi nhân viên về chỗ dành cho xe lăn trên Tàu Seaside.",
+      "fr": "Des fauteuils roulants sont prêtés aux portes principales sans réservation. Des toilettes et des rampes accessibles sont disponibles ; renseignez-vous auprès du personnel sur l'espace pour fauteuils roulants dans le train Seaside.",
+      "es": "Se prestan sillas de ruedas en las puertas principales sin reserva. Hay baños y rampas accesibles disponibles; Pregunte al personal sobre el espacio para sillas de ruedas en el Seaside Train."
     }
   },
   "pref:tochigi:oya-history-museum": {
@@ -196,7 +311,12 @@
     "access": {
       "en": "From JR Utsunomiya west exit, bus stand 6 toward Oya/Tateiwa: get off at Shiryokan-iriguchi after about 30 minutes, then walk three minutes.",
       "ja": "JR宇都宮駅西口6番から大谷・立岩方面へ約30分、資料館入口下車徒歩約3分。",
-      "th": "JR Utsunomiya ทางออกตะวันตก ป้าย 6 ไป Oya/Tateiwa ราว 30 นาที ลง Shiryokan-iriguchi แล้วเดิน 3 นาที"
+      "th": "JR Utsunomiya ทางออกตะวันตก ป้าย 6 ไป Oya/Tateiwa ราว 30 นาที ลง Shiryokan-iriguchi แล้วเดิน 3 นาที",
+      "ko": "JR 우츠노미야 서쪽 출구에서 6번 버스 정류장 오야/다테이와 방면: 약 30분 후 시료칸 이리구치에서 하차 후 도보 3분.",
+      "zh-CN": "从JR宇都宫站西口6号巴士站乘坐大谷/立岩方向巴士，约30分钟后在Shiryokan-iriguchi下车，再步行3分钟。",
+      "vi": "Từ lối ra phía Tây JR Utsunomiya, xe buýt đứng số 6 hướng về Oya/Tateiwa: xuống ở Shiryokan-iriguchi sau khoảng 30 phút, sau đó đi bộ 3 phút.",
+      "fr": "Depuis la sortie ouest de JR Utsunomiya, arrêt de bus 6 en direction d'Oya/Tateiwa : descendre à Shiryokan-iriguchi après environ 30 minutes, puis marcher trois minutes.",
+      "es": "Desde la salida oeste de JR Utsunomiya, parada de autobús 6 hacia Oya/Tateiwa: bájese en Shiryokan-iriguchi después de unos 30 minutos y luego camine tres minutos."
     }
   },
   "pref:gunma:kusatsu-yubatake": {
@@ -205,7 +325,12 @@
     "access": {
       "en": "There is no station in Kusatsu. Connect from Naganohara-Kusatsuguchi by bus (about 25 minutes); Yubatake is in the town center.",
       "ja": "草津温泉に鉄道駅はありません。長野原草津口駅からバス約25分。湯畑は温泉街の中心にあります。",
-      "th": "เมือง Kusatsu ไม่มีสถานีรถไฟ ต่อบัสจาก Naganohara-Kusatsuguchi ประมาณ 25 นาที Yubatake อยู่กลางเมืองออนเซ็น"
+      "th": "เมือง Kusatsu ไม่มีสถานีรถไฟ ต่อบัสจาก Naganohara-Kusatsuguchi ประมาณ 25 นาที Yubatake อยู่กลางเมืองออนเซ็น",
+      "ko": "구사쓰에는 철도역이 없습니다. 나가노하라쿠사쓰구치역에서 버스로 갈아타세요(약 25분). 유바타케는 마을 중심에 있습니다.",
+      "zh-CN": "草津没有车站。从长野原-草津口乘坐巴士（约25分钟）； Yubatake位于市中心。",
+      "vi": "Không có nhà ga ở Kusatsu. Kết nối từ Naganohara-Kusatsuguchi bằng xe buýt (khoảng 25 phút); Yubatake nằm ở trung tâm thị trấn.",
+      "fr": "Il n’y a pas de gare à Kusatsu. Connexion depuis Naganohara-Kusatsuguchi en bus (environ 25 minutes) ; Yubatake est au centre-ville.",
+      "es": "No hay ninguna estación en Kusatsu. Conexión desde Naganohara-Kusatsuguchi en autobús (unos 25 minutos); Yubatake está en el centro de la ciudad."
     }
   },
   "pref:gunma:tomioka-silk-mill": {
@@ -214,7 +339,12 @@
     "access": {
       "en": "From Takasaki take Joshin Dentetsu to Joshu-Tomioka (about 40 minutes), then walk about 10 minutes.",
       "ja": "高崎から上信電鉄で上州富岡へ約40分、駅から徒歩約10分。",
-      "th": "จาก Takasaki นั่ง Joshin Dentetsu ราว 40 นาทีถึง Joshu-Tomioka แล้วเดินประมาณ 10 นาที"
+      "th": "จาก Takasaki นั่ง Joshin Dentetsu ราว 40 นาทีถึง Joshu-Tomioka แล้วเดินประมาณ 10 นาที",
+      "ko": "다카사키에서 조신덴테츠(Joshin Dentetsu)를 타고 조슈토미오카(Joshu-Tomioka)까지 이동(약 40분)한 후 도보로 약 10분.",
+      "zh-CN": "从高崎乘坐上信电铁到上州富冈（约40分钟），然后步行约10分钟。",
+      "vi": "Từ Takasaki đưa Joshin Dentetsu đến Joshu-Tomioka (khoảng 40 phút), sau đó đi bộ khoảng 10 phút.",
+      "fr": "Depuis Takasaki, prendre Joshin Dentetsu jusqu'à Joshu-Tomioka (environ 40 minutes), puis marcher environ 10 minutes.",
+      "es": "Desde Takasaki, tome Joshin Dentetsu hasta Joshu-Tomioka (unos 40 minutos) y luego camine unos 10 minutos."
     }
   },
   "pref:saitama:railway-museum": {
@@ -223,12 +353,22 @@
     "access": {
       "en": "From JR Omiya take the New Shuttle to Tetsudo-Hakubutsukan Station.",
       "ja": "JR大宮駅からニューシャトルに乗り鉄道博物館駅下車。",
-      "th": "จาก JR Omiya ใช้ New Shuttle ลงสถานี Tetsudo-Hakubutsukan"
+      "th": "จาก JR Omiya ใช้ New Shuttle ลงสถานี Tetsudo-Hakubutsukan",
+      "ko": "JR 오미야에서 뉴셔틀을 타고 테츠도하쿠부츠칸역까지 가세요.",
+      "zh-CN": "从 JR 大宫出发，乘坐New Shuttle 列车前往铁道博物馆站。",
+      "vi": "Từ JR Omiya, đi tàu New Shuttle đến Ga Tetsudo-Hakubutsukan.",
+      "fr": "Depuis JR Omiya, prenez le New Shuttle jusqu'à la gare de Tetsudo-Hakubutsukan.",
+      "es": "Desde JR Omiya, tome el New Shuttle hasta la estación Tetsudo-Hakubutsukan."
     },
     "hours": {
       "en": "10:00–17:00; last admission 16:30. Usually closed Tuesdays and over New Year; check the annual calendar.",
       "ja": "10:00〜17:00、最終入館16:30。原則火曜・年末年始休館。年間カレンダーを確認。",
-      "th": "10:00–17:00 น. เข้าครั้งสุดท้าย 16:30 น. ปกติปิดวันอังคารและช่วงปีใหม่ ตรวจปฏิทินประจำปี"
+      "th": "10:00–17:00 น. เข้าครั้งสุดท้าย 16:30 น. ปกติปิดวันอังคารและช่วงปีใหม่ ตรวจปฏิทินประจำปี",
+      "ko": "10:00~17:00; 마지막 입장 시간은 16:30입니다. 보통 화요일과 새해에는 휴무입니다. 연간 달력을 확인하세요.",
+      "zh-CN": "10:00–17:00；最后入场时间为 16:30。通常周二和新年期间关闭；检查年历。",
+      "vi": "10:00–17:00; lượt vào cuối cùng là 16:30. Thường đóng cửa vào thứ Ba và trong dịp Năm Mới; kiểm tra lịch hàng năm.",
+      "fr": "10h00-17h00 ; dernière entrée 16h30. Habituellement fermé le mardi et pendant le Nouvel An ; consultez le calendrier annuel.",
+      "es": "10:00–17:00; última entrada 16:30. Generalmente cerrado los martes y durante Año Nuevo; Consulta el calendario anual."
     },
     "fieldSources": {
       "hours": {
@@ -251,17 +391,32 @@
     "admission": {
       "en": "Advance purchase by the previous day: adult ¥1,500, school student ¥500, preschool age 3+ ¥200. Same-day: ¥1,600 / ¥600 / ¥300 respectively.",
       "ja": "前日までの前売：一般1,500円、小中高生500円、3歳以上未就学児200円。当日は順に1,600円・600円・300円。",
-      "th": "ซื้อล่วงหน้าภายในวันก่อนเข้า: ผู้ใหญ่ 1,500 เยน นักเรียนประถม–มัธยมปลาย 500 เยน เด็กก่อนวัยเรียนอายุ 3 ปีขึ้นไป 200 เยน ซื้อวันเข้าเป็น 1,600 / 600 / 300 เยนตามลำดับ"
+      "th": "ซื้อล่วงหน้าภายในวันก่อนเข้า: ผู้ใหญ่ 1,500 เยน นักเรียนประถม–มัธยมปลาย 500 เยน เด็กก่อนวัยเรียนอายุ 3 ปีขึ้นไป 200 เยน ซื้อวันเข้าเป็น 1,600 / 600 / 300 เยนตามลำดับ",
+      "ko": "전날까지 예매하면 성인 1,500엔, 학생 500엔, 만 3세 이상 미취학 아동 200엔입니다. 당일권은 각각 1,600엔, 600엔, 300엔입니다.",
+      "zh-CN": "提前至前一天购票：成人1,500日元、学生500日元、3岁及以上学龄前儿童200日元。当日票分别为1,600/600/300日元。",
+      "vi": "Mua trước ngày hôm trước: người lớn 1.500 yên, học sinh 500 yên, trẻ mẫu giáo từ 3 tuổi trở lên 200 yên. Cùng ngày: tương ứng là ¥1.600 / ¥600 / ¥300.",
+      "fr": "Achat au plus tard la veille : adulte 1 500 ¥, élève 500 ¥, enfant d’âge préscolaire à partir de 3 ans 200 ¥. Le jour même : respectivement 1 600 ¥ / 600 ¥ / 300 ¥.",
+      "es": "Compra anticipada hasta el día anterior: adulto ¥1.500, estudiante escolar ¥500, edad preescolar 3+ ¥200. El mismo día: ¥1.600 / ¥600 / ¥300 respectivamente."
     },
     "booking": {
       "en": "Admission is sold online, at convenience stores and at the museum on open days. Selected experience-reservation admission tickets are sold only through Seven Ticket; an ordinary ticket does not reserve a simulator.",
       "ja": "入館券はオンライン・コンビニ・開館日の券売機で購入可。一部の体験予約付き入館券はセブンチケット限定。通常入館券だけではシミュレータの予約になりません。",
-      "th": "ซื้อตั๋วเข้าชมออนไลน์ ร้านสะดวกซื้อ หรือเครื่องขายที่พิพิธภัณฑ์ในวันเปิดได้ ตั๋วรวมการจองกิจกรรมบางชนิดขายเฉพาะ Seven Ticket ตั๋วเข้าชมทั่วไปไม่ได้จองเครื่องจำลองให้"
+      "th": "ซื้อตั๋วเข้าชมออนไลน์ ร้านสะดวกซื้อ หรือเครื่องขายที่พิพิธภัณฑ์ในวันเปิดได้ ตั๋วรวมการจองกิจกรรมบางชนิดขายเฉพาะ Seven Ticket ตั๋วเข้าชมทั่วไปไม่ได้จองเครื่องจำลองให้",
+      "ko": "입장권은 온라인, 편의점, 개장일 박물관에서 판매됩니다. 일부 체험-예약 입장권은 세븐티켓에서만 판매됩니다. 일반 티켓은 시뮬레이터를 예약하지 않습니다.",
+      "zh-CN": "门票可在网上、便利店和开放日的博物馆出售。精选体验预约门票仅通过Seven Ticket出售；普通票不预留模拟器。",
+      "vi": "Vé vào cửa được bán trực tuyến, tại các cửa hàng tiện lợi và tại bảo tàng vào những ngày mở cửa. Vé vào cửa đặt chỗ trải nghiệm chọn lọc chỉ được bán thông qua Seven Ticket; một vé thông thường không đặt trước một trình mô phỏng.",
+      "fr": "L'entrée est vendue en ligne, dans les supérettes et au musée lors des journées portes ouvertes. Les billets d'entrée avec réservation d'expériences sélectionnés sont vendus uniquement via Seven Ticket ; un billet ordinaire ne réserve pas de simulateur.",
+      "es": "La entrada se vende en línea, en tiendas de conveniencia y en el museo los días de puertas abiertas. Los boletos de admisión para reserva de experiencias seleccionadas se venden únicamente a través de Seven Ticket; un billete normal no reserva simulador."
     },
     "accessibility": {
       "en": "Wheelchairs and strollers are allowed. Wheelchair loans are available at the entrance; stroller rental uses the paid Babycal service and requires registration.",
       "ja": "車いす・ベビーカーで入館可。車いす貸出はエントランスへ。ベビーカーの貸出は有料のベビカルで会員登録が必要。",
-      "th": "นำรถเข็นและรถเข็นเด็กเข้าได้ ยืมรถเข็นที่ทางเข้า ส่วนรถเข็นเด็กใช้บริการ Babycal แบบเสียเงินและต้องสมัครสมาชิก"
+      "th": "นำรถเข็นและรถเข็นเด็กเข้าได้ ยืมรถเข็นที่ทางเข้า ส่วนรถเข็นเด็กใช้บริการ Babycal แบบเสียเงินและต้องสมัครสมาชิก",
+      "ko": "휠체어와 유모차는 허용됩니다. 입구에서 휠체어 대여가 가능합니다. 유모차 대여는 유료 Babycal 서비스를 이용하며 등록이 필요합니다.",
+      "zh-CN": "允许使用轮椅和婴儿车。入口处可借用轮椅；婴儿车租赁使用付费Babycal服务并需要注册。",
+      "vi": "Xe lăn và xe đẩy được phép. Dịch vụ cho thuê xe lăn có sẵn ở lối vào; dịch vụ cho thuê xe đẩy sử dụng dịch vụ Babycal trả phí và yêu cầu đăng ký.",
+      "fr": "Les fauteuils roulants et les poussettes sont autorisés. Des prêts de fauteuils roulants sont disponibles à l'entrée ; La location de poussettes utilise le service payant Babycal et nécessite une inscription.",
+      "es": "Se permiten sillas de ruedas y cochecitos. Préstamos de sillas de ruedas están disponibles en la entrada; El alquiler de cochecitos utiliza el servicio Babycal de pago y requiere registro."
     }
   },
   "pref:saitama:kawagoe-toki-no-kane": {
@@ -270,7 +425,12 @@
     "access": {
       "en": "Use Hon-Kawagoe on the Seibu Shinjuku Line as one gateway to the warehouse district and bell tower; follow the local walking map from the station.",
       "ja": "西武新宿線本川越駅が蔵造りの町並み・時の鐘への拠点の一つ。駅からは現地の散策地図を確認。",
-      "th": "Hon-Kawagoe สาย Seibu Shinjuku เป็นจุดเริ่มเดินเที่ยวย่านโกดังและหอระฆัง ดูแผนที่เดินจากสถานีเพิ่มเติม"
+      "th": "Hon-Kawagoe สาย Seibu Shinjuku เป็นจุดเริ่มเดินเที่ยวย่านโกดังและหอระฆัง ดูแผนที่เดินจากสถานีเพิ่มเติม",
+      "ko": "세이부 신주쿠선의 혼가와고에를 창고 지구와 종탑으로 가는 하나의 관문으로 활용하세요. 역에서 지역 도보 지도를 따라가세요.",
+      "zh-CN": "使用西武新宿线的本川越作为通往仓库区和钟楼的门户之一；从车站出发，遵循当地的步行地图。",
+      "vi": "Sử dụng Hon-Kawagoe trên Tuyến Seibu Shinjuku làm cửa ngõ vào khu nhà kho và tháp chuông; theo bản đồ đi bộ địa phương từ nhà ga.",
+      "fr": "Utilisez Hon-Kawagoe sur la ligne Seibu Shinjuku comme porte d'entrée vers le quartier des entrepôts et le clocher ; suivez la carte de randonnée locale depuis la gare.",
+      "es": "Utilice Hon-Kawagoe en la línea Seibu Shinjuku como puerta de entrada al distrito de almacenes y al campanario; Siga el mapa local para caminar desde la estación."
     }
   },
   "pref:chiba:naritasan-shinshoji": {
@@ -279,7 +439,12 @@
     "access": {
       "en": "Walk about 10 minutes from JR Narita or Keisei Narita Station.",
       "ja": "JR成田駅・京成成田駅から徒歩約10分。",
-      "th": "เดินประมาณ 10 นาทีจาก JR Narita หรือ Keisei Narita"
+      "th": "เดินประมาณ 10 นาทีจาก JR Narita หรือ Keisei Narita",
+      "ko": "JR 나리타역 또는 게이세이 나리타역에서 도보로 약 10분.",
+      "zh-CN": "从JR成田站或京成成田站步行约10分钟。",
+      "vi": "Đi bộ khoảng 10 phút từ Ga JR Narita hoặc Keisei Narita.",
+      "fr": "Marchez environ 10 minutes depuis la gare JR Narita ou Keisei Narita.",
+      "es": "Camine unos 10 minutos desde la estación JR Narita o Keisei Narita."
     }
   },
   "pref:chiba:chiba-port-tower": {
@@ -288,7 +453,12 @@
     "access": {
       "en": "Walk about 12 minutes from Chiba-Minato (JR Keiyo Line or Chiba Monorail). Check same-day elevator notices during strong wind.",
       "ja": "JR京葉線・千葉モノレール千葉みなと駅から徒歩約12分。強風時は当日のエレベーター運行案内を確認。",
-      "th": "เดินประมาณ 12 นาทีจาก Chiba-Minato สาย JR Keiyo หรือ Chiba Monorail หากลมแรงให้ตรวจประกาศลิฟต์ในวันเดินทาง"
+      "th": "เดินประมาณ 12 นาทีจาก Chiba-Minato สาย JR Keiyo หรือ Chiba Monorail หากลมแรงให้ตรวจประกาศลิฟต์ในวันเดินทาง",
+      "ko": "치바미나토(JR 게이요선 또는 치바 모노레일)에서 도보 약 12분. 강풍시 당일 엘리베이터 공지를 확인하세요.",
+      "zh-CN": "从千叶港（JR 京叶线或千叶单轨电车）步行约 12 分钟。强风期间查看当天的电梯通知。",
+      "vi": "Đi bộ khoảng 12 phút từ Chiba-Minato (Tuyến JR Keiyo hoặc Chiba Monorail). Kiểm tra thông báo thang máy trong ngày khi có gió mạnh.",
+      "fr": "Marchez environ 12 minutes depuis Chiba-Minato (ligne JR Keiyo ou Chiba Monorail). Vérifiez les avis d’ascenseur le jour même en cas de vent fort.",
+      "es": "Camine unos 12 minutos desde Chiba-Minato (línea JR Keiyo o monorraíl de Chiba). Consulte los avisos de ascensor del mismo día durante vientos fuertes."
     }
   },
   "pref:kanagawa:yokohama-red-brick-warehouse": {
@@ -297,7 +467,12 @@
     "access": {
       "en": "Use Bashamichi or Nihon-Odori on the Minatomirai Line; JR Sakuragicho and Kannai are about 15 minutes away on foot.",
       "ja": "みなとみらい線馬車道・日本大通り駅を利用。JR桜木町・関内駅からは徒歩約15分。",
-      "th": "ใช้ Bashamichi หรือ Nihon-Odori สาย Minatomirai หากลง JR Sakuragicho หรือ Kannai เดินประมาณ 15 นาที"
+      "th": "ใช้ Bashamichi หรือ Nihon-Odori สาย Minatomirai หากลง JR Sakuragicho หรือ Kannai เดินประมาณ 15 นาที",
+      "ko": "미나토미라이선에서는 바샤미치 또는 니혼오도리를 이용하세요. JR 사쿠라기초와 간나이까지는 도보로 약 15분이 소요됩니다.",
+      "zh-CN": "乘坐港未来线的马车道或日本大通； JR樱木町和关内距离约有15分钟步行路程。",
+      "vi": "Sử dụng Bashamichi hoặc Nihon-Odori trên Tuyến Minatomirai; JR Sakuragicho và Kannai cách đó khoảng 15 phút đi bộ.",
+      "fr": "Utilisez Bashamichi ou Nihon-Odori sur la ligne Minatomirai ; JR Sakuragicho et Kannai sont à environ 15 minutes à pied.",
+      "es": "Utilice Bashamichi o Nihon-Odori en la línea Minatomirai; JR Sakuragicho y Kannai están a unos 15 minutos a pie."
     }
   },
   "pref:toyama:toyama-castle": {
@@ -306,7 +481,12 @@
     "access": {
       "en": "Walk about 10 minutes from Toyama Station, or use city tram loop 3.",
       "ja": "富山駅から徒歩約10分、または市内電車の環状線3系統を利用。",
-      "th": "เดินประมาณ 10 นาทีจากสถานี Toyama หรือใช้รถรางวนสาย 3"
+      "th": "เดินประมาณ 10 นาทีจากสถานี Toyama หรือใช้รถรางวนสาย 3",
+      "ko": "도야마역에서 도보로 약 10분, 또는 시내 트램 3번 순환선을 이용하세요.",
+      "zh-CN": "从富山站步行约10分钟，或乘坐市营电车3号线。",
+      "vi": "Đi bộ khoảng 10 phút từ Ga Toyama hoặc sử dụng xe điện thành phố tuyến 3.",
+      "fr": "Marchez environ 10 minutes depuis la gare de Toyama ou utilisez la boucle 3 du tramway.",
+      "es": "Camine unos 10 minutos desde la estación de Toyama o utilice el circuito 3 del tranvía urbano."
     }
   },
   "pref:toyama:fugan-canal-kansui-park": {
@@ -315,7 +495,12 @@
     "access": {
       "en": "The park is about an 11-minute walk from Toyama Station.",
       "ja": "富山駅から徒歩約11分。",
-      "th": "จากสถานี Toyama เดินประมาณ 11 นาทีถึงสวน"
+      "th": "จากสถานี Toyama เดินประมาณ 11 นาทีถึงสวน",
+      "ko": "공원은 도야마역에서 도보로 약 11분 거리에 있습니다.",
+      "zh-CN": "从富山站步行约11分钟即可到达公园。",
+      "vi": "Công viên cách Ga Toyama khoảng 11 phút đi bộ.",
+      "fr": "Le parc se trouve à environ 11 minutes à pied de la gare de Toyama.",
+      "es": "El parque está a unos 11 minutos a pie desde la estación Toyama."
     }
   },
   "pref:ishikawa:higashi-chaya-district": {
@@ -324,7 +509,12 @@
     "access": {
       "en": "Take a Kanazawa Loop Bus to Hashibacho, then walk about five minutes.",
       "ja": "金沢周遊バスで橋場町下車、徒歩約5分。",
-      "th": "นั่ง Kanazawa Loop Bus ลง Hashibacho แล้วเดินประมาณ 5 นาที"
+      "th": "นั่ง Kanazawa Loop Bus ลง Hashibacho แล้วเดินประมาณ 5 นาที",
+      "ko": "가나자와 순환버스를 타고 하시바초까지 이동한 후 도보로 5분 정도 이동하세요.",
+      "zh-CN": "乘坐金泽循环巴士到桥场町下车，步行约5分钟。",
+      "vi": "Đi xe buýt vòng quanh Kanazawa đến Hashibacho, sau đó đi bộ khoảng năm phút.",
+      "fr": "Prenez un Kanazawa Loop Bus jusqu'à Hashibacho, puis marchez environ cinq minutes.",
+      "es": "Tome un autobús circular de Kanazawa hasta Hashibacho y luego camine unos cinco minutos."
     }
   },
   "pref:fukui:eiheiji-temple": {
@@ -333,7 +523,12 @@
     "access": {
       "en": "From Fukui Station take the Eiheiji Liner bus or a taxi; either takes about 30 minutes.",
       "ja": "福井駅から永平寺ライナーバスまたはタクシーで約30分。",
-      "th": "จากสถานี Fukui ใช้บัส Eiheiji Liner หรือแท็กซี่ ใช้เวลาประมาณ 30 นาที"
+      "th": "จากสถานี Fukui ใช้บัส Eiheiji Liner หรือแท็กซี่ ใช้เวลาประมาณ 30 นาที",
+      "ko": "후쿠이역에서 에이헤이지 라이너 버스나 택시를 이용하세요. 어느 쪽이든 30분 정도 걸립니다.",
+      "zh-CN": "从福井站乘坐永平寺 Liner 巴士或出租车；两者都需要大约 30 分钟。",
+      "vi": "Từ Ga Fukui đi xe buýt Eiheiji Liner hoặc taxi; hoặc mất khoảng 30 phút.",
+      "fr": "Depuis la gare de Fukui, prenez le bus Eiheiji Liner ou un taxi ; l’un ou l’autre prend environ 30 minutes.",
+      "es": "Desde la estación de Fukui, tome el autobús Eiheiji Liner o un taxi; cualquiera de los dos tarda unos 30 minutos."
     }
   },
   "pref:nagano:zenkoji-temple": {
@@ -342,7 +537,12 @@
     "access": {
       "en": "From Nagano Station, walk about 30 minutes (1.8 km) or take a bus for about 15 minutes.",
       "ja": "長野駅から徒歩約30分（1.8km）、またはバス約15分。",
-      "th": "จากสถานี Nagano เดินราว 30 นาที (1.8 กม.) หรือใช้บัสประมาณ 15 นาที"
+      "th": "จากสถานี Nagano เดินราว 30 นาที (1.8 กม.) หรือใช้บัสประมาณ 15 นาที",
+      "ko": "나가노역에서 도보로 약 30분(1.8km), 버스로 약 15분 소요됩니다.",
+      "zh-CN": "从长野站步行约30分钟（1.8公里）或乘坐巴士约15分钟。",
+      "vi": "Từ Ga Nagano, đi bộ khoảng 30 phút (1,8 km) hoặc đi xe buýt khoảng 15 phút.",
+      "fr": "Depuis la gare de Nagano, marchez environ 30 minutes (1,8 km) ou prenez un bus pendant environ 15 minutes.",
+      "es": "Desde la estación de Nagano, camine unos 30 minutos (1,8 km) o tome un autobús durante unos 15 minutos."
     }
   },
   "pref:gifu:gifu-castle": {
@@ -351,7 +551,12 @@
     "access": {
       "en": "From Gifu Station, take a bus about 15 minutes to Gifukoen-mae at the foot of Mt Kinka. The castle is on the mountain, not at the bus stop.",
       "ja": "岐阜駅から岐阜公園前までバス約15分。バス停は金華山の麓で、城は山上にあります。",
-      "th": "จากสถานี Gifu นั่งบัสประมาณ 15 นาทีลง Gifukoen-mae ที่เชิงเขา Kinka ตัวปราสาทอยู่บนเขา ไม่ได้อยู่ที่ป้ายบัส"
+      "th": "จากสถานี Gifu นั่งบัสประมาณ 15 นาทีลง Gifukoen-mae ที่เชิงเขา Kinka ตัวปราสาทอยู่บนเขา ไม่ได้อยู่ที่ป้ายบัส",
+      "ko": "기후역에서 긴카산 기슭에 있는 기후코엔마에까지 버스로 약 15분 소요됩니다. 성은 버스 정류장이 아닌 산 위에 있습니다.",
+      "zh-CN": "从岐阜站乘坐巴士约15分钟即可到达金华山山麓的岐阜公园前。城堡在山上，不在公交车站。",
+      "vi": "Từ Ga Gifu, đi xe buýt khoảng 15 phút đến Gifukoen-mae dưới chân Núi Kinka. Lâu đài ở trên núi chứ không phải ở bến xe buýt.",
+      "fr": "Depuis la gare de Gifu, prenez un bus pendant environ 15 minutes jusqu'à Gifukoen-mae, au pied du mont Kinka. Le château est sur la montagne, pas à l'arrêt de bus.",
+      "es": "Desde la estación de Gifu, tome un autobús durante unos 15 minutos hasta Gifukoen-mae, al pie del monte Kinka. El castillo está en la montaña, no en la parada de autobús."
     }
   },
   "pref:shizuoka:miho-no-matsubara": {
@@ -360,7 +565,12 @@
     "access": {
       "en": "From JR Shimizu, continue by local bus or taxi; the bus journey is about 25 minutes. Confirm the current destination and stop with the operator.",
       "ja": "JR清水駅から路線バス約25分、またはタクシー。現在の行先・停留所は運行会社で確認。",
-      "th": "จาก JR Shimizu ต่อบัสท้องถิ่นประมาณ 25 นาทีหรือแท็กซี่ ตรวจชื่อปลายทางและป้ายปัจจุบันกับผู้ให้บริการ"
+      "th": "จาก JR Shimizu ต่อบัสท้องถิ่นประมาณ 25 นาทีหรือแท็กซี่ ตรวจชื่อปลายทางและป้ายปัจจุบันกับผู้ให้บริการ",
+      "ko": "JR 시미즈에서 시내버스나 택시로 이동하세요. 버스는 약 25분 걸립니다. 현재 운행 목적지와 하차 정류장은 운영사에 확인하세요.",
+      "zh-CN": "从JR清水站继续乘坐当地巴士或出租车，巴士约需25分钟。请向运营方确认当前的目的地和下车站。",
+      "vi": "Từ JR Shimizu, tiếp tục bằng xe buýt địa phương hoặc taxi; xe buýt mất khoảng 25 phút. Xác nhận điểm đến và trạm xuống hiện tại với đơn vị vận hành.",
+      "fr": "Depuis JR Shimizu, continuez en bus local ou en taxi ; le bus prend environ 25 minutes. Confirmez la destination et l’arrêt actuels auprès de l’exploitant.",
+      "es": "Desde JR Shimizu, continúe en autobús local o taxi; el autobús tarda unos 25 minutos. Confirme con la empresa el destino y la parada vigentes."
     }
   },
   "pref:shizuoka:sunpu-castle-park": {
@@ -369,7 +579,12 @@
     "access": {
       "en": "Walk about 15 minutes from JR Shizuoka or 12 minutes from Shin-Shizuoka.",
       "ja": "JR静岡駅から徒歩約15分、新静岡駅から約12分。",
-      "th": "เดินประมาณ 15 นาทีจาก JR Shizuoka หรือ 12 นาทีจาก Shin-Shizuoka"
+      "th": "เดินประมาณ 15 นาทีจาก JR Shizuoka หรือ 12 นาทีจาก Shin-Shizuoka",
+      "ko": "JR 시즈오카에서 도보로 약 15분, 신시즈오카에서 도보로 약 12분.",
+      "zh-CN": "从JR静冈站步行约15分钟，从新静冈站步行约12分钟。",
+      "vi": "Đi bộ khoảng 15 phút từ JR Shizuoka hoặc 12 phút từ Shin-Shizuoka.",
+      "fr": "Marchez environ 15 minutes depuis JR Shizuoka ou 12 minutes depuis Shin-Shizuoka.",
+      "es": "Camine unos 15 minutos desde JR Shizuoka o 12 minutos desde Shin-Shizuoka."
     }
   },
   "pref:aichi:atsuta-jingu": {
@@ -378,7 +593,12 @@
     "access": {
       "en": "Walk about three minutes from Meitetsu Jingu-mae or eight minutes from JR Atsuta.",
       "ja": "名鉄神宮前駅から徒歩約3分、JR熱田駅から約8分。",
-      "th": "เดินประมาณ 3 นาทีจาก Meitetsu Jingu-mae หรือ 8 นาทีจาก JR Atsuta"
+      "th": "เดินประมาณ 3 นาทีจาก Meitetsu Jingu-mae หรือ 8 นาทีจาก JR Atsuta",
+      "ko": "메이테쓰 진구마에에서 도보 약 3분, JR 아쓰타에서 도보 8분.",
+      "zh-CN": "从名铁神宫前步行约3分钟，从JR热田步行约8分钟。",
+      "vi": "Đi bộ khoảng ba phút từ Meitetsu Jingu-mae hoặc tám phút từ JR Atsuta.",
+      "fr": "Marchez environ trois minutes depuis Meitetsu Jingu-mae ou huit minutes depuis JR Atsuta.",
+      "es": "Camine unos tres minutos desde Meitetsu Jingu-mae u ocho minutos desde JR Atsuta."
     }
   },
   "pref:mie:ise-jingu-naiku": {
@@ -387,7 +607,12 @@
     "access": {
       "en": "Take a bus from Isuzugawa Station (about six minutes), or from Geku (about 10–15 minutes). Naiku and Geku are separate sites.",
       "ja": "五十鈴川駅からバス約6分、外宮から約10〜15分。内宮と外宮は別の場所です。",
-      "th": "ใช้บัสจาก Isuzugawa ประมาณ 6 นาที หรือจาก Geku ประมาณ 10–15 นาที Naiku กับ Geku อยู่คนละแห่ง"
+      "th": "ใช้บัสจาก Isuzugawa ประมาณ 6 นาที หรือจาก Geku ประมาณ 10–15 นาที Naiku กับ Geku อยู่คนละแห่ง",
+      "ko": "이스즈가와역(약 6분) 또는 게쿠(약 10~15분)에서 버스를 타세요. Naiku와 Geku는 서로 다른 장소입니다.",
+      "zh-CN": "从五十铃川站乘坐巴士（约 6 分钟），或从外宫出发（约 10 至 15 分钟）。 Naiku 和 Geku 是不同的地点。",
+      "vi": "Đi xe buýt từ Ga Isuzugawa (khoảng sáu phút) hoặc từ Geku (khoảng 10–15 phút). Naiku và Geku là hai địa điểm riêng biệt.",
+      "fr": "Prenez un bus depuis la gare d'Isuzugawa (environ six minutes) ou depuis Geku (environ 10 à 15 minutes). Naiku et Geku sont des sites distincts.",
+      "es": "Tome un autobús desde la estación Isuzugawa (unos seis minutos) o desde Geku (unos 10 a 15 minutos). Naiku y Geku son sitios separados."
     }
   },
   "pref:shiga:hikone-castle": {
@@ -396,7 +621,12 @@
     "access": {
       "en": "Walk about 15–20 minutes from JR Hikone. From Maibara, transfer to a local Tokaido Main Line train for Hikone.",
       "ja": "JR彦根駅から徒歩約15〜20分。米原からは東海道本線の普通列車で彦根へ。",
-      "th": "เดินประมาณ 15–20 นาทีจาก JR Hikone หากมาจาก Maibara ให้ต่อรถท้องถิ่นสาย Tokaido Main Line ไป Hikone"
+      "th": "เดินประมาณ 15–20 นาทีจาก JR Hikone หากมาจาก Maibara ให้ต่อรถท้องถิ่นสาย Tokaido Main Line ไป Hikone",
+      "ko": "JR 히코네에서 도보로 약 15~20분 소요됩니다. 마이바라에서 히코네행 지역 도카이도 본선 열차로 환승하세요.",
+      "zh-CN": "从JR彦根站步行约15～20分钟。从米原出发，转乘当地的东海道干线列车前往彦根市。",
+      "vi": "Đi bộ khoảng 15–20 phút từ JR Hikone. Từ Maibara, chuyển sang tàu Tuyến chính Tokaido địa phương để đến Hikone.",
+      "fr": "Marchez environ 15 à 20 minutes depuis JR Hikone. De Maibara, transfert vers un train local de la ligne principale Tokaido pour Hikone.",
+      "es": "Camine unos 15 a 20 minutos desde JR Hikone. Desde Maibara, haga transbordo a un tren local de la línea principal Tokaido hacia Hikone."
     }
   },
   "pref:shiga:ishiyamadera-temple": {
@@ -405,7 +635,12 @@
     "access": {
       "en": "At JR Ishiyama, change to the Keihan Ishiyama Sakamoto Line for Ishiyamadera, then walk about 10 minutes.",
       "ja": "JR石山駅で京阪石山坂本線に乗り換え石山寺駅へ。駅から徒歩約10分。",
-      "th": "ต่อจาก JR Ishiyama ไปสาย Keihan Ishiyama Sakamoto ลง Ishiyamadera แล้วเดินประมาณ 10 นาที"
+      "th": "ต่อจาก JR Ishiyama ไปสาย Keihan Ishiyama Sakamoto ลง Ishiyamadera แล้วเดินประมาณ 10 นาที",
+      "ko": "JR 이시야마에서 게이한 이시야마 사카모토선으로 환승해 이시야마데라 행으로 이동한 후 도보로 약 10분 소요됩니다.",
+      "zh-CN": "在JR石山站换乘京阪石山坂本线前往石山寺站，步行约10分钟。",
+      "vi": "Tại JR Ishiyama, đổi sang Tuyến Keihan Ishiyama Sakamoto để đến Ishiyamadera, sau đó đi bộ khoảng 10 phút.",
+      "fr": "À JR Ishiyama, changer pour la ligne Keihan Ishiyama Sakamoto pour Ishiyamadera, puis marcher environ 10 minutes.",
+      "es": "En JR Ishiyama, cambie a la línea Keihan Ishiyama Sakamoto hacia Ishiyamadera y luego camine unos 10 minutos."
     }
   },
   "pref:osaka:osaka-castle": {
@@ -414,12 +649,22 @@
     "access": {
       "en": "JR Morinomiya serves the southeast park edge; Osakajokoen serves the northeast. Tanimachi Yonchome is another approach. Allow time to walk inside the park.",
       "ja": "JR森ノ宮駅は公園南東側、大阪城公園駅は北東側。谷町四丁目駅からもアクセス可。園内の徒歩時間を確保。",
-      "th": "JR Morinomiya เข้าด้านตะวันออกเฉียงใต้ ส่วน Osakajokoen เข้าด้านตะวันออกเฉียงเหนือ หรือใช้ Tanimachi Yonchome เผื่อเวลาเดินภายในสวน"
+      "th": "JR Morinomiya เข้าด้านตะวันออกเฉียงใต้ ส่วน Osakajokoen เข้าด้านตะวันออกเฉียงเหนือ หรือใช้ Tanimachi Yonchome เผื่อเวลาเดินภายในสวน",
+      "ko": "JR 모리노미야역은 공원 남동쪽, 오사카조코엔역은 북동쪽과 가깝습니다. 다니마치 4초메역에서도 접근할 수 있습니다. 공원 안을 걸어 이동할 시간도 고려하세요.",
+      "zh-CN": "JR森之宫服务于东南公园边缘；大阪城公园服务于东北地区。谷町四丁目是另一种方法。留出时间在公园内散步。",
+      "vi": "JR Morinomiya phục vụ rìa công viên phía đông nam; Osakajokoen phục vụ phía đông bắc. Tanimachi Yonchome là một cách tiếp cận khác. Dành thời gian để đi bộ bên trong công viên.",
+      "fr": "JR Morinomiya dessert la limite sud-est du parc ; Osakajokoen dessert le nord-est. Tanimachi Yonchome est une autre approche. Prévoyez du temps pour vous promener à l’intérieur du parc.",
+      "es": "JR Morinomiya sirve al borde sureste del parque; Osakajokoen sirve al noreste. Tanimachi Yonchome es otro enfoque. Deje tiempo para caminar dentro del parque."
     },
     "hours": {
       "en": "Castle tower 09:00–18:00, entry until 17:30; ticket queues may close earlier. Closed Dec 28–Jan 1.",
       "ja": "天守閣9:00〜18:00、入館17:30まで。混雑時は購入列を早めに締め切る場合あり。12/28〜1/1休館。",
-      "th": "หอปราสาท 09:00–18:00 น. รับเข้าถึง 17:30 น. คิวซื้อตั๋วอาจปิดก่อนเมื่อคนมาก ปิด 28 ธ.ค.–1 ม.ค."
+      "th": "หอปราสาท 09:00–18:00 น. รับเข้าถึง 17:30 น. คิวซื้อตั๋วอาจปิดก่อนเมื่อคนมาก ปิด 28 ธ.ค.–1 ม.ค.",
+      "ko": "천수각 09:00~18:00, 입장은 17:30까지. 티켓 대기열이 더 일찍 마감될 수 있습니다. 12월 28일부터 1월 1일까지는 휴무입니다.",
+      "zh-CN": "城堡塔楼 09:00–18:00，入馆时间截至 17:30；售票队列可能会提前关闭。 12 月 28 日至 1 月 1 日关闭。",
+      "vi": "Tháp lâu đài 09:00–18:00, vào cửa đến 17:30; hàng đợi mua vé có thể đóng cửa sớm hơn. Đóng cửa từ ngày 28 tháng 12 đến ngày 1 tháng 1.",
+      "fr": "Tour du château de 9h00 à 18h00, entrée jusqu'à 17h30 ; les files d'attente pour les billets peuvent fermer plus tôt. Fermé du 28 décembre au 1er janvier.",
+      "es": "Torre del castillo de 09:00 a 18:00, entrada hasta las 17:30; las colas de boletos pueden cerrar antes. Cerrado del 28 de diciembre al 1 de enero."
     },
     "fieldSources": {
       "hours": {
@@ -446,22 +691,42 @@
     "admission": {
       "en": "Tower: adults ¥1,200; university/high-school students ¥600 with proof (ISIC for overseas students); junior-high age and younger free with proof. Park facilities have separate rules.",
       "ja": "天守閣：大人1,200円、大学生・高校生600円（要証明、海外の学生はISIC）、中学生以下無料（要証明）。公園内の他施設は別条件。",
-      "th": "หอปราสาท: ผู้ใหญ่ 1,200 เยน นักศึกษามหาวิทยาลัย/มัธยมปลาย 600 เยนพร้อมหลักฐาน นักเรียนต่างชาติใช้ ISIC มัธยมต้นหรือต่ำกว่าฟรีพร้อมหลักฐาน สถานที่อื่นในสวนใช้เงื่อนไขแยก"
+      "th": "หอปราสาท: ผู้ใหญ่ 1,200 เยน นักศึกษามหาวิทยาลัย/มัธยมปลาย 600 เยนพร้อมหลักฐาน นักเรียนต่างชาติใช้ ISIC มัธยมต้นหรือต่ำกว่าฟรีพร้อมหลักฐาน สถานที่อื่นในสวนใช้เงื่อนไขแยก",
+      "ko": "타워: 어른 1,200엔 대학생/고등학생 증빙서류 지참 시 600엔(유학생은 ISIC), 중학생 이하는 증빙서류 지참 시 무료입니다. 공원 시설에는 별도의 규칙이 있습니다.",
+      "zh-CN": "塔楼：成人1,200日元；大学/高中生 600 日元（有证明）（海外学生为 ISIC）；初中生及以下凭证明免费。公园设施有单独的规则。",
+      "vi": "Tháp: người lớn 1.200 yên; sinh viên đại học/trung học ¥600 có bằng chứng (ISIC dành cho sinh viên nước ngoài); tuổi trung học cơ sở trở xuống miễn phí có bằng chứng. Cơ sở công viên có quy định riêng.",
+      "fr": "Tour : adultes 1 200 ¥ ; étudiants et lycéens 600 ¥ sur justificatif (carte ISIC pour les étudiants étrangers) ; collégiens et enfants plus jeunes gratuits sur justificatif. Les équipements du parc ont des règles distinctes.",
+      "es": "Torre: adultos 1.200 ¥; universitarios y estudiantes de bachillerato 600 ¥ con acreditación (ISIC para estudiantes extranjeros); escolares de secundaria básica y menores, gratis con acreditación. Las instalaciones del parque tienen reglas propias."
     },
     "booking": {
       "en": "Online tickets are available. The tower does not accept entry reservations; advance contact for groups does not reserve admission.",
       "ja": "オンライン券あり。入館予約は受け付けていません。団体の事前連絡も予約扱いではありません。",
-      "th": "มีตั๋วออนไลน์ หอปราสาทไม่รับจองเวลาเข้า การแจ้งล่วงหน้าสำหรับหมู่คณะไม่ถือเป็นการจองเข้า"
+      "th": "มีตั๋วออนไลน์ หอปราสาทไม่รับจองเวลาเข้า การแจ้งล่วงหน้าสำหรับหมู่คณะไม่ถือเป็นการจองเข้า",
+      "ko": "온라인 티켓을 이용할 수 있습니다. 타워는 입장 예약을 받지 않습니다. 단체의 경우 사전 연락으로 입장을 예약하지 않습니다.",
+      "zh-CN": "可在线购票。塔楼不接受入场预约；团体提前联系不保留入场资格。",
+      "vi": "Vé trực tuyến có sẵn. Tháp không chấp nhận đặt chỗ vào cửa; liên hệ trước cho các nhóm không bảo đảm chỗ vào cửa.",
+      "fr": "Des billets en ligne sont disponibles. La tour n'accepte pas les réservations d'entrée ; Un contact préalable pour les groupes ne réserve pas l'admission.",
+      "es": "Los boletos en línea están disponibles. La torre no acepta reservas de entrada; contacto previo para grupos no reserva entrada."
     },
     "accessibility": {
       "en": "Staff assist wheelchair users with outside and internal lifts to visitor floors. Strollers are normally left at the entrance because upper floors are narrow and busy.",
       "ja": "車いす利用者などはスタッフ案内で館外・館内エレベーターを利用できます。上層階は狭く混雑するため、ベビーカーは原則入口で預けます。",
-      "th": "เจ้าหน้าที่ช่วยผู้ใช้รถเข็นใช้ลิฟต์ภายนอกและภายในไปชั้นจัดแสดง โดยปกติให้ฝากรถเข็นเด็กที่ทางเข้าเนื่องจากชั้นบนแคบและคนมาก"
+      "th": "เจ้าหน้าที่ช่วยผู้ใช้รถเข็นใช้ลิฟต์ภายนอกและภายในไปชั้นจัดแสดง โดยปกติให้ฝากรถเข็นเด็กที่ทางเข้าเนื่องจากชั้นบนแคบและคนมาก",
+      "ko": "직원은 방문객 층까지 외부 및 내부 리프트를 사용하여 휠체어 사용자를 지원합니다. 상층부는 좁고 혼잡하기 때문에 일반적으로 유모차는 입구에 놓아둡니다.",
+      "zh-CN": "工作人员协助轮椅使用者使用外部和内部电梯到达访客楼层。由于楼上狭窄且繁忙，婴儿车通常留在入口处。",
+      "vi": "Nhân viên hỗ trợ người sử dụng xe lăn bằng thang máy bên ngoài và bên trong lên các tầng dành cho khách. Xe đẩy thường được để ở lối vào vì các tầng trên hẹp và đông đúc.",
+      "fr": "Le personnel aide les utilisateurs de fauteuils roulants avec des ascenseurs extérieurs et internes jusqu'aux étages des visiteurs. Les poussettes sont normalement laissées à l'entrée car les étages supérieurs sont étroits et très fréquentés.",
+      "es": "El personal ayuda a los usuarios de sillas de ruedas con ascensores externos e internos a los pisos de visitantes. Los cochecitos normalmente se dejan en la entrada porque los pisos superiores son estrechos y concurridos."
     },
     "entrance": {
       "en": "From Morinomiya, the signed barrier-free approach follows Chuo-odori past Peace Osaka to Sakuramon. The direct park route requires stairs or a roughly 1.8 km detour.",
       "ja": "森ノ宮からのバリアフリー経路は、中央大通り沿いにピースおおさかを越え、案内に従って桜門へ。園内を直接進む経路は階段、または約1.8kmの迂回が必要です。",
-      "th": "จาก Morinomiya เส้นทางตามป้ายสำหรับผู้มีข้อจำกัดการเคลื่อนไหวเลียบถนน Chuo-odori ผ่าน Peace Osaka ไปประตู Sakuramon ทางตรงผ่านสวนต้องใช้บันไดหรืออ้อมประมาณ 1.8 กม."
+      "th": "จาก Morinomiya เส้นทางตามป้ายสำหรับผู้มีข้อจำกัดการเคลื่อนไหวเลียบถนน Chuo-odori ผ่าน Peace Osaka ไปประตู Sakuramon ทางตรงผ่านสวนต้องใช้บันไดหรืออ้อมประมาณ 1.8 กม.",
+      "ko": "모리노미야에서 안내 표지가 있는 무장애 경로는 주오오도리를 따라 피스 오사카를 지나 사쿠라몬으로 이어집니다. 공원 안의 직행 경로에는 계단이 있거나 약 1.8km를 우회해야 합니다.",
+      "zh-CN": "从森之宫出发，沿有标识的无障碍路线，经中央大通、Peace Osaka至樱门。公园内的直接路线需要走楼梯，或绕行约1.8公里。",
+      "vi": "Từ Morinomiya, tuyến đường phù hợp cho người hạn chế vận động có biển chỉ dẫn đi theo Chuo-odori, qua Peace Osaka đến Sakuramon. Đường trực tiếp qua công viên có cầu thang hoặc cần đi vòng khoảng 1,8 km.",
+      "fr": "De Morinomiya, l’itinéraire accessible balisé suit Chuo-odori en passant par Peace Osaka jusqu'à Sakuramon. Le parcours direct du parc nécessite des escaliers ou un détour d'environ 1,8 km.",
+      "es": "Desde Morinomiya, la ruta accesible señalizada sigue Chuo-odori, pasa por Peace Osaka y llega a Sakuramon. La ruta directa por el parque requiere escaleras o un desvío de unos 1,8 km."
     }
   },
   "osaka-castle": {
@@ -470,12 +735,22 @@
     "access": {
       "en": "JR Morinomiya on the Osaka Loop Line is beside Osaka Castle Park. The castle tower is farther inside the grounds.",
       "ja": "大阪環状線森ノ宮駅は大阪城公園に隣接。天守閣は公園内をさらに歩きます。",
-      "th": "JR Morinomiya สาย Osaka Loop Line อยู่ติดสวนปราสาท ส่วนตัวปราสาทต้องเดินเข้าไปในสวนอีก"
+      "th": "JR Morinomiya สาย Osaka Loop Line อยู่ติดสวนปราสาท ส่วนตัวปราสาทต้องเดินเข้าไปในสวนอีก",
+      "ko": "오사카 순환선의 JR 모리노미야는 오사카 성 공원 옆에 있습니다. 천수각은 경내 더 안쪽에 있습니다.",
+      "zh-CN": "大阪环状线的JR森之宫就在大阪城公园旁边。天守阁位于庭院内较远的地方。",
+      "vi": "JR Morinomiya trên Tuyến Osaka Loop Line nằm cạnh Công viên Lâu đài Osaka. Tháp lâu đài nằm xa hơn trong khuôn viên.",
+      "fr": "JR Morinomiya sur la ligne Osaka Loop se trouve à côté du parc du château d'Osaka. La tour du château se trouve plus loin à l'intérieur du parc.",
+      "es": "El JR Morinomiya de la línea Osaka Loop está al lado del parque del Castillo de Osaka. La torre del castillo se encuentra más dentro del recinto."
     },
     "entrance": {
       "en": "From Morinomiya, the signed barrier-free approach follows Chuo-odori past Peace Osaka to Sakuramon. The direct park route requires stairs or a roughly 1.8 km detour.",
       "ja": "森ノ宮からのバリアフリー経路は、中央大通り沿いにピースおおさかを越え、案内に従って桜門へ。園内を直接進む経路は階段、または約1.8kmの迂回が必要です。",
-      "th": "จาก Morinomiya เส้นทางตามป้ายสำหรับผู้มีข้อจำกัดการเคลื่อนไหวเลียบถนน Chuo-odori ผ่าน Peace Osaka ไปประตู Sakuramon ทางตรงผ่านสวนต้องใช้บันไดหรืออ้อมประมาณ 1.8 กม."
+      "th": "จาก Morinomiya เส้นทางตามป้ายสำหรับผู้มีข้อจำกัดการเคลื่อนไหวเลียบถนน Chuo-odori ผ่าน Peace Osaka ไปประตู Sakuramon ทางตรงผ่านสวนต้องใช้บันไดหรืออ้อมประมาณ 1.8 กม.",
+      "ko": "모리노미야에서 안내 표지가 있는 무장애 경로는 주오오도리를 따라 피스 오사카를 지나 사쿠라몬으로 이어집니다. 공원 안의 직행 경로에는 계단이 있거나 약 1.8km를 우회해야 합니다.",
+      "zh-CN": "从森之宫出发，沿有标识的无障碍路线，经中央大通、Peace Osaka至樱门。公园内的直接路线需要走楼梯，或绕行约1.8公里。",
+      "vi": "Từ Morinomiya, tuyến đường phù hợp cho người hạn chế vận động có biển chỉ dẫn đi theo Chuo-odori, qua Peace Osaka đến Sakuramon. Đường trực tiếp qua công viên có cầu thang hoặc cần đi vòng khoảng 1,8 km.",
+      "fr": "De Morinomiya, l’itinéraire accessible balisé suit Chuo-odori en passant par Peace Osaka jusqu'à Sakuramon. Le parcours direct du parc nécessite des escaliers ou un détour d'environ 1,8 km.",
+      "es": "Desde Morinomiya, la ruta accesible señalizada sigue Chuo-odori, pasa por Peace Osaka y llega a Sakuramon. La ruta directa por el parque requiere escaleras o un desvío de unos 1,8 km."
     },
     "fieldSources": {
       "entrance": {
@@ -490,7 +765,12 @@
     "accessibility": {
       "en": "The tower has lifts. The northern Gokurakubashi approach includes steep slopes and sections without handrails; consult the operator’s barrier-free map before choosing an approach.",
       "ja": "天守閣にはエレベーターがあります。北側の極楽橋からの経路には急な坂や手すりのない区間があります。進入経路は運営者のバリアフリーマップで確認してください。",
-      "th": "หอปราสาทมีลิฟต์ เส้นทางจากสะพาน Gokurakubashi ด้านเหนือมีทางชันและบางช่วงไม่มีราวจับ ตรวจแผนที่การเข้าถึงของผู้ดูแลก่อนเลือกเส้นทาง"
+      "th": "หอปราสาทมีลิฟต์ เส้นทางจากสะพาน Gokurakubashi ด้านเหนือมีทางชันและบางช่วงไม่มีราวจับ ตรวจแผนที่การเข้าถึงของผู้ดูแลก่อนเลือกเส้นทาง",
+      "ko": "타워에는 엘리베이터가 있습니다. 북부 고쿠라쿠바시 접근로는 가파른 경사면과 난간이 없는 구간이 있습니다. 접근 방식을 선택하기 전에 운영자의 무장애 지도를 참조하세요.",
+      "zh-CN": "塔楼设有电梯。极乐桥北部的引道包括陡坡和没有扶手的路段；在选择路线之前，请查阅运营商的无障碍地图。",
+      "vi": "Tháp có thang máy. Lối Gokurakubashi ở phía bắc có đoạn dốc và đoạn không có tay vịn. Hãy xem bản đồ tiếp cận không rào cản của đơn vị quản lý trước khi chọn lối đi.",
+      "fr": "La tour dispose d'ascenseurs. L'approche nord de Gokurakubashi comprend des pentes raides et des sections sans mains courantes ; consultez la carte des accès accessibles de l’opérateur avant de choisir une approche.",
+      "es": "La torre dispone de ascensores. El acceso al norte de Gokurakubashi incluye pendientes pronunciadas y tramos sin pasamanos; Consulte el mapa sin barreras del operador antes de elegir un enfoque."
     }
   },
   "pref:hyogo:meriken-park": {
@@ -499,7 +779,12 @@
     "access": {
       "en": "Walk south from JR Motomachi for about 10 minutes.",
       "ja": "JR元町駅から南へ徒歩約10分。",
-      "th": "จาก JR Motomachi เดินไปทางใต้ประมาณ 10 นาที"
+      "th": "จาก JR Motomachi เดินไปทางใต้ประมาณ 10 นาที",
+      "ko": "JR 모토마치에서 남쪽으로 약 10분 정도 걸어가세요.",
+      "zh-CN": "从JR元町向南步行约10分钟。",
+      "vi": "Đi bộ về phía nam từ JR Motomachi khoảng 10 phút.",
+      "fr": "Marchez vers le sud depuis JR Motomachi pendant environ 10 minutes.",
+      "es": "Camine hacia el sur desde JR Motomachi durante unos 10 minutos."
     }
   },
   "pref:nara:kasuga-taisha": {
@@ -508,7 +793,12 @@
     "access": {
       "en": "Use buses from JR or Kintetsu Nara to Kasuga Taisha Honden. Walking takes about 30 minutes from Kintetsu Nara or 45 from JR Nara.",
       "ja": "JR・近鉄奈良駅から春日大社本殿行きバス。徒歩は近鉄奈良から約30分、JR奈良から約45分。",
-      "th": "ใช้บัสจาก JR หรือ Kintetsu Nara ไป Kasuga Taisha Honden หากเดินจาก Kintetsu ราว 30 นาที จาก JR ราว 45 นาที"
+      "th": "ใช้บัสจาก JR หรือ Kintetsu Nara ไป Kasuga Taisha Honden หากเดินจาก Kintetsu ราว 30 นาที จาก JR ราว 45 นาที",
+      "ko": "JR이나 긴테츠 나라에서 가스가타이샤 혼덴까지 버스를 이용하세요. 도보 소요 시간은 긴테츠 나라에서 약 30분, JR 나라에서 45분입니다.",
+      "zh-CN": "从JR或近铁奈良乘坐巴士到春日大社本殿。从近铁奈良步行约 30 分钟，从 JR 奈良步行约 45 分钟。",
+      "vi": "Sử dụng xe buýt từ JR hoặc Kintetsu Nara đến Kasuga Taisha Honden. Đi bộ mất khoảng 30 phút từ Kintetsu Nara hoặc 45 phút từ JR Nara.",
+      "fr": "Utilisez les bus de JR ou Kintetsu Nara à Kasuga Taisha Honden. La marche prend environ 30 minutes depuis Kintetsu Nara ou 45 minutes depuis JR Nara.",
+      "es": "Utilice los autobuses de JR o Kintetsu Nara hasta Kasuga Taisha Honden. Caminar tarda unos 30 minutos desde Kintetsu Nara o 45 desde JR Nara."
     }
   },
   "pref:wakayama:wakayama-castle": {
@@ -517,7 +807,12 @@
     "access": {
       "en": "Walk about 20 minutes from JR Wakayama or 10 minutes from Nankai Wakayama-shi; buses also connect from JR Wakayama.",
       "ja": "JR和歌山駅から徒歩約20分、南海和歌山市駅から約10分。JR和歌山駅からバスも利用可。",
-      "th": "เดินประมาณ 20 นาทีจาก JR Wakayama หรือ 10 นาทีจาก Nankai Wakayama-shi มีบัสจาก JR Wakayama ด้วย"
+      "th": "เดินประมาณ 20 นาทีจาก JR Wakayama หรือ 10 นาทีจาก Nankai Wakayama-shi มีบัสจาก JR Wakayama ด้วย",
+      "ko": "JR 와카야마에서 도보 약 20분, 난카이 와카야마시에서 도보 약 10분. JR 와카야마에서도 버스가 운행됩니다.",
+      "zh-CN": "从JR和歌山步行约20分钟，从南海和歌山市步行约10分钟； JR 和歌山也有巴士连接。",
+      "vi": "Đi bộ khoảng 20 phút từ JR Wakayama hoặc 10 phút từ Nankai Wakayama-shi; xe buýt cũng kết nối từ JR Wakayama.",
+      "fr": "Marchez environ 20 minutes depuis JR Wakayama ou 10 minutes depuis Nankai Wakayama-shi ; des bus relient également depuis JR Wakayama.",
+      "es": "Camine unos 20 minutos desde JR Wakayama o 10 minutos desde Nankai Wakayama-shi; Los autobuses también conectan desde JR Wakayama."
     }
   },
   "pref:wakayama:kongobuji-temple": {
@@ -526,7 +821,12 @@
     "access": {
       "en": "From Gokurakubashi take the cable car to Koyasan, then Nankai Rinkan Bus to Kongobuji-mae.",
       "ja": "極楽橋からケーブルカーで高野山駅へ。南海りんかんバスで金剛峯寺前下車。",
-      "th": "จาก Gokurakubashi ต่อเคเบิลคาร์ไป Koyasan แล้วใช้ Nankai Rinkan Bus ลง Kongobuji-mae"
+      "th": "จาก Gokurakubashi ต่อเคเบิลคาร์ไป Koyasan แล้วใช้ Nankai Rinkan Bus ลง Kongobuji-mae",
+      "ko": "고쿠라쿠바시에서 케이블카를 타고 고야산까지 간 후 난카이 린칸 버스를 타고 콩고부지마에까지 갑니다.",
+      "zh-CN": "从极乐桥乘坐缆车到高野山，然后乘坐南海林间巴士到金刚峰寺前。",
+      "vi": "Từ Gokurakubashi đi cáp treo đến Koyasan, sau đó đi xe buýt Nankai Rinkan đến Kongobuji-mae.",
+      "fr": "Depuis Gokurakubashi, prenez le funiculaire jusqu’à Koyasan, puis le bus Nankai Rinkan jusqu’à Kongobuji-mae.",
+      "es": "Desde Gokurakubashi, tome el funicular hasta Koyasan y luego el autobús Nankai Rinkan hasta Kongobuji-mae."
     }
   },
   "pref:tottori:tottori-sand-dunes": {
@@ -535,7 +835,12 @@
     "access": {
       "en": "Take a bus from Tottori Station to the dune area, about 20 minutes. Check the return service before walking on the dunes.",
       "ja": "鳥取駅から砂丘方面へバス約20分。砂丘を歩く前に帰りの便を確認。",
-      "th": "จากสถานี Tottori นั่งบัสไปบริเวณเนินทรายประมาณ 20 นาที ตรวจเที่ยวกลับก่อนออกเดินบนเนินทราย"
+      "th": "จากสถานี Tottori นั่งบัสไปบริเวณเนินทรายประมาณ 20 นาที ตรวจเที่ยวกลับก่อนออกเดินบนเนินทราย",
+      "ko": "돗토리역에서 버스를 타고 사구 지역까지 약 20분 소요됩니다. 모래 언덕을 걷기 전에 돌아오는 서비스를 확인하세요.",
+      "zh-CN": "从鸟取站乘坐巴士到沙丘地区约20分钟。在沙丘上行走之前请检查返程服务。",
+      "vi": "Đi xe buýt từ Ga Tottori đến khu vực cồn cát, mất khoảng 20 phút. Kiểm tra dịch vụ hoàn trả trước khi đi bộ trên cồn cát.",
+      "fr": "Prenez un bus depuis la gare de Tottori jusqu'à la zone des dunes, environ 20 minutes. Vérifiez le service de retour avant de marcher sur les dunes.",
+      "es": "Tome un autobús desde la estación de Tottori hasta la zona de las dunas, unos 20 minutos. Consulta el servicio de regreso antes de caminar sobre las dunas."
     }
   },
   "pref:tottori:sand-museum": {
@@ -544,7 +849,12 @@
     "access": {
       "en": "Travel by bus from Tottori Station toward the sand dunes (about 20 minutes), then follow signs to the museum in the dune area.",
       "ja": "鳥取駅から砂丘方面へバス約20分、砂丘周辺の案内で砂の美術館へ。",
-      "th": "จากสถานี Tottori ใช้บัสไปทางเนินทรายประมาณ 20 นาที แล้วตามป้ายไปพิพิธภัณฑ์ในบริเวณเนินทราย"
+      "th": "จากสถานี Tottori ใช้บัสไปทางเนินทรายประมาณ 20 นาที แล้วตามป้ายไปพิพิธภัณฑ์ในบริเวณเนินทราย",
+      "ko": "돗토리역에서 버스를 타고 사구 방향으로 이동한 후(약 20분) 사구 지역에 있는 박물관 표지판을 따라 가세요.",
+      "zh-CN": "从鸟取站乘坐巴士前往沙丘（约 20 分钟），然后按照指示牌前往沙丘区的博物馆。",
+      "vi": "Di chuyển bằng xe buýt từ Ga Tottori về phía cồn cát (khoảng 20 phút), sau đó đi theo các biển chỉ dẫn để đến bảo tàng trong khu vực cồn cát.",
+      "fr": "Prenez le bus depuis la gare de Tottori en direction des dunes de sable (environ 20 minutes), puis suivez les panneaux indiquant le musée dans la zone des dunes.",
+      "es": "Viaja en autobús desde la estación de Tottori hacia las dunas de arena (unos 20 minutos) y luego sigue las indicaciones hacia el museo en la zona de las dunas."
     }
   },
   "pref:shimane:matsue-castle": {
@@ -553,7 +863,12 @@
     "access": {
       "en": "The castle is about 2 km from Matsue Station. The Lakeline sightseeing bus connects the station and castle entrance area.",
       "ja": "松江駅から約2km。レイクラインバスで城の入口周辺へアクセスできます。",
-      "th": "ปราสาทอยู่ห่างสถานี Matsue ประมาณ 2 กม. มีบัส Lakeline เชื่อมจากสถานีไปบริเวณทางเข้าปราสาท"
+      "th": "ปราสาทอยู่ห่างสถานี Matsue ประมาณ 2 กม. มีบัส Lakeline เชื่อมจากสถานีไปบริเวณทางเข้าปราสาท",
+      "ko": "성은 마쓰에역에서 약 2km 떨어져 있습니다. 레이크라인 관광 버스는 역과 성 입구 지역을 연결합니다.",
+      "zh-CN": "城堡距离松江站约2公里。 Lakeline观光巴士连接车站和城堡入口区。",
+      "vi": "Lâu đài cách Ga Matsue khoảng 2 km. Xe buýt tham quan Lakeline kết nối nhà ga và khu vực lối vào lâu đài.",
+      "fr": "Le château se trouve à environ 2 km de la gare de Matsue. Le bus touristique Lakeline relie la gare et l'entrée du château.",
+      "es": "El castillo está a unos 2 km de la estación Matsue. El autobús turístico Lakeline conecta la estación y la zona de entrada del castillo."
     }
   },
   "pref:shimane:izumo-taisha": {
@@ -562,7 +877,12 @@
     "access": {
       "en": "From JR Izumoshi, take an Ichibata bus bound for Izumo Taisha and get off at Seimon-mae.",
       "ja": "JR出雲市駅から一畑バス出雲大社方面に乗り、正門前下車。",
-      "th": "จาก JR Izumoshi ใช้บัส Ichibata ไป Izumo Taisha ลง Seimon-mae"
+      "th": "จาก JR Izumoshi ใช้บัส Ichibata ไป Izumo Taisha ลง Seimon-mae",
+      "ko": "JR 이즈모시에서 이즈모타이샤행 이치바타 버스를 타고 세이몬마에에서 하차하세요.",
+      "zh-CN": "从JR出云市乘坐开往出云大社的一畑巴士，在正门前下车。",
+      "vi": "Từ JR Izumoshi, bắt xe buýt Ichibata hướng đến Izumo Taisha và xuống tại Seimon-mae.",
+      "fr": "Depuis JR Izumoshi, prenez un bus Ichibata à destination d'Izumo Taisha et descendez à Seimon-mae.",
+      "es": "Desde JR Izumoshi, tome un autobús Ichibata con destino a Izumo Taisha y bájese en Seimon-mae."
     }
   },
   "pref:okayama:okayama-korakuen": {
@@ -571,7 +891,12 @@
     "access": {
       "en": "Take a bus from JR Okayama to Korakuen-mae, about 10 minutes.",
       "ja": "JR岡山駅から後楽園前までバス約10分。",
-      "th": "จาก JR Okayama นั่งบัสประมาณ 10 นาทีลง Korakuen-mae"
+      "th": "จาก JR Okayama นั่งบัสประมาณ 10 นาทีลง Korakuen-mae",
+      "ko": "JR 오카야마에서 버스를 타고 고라쿠엔마에까지 약 10분.",
+      "zh-CN": "从JR冈山乘坐巴士到后乐园前约10分钟。",
+      "vi": "Đi xe buýt từ JR Okayama đến Korakuen-mae, mất khoảng 10 phút.",
+      "fr": "Prendre un bus depuis JR Okayama jusqu'à Korakuen-mae, environ 10 minutes.",
+      "es": "Tome un autobús desde JR Okayama hasta Korakuen-mae, unos 10 minutos."
     }
   },
   "pref:okayama:kurashiki-bikan-historical-quarter": {
@@ -580,7 +905,12 @@
     "access": {
       "en": "Walk about 10 minutes from JR Kurashiki. This is different from Shin-Kurashiki, the Shinkansen station.",
       "ja": "JR倉敷駅から徒歩約10分。新幹線の新倉敷駅とは別です。",
-      "th": "เดินประมาณ 10 นาทีจาก JR Kurashiki คนละสถานีกับ Shin-Kurashiki ที่รถชินคันเซ็นจอด"
+      "th": "เดินประมาณ 10 นาทีจาก JR Kurashiki คนละสถานีกับ Shin-Kurashiki ที่รถชินคันเซ็นจอด",
+      "ko": "JR 구라시키에서 도보로 약 10분. 신칸센역인 신쿠라시키역과는 다릅니다.",
+      "zh-CN": "从JR仓敷站步行约10分钟。这与新干线新仓敷站不同。",
+      "vi": "Đi bộ khoảng 10 phút từ JR Kurashiki. Điều này khác với Shin-Kurashiki, ga Shinkansen.",
+      "fr": "Marchez environ 10 minutes depuis JR Kurashiki. C'est différent de Shin-Kurashiki, la station Shinkansen.",
+      "es": "Camine unos 10 minutos desde JR Kurashiki. Esto es diferente de Shin-Kurashiki, la estación Shinkansen."
     }
   },
   "pref:hiroshima:hiroshima-peace-memorial-park": {
@@ -589,7 +919,12 @@
     "access": {
       "en": "From Hiroshima Station, take a tram or bus toward Genbaku-Dome-mae, then walk into the park. Allow about 20 minutes for the transit leg.",
       "ja": "広島駅から原爆ドーム前方面へ電車またはバス、その後徒歩で公園へ。乗車の目安は約20分。",
-      "th": "จากสถานี Hiroshima ใช้รถรางหรือบัสไป Genbaku-Dome-mae แล้วเดินเข้าสวน เผื่อเวลานั่งรถประมาณ 20 นาที"
+      "th": "จากสถานี Hiroshima ใช้รถรางหรือบัสไป Genbaku-Dome-mae แล้วเดินเข้าสวน เผื่อเวลานั่งรถประมาณ 20 นาที",
+      "ko": "히로시마역에서 겐바쿠돔마에 행 트램이나 버스를 타고 공원으로 걸어가세요. 환승 구간에는 약 20분 정도 소요됩니다.",
+      "zh-CN": "从广岛站乘坐电车或巴士前往原爆巨蛋前，然后步行进入公园。中转行程大约需要 20 分钟。",
+      "vi": "Từ Ga Hiroshima, bắt xe điện hoặc xe buýt về hướng Genbaku-Dome-mae, sau đó đi bộ vào công viên. Dành khoảng 20 phút cho chặng quá cảnh.",
+      "fr": "Depuis la gare d'Hiroshima, prenez un tramway ou un bus en direction de Genbaku-Dome-mae, puis entrez dans le parc. Comptez environ 20 minutes pour le trajet en transit.",
+      "es": "Desde la estación de Hiroshima, tome un tranvía o autobús hacia Genbaku-Dome-mae y luego camine hacia el parque. Espere unos 20 minutos para el tramo de tránsito."
     }
   },
   "pref:yamaguchi:kintaikyo-bridge": {
@@ -598,7 +933,12 @@
     "access": {
       "en": "Connect by bus or taxi from JR Iwakuni or Shin-Iwakuni. The bridge lies between these stations; neither station is beside it.",
       "ja": "JR岩国駅・新岩国駅からバスまたはタクシー。橋は両駅の間にあり、駅のすぐ隣ではありません。",
-      "th": "ต่อบัสหรือแท็กซี่จาก JR Iwakuni หรือ Shin-Iwakuni สะพานอยู่ระหว่างสองสถานี ไม่ได้ติดสถานีใด"
+      "th": "ต่อบัสหรือแท็กซี่จาก JR Iwakuni หรือ Shin-Iwakuni สะพานอยู่ระหว่างสองสถานี ไม่ได้ติดสถานีใด",
+      "ko": "JR 이와쿠니 또는 신이와쿠니에서 버스나 택시로 환승하세요. 다리는 이 역들 사이에 있습니다. 어느 역도 옆에 없습니다.",
+      "zh-CN": "从 JR 岩国或新岩国乘坐巴士或出租车转车。这座桥位于这些车站之间；两个车站都不在它旁边。",
+      "vi": "Kết nối bằng xe buýt hoặc taxi từ JR Iwakuni hoặc Shin-Iwakuni. Cây cầu nằm giữa các ga này; không có trạm nào ở bên cạnh nó.",
+      "fr": "Connectez-vous en bus ou en taxi depuis JR Iwakuni ou Shin-Iwakuni. Le pont se situe entre ces gares ; aucune des deux stations n'est à côté.",
+      "es": "Conexión en autobús o taxi desde JR Iwakuni o Shin-Iwakuni. El puente se encuentra entre estas estaciones; ninguna estación está al lado."
     }
   },
   "pref:yamaguchi:akiyoshido-cave": {
@@ -607,7 +947,12 @@
     "access": {
       "en": "From Shin-Yamaguchi take a bus to Akiyoshido (about 40 minutes); the main cave entrance is about five minutes on foot from the terminal.",
       "ja": "新山口駅から秋芳洞までバス約40分。バスターミナルから正面入口へ徒歩約5分。",
-      "th": "จาก Shin-Yamaguchi นั่งบัสถึง Akiyoshido ประมาณ 40 นาที จากท่ารถเดินราว 5 นาทีถึงทางเข้าหลัก"
+      "th": "จาก Shin-Yamaguchi นั่งบัสถึง Akiyoshido ประมาณ 40 นาที จากท่ารถเดินราว 5 นาทีถึงทางเข้าหลัก",
+      "ko": "신야마구치에서 아키요시도까지 버스를 타세요(약 40분). 주요 동굴 입구는 터미널에서 도보로 약 5분 거리에 있습니다.",
+      "zh-CN": "从新山口乘坐巴士到秋芳堂（约40分钟）；主洞穴入口距离巴士总站步行约五分钟。",
+      "vi": "Từ Shin-Yamaguchi đi xe buýt đến Akiyoshido (khoảng 40 phút); lối vào hang chính cách nhà ga khoảng năm phút đi bộ.",
+      "fr": "Depuis Shin-Yamaguchi, prendre un bus pour Akiyoshido (environ 40 minutes) ; l'entrée principale de la grotte se trouve à environ cinq minutes à pied du terminal.",
+      "es": "Desde Shin-Yamaguchi tomar un autobús hasta Akiyoshido (unos 40 minutos); La entrada principal a la cueva está a unos cinco minutos a pie desde la terminal."
     }
   },
   "pref:tokushima:awa-odori-kaikan": {
@@ -616,7 +961,12 @@
     "access": {
       "en": "Walk about 10 minutes from JR Tokushima Station.",
       "ja": "JR徳島駅から徒歩約10分。",
-      "th": "เดินประมาณ 10 นาทีจากสถานี JR Tokushima"
+      "th": "เดินประมาณ 10 นาทีจากสถานี JR Tokushima",
+      "ko": "JR 도쿠시마역에서 도보로 약 10분.",
+      "zh-CN": "从JR德岛站步行约10分钟。",
+      "vi": "Đi bộ khoảng 10 phút từ Ga JR Tokushima.",
+      "fr": "Marchez environ 10 minutes depuis la gare JR Tokushima.",
+      "es": "Camine unos 10 minutos desde la estación JR Tokushima."
     }
   },
   "pref:tokushima:naruto-park": {
@@ -625,7 +975,12 @@
     "access": {
       "en": "City buses connect Naruto Station with Naruto Park. Check the return bus and the tide timetable for whirlpool viewing separately.",
       "ja": "鳴門駅から路線バスで鳴門公園へ。帰りのバスと渦潮観潮の潮見表は別々に確認。",
-      "th": "มีบัสท้องถิ่นจากสถานี Naruto ไป Naruto Park ตรวจเที่ยวกลับและตารางน้ำขึ้นลงสำหรับดูน้ำวนแยกกัน"
+      "th": "มีบัสท้องถิ่นจากสถานี Naruto ไป Naruto Park ตรวจเที่ยวกลับและตารางน้ำขึ้นลงสำหรับดูน้ำวนแยกกัน",
+      "ko": "시내 버스는 나루토역과 나루토 공원을 연결합니다. 소용돌이 구경을 위해서는 돌아오는 버스와 조수 시간표를 별도로 확인하세요.",
+      "zh-CN": "城市巴士连接鸣门站和鸣门公园。单独查看回程巴士和观赏漩涡的潮汐时间表。",
+      "vi": "Xe buýt thành phố kết nối Ga Naruto với Công viên Naruto. Kiểm tra xe buýt quay về và thời gian biểu thủy triều để xem riêng xoáy nước.",
+      "fr": "Des bus urbains relient la gare de Naruto au parc Naruto. Vérifiez séparément le bus de retour et les horaires des marées pour admirer les tourbillons marins.",
+      "es": "Los autobuses urbanos conectan la estación de Naruto con el parque Naruto. Consulte el autobús de regreso y el horario de mareas para ver los remolinos marinos por separado."
     }
   },
   "pref:kagawa:kotohiragu": {
@@ -634,7 +989,12 @@
     "access": {
       "en": "The start of the stone steps is about 10 minutes on foot from JR Kotohira or eight minutes from Kotoden Kotohira. The shrine climb comes after this walk.",
       "ja": "石段の登り口へはJR琴平駅から徒歩約10分、ことでん琴平駅から約8分。その後に参道の登りがあります。",
-      "th": "เดินถึงจุดเริ่มบันไดประมาณ 10 นาทีจาก JR Kotohira หรือ 8 นาทีจาก Kotoden Kotohira จากนั้นยังต้องขึ้นบันไดไปศาลเจ้า"
+      "th": "เดินถึงจุดเริ่มบันไดประมาณ 10 นาทีจาก JR Kotohira หรือ 8 นาทีจาก Kotoden Kotohira จากนั้นยังต้องขึ้นบันไดไปศาลเจ้า",
+      "ko": "돌계단 시작점은 JR 고토히라에서 도보로 약 10분, 고토덴 고토히라에서 8분 거리입니다. 이 산책 후에는 신사 등반이 이어집니다.",
+      "zh-CN": "石阶的起点从JR琴平站步行约10分钟，从琴电琴平站步行约8分钟。步行之后就是攀登神社。",
+      "vi": "Điểm bắt đầu của các bậc đá là khoảng 10 phút đi bộ từ JR Kotohira hoặc 8 phút từ Kotoden Kotohira. Việc leo lên đền thờ diễn ra sau chuyến đi bộ này.",
+      "fr": "Le départ des marches de pierre se trouve à environ 10 minutes à pied de JR Kotohira ou à huit minutes de Kotoden Kotohira. La montée du sanctuaire vient après cette promenade.",
+      "es": "El inicio de las escaleras de piedra está a unos 10 minutos a pie desde JR Kotohira u ocho minutos desde Kotoden Kotohira. Después de esta caminata viene la subida al santuario."
     }
   },
   "pref:ehime:matsuyama-castle": {
@@ -643,7 +1003,12 @@
     "access": {
       "en": "Use Okaido tram stop and walk about five minutes to the ropeway area. The castle is on Mt Katsuyama; choose the ropeway, chairlift or uphill walking route.",
       "ja": "大街道電停からロープウェイ方面へ徒歩約5分。城は勝山山上にあり、ロープウェイ・リフト・徒歩の登城路を選びます。",
-      "th": "ลงรถราง Okaido แล้วเดินประมาณ 5 นาทีถึงบริเวณกระเช้า ปราสาทอยู่บนเขา Katsuyama เลือกกระเช้า ลิฟต์เก้าอี้ หรือเส้นทางเดินขึ้น"
+      "th": "ลงรถราง Okaido แล้วเดินประมาณ 5 นาทีถึงบริเวณกระเช้า ปราสาทอยู่บนเขา Katsuyama เลือกกระเช้า ลิฟต์เก้าอี้ หรือเส้นทางเดินขึ้น",
+      "ko": "오카이도 트램 정류장을 이용하여 로프웨이 지역까지 약 5분 정도 걸어가세요. 성은 가쓰야마 산에 있습니다. 로프웨이, 체어리프트 또는 오르막길 도보 경로를 선택하세요.",
+      "zh-CN": "使用大街道电车站步行约5分钟即可到达缆车站。城堡位于胜山山上；选择索道、缆车或上坡步行路线。",
+      "vi": "Từ trạm xe điện Okaido, đi bộ khoảng 5 phút đến khu cáp treo. Lâu đài ở trên Núi Katsuyama; chọn cáp treo cabin, ghế treo hoặc đường đi bộ lên dốc.",
+      "fr": "Utilisez l'arrêt de tramway Okaido et marchez environ cinq minutes jusqu'au téléphérique. Le château se trouve sur le mont Katsuyama ; choisissez le téléphérique, le télésiège ou la randonnée pédestre.",
+      "es": "Utilice la parada de tranvía de Okaido y camine unos cinco minutos hasta la zona del teleférico. El castillo está en el monte Katsuyama; Elija el teleférico, el telesilla o la ruta a pie cuesta arriba."
     }
   },
   "pref:ehime:dogo-onsen-honkan": {
@@ -652,7 +1017,12 @@
     "access": {
       "en": "From JR Matsuyama use tram 5 to Dogo Onsen (about 30 minutes), then walk about five minutes through the shopping arcade.",
       "ja": "JR松山駅から5系統電車で道後温泉へ約30分、商店街を通って徒歩約5分。",
-      "th": "จาก JR Matsuyama ใช้รถรางสาย 5 ถึง Dogo Onsen ราว 30 นาที แล้วเดินผ่านย่านร้านค้าอีกประมาณ 5 นาที"
+      "th": "จาก JR Matsuyama ใช้รถรางสาย 5 ถึง Dogo Onsen ราว 30 นาที แล้วเดินผ่านย่านร้านค้าอีกประมาณ 5 นาที",
+      "ko": "JR 마쓰야마에서 5번 트램을 타고 도고 온천까지 이동한 후(약 30분) 쇼핑 아케이드를 통과하여 약 5분 정도 걸어가세요.",
+      "zh-CN": "从 JR 松山乘坐电车 5 号线到道后温泉站（约 30 分钟），然后穿过商店街步行约 5 分钟。",
+      "vi": "Từ JR Matsuyama đi xe điện số 5 đến Dogo Onsen (khoảng 30 phút), sau đó đi bộ khoảng 5 phút qua khu mua sắm.",
+      "fr": "Depuis JR Matsuyama, utilisez le tram 5 jusqu'à Dogo Onsen (environ 30 minutes), puis marchez environ cinq minutes à travers la galerie marchande.",
+      "es": "Desde JR Matsuyama, utilice el tranvía 5 hasta Dogo Onsen (unos 30 minutos) y luego camine unos cinco minutos por la galería comercial."
     }
   },
   "pref:kochi:kochi-castle": {
@@ -661,7 +1031,12 @@
     "access": {
       "en": "From JR Kochi use a tram journey to Kochijo-mae (about 15 minutes), then walk about five minutes to the castle area.",
       "ja": "JR高知駅から高知城前まで電車で約15分、城周辺へ徒歩約5分。",
-      "th": "จาก JR Kochi ใช้รถรางไป Kochijo-mae ประมาณ 15 นาที แล้วเดินไปบริเวณปราสาทราว 5 นาที"
+      "th": "จาก JR Kochi ใช้รถรางไป Kochijo-mae ประมาณ 15 นาที แล้วเดินไปบริเวณปราสาทราว 5 นาที",
+      "ko": "JR 고치에서 트램을 타고 고치조마에까지 이동한 후(약 15분) 성 지역까지 도보로 약 5분을 이동하세요.",
+      "zh-CN": "从 JR 高知乘坐电车前往高知城前（约 15 分钟），然后步行约 5 分钟到达城堡区。",
+      "vi": "Từ JR Kochi sử dụng hành trình xe điện đến Kochijo-mae (khoảng 15 phút), sau đó đi bộ khoảng 5 phút là đến khu vực lâu đài.",
+      "fr": "Depuis JR Kochi, prenez le tramway jusqu'à Kochijo-mae (environ 15 minutes), puis marchez environ cinq minutes jusqu'au quartier du château.",
+      "es": "Desde JR Kochi, utilice el tranvía hasta Kochijo-mae (unos 15 minutos) y luego camine unos cinco minutos hasta la zona del castillo."
     }
   },
   "pref:saga:yoshinogari-historical-park": {
@@ -670,12 +1045,22 @@
     "access": {
       "en": "Use Yoshinogari-Koen on the JR Nagasaki Main Line, then walk about 15 minutes to the park.",
       "ja": "JR長崎本線吉野ケ里公園駅から徒歩約15分。",
-      "th": "ลง Yoshinogari-Koen สาย JR Nagasaki Main Line แล้วเดินประมาณ 15 นาทีถึงสวน"
+      "th": "ลง Yoshinogari-Koen สาย JR Nagasaki Main Line แล้วเดินประมาณ 15 นาทีถึงสวน",
+      "ko": "JR 나가사키 본선 요시노가리코엔역에서 내려 공원까지 약 15분 걸으세요.",
+      "zh-CN": "在JR长崎本线吉野里公园站下车，再步行约15分钟到公园。",
+      "vi": "Xuống tại Ga Yoshinogari-Koen trên Tuyến chính JR Nagasaki, rồi đi bộ khoảng 15 phút đến công viên.",
+      "fr": "Utilisez Yoshinogari-Koen sur la ligne principale JR Nagasaki, puis marchez environ 15 minutes jusqu'au parc.",
+      "es": "Utilice Yoshinogari-Koen en la línea principal JR Nagasaki y luego camine unos 15 minutos hasta el parque."
     },
     "hours": {
       "en": "09:00–17:00, extended to 18:00 in June–August. Closed Dec 31 and the third Monday of January plus the following day.",
       "ja": "9:00〜17:00、6〜8月は18:00まで。12/31と1月第3月曜・翌日休園。",
-      "th": "09:00–17:00 น. มิ.ย.–ส.ค. ปิด 18:00 น. ปิด 31 ธ.ค. และวันจันทร์ที่สามของ ม.ค. กับวันถัดไป"
+      "th": "09:00–17:00 น. มิ.ย.–ส.ค. ปิด 18:00 น. ปิด 31 ธ.ค. และวันจันทร์ที่สามของ ม.ค. กับวันถัดไป",
+      "ko": "09:00~17:00, 6~8월에는 18:00까지 연장됩니다. 12월 31일, 1월 셋째 월요일과 그 다음날 휴관.",
+      "zh-CN": "09:00-17:00，6-8月延长至18:00。 12 月 31 日和 1 月第三个星期一及其后一天关闭。",
+      "vi": "09:00–17:00, kéo dài đến 18:00 vào tháng 6–tháng 8. Đóng cửa vào ngày 31 tháng 12 và thứ Hai thứ ba của tháng Giêng cộng với ngày hôm sau.",
+      "fr": "De 9h00 à 17h00, prolongé jusqu'à 18h00 en juin-août. Fermé le 31 décembre et le troisième lundi de janvier ainsi que le lendemain.",
+      "es": "De 09:00 a 17:00, ampliado hasta las 18:00 en junio-agosto. Cerrado el 31 de diciembre y el tercer lunes de enero más el día siguiente."
     },
     "fieldSources": {
       "hours": {
@@ -698,17 +1083,32 @@
     "admission": {
       "en": "Adults age 15+ ¥460; age 65+ ¥200 with age proof. Junior-high students and younger enter free.",
       "ja": "大人15歳以上460円、65歳以上200円（年齢確認書類）。中学生以下無料。",
-      "th": "ผู้ใหญ่อายุ 15 ปีขึ้นไป 460 เยน อายุ 65 ปีขึ้นไป 200 เยนพร้อมหลักฐานอายุ นักเรียนมัธยมต้นหรือต่ำกว่าฟรี"
+      "th": "ผู้ใหญ่อายุ 15 ปีขึ้นไป 460 เยน อายุ 65 ปีขึ้นไป 200 เยนพร้อมหลักฐานอายุ นักเรียนมัธยมต้นหรือต่ำกว่าฟรี",
+      "ko": "15세 이상 성인 460엔; 65세 이상 200엔(연령 증명 필요) 중학생 이하는 무료입니다.",
+      "zh-CN": "15岁及以上成人460日元； 65岁及以上有年龄证明200日元。中学生以下免费。",
+      "vi": "Người lớn từ 15 tuổi trở lên 460 yên; tuổi 65+ 200 yên với bằng chứng về độ tuổi. Học sinh trung học cơ sở trở xuống được vào cửa miễn phí.",
+      "fr": "Adultes de 15 ans et plus 460 ¥ ; 65 ans et plus 200 ¥ avec preuve d'âge. Les collégiens et les plus jeunes entrent gratuitement.",
+      "es": "Personas de 15 años o más: 460 ¥; de 65 años o más: 200 ¥ con acreditación de edad. Estudiantes de secundaria básica y menores, gratis."
     },
     "entrance": {
       "en": "From JR Yoshinogari-koen walk about 15 minutes to the East Entrance; from JR Kanzaki walk about 15 minutes to the West Entrance (Asobinohara).",
       "ja": "JR吉野ケ里公園駅から東口へ徒歩約15分、JR神埼駅から西口（あそびの原）へ徒歩約15分。",
-      "th": "จาก JR Yoshinogari-koen เดินราว 15 นาทีไปทางเข้าตะวันออก หรือจาก JR Kanzaki เดินราว 15 นาทีไปทางเข้าตะวันตก Asobinohara"
+      "th": "จาก JR Yoshinogari-koen เดินราว 15 นาทีไปทางเข้าตะวันออก หรือจาก JR Kanzaki เดินราว 15 นาทีไปทางเข้าตะวันตก Asobinohara",
+      "ko": "JR 요시노가리코엔역에서 동쪽 입구까지 도보 약 15분, JR 간자키역에서 서쪽 입구(아소비노하라)까지 도보 약 15분입니다.",
+      "zh-CN": "从JR吉野里公园站步行约15分钟至东入口；从JR神埼站步行约15分钟至西入口（Asobinohara）。",
+      "vi": "Từ JR Yoshinogari-koen đi bộ khoảng 15 phút sẽ tới Lối vào phía Đông; từ JR Kanzaki đi bộ khoảng 15 phút đến Lối vào phía Tây (Asobinohara).",
+      "fr": "Depuis JR Yoshinogari-koen, marchez environ 15 minutes jusqu'à l'entrée est ; depuis JR Kanzaki, marchez environ 15 minutes jusqu'à l'entrée ouest (Asobinohara).",
+      "es": "Desde JR Yoshinogari-koen camine unos 15 minutos hasta la entrada este; desde JR Kanzaki camine unos 15 minutos hasta la entrada oeste (Asobinohara)."
     },
     "accessibility": {
       "en": "The operator lists ramps, accessible toilets and wheelchair/stroller loans at entrance service centers. Electric wheelchairs are at the East Gate; check availability before relying on a loan.",
       "ja": "公式案内にスロープ、多目的トイレ、入口サービスセンターの車いす・ベビーカー貸出あり。電動車いすは東口。貸出状況は事前確認。",
-      "th": "ผู้ดูแลระบุว่ามีทางลาด ห้องน้ำรองรับผู้พิการ และยืมรถเข็น/รถเข็นเด็กที่ศูนย์บริการทางเข้า รถเข็นไฟฟ้าอยู่ทางเข้าตะวันออก ควรตรวจจำนวนที่พร้อมให้ยืมก่อน"
+      "th": "ผู้ดูแลระบุว่ามีทางลาด ห้องน้ำรองรับผู้พิการ และยืมรถเข็น/รถเข็นเด็กที่ศูนย์บริการทางเข้า รถเข็นไฟฟ้าอยู่ทางเข้าตะวันออก ควรตรวจจำนวนที่พร้อมให้ยืมก่อน",
+      "ko": "운영사는 입구 서비스 센터의 경사로, 장애인용 화장실, 휠체어·유모차 대여를 안내합니다. 전동 휠체어는 동문에 있습니다. 대여할 수 있는지 미리 확인하세요.",
+      "zh-CN": "运营商在入口服务中心列出了坡道、无障碍厕所和轮椅/婴儿车借用服务。电动轮椅在东门；在依赖轮椅借用服务之前检查可用性。",
+      "vi": "Đơn vị vận hành công bố có đường dốc, nhà vệ sinh phù hợp cho người khuyết tật và dịch vụ cho mượn xe lăn/xe đẩy tại các trung tâm dịch vụ ở lối vào. Xe lăn điện ở Cổng Đông; hãy kiểm tra còn xe trước khi dự định mượn.",
+      "fr": "L'opérateur répertorie les rampes, les toilettes accessibles et les prêts de fauteuils roulants/poussettes dans les centres de services d'entrée. Les fauteuils roulants électriques se trouvent à la porte Est ; vérifiez la disponibilité avant de recourir à un prêt.",
+      "es": "El operador enumera rampas, baños accesibles y préstamo de sillas de ruedas/cochecitos en los centros de servicio de entrada. Las sillas de ruedas eléctricas están en la puerta este; Verifique la disponibilidad antes de depender de un préstamo."
     }
   },
   "pref:saga:yutoku-inari-shrine": {
@@ -717,7 +1117,12 @@
     "access": {
       "en": "From Hizen-Kashima take a bus to Yutoku Inari-jinja (about 20 minutes), then walk about six minutes.",
       "ja": "肥前鹿島駅から祐徳稲荷神社方面へバス約20分、下車後徒歩約6分。",
-      "th": "จาก Hizen-Kashima นั่งบัสไป Yutoku Inari-jinja ราว 20 นาที แล้วเดินประมาณ 6 นาที"
+      "th": "จาก Hizen-Kashima นั่งบัสไป Yutoku Inari-jinja ราว 20 นาที แล้วเดินประมาณ 6 นาที",
+      "ko": "히젠카시마에서 버스를 타고 유토쿠 이나리 신사까지 이동(약 20분)한 후 도보로 약 6분.",
+      "zh-CN": "从肥前鹿岛乘坐巴士到佑德稻荷神社（约20分钟），然后步行约6分钟。",
+      "vi": "Từ Hizen-Kashima đi xe buýt đến Yutoku Inari-jinja (khoảng 20 phút), sau đó đi bộ khoảng sáu phút.",
+      "fr": "Depuis Hizen-Kashima, prendre un bus jusqu'à Yutoku Inari-jinja (environ 20 minutes), puis marcher environ six minutes.",
+      "es": "Desde Hizen-Kashima, tome un autobús hasta Yutoku Inari-jinja (unos 20 minutos) y luego camine unos seis minutos."
     }
   },
   "pref:nagasaki:nagasaki-peace-park": {
@@ -726,7 +1131,12 @@
     "access": {
       "en": "Take a tram from Nagasaki Station to Heiwa Koen (Peace Park), then walk about five minutes.",
       "ja": "長崎駅から路面電車で平和公園へ、下車後徒歩約5分。",
-      "th": "จากสถานี Nagasaki ใช้รถรางลง Heiwa Koen (Peace Park) แล้วเดินประมาณ 5 นาที"
+      "th": "จากสถานี Nagasaki ใช้รถรางลง Heiwa Koen (Peace Park) แล้วเดินประมาณ 5 นาที",
+      "ko": "나가사키역에서 트램을 타고 헤이와코엔(평화공원)까지 이동한 후 도보로 약 5분 정도 이동하세요.",
+      "zh-CN": "从长崎站乘坐电车到平和公园（和平公园）下车，步行约5分钟。",
+      "vi": "Đi xe điện từ Ga Nagasaki đến Heiwa Koen (Công viên Hòa bình), sau đó đi bộ khoảng năm phút.",
+      "fr": "Prenez un tramway depuis la gare de Nagasaki jusqu'à Heiwa Koen (Parc de la Paix), puis marchez environ cinq minutes.",
+      "es": "Tome un tranvía desde la estación de Nagasaki hasta Heiwa Koen (Parque de la Paz) y luego camine unos cinco minutos."
     }
   },
   "pref:kumamoto:kumamoto-castle": {
@@ -735,7 +1145,12 @@
     "access": {
       "en": "Use the city tram from Kumamoto Station to Kumamoto Castle/City Hall, then walk about 10 minutes to the entrance. Check current reconstruction access notices.",
       "ja": "熊本駅から市電で熊本城・市役所前へ、入口まで徒歩約10分。復旧工事に伴う通行案内を確認。",
-      "th": "จากสถานี Kumamoto ใช้รถรางลง Kumamoto Castle/City Hall แล้วเดินประมาณ 10 นาทีถึงทางเข้า ตรวจเส้นทางปัจจุบันระหว่างการบูรณะด้วย"
+      "th": "จากสถานี Kumamoto ใช้รถรางลง Kumamoto Castle/City Hall แล้วเดินประมาณ 10 นาทีถึงทางเข้า ตรวจเส้นทางปัจจุบันระหว่างการบูรณะด้วย",
+      "ko": "구마모토역에서 구마모토성/시청까지 시영전차를 타고 입구까지 도보로 약 10분 소요됩니다. 현재 재건축 접근 공지를 확인하세요.",
+      "zh-CN": "从熊本站乘坐市内电车到熊本城/市政厅，然后步行约10分钟到达入口。检查当前的重建访问通知。",
+      "vi": "Hãy sử dụng xe điện thành phố từ Ga Kumamoto đến Lâu đài Kumamoto/Tòa thị chính, sau đó đi bộ khoảng 10 phút đến lối vào. Kiểm tra các thông báo truy cập tái thiết hiện tại.",
+      "fr": "Utilisez le tramway depuis la gare de Kumamoto jusqu'au château/hôtel de ville de Kumamoto, puis marchez environ 10 minutes jusqu'à l'entrée. Consultez les avis d’accès à la reconstruction actuels.",
+      "es": "Utilice el tranvía urbano desde la estación de Kumamoto hasta el castillo/ayuntamiento de Kumamoto y luego camine unos 10 minutos hasta la entrada. Consulta los avisos de acceso a la reconstrucción vigentes."
     }
   },
   "gion": {
@@ -744,12 +1159,22 @@
     "access": {
       "en": "Approach Gion from Keihan Gion-Shijo or Hankyu Kyoto-Kawaramachi. The city guide places Gion east of Shijo-Ohashi. Follow public streets and current local signs; do not use restricted private lanes.",
       "ja": "京阪祇園四条駅、または阪急京都河原町駅から祇園へ。市の案内では四条大橋の東側が祇園です。公道と現地の表示に従い、立入禁止の私道を通らないでください。",
-      "th": "เข้าย่านกิออนจาก Keihan Gion-Shijo หรือ Hankyu Kyoto-Kawaramachi คู่มือเมืองระบุว่ากิออนอยู่ฝั่งตะวันออกของสะพาน Shijo-Ohashi ใช้ถนนสาธารณะและตามป้ายปัจจุบัน ห้ามใช้ซอยส่วนบุคคลที่ห้ามเข้า"
+      "th": "เข้าย่านกิออนจาก Keihan Gion-Shijo หรือ Hankyu Kyoto-Kawaramachi คู่มือเมืองระบุว่ากิออนอยู่ฝั่งตะวันออกของสะพาน Shijo-Ohashi ใช้ถนนสาธารณะและตามป้ายปัจจุบัน ห้ามใช้ซอยส่วนบุคคลที่ห้ามเข้า",
+      "ko": "게이한 기온시조 또는 한큐 교토 가와라마치에서 기온으로 가세요. 도시 가이드에서는 기온을 시조오하시 동쪽에 배치합니다. 공공 도로와 현재 지역 표지판을 따르십시오. 제한된 사유 골목길을 사용하지 마십시오.",
+      "zh-CN": "从京阪祇园四条或阪急京都河原町前往祇园。城市指南将祇园定位在四条大桥以东。遵循公共街道和当地现行标志；不要使用受限制的私人车道。",
+      "vi": "Tiếp cận Gion từ Keihan Gion-Shijo hoặc Hankyu Kyoto-Kawaramachi. Hướng dẫn thành phố đặt Gion ở phía đông Shijo-Ohashi. Đi theo các đường phố công cộng và các biển báo địa phương hiện tại; không sử dụng làn đường riêng bị hạn chế.",
+      "fr": "Approchez-vous de Gion depuis Keihan Gion-Shijo ou Hankyu Kyoto-Kawaramachi. Le guide de la ville place Gion à l’est de Shijo-Ohashi. Suivez les rues publiques et les panneaux locaux actuels ; n’utilisez pas de voies privées restreintes.",
+      "es": "Acércate a Gion desde Keihan Gion-Shijo o Hankyu Kyoto-Kawaramachi. La guía de la ciudad sitúa a Gion al este de Shijo-Ohashi. Siga las calles públicas y las señales locales vigentes; no utilice carriles privados restringidos."
     },
     "entrance": {
       "en": "Southern Gion’s streets carry vehicles. Keep sidewalks clear and follow access restrictions at temples, shrines and private properties; do not enter restricted areas without permission.",
       "ja": "祇園町南側の道路は歩行者専用ではありません。歩道をふさがず、寺社・私有地の立入規制に従い、許可なく立入禁止区域へ入らないでください。",
-      "th": "ถนนในกิออนตอนใต้มีรถสัญจร อย่ากีดขวางทางเท้า ปฏิบัติตามข้อจำกัดการเข้าวัด ศาลเจ้า และพื้นที่ส่วนบุคคล ห้ามเข้าเขตหวงห้ามโดยไม่ได้รับอนุญาต"
+      "th": "ถนนในกิออนตอนใต้มีรถสัญจร อย่ากีดขวางทางเท้า ปฏิบัติตามข้อจำกัดการเข้าวัด ศาลเจ้า และพื้นที่ส่วนบุคคล ห้ามเข้าเขตหวงห้ามโดยไม่ได้รับอนุญาต",
+      "ko": "기온 남부의 거리에는 차량이 다닙니다. 보도를 막지 말고 사찰, 신사, 사유지의 출입 제한을 따르세요. 허가 없이 제한 구역에 들어가지 마세요.",
+      "zh-CN": "南祇园的街道上车辆熙熙攘攘。保持人行道畅通，并遵守寺庙、神社和私人财产的出入限制；未经许可，不得进入限制区域。",
+      "vi": "Đường phố Nam Gion tấp nập xe cộ. Giữ vỉa hè thông thoáng và tuân thủ các hạn chế ra vào tại các đền, miếu và khu vực tư nhân; không vào khu vực cấm mà không được phép.",
+      "fr": "Les rues du sud de Gion sont fréquentées par des véhicules. Gardez les trottoirs dégagés et respectez les restrictions d'accès aux temples, sanctuaires et propriétés privées ; n’entrez pas dans les zones réglementées sans autorisation.",
+      "es": "Las calles del sur de Gion transitan vehículos. Mantenga las aceras despejadas y respete las restricciones de acceso en templos, santuarios y propiedades privadas; no ingrese a áreas restringidas sin permiso."
     },
     "fieldSources": {
       "access": {
@@ -768,12 +1193,22 @@
     "access": {
       "en": "For the Taito/Asakusa bank shown here, walk about five minutes from Asakusa Station (Ginza, Toei Asakusa or Tobu lines). The park also extends across the river.",
       "ja": "この地点は台東区・浅草側。銀座線・都営浅草線・東武線の浅草駅から徒歩約5分。対岸にも隅田公園があります。",
-      "th": "จุดนี้อยู่ฝั่ง Taito/Asakusa เดินประมาณ 5 นาทีจากสถานี Asakusa สาย Ginza, Toei Asakusa หรือ Tobu สวนมีพื้นที่อยู่อีกฝั่งแม่น้ำด้วย"
+      "th": "จุดนี้อยู่ฝั่ง Taito/Asakusa เดินประมาณ 5 นาทีจากสถานี Asakusa สาย Ginza, Toei Asakusa หรือ Tobu สวนมีพื้นที่อยู่อีกฝั่งแม่น้ำด้วย",
+      "ko": "여기서 안내하는 다이토/아사쿠사 쪽 강변은 아사쿠사역(긴자선, 도에이 아사쿠사선, 도부선)에서 도보 약 5분입니다. 공원은 강 건너편에도 이어집니다.",
+      "zh-CN": "这里介绍的台东/浅草一侧河岸，从浅草站（银座线、都营浅草线或东武线）步行约5分钟。公园也延伸至河对岸。",
+      "vi": "Đối với bờ sông phía Taito/Asakusa được hiển thị ở đây, hãy đi bộ khoảng năm phút từ Ga Asakusa (các tuyến Ginza, Toei Asakusa hoặc Tobu). Công viên cũng trải dài qua sông.",
+      "fr": "Pour la rive côté Taito/Asakusa présentée ici, comptez environ cinq minutes à pied depuis la gare d’Asakusa (lignes Ginza, Toei Asakusa ou Tobu). Le parc s’étend aussi sur l’autre rive.",
+      "es": "Para la ribera del lado de Taito/Asakusa mostrada aquí, camine unos cinco minutos desde la estación de Asakusa (líneas Ginza, Toei Asakusa o Tobu). El parque también se extiende por la otra orilla."
     },
     "accessibility": {
       "en": "On the Taito bank, the park information office near the Tobu railway bridge has resting benches, a nursing room and a multipurpose toilet. This does not verify every park path.",
       "ja": "台東区側の東武鉄橋付近にある公園案内所に、休憩用ベンチ・授乳室・だれでもトイレがあります。園内すべての経路を確認した情報ではありません。",
-      "th": "ฝั่ง Taito ศูนย์ข้อมูลสวนใกล้สะพานรถไฟ Tobu มีม้านั่งพัก ห้องให้นม และห้องน้ำอเนกประสงค์ ข้อมูลนี้ไม่ได้ยืนยันการเข้าถึงของทุกเส้นทางในสวน"
+      "th": "ฝั่ง Taito ศูนย์ข้อมูลสวนใกล้สะพานรถไฟ Tobu มีม้านั่งพัก ห้องให้นม และห้องน้ำอเนกประสงค์ ข้อมูลนี้ไม่ได้ยืนยันการเข้าถึงของทุกเส้นทางในสวน",
+      "ko": "다이토 쪽 강변의 도부 철교 근처 공원 안내소에는 휴식용 벤치, 수유실, 다목적 화장실이 있습니다. 이 정보가 공원의 모든 경로에 대한 접근성을 확인한 것은 아닙니다.",
+      "zh-CN": "台东岸、东武铁桥附近的公园咨询处设有休息长椅、哺乳室和多功能厕所。这并不能验证每条公园路径。",
+      "vi": "Trên bờ Taito, văn phòng thông tin công viên gần cầu đường sắt Tobu có ghế nghỉ, phòng cho con bú và nhà vệ sinh đa năng. Điều này không xác minh mọi con đường công viên.",
+      "fr": "Sur la rive Taito, le bureau d'information du parc près du pont ferroviaire de Tobu dispose de bancs de repos, d'une salle d’allaitement et de toilettes polyvalentes. Cela ne vérifie pas tous les sentiers du parc.",
+      "es": "En el ribera de Taito, la oficina de información del parque, cerca del puente ferroviario de Tobu, cuenta con bancos de descanso, una sala de lactancia y un baño multiusos. Esto no verifica todos los caminos del parque."
     },
     "fieldSources": {
       "accessibility": {
@@ -788,7 +1223,12 @@
     "access": {
       "en": "From Kawaguchiko Station, take the Red Line sightseeing bus to Kawaguchiko Shizen Seikatsukan (about 30 minutes). Check the return timetable before walking the lake shore.",
       "ja": "河口湖駅から周遊バスRed Lineで河口湖自然生活館へ約30分。湖畔を歩く前に帰りの時刻表も確認。",
-      "th": "จากสถานี Kawaguchiko นั่งรถบัสเที่ยวชม Red Line ไป Kawaguchiko Shizen Seikatsukan ประมาณ 30 นาที ตรวจเวลาเที่ยวกลับก่อนเดินริมทะเลสาบ"
+      "th": "จากสถานี Kawaguchiko นั่งรถบัสเที่ยวชม Red Line ไป Kawaguchiko Shizen Seikatsukan ประมาณ 30 นาที ตรวจเวลาเที่ยวกลับก่อนเดินริมทะเลสาบ",
+      "ko": "가와구치코역에서 레드 라인 관광 버스를 타고 가와구치코 시젠 세이카츠칸까지 이동하세요(약 30분). 호숫가를 산책하기 전에 돌아오는 시간표를 확인하세요.",
+      "zh-CN": "从河口湖站乘坐红线观光巴士到河口湖自然生活馆（约30分钟）。在湖岸行走之前请检查返回时间表。",
+      "vi": "Từ Ga Kawaguchiko, bắt xe buýt tham quan Tuyến Đỏ đến Kawaguchiko Shizen Seikatsukan (khoảng 30 phút). Kiểm tra lịch trình trở về trước khi đi dạo bờ hồ.",
+      "fr": "Depuis la gare de Kawaguchiko, prenez le bus touristique de la ligne rouge jusqu'à Kawaguchiko Shizen Seikatsukan (environ 30 minutes). Vérifiez l'horaire de retour avant de parcourir les rives du lac.",
+      "es": "Desde la estación Kawaguchiko, tome el autobús turístico de la línea roja hasta Kawaguchiko Shizen Seikatsukan (unos 30 minutos). Consulta el horario de regreso antes de caminar por la orilla del lago."
     }
   },
   "kawaguchiko": {
@@ -797,7 +1237,12 @@
     "access": {
       "en": "Kawaguchiko is the terminal of the Fujikyu Railway Line. Use the operator’s station timetable to plan onward connections; the lake shore is a separate walk or bus ride.",
       "ja": "富士急行線の終点・河口湖駅へ。接続は公式時刻表で確認。湖畔までは別途徒歩またはバスで移動します。",
-      "th": "ลงสถานี Kawaguchiko ซึ่งเป็นปลายทางสาย Fujikyu Railway ตรวจรถต่อจากตารางสถานีของผู้ให้บริการ ริมทะเลสาบต้องเดินหรือต่อรถบัสไปอีก"
+      "th": "ลงสถานี Kawaguchiko ซึ่งเป็นปลายทางสาย Fujikyu Railway ตรวจรถต่อจากตารางสถานีของผู้ให้บริการ ริมทะเลสาบต้องเดินหรือต่อรถบัสไปอีก",
+      "ko": "가와구치코역은 후지큐 철도선의 종착역입니다. 이후 이동편은 운영사의 역 시간표로 계획하세요. 호숫가까지는 별도로 걷거나 버스를 타야 합니다.",
+      "zh-CN": "河口湖是富士急行线的终点站。使用运营商的车站时刻表来计划后续转乘；湖岸需要单独步行或乘坐巴士。",
+      "vi": "Kawaguchiko là ga cuối tuyến đường sắt Fujikyu. Xem thời gian tàu của đơn vị vận hành để lên kế hoạch nối chuyến; từ ga đến bờ hồ cần đi bộ hoặc đi xe buýt.",
+      "fr": "Kawaguchiko est le terminal de la ligne ferroviaire Fujikyu. Utilisez l’horaire des gares de l’opérateur pour planifier les correspondances ultérieures ; la rive du lac est accessible à pied ou en bus.",
+      "es": "Kawaguchiko es la terminal de la línea ferroviaria Fujikyu. Utilice el horario de la estación del operador para planificar conexiones posteriores; la orilla del lago es un paseo separado o en autobús."
     }
   },
   "dotonbori": {
@@ -806,12 +1251,22 @@
     "access": {
       "en": "Use Namba Station, including the Midosuji subway line, then walk north toward the Dotonbori River. Choose a meeting point before entering the busy streets.",
       "ja": "御堂筋線などのなんば駅から道頓堀川へ北向きに徒歩。混雑する通りに入る前に集合場所を決めましょう。",
-      "th": "ลง Namba เช่นสายรถไฟใต้ดิน Midosuji แล้วเดินขึ้นเหนือไปแม่น้ำ Dotonbori นัดจุดพบกันก่อนเข้าถนนที่คนหนาแน่น"
+      "th": "ลง Namba เช่นสายรถไฟใต้ดิน Midosuji แล้วเดินขึ้นเหนือไปแม่น้ำ Dotonbori นัดจุดพบกันก่อนเข้าถนนที่คนหนาแน่น",
+      "ko": "지하철 미도스지선을 포함한 난바역을 이용하여 도톤보리 강을 향해 북쪽으로 걸어가세요. 번화한 거리에 들어가기 전에 만날 장소를 선택하세요.",
+      "zh-CN": "使用难波站（包括御堂筋地铁线），然后向北朝道顿堀河方向步行。在进入繁忙的街道之前选择一个集合点。",
+      "vi": "Đến ga Namba, có tuyến tàu điện ngầm Midosuji, rồi đi bộ về phía bắc đến sông Dotonbori. Chọn điểm hẹn trước khi vào những con phố đông đúc.",
+      "fr": "Utilisez la station Namba, y compris la ligne de métro Midosuji, puis marchez vers le nord en direction de la rivière Dotonbori. Choisissez un point de rendez-vous avant d'entrer dans les rues animées.",
+      "es": "Utilice la estación Namba, incluida la línea de metro Midosuji, luego camine hacia el norte hacia el río Dotonbori. Elija un punto de encuentro antes de adentrarse en las concurridas calles."
     },
     "entrance": {
       "en": "For the riverside Tonbori Riverwalk, the operator’s walking map shows access down the stairs at Ebisubashi Bridge. This entrance note does not identify a step-free alternative.",
       "ja": "川沿いのとんぼりリバーウォークへは、運営者のお散歩マップで戎橋の階段を下りる経路を案内しています。この入口情報は段差のない代替経路を確認したものではありません。",
-      "th": "สำหรับทางเดินริมน้ำ Tonbori Riverwalk แผนที่เดินของผู้ดูแลระบุให้ลงบันไดที่สะพาน Ebisubashi ข้อมูลทางเข้านี้ยังไม่ได้ยืนยันเส้นทางอื่นที่ไม่มีขั้นบันได"
+      "th": "สำหรับทางเดินริมน้ำ Tonbori Riverwalk แผนที่เดินของผู้ดูแลระบุให้ลงบันไดที่สะพาน Ebisubashi ข้อมูลทางเข้านี้ยังไม่ได้ยืนยันเส้นทางอื่นที่ไม่มีขั้นบันได",
+      "ko": "강변 산책로 톤보리 리버워크의 운영사 도보 지도에는 에비스바시 다리에서 계단을 내려가는 접근 경로가 표시되어 있습니다. 이 입구 안내에는 계단 없는 대안이 나와 있지 않습니다.",
+      "zh-CN": "对于河边的道堀河滨步道，运营商的步行地图显示了从戎桥的楼梯下去的通道。本入口说明并未指出无台阶替代方案。",
+      "vi": "Bản đồ của đơn vị quản lý cho thấy lối xuống đường dạo ven sông Tonbori qua cầu thang tại cầu Ebisubashi. Thông tin này chưa xác định lối đi thay thế không có bậc thang.",
+      "fr": "Pour le Tonbori Riverwalk au bord de la rivière, la carte de marche de l'opérateur montre l'accès par les escaliers du pont Ebisubashi. Cette note d’entrée n’identifie pas d’alternative sans marches.",
+      "es": "Para el paseo fluvial Tonbori Riverwalk, el mapa para caminar del operador muestra el acceso por las escaleras en el puente Ebisubashi. Esta nota de entrada no identifica una alternativa sin escalones."
     },
     "fieldSources": {
       "entrance": {
@@ -826,7 +1281,12 @@
     "access": {
       "en": "From Sapporo Station, take the Namboku or Toho subway one stop south to Odori, or walk about ten minutes. The park stretches across several blocks.",
       "ja": "札幌駅から南北線・東豊線で南へ1駅の大通駅、または徒歩約10分。公園は複数の街区にまたがります。",
-      "th": "จากสถานี Sapporo นั่งรถไฟใต้ดิน Namboku หรือ Toho ลงใต้หนึ่งสถานีถึง Odori หรือเดินประมาณ 10 นาที สวนทอดยาวหลายบล็อก"
+      "th": "จากสถานี Sapporo นั่งรถไฟใต้ดิน Namboku หรือ Toho ลงใต้หนึ่งสถานีถึง Odori หรือเดินประมาณ 10 นาที สวนทอดยาวหลายบล็อก",
+      "ko": "삿포로역에서 난보쿠 지하철이나 도호 지하철을 타고 남쪽으로 한 정거장 오도리까지 가거나 도보로 약 10분 정도 이동하세요. 공원은 여러 블록에 걸쳐 펼쳐져 있습니다.",
+      "zh-CN": "从札幌站乘坐南北或东丰地铁向南一站到大通，或步行约十分钟。公园横跨几个街区。",
+      "vi": "Từ Ga Sapporo, đi tàu điện ngầm Namboku hoặc Toho một trạm về phía nam đến Odori hoặc đi bộ khoảng 10 phút. Công viên trải dài qua nhiều dãy nhà.",
+      "fr": "Depuis la gare de Sapporo, prenez le métro Namboku ou Toho une station vers le sud jusqu’à Odori, ou marchez environ dix minutes. Le parc s’étend sur plusieurs pâtés de maisons.",
+      "es": "Desde la estación de Sapporo, tome el metro Namboku o Toho una parada hacia el sur hasta Odori, o camine unos diez minutos. El parque se extiende a lo largo de varias cuadras."
     }
   },
   "makishi": {
@@ -835,12 +1295,22 @@
     "access": {
       "en": "About ten minutes on foot from Yui Rail Makishi or Miebashi Station. Check individual shop hours and market closure dates before planning a meal.",
       "ja": "ゆいレール牧志駅・美栄橋駅から徒歩約10分。食事の前に各店の営業時間と市場の休業日を確認。",
-      "th": "เดินประมาณ 10 นาทีจากสถานี Yui Rail Makishi หรือ Miebashi ตรวจเวลาแต่ละร้านและวันปิดตลาดก่อนวางแผนมื้ออาหาร"
+      "th": "เดินประมาณ 10 นาทีจากสถานี Yui Rail Makishi หรือ Miebashi ตรวจเวลาแต่ละร้านและวันปิดตลาดก่อนวางแผนมื้ออาหาร",
+      "ko": "유이레일 마키시역 또는 미에바시역에서 도보 약 10분. 식사를 계획하기 전에 각 매장의 영업시간과 시장 휴무일을 확인하세요.",
+      "zh-CN": "从单轨电车牧志站或美荣桥站步行约10分钟。在计划用餐之前，请检查各个商店的营业时间和市场关闭日期。",
+      "vi": "Khoảng mười phút đi bộ từ Ga Yui Rail Makishi hoặc Miebashi. Kiểm tra giờ mở cửa của từng cửa hàng và ngày đóng cửa của chợ trước khi lên kế hoạch dùng bữa.",
+      "fr": "À une dizaine de minutes à pied de la gare Yui Rail Makishi ou Miebashi. Vérifiez les heures d'ouverture de chaque magasin et les dates de fermeture du marché avant de planifier un repas.",
+      "es": "A unos diez minutos a pie desde la estación Yui Rail Makishi o Miebashi. Consulte los horarios de las tiendas individuales y las fechas de cierre del mercado antes de planificar una comida."
     },
     "accessibility": {
       "en": "Accessible toilets, wheelchair loans and a nursing room are listed. Strollers are not available for loan; confirm your specific route with the market.",
       "ja": "多目的トイレ・貸出車いす・授乳室あり。ベビーカーの貸出なし。利用経路は市場に確認。",
-      "th": "มีห้องน้ำสำหรับผู้ใช้รถเข็น รถเข็นให้ยืม และห้องให้นม ไม่มีรถเข็นเด็กให้ยืม ตรวจเส้นทางที่ต้องใช้กับตลาด"
+      "th": "มีห้องน้ำสำหรับผู้ใช้รถเข็น รถเข็นให้ยืม และห้องให้นม ไม่มีรถเข็นเด็กให้ยืม ตรวจเส้นทางที่ต้องใช้กับตลาด",
+      "ko": "장애인용 화장실, 휠체어 대여, 수유실이 안내되어 있습니다. 유모차는 대여하지 않습니다. 필요한 이동 경로는 시장에 직접 확인하세요.",
+      "zh-CN": "列出了无障碍厕所、轮椅借用和哺乳室。婴儿车不可借用；与市场确认您的具体路线。",
+      "vi": "Nhà vệ sinh dành cho người khuyết tật, dịch vụ cho thuê xe lăn và phòng cho con bú đều được liệt kê. Xe đẩy không có sẵn để cho mượn; xác nhận lộ trình cụ thể với ban quản lý chợ.",
+      "fr": "Des toilettes accessibles, des prêts de fauteuils roulants et une salle d’allaitement sont répertoriés. Les poussettes ne sont pas disponibles au prêt ; confirmez votre itinéraire spécifique avec le marché.",
+      "es": "Se enumeran baños accesibles, préstamo de sillas de ruedas y una sala de lactancia. Los cochecitos no están disponibles para préstamo; Confirme su ruta específica con el mercado."
     }
   },
   "tsuboya": {
@@ -849,7 +1319,12 @@
     "access": {
       "en": "About 15 minutes on foot from Yui Rail Makishi Station, or one minute from Tsuboya bus stop. The nearby pottery museum is temporarily closed September 1, 2026–March 31, 2027; the street is a separate attraction.",
       "ja": "ゆいレール牧志駅から徒歩約15分、壺屋バス停から約1分。近隣の壺屋焼物博物館は2026年9月1日〜2027年3月31日臨時休館。通りの散策とは別施設です。",
-      "th": "เดินประมาณ 15 นาทีจาก Yui Rail Makishi หรือ 1 นาทีจากป้ายรถบัส Tsuboya พิพิธภัณฑ์เครื่องปั้นใกล้กันปิดชั่วคราว 1 ก.ย. 2026–31 มี.ค. 2027 ซึ่งเป็นคนละส่วนกับถนนเดินชม"
+      "th": "เดินประมาณ 15 นาทีจาก Yui Rail Makishi หรือ 1 นาทีจากป้ายรถบัส Tsuboya พิพิธภัณฑ์เครื่องปั้นใกล้กันปิดชั่วคราว 1 ก.ย. 2026–31 มี.ค. 2027 ซึ่งเป็นคนละส่วนกับถนนเดินชม",
+      "ko": "유이레일 마키시역에서 도보 약 15분, 츠보야 버스 정류장에서 도보 1분. 인근 도자기 박물관은 2026년 9월 1일부터 2027년 3월 31일까지 임시 휴관합니다. 거리는 별도의 명소입니다.",
+      "zh-CN": "从单轨电车牧志站步行约15分钟，从壶屋巴士站步行约1分钟。附近陶艺博物馆2026年9月1日至2027年3月31日暂时关闭；这条街是一个单独的景点。",
+      "vi": "Khoảng 15 phút đi bộ từ Ga Yui Rail Makishi hoặc một phút từ trạm xe buýt Tsuboya. Bảo tàng đồ gốm gần đó tạm thời đóng cửa từ ngày 1 tháng 9 năm 2026 đến ngày 31 tháng 3 năm 2027; đường phố là một điểm thu hút riêng biệt.",
+      "fr": "À environ 15 minutes à pied de la gare Yui Rail Makishi ou à une minute de l'arrêt de bus Tsuboya. Le musée de la poterie voisin est temporairement fermé du 1er septembre 2026 au 31 mars 2027 ; la rue est une attraction distincte.",
+      "es": "A unos 15 minutos a pie de la estación Yui Rail Makishi o a un minuto de la parada de autobús Tsuboya. El museo de cerámica cercano estará cerrado temporalmente del 1 de septiembre de 2026 al 31 de marzo de 2027; la calle es una atracción aparte."
     }
   },
   "okinawa-museum": {
@@ -858,7 +1333,12 @@
     "access": {
       "en": "About ten minutes on foot from Yui Rail Omoromachi Station. The museum and art museum have separate exhibition admissions.",
       "ja": "ゆいレールおもろまち駅から徒歩約10分。博物館と美術館の展示料金は別区分です。",
-      "th": "เดินประมาณ 10 นาทีจากสถานี Yui Rail Omoromachi ค่าเข้าชมส่วนพิพิธภัณฑ์และหอศิลป์แยกกัน"
+      "th": "เดินประมาณ 10 นาทีจากสถานี Yui Rail Omoromachi ค่าเข้าชมส่วนพิพิธภัณฑ์และหอศิลป์แยกกัน",
+      "ko": "유이레일 오모로마치역에서 도보 약 10분 박물관과 미술관은 전시 입장권이 별도로 있습니다.",
+      "zh-CN": "从冲绳都市单轨电车Omoromachi站步行约10分钟。博物馆与美术馆的展览门票分开收费。",
+      "vi": "Khoảng mười phút đi bộ từ Ga Yui Rail Omoromachi. Bảo tàng và bảo tàng nghệ thuật có vé triển lãm riêng biệt.",
+      "fr": "À une dizaine de minutes à pied de la gare Yui Rail Omoromachi. Le musée et le musée d'art ont des entrées d'exposition distinctes.",
+      "es": "A unos diez minutos a pie desde la estación Yui Rail Omoromachi. El museo y el museo de arte tienen entradas para exposiciones independientes."
     }
   },
   "pref:akita:aoyagi-samurai-manor": {
@@ -867,17 +1347,32 @@
     "access": {
       "en": "About 15 minutes on foot or five minutes by taxi from JR Kakunodate Station.",
       "ja": "JR角館駅から徒歩約15分、またはタクシー約5分。",
-      "th": "เดินประมาณ 15 นาที หรือนั่งแท็กซี่ประมาณ 5 นาทีจาก JR Kakunodate"
+      "th": "เดินประมาณ 15 นาที หรือนั่งแท็กซี่ประมาณ 5 นาทีจาก JR Kakunodate",
+      "ko": "JR 가쿠노다테역에서 도보로 약 15분, 택시로 5분.",
+      "zh-CN": "从JR角馆站步行约15分钟，乘坐出租车约5分钟。",
+      "vi": "Khoảng 15 phút đi bộ hoặc 5 phút đi taxi từ Ga JR Kakunodate.",
+      "fr": "Environ 15 minutes à pied ou cinq minutes en taxi depuis la gare JR Kakunodate.",
+      "es": "A unos 15 minutos a pie o cinco minutos en taxi desde la estación JR Kakunodate."
     },
     "hours": {
       "en": "April–November 09:00–17:00; December–March 09:00–16:30. Check temporary closures before travel.",
       "ja": "4〜11月9:00〜17:00、12〜3月9:00〜16:30。臨時休館は出発前に確認。",
-      "th": "เม.ย.–พ.ย. 09:00–17:00 น. ธ.ค.–มี.ค. 09:00–16:30 น. ตรวจวันปิดพิเศษก่อนเดินทาง"
+      "th": "เม.ย.–พ.ย. 09:00–17:00 น. ธ.ค.–มี.ค. 09:00–16:30 น. ตรวจวันปิดพิเศษก่อนเดินทาง",
+      "ko": "4월~11월 09:00~17:00; 12월~3월 09:00~16:30. 여행 전에 임시 폐쇄 여부를 확인하세요.",
+      "zh-CN": "4月至11月 09:00–17:00； 12 月至 3 月 09:00–16:30。出行前检查临时关闭情况。",
+      "vi": "Tháng 4–Tháng 11 09:00–17:00; Tháng 12–Tháng 3 09:00–16:30. Kiểm tra việc đóng cửa tạm thời trước khi đi du lịch.",
+      "fr": "avril-novembre de 9h00 à 17h00 ; De décembre à mars, de 9h00 à 16h30. Vérifiez les fermetures temporaires avant de voyager.",
+      "es": "Abril-noviembre 09:00-17:00; Diciembre-marzo 09:00-16:30. Verifique los cierres temporales antes de viajar."
     },
     "admission": {
       "en": "Adult admission ¥500 at review; junior/high school ¥300, primary school ¥200.",
       "ja": "確認時は大人500円、中高生300円、小学生200円。",
-      "th": "ราคาที่ตรวจ ผู้ใหญ่ 500 เยน มัธยม 300 เยน ประถม 200 เยน"
+      "th": "ราคาที่ตรวจ ผู้ใหญ่ 500 เยน มัธยม 300 เยน ประถม 200 เยน",
+      "ko": "정보 확인 당시 성인 입장료 500엔; 중·고교 300엔, 초등학생 200엔.",
+      "zh-CN": "成人入场费500日元（信息核查时）；初高中300日元，小学200日元。",
+      "vi": "Vé vào cửa người lớn ¥500 tại thời điểm kiểm tra thông tin; trung học cơ sở/trung học 300 yên, tiểu học 200 yên.",
+      "fr": "Entrée adulte 500 ¥ au moment de la vérification ; collège/lycée 300 ¥, école primaire 200 ¥.",
+      "es": "Entrada de adulto: 500 ¥ en la fecha de comprobación; secundaria básica y bachillerato 300 ¥; primaria 200 ¥."
     }
   },
   "pref:fukushima:ouchi-juku": {
@@ -886,7 +1381,12 @@
     "access": {
       "en": "Take Aizu Railway to Yunokami-Onsen, then a bus or taxi to Ouchi-juku. Check seasonal bus operation and the last return connection before departure.",
       "ja": "会津鉄道の湯野上温泉駅からバスかタクシーで大内宿へ。出発前にバスの運行期間と帰りの最終接続を確認。",
-      "th": "นั่ง Aizu Railway ลง Yunokami-Onsen แล้วต่อบัสหรือแท็กซี่ไป Ouchi-juku ตรวจฤดูให้บริการรถบัสและรถต่อเที่ยวสุดท้ายก่อนออกเดินทาง"
+      "th": "นั่ง Aizu Railway ลง Yunokami-Onsen แล้วต่อบัสหรือแท็กซี่ไป Ouchi-juku ตรวจฤดูให้บริการรถบัสและรถต่อเที่ยวสุดท้ายก่อนออกเดินทาง",
+      "ko": "아이즈 철도를 타고 유노카미 온천까지 간 다음 버스나 택시를 타고 오우치주쿠까지 갑니다. 출발 전 계절별 버스 운행상황과 마지막 귀환 교통편을 확인하세요.",
+      "zh-CN": "乘坐会津铁道到汤野上温泉，然后乘坐巴士或出租车到大内宿。出发前检查季节性巴士运营情况以及最后的返程班次。",
+      "vi": "Đi Đường sắt Aizu đến Yunokami-Onsen, sau đó đi xe buýt hoặc taxi đến Ouchi-juku. Kiểm tra hoạt động của xe buýt theo mùa và chuyến khứ hồi cuối cùng trước khi khởi hành.",
+      "fr": "Prenez le chemin de fer Aizu jusqu'à Yunokami-Onsen, puis un bus ou un taxi jusqu'à Ouchi-juku. Vérifiez le fonctionnement des bus saisonniers et la dernière correspondance retour avant le départ.",
+      "es": "Tome el ferrocarril Aizu hasta Yunokami-Onsen y luego un autobús o taxi hasta Ouchi-juku. Verifique el funcionamiento estacional del autobús y la última conexión de regreso antes de la salida."
     }
   },
   "pref:kanagawa:kotoku-in": {
@@ -895,12 +1395,22 @@
     "access": {
       "en": "From Kamakura, take Enoden to Hase (third stop, about seven minutes), then walk about seven minutes to Kotoku-in.",
       "ja": "鎌倉駅から江ノ電で3駅・約7分の長谷駅へ。長谷駅から高徳院まで徒歩約7分。",
-      "th": "จาก Kamakura นั่ง Enoden ไป Hase สามสถานีประมาณ 7 นาที แล้วเดินอีกประมาณ 7 นาทีถึง Kotoku-in"
+      "th": "จาก Kamakura นั่ง Enoden ไป Hase สามสถานีประมาณ 7 นาที แล้วเดินอีกประมาณ 7 นาทีถึง Kotoku-in",
+      "ko": "가마쿠라에서 에노덴을 타고 하세(세 번째 정류장, 약 7분)까지 이동한 후 약 7분을 걸어 고토쿠인까지 가세요.",
+      "zh-CN": "从镰仓出发，乘坐江之电至长谷站（第三站，约7分钟），步行约7分钟至高德院。",
+      "vi": "Từ Kamakura, đi Enoden đến Hase (điểm dừng thứ ba, khoảng bảy phút), sau đó đi bộ khoảng bảy phút đến Kotoku-in.",
+      "fr": "Depuis Kamakura, prenez Enoden jusqu'à Hase (troisième arrêt, environ sept minutes), puis marchez environ sept minutes jusqu'à Kotoku-in.",
+      "es": "Desde Kamakura, tome Enoden hasta Hase (tercera parada, unos siete minutos), luego camine unos siete minutos hasta Kotoku-in."
     },
     "hours": {
       "en": "Apr–Sep 08:00–17:30; Oct–Mar 08:00–17:00. Last entry 15 minutes before closing. Statue interior 08:00–16:30, last entry 16:20.",
       "ja": "4〜9月8:00〜17:30、10〜3月8:00〜17:00。入場は閉門15分前まで。大仏胎内は8:00〜16:30、受付16:20まで。",
-      "th": "เม.ย.–ก.ย. 08:00–17:30 น., ต.ค.–มี.ค. 08:00–17:00 น. รับเข้าก่อนปิด 15 นาที ภายในองค์พระ 08:00–16:30 น. รับเข้าถึง 16:20 น."
+      "th": "เม.ย.–ก.ย. 08:00–17:30 น., ต.ค.–มี.ค. 08:00–17:00 น. รับเข้าก่อนปิด 15 นาที ภายในองค์พระ 08:00–16:30 น. รับเข้าถึง 16:20 น.",
+      "ko": "4월~9월 08:00~17:30; 10월~3월 08:00~17:00. 마지막 입장은 폐장 15분 전입니다. 조각상 내부는 08:00~16:30, 마지막 입장 시간은 16:20입니다.",
+      "zh-CN": "4 月至 9 月 08:00–17:30； 10 月至 3 月 08:00–17:00。最后入场时间为关门前 15 分钟。雕像内部开放时间 08:00–16:30，最后入场时间 16:20。",
+      "vi": "Tháng 4–Tháng 9 08:00–17:30; Tháng 10–Tháng 3 08:00–17:00. Lần vào cuối cùng là 15 phút trước khi đóng cửa. Nội thất tượng 08:00–16:30, vào cửa lần cuối 16:20.",
+      "fr": "d'avril à septembre, de 8h00 à 17h30 ; D'octobre à mars, de 8h00 à 17h00. Dernière entrée 15 minutes avant la fermeture. Intérieur de la statue de 8h00 à 16h30, dernière entrée à 16h20.",
+      "es": "abril-septiembre 08:00-17:30; De octubre a marzo de 08:00 a 17:00. Última entrada 15 minutos antes del cierre. Interior de la estatua de 08:00 a 16:30, última entrada a las 16:20."
     },
     "fieldSources": {
       "hours": {
@@ -927,22 +1437,42 @@
     "admission": {
       "en": "General ¥300; ages 6–12 ¥150; under six free. Entering the statue costs an additional ¥50.",
       "ja": "一般300円、6〜12歳150円、6歳未満無料。大仏胎内は別途50円。",
-      "th": "ทั่วไป 300 เยน อายุ 6–12 ปี 150 เยน ต่ำกว่า 6 ปีฟรี เข้าในองค์พระเพิ่ม 50 เยน"
+      "th": "ทั่วไป 300 เยน อายุ 6–12 ปี 150 เยน ต่ำกว่า 6 ปีฟรี เข้าในองค์พระเพิ่ม 50 เยน",
+      "ko": "일반 300엔; 6~12세 150엔; 6세 미만은 무료입니다. 조각상에 입장하려면 추가로 50엔이 필요합니다.",
+      "zh-CN": "一般300日元； 6-12 岁 150 日元；六岁以下免费。进入雕像需额外付费50日元。",
+      "vi": "Thông thường ¥300; 6–12 tuổi 150 yên; dưới sáu miễn phí. Vào bên trong bức tượng phải trả thêm 50 yên.",
+      "fr": "Général 300 ¥ ; 6 à 12 ans 150 ¥ ; moins de six ans gratuit. Entrer dans la statue coûte 50 ¥ supplémentaires.",
+      "es": "Generales 300 yenes; edades de 6 a 12 ¥ 150; menores de seis años gratis. Entrar a la estatua cuesta 50 yenes adicionales."
     },
     "booking": {
       "en": "Ordinary temple visits do not require a reservation.",
       "ja": "通常の拝観は予約不要。",
-      "th": "การเข้าชมวัดตามปกติไม่ต้องจอง"
+      "th": "การเข้าชมวัดตามปกติไม่ต้องจอง",
+      "ko": "일반적인 사원 방문에는 예약이 필요하지 않습니다.",
+      "zh-CN": "普通寺庙参观不需要预约。",
+      "vi": "Các chuyến viếng thăm chùa thông thường không cần phải đặt trước.",
+      "fr": "Les visites ordinaires du temple ne nécessitent pas de réservation.",
+      "es": "Las visitas ordinarias al templo no requieren reserva."
     },
     "entrance": {
       "en": "Use the main entrance and ticket office shown on the temple's grounds map; ramps lead toward the Buddha viewing area.",
       "ja": "公式境内図の正面入口と拝観券売場へ。大仏前の見学エリアへはスロープがあります。",
-      "th": "ใช้ทางเข้าหลักและจุดขายตั๋วตามผังวัด มีทางลาดไปยังบริเวณชมองค์พระ"
+      "th": "ใช้ทางเข้าหลักและจุดขายตั๋วตามผังวัด มีทางลาดไปยังบริเวณชมองค์พระ",
+      "ko": "사원 경내 지도에 표시된 정문과 매표소를 이용하세요. 경사로는 부처님을 볼 수 있는 지역으로 이어집니다.",
+      "zh-CN": "使用寺庙场地地图上显示的主入口和售票处；坡道通向观佛区。",
+      "vi": "Sử dụng lối vào chính và phòng bán vé được hiển thị trên bản đồ khuôn viên của ngôi chùa; đường dốc dẫn tới khu vực ngắm Phật.",
+      "fr": "Utilisez l'entrée principale et la billetterie indiquées sur le plan du terrain du temple ; des rampes mènent à la zone d'observation du Bouddha.",
+      "es": "Utilice la entrada principal y la taquilla que se muestran en el mapa del terreno del templo; Las rampas conducen hacia el área de observación de Buda."
     },
     "accessibility": {
       "en": "Ramps serve the main entrance and Buddha viewing area. Use the marked route to avoid uneven ground; the operator recommends an accompanying helper for wheelchair users.",
       "ja": "正面入口・大仏前にスロープがあります。凹凸を避ける公式ルートを利用。車いす利用者には介助者の同伴を推奨しています。",
-      "th": "มีทางลาดที่ทางเข้าหลักและบริเวณชมองค์พระ ใช้เส้นทางที่ระบุเพื่อหลีกเลี่ยงพื้นขรุขระ ผู้ดูแลแนะนำให้ผู้ใช้รถเข็นมีผู้ช่วยร่วมทาง"
+      "th": "มีทางลาดที่ทางเข้าหลักและบริเวณชมองค์พระ ใช้เส้นทางที่ระบุเพื่อหลีกเลี่ยงพื้นขรุขระ ผู้ดูแลแนะนำให้ผู้ใช้รถเข็นมีผู้ช่วยร่วมทาง",
+      "ko": "정문과 대불 관람 구역으로 이어지는 경사로가 있습니다. 울퉁불퉁한 지면을 피하려면 표시된 경로를 이용하세요. 운영 측은 휠체어 이용자에게 동반 도움 인원을 권합니다.",
+      "zh-CN": "坡道服务于主入口和佛像观赏区。使用标记路线，避免地面不平坦；运营方会为轮椅使用者推荐一名陪同助手。",
+      "vi": "Lối vào chính và khu vực ngắm tượng Phật có đường dốc. Đi theo lối được đánh dấu để tránh mặt đất gồ ghề; đơn vị quản lý khuyến nghị người dùng xe lăn có người đi cùng hỗ trợ.",
+      "fr": "Des rampes desservent l'entrée principale et la zone d'observation de Bouddha. Utilisez l'itinéraire balisé pour éviter les terrains accidentés ; l'exploitant recommande un accompagnateur pour les utilisateurs de fauteuils roulants.",
+      "es": "Las rampas sirven a la entrada principal y al área de observación de Buda. Utilice la ruta marcada para evitar terrenos irregulares; El operador recomienda un acompañante para los usuarios de sillas de ruedas."
     }
   },
   "pref:niigata:bandai-bridge": {
@@ -951,7 +1481,12 @@
     "access": {
       "en": "About 15 minutes on foot from the Bandai exit of JR Niigata Station. Use the riverside paths for views of the bridge.",
       "ja": "JR新潟駅万代口から徒歩約15分。橋を眺める際は川沿いの歩道を利用。",
-      "th": "เดินประมาณ 15 นาทีจากทางออก Bandai ของ JR Niigata ใช้ทางเดินริมแม่น้ำเพื่อชมสะพาน"
+      "th": "เดินประมาณ 15 นาทีจากทางออก Bandai ของ JR Niigata ใช้ทางเดินริมแม่น้ำเพื่อชมสะพาน",
+      "ko": "JR 니가타역 반다이출구에서 도보 약 15분 다리를 보려면 강변 산책로를 이용하세요.",
+      "zh-CN": "从JR新泻站万代口步行约15分钟。使用河边小路欣赏大桥的景色。",
+      "vi": "Khoảng 15 phút đi bộ từ lối ra Bandai của Ga JR Niigata. Sử dụng những con đường ven sông để ngắm nhìn cây cầu.",
+      "fr": "A environ 15 minutes à pied de la sortie Bandai de la gare JR Niigata. Utilisez les sentiers riverains pour admirer la vue sur le pont.",
+      "es": "A unos 15 minutos a pie desde la salida Bandai de la estación JR Niigata. Utilice los senderos junto al río para disfrutar de las vistas del puente."
     }
   },
   "pref:niigata:hakusan-park": {
@@ -960,12 +1495,22 @@
     "access": {
       "en": "About 20 minutes on foot from JR Hakusan. From Niigata Station, the Bandai-bashi bus line serves Shiyakusho-mae, about three minutes on foot from the park.",
       "ja": "JR白山駅から徒歩約20分。新潟駅から萬代橋ラインで市役所前へ、公園まで徒歩約3分。",
-      "th": "เดินประมาณ 20 นาทีจาก JR Hakusan หรือจากสถานี Niigata นั่งรถบัสสาย Bandai-bashi ลง Shiyakusho-mae แล้วเดินประมาณ 3 นาที"
+      "th": "เดินประมาณ 20 นาทีจาก JR Hakusan หรือจากสถานี Niigata นั่งรถบัสสาย Bandai-bashi ลง Shiyakusho-mae แล้วเดินประมาณ 3 นาที",
+      "ko": "JR 하쿠산에서 도보로 약 20분. 니가타역에서 반다이바시 버스 노선이 시야쿠쇼마에까지 운행하며 공원에서 도보로 약 3분 거리에 있습니다.",
+      "zh-CN": "从JR白山站步行约20分钟。从新泻站乘坐万代桥巴士线前往市役所前，距离公园步行约 3 分钟。",
+      "vi": "Khoảng 20 phút đi bộ từ JR Hakusan. Từ Ga Niigata, tuyến xe buýt Bandai-bashi sẽ đến Shiyakusho-mae, cách công viên khoảng ba phút đi bộ.",
+      "fr": "A environ 20 minutes à pied de JR Hakusan. Depuis la gare de Niigata, la ligne de bus Bandai-bashi dessert Shiyakusho-mae, à environ trois minutes à pied du parc.",
+      "es": "A unos 20 minutos a pie de JR Hakusan. Desde la estación de Niigata, la línea de autobús Bandai-bashi llega a Shiyakusho-mae, a unos tres minutos a pie del parque."
     },
     "accessibility": {
       "en": "The tourism listing confirms accessible toilets. This does not confirm every path is step-free.",
       "ja": "観光案内にバリアフリートイレの記載あり。すべての園路の段差なしを保証する情報ではありません。",
-      "th": "แหล่งท่องเที่ยวระบุว่ามีห้องน้ำรองรับผู้ใช้รถเข็น ไม่ได้ยืนยันว่าทุกทางเดินไม่มีขั้นบันได"
+      "th": "แหล่งท่องเที่ยวระบุว่ามีห้องน้ำรองรับผู้ใช้รถเข็น ไม่ได้ยืนยันว่าทุกทางเดินไม่มีขั้นบันได",
+      "ko": "관광 안내에 장애인용 화장실이 명시되어 있습니다. 모든 길에 계단이 없다는 뜻은 아닙니다.",
+      "zh-CN": "旅游清单确认了无障碍厕所。这并不能确认每条路径都是无障碍的。",
+      "vi": "Thông tin du lịch xác nhận có nhà vệ sinh phù hợp cho người khuyết tật. Điều này không có nghĩa là mọi lối đi đều không có bậc thang.",
+      "fr": "Le listing touristique confirme l'accessibilité des toilettes. Cela ne confirme pas que chaque chemin est sans marches.",
+      "es": "El listado turístico confirma baños accesibles. Esto no confirma que todos los caminos estén sin escalones."
     }
   },
   "pref:yamanashi:takeda-shrine": {
@@ -974,7 +1519,12 @@
     "access": {
       "en": "From JR Kofu’s north exit, allow about 30 minutes on foot or ten minutes by bus toward Takeda Shrine. Check the return bus timetable.",
       "ja": "JR甲府駅北口から徒歩約30分、または武田神社方面へバス約10分。帰りのバス時刻も確認。",
-      "th": "จากทางออกเหนือ JR Kofu เดินประมาณ 30 นาที หรือนั่งรถบัสไปทาง Takeda Shrine ประมาณ 10 นาที ตรวจเวลาเที่ยวกลับด้วย"
+      "th": "จากทางออกเหนือ JR Kofu เดินประมาณ 30 นาที หรือนั่งรถบัสไปทาง Takeda Shrine ประมาณ 10 นาที ตรวจเวลาเที่ยวกลับด้วย",
+      "ko": "JR 고후 북쪽 출구에서 다케다 신사 방향으로 도보로 약 30분, 버스로 10분 정도 소요됩니다. 돌아오는 버스 시간표를 확인하세요.",
+      "zh-CN": "从 JR 甲府北口步行约 30 分钟或乘坐巴士 10 分钟前往武田神社。检查回程巴士时刻表。",
+      "vi": "Từ lối ra phía bắc của JR Kofu, đi bộ khoảng 30 phút hoặc đi xe buýt khoảng 10 phút về phía Đền Takeda. Kiểm tra lịch trình xe buýt trở về.",
+      "fr": "Depuis la sortie nord de JR Kofu, comptez environ 30 minutes à pied ou dix minutes en bus en direction du sanctuaire Takeda. Vérifiez les horaires des bus de retour.",
+      "es": "Desde la salida norte de JR Kofu, espere unos 30 minutos a pie o diez minutos en autobús hacia el Santuario Takeda. Consulta el horario del autobús de vuelta."
     }
   },
   "pref:gifu:takayama-jinya": {
@@ -983,12 +1533,22 @@
     "access": {
       "en": "About ten minutes on foot from Takayama Station or the Nohi Bus Center.",
       "ja": "高山駅・濃飛バスセンターから徒歩約10分。",
-      "th": "เดินประมาณ 10 นาทีจากสถานี Takayama หรือ Nohi Bus Center"
+      "th": "เดินประมาณ 10 นาทีจากสถานี Takayama หรือ Nohi Bus Center",
+      "ko": "다카야마역, 노히 버스센터에서 도보 약 10분.",
+      "zh-CN": "从高山站或浓飞巴士中心步行约10分钟。",
+      "vi": "Khoảng mười phút đi bộ từ Ga Takayama hoặc Trung tâm xe buýt Nohi.",
+      "fr": "À une dizaine de minutes à pied de la gare de Takayama ou du Nohi Bus Center.",
+      "es": "A unos diez minutos a pie desde la estación de Takayama o la estación de autobuses de Nohi."
     },
     "hours": {
       "en": "April–October 08:45–17:00; November–March 08:45–16:30. Last entry 30 minutes before closing. Closed December 29–January 3.",
       "ja": "4〜10月8:45〜17:00、11〜3月8:45〜16:30。最終入場は閉館30分前。12月29日〜1月3日休館。",
-      "th": "เม.ย.–ต.ค. 08:45–17:00 น. พ.ย.–มี.ค. 08:45–16:30 น. เข้าสุดท้ายก่อนปิด 30 นาที ปิด 29 ธ.ค.–3 ม.ค."
+      "th": "เม.ย.–ต.ค. 08:45–17:00 น. พ.ย.–มี.ค. 08:45–16:30 น. เข้าสุดท้ายก่อนปิด 30 นาที ปิด 29 ธ.ค.–3 ม.ค.",
+      "ko": "4월~10월 08:45~17:00 11월~3월 08:45~16:30. 마지막 입장은 폐장 30분 전입니다. 12월 29일부터 1월 3일까지 휴무.",
+      "zh-CN": "4 月至 10 月 08:45–17:00； 11 月至 3 月 08:45–16:30。最后入场时间为关门前 30 分钟。 12 月 29 日至 1 月 3 日关闭。",
+      "vi": "Tháng 4–Tháng 10 08:45–17:00; Tháng 11–Tháng 3 08:45–16:30. Lần vào cuối cùng là 30 phút trước khi đóng cửa. Đóng cửa từ ngày 29 tháng 12 đến ngày 3 tháng 1.",
+      "fr": "avril-octobre de 8h45 à 17h00 ; De novembre à mars, de 8 h 45 à 16 h 30. Dernière entrée 30 minutes avant la fermeture. Fermé du 29 décembre au 3 janvier.",
+      "es": "abril-octubre 08:45-17:00; Noviembre-marzo 08:45-16:30. Última entrada 30 minutos antes del cierre. Cerrado del 29 de diciembre al 3 de enero."
     },
     "fieldSources": {
       "hours": {
@@ -1003,7 +1563,12 @@
     "admission": {
       "en": "Adult admission ¥500; visitors aged 18 or younger enter free at review.",
       "ja": "確認時は大人500円、18歳以下無料。",
-      "th": "ราคาที่ตรวจ ผู้ใหญ่ 500 เยน อายุไม่เกิน 18 ปีเข้าฟรี"
+      "th": "ราคาที่ตรวจ ผู้ใหญ่ 500 เยน อายุไม่เกิน 18 ปีเข้าฟรี",
+      "ko": "성인 입장료 500엔; 18세 이하 방문객은 정보 확인 당시 무료로 입장할 수 있습니다.",
+      "zh-CN": "成人门票500日元； 18 岁或以下的游客可免费入场（信息核查时）。",
+      "vi": "Vé vào cửa người lớn ¥500; du khách từ 18 tuổi trở xuống được vào cửa miễn phí tại thời điểm kiểm tra thông tin.",
+      "fr": "Entrée adulte 500 ¥ ; les visiteurs âgés de 18 ans ou moins entrent gratuitement au moment de la vérification.",
+      "es": "Entrada para adultos ¥500; Los visitantes de 18 años o menos entran gratis en la fecha de comprobación."
     }
   },
   "pref:mie:futami-okitama-shrine": {
@@ -1012,7 +1577,12 @@
     "access": {
       "en": "Walk about 15 minutes from JR Futaminoura through the ryokan street, or about five minutes from Meotoiwa Higashiguchi bus stop.",
       "ja": "JR二見浦駅から旅館街を通って徒歩約15分、または夫婦岩東口バス停から徒歩約5分。",
-      "th": "เดินผ่านถนนเรียวกังประมาณ 15 นาทีจาก JR Futaminoura หรือเดินประมาณ 5 นาทีจากป้ายรถบัส Meotoiwa Higashiguchi"
+      "th": "เดินผ่านถนนเรียวกังประมาณ 15 นาทีจาก JR Futaminoura หรือเดินประมาณ 5 นาทีจากป้ายรถบัส Meotoiwa Higashiguchi",
+      "ko": "JR 후타미노우라에서 료칸 거리를 따라 도보로 약 15분, 메오토이와 히가시구치 버스 정류장에서 약 5분 소요됩니다.",
+      "zh-CN": "从JR二见浦站经旅馆街步行约15分钟，或从夫妻岩东口巴士站步行约5分钟。",
+      "vi": "Đi bộ khoảng 15 phút từ JR Futaminoura qua phố ryokan hoặc khoảng năm phút từ trạm xe buýt Meotoiwa Higashiguchi.",
+      "fr": "Marchez environ 15 minutes depuis JR Futaminoura en passant par la rue du ryokan, ou environ cinq minutes depuis l'arrêt de bus Meotoiwa Higashiguchi.",
+      "es": "Camine unos 15 minutos desde JR Futaminoura por la calle del ryokan, o unos cinco minutos desde la parada de autobús Meotoiwa Higashiguchi."
     }
   },
   "pref:kagawa:ritsurin-garden": {
@@ -1021,7 +1591,12 @@
     "access": {
       "en": "For the main entrance, walk about ten minutes from Kotoden Ritsurin-Koen. JR Ritsurinkoen-Kitaguchi is about five minutes from the north entrance; choose the entrance before routing.",
       "ja": "正門へはことでん栗林公園駅から徒歩約10分。北門へはJR栗林公園北口駅から徒歩約5分。使う門を決めてから経路を確認。",
-      "th": "ทางเข้าหลักเดินประมาณ 10 นาทีจาก Kotoden Ritsurin-Koen ส่วนทางเข้าเหนือเดินประมาณ 5 นาทีจาก JR Ritsurinkoen-Kitaguchi เลือกประตูให้ตรงก่อนค้นเส้นทาง"
+      "th": "ทางเข้าหลักเดินประมาณ 10 นาทีจาก Kotoden Ritsurin-Koen ส่วนทางเข้าเหนือเดินประมาณ 5 นาทีจาก JR Ritsurinkoen-Kitaguchi เลือกประตูให้ตรงก่อนค้นเส้นทาง",
+      "ko": "정문은 고토덴 리쓰린코엔에서 도보로 약 10분 거리에 있습니다. JR 리쓰린코엔 기타구치는 북쪽 입구에서 약 5분 거리에 있습니다. 경로를 지정하기 전에 입구를 선택하세요.",
+      "zh-CN": "从琴电栗林公园步行约10分钟即可到达正门。 JR栗林公园北口距北口约5分钟；在规划路线之前选择入口。",
+      "vi": "Để vào cổng chính, hãy đi bộ khoảng mười phút từ Kotoden Ritsurin-Koen. JR Ritsurinkoen-Kitaguchi cách lối vào phía bắc khoảng năm phút; chọn lối vào trước khi định tuyến.",
+      "fr": "Pour l’entrée principale, marchez une dizaine de minutes depuis Kotoden Ritsurin-Koen. JR Ritsurinkoen-Kitaguchi se trouve à environ cinq minutes de l'entrée nord ; choisissez l'entrée avant de planifier le trajet.",
+      "es": "Para llegar a la entrada principal, camine unos diez minutos desde Kotoden Ritsurin-Koen. JR Ritsurinkoen-Kitaguchi está a unos cinco minutos de la entrada norte; Elija la entrada antes de la ruta."
     }
   },
   "pref:kochi:hirome-market": {
@@ -1030,7 +1605,12 @@
     "access": {
       "en": "About two minutes on foot from Ohashidori tram stop. Check individual shop hours; the parking facility’s hours do not describe market opening hours.",
       "ja": "路面電車の大橋通停留場から徒歩約2分。各店の営業時間を確認。駐車場の時間と市場の時間は異なります。",
-      "th": "เดินประมาณ 2 นาทีจากป้ายรถราง Ohashidori ตรวจเวลาเปิดแต่ละร้าน เวลาเปิดที่จอดรถไม่ใช่เวลาเปิดตลาด"
+      "th": "เดินประมาณ 2 นาทีจากป้ายรถราง Ohashidori ตรวจเวลาเปิดแต่ละร้าน เวลาเปิดที่จอดรถไม่ใช่เวลาเปิดตลาด",
+      "ko": "노면전차 오하시도리 정류장에서 도보 약 2분 개별 매장 영업시간을 확인하세요. 주차 시설의 영업 시간은 시장 개장 시간을 나타내지 않습니다.",
+      "zh-CN": "从大桥通电车站步行约2分钟。检查个别商店的营业时间；停车设施的营业时间并不代表市场的营业时间。",
+      "vi": "Khoảng hai phút đi bộ từ trạm xe điện Ohashidori. Kiểm tra giờ cửa hàng cá nhân; giờ của cơ sở đỗ xe không mô tả giờ mở cửa của chợ.",
+      "fr": "À environ deux minutes à pied de l'arrêt de tramway Ohashidori. Vérifiez les heures d'ouverture de chaque magasin ; les horaires du parking ne décrivent pas les heures d’ouverture du marché.",
+      "es": "A unos dos minutos a pie desde la parada de tranvía Ohashidori. Verifique el horario de cada tienda; El horario del estacionamiento no describe el horario de apertura del mercado."
     }
   },
   "pref:fukuoka:ohori-park": {
@@ -1039,7 +1619,12 @@
     "access": {
       "en": "About seven minutes on foot from Ohorikoen or Tojinmachi Station on the Airport subway line. Kuromon and Ohorikoen bus stops are about five minutes away.",
       "ja": "地下鉄空港線大濠公園駅・唐人町駅から徒歩約7分。黒門・大濠公園バス停から徒歩約5分。",
-      "th": "เดินประมาณ 7 นาทีจากสถานี Ohorikoen หรือ Tojinmachi สาย Airport หรือประมาณ 5 นาทีจากป้ายรถบัส Kuromon และ Ohorikoen"
+      "th": "เดินประมาณ 7 นาทีจากสถานี Ohorikoen หรือ Tojinmachi สาย Airport หรือประมาณ 5 นาทีจากป้ายรถบัส Kuromon และ Ohorikoen",
+      "ko": "지하철 공항선 오호리코엔역, 도진마치역에서 도보 약 7분. 구로몬과 오호리코엔 버스 정류장은 약 5분 거리에 있습니다.",
+      "zh-CN": "从机场线大濠公园站或唐人町站步行约7分钟。黑门和大濠公园巴士站距离约有 5 分钟路程。",
+      "vi": "Khoảng bảy phút đi bộ từ Ga Ohorikoen hoặc Ga Tojinmachi trên tuyến tàu điện ngầm Sân bay. Trạm dừng xe buýt Kuromon và Ohorikoen cách đó khoảng năm phút.",
+      "fr": "À environ sept minutes à pied de la station Ohorikoen ou Tojinmachi sur la ligne de métro Aéroport. Les arrêts de bus Kuromon et Ohorikoen sont à environ cinq minutes.",
+      "es": "A unos siete minutos a pie desde la estación Ohorikoen o Tojinmachi de la línea de metro Aeropuerto. Las paradas de autobús Kuromon y Ohorikoen están a unos cinco minutos."
     }
   },
   "pref:oita:umi-jigoku": {
@@ -1048,7 +1633,12 @@
     "access": {
       "en": "From Beppu Station, take a bus toward Kannawa or Umi-Jigoku-mae (around 20 minutes). Check the route and return departure with the bus operator.",
       "ja": "別府駅から鉄輪・海地獄前方面のバスで約20分。系統と帰りの時刻は運行会社で確認。",
-      "th": "จากสถานี Beppu นั่งรถบัสไปทาง Kannawa หรือ Umi-Jigoku-mae ประมาณ 20 นาที ตรวจสายและเวลาเที่ยวกลับกับผู้ให้บริการ"
+      "th": "จากสถานี Beppu นั่งรถบัสไปทาง Kannawa หรือ Umi-Jigoku-mae ประมาณ 20 นาที ตรวจสายและเวลาเที่ยวกลับกับผู้ให้บริการ",
+      "ko": "벳푸역에서 간나와 또는 우미지고쿠마에 방면 버스를 타세요(약 20분). 경로와 돌아오는 버스 출발 시각은 버스 운영사에 확인하세요.",
+      "zh-CN": "从别府站乘坐开往铁轮或海地狱前的巴士（约 20 分钟）。与巴士运营商核实路线和回程出发时间。",
+      "vi": "Từ ga Beppu, đi xe buýt hướng Kannawa hoặc Umi-Jigoku-mae, mất khoảng 20 phút. Kiểm tra tuyến và giờ chuyến về với đơn vị vận hành xe buýt.",
+      "fr": "Depuis la gare de Beppu, prenez un bus en direction de Kannawa ou Umi-Jigoku-mae (environ 20 minutes). Vérifiez l'itinéraire et le départ du retour auprès de l'opérateur de bus.",
+      "es": "Desde la estación de Beppu, tome un autobús hacia Kannawa o Umi-Jigoku-mae (unos 20 minutos). Consulta la ruta y salida de regreso con el operador del autobús."
     }
   },
   "pref:oita:lake-kinrin": {
@@ -1057,7 +1647,12 @@
     "access": {
       "en": "About 25 minutes on foot from Yufuin Station on the JR Kyudai Main Line. Leave time for the walk back to the station.",
       "ja": "JR久大本線由布院駅から徒歩約25分。駅まで戻る時間も確保しましょう。",
-      "th": "เดินประมาณ 25 นาทีจากสถานี Yufuin สาย JR Kyudai Main Line เผื่อเวลาเดินกลับสถานีด้วย"
+      "th": "เดินประมาณ 25 นาทีจากสถานี Yufuin สาย JR Kyudai Main Line เผื่อเวลาเดินกลับสถานีด้วย",
+      "ko": "JR 규다이본선 유후인역에서 도보 약 25분 역으로 돌아갈 시간을 남겨주세요.",
+      "zh-CN": "从JR久大本线由布院站步行约25分钟。留出时间步行回车站。",
+      "vi": "Khoảng 25 phút đi bộ từ Ga Yufuin trên Tuyến chính JR Kyudai. Dành thời gian đi bộ trở lại nhà ga.",
+      "fr": "À environ 25 minutes à pied de la gare de Yufuin sur la ligne principale JR Kyudai. Prévoyez du temps pour le retour à pied à la gare.",
+      "es": "A unos 25 minutos a pie desde la estación Yufuin de la línea principal JR Kyudai. Deja tiempo para la caminata de regreso a la estación."
     }
   },
   "pref:miyazaki:aoshima-shrine": {
@@ -1066,7 +1661,12 @@
     "access": {
       "en": "Use Aoshima Station on the JR Nichinan Line, then walk toward the island and shrine, about ten minutes. Check return trains before exploring.",
       "ja": "JR日南線青島駅から島・神社へ徒歩約10分。散策前に帰りの列車を確認。",
-      "th": "ลง Aoshima สาย JR Nichinan แล้วเดินไปเกาะและศาลเจ้าประมาณ 10 นาที ตรวจรถไฟเที่ยวกลับก่อนเดินเที่ยว"
+      "th": "ลง Aoshima สาย JR Nichinan แล้วเดินไปเกาะและศาลเจ้าประมาณ 10 นาที ตรวจรถไฟเที่ยวกลับก่อนเดินเที่ยว",
+      "ko": "JR 니치난선 아오시마역을 이용해 섬과 신사 방향으로 도보로 약 10분 소요됩니다. 탐험하기 전에 돌아오는 열차를 확인하세요.",
+      "zh-CN": "从JR日南线青岛站出发，向岛和神社方向步行约10分钟。探索之前检查返程列车。",
+      "vi": "Hãy sử dụng Ga Aoshima trên Tuyến JR Nichinan, sau đó đi bộ về phía hòn đảo và đền thờ, mất khoảng mười phút. Kiểm tra các chuyến tàu khứ hồi trước khi khám phá.",
+      "fr": "Utilisez la gare d'Aoshima sur la ligne JR Nichinan, puis marchez vers l'île et le sanctuaire pendant environ dix minutes. Vérifiez les trains de retour avant d’explorer.",
+      "es": "Utilice la estación Aoshima de la línea JR Nichinan y luego camine hacia la isla y el santuario, unos diez minutos. Consulte los trenes de regreso antes de explorar."
     }
   },
   "pref:miyazaki:miyazaki-jingu": {
@@ -1075,7 +1675,12 @@
     "access": {
       "en": "Use Miyazaki-Jingu Station on the JR Nippo Main Line. The shrine gate is visible from the station area; allow up to 15 minutes to walk to the shrine.",
       "ja": "JR日豊本線宮崎神宮駅へ。駅付近から鳥居が見え、神社まで徒歩15分以内が目安。",
-      "th": "ลง Miyazaki-Jingu สาย JR Nippo Main Line มองเห็นประตูศาลเจ้าจากบริเวณสถานี เผื่อเวลาเดินไปศาลเจ้าประมาณ 15 นาที"
+      "th": "ลง Miyazaki-Jingu สาย JR Nippo Main Line มองเห็นประตูศาลเจ้าจากบริเวณสถานี เผื่อเวลาเดินไปศาลเจ้าประมาณ 15 นาที",
+      "ko": "JR 닛포 본선 미야자키진구역을 이용하세요. 역 주변에서는 신사 문이 보입니다. 신사까지 도보로 최대 15분 정도 소요됩니다.",
+      "zh-CN": "使用 JR 日丰本线的宫崎神宫站。从车站区域可以看到神社大门；步行至神社最多需要 15 分钟。",
+      "vi": "Sử dụng Ga Miyazaki-Jingu trên Tuyến chính JR Nippo. Từ khu vực nhà ga có thể nhìn thấy cổng đền; cho phép tối đa 15 phút đi bộ đến đền thờ.",
+      "fr": "Utilisez la station Miyazaki-Jingu sur la ligne principale JR Nippo. La porte du sanctuaire est visible depuis le quartier de la gare ; prévoyez jusqu'à 15 minutes de marche jusqu'au sanctuaire.",
+      "es": "Utilice la estación Miyazaki-Jingu de la línea principal JR Nippo. La puerta del santuario es visible desde el área de la estación; espere hasta 15 minutos para caminar hasta el santuario."
     }
   },
   "pref:kagoshima:sengan-en": {
@@ -1084,12 +1689,22 @@
     "access": {
       "en": "Use Sengan-en Station on the JR Nippo Main Line and walk to the site. Some trains do not stop here: check JR Kyushu’s timetable. The City View bus also serves Sengan-en (Iso Teien)-mae.",
       "ja": "JR日豊本線仙巌園駅から徒歩。一部列車は停車しないためJR九州の時刻表を確認。シティビューの仙巌園（磯庭園）前バス停も利用できます。",
-      "th": "ลงสถานี Sengan-en สาย JR Nippo Main Line แล้วเดินไปสถานที่ รถบางขบวนไม่จอด ต้องตรวจตาราง JR Kyushu รถบัส City View จอดที่ Sengan-en (Iso Teien)-mae ได้เช่นกัน"
+      "th": "ลงสถานี Sengan-en สาย JR Nippo Main Line แล้วเดินไปสถานที่ รถบางขบวนไม่จอด ต้องตรวจตาราง JR Kyushu รถบัส City View จอดที่ Sengan-en (Iso Teien)-mae ได้เช่นกัน",
+      "ko": "JR 닛포 본선 센간엔역을 이용하여 도보로 찾아오세요. 일부 열차는 여기에 정차하지 않습니다. JR 규슈의 시간표를 확인하세요. 시티 뷰 버스는 센간엔(이소 테이엔)마에도 운행됩니다.",
+      "zh-CN": "从JR日丰本线仙岩园站步行即可到达。有些列车不会在此停靠：请查看 JR 九州的时刻表。 City View 巴士还提供仙岩园（矶庭园）前服务。",
+      "vi": "Hãy sử dụng Ga Sengan-en trên Tuyến chính JR Nippo và đi bộ đến địa điểm này. Một số chuyến tàu không dừng ở đây: hãy kiểm tra lịch trình của JR Kyushu. Xe buýt City View cũng phục vụ Sengan-en (Iso Teien)-mae.",
+      "fr": "Utilisez la station Sengan-en sur la ligne principale JR Nippo et marchez jusqu'au site. Certains trains ne s’arrêtent pas ici : consultez les horaires de JR Kyushu. Le bus City View dessert également Sengan-en (Iso Teien)-mae.",
+      "es": "Utilice la estación Sengan-en de la línea principal JR Nippo y camine hasta el lugar. Algunos trenes no paran aquí: consulte el horario de JR Kyushu. El autobús City View también sirve a Sengan-en (Iso Teien)-mae."
     },
     "hours": {
       "en": "09:00–17:00; last admission 16:30. Closed on the first Sunday in March for the Kagoshima Marathon.",
       "ja": "9:00〜17:00、最終入場16:30。3月第1日曜は鹿児島マラソンのため休園。",
-      "th": "09:00–17:00 น. เข้าครั้งสุดท้าย 16:30 น. ปิดวันอาทิตย์แรกของเดือนมีนาคมเนื่องจาก Kagoshima Marathon"
+      "th": "09:00–17:00 น. เข้าครั้งสุดท้าย 16:30 น. ปิดวันอาทิตย์แรกของเดือนมีนาคมเนื่องจาก Kagoshima Marathon",
+      "ko": "09:00~17:00; 마지막 입장 시간은 16:30입니다. 가고시마 마라톤 개최 기간인 3월 첫째 주 일요일은 휴관합니다.",
+      "zh-CN": "09:00–17:00；最后入场时间为 16:30。鹿儿岛马拉松比赛于 3 月的第一个周日闭馆。",
+      "vi": "09:00–17:00; lượt vào cuối cùng là 16:30. Đóng cửa vào Chủ nhật đầu tiên của tháng 3 để tổ chức cuộc thi Kagoshima Marathon.",
+      "fr": "09h00-17h00 ; dernière entrée 16h30. Fermé le premier dimanche de mars pour le Marathon de Kagoshima.",
+      "es": "09:00–17:00; última entrada 16:30. Cerrado el primer domingo de marzo por el maratón de Kagoshima."
     },
     "fieldSources": {
       "hours": {
@@ -1104,7 +1719,12 @@
     "admission": {
       "en": "General admission ¥1,600; elementary through high-school students ¥800. Includes the Goten residence and Shoko Shuseikan museum.",
       "ja": "一般1,600円、小中高生800円。御殿と尚古集成館を含みます。",
-      "th": "ผู้ใหญ่ทั่วไป 1,600 เยน นักเรียนประถมถึงมัธยมปลาย 800 เยน รวมเรือน Goten และพิพิธภัณฑ์ Shoko Shuseikan"
+      "th": "ผู้ใหญ่ทั่วไป 1,600 เยน นักเรียนประถมถึงมัธยมปลาย 800 เยน รวมเรือน Goten และพิพิธภัณฑ์ Shoko Shuseikan",
+      "ko": "일반 입장료 1,600엔; 초등학생~고등학생 800엔. 고텐저택과 쇼코 슈세이칸 박물관이 포함되어 있습니다.",
+      "zh-CN": "普通票1,600日元，小学生至高中生800日元。包含御殿和尚古集成馆。",
+      "vi": "Vé vào chung 1.600 yên; học sinh tiểu học đến trung học 800 yên. Bao gồm dinh thự Goten và bảo tàng Shoko Shuseikan.",
+      "fr": "Admission générale 1 600 ¥ ; élèves du primaire au lycée 800 ¥. Comprend la résidence Goten et le musée Shoko Shuseikan.",
+      "es": "Entrada general: 1.600 ¥; estudiantes de primaria a bachillerato: 800 ¥. Incluye la residencia Goten y el museo Shoko Shuseikan."
     }
   },
   "pref:kagoshima:shiroyama-observatory": {
@@ -1113,7 +1733,12 @@
     "access": {
       "en": "From Kagoshima-Chuo, the sightseeing bus reaches Shiroyama in about 25 minutes; the viewpoint is by the stop. Check the last bus before planning sunset views.",
       "ja": "鹿児島中央駅から観光バスで城山へ約25分、展望所は停留所そば。夕景を見る場合は最終バスも確認。",
-      "th": "จาก Kagoshima-Chuo นั่งรถบัสเที่ยวชมไป Shiroyama ประมาณ 25 นาที จุดชมวิวอยู่ใกล้ป้าย ตรวจบัสเที่ยวสุดท้ายก่อนวางแผนชมพระอาทิตย์ตก"
+      "th": "จาก Kagoshima-Chuo นั่งรถบัสเที่ยวชมไป Shiroyama ประมาณ 25 นาที จุดชมวิวอยู่ใกล้ป้าย ตรวจบัสเที่ยวสุดท้ายก่อนวางแผนชมพระอาทิตย์ตก",
+      "ko": "가고시마추오에서 관광버스를 타면 약 25분만에 시로야마에 도착합니다. 전망대는 정류장 옆에 있습니다. 일몰 전망을 계획하기 전에 마지막 버스를 확인하세요.",
+      "zh-CN": "从鹿儿岛中央出发，乘坐观光巴士约25分钟即可到达城山；观景点就在车站旁边。在计划日落景观之前检查末班车。",
+      "vi": "Từ Kagoshima-Chuo, xe buýt tham quan đến Shiroyama trong khoảng 25 phút; điểm ngắm cảnh nằm cạnh trạm dừng. Kiểm tra chuyến xe buýt cuối cùng trước khi lên kế hoạch ngắm cảnh hoàng hôn.",
+      "fr": "Depuis Kagoshima-Chuo, le bus touristique atteint Shiroyama en 25 minutes environ ; le point de vue est à l'arrêt. Vérifiez le dernier bus avant de planifier des vues du coucher du soleil.",
+      "es": "Desde Kagoshima-Chuo, el autobús turístico llega a Shiroyama en unos 25 minutos; El mirador está junto a la parada. Consulte el último autobús antes de planificar las vistas del atardecer."
     }
   },
   "pref:niigata:marinepia-nihonkai": {
@@ -1122,12 +1747,22 @@
     "access": {
       "en": "From JR Niigata Station bus terminal platform 9, C22 reaches Suizokukan-mae in about 25 minutes. Check current departures. The aquarium has indoor displays and outdoor areas; the facility reference pin does not verify an entrance or a step-free route.",
       "ja": "JR新潟駅バスターミナル9番線からC22で水族館前まで約25分。最新の時刻を確認してください。屋内展示と屋外エリアがあります。施設の参考位置は入口や段差のない経路の確認ではありません。",
-      "th": "จากชานชาลารถบัส 9 ที่สถานี JR Niigata ใช้สาย C22 ถึง Suizokukan-mae ประมาณ 25 นาที ตรวจเวลาออกล่าสุด พิพิธภัณฑ์สัตว์น้ำมีทั้งส่วนในอาคารและกลางแจ้ง หมุดอ้างอิงสถานที่ไม่ได้ยืนยันทางเข้าหรือเส้นทางไร้บันได"
+      "th": "จากชานชาลารถบัส 9 ที่สถานี JR Niigata ใช้สาย C22 ถึง Suizokukan-mae ประมาณ 25 นาที ตรวจเวลาออกล่าสุด พิพิธภัณฑ์สัตว์น้ำมีทั้งส่วนในอาคารและกลางแจ้ง หมุดอ้างอิงสถานที่ไม่ได้ยืนยันทางเข้าหรือเส้นทางไร้บันได",
+      "ko": "JR 니가타역 버스 터미널 9번 플랫폼에서 C22를 타면 스이조쿠칸마에까지 약 25분이 소요됩니다. 현재 출발편을 확인하세요. 수족관에는 실내 전시물과 야외 공간이 있습니다. 시설의 참고용 지도 핀은 입구나 계단 없는 경로를 확인하지 않습니다.",
+      "zh-CN": "从JR新泻站巴士总站9号站台乘C22路，约25分钟到Suizokukan-mae。请确认当前发车时间。水族馆设有室内展区和室外区域；设施的参考地图标记并不确认具体入口或无台阶路线。",
+      "vi": "Từ bến xe buýt ga JR Niigata sân ga số 9, C22 đến Suizokukan-mae trong khoảng 25 phút. Kiểm tra các chuyến khởi hành hiện tại. Thủy cung có khu trưng bày trong nhà và khu vực ngoài trời; ghim bản đồ tham khảo của cơ sở không xác minh lối vào hoặc tuyến đường không có bậc thang.",
+      "fr": "Depuis le quai 9 du terminal de bus de la gare JR Niigata, le C22 atteint Suizokukan-mae en 25 minutes environ. Vérifiez les départs en cours. L'aquarium dispose d'expositions intérieures et d'espaces extérieurs ; l'épingle de référence de l'installation ne vérifie pas une entrée ou un itinéraire sans marche.",
+      "es": "Desde el andén 9 de la terminal de autobuses de la estación JR Niigata, la C22 llega a Suizokukan-mae en unos 25 minutos. Consultar salidas actuales. El acuario cuenta con exhibiciones interiores y áreas al aire libre; el pin de referencia de la instalación no verifica una entrada o una ruta sin escalones."
     },
     "hours": {
       "en": "Normally 09:00–17:00; ticket sales end at 16:30. Closed December 29–January 1 and the first Thursday of March plus the following day. Busy-period schedules may differ; check the operator calendar.",
       "ja": "通常9:00〜17:00、発券は16:30まで。12月29日〜1月1日、3月の第1木曜日と翌日が休館。繁忙期などは変更があるため公式カレンダーを確認してください。",
-      "th": "ปกติ 09:00–17:00 จำหน่ายบัตรถึง 16:30 ปิด 29 ธันวาคม–1 มกราคม และวันพฤหัสบดีแรกของมีนาคมกับวันถัดไป ช่วงคนหนาแน่นอาจเปลี่ยนเวลา โปรดตรวจปฏิทินของผู้ให้บริการ"
+      "th": "ปกติ 09:00–17:00 จำหน่ายบัตรถึง 16:30 ปิด 29 ธันวาคม–1 มกราคม และวันพฤหัสบดีแรกของมีนาคมกับวันถัดไป ช่วงคนหนาแน่นอาจเปลี่ยนเวลา โปรดตรวจปฏิทินของผู้ให้บริการ",
+      "ko": "일반적으로 09:00~17:00; 티켓 판매는 16시 30분에 종료됩니다. 12월 29일부터 1월 1일까지, 3월 첫 번째 목요일과 그 다음날은 휴무입니다. 바쁜 기간의 일정은 다를 수 있습니다. 운영자 달력을 확인하세요.",
+      "zh-CN": "一般为 09:00–17:00；售票截止时间为16:30。 12 月 29 日至 1 月 1 日以及 3 月的第一个星期四及其后一天关闭。繁忙时段的时间表可能会有所不同；检查运营方日历。",
+      "vi": "Thông thường 09:00–17:00; việc bán vé kết thúc lúc 16h30. Đóng cửa từ ngày 29 tháng 12 đến ngày 1 tháng 1 và thứ Năm đầu tiên của tháng 3 cộng thêm ngày hôm sau. Lịch trình trong thời gian bận rộn có thể khác nhau; kiểm tra lịch điều hành.",
+      "fr": "Normalement de 9h00 à 17h00 ; la vente des billets se termine à 16h30. Fermé du 29 décembre au 1er janvier et le premier jeudi de mars ainsi que le lendemain. Les horaires des périodes chargées peuvent différer ; consultez le calendrier de l'opérateur.",
+      "es": "Normalmente de 09:00 a 17:00; La venta de entradas finaliza a las 16:30 horas. Cerrado del 29 de diciembre al 1 de enero y el primer jueves de marzo más el día siguiente. Los horarios de los períodos de mayor actividad pueden diferir; Consulta el calendario del operador."
     },
     "fieldSources": {
       "hours": {
@@ -1142,12 +1777,22 @@
     "access": {
       "en": "From Toyama Station, take the circular tram to Grand Plaza-mae (about 12 minutes), then walk about two minutes; or use the Minami-Toyama-ekimae tram to Nishimachi and walk about one minute. The museum is inside TOYAMA Kirari. Check current services and the final approach; the reference pin does not verify an entrance or a step-free route.",
       "ja": "富山駅から環状線でグランドプラザ前まで約12分、徒歩約2分。または南富山駅前行きで西町下車、徒歩約1分。TOYAMAキラリ内です。最新の運行と最後の経路を確認してください。参考位置は入口や段差のない経路の確認ではありません。",
-      "th": "จากสถานี Toyama ใช้รถรางสายวงแหวนถึง Grand Plaza-mae ประมาณ 12 นาทีแล้วเดินราว 2 นาที หรือสาย Minami-Toyama-ekimae ลง Nishimachi แล้วเดินราว 1 นาที พิพิธภัณฑ์อยู่ในอาคาร TOYAMA Kirari ตรวจบริการล่าสุดและทางเดินช่วงสุดท้าย หมุดอ้างอิงไม่ได้ยืนยันทางเข้าหรือเส้นทางไร้บันได"
+      "th": "จากสถานี Toyama ใช้รถรางสายวงแหวนถึง Grand Plaza-mae ประมาณ 12 นาทีแล้วเดินราว 2 นาที หรือสาย Minami-Toyama-ekimae ลง Nishimachi แล้วเดินราว 1 นาที พิพิธภัณฑ์อยู่ในอาคาร TOYAMA Kirari ตรวจบริการล่าสุดและทางเดินช่วงสุดท้าย หมุดอ้างอิงไม่ได้ยืนยันทางเข้าหรือเส้นทางไร้บันได",
+      "ko": "도야마역에서 순환 트램을 타고 Grand Plaza-mae까지 약 12분 이동한 뒤 약 2분 걸으세요. 또는 미나미토야마에키마에행 트램을 타고 니시마치에서 내려 약 1분 걸으세요. 박물관은 TOYAMA Kirari 안에 있습니다. 현재 운행 정보와 마지막 도보 구간을 확인하세요. 참고용 지도 핀만으로 입구나 계단 없는 경로를 확인할 수는 없습니다.",
+      "zh-CN": "从富山站乘环形电车至Grand Plaza-mae（约12分钟），再步行约2分钟；或乘南富山站前方向电车至西町，步行约1分钟。博物馆位于TOYAMA Kirari内。请确认当前班次及最后一段路线；参考地图标记并不确认具体入口或无台阶路线。",
+      "vi": "Từ Ga Toyama, đi xe điện vòng tròn đến Grand Plaza-mae (khoảng 12 phút), sau đó đi bộ khoảng hai phút; hoặc sử dụng xe điện Minami-Toyama-ekimae đến Nishimachi và đi bộ khoảng một phút. Bảo tàng nằm bên trong TOYAMA Kirari. Kiểm tra các dịch vụ hiện tại và cách tiếp cận cuối cùng; ghim bản đồ tham khảo không xác minh lối vào hoặc tuyến đường không có bậc thang.",
+      "fr": "Depuis la gare de Toyama, prenez le tramway circulaire jusqu'à Grand Plaza-mae (environ 12 minutes), puis marchez environ deux minutes ; ou utilisez le tramway Minami-Toyama-ekimae jusqu'à Nishimachi et marchez environ une minute. Le musée se trouve à l'intérieur de TOYAMA Kirari. Vérifier les services actuels et l'approche finale ; la broche de référence ne vérifie pas une entrée ou un itinéraire sans marche.",
+      "es": "Desde la estación Toyama, tome el tranvía circular hasta Grand Plaza-mae (unos 12 minutos) y luego camine unos dos minutos; o utilice el tranvía Minami-Toyama-ekimae hasta Nishimachi y camine aproximadamente un minuto. El museo está dentro de TOYAMA Kirari. Consultar los servicios actuales y el tramo final del acceso; el pin de referencia no verifica una entrada o una ruta sin escalones."
     },
     "hours": {
       "en": "Permanent and special exhibitions are normally 09:30–18:00, with last entry 30 minutes before closing. Usually closed the first and third Wednesdays and over New Year. Exhibition changes and individual exhibitions can alter closures; check the current operator calendar.",
       "ja": "常設展・企画展は通常9:30〜18:00、最終入場は閉場30分前。原則第1・第3水曜日と年末年始休館。展示替えや展覧会により休館日が変わるため、公式の最新カレンダーを確認してください。",
-      "th": "นิทรรศการถาวรและพิเศษปกติ 09:30–18:00 รับเข้ารอบสุดท้ายก่อนปิด 30 นาที โดยทั่วไปปิดวันพุธที่ 1 และ 3 ของเดือนและช่วงปีใหม่ การเปลี่ยนนิทรรศการหรือแต่ละงานอาจทำให้วันปิดต่างกัน โปรดตรวจปฏิทินล่าสุดของพิพิธภัณฑ์"
+      "th": "นิทรรศการถาวรและพิเศษปกติ 09:30–18:00 รับเข้ารอบสุดท้ายก่อนปิด 30 นาที โดยทั่วไปปิดวันพุธที่ 1 และ 3 ของเดือนและช่วงปีใหม่ การเปลี่ยนนิทรรศการหรือแต่ละงานอาจทำให้วันปิดต่างกัน โปรดตรวจปฏิทินล่าสุดของพิพิธภัณฑ์",
+      "ko": "상설전시와 특별전시는 일반적으로 09:30~18:00이며, 마지막 입장은 폐관 30분 전입니다. 보통 첫째, 셋째 수요일과 새해에는 휴무입니다. 전시 변경 및 개별 전시로 인해 폐관이 변경될 수 있습니다. 현재 운영자 달력을 확인하세요.",
+      "zh-CN": "常设展览和特别展览的开放时间通常为 09:30–18:00，最后入场时间为闭馆前 30 分钟。通常在第一个和第三个星期三以及新年期间关闭。展览变更和个别展览可能会改变关闭时间；检查当前的运营方日历。",
+      "vi": "Các triển lãm thường trực và đặc biệt thường diễn ra từ 09:30–18:00, lượt vào cuối cùng là 30 phút trước khi đóng cửa. Thường đóng cửa vào thứ Tư đầu tiên và thứ ba và trong dịp Năm Mới. Những thay đổi về triển lãm và triển lãm cá nhân có thể thay đổi việc đóng cửa; kiểm tra lịch điều hành hiện tại.",
+      "fr": "Les expositions permanentes et spéciales ont normalement lieu de 9h30 à 18h00, avec une dernière entrée 30 minutes avant la fermeture. Habituellement fermé les premier et troisième mercredis et pendant le Nouvel An. Les changements d'exposition et les expositions individuelles peuvent modifier les fermetures ; consultez le calendrier actuel de l'opérateur.",
+      "es": "Las exposiciones permanentes y especiales suelen ser de 09:30 a 18:00, y la última entrada es 30 minutos antes del cierre. Normalmente cerrado el primer y tercer miércoles y durante el Año Nuevo. Los cambios de exposición y las exposiciones individuales pueden alterar los cierres; consulte el calendario actual del operador."
     }
   }
 }

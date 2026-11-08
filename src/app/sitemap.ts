@@ -18,11 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ].map((path) => ({
       url: `${siteUrl}/${lang}${path}`,
       alternates: {
-        languages: {
-          ja: `${siteUrl}/ja${path}`,
-          en: `${siteUrl}/en${path}`,
-          th: `${siteUrl}/th${path}`,
-        },
+        languages: Object.fromEntries(i18n.locales.map((locale) => [locale, `${siteUrl}/${locale}${path}`])),
       },
     })),
   )

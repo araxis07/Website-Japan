@@ -6,6 +6,11 @@
     ],
     "note": {
       "en": "Keep Otaru separate from the Sapporo museum day.",
+"ko": "오타루는 삿포로 박물관 방문일과 나누세요.",
+"zh-CN": "小樽与札幌博物馆分开安排。",
+"vi": "Tách Otaru khỏi ngày bảo tàng Sapporo.",
+"fr": "Séparez Otaru de la journée des musées de Sapporo.",
+"es": "Separa Otaru del día de museos de Sapporo.",
       "ja": "小樽は札幌の博物館巡りとは別日に。",
       "th": "แยกโอตารุจากวันเที่ยวพิพิธภัณฑ์ซัปโปโร"
     }
@@ -17,6 +22,11 @@
     ],
     "note": {
       "en": "Choose an Aomori day and a separate Hirosaki day.",
+"ko": "아오모리와 히로사키는 다른 날에 방문하세요.",
+"zh-CN": "青森市和弘前各安排一天。",
+"vi": "Dành ngày riêng cho Aomori và Hirosaki.",
+"fr": "Prévoyez des journées distinctes pour Aomori et Hirosaki.",
+"es": "Dedica días separados a Aomori y Hirosaki.",
       "ja": "青森市と弘前市を別日に分けます。",
       "th": "แยกวันเที่ยวเมืองอาโอโมริกับฮิโรซากิ"
     }
@@ -28,6 +38,11 @@
     ],
     "note": {
       "en": "Hiraizumi and Morioka need separate travel windows.",
+"ko": "히라이즈미와 모리오카는 이동 시간을 따로 두세요.",
+"zh-CN": "平泉和盛冈需要分别预留交通时间。",
+"vi": "Dành khoảng đi lại riêng cho Hiraizumi và Morioka.",
+"fr": "Prévoyez des créneaux de transport distincts pour Hiraizumi et Morioka.",
+"es": "Deja tiempos de traslado separados para Hiraizumi y Morioka.",
       "ja": "平泉と盛岡は別々の移動枠を確保。",
       "th": "เผื่อเวลาเดินทางแยกสำหรับฮิราอิซุมิกับโมริโอกะ"
     }
@@ -36,6 +51,11 @@
     "groups": [["pref:miyagi:zuihoden"], ["pref:miyagi:zuiganji-temple"]],
     "note": {
       "en": "Matsushima deserves a separate outing from Sendai.",
+"ko": "마쓰시마는 센다이와 별도 일정으로 즐기세요.",
+"zh-CN": "松岛值得安排在仙台以外的另一趟行程。",
+"vi": "Matsushima nên là chuyến riêng với Sendai.",
+"fr": "Consacrez une sortie distincte à Matsushima depuis Sendai.",
+"es": "Dedica a Matsushima una salida separada de Sendai.",
       "ja": "松島は仙台市内とは別のお出かけに。",
       "th": "แยกมัตสึชิมะเป็นทริปจากวันเที่ยวเซนได"
     }
@@ -44,6 +64,11 @@
     "groups": [["pref:akita:senshu-park"], ["pref:akita:aoyagi-samurai-manor"]],
     "note": {
       "en": "Do not treat Kakunodate as an Akita city walk.",
+"ko": "가쿠노다테는 아키타 시내 산책으로 생각하지 마세요.",
+"zh-CN": "角馆并非秋田市内散步的一部分。",
+"vi": "Đừng xem Kakunodate như đi bộ trong thành phố Akita.",
+"fr": "Ne considérez pas Kakunodate comme une promenade dans Akita.",
+"es": "No trates Kakunodate como un paseo por la ciudad de Akita.",
       "ja": "角館は秋田市内の散策とは別の行程です。",
       "th": "คาคุโนะดาเตะเป็นอีกทริปหนึ่ง ไม่ใช่การเดินเที่ยวในเมืองอาคิตะ"
     }
@@ -54,6 +79,11 @@
     ],
     "note": {
       "en": "Allow for Yamadera steps before adding the city park.",
+"ko": "시내 공원을 추가하기 전에 야마데라 계단을 고려하세요.",
+"zh-CN": "加入市内公园前，先考虑山寺的台阶所需体力和时间。",
+"vi": "Tính sức, thời gian cho bậc Yamadera trước khi thêm công viên đô thị.",
+"fr": "Tenez compte des marches de Yamadera avant d’ajouter le parc urbain.",
+"es": "Cuenta con las escaleras de Yamadera antes de añadir el parque urbano.",
       "ja": "山寺の階段で使う体力を考えてから市街地の公園へ。",
       "th": "เผื่อแรงสำหรับบันไดยามาเดระก่อนเพิ่มสวนในเมือง"
     }
@@ -65,6 +95,11 @@
     ],
     "note": {
       "en": "Keep the Ouchi-juku connection separate from Aizu castle time.",
+"ko": "오우치주쿠 연결편과 아이즈 성 방문 시간은 나누세요.",
+"zh-CN": "大内宿的交通衔接与会津城参观分别留时。",
+"vi": "Tách thời gian nối Ouchi-juku với tham quan thành Aizu.",
+"fr": "Séparez le trajet d’Ouchi-juku du temps au château d’Aizu.",
+"es": "Separa la conexión a Ouchi-juku de la visita al castillo de Aizu.",
       "ja": "大内宿への接続と会津の城見学を別枠に。",
       "th": "แยกเวลาเดินทางโออุจิจูกุจากเวลาเที่ยวปราสาทไอซุ"
     }
@@ -76,6 +111,11 @@
     ],
     "note": {
       "en": "Mito garden and Hitachi Seaside Park are separate outings.",
+"ko": "미토 정원과 히타치 해변공원은 별도 나들이입니다.",
+"zh-CN": "水户庭园和国营常陆海滨公园是不同的出游安排。",
+"vi": "Vườn Mito và Hitachi Seaside Park là hai chuyến riêng.",
+"fr": "Le jardin de Mito et Hitachi Seaside Park sont deux sorties distinctes.",
+"es": "El jardín de Mito y Hitachi Seaside Park son salidas distintas.",
       "ja": "水戸の庭園とひたち海浜公園は別行程に。",
       "th": "แยกสวนในมิโตะกับ Hitachi Seaside Park เป็นคนละทริป"
     }
@@ -87,6 +127,11 @@
     ],
     "note": {
       "en": "Nikko and Oya are different bases for a day out.",
+"ko": "닛코와 오야는 당일 여행의 거점이 다릅니다.",
+"zh-CN": "日光和大谷是不同的日游基地。",
+"vi": "Nikko và Oya là hai điểm xuất phát khác nhau cho chuyến ngày.",
+"fr": "Nikko et Oya sont des bases différentes pour une journée.",
+"es": "Nikko y Oya son bases distintas para una excursión.",
       "ja": "日光と大谷は別の日帰り先として計画。",
       "th": "วางนิกโก้กับโอยะเป็นทริปคนละวัน"
     }
@@ -98,6 +143,11 @@
     ],
     "note": {
       "en": "Separate Kusatsu from the Tomioka Silk Mill day.",
+"ko": "구사쓰와 도미오카 제사장 방문일을 나누세요.",
+"zh-CN": "草津与富冈制丝厂分开安排。",
+"vi": "Tách Kusatsu khỏi ngày Nhà máy Tơ Tomioka.",
+"fr": "Séparez Kusatsu de la journée à la filature de Tomioka.",
+"es": "Separa Kusatsu del día de la fábrica de seda de Tomioka.",
       "ja": "草津と富岡製糸場を別日に。",
       "th": "แยกคุซัตสึออกจากวันเที่ยวโรงไหมโทมิโอกะ"
     }
@@ -109,6 +159,11 @@
     ],
     "note": {
       "en": "Railway Museum and Kawagoe work as separate half-day choices.",
+"ko": "철도박물관과 가와고에는 각각 반나절 선택지입니다.",
+"zh-CN": "铁道博物馆和川越各适合单独安排半日。",
+"vi": "Bảo tàng Đường sắt và Kawagoe phù hợp thành hai lựa chọn nửa ngày riêng.",
+"fr": "Le musée ferroviaire et Kawagoe conviennent à deux demi-journées distinctes.",
+"es": "El Museo del Ferrocarril y Kawagoe encajan como medias jornadas separadas.",
       "ja": "鉄道博物館と川越は別々の半日候補に。",
       "th": "พิพิธภัณฑ์รถไฟกับคาวาโกเอะเป็นตัวเลือกครึ่งวันที่แยกกัน"
     }
@@ -120,6 +175,11 @@
     ],
     "note": {
       "en": "Narita temple and Chiba port are not one neighborhood.",
+"ko": "나리타 사찰과 지바 항구는 같은 동네가 아닙니다.",
+"zh-CN": "成田寺院和千叶港并不在同一街区。",
+"vi": "Chùa Narita và cảng Chiba không cùng khu phố.",
+"fr": "Le temple de Narita et le port de Chiba ne sont pas dans le même quartier.",
+"es": "El templo de Narita y el puerto de Chiba no están en el mismo barrio.",
       "ja": "成田の寺院と千葉港は同じ地区ではありません。",
       "th": "วัดที่นาริตะกับท่าเรือชิบะไม่ได้อยู่ในย่านเดียวกัน"
     }
@@ -128,6 +188,11 @@
     "groups": [["sensoji", "sumida"], ["tokyo-museum"]],
     "note": {
       "en": "Pair Asakusa with Sumida; give Ueno museums their own time.",
+"ko": "아사쿠사와 스미다를 묶고 우에노 박물관은 시간을 따로 두세요.",
+"zh-CN": "浅草与隅田一起游览，另留时间给上野博物馆。",
+"vi": "Kết hợp Asakusa với Sumida; dành thời gian riêng cho bảo tàng Ueno.",
+"fr": "Associez Asakusa à Sumida et réservez un temps propre aux musées d’Ueno.",
+"es": "Combina Asakusa con Sumida y reserva tiempo propio para los museos de Ueno.",
       "ja": "浅草と隅田を組み合わせ、上野の博物館は別枠に。",
       "th": "จับคู่อาซากุสะกับสุมิดะ แล้วแยกเวลาให้พิพิธภัณฑ์อุเอโนะ"
     }
@@ -139,6 +204,11 @@
     ],
     "note": {
       "en": "Separate Yokohama waterfront from Kamakura temple walks.",
+"ko": "요코하마 해안과 가마쿠라 사찰 산책을 나누세요.",
+"zh-CN": "横滨海滨与镰仓寺院步行分开安排。",
+"vi": "Tách bờ biển Yokohama và đi chùa Kamakura.",
+"fr": "Séparez le front de mer de Yokohama des temples de Kamakura.",
+"es": "Separa la costa de Yokohama de los paseos por templos de Kamakura.",
       "ja": "横浜の海辺と鎌倉の寺院散策は別日に。",
       "th": "แยกริมอ่าวโยโกฮามะจากวันเดินวัดในคามาคุระ"
     }
@@ -147,6 +217,11 @@
     "groups": [["pref:niigata:bandai-bridge", "pref:niigata:hakusan-park"]],
     "note": {
       "en": "Leave time between the Bandai waterfront and Hakusan Park.",
+"ko": "반다이 해안과 하쿠산 공원 사이에 시간을 남겨 두세요.",
+"zh-CN": "万代水岸与白山公园之间留出时间。",
+"vi": "Dành thời gian giữa bờ sông Bandai và công viên Hakusan.",
+"fr": "Gardez du temps entre le front d’eau de Bandai et le parc Hakusan.",
+"es": "Deja tiempo entre la zona junto al agua de Bandai y el parque Hakusan.",
       "ja": "万代の川辺と白山公園の間に移動時間を確保。",
       "th": "เว้นเวลาเดินทางระหว่างริมน้ำบันไดกับสวนฮาคุซัง"
     }
@@ -157,6 +232,11 @@
     ],
     "note": {
       "en": "Use the castle and canal park as a gentle city day.",
+"ko": "성과 운하 공원을 묶어 여유로운 시내 하루를 보내세요.",
+"zh-CN": "城堡与运河公园可组成轻松的城市一日游。",
+"vi": "Kết hợp thành và công viên kênh thành ngày đô thị nhẹ nhàng.",
+"fr": "Associez château et parc du canal pour une douce journée urbaine.",
+"es": "Combina el castillo y el parque del canal en un día urbano tranquilo.",
       "ja": "城と運河の公園をゆったりした市内観光に。",
       "th": "จัดปราสาทกับสวนริมคลองเป็นวันเที่ยวเมืองแบบไม่เร่ง"
     }
@@ -167,6 +247,11 @@
     ],
     "note": {
       "en": "Balance Kenrokuen paths with breaks in the tea-house district.",
+"ko": "겐로쿠엔 산책과 찻집 거리 휴식을 균형 있게 배치하세요.",
+"zh-CN": "兼六园散步搭配茶屋街休息。",
+"vi": "Cân bằng đường đi Kenrokuen với nghỉ ở khu trà quán.",
+"fr": "Équilibrez les allées de Kenrokuen avec des pauses dans le quartier des maisons de thé.",
+"es": "Equilibra los paseos de Kenrokuen con descansos en el barrio de casas de té.",
       "ja": "兼六園の散策と茶屋街での休憩を組み合わせて。",
       "th": "สลับเดินเคนโรคุเอ็นกับพักในย่านโรงน้ำชา"
     }
@@ -178,6 +263,11 @@
     ],
     "note": {
       "en": "Give the dinosaur museum its own day before Eiheiji.",
+"ko": "에이헤이지에 앞서 공룡박물관에 하루를 따로 두세요.",
+"zh-CN": "恐龙博物馆与永平寺之间各留独立日程。",
+"vi": "Dành ngày riêng cho bảo tàng khủng long trước Eiheiji.",
+"fr": "Consacrez une journée au musée des dinosaures avant Eiheiji.",
+"es": "Dedica un día propio al museo de dinosaurios antes de Eiheiji.",
       "ja": "恐竜博物館と永平寺は別日にして余裕を。",
       "th": "แยกวันให้พิพิธภัณฑ์ไดโนเสาร์ก่อนเที่ยวเอเฮจิ"
     }
@@ -189,6 +279,11 @@
     ],
     "note": {
       "en": "Keep Kofu separate from the Kawaguchiko lake area.",
+"ko": "고후와 가와구치호 지역을 나누세요.",
+"zh-CN": "甲府与河口湖地区分开安排。",
+"vi": "Tách Kofu khỏi vùng hồ Kawaguchiko.",
+"fr": "Séparez Kofu du secteur du lac Kawaguchiko.",
+"es": "Separa Kofu de la zona del lago Kawaguchiko.",
       "ja": "甲府と河口湖周辺は別の日に。",
       "th": "แยกโคฟุจากพื้นที่ทะเลสาบคาวากุจิโกะ"
     }
@@ -200,6 +295,11 @@
     ],
     "note": {
       "en": "Matsumoto and Nagano city are separate day bases.",
+"ko": "마쓰모토와 나가노시는 각각 별도의 당일 거점입니다.",
+"zh-CN": "松本和长野市是不同的日游基地。",
+"vi": "Matsumoto và thành phố Nagano là hai căn cứ ngày riêng.",
+"fr": "Matsumoto et Nagano sont des bases pour des journées distinctes.",
+"es": "Matsumoto y Nagano son bases para días separados.",
       "ja": "松本市と長野市を別の日の拠点に。",
       "th": "แยกเมืองมัตสึโมโตะกับเมืองนากาโนะเป็นคนละวัน"
     }
@@ -208,6 +308,11 @@
     "groups": [["pref:gifu:gifu-castle"], ["pref:gifu:takayama-jinya"]],
     "note": {
       "en": "Takayama and Gifu city need separate days.",
+"ko": "다카야마와 기후시는 다른 날에 방문하세요.",
+"zh-CN": "高山与岐阜市需分别安排日期。",
+"vi": "Takayama và thành phố Gifu cần hai ngày riêng.",
+"fr": "Prévoyez des jours distincts pour Takayama et Gifu.",
+"es": "Dedica días distintos a Takayama y Gifu.",
       "ja": "高山と岐阜市は別日に。",
       "th": "แยกทาคายามะกับเมืองกิฟุเป็นคนละวัน"
     }
@@ -218,6 +323,11 @@
     ],
     "note": {
       "en": "Check the coastal connection before adding Miho to a city day.",
+"ko": "시내 일정에 미호를 추가하기 전 해안 연결편을 확인하세요.",
+"zh-CN": "将三保加入城市游览前，请确认海岸交通。",
+"vi": "Kiểm tra kết nối ven biển trước khi thêm Miho vào ngày đô thị.",
+"fr": "Vérifiez la liaison côtière avant d’ajouter Miho à une journée en ville.",
+"es": "Comprueba la conexión costera antes de añadir Miho a un día urbano.",
       "ja": "市街地の予定に三保を加える前に海辺への交通を確認。",
       "th": "ตรวจการต่อรถไปชายฝั่งก่อนเพิ่มมิโฮะในวันเที่ยวเมือง"
     }
@@ -226,6 +336,11 @@
     "groups": [["pref:aichi:nagoya-castle", "pref:aichi:atsuta-jingu"]],
     "note": {
       "en": "Leave a transfer break between Nagoya Castle and Atsuta.",
+"ko": "나고야성과 아쓰타 사이에 이동 여유를 두세요.",
+"zh-CN": "名古屋城与热田之间预留交通缓冲。",
+"vi": "Chừa khoảng chuyển tuyến giữa thành Nagoya và Atsuta.",
+"fr": "Prévoyez une pause de transfert entre le château de Nagoya et Atsuta.",
+"es": "Deja margen de traslado entre el castillo de Nagoya y Atsuta.",
       "ja": "名古屋城と熱田の間に移動の余裕を。",
       "th": "เผื่อเวลาต่อรถระหว่างปราสาทนาโกย่ากับอัตสึตะ"
     }
@@ -234,6 +349,11 @@
     "groups": [["pref:mie:ise-jingu-naiku", "pref:mie:futami-okitama-shrine"]],
     "note": {
       "en": "Keep time for the Naiku approach and the Futami transfer.",
+"ko": "내궁 참배길과 후타미 이동 시간을 남겨 두세요.",
+"zh-CN": "内宫参道和前往二见的交通均需留时间。",
+"vi": "Dành giờ cho lối đến Naiku và di chuyển Futami.",
+"fr": "Gardez du temps pour l’approche du Naiku et le trajet vers Futami.",
+"es": "Deja tiempo para el acceso a Naiku y el traslado a Futami.",
       "ja": "内宮の参道と二見への移動に時間を確保。",
       "th": "เผื่อเวลาเดินเข้าศาลเจ้าไนกูกับการต่อรถไปฟุตามิ"
     }
@@ -245,6 +365,11 @@
     ],
     "note": {
       "en": "Hikone and Ishiyamadera are separate lake-area outings.",
+"ko": "히코네와 이시야마데라는 호수 지역의 별도 나들이입니다.",
+"zh-CN": "彦根与石山寺是湖区不同的出游安排。",
+"vi": "Hikone và Ishiyamadera là hai chuyến vùng hồ riêng.",
+"fr": "Hikone et Ishiyamadera sont des sorties lacustres distinctes.",
+"es": "Hikone e Ishiyamadera son salidas distintas en la zona del lago.",
       "ja": "彦根と石山寺は湖周辺の別々の行程に。",
       "th": "จัดฮิโกเนะกับอิชิยามะเดระเป็นทริปริมทะเลสาบที่แยกกัน"
     }
@@ -256,6 +381,11 @@
     ],
     "note": {
       "en": "Walk Higashiyama and Gion together; visit southern sites another day.",
+"ko": "히가시야마와 기온을 함께 걷고 남쪽 명소는 다른 날 방문하세요.",
+"zh-CN": "东山与祇园一起步行游览，南部景点另择一天。",
+"vi": "Đi bộ Higashiyama và Gion cùng nhau; để điểm phía nam cho ngày khác.",
+"fr": "Parcourez Higashiyama et Gion ensemble ; visitez le sud un autre jour.",
+"es": "Recorre Higashiyama y Gion juntos y visita el sur otro día.",
       "ja": "東山と祇園をまとめ、南側の施設は別日に。",
       "th": "รวมฮิกาชิยามะกับกิออน แล้วแยกสถานที่ทางใต้ไว้อีกวัน"
     }
@@ -267,6 +397,11 @@
     ],
     "note": {
       "en": "Pair castle-area history with a separate Dotonbori evening.",
+"ko": "성 주변의 역사 탐방과 별도 도톤보리 저녁을 조합하세요.",
+"zh-CN": "城堡区域的历史游览搭配另行安排的道顿堀夜游。",
+"vi": "Kết hợp lịch sử vùng thành với một tối Dotonbori riêng.",
+"fr": "Associez l’histoire du château à une soirée distincte à Dotonbori.",
+"es": "Combina la historia de la zona del castillo con una noche aparte en Dotonbori.",
       "ja": "城周辺の歴史巡りと道頓堀の夜を分けて計画。",
       "th": "จัดประวัติศาสตร์รอบปราสาท แล้วแยกช่วงเย็นให้โดทงโบริ"
     }
@@ -275,6 +410,11 @@
     "groups": [["pref:hyogo:himeji-castle"], ["pref:hyogo:meriken-park"]],
     "note": {
       "en": "Keep Himeji castle time separate from Kobe waterfront.",
+"ko": "히메지성 방문과 고베 해안 방문 시간을 나누세요.",
+"zh-CN": "姬路城与神户海滨分别留出游览时间。",
+"vi": "Tách thời gian thành Himeji và bờ biển Kobe.",
+"fr": "Séparez le temps au château de Himeji du front de mer de Kobe.",
+"es": "Separa el tiempo del castillo de Himeji del paseo marítimo de Kobe.",
       "ja": "姫路城と神戸の海辺は別の日に。",
       "th": "แยกวันเที่ยวปราสาทฮิเมจิจากริมน้ำโกเบ"
     }
@@ -283,6 +423,11 @@
     "groups": [["pref:nara:todaiji-temple", "pref:nara:kasuga-taisha"]],
     "note": {
       "en": "Take breaks between Todaiji and Kasuga; avoid rushing both grounds.",
+"ko": "도다이지와 가스가 사이에 쉬어 가며 두 경내를 서두르지 마세요.",
+"zh-CN": "东大寺与春日之间安排休息，别匆忙逛完两处境内。",
+"vi": "Nghỉ giữa Todaiji và Kasuga; đừng vội ở cả hai khuôn viên.",
+"fr": "Faites une pause entre Todaiji et Kasuga sans précipiter les deux visites.",
+"es": "Descansa entre Todaiji y Kasuga; no recorras ambos recintos con prisas.",
       "ja": "東大寺と春日の間に休憩を取り、境内を急がずに。",
       "th": "พักระหว่างโทไดจิกับคาซุกะ ไม่รีบเดินพื้นที่วัดและศาลเจ้า"
     }
@@ -294,6 +439,11 @@
     ],
     "note": {
       "en": "Koyasan and Wakayama city should be separate days.",
+"ko": "고야산과 와카야마시는 다른 날에 방문하세요.",
+"zh-CN": "高野山与和歌山市应分开两天。",
+"vi": "Koyasan và thành phố Wakayama nên là ngày riêng.",
+"fr": "Visitez Koyasan et Wakayama sur des jours distincts.",
+"es": "Visita Koyasan y Wakayama en días distintos.",
       "ja": "高野山と和歌山市は別の日程に。",
       "th": "แยกโคยะซังกับเมืองวาคายามะเป็นคนละวัน"
     }
@@ -302,6 +452,11 @@
     "groups": [["pref:tottori:tottori-sand-dunes", "pref:tottori:sand-museum"]],
     "note": {
       "en": "Pair the dunes with the museum, with weather flexibility.",
+"ko": "사구와 박물관을 묶되 날씨에 유연하게 대응하세요.",
+"zh-CN": "沙丘与博物馆搭配，并根据天气灵活调整。",
+"vi": "Kết hợp đồi cát với bảo tàng, linh hoạt theo thời tiết.",
+"fr": "Associez dunes et musée en gardant une souplesse météo.",
+"es": "Combina las dunas con el museo y mantén flexibilidad por el tiempo.",
       "ja": "砂丘と美術館を組み合わせ、天候で順序を調整。",
       "th": "จับคู่เนินทรายกับพิพิธภัณฑ์และปรับลำดับตามอากาศ"
     }
@@ -310,6 +465,11 @@
     "groups": [["pref:shimane:matsue-castle"], ["pref:shimane:izumo-taisha"]],
     "note": {
       "en": "Matsue and Izumo need distinct travel windows.",
+"ko": "마쓰에와 이즈모는 별도 이동 시간이 필요합니다.",
+"zh-CN": "松江与出云需分别预留交通时间。",
+"vi": "Matsue và Izumo cần khoảng đi lại riêng.",
+"fr": "Matsue et Izumo nécessitent des créneaux de transport distincts.",
+"es": "Matsue e Izumo necesitan tiempos de traslado propios.",
       "ja": "松江と出雲は移動時間を別に確保。",
       "th": "เผื่อช่วงเดินทางแยกสำหรับมัตสึเอะกับอิซุโมะ"
     }
@@ -321,6 +481,11 @@
     ],
     "note": {
       "en": "Leave a separate half day for Kurashiki after Okayama garden.",
+"ko": "오카야마 정원 뒤 구라시키에 반나절을 따로 두세요.",
+"zh-CN": "游览冈山庭园后，仓敷另留半天。",
+"vi": "Dành nửa ngày riêng cho Kurashiki sau vườn Okayama.",
+"fr": "Gardez une demi-journée distincte pour Kurashiki après le jardin d’Okayama.",
+"es": "Reserva media jornada aparte para Kurashiki tras el jardín de Okayama.",
       "ja": "岡山の庭園とは別に倉敷へ半日を。",
       "th": "แยกครึ่งวันให้คุราชิกิจากสวนในโอคายามะ"
     }
@@ -332,6 +497,11 @@
     ],
     "note": {
       "en": "Miyajima needs ferry time beyond the city memorial visit.",
+"ko": "미야지마는 시내 추모시설 방문 외에 페리 시간이 필요합니다.",
+"zh-CN": "宫岛还需渡轮时间，不能只按市内纪念设施的游览时长安排。",
+"vi": "Miyajima cần thêm giờ phà ngoài chuyến thăm tưởng niệm trong thành phố.",
+"fr": "Miyajima demande du temps de ferry en plus des mémoriaux urbains.",
+"es": "Miyajima requiere tiempo de ferry además de la visita al memorial urbano.",
       "ja": "宮島は市内の平和公園とは別に船の時間を確保。",
       "th": "เผื่อเวลาเรือไปมิยาจิมะเพิ่มจากการเที่ยวสวนอนุสรณ์ในเมือง"
     }
@@ -343,6 +513,11 @@
     ],
     "note": {
       "en": "Iwakuni bridge and Akiyoshido are separate travel days.",
+"ko": "이와쿠니 다리와 아키요시도는 다른 날에 여행하세요.",
+"zh-CN": "岩国桥与秋芳洞分开安排旅行日。",
+"vi": "Cầu Iwakuni và Akiyoshido là hai ngày đi riêng.",
+"fr": "Prévoyez des jours distincts pour le pont d’Iwakuni et Akiyoshido.",
+"es": "Dedica días distintos al puente de Iwakuni y Akiyoshido.",
       "ja": "岩国の橋と秋芳洞は別の日に。",
       "th": "แยกสะพานอิวาคุนิกับถ้ำอากิโยชิโดเป็นคนละวัน"
     }
@@ -354,6 +529,11 @@
     ],
     "note": {
       "en": "Keep Naruto separate from the Tokushima city performance visit.",
+"ko": "나루토와 도쿠시마 시내 공연 관람은 나누세요.",
+"zh-CN": "鸣门与德岛市内演出分开安排。",
+"vi": "Tách Naruto khỏi chuyến xem biểu diễn ở thành phố Tokushima.",
+"fr": "Séparez Naruto de la visite de spectacle à Tokushima.",
+"es": "Separa Naruto de la visita al espectáculo en Tokushima.",
       "ja": "鳴門と徳島市内の公演見学は別の行程に。",
       "th": "แยกนารุโตะจากวันชมการแสดงในเมืองโทคุชิมะ"
     }
@@ -362,6 +542,11 @@
     "groups": [["pref:kagawa:ritsurin-garden"], ["pref:kagawa:kotohiragu"]],
     "note": {
       "en": "Ritsurin and Kotohira deserve separate time, especially for steps.",
+"ko": "리쓰린과 고토히라는 특히 계단을 고려해 시간을 따로 두세요.",
+"zh-CN": "栗林与琴平各需时间，尤其要考虑台阶。",
+"vi": "Dành giờ riêng cho Ritsurin và Kotohira, nhất là các bậc thang.",
+"fr": "Accordez du temps séparé à Ritsurin et Kotohira, surtout pour les marches.",
+"es": "Dedica tiempo separado a Ritsurin y Kotohira, sobre todo por las escaleras.",
       "ja": "栗林と琴平は別枠に。琴平の階段に余裕を。",
       "th": "แยกเวลาให้ริทสึรินกับโคโตฮิระ โดยเฉพาะเวลาขึ้นบันได"
     }
@@ -370,6 +555,11 @@
     "groups": [["pref:ehime:matsuyama-castle", "pref:ehime:dogo-onsen-honkan"]],
     "note": {
       "en": "Leave a rest break between castle exploration and Dogo.",
+"ko": "성 탐방과 도고 사이에 휴식 시간을 남겨 두세요.",
+"zh-CN": "城堡游览和道后之间留出休息。",
+"vi": "Nghỉ giữa khám phá thành và Dogo.",
+"fr": "Prévoyez une pause entre le château et Dogo.",
+"es": "Deja un descanso entre el castillo y Dogo.",
       "ja": "城の見学と道後の間に休憩を。",
       "th": "เว้นช่วงพักระหว่างเที่ยวปราสาทกับโดโกะ"
     }
@@ -378,6 +568,11 @@
     "groups": [["pref:kochi:kochi-castle", "pref:kochi:hirome-market"]],
     "note": {
       "en": "Pair the castle with a flexible meal stop at Hirome.",
+"ko": "성과 히로메의 유연한 식사 일정을 묶으세요.",
+"zh-CN": "城堡搭配弘人的灵活用餐停留。",
+"vi": "Kết hợp thành với bữa ăn linh hoạt ở Hirome.",
+"fr": "Associez le château à une pause repas flexible à Hirome.",
+"es": "Combina el castillo con una comida flexible en Hirome.",
       "ja": "城とひろめ市場の食事をゆったり組み合わせて。",
       "th": "จับคู่ปราสาทกับมื้ออาหารที่ฮิโรเมะแบบยืดหยุ่น"
     }
@@ -386,6 +581,11 @@
     "groups": [["pref:fukuoka:ohori-park"], ["pref:fukuoka:dazaifu-tenmangu"]],
     "note": {
       "en": "Separate Dazaifu from a relaxed Ohori city day.",
+"ko": "다자이후와 여유로운 오호리 시내 일정은 나누세요.",
+"zh-CN": "太宰府与轻松的大濠城市游分开安排。",
+"vi": "Tách Dazaifu khỏi ngày thư thả ở Ohori.",
+"fr": "Séparez Dazaifu d’une journée tranquille à Ohori.",
+"es": "Separa Dazaifu de un día tranquilo en Ohori.",
       "ja": "太宰府と大濠の市内散策は別日に。",
       "th": "แยกดาไซฟุจากวันเดินสวนโอโฮริในเมือง"
     }
@@ -397,6 +597,11 @@
     ],
     "note": {
       "en": "Yoshinogari and Yutoku Inari need separate local connections.",
+"ko": "요시노가리와 유토쿠 이나리는 별도 지역 교통편이 필요합니다.",
+"zh-CN": "吉野里与祐德稻荷需分别安排当地交通。",
+"vi": "Yoshinogari và Yutoku Inari cần kết nối địa phương riêng.",
+"fr": "Yoshinogari et Yutoku Inari nécessitent des liaisons locales distinctes.",
+"es": "Yoshinogari y Yutoku Inari necesitan conexiones locales separadas.",
       "ja": "吉野ヶ里と祐徳稲荷はそれぞれの接続を確認。",
       "th": "ตรวจการต่อรถท้องถิ่นแยกสำหรับโยชิโนะการิกับยูโทคุอินาริ"
     }
@@ -405,6 +610,11 @@
     "groups": [["pref:nagasaki:dejima", "pref:nagasaki:nagasaki-peace-park"]],
     "note": {
       "en": "Allow a city transfer between Dejima and the Peace Park.",
+"ko": "데지마와 평화공원 사이에 시내 이동 시간을 두세요.",
+"zh-CN": "出岛与和平公园之间预留市内交通时间。",
+"vi": "Dành giờ di chuyển nội đô giữa Dejima và Công viên Hòa bình.",
+"fr": "Prévoyez le trajet urbain entre Dejima et le parc de la Paix.",
+"es": "Deja tiempo para el traslado urbano entre Dejima y el Parque de la Paz.",
       "ja": "出島と平和公園の間に市内移動の時間を。",
       "th": "เผื่อเวลาเดินทางในเมืองระหว่างเดจิมะกับสวนสันติภาพ"
     }
@@ -415,6 +625,11 @@
     ],
     "note": {
       "en": "Pair the castle and Suizenji with a midday rest.",
+"ko": "성과 스이젠지를 묶고 한낮에는 쉬세요.",
+"zh-CN": "城堡与水前寺搭配，中午安排休息。",
+"vi": "Kết hợp thành và Suizenji, nghỉ vào giữa ngày.",
+"fr": "Associez château et Suizenji avec une pause à midi.",
+"es": "Combina el castillo y Suizenji con un descanso al mediodía.",
       "ja": "城と水前寺の間に昼の休憩を。",
       "th": "พักกลางวันระหว่างปราสาทกับซุยเซนจิ"
     }
@@ -423,6 +638,11 @@
     "groups": [["pref:oita:umi-jigoku"], ["pref:oita:lake-kinrin"]],
     "note": {
       "en": "Beppu and Yufuin need a checked intercity connection.",
+"ko": "벳푸와 유후인은 도시 간 교통편을 확인해야 합니다.",
+"zh-CN": "别府与由布院之间需查好城际交通。",
+"vi": "Beppu và Yufuin cần kiểm tra kết nối liên đô thị.",
+"fr": "Vérifiez la liaison interurbaine entre Beppu et Yufuin.",
+"es": "Comprueba la conexión entre Beppu y Yufuin.",
       "ja": "別府と由布院の移動を確認してから組み合わせて。",
       "th": "ตรวจรถเชื่อมเบปปุกับยูฟุอินก่อนจัดไว้ด้วยกัน"
     }
@@ -433,6 +653,11 @@
     ],
     "note": {
       "en": "Check the Aoshima connection from your Miyazaki base.",
+"ko": "미야자키 거점에서 아오시마까지 연결편을 확인하세요.",
+"zh-CN": "核实从宫崎基地到青岛的交通。",
+"vi": "Kiểm tra kết nối Aoshima từ nơi lưu trú Miyazaki.",
+"fr": "Vérifiez la liaison vers Aoshima depuis votre base de Miyazaki.",
+"es": "Comprueba la conexión a Aoshima desde tu base de Miyazaki.",
       "ja": "宮崎の拠点から青島への交通を確認。",
       "th": "ตรวจการต่อรถจากฐานในมิยาซากิไปอาโอชิมะ"
     }
@@ -443,6 +668,11 @@
     ],
     "note": {
       "en": "Leave travel time between Sengan-en and Shiroyama.",
+"ko": "센간엔과 시로야마 사이에 이동 시간을 두세요.",
+"zh-CN": "仙岩园与城山之间预留交通时间。",
+"vi": "Dành giờ đi lại giữa Sengan-en và Shiroyama.",
+"fr": "Gardez du temps de trajet entre Sengan-en et Shiroyama.",
+"es": "Deja tiempo de traslado entre Sengan-en y Shiroyama.",
       "ja": "仙巌園と城山の間に移動時間を。",
       "th": "เผื่อเวลาเดินทางระหว่างเซ็นกังเอ็นกับชิโรยามะ"
     }
@@ -451,6 +681,11 @@
     "groups": [["makishi", "tsuboya"], ["okinawa-museum"]],
     "note": {
       "en": "Pair Makishi with Tsuboya; keep the museum as a separate indoor stop.",
+"ko": "마키시와 쓰보야를 묶고 박물관은 별도 실내 방문으로 남겨 두세요.",
+"zh-CN": "牧志与壶屋一起游览，博物馆另作室内景点安排。",
+"vi": "Kết hợp Makishi với Tsuboya; để bảo tàng thành điểm trong nhà riêng.",
+"fr": "Associez Makishi à Tsuboya et gardez le musée pour une visite intérieure distincte.",
+"es": "Combina Makishi y Tsuboya; deja el museo como visita interior aparte.",
       "ja": "牧志と壺屋をまとめ、博物館は別の屋内枠に。",
       "th": "รวมมาคิชิกับสึโบยะ แล้วแยกพิพิธภัณฑ์เป็นกิจกรรมในร่ม"
     }

@@ -101,9 +101,9 @@ export default function Journeys({
                 <li key={stop.slug}>
                   <span className="route-dot" aria-hidden="true" />
                   <span className="route-days">
-                    {lang !== 'ja'
-                      ? `${copy.day} ${range}`
-                      : `${range}${copy.day}`}
+                    {lang === 'zh-CN' ? `第${range}${copy.day}` : lang === 'ja' || lang === 'ko'
+                      ? `${range}${copy.day}`
+                      : `${copy.day} ${range}`}
                   </span>
                   <Link href={`/${lang}/destinations/${stop.slug}`}>
                     <h4>{stop.title}</h4>

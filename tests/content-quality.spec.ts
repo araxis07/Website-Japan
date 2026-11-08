@@ -1,4 +1,5 @@
 import fs from 'node:fs/promises'
+import { i18n } from '../src/i18n/config'
 import { execFileSync } from 'node:child_process'
 import { test, expect } from './fixtures'
 import { places, canonicalPlaceId } from '../src/data/places'
@@ -24,7 +25,7 @@ test('content schema covers every place, local plan, language, credit and review
     .map((place) => {
       expect(['museum', 'nature', 'culture', 'city']).toContain(place.category)
       expect(new URL(place.source!).protocol).toBe('https:')
-      for (const lang of ['en', 'ja', 'th'] as const)
+      for (const lang of i18n.locales)
         expect(place.names[lang].trim()).not.toBe('')
       const visit = visitFor(place)
       expect(
@@ -57,7 +58,7 @@ test('content schema covers every place, local plan, language, credit and review
                 new Date(provenance.validThrough).toISOString().slice(0, 10),
               ).toBe(provenance.validThrough)
             }
-            for (const lang of ['en', 'ja', 'th'] as const)
+            for (const lang of i18n.locales)
               expect(
                 (visit[field] || visit.notApplicable![field]!.reason)![lang]
                   .length,
@@ -96,7 +97,7 @@ test('content schema covers every place, local plan, language, credit and review
     const scheduled = expected.filter((id) => !alternatives.includes(id))
     expect(plan.groups.flat().sort(), p.slug).toEqual(scheduled.sort())
     expect(new Set(plan.groups.flat()).size).toBe(scheduled.length)
-    for (const lang of ['en', 'ja', 'th'] as const)
+    for (const lang of i18n.locales)
       expect(plan.note[lang].length).toBeGreaterThan(10)
   }
   for (const [id, photo] of Object.entries(photos)) {

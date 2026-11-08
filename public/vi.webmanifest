@@ -1,0 +1,23 @@
+{
+  "name": "Du lịch Nhật Bản",
+  "short_name": "Du lịch Nhật Bản",
+  "lang": "vi",
+  "description": "Ánh đèn lồng ấm áp. Khu vườn chùa tĩnh lặng. Ngọn núi phía trên tầng mây. Đến vì cảnh đẹp. Ở lại vì cảm xúc.",
+  "start_url": "/vi",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f6f2e9",
+  "theme_color": "#163b4a",
+  "icons": [
+    {
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "name": "Viaja a Japón",
+  "short_name": "Viaja a Japón",
+  "lang": "es",
+  "description": "El brillo de un farol. La calma del jardín de un templo. Una montaña entre las nubes. Ven por sus lugares. Quédate por lo que te hacen sentir.",
+  "start_url": "/es",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f6f2e9",
+  "theme_color": "#163b4a",
+  "icons": [
+    {
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

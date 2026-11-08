@@ -4,7 +4,12 @@
     "alt": {
       "en": "Apple trees and Mount Iwaki",
       "ja": "りんごの木と岩木山",
-      "th": "ต้นแอปเปิลและภูเขาอิวากิ"
+      "th": "ต้นแอปเปิลและภูเขาอิวากิ",
+      "ko": "사과나무와 이와키산",
+      "zh-CN": "苹果树与岩木山",
+      "vi": "Cây táo và núi Iwaki",
+      "fr": "Pommiers et mont Iwaki",
+      "es": "Manzanos y monte Iwaki"
     },
     "artist": "岩浪陸",
     "source": "https://commons.wikimedia.org/wiki/File:An_apple_branch_with_Mount_Iwaki_in_the_background.jpg",
@@ -16,7 +21,12 @@
     "alt": {
       "en": "A cherry tree and Mount Iwate",
       "ja": "一本桜と岩手山",
-      "th": "ต้นซากุระและภูเขาอิวาเตะ"
+      "th": "ต้นซากุระและภูเขาอิวาเตะ",
+      "ko": "벚나무와 이와테산",
+      "zh-CN": "樱花树与岩手山",
+      "vi": "Cây anh đào và núi Iwate",
+      "fr": "Un cerisier et le mont Iwate",
+      "es": "Un cerezo y el monte Iwate"
     },
     "artist": "掬茶",
     "source": "https://commons.wikimedia.org/wiki/File:Cherry_tree_and_Mount_Iwate.jpg",
@@ -28,7 +38,12 @@
     "alt": {
       "en": "Matsushima from Saigyo Modoshi no Matsu Park",
       "ja": "西行戻しの松公園からの松島",
-      "th": "มัตสึชิมะจากสวนไซเกียวโมโดชิโนะมัตสึ"
+      "th": "มัตสึชิมะจากสวนไซเกียวโมโดชิโนะมัตสึ",
+      "ko": "사이교 모도시노마쓰 공원에서 바라본 마쓰시마",
+      "zh-CN": "从西行归松公园眺望松岛",
+      "vi": "Matsushima nhìn từ Công viên Saigyo Modoshi no Matsu",
+      "fr": "Matsushima depuis le parc Saigyo Modoshi no Matsu",
+      "es": "Matsushima desde el parque Saigyo Modoshi no Matsu"
     },
     "artist": "663highland",
     "source": "https://commons.wikimedia.org/wiki/File:211030_Saigyo_Modoshi_no_Matsu_Park_Matsushima_Miyagi_pref_Japan01n.jpg",
@@ -40,7 +55,12 @@
     "alt": {
       "en": "Lake Tazawa and Kansagu Shrine",
       "ja": "田沢湖と漢槎宮",
-      "th": "ทะเลสาบทาซาวะและศาลเจ้าคันซากู"
+      "th": "ทะเลสาบทาซาวะและศาลเจ้าคันซากู",
+      "ko": "다자와호와 간사구 신사",
+      "zh-CN": "田泽湖与汉槎宫",
+      "vi": "Hồ Tazawa và đền Kansagu",
+      "fr": "Le lac Tazawa et le sanctuaire Kansagu",
+      "es": "El lago Tazawa y el santuario Kansagu"
     },
     "artist": "(Tea-making tea) 掬茶",
     "source": "https://commons.wikimedia.org/wiki/File:Lake_Tazawa_and_Kansa-g%C5%AB_20210213.jpg",
@@ -52,7 +72,12 @@
     "alt": {
       "en": "Evening in Ginzan Onsen",
       "ja": "夕暮れの銀山温泉",
-      "th": "กินซังออนเซ็นยามเย็น"
+      "th": "กินซังออนเซ็นยามเย็น",
+      "ko": "해 질 무렵의 긴잔 온천",
+      "zh-CN": "银山温泉的傍晚",
+      "vi": "Buổi tối ở Ginzan Onsen",
+      "fr": "Le soir à Ginzan Onsen",
+      "es": "Atardecer en Ginzan Onsen"
     },
     "artist": "さかおり",
     "source": "https://commons.wikimedia.org/wiki/File:Evening_twilight_in_Ginzan_Onsen_town_January_2022_A.jpg",
@@ -64,7 +89,12 @@
     "alt": {
       "en": "Mount Bandai across Lake Inawashiro",
       "ja": "猪苗代湖から望む磐梯山",
-      "th": "ภูเขาบันไดจากทะเลสาบอินาวาชิโระ"
+      "th": "ภูเขาบันไดจากทะเลสาบอินาวาชิโระ",
+      "ko": "이나와시로호 너머로 보이는 반다이산",
+      "zh-CN": "隔猪苗代湖望磐梯山",
+      "vi": "Núi Bandai phía bên kia hồ Inawashiro",
+      "fr": "Le mont Bandai au-delà du lac Inawashiro",
+      "es": "El monte Bandai al otro lado del lago Inawashiro"
     },
     "artist": "Σ64",
     "source": "https://commons.wikimedia.org/wiki/File:Mt.Bandai_from_Lake_Inawashiro_05.jpg",
@@ -76,7 +106,12 @@
     "alt": {
       "en": "Plum blossoms in Kairakuen",
       "ja": "偕楽園の梅",
-      "th": "ดอกบ๊วยในสวนไคราคุเอ็น"
+      "th": "ดอกบ๊วยในสวนไคราคุเอ็น",
+      "ko": "가이라쿠엔의 매화",
+      "zh-CN": "偕乐园的梅花",
+      "vi": "Hoa mơ trong vườn Kairakuen",
+      "fr": "Fleurs de prunier à Kairakuen",
+      "es": "Flores de ciruelo en Kairakuen"
     },
     "artist": "Σ64",
     "source": "https://commons.wikimedia.org/wiki/File:Kairaku-en,_Ibaraki_21.jpg",
@@ -88,7 +123,12 @@
     "alt": {
       "en": "Yomeimon Gate at Nikko Toshogu",
       "ja": "日光東照宮の陽明門",
-      "th": "ประตูโยเมมงที่นิกโกโทโชกู"
+      "th": "ประตูโยเมมงที่นิกโกโทโชกู",
+      "ko": "닛코 도쇼구의 요메이몬",
+      "zh-CN": "日光东照宫的阳明门",
+      "vi": "Cổng Yomeimon tại Nikko Toshogu",
+      "fr": "La porte Yomeimon du sanctuaire Nikko Toshogu",
+      "es": "La puerta Yomeimon del santuario Nikko Toshogu"
     },
     "artist": "Jpatokal",
     "source": "https://commons.wikimedia.org/wiki/File:Nikko_Toshogu_Yomeimon_Gate_2024.jpg",
@@ -100,7 +140,12 @@
     "alt": {
       "en": "Tanigawadake Ropeway",
       "ja": "谷川岳ロープウェイ",
-      "th": "กระเช้าทานิกาวะดาเกะ"
+      "th": "กระเช้าทานิกาวะดาเกะ",
+      "ko": "다니가와다케 로프웨이",
+      "zh-CN": "谷川岳缆车",
+      "vi": "Cáp treo Tanigawadake",
+      "fr": "Le téléphérique de Tanigawadake",
+      "es": "El teleférico de Tanigawadake"
     },
     "artist": "photo: Qurren (talk) Taken with Canon IXY 430F (Digital IXUS 245 HS)",
     "source": "https://commons.wikimedia.org/wiki/File:Tanigawadake_Ropeway.jpg",
@@ -112,7 +157,12 @@
     "alt": {
       "en": "Nagatoro Gorge",
       "ja": "長瀞渓谷",
-      "th": "หุบเขานากาโทโระ"
+      "th": "หุบเขานากาโทโระ",
+      "ko": "나가토로 계곡",
+      "zh-CN": "长瀞溪谷",
+      "vi": "Hẻm núi Nagatoro",
+      "fr": "Les gorges de Nagatoro",
+      "es": "La garganta de Nagatoro"
     },
     "artist": "Suikotei",
     "source": "https://commons.wikimedia.org/wiki/File:Nagatoro_gorge_2019_02.jpg",
@@ -124,7 +174,12 @@
     "alt": {
       "en": "Sunrise at Inubosaki",
       "ja": "犬吠埼の日の出",
-      "th": "พระอาทิตย์ขึ้นที่อินุโบซากิ"
+      "th": "พระอาทิตย์ขึ้นที่อินุโบซากิ",
+      "ko": "이누보사키의 일출",
+      "zh-CN": "犬吠埼的日出",
+      "vi": "Bình minh ở Inubosaki",
+      "fr": "Lever du soleil à Inubosaki",
+      "es": "Amanecer en Inubosaki"
     },
     "artist": "Takashi Hososhima from Tokyo, Japan",
     "source": "https://commons.wikimedia.org/wiki/File:Sunrise_in_Inubosaki_(9027196940).jpg",
@@ -136,7 +191,12 @@
     "alt": {
       "en": "Yokohama waterfront",
       "ja": "横浜のウォーターフロント",
-      "th": "ริมน้ำโยโกฮามะ"
+      "th": "ริมน้ำโยโกฮามะ",
+      "ko": "요코하마의 수변 풍경",
+      "zh-CN": "横滨滨水区",
+      "vi": "Khu ven biển Yokohama",
+      "fr": "Le front de mer de Yokohama",
+      "es": "El paseo marítimo de Yokohama"
     },
     "artist": "Dick Thomas Johnson from Tokyo, Japan",
     "source": "https://commons.wikimedia.org/wiki/File:Yokohama_(52978652484).jpg",
@@ -148,7 +208,12 @@
     "alt": {
       "en": "Countryside near Tokoji Station",
       "ja": "東光寺駅付近の田園風景",
-      "th": "ชนบทใกล้สถานีโทโคจิ"
+      "th": "ชนบทใกล้สถานีโทโคจิ",
+      "ko": "도코지역 인근의 전원 풍경",
+      "zh-CN": "东光寺站附近的田园风光",
+      "vi": "Cảnh đồng quê gần ga Tokoji",
+      "fr": "La campagne près de la gare de Tokoji",
+      "es": "El paisaje rural cerca de la estación de Tokoji"
     },
     "artist": "くろふね",
     "source": "https://commons.wikimedia.org/wiki/File:%E6%9D%B1%E5%85%89%E5%AF%BA%E9%A7%85%E4%BB%98%E8%BF%91%E3%81%AE%E9%A2%A8%E6%99%AF_-_panoramio_(1).jpg",
@@ -160,7 +225,12 @@
     "alt": {
       "en": "Snow walls on the Tateyama route",
       "ja": "立山・雪の大谷",
-      "th": "กำแพงหิมะบนเส้นทางทาเตยามะ"
+      "th": "กำแพงหิมะบนเส้นทางทาเตยามะ",
+      "ko": "다테야마 루트의 눈 벽",
+      "zh-CN": "立山路线上的雪墙",
+      "vi": "Tường tuyết trên tuyến Tateyama",
+      "fr": "Murs de neige sur la route de Tateyama",
+      "es": "Muros de nieve en la ruta de Tateyama"
     },
     "artist": "くろふね",
     "source": "https://commons.wikimedia.org/wiki/File:%E7%AB%8B%E5%B1%B1%E9%9B%AA%E3%81%AE%E5%A4%A7%E8%B0%B720220507-IMG_2206.jpg",
@@ -172,7 +242,12 @@
     "alt": {
       "en": "Kenrokuen Garden in Kanazawa",
       "ja": "金沢の兼六園",
-      "th": "สวนเค็นโรคุเอ็นในคานาซาวะ"
+      "th": "สวนเค็นโรคุเอ็นในคานาซาวะ",
+      "ko": "가나자와의 겐로쿠엔 정원",
+      "zh-CN": "金泽的兼六园",
+      "vi": "Vườn Kenrokuen ở Kanazawa",
+      "fr": "Le jardin Kenrokuen à Kanazawa",
+      "es": "El jardín Kenrokuen en Kanazawa"
     },
     "artist": "Winniepix",
     "source": "https://commons.wikimedia.org/wiki/File:Kenrokuen_Garden,_Kanazawa_(53621201294).jpg",
@@ -184,7 +259,12 @@
     "alt": {
       "en": "Fukui Plain from Mount Monju",
       "ja": "文殊山から望む福井平野",
-      "th": "ที่ราบฟุกุอิจากภูเขามนจุ"
+      "th": "ที่ราบฟุกุอิจากภูเขามนจุ",
+      "ko": "몬주산에서 바라본 후쿠이 평야",
+      "zh-CN": "从文殊山眺望福井平原",
+      "vi": "Đồng bằng Fukui nhìn từ núi Monju",
+      "fr": "La plaine de Fukui depuis le mont Monju",
+      "es": "La llanura de Fukui desde el monte Monju"
     },
     "artist": "藤谷良秀(Yoshihide Fujitani)",
     "source": "https://commons.wikimedia.org/wiki/File:Fukui_plain.jpg",
@@ -196,7 +276,12 @@
     "alt": {
       "en": "Ski slopes in Shiga Kogen",
       "ja": "志賀高原のスキー場",
-      "th": "ลานสกีชิกะโคเก็น"
+      "th": "ลานสกีชิกะโคเก็น",
+      "ko": "시가 고원의 스키 슬로프",
+      "zh-CN": "志贺高原的滑雪道",
+      "vi": "Đường trượt tuyết ở Shiga Kogen",
+      "fr": "Les pistes de ski de Shiga Kogen",
+      "es": "Las pistas de esquí de Shiga Kogen"
     },
     "artist": "MaedaAkihiko",
     "source": "https://commons.wikimedia.org/wiki/File:Shiga-kogen_Ski-resort.jpg",
@@ -208,7 +293,12 @@
     "alt": {
       "en": "Cormorant fishing on the Nagara River",
       "ja": "長良川の鵜飼",
-      "th": "การจับปลาโดยนกกาน้ำที่แม่น้ำนางาระ"
+      "th": "การจับปลาโดยนกกาน้ำที่แม่น้ำนางาระ",
+      "ko": "나가라강의 가마우지 낚시",
+      "zh-CN": "长良川的鸬鹚捕鱼",
+      "vi": "Đánh cá bằng chim cốc trên sông Nagara",
+      "fr": "Pêche au cormoran sur la rivière Nagara",
+      "es": "Pesca con cormoranes en el río Nagara"
     },
     "artist": "Hide-sp",
     "source": "https://commons.wikimedia.org/wiki/File:Ukai_Gifu_Nagaragawa_05.jpg",
@@ -220,7 +310,12 @@
     "alt": {
       "en": "Nagoya from the MIRAI Tower observation deck",
       "ja": "MIRAI TOWER展望台からの名古屋",
-      "th": "นาโกย่าจากจุดชมวิว MIRAI Tower"
+      "th": "นาโกย่าจากจุดชมวิว MIRAI Tower",
+      "ko": "MIRAI 타워 전망대에서 바라본 나고야",
+      "zh-CN": "从MIRAI塔观景台眺望名古屋",
+      "vi": "Nagoya nhìn từ đài quan sát tháp MIRAI",
+      "fr": "Nagoya depuis la plateforme panoramique de la tour MIRAI",
+      "es": "Nagoya desde el mirador de la torre MIRAI"
     },
     "artist": "Tomio344456",
     "source": "https://commons.wikimedia.org/wiki/File:View_of_Westward_from_Sky_Deck_MIRAI360,_Nishiki_Naka_Ward_Nagoya_2022.jpg",
@@ -232,7 +327,12 @@
     "alt": {
       "en": "Sunrise at Meoto Iwa",
       "ja": "夫婦岩の日の出",
-      "th": "พระอาทิตย์ขึ้นที่หินเมโอโตะอิวะ"
+      "th": "พระอาทิตย์ขึ้นที่หินเมโอโตะอิวะ",
+      "ko": "메오토이와의 일출",
+      "zh-CN": "夫妇岩的日出",
+      "vi": "Bình minh ở Meoto Iwa",
+      "fr": "Lever du soleil à Meoto Iwa",
+      "es": "Amanecer en Meoto Iwa"
     },
     "artist": "Tawashi2006",
     "source": "https://commons.wikimedia.org/wiki/File:Sunrise_of_the_Wedded_Rocks03.jpg",
@@ -244,7 +344,12 @@
     "alt": {
       "en": "Mangetsuji Temple beside Lake Biwa",
       "ja": "琵琶湖畔の満月寺",
-      "th": "วัดมันเก็ตสึจิริมทะเลสาบบิวะ"
+      "th": "วัดมันเก็ตสึจิริมทะเลสาบบิวะ",
+      "ko": "비와호 옆의 만게쓰지",
+      "zh-CN": "琵琶湖畔的满月寺",
+      "vi": "Chùa Mangetsuji bên hồ Biwa",
+      "fr": "Le temple Mangetsuji au bord du lac Biwa",
+      "es": "El templo Mangetsuji junto al lago Biwa"
     },
     "artist": "663highland",
     "source": "https://commons.wikimedia.org/wiki/File:Mangetsuji_Otsu_Shiga02n4500.jpg",
@@ -256,7 +361,12 @@
     "alt": {
       "en": "The Great Buddha Hall at Todaiji",
       "ja": "東大寺の大仏殿",
-      "th": "วิหารพระใหญ่ที่วัดโทไดจิ"
+      "th": "วิหารพระใหญ่ที่วัดโทไดจิ",
+      "ko": "도다이지의 대불전",
+      "zh-CN": "东大寺大佛殿",
+      "vi": "Đại Phật điện ở chùa Todaiji",
+      "fr": "Le pavillon du Grand Bouddha au temple Todaiji",
+      "es": "El pabellón del Gran Buda en el templo Todaiji"
     },
     "artist": "Cun Cun",
     "source": "https://commons.wikimedia.org/wiki/File:T%C5%8Ddai-ji_Daibutsuden,_June_2019.jpg",
@@ -268,7 +378,12 @@
     "alt": {
       "en": "Seigantoji Pagoda and Nachi Falls",
       "ja": "青岸渡寺の三重塔と那智の滝",
-      "th": "เจดีย์เซกันโทจิและน้ำตกนาจิ"
+      "th": "เจดีย์เซกันโทจิและน้ำตกนาจิ",
+      "ko": "세이간토지의 탑과 나치 폭포",
+      "zh-CN": "青岸渡寺的塔与那智瀑布",
+      "vi": "Tháp chùa Seigantoji và thác Nachi",
+      "fr": "La pagode de Seigantoji et la cascade de Nachi",
+      "es": "La pagoda de Seigantoji y la cascada de Nachi"
     },
     "artist": "Big Ben in Japan",
     "source": "https://commons.wikimedia.org/wiki/File:Pagoda_and_Nachi_Falls_2017-10-12.jpg",
@@ -280,7 +395,12 @@
     "alt": {
       "en": "Tottori Sand Dunes",
       "ja": "鳥取砂丘",
-      "th": "เนินทรายทตโตริ"
+      "th": "เนินทรายทตโตริ",
+      "ko": "돗토리 사구",
+      "zh-CN": "鸟取沙丘",
+      "vi": "Đồi cát Tottori",
+      "fr": "Les dunes de Tottori",
+      "es": "Las dunas de Tottori"
     },
     "artist": "Hashi photo",
     "source": "https://commons.wikimedia.org/wiki/File:Tottori-Sakyu_Tottori_Japan.JPG",
@@ -292,7 +412,12 @@
     "alt": {
       "en": "The worship hall at Izumo Taisha",
       "ja": "出雲大社の拝殿",
-      "th": "วิหารสักการะที่ศาลเจ้าอิซุโมะไทฉะ"
+      "th": "วิหารสักการะที่ศาลเจ้าอิซุโมะไทฉะ",
+      "ko": "이즈모타이샤의 배전",
+      "zh-CN": "出云大社的拜殿",
+      "vi": "Bái điện ở đền Izumo Taisha",
+      "fr": "Le pavillon de culte du sanctuaire Izumo Taisha",
+      "es": "El pabellón de culto del santuario Izumo Taisha"
     },
     "artist": "MaedaAkihiko",
     "source": "https://commons.wikimedia.org/wiki/File:Izumo-Taisha_Haiden.jpg",
@@ -304,7 +429,12 @@
     "alt": {
       "en": "City lights in Okayama",
       "ja": "岡山の街の灯り",
-      "th": "แสงไฟเมืองโอคายามะ"
+      "th": "แสงไฟเมืองโอคายามะ",
+      "ko": "오카야마의 도시 불빛",
+      "zh-CN": "冈山的城市灯光",
+      "vi": "Ánh đèn thành phố Okayama",
+      "fr": "Les lumières de la ville d’Okayama",
+      "es": "Las luces de la ciudad de Okayama"
     },
     "artist": "Takuma Kimura",
     "source": "https://commons.wikimedia.org/wiki/File:Christmas_tree_lighting_(6471182605).jpg",
@@ -316,7 +446,12 @@
     "alt": {
       "en": "Hiroshima Peace Memorial Park",
       "ja": "広島平和記念公園",
-      "th": "สวนสันติภาพฮิโรชิมะ"
+      "th": "สวนสันติภาพฮิโรชิมะ",
+      "ko": "히로시마 평화기념공원",
+      "zh-CN": "广岛和平纪念公园",
+      "vi": "Công viên Tưởng niệm Hòa bình Hiroshima",
+      "fr": "Le parc du Mémorial de la paix à Hiroshima",
+      "es": "El Parque Memorial de la Paz de Hiroshima"
     },
     "artist": "DXR",
     "source": "https://commons.wikimedia.org/wiki/File:Peace_Memorial_Park_and_Cenotaph,_Hiroshima,_South_view_20190417_1.jpg",
@@ -328,7 +463,12 @@
     "alt": {
       "en": "Kintaikyo Bridge seen from Iwakuni Castle",
       "ja": "岩国城から望む錦帯橋",
-      "th": "สะพานคินไทเคียวจากปราสาทอิวาคุนิ"
+      "th": "สะพานคินไทเคียวจากปราสาทอิวาคุนิ",
+      "ko": "이와쿠니성에서 바라본 긴타이교",
+      "zh-CN": "从岩国城眺望锦带桥",
+      "vi": "Cầu Kintaikyo nhìn từ thành Iwakuni",
+      "fr": "Le pont Kintaikyo vu du château d’Iwakuni",
+      "es": "El puente Kintaikyo visto desde el castillo de Iwakuni"
     },
     "artist": "កៀនស្វាយ",
     "source": "https://commons.wikimedia.org/wiki/File:%E5%B2%A9%E5%9B%BD%E5%9F%8E%E3%81%8B%E3%82%89%E8%A6%8B%E3%81%9F%E9%8C%A6%E5%B8%AF%E6%A9%8B.jpg",
@@ -340,7 +480,12 @@
     "alt": {
       "en": "Naruto whirlpools",
       "ja": "鳴門の渦潮",
-      "th": "น้ำวนนารูโตะ"
+      "th": "น้ำวนนารูโตะ",
+      "ko": "나루토의 소용돌이",
+      "zh-CN": "鸣门漩涡",
+      "vi": "Vùng nước xoáy Naruto",
+      "fr": "Les tourbillons de Naruto",
+      "es": "Los remolinos de Naruto"
     },
     "artist": "Suicasmo",
     "source": "https://commons.wikimedia.org/wiki/File:Naruto_whirlpools_20170609-2.jpg",
@@ -352,7 +497,12 @@
     "alt": {
       "en": "The Great Seto Bridge",
       "ja": "瀬戸大橋",
-      "th": "สะพานเซโตะโอฮาชิ"
+      "th": "สะพานเซโตะโอฮาชิ",
+      "ko": "세토대교",
+      "zh-CN": "濑户大桥",
+      "vi": "Cầu Seto Ohashi",
+      "fr": "Le grand pont de Seto",
+      "es": "El gran puente de Seto"
     },
     "artist": "Kanchi1979",
     "source": "https://commons.wikimedia.org/wiki/File:JP-Kagawa-Great-Seto-Bridge-Minami_Bisan-Seto-Bridge.jpg",
@@ -364,7 +514,12 @@
     "alt": {
       "en": "Mount Ishizuchi in winter",
       "ja": "冬の石鎚山",
-      "th": "ภูเขาอิชิซึจิในฤดูหนาว"
+      "th": "ภูเขาอิชิซึจิในฤดูหนาว",
+      "ko": "겨울의 이시즈치산",
+      "zh-CN": "冬季的石锤山",
+      "vi": "Núi Ishizuchi vào mùa đông",
+      "fr": "Le mont Ishizuchi en hiver",
+      "es": "El monte Ishizuchi en invierno"
     },
     "artist": "Dokudami",
     "source": "https://commons.wikimedia.org/wiki/File:Isidutisan20220226_1.jpg",
@@ -376,7 +531,12 @@
     "alt": {
       "en": "Seaside Momochi in Fukuoka",
       "ja": "福岡・シーサイドももち",
-      "th": "ซีไซด์โมโมจิในฟุกุโอกะ"
+      "th": "ซีไซด์โมโมจิในฟุกุโอกะ",
+      "ko": "후쿠오카의 시사이드 모모치",
+      "zh-CN": "福冈海滨百道",
+      "vi": "Khu ven biển Momochi ở Fukuoka",
+      "fr": "Le quartier côtier de Momochi à Fukuoka",
+      "es": "La zona costera de Momochi en Fukuoka"
     },
     "artist": "Nryate",
     "source": "https://commons.wikimedia.org/wiki/File:Fukuoka_Skyline_of_Seaside_Momochi.jpg",
@@ -388,7 +548,12 @@
     "alt": {
       "en": "Niji no Matsubara from Mount Kagami",
       "ja": "鏡山から望む虹の松原",
-      "th": "ป่าสนนิจิโนะมัตสึบาระจากภูเขาคางามิ"
+      "th": "ป่าสนนิจิโนะมัตสึบาระจากภูเขาคางามิ",
+      "ko": "가가미산에서 바라본 니지노마쓰바라",
+      "zh-CN": "从镜山眺望虹之松原",
+      "vi": "Rừng thông Niji no Matsubara nhìn từ núi Kagami",
+      "fr": "Niji no Matsubara depuis le mont Kagami",
+      "es": "Niji no Matsubara desde el monte Kagami"
     },
     "artist": "ascesis",
     "source": "https://commons.wikimedia.org/wiki/File:Nijinomatsubara.jpg",
@@ -400,7 +565,12 @@
     "alt": {
       "en": "Obon lanterns on the Sasebo River",
       "ja": "佐世保川の盆の灯籠",
-      "th": "โคมเทศกาลโอบ้งบนแม่น้ำซาเซโบะ"
+      "th": "โคมเทศกาลโอบ้งบนแม่น้ำซาเซโบะ",
+      "ko": "사세보강에 띄운 오봉 등불",
+      "zh-CN": "佐世保川上的盂兰盆节灯笼",
+      "vi": "Đèn lồng lễ Obon trên sông Sasebo",
+      "fr": "Lanternes d’Obon sur la rivière Sasebo",
+      "es": "Faroles de Obon en el río Sasebo"
     },
     "artist": "U.S. Navy photo by Photographer's Mate 3rd Class Ian W. Anderson (Released, PH3 IAN W. ANDERSON, FLTIMAGFACPAC SASEBO JA)",
     "source": "https://commons.wikimedia.org/wiki/File:Albuquerque_Bridge-Sasebo_River,_Sasebo.jpg",
@@ -412,7 +582,12 @@
     "alt": {
       "en": "Mount Aso from Kabutoiwa viewpoint",
       "ja": "かぶと岩展望所からの阿蘇山",
-      "th": "ภูเขาอะโสะจากจุดชมวิวคาบุโตะอิวะ"
+      "th": "ภูเขาอะโสะจากจุดชมวิวคาบุโตะอิวะ",
+      "ko": "가부토이와 전망대에서 바라본 아소산",
+      "zh-CN": "从兜岩观景台眺望阿苏山",
+      "vi": "Núi Aso nhìn từ đài quan sát Kabutoiwa",
+      "fr": "Le mont Aso depuis le belvédère de Kabutoiwa",
+      "es": "El monte Aso desde el mirador de Kabutoiwa"
     },
     "artist": "mahlervv",
     "source": "https://commons.wikimedia.org/wiki/File:%E9%98%BF%E8%98%87%E3%81%AE%E6%9C%9D_-_panoramio.jpg",
@@ -424,7 +599,12 @@
     "alt": {
       "en": "Kakuto Basin and the Kirishima mountains",
       "ja": "加久藤盆地と霧島連山",
-      "th": "แอ่งคาคุโตะและเทือกเขาคิริชิมะ"
+      "th": "แอ่งคาคุโตะและเทือกเขาคิริชิมะ",
+      "ko": "가쿠토 분지와 기리시마 산맥",
+      "zh-CN": "加久藤盆地与雾岛山脉",
+      "vi": "Lòng chảo Kakuto và dãy núi Kirishima",
+      "fr": "Le bassin de Kakuto et les monts Kirishima",
+      "es": "La cuenca de Kakuto y las montañas Kirishima"
     },
     "artist": "Ray_go",
     "source": "https://commons.wikimedia.org/wiki/File:Kakutou_Basin.jpg",
@@ -436,7 +616,12 @@
     "alt": {
       "en": "Sunrise over Sakurajima",
       "ja": "桜島の日の出",
-      "th": "พระอาทิตย์ขึ้นเหนือซากุระจิมะ"
+      "th": "พระอาทิตย์ขึ้นเหนือซากุระจิมะ",
+      "ko": "사쿠라지마 너머로 떠오르는 해",
+      "zh-CN": "樱岛的日出",
+      "vi": "Bình minh trên Sakurajima",
+      "fr": "Lever du soleil sur Sakurajima",
+      "es": "Amanecer sobre Sakurajima"
     },
     "artist": "The Modern Polymath",
     "source": "https://commons.wikimedia.org/wiki/File:2025-09-08_Sakurajima_Sunrise.jpg",
@@ -448,7 +633,12 @@
     "alt": {
       "en": "Kobe at night from Mount Maya",
       "ja": "摩耶山からの神戸の夜景",
-      "th": "โกเบยามค่ำจากภูเขามายะ"
+      "th": "โกเบยามค่ำจากภูเขามายะ",
+      "ko": "마야산에서 바라본 고베의 야경",
+      "zh-CN": "从摩耶山眺望神户夜景",
+      "vi": "Kobe về đêm nhìn từ núi Maya",
+      "fr": "Kobe de nuit depuis le mont Maya",
+      "es": "Kobe de noche desde el monte Maya"
     },
     "artist": "Laitr Keiows",
     "source": "https://commons.wikimedia.org/wiki/File:Night_view_of_Rokk%C5%8D_Island_and_Higashinada-ku,_Kobe,_Japan.jpg",
@@ -460,7 +650,12 @@
     "alt": {
       "en": "Shimanto River and Iwama Bridge",
       "ja": "四万十川と岩間沈下橋",
-      "th": "แม่น้ำชิมันโตะและสะพานอิวะมะ"
+      "th": "แม่น้ำชิมันโตะและสะพานอิวะมะ",
+      "ko": "시만토강과 이와마 다리",
+      "zh-CN": "四万十川与岩间桥",
+      "vi": "Sông Shimanto và cầu Iwama",
+      "fr": "La rivière Shimanto et le pont Iwama",
+      "es": "El río Shimanto y el puente Iwama"
     },
     "artist": "京浜にけ",
     "source": "https://commons.wikimedia.org/wiki/File:Shimanto_River_And_Iwama_Bridge_1.jpg",
@@ -472,7 +667,12 @@
     "alt": {
       "en": "Umi Jigoku in Beppu",
       "ja": "別府の海地獄",
-      "th": "บ่อนรกอุมิจิโงกุในเบปปุ"
+      "th": "บ่อนรกอุมิจิโงกุในเบปปุ",
+      "ko": "벳푸의 우미지고쿠",
+      "zh-CN": "别府的海地狱",
+      "vi": "Umi Jigoku ở Beppu",
+      "fr": "Umi Jigoku à Beppu",
+      "es": "Umi Jigoku en Beppu"
     },
     "artist": "663highland",
     "source": "https://commons.wikimedia.org/wiki/File:Beppu_Umi-jigoku04n4272.jpg",
@@ -484,7 +684,12 @@
     "alt": {
       "en": "Miho no Matsubara",
       "ja": "三保の松原",
-      "th": "มิโฮะโนะมัตสึบาระ"
+      "th": "มิโฮะโนะมัตสึบาระ",
+      "ko": "미호노마쓰바라",
+      "zh-CN": "三保松原",
+      "vi": "Rừng thông Miho no Matsubara",
+      "fr": "La pinède de Miho no Matsubara",
+      "es": "El pinar de Miho no Matsubara"
     },
     "artist": "Σ64",
     "source": "https://commons.wikimedia.org/wiki/File:Miho_no_Matsubara_08.jpg",

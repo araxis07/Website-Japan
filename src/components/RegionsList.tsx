@@ -22,7 +22,7 @@ export default function RegionsList({ dict, lang }: { dict: Dictionary; lang: Lo
                   ? '緑の木々と青い海に囲まれた沖縄の海岸'
                   : lang === 'th'
                     ? 'ชายฝั่งโอกินาว่าที่มีป่าเขียวและทะเลใส'
-                    : 'Okinawa coastline with green forest and turquoise water'
+                    : ({ ko: '푸른 숲과 청록빛 바다로 둘러싸인 오키나와 해안', 'zh-CN': '绿林与碧海环绕的冲绳海岸', vi: 'Bờ biển Okinawa với rừng xanh và làn nước màu ngọc lam', fr: 'Côte d’Okinawa bordée de forêt et d’eau turquoise', es: 'Costa de Okinawa con bosque verde y agua turquesa', en: 'Okinawa coastline with green forest and turquoise water' })[lang]
               }
               fill
               sizes="(max-width: 800px) 100vw, 40vw"

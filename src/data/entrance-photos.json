@@ -8,7 +8,12 @@
     "alt": {
       "en": "Nio-mon gate and steps at Kiyomizu-dera; use the official route for step-free access.",
       "ja": "清水寺の仁王門と階段。段差のない経路は公式案内を確認。",
-      "th": "ประตู Nio-mon และบันไดวัดคิโยมิซุเดระ เส้นทางไร้บันไดให้ตรวจจากเว็บไซต์วัด"
+      "th": "ประตู Nio-mon และบันไดวัดคิโยมิซุเดระ เส้นทางไร้บันไดให้ตรวจจากเว็บไซต์วัด",
+      "ko": "기요미즈데라의 니오몬과 계단. 계단 없는 경로는 공식 안내를 확인하세요.",
+      "zh-CN": "清水寺的仁王门与台阶；无台阶路线请参照官方指引。",
+      "vi": "Cổng Nio-mon và bậc thang tại Kiyomizu-dera; xem hướng dẫn chính thức về lối đi không có bậc.",
+      "fr": "La porte Nio-mon et les marches de Kiyomizu-dera ; consultez le parcours officiel sans marches.",
+      "es": "La puerta Nio-mon y las escaleras de Kiyomizu-dera; consulte la ruta oficial sin escalones."
     },
     "taken": "2020-02-06"
   },
@@ -21,7 +26,12 @@
     "alt": {
       "en": "Kuromon gate at Matsumoto Castle, seen from the approach.",
       "ja": "松本城の黒門を入口側から見た様子。",
-      "th": "ประตู Kuromon ปราสาทมัตสึโมโตะ มองจากทางเดินเข้า"
+      "th": "ประตู Kuromon ปราสาทมัตสึโมโตะ มองจากทางเดินเข้า",
+      "ko": "진입로에서 바라본 마쓰모토성의 구로몬.",
+      "zh-CN": "从通道一侧看到的松本城黑门。",
+      "vi": "Cổng Kuromon của thành Matsumoto nhìn từ đường vào.",
+      "fr": "La porte Kuromon du château de Matsumoto, vue depuis le chemin d’accès.",
+      "es": "La puerta Kuromon del castillo de Matsumoto, vista desde el camino de acceso."
     },
     "taken": "2010-03-22"
   },
@@ -34,7 +44,12 @@
     "alt": {
       "en": "Romon gate at Fushimi Inari Taisha, seen from the forecourt.",
       "ja": "前庭から見た伏見稲荷大社の楼門。",
-      "th": "ประตู Romon ศาลเจ้าฟุชิมิอินาริ มองจากลานด้านหน้า"
+      "th": "ประตู Romon ศาลเจ้าฟุชิมิอินาริ มองจากลานด้านหน้า",
+      "ko": "앞마당에서 바라본 후시미이나리타이샤의 로몬.",
+      "zh-CN": "从前庭看到的伏见稻荷大社楼门。",
+      "vi": "Cổng Romon tại Fushimi Inari Taisha nhìn từ sân trước.",
+      "fr": "La porte Romon du sanctuaire Fushimi Inari Taisha, vue depuis l’avant-cour.",
+      "es": "La puerta Romon del santuario Fushimi Inari Taisha, vista desde el patio delantero."
     },
     "taken": "2019-06-05"
   },
@@ -47,7 +62,12 @@
     "alt": {
       "en": "Takayama Jinya entrance and cleared stone approach in snow, photographed January 2015. Historical view; check current winter conditions.",
       "ja": "2015年1月撮影、高山陣屋の玄関と除雪された石畳。過去の景観であり、現在の積雪状況は要確認。",
-      "th": "ทางเข้า Takayama Jinya และทางหินที่กวาดหิมะ ถ่าย ม.ค. 2015 เป็นภาพในอดีต ต้องตรวจสภาพหิมะปัจจุบัน"
+      "th": "ทางเข้า Takayama Jinya และทางหินที่กวาดหิมะ ถ่าย ม.ค. 2015 เป็นภาพในอดีต ต้องตรวจสภาพหิมะปัจจุบัน",
+      "ko": "2015년 1월 촬영한 다카야마 진야 입구와 눈을 치운 돌길. 과거 사진이므로 현재 겨울철 상황을 확인하세요.",
+      "zh-CN": "2015年1月拍摄的高山阵屋入口及已清雪的石板路。此为历史景观，请确认当前冬季状况。",
+      "vi": "Lối vào Takayama Jinya và đường lát đá đã dọn tuyết, chụp tháng 1 năm 2015. Ảnh trước đây; kiểm tra điều kiện mùa đông hiện tại.",
+      "fr": "L’entrée de Takayama Jinya et son chemin pavé déneigé, photographiés en janvier 2015. Vue ancienne ; vérifiez les conditions hivernales actuelles.",
+      "es": "La entrada de Takayama Jinya y el camino de piedra despejado de nieve, fotografiados en enero de 2015. Imagen histórica; compruebe las condiciones invernales actuales."
     },
     "taken": "2015-01"
   },
@@ -60,7 +80,12 @@
     "alt": {
       "en": "Tokyo National Museum Main Gate and entrance sign, photographed September 2018. Historical reference; follow current signs.",
       "ja": "2018年9月撮影、東京国立博物館の正門と入口案内。過去の写真です。現在の案内に従ってください。",
-      "th": "ประตูหลัก Tokyo National Museum และป้ายทางเข้า ถ่าย ก.ย. 2018 เป็นภาพอ้างอิงในอดีต ให้ตามป้ายปัจจุบัน"
+      "th": "ประตูหลัก Tokyo National Museum และป้ายทางเข้า ถ่าย ก.ย. 2018 เป็นภาพอ้างอิงในอดีต ให้ตามป้ายปัจจุบัน",
+      "ko": "2018년 9월 촬영한 도쿄국립박물관 정문과 입구 표지판. 과거 참고 사진이므로 현재 표지판을 따르세요.",
+      "zh-CN": "2018年9月拍摄的东京国立博物馆正门及入口标识。此为历史参考，请遵循当前标识。",
+      "vi": "Cổng chính và biển lối vào Bảo tàng Quốc gia Tokyo, chụp tháng 9 năm 2018. Ảnh tham khảo trước đây; làm theo biển chỉ dẫn hiện tại.",
+      "fr": "La porte principale et le panneau d’entrée du Musée national de Tokyo, photographiés en septembre 2018. Référence ancienne ; suivez la signalisation actuelle.",
+      "es": "La puerta principal y el cartel de entrada del Museo Nacional de Tokio, fotografiados en septiembre de 2018. Referencia histórica; siga la señalización actual."
     },
     "taken": "2018-09"
   },
@@ -74,7 +99,12 @@
     "alt": {
       "en": "Nio-mon entrance gate at Kotoku-in, Kamakura, photographed in 2019. Historical reference; check the current accessible route.",
       "ja": "2019年撮影、鎌倉・高徳院の仁王門。過去の写真です。現在の段差のない経路は公式案内を確認。",
-      "th": "ประตู Nio-mon ทางเข้า Kotoku-in คามาคุระ ถ่ายปี 2019 เป็นภาพอ้างอิงในอดีต ตรวจเส้นทางไร้บันไดปัจจุบันจากเว็บไซต์วัด"
+      "th": "ประตู Nio-mon ทางเข้า Kotoku-in คามาคุระ ถ่ายปี 2019 เป็นภาพอ้างอิงในอดีต ตรวจเส้นทางไร้บันไดปัจจุบันจากเว็บไซต์วัด",
+      "ko": "2019년 촬영한 가마쿠라 고토쿠인의 니오몬 입구. 과거 참고 사진이므로 현재 접근 가능한 경로를 확인하세요.",
+      "zh-CN": "2019年拍摄的镰仓高德院仁王门入口。此为历史参考，请确认当前无障碍路线。",
+      "vi": "Cổng vào Nio-mon tại Kotoku-in, Kamakura, chụp năm 2019. Ảnh tham khảo trước đây; kiểm tra tuyến tiếp cận hiện tại.",
+      "fr": "La porte d’entrée Nio-mon du temple Kotoku-in à Kamakura, photographiée en 2019. Référence ancienne ; vérifiez le parcours accessible actuel.",
+      "es": "La puerta de entrada Nio-mon de Kotoku-in, Kamakura, fotografiada en 2019. Referencia histórica; compruebe la ruta accesible actual."
     }
   }
 }
