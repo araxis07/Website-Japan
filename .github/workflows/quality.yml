@@ -26,7 +26,7 @@ jobs:
       - run: npm ci
       - run: node scripts/check-secrets.mjs
       - run: node scripts/check-links.mjs --self-test
-      - run: npm audit --audit-level=high
+      - run: npm audit --audit-level=moderate
       - run: node scripts/check-links.mjs
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
       - run: npm run lint

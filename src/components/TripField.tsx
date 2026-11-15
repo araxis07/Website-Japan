@@ -115,11 +115,13 @@ export default function TripField({
           {issue}
           <button
             type="button"
-            onClick={() => {
+            onClick={(event) => {
               pending.current?.abort()
               pending.current = null
               setSaving(false)
               sequence.current++
+              if (document.activeElement === event.currentTarget)
+                document.getElementById(id)?.focus()
               storeDraft(fieldKey, null)
             }}
           >

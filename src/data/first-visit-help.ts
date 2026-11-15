@@ -39,7 +39,7 @@ export const firstVisitHelp = {
   "items": [
     "Au Japon, appelez le 110 pour une urgence policière, le 119 pour une ambulance ou un incendie. Indiquez clairement votre position et suivez les instructions de l’opérateur.",
     "Pour l’aide aux visiteurs, la JNTO Japan Visitor Hotline répond 24 h/24 au 050-3816-2787. Consultez la page officielle pour les langues et services proposés.",
-    "Enregistrez hors ligne adresse d’hébergement, assistance de l’assureur et contact de confiance. Suivez les alertes et consignes locales en cas de séisme, typhon ou perturbation des transports."
+    "Enregistrez hors ligne l’adresse de votre hébergement, le numéro d’assistance de votre assureur et un contact de confiance. Suivez les alertes et consignes locales en cas de séisme, de typhon ou de perturbation des transports."
   ]
 },
 "es": {

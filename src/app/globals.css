@@ -3252,6 +3252,7 @@ body:has(.photo-dialog[open]) {
   overflow-wrap: anywhere;
 }
 .planner-page {
+  min-height: 100svh;
   padding-top: 40px;
   padding-bottom: 100px;
   max-width: 1080px;

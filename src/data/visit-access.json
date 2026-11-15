@@ -119,7 +119,7 @@
       "ko": "접근 경로에는 가파른 계단이 약 80개 있으며 경내에도 약 30개가 더 있습니다. 운영 기관은 휠체어 이용자의 방문이 매우 어렵다고 안내합니다.",
       "zh-CN": "前往境内的路线约有80级陡峭台阶，境内另有约30级台阶。运营方提醒，使用轮椅参观非常困难。",
       "vi": "Cách tiếp cận này có khoảng 80 bậc dốc, với khoảng 30 bậc nữa trong khuôn viên. Nhà điều hành cảnh báo rằng việc đi lại bằng xe lăn rất khó khăn.",
-      "fr": "L'approche comporte environ 80 marches raides, dont environ 30 autres dans l'enceinte. L'opérateur prévient que les visites en fauteuil roulant sont très difficiles.",
+      "fr": "L’approche comporte environ 80 marches raides, auxquelles s’ajoutent environ 30 marches dans l’enceinte. L’exploitant indique qu’une visite en fauteuil roulant est très difficile.",
       "es": "El acceso tiene aproximadamente 80 escalones empinados, con alrededor de 30 más dentro del recinto. El operador advierte que las visitas en silla de ruedas son muy difíciles."
     },
     "hours": {
@@ -405,8 +405,8 @@
       "ko": "입장권은 온라인, 편의점, 개장일 박물관에서 판매됩니다. 일부 체험-예약 입장권은 세븐티켓에서만 판매됩니다. 일반 티켓은 시뮬레이터를 예약하지 않습니다.",
       "zh-CN": "可通过网上、便利店，以及博物馆开放日的现场售票处购买门票。部分含体验预约的门票仅通过Seven Ticket出售；普通门票不包含模拟器预约。",
       "vi": "Vé vào cửa được bán trực tuyến, tại các cửa hàng tiện lợi và tại bảo tàng vào những ngày mở cửa. Vé vào cửa đặt chỗ trải nghiệm chọn lọc chỉ được bán thông qua Seven Ticket; một vé thông thường không đặt trước một trình mô phỏng.",
-      "fr": "L'entrée est vendue en ligne, dans les supérettes et au musée lors des journées portes ouvertes. Les billets d'entrée avec réservation d'expériences sélectionnés sont vendus uniquement via Seven Ticket ; un billet ordinaire ne réserve pas de simulateur.",
-      "es": "La entrada se vende en línea, en tiendas de conveniencia y en el museo los días de puertas abiertas. Los boletos de admisión para reserva de experiencias seleccionadas se venden únicamente a través de Seven Ticket; un billete normal no reserva simulador."
+      "fr": "Les billets d’entrée sont vendus en ligne, dans les supérettes et au musée les jours d’ouverture. Certains billets avec réservation d’activité sont vendus uniquement via Seven Ticket ; un billet ordinaire ne réserve pas de simulateur.",
+      "es": "Las entradas se venden en línea, en tiendas de conveniencia y en el museo los días que abre. Algunas entradas con reserva de actividades se venden únicamente a través de Seven Ticket; una entrada ordinaria no reserva un simulador."
     },
     "accessibility": {
       "en": "Wheelchairs and strollers are allowed. Wheelchair loans are available at the entrance; stroller rental uses the paid Babycal service and requires registration.",
@@ -824,7 +824,7 @@
       "th": "จาก Gokurakubashi ต่อเคเบิลคาร์ไป Koyasan แล้วใช้ Nankai Rinkan Bus ลง Kongobuji-mae",
       "ko": "고쿠라쿠바시에서 케이블카를 타고 고야산까지 간 후 난카이 린칸 버스를 타고 콩고부지마에까지 갑니다.",
       "zh-CN": "从极乐桥乘坐缆车到高野山，然后乘坐南海林间巴士到金刚峰寺前。",
-      "vi": "Từ Gokurakubashi đi cáp treo đến Koyasan, sau đó đi xe buýt Nankai Rinkan đến Kongobuji-mae.",
+      "vi": "Từ Gokurakubashi, đi tàu cáp leo núi đến Koyasan, sau đó đi xe buýt Nankai Rinkan đến Kongobuji-mae.",
       "fr": "Depuis Gokurakubashi, prenez le funiculaire jusqu’à Koyasan, puis le bus Nankai Rinkan jusqu’à Kongobuji-mae.",
       "es": "Desde Gokurakubashi, tome el funicular hasta Koyasan y luego el autobús Nankai Rinkan hasta Kongobuji-mae."
     }
@@ -838,7 +838,7 @@
       "th": "จากสถานี Tottori นั่งบัสไปบริเวณเนินทรายประมาณ 20 นาที ตรวจเที่ยวกลับก่อนออกเดินบนเนินทราย",
       "ko": "돗토리역에서 버스를 타고 사구 지역까지 약 20분 소요됩니다. 모래 언덕을 걷기 전에 돌아오는 서비스를 확인하세요.",
       "zh-CN": "从鸟取站乘坐巴士到沙丘地区约20分钟。在沙丘上行走之前请检查返程服务。",
-      "vi": "Đi xe buýt từ Ga Tottori đến khu vực cồn cát, mất khoảng 20 phút. Kiểm tra dịch vụ hoàn trả trước khi đi bộ trên cồn cát.",
+      "vi": "Đi xe buýt từ ga Tottori đến khu vực cồn cát, mất khoảng 20 phút. Kiểm tra chuyến xe buýt trở về trước khi đi bộ trên cồn cát.",
       "fr": "Prenez un bus depuis la gare de Tottori jusqu'à la zone des dunes, environ 20 minutes. Vérifiez le service de retour avant de marcher sur les dunes.",
       "es": "Tome un autobús desde la estación de Tottori hasta la zona de las dunas, unos 20 minutos. Consulta el servicio de regreso antes de caminar sobre las dunas."
     }
@@ -1664,7 +1664,7 @@
       "th": "ลง Aoshima สาย JR Nichinan แล้วเดินไปเกาะและศาลเจ้าประมาณ 10 นาที ตรวจรถไฟเที่ยวกลับก่อนเดินเที่ยว",
       "ko": "JR 니치난선 아오시마역을 이용해 섬과 신사 방향으로 도보로 약 10분 소요됩니다. 탐험하기 전에 돌아오는 열차를 확인하세요.",
       "zh-CN": "从JR日南线青岛站出发，向岛和神社方向步行约10分钟。探索之前检查返程列车。",
-      "vi": "Hãy sử dụng Ga Aoshima trên Tuyến JR Nichinan, sau đó đi bộ về phía hòn đảo và đền thờ, mất khoảng mười phút. Kiểm tra các chuyến tàu khứ hồi trước khi khám phá.",
+      "vi": "Xuống ga Aoshima trên tuyến JR Nichinan, sau đó đi bộ khoảng mười phút về phía đảo và đền thờ. Kiểm tra các chuyến tàu trở về trước khi tham quan.",
       "fr": "Utilisez la gare d'Aoshima sur la ligne JR Nichinan, puis marchez vers l'île et le sanctuaire pendant environ dix minutes. Vérifiez les trains de retour avant d’explorer.",
       "es": "Utilice la estación Aoshima de la línea JR Nichinan y luego camine hacia la isla y el santuario, unos diez minutos. Consulte los trenes de regreso antes de explorar."
     }

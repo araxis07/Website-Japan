@@ -198,3 +198,19 @@ test('custom tile providers require secure templates and their own attribution',
   ])
     expect(() => inspect(invalid)).toThrow()
 })
+
+test('lint project-service preserves scoped glob allow and deny behavior', () => {
+  execFileSync(process.execPath, ['-e', `
+    const assert = require('node:assert/strict')
+    const path = require('node:path')
+    const parser = require('@typescript-eslint/parser')
+    const options = { tsconfigRootDir: process.cwd(), projectService: { allowDefaultProject: ['*.js'] } }
+    const result = parser.parseForESLint('const value = 1;', {
+      ...options, filePath: path.join(process.cwd(), '.toolchain-probe.js'),
+    })
+    assert(result.services.program)
+    assert.throws(() => parser.parseForESLint('const value = 1;', {
+      ...options, filePath: path.join(process.cwd(), 'virtual/toolchain-denied.js'),
+    }), /project service|allowDefaultProject/i)
+  `], { stdio: 'pipe' })
+})

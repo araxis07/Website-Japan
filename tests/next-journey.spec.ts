@@ -7,6 +7,11 @@ import { firstVisitSteps } from '../src/data/first-visit'
 import en from '../src/i18n/dictionaries/en.json'
 import ja from '../src/i18n/dictionaries/ja.json'
 import th from '../src/i18n/dictionaries/th.json'
+import ko from '../src/i18n/dictionaries/ko.json'
+import zh from '../src/i18n/dictionaries/zh-CN.json'
+import vi from '../src/i18n/dictionaries/vi.json'
+import fr from '../src/i18n/dictionaries/fr.json'
+import es from '../src/i18n/dictionaries/es.json'
 
 const languages = [['en', en], ['ja', ja], ['th', th]] as const
 const gion = places.find((place) => place.id === 'gion')!
@@ -262,7 +267,9 @@ test('the first help download works offline and matches the visible guide in eve
   context,
 }) => {
   test.setTimeout(60_000)
-  for (const [lang, copy] of languages) {
+  for (const [lang, copy] of [
+    ...languages, ['ko', ko], ['zh-CN', zh], ['vi', vi], ['fr', fr], ['es', es],
+  ] as const) {
     await page.goto(`/${lang}/first-visit#help`)
     const section = page.locator('.first-visit-steps > #help')
     const heading = await section.locator('#help-title').innerText()

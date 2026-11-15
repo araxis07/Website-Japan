@@ -107,14 +107,14 @@ export const visitDetails: Record<string, Visit> = {
     reviewedAt: '2026-10-25',
     minutes: 90,
     access: {
-      en: 'About five minutes from Asakusa stations; the Toei Asakusa Line guide specifies exit A4.',
-      ja: '浅草駅から徒歩約5分。都営浅草線はA4出口の案内。',
-      th: 'เดินประมาณ 5 นาทีจากสถานี Asakusa สาย Toei Asakusa ระบุทางออก A4',
-      "ko": "아사쿠사역에서 약 5분. 도에이 아사쿠사선 가이드에는 A4 출구가 명시되어 있습니다.",
-      "zh-CN": "距离浅草站约5分钟；都营浅草线指南指定了 A4 出口。",
-      "vi": "Khoảng năm phút từ ga Asakusa; hướng dẫn Tuyến Toei Asakusa chỉ định lối ra A4.",
-      "fr": "À environ cinq minutes des gares d'Asakusa ; le guide de la ligne Toei Asakusa précise la sortie A4.",
-      "es": "A unos cinco minutos de las estaciones de Asakusa; la guía de la línea Toei Asakusa especifica la salida A4.",
+      en: "About five minutes from Asakusa stations; Toei Asakusa Line guidance names A4. This does not confirm an elevator exit.",
+      ja: "浅草駅から徒歩約5分。都営浅草線はA4出口の案内ですが、エレベーター出口を確認した情報ではありません。",
+      th: "เดินประมาณ 5 นาทีจากสถานี Asakusa สาย Toei Asakusa ระบุทางออก A4 ข้อมูลนี้ไม่ได้ยืนยันทางออกที่มีลิฟต์",
+      "ko": "아사쿠사역에서 도보 약 5분입니다. 도에이 아사쿠사선 안내에는 A4 출구가 명시되어 있지만, 엘리베이터 출구를 확인한 정보는 아닙니다.",
+      "zh-CN": "从浅草站步行约5分钟；都营浅草线指引列出A4出口。此信息并未确认电梯出口。",
+      "vi": "Đi bộ khoảng 5 phút từ các ga Asakusa; hướng dẫn tuyến Toei Asakusa nêu lối ra A4. Thông tin này chưa xác nhận lối ra có thang máy.",
+      "fr": "À environ cinq minutes des gares d’Asakusa ; les indications de la ligne Toei Asakusa mentionnent A4, sans confirmer une sortie avec ascenseur.",
+      "es": "A unos cinco minutos de las estaciones de Asakusa; la guía de la línea Toei Asakusa indica A4, sin confirmar una salida con ascensor.",
     },
     entrance: {
       en: 'Kaminarimon is the main gate; the approach continues from there to the main hall.',
@@ -137,6 +137,10 @@ export const visitDetails: Record<string, Visit> = {
       "es": "Hay un ascensor a la izquierda al situarse de frente al salón principal. Los baños multiuso están a la derecha de Hozomon y detrás del salón principal. Consulta la ruta desde la estación por separado.",
     },
     fieldSources: {
+      access: {
+        source: 'https://www.senso-ji.jp/access/',
+        reviewedAt: '2026-11-16',
+      },
       entrance: {
         source: 'https://www.senso-ji.jp/faq/',
         reviewedAt: '2026-10-30',
@@ -621,7 +625,7 @@ export const visitDetails: Record<string, Visit> = {
     },
   },
   'pref:aichi:nagoya-castle': {
-    source: 'https://db.nagoya-info.jp/en/spot/detail/1/',
+    source: 'https://www.nagoya-info.jp/en/spot/detail/1/',
     reviewedAt: '2026-10-25',
     minutes: 120,
     access: {
@@ -760,7 +764,7 @@ export const visitDetails: Record<string, Visit> = {
       th: 'ใช้อินเตอร์คอมก่อนใช้ลิฟต์รถเข็น ยืมรถเข็นหรือรถเข็นเด็กที่เคาน์เตอร์ชั้นหนึ่ง มีห้องน้ำรถเข็นชั้น 1 และ 2',
       "ko": "휠체어 리프트를 이용하기 전에 인터콤으로 연락하세요. 1층 안내 데스크에서 휠체어와 유모차를 빌릴 수 있습니다. 장애인용 화장실은 1층과 2층에 있습니다.",
       "zh-CN": "使用轮椅升降机前，请先通过对讲机联系工作人员。一楼接待处可借用轮椅和婴儿车，1楼及2楼设有无障碍厕所。",
-      "vi": "Sử dụng hệ thống liên lạc nội bộ trước khi sử dụng thang máy dành cho xe lăn. Cho mượn xe lăn/xe đẩy tại lễ tân tầng 1; nhà vệ sinh thuận tiện ở tầng 1 và 2.",
+      "vi": "Dùng máy liên lạc trước khi sử dụng thang nâng dành cho xe lăn. Có xe lăn và xe đẩy cho mượn tại quầy lễ tân tầng 1; nhà vệ sinh phù hợp cho người khuyết tật ở tầng 1 và 2.",
       "fr": "Utilisez l’interphone avant d’utiliser l’élévateur pour fauteuil roulant. Prêt de fauteuils roulants/poussettes à la réception du niveau 1 ; toilettes accessibles aux étages 1 et 2.",
       "es": "Utilice el intercomunicador antes de utilizar el elevador de sillas de ruedas. Préstamo de sillas de ruedas/cochecitos en la recepción del primer piso; Aseos accesibles en plantas 1 y 2.",
     },
@@ -894,14 +898,14 @@ export const visitDetails: Record<string, Visit> = {
       "es": "Siga la ruta para sillas de ruedas del templo; Se proporcionan baños accesibles. No se pueden prestar sillas de ruedas en el templo.",
     },
     entrance: {
-      en: 'For a step-free approach, consult the route via the emergency entrance at the top of Chawan-zaka. The Main Hall route map is available at Todoroki-mon.',
-      ja: '段差を避ける場合は茶わん坂上の緊急車両用入口を通る経路を確認。本堂入口の轟門で経路図を入手。',
-      th: 'หากต้องการเลี่ยงบันได ตรวจเส้นทางผ่านทางเข้ารถฉุกเฉินด้านบน Chawan-zaka รับแผนที่ทางสู่วิหารหลักที่ Todoroki-mon',
-      "ko": "계단 없는 접근 경로는 차완자카 상단의 비상 출입구를 지나는 경로를 참고하세요. 본당 이동 안내도는 토도로키몬에서 볼 수 있습니다.",
-      "zh-CN": "如需无台阶路线，请查看经茶碗坂顶端紧急入口前往的指引。轰门处可获取通往本堂的路线图。",
-      "vi": "Để tiếp cận không có bậc thang, hãy tham khảo lộ trình qua lối vào khẩn cấp trên đỉnh Chawan-zaka. Bản đồ lộ trình của Main Hall có sẵn tại Todoroki-mon.",
-      "fr": "Pour une approche sans marche, consultez l'itinéraire via l'entrée de secours au sommet de Chawan-zaka. La carte du parcours du hall principal est disponible à Todoroki-mon.",
-      "es": "Para acceder sin escalones, consulte la ruta a través de la entrada de emergencia en la cima de Chawan-zaka. El mapa de ruta del Salón Principal está disponible en Todoroki-mon.",
+      en: "Wheelchair vehicle access: Chawan-zaka emergency road. Collect the grounds map at Todoroki-mon; check the station approach separately.",
+      ja: "車いす利用時の車両での入山は茶わん坂の防災道路入口から。境内図は轟門で配布。駅からの経路は別途確認してください。",
+      th: "ผู้ใช้รถเข็นที่มาโดยรถใช้ทางเข้าถนนฉุกเฉินฝั่ง Chawan-zaka รับแผนที่บริเวณวัดที่ Todoroki-mon และตรวจเส้นทางจากสถานีแยกต่างหาก",
+      "ko": "휠체어 이용자의 차량 진입은 차완자카 비상도로 입구를 이용합니다. 경내 지도는 도도로키몬에서 받으세요. 역에서 오는 경로는 별도로 확인하세요.",
+      "zh-CN": "轮椅使用者乘车进入时，请走茶碗坂的紧急通道入口。境内地图可在轰门领取；从车站前往的路线请另行确认。",
+      "vi": "Người dùng xe lăn đi bằng ô tô vào theo đường khẩn cấp phía Chawan-zaka. Nhận bản đồ khuôn viên tại Todoroki-mon; kiểm tra riêng đường từ ga.",
+      "fr": "Accès en véhicule pour les personnes en fauteuil : voie de secours de Chawan-zaka. Plan du site à Todoroki-mon ; vérifiez séparément le trajet depuis la gare.",
+      "es": "Acceso en vehículo para personas en silla de ruedas: vía de emergencia de Chawan-zaka. Recoja el plano en Todoroki-mon; compruebe aparte el trayecto desde la estación.",
     },
     fieldSources: {
       access: {
@@ -927,8 +931,8 @@ export const visitDetails: Record<string, Visit> = {
         ],
       },
       entrance: {
-        source: 'https://www.kiyomizudera.or.jp/en/faq/',
-        reviewedAt: '2026-10-26',
+        source: 'https://www.kiyomizudera.or.jp/faq/',
+        reviewedAt: '2026-11-16',
       },
       accessibility: {
         source: 'https://www.kiyomizudera.or.jp/en/faq/',
@@ -1005,14 +1009,14 @@ export const visitDetails: Record<string, Visit> = {
       "es": "Las entradas para la colección permanente se venden en línea y son válidas durante dos meses dentro del horario de apertura. Consulte por separado las condiciones de las exposiciones temporales.",
     },
     entrance: {
-      en: 'Use the Main Gate; consult the museum’s entrance access map.',
-      ja: '正門を利用。公式の入口周辺バリアフリー図を確認。',
-      th: 'ใช้ประตูหลัก Main Gate และตรวจแผนที่ทางเข้าของพิพิธภัณฑ์',
-      "ko": "정문을 이용하세요. 박물관 입구 접근 지도를 참고하세요.",
-      "zh-CN": "请从正门进入，并查看博物馆的入口交通地图。",
-      "vi": "Sử dụng Cổng chính; tham khảo bản đồ lối vào bảo tàng.",
-      "fr": "Utilisez la porte principale ; consulter le plan d’accès à l’entrée du musée.",
-      "es": "Utilice la puerta principal; consultar el mapa de acceso a la entrada del museo.",
+      en: "Use the Main Gate. Suitcases are prohibited; security and bag checks apply.",
+      ja: "正門から入館。スーツケースは持ち込めません。保安検査と手荷物検査があります。",
+      th: "เข้าทาง Main Gate ห้ามนำกระเป๋าเดินทางเข้าพิพิธภัณฑ์ มีการตรวจความปลอดภัยและสัมภาระ",
+      "ko": "정문으로 입장하세요. 여행용 캐리어는 반입할 수 없으며 보안 및 소지품 검사가 있습니다.",
+      "zh-CN": "请从正门入馆。禁止携带行李箱入馆，须接受安检和行李检查。",
+      "vi": "Vào qua Cổng Chính. Không được mang va li vào; có kiểm tra an ninh và hành lý.",
+      "fr": "Entrez par la porte principale. Les valises sont interdites ; contrôles de sécurité et des sacs à l’entrée.",
+      "es": "Entre por la puerta principal. No se permiten maletas; hay controles de seguridad y de bolsos.",
     },
     accessibility: {
       en: 'Accessible toilets in exhibition buildings except Hyokeikan. Some entrances have steep ramps; ask staff for assistance. Wheelchair loans are available.',
@@ -1020,7 +1024,7 @@ export const visitDetails: Record<string, Visit> = {
       th: 'อาคารจัดแสดงมีห้องน้ำรถเข็นยกเว้น Hyokeikan บางทางเข้ามีทางลาดชัน ขอความช่วยเหลือเจ้าหน้าที่ได้ มีรถเข็นให้ยืม',
       "ko": "효케이칸을 제외한 전시관에 장애인용 화장실이 있습니다. 일부 입구에는 가파른 경사로가 있으므로 직원에게 도움을 요청하세요. 휠체어 대여도 가능합니다.",
       "zh-CN": "除表庆馆外，展览馆内设有无障碍厕所。一些入口有陡峭的坡道；向工作人员寻求帮助。提供轮椅借用服务。",
-      "vi": "Nhà vệ sinh dành cho người khuyết tật trong các tòa nhà triển lãm ngoại trừ Hyokeikan. Một số lối vào có đường dốc; yêu cầu nhân viên giúp đỡ. Có sẵn dịch vụ cho mượn xe lăn.",
+      "vi": "Có nhà vệ sinh phù hợp cho người khuyết tật trong các tòa nhà triển lãm, trừ Hyokeikan. Một số lối vào có đường dốc cao; hãy nhờ nhân viên hỗ trợ. Có xe lăn cho mượn.",
       "fr": "Toilettes accessibles dans les bâtiments d'exposition sauf Hyokeikan. Certaines entrées ont des rampes raides ; demandez de l’aide au personnel. Des prêts de fauteuils roulants sont disponibles.",
       "es": "Baños accesibles en edificios de exhibición excepto Hyokeikan. Algunas entradas tienen rampas empinadas; pida ayuda al personal. Préstamos para sillas de ruedas están disponibles.",
     },
@@ -1041,8 +1045,8 @@ export const visitDetails: Record<string, Visit> = {
         reviewedAt: '2026-10-26',
       },
       entrance: {
-        source: 'https://www.tnm.jp/modules/r_free_page/index.php?id=128',
-        reviewedAt: '2026-10-26',
+        source: 'https://www.tnm.jp/modules/r_free_page/index.php?id=113&lang=en',
+        reviewedAt: '2026-11-16',
       },
       accessibility: {
         source: 'https://www.tnm.jp/modules/r_free_page/index.php?id=128',

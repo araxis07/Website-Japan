@@ -27,6 +27,19 @@ export default function TripTools() {
     trip: Trip
     before: string
   } | null>(null)
+  const importInput = useRef<HTMLInputElement>(null)
+  const previewHeading = useRef<HTMLHeadingElement>(null)
+  useEffect(() => {
+    if (incoming && document.activeElement === importInput.current)
+      previewHeading.current?.focus()
+  }, [incoming])
+  const closeImport = (origin: HTMLButtonElement, restoreLostFocus = false) => {
+    if (
+      document.activeElement === origin ||
+      (restoreLostFocus && document.activeElement === document.body)
+    ) importInput.current?.focus()
+    setIncoming(null)
+  }
   useEffect(() => {
     // These targets mount only after the browser's saved plan is available.
     const id = location.hash.slice(1)
@@ -483,6 +496,7 @@ export default function TripTools() {
         <label className="file-import" id="trip-import">
           {tools.import}
           <input
+            ref={importInput}
             type="file"
             accept=".json,application/json"
             onChange={async (event) => {
@@ -531,7 +545,7 @@ export default function TripTools() {
       {error && <p role="alert">{error}</p>}
       {incoming && (
         <section className="import-preview" aria-label={tools.preview}>
-          <h2>{tools.preview}</h2>
+          <h2 ref={previewHeading} tabIndex={-1}>{tools.preview}</h2>
           <p>
             {incoming.trip.title || copy.title} · {incoming.trip.days}{' '}
             {copy.days} · {incoming.trip.items.length} {copy.count}
@@ -621,7 +635,9 @@ export default function TripTools() {
           <button
             type="button"
             disabled={writing || (Object.keys(drafts).length > 0)}
-            onClick={async () => {
+            onClick={async (event) => {
+              const origin = event.currentTarget
+              const restoreLostFocus = document.activeElement === origin
               if (!mergeTrips(trip, incoming.trip)) {
                 setError(copy.limit)
                 return
@@ -633,7 +649,7 @@ export default function TripTools() {
                   incoming.before,
                 )
               )
-                setIncoming(null)
+                closeImport(origin, restoreLostFocus)
             }}
           >
             {tools.merge}
@@ -641,21 +657,23 @@ export default function TripTools() {
           <button
             type="button"
             disabled={writing || (Object.keys(drafts).length > 0)}
-            onClick={async () => {
+            onClick={async (event) => {
+              const origin = event.currentTarget
+              const restoreLostFocus = document.activeElement === origin
               if (
                 window.confirm(tools.replaceConfirm) &&
                 await change(() => incoming.trip, copy.updated, incoming.before)
               )
-                setIncoming(null)
+                closeImport(origin, restoreLostFocus)
             }}
           >
             {tools.replace}
           </button>
           <button
             type="button"
-            onClick={() => {
+            onClick={(event) => {
               importSelection.current++
-              setIncoming(null)
+              closeImport(event.currentTarget)
             }} disabled={writing}
           >
             {tools.cancel}
