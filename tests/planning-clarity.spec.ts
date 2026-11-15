@@ -84,7 +84,11 @@ test('event validity is inclusive and distinct from review age without changing 
   expect(fieldReview(temple, 'booking', '2026-11-30').status).toBe('overdue')
   expect(fieldReview(temple, 'booking', '2026-12-01').status).toBe('expired')
   expect(visitSource(museum, 'hours').reviewedAt).toBe('2026-11-03')
-  expect(visitSource(temple, 'entrance').reviewedAt).toBe('2026-10-26')
+  expect(visitSource(temple, 'entrance')).toEqual({
+    source: 'https://www.kiyomizudera.or.jp/faq/',
+    reviewedAt: '2026-11-16',
+  })
+  expect(visitSource(temple, 'accessibility').reviewedAt).toBe('2026-10-26')
   expect(fieldReview(museum, 'accessibility', '2026-11-30').status).toBe(
     'reviewed',
   )

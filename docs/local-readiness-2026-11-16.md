@@ -57,3 +57,7 @@ The [visitor acceptance checklist](visitor-acceptance.md) remains the source for
 - **Passed:** credential-pattern scan, source-link checker self-test, deployment-checker self-test, full dependency audit and production-only audit (both zero findings).
 - **Passed:** 40 before/after lab runs described above. Measurements isolate the layout fix; the later focus-only correction was verified by the focused regression suite.
 - The full Linux/Node 24 regression runs in GitHub Actions after push; its result is reported separately from these local checks. Self-tests do not verify hosting or live external services.
+
+### Linux regression follow-up
+
+[Run 43735274434](https://github.com/araxis07/Website-Japan/actions/runs/43735274434) passed 658 cases with two existing skips. Three engine variants of one provenance test failed because it still expected the Kiyomizu entrance's former review date. The assertion now checks the newly reviewed FAQ source and 2026-11-16 date, and separately preserves the unchanged accessibility review date. No application data, test skip or error threshold was changed in this follow-up. All 18 planning-clarity cases then passed locally across Chromium, WebKit and Firefox; scoped lint and the credential-pattern scan also passed. The follow-up commit triggers a fresh full CI run.
