@@ -1,5 +1,8 @@
 import { test, expect } from './fixtures'
-import { dayLabel, tripPlace } from '../src/lib/trip'
+import { dayLabel, tripPlace, parseTrip, publicTrip } from '../src/lib/trip'
+import { tripCalendar } from '../src/lib/trip-calendar'
+import { offlineTrip } from '../src/lib/trip-export'
+import portable from './fixtures/portable-trip.json'
 import { i18n, localeNames } from '../src/i18n/config'
 import en from '../src/i18n/dictionaries/en.json'
 import ja from '../src/i18n/dictionaries/ja.json'
@@ -35,6 +38,64 @@ function shape(value: unknown): unknown {
   if (value && typeof value === 'object') return Object.fromEntries(Object.entries(value).map(([key, child]) => [key, shape(child)]))
   return typeof value
 }
+
+test('eight-language exports retain Japan dates, repeated visits and their distinct privacy scopes', async () => {
+  const trip = parseTrip(JSON.stringify({ ...portable, startDate: '2026-11-17' }))!
+  const now = new Date('2026-11-01T00:00:00Z')
+  for (const locale of i18n.locales) {
+    const copy = getDictionary(locale)
+    const calendar = (await tripCalendar(trip, locale, now))!
+    const unfolded = calendar.replace(/\r\n /g, '')
+    expect(unfolded.match(/\r\nBEGIN:VEVENT/g)).toHaveLength(3)
+    expect(unfolded).toContain('DTSTART:20261117T000000Z')
+    expect(unfolded).toContain('DTSTART:20261117T030000Z')
+    expect(unfolded).toContain('DTSTART;VALUE=DATE:20261118')
+    const uids = unfolded.match(/^UID:.+$/gm)!
+    expect(new Set(uids).size).toBe(3)
+    expect(unfolded).not.toContain('custom-aaaaaaaa')
+    expect(unfolded).not.toContain('Private booking')
+    expect(unfolded).toContain('My hotel')
+    expect(calendar.split('\r\n').every((line) => Buffer.byteLength(line) <= 75)).toBe(true)
+    expect((await tripCalendar(trip, locale, now, true))!.replace(/\r\n /g, '')).toContain('Private booking')
+
+    const full = offlineTrip(trip, locale, copy.trip, copy.tools)
+    const shared = offlineTrip(publicTrip(trip), locale, copy.trip, copy.tools)
+    expect(full).toContain(`<html lang="${locale}">`)
+    expect(full).toContain('My hotel')
+    expect(shared).not.toContain('My hotel')
+    expect(shared).not.toContain('Private booking')
+    expect(shared).not.toContain('Kyoto Station')
+    expect(shared).toContain(tripPlace(trip.items[0]).names[locale])
+    expect(shared).not.toMatch(/<script\b|<iframe\b|<img\b/i)
+  }
+})
+
+test('KIX operator guidance exposes its own source and review date in all eight languages', async ({ page }) => {
+  test.setTimeout(60_000)
+  const checks = arrivals.arrivalChecks.filter((check) => [
+    'https://www.nankaibus.jp/airport/kanku_02/',
+    'https://www.westjr.co.jp/travel-information/en/train-usage-guide/howto/guide/',
+  ].includes(check.source))
+  expect(checks).toHaveLength(2)
+  for (const check of arrivals.arrivalChecks)
+    if ('airport' in check)
+      expect(arrivals.arrivalGuides.map((airport) => airport.code)).toContain(check.airport)
+  for (const locale of i18n.locales) {
+    await page.goto(`/${locale}/first-visit`)
+    for (const check of checks) {
+      const link = page.locator(`.arrival-guides a[href="${check.source}"]`)
+      const panel = link.locator('..')
+      const airport = panel.locator('..')
+      await expect(airport.locator(':scope > summary')).toHaveText('KIX · Kansai')
+      if (await airport.getAttribute('open') === null)
+        await airport.locator(':scope > summary').click()
+      await panel.locator(':scope > summary').click()
+      await expect(panel.locator(':scope > p').first()).toHaveText(check[locale].text)
+      await expect(link).toBeVisible()
+      await expect(panel.locator('time')).toHaveAttribute('datetime', '2026-11-17')
+    }
+  }
+})
 
 test('all dictionaries and public content cover every supported locale', async () => {
   expect(dayLabel(2, 'ko', ko.trip.day)).toBe('2일차')

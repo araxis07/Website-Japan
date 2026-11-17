@@ -61,3 +61,5 @@ The [visitor acceptance checklist](visitor-acceptance.md) remains the source for
 ### Linux regression follow-up
 
 [Run 43735274434](https://github.com/araxis07/Website-Japan/actions/runs/43735274434) passed 658 cases with two existing skips. Three engine variants of one provenance test failed because it still expected the Kiyomizu entrance's former review date. The assertion now checks the newly reviewed FAQ source and 2026-11-16 date, and separately preserves the unchanged accessibility review date. No application data, test skip or error threshold was changed in this follow-up. All 18 planning-clarity cases then passed locally across Chromium, WebKit and Firefox; scoped lint and the credential-pattern scan also passed. The follow-up commit triggers a fresh full CI run.
+
+The follow-up [run 43752340072](https://github.com/araxis07/Website-Japan/actions/runs/43752340072) completed successfully at `f50b667`: 661 passed and two existing skips, with build, lint, typecheck and the audit gate passed. These are the final results for the 16 November delivery.

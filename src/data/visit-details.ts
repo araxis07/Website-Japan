@@ -699,7 +699,7 @@ export const visitDetails: Record<string, Visit> = {
       th: 'มีห้องน้ำรถเข็นทุกชั้นและรถเข็นให้ยืม ช่วงคนแน่นอาจจำกัดรถเข็นเด็ก มีห้องให้นมชั้นหนึ่ง',
       "ko": "모든 층에 장애인용 화장실이 있으며 휠체어도 대여 가능합니다. 갤러리가 혼잡할 경우 유모차 이용이 제한될 수 있습니다. 수유실은 1층에 있어요.",
       "zh-CN": "每层均设有无障碍厕所，并提供轮椅借用服务。展厅拥挤时可能限制婴儿车进入；一楼设有哺乳室。",
-      "vi": "Nhà vệ sinh dành cho người khuyết tật ở mỗi tầng và cho thuê xe lăn. Xe đẩy có thể bị hạn chế khi phòng trưng bày đông đúc; một phòng cho con bú ở tầng một.",
+      "vi": "Nhà vệ sinh dành cho người khuyết tật ở mỗi tầng và có xe lăn cho mượn. Xe đẩy có thể bị hạn chế khi phòng trưng bày đông đúc; một phòng cho con bú ở tầng một.",
       "fr": "Toilettes accessibles à tous les étages et prêt de fauteuils roulants. Les poussettes peuvent être restreintes lorsque les galeries sont bondées ; une salle d’allaitement se trouve au niveau 1.",
       "es": "Aseos accesibles en cada planta y préstamo de sillas de ruedas. Los cochecitos pueden estar restringidos cuando las galerías estén abarrotadas; una sala de lactancia está en el primer piso.",
     },
@@ -729,14 +729,14 @@ export const visitDetails: Record<string, Visit> = {
     reviewedAt: '2026-10-24',
     minutes: 90,
     access: {
-      en: 'About 10 minutes on foot from JR Sapporo Station’s north exit, inside the university campus. Use public transport.',
-      ja: 'JR札幌駅北口から大学構内へ徒歩約10分。公共交通機関を利用。',
-      th: 'เดินประมาณ 10 นาทีจากทางออกทิศเหนือของ JR Sapporo เข้าไปในมหาวิทยาลัย ควรใช้ขนส่งสาธารณะ',
-      "ko": "JR 삿포로역 북쪽 출구에서 도보 약 10분, 대학 캠퍼스 내. 대중교통을 이용하세요.",
-      "zh-CN": "位于大学校园内，从JR札幌站北口步行约10分钟。请使用公共交通前往。",
-      "vi": "Khoảng 10 phút đi bộ từ lối ra phía bắc của Ga JR Sapporo, bên trong khuôn viên trường đại học. Sử dụng phương tiện giao thông công cộng.",
-      "fr": "À environ 10 minutes à pied de la sortie nord de la gare JR Sapporo, à l'intérieur du campus universitaire. Utilisez les transports en commun.",
-      "es": "A unos 10 minutos a pie desde la salida norte de la estación JR Sapporo, dentro del campus universitario. Utilice el transporte público.",
+      en: "About 13 minutes on foot from JR Sapporo North Exit or nine from subway Kita 12-jo. No museum parking; use public transport.",
+      ja: "JR札幌駅北口から徒歩約13分、地下鉄北12条駅から約9分。博物館の駐車場はありません。公共交通機関をご利用ください。",
+      th: "เดินประมาณ 13 นาทีจากทางออกทิศเหนือ JR Sapporo หรือ 9 นาทีจากสถานีรถไฟใต้ดิน Kita 12-jo พิพิธภัณฑ์ไม่มีที่จอดรถ โปรดใช้ขนส่งสาธารณะ",
+      "ko": "JR 삿포로역 북쪽 출구에서 도보 약 13분, 지하철 기타12조역에서 약 9분입니다. 박물관 주차장은 없으니 대중교통을 이용하세요.",
+      "zh-CN": "从JR札幌站北口步行约13分钟，或从地铁北12条站步行约9分钟。博物馆无停车场，请乘坐公共交通。",
+      "vi": "Đi bộ khoảng 13 phút từ cửa bắc ga JR Sapporo hoặc chín phút từ ga tàu điện ngầm Kita 12-jo. Bảo tàng không có bãi đỗ xe; hãy dùng phương tiện công cộng.",
+      "fr": "Environ 13 minutes à pied de la sortie nord de JR Sapporo, ou neuf de la station de métro Kita 12-jo. Aucun parking au musée ; prenez les transports en commun.",
+      "es": "A unos 13 minutos a pie de la salida norte de JR Sapporo o nueve del metro Kita 12-jo. El museo no tiene aparcamiento; use transporte público.",
     },
     hours: {
       en: '10:00–17:00. Closed Mondays and December 28–January 4; holiday Mondays move the closure to the following weekday. Check event exceptions.',
@@ -779,6 +779,10 @@ export const visitDetails: Record<string, Visit> = {
       "es": "No se requiere reserva previa para una visita regular.",
     },
     fieldSources: {
+      access: {
+        source: 'https://www.museum.hokudai.ac.jp/outline/open/',
+        reviewedAt: '2026-11-17',
+      },
       booking: {
         source: 'https://www.museum.hokudai.ac.jp/english/visit/',
         reviewedAt: '2026-10-26',
@@ -995,7 +999,7 @@ export const visitDetails: Record<string, Visit> = {
       "ko": "소장품: 어른 1,000엔, 대학생 500엔. 특별전시 가격은 별도로 책정됩니다. ID와 할인 규정을 확인하세요.",
       "zh-CN": "常设展：成人1,000日元，大学生500日元。特别展另行收费；请确认所需证件和优惠条件。",
       "vi": "Bộ sưu tập: người lớn 1.000 yên, sinh viên đại học 500 yên. Triển lãm đặc biệt được định giá riêng; kiểm tra ID và điều kiện giảm giá.",
-      "fr": "Collection permanente : adultes 1 000 ¥, étudiants 500 ¥. Les expositions temporaires ont des tarifs distincts ; vérifiez les justificatifs et les conditions de réduction.",
+      "fr": "Collection permanente : adultes 1 000 ¥, étudiants universitaires 500 ¥. Les expositions temporaires ont des tarifs distincts ; vérifiez les justificatifs et les conditions de réduction.",
       "es": "Colección permanente: adultos 1.000 ¥, estudiantes universitarios 500 ¥. Las exposiciones temporales tienen entradas aparte; consulte los documentos exigidos y las condiciones de descuento.",
     },
     booking: {

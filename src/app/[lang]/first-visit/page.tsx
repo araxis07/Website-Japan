@@ -33,6 +33,17 @@ export default async function FirstVisit({ params }: Props) {
   const { lang } = await params
   if (!isLocale(lang)) notFound()
   const dict = await getDictionary(lang)
+  const renderCheck = (check: (typeof arrivalChecks)[number]) => (
+    <details key={check.source}>
+      <summary>{check[lang].title}</summary>
+      <p>{check[lang].text}</p>
+      <a href={check.source}>{dict.tools.official} ↗</a>
+      <p className="source-note">
+        {dict.tools.reviewed}:{' '}
+        <time dateTime={check.reviewedAt}>{check.reviewedAt}</time>
+      </p>
+    </details>
+  )
   return (
     <main id="main-content" className="container first-visit-page">
       <nav className="breadcrumbs" aria-label={dict.guide.breadcrumb}>
@@ -115,21 +126,12 @@ export default async function FirstVisit({ params }: Props) {
                           {airport.reviewedAt}
                         </time>
                       </p>
+                      {arrivalChecks
+                        .filter((check) => 'airport' in check && check.airport === airport.code)
+                        .map(renderCheck)}
                     </details>
                   ))}
-                  {arrivalChecks.map((check) => (
-                    <details key={check.source}>
-                      <summary>{check[lang].title}</summary>
-                      <p>{check[lang].text}</p>
-                      <a href={check.source}>{dict.tools.official} ↗</a>
-                      <p className="source-note">
-                        {dict.tools.reviewed}:{' '}
-                        <time dateTime={check.reviewedAt}>
-                          {check.reviewedAt}
-                        </time>
-                      </p>
-                    </details>
-                  ))}
+                  {arrivalChecks.filter((check) => !('airport' in check)).map(renderCheck)}
                   <section className="arrival-next">
                     <h4>{dict.tools.arrivalNext}</h4>
                     <ol>

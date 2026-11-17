@@ -244,7 +244,7 @@
       "zh-CN": "从 JR 水户站乘坐巴士约 20 分钟即可到达偕乐园。",
       "vi": "Từ Ga JR Mito, đi xe buýt khoảng 20 phút đến Kairakuen.",
       "fr": "Depuis la gare JR Mito, comptez environ 20 minutes en bus jusqu'à Kairakuen.",
-      "es": "Desde la estación JR Mito, espere unos 20 minutos en autobús hasta Kairakuen."
+      "es": "Desde la estación JR Mito, calcule unos 20 minutos en autobús hasta Kairakuen."
     }
   },
   "pref:ibaraki:hitachi-seaside-park": {
@@ -267,7 +267,7 @@
       "ko": "3월~7월 17일과 9~10월은 09:30~17:00에 운영합니다. 7월 18일~8월은 18:00까지, 11월~2월은 16:30까지 운영합니다. 보통 화요일에 쉬지만 계절별 예외와 유지보수 휴원이 있습니다.",
       "zh-CN": "3月至7月17日及9月至10月09:30–17:00；7月18日至8月底延长至18:00，11月至2月开放至16:30。通常周二休园，季节性例外及维护休园安排请另行确认。",
       "vi": "09:30–17:00 Tháng 3 – 17 tháng 7 và Tháng 9 – Tháng 10; cho đến 18:00 ngày 18 tháng 7–tháng 8, 16:30 tháng 11–tháng 2. Thường đóng cửa vào thứ Ba; áp dụng các trường hợp ngoại lệ theo mùa và đóng cửa bảo trì.",
-      "fr": "9h30-17h00 de mars au 17 juillet et de septembre à octobre ; jusqu'à 18h00 du 18 juillet au août, 16h30 de novembre à février. Généralement fermé le mardi ; des exceptions saisonnières et des fermetures pour maintenance s’appliquent.",
+      "fr": "9h30-17h00 de mars au 17 juillet et de septembre à octobre ; jusqu'à 18h00 du 18 juillet à fin août, 16h30 de novembre à février. Généralement fermé le mardi ; des exceptions saisonnières et des fermetures pour maintenance s’appliquent.",
       "es": "09:30–17:00 de marzo a 17 de julio y de septiembre a octubre; hasta las 18:00 del 18 de julio al final de agosto, 16:30 de noviembre a febrero. Generalmente cerrado los martes; Se aplican excepciones estacionales y cierres de mantenimiento."
     },
     "fieldSources": {
@@ -414,7 +414,7 @@
       "th": "นำรถเข็นและรถเข็นเด็กเข้าได้ ยืมรถเข็นที่ทางเข้า ส่วนรถเข็นเด็กใช้บริการ Babycal แบบเสียเงินและต้องสมัครสมาชิก",
       "ko": "휠체어와 유모차는 허용됩니다. 입구에서 휠체어 대여가 가능합니다. 유모차 대여는 유료 Babycal 서비스를 이용하며 등록이 필요합니다.",
       "zh-CN": "允许使用轮椅和婴儿车。入口处可借用轮椅；婴儿车租赁使用付费Babycal服务并需要注册。",
-      "vi": "Xe lăn và xe đẩy được phép. Dịch vụ cho thuê xe lăn có sẵn ở lối vào; dịch vụ cho thuê xe đẩy sử dụng dịch vụ Babycal trả phí và yêu cầu đăng ký.",
+      "vi": "Xe lăn và xe đẩy được phép. Có xe lăn cho mượn ở lối vào; dịch vụ cho thuê xe đẩy sử dụng dịch vụ Babycal trả phí và yêu cầu đăng ký.",
       "fr": "Les fauteuils roulants et les poussettes sont autorisés. Des prêts de fauteuils roulants sont disponibles à l'entrée ; La location de poussettes utilise le service payant Babycal et nécessite une inscription.",
       "es": "Se permiten sillas de ruedas y cochecitos. Préstamos de sillas de ruedas están disponibles en la entrada; El alquiler de cochecitos utiliza el servicio Babycal de pago y requiere registro."
     }
@@ -924,7 +924,7 @@
       "zh-CN": "从广岛站乘电车或巴士前往原爆圆顶馆前，再步行进入公园。乘车一段请预留约20分钟。",
       "vi": "Từ Ga Hiroshima, bắt xe điện hoặc xe buýt về hướng Genbaku-Dome-mae, sau đó đi bộ vào công viên. Dành khoảng 20 phút cho chặng quá cảnh.",
       "fr": "Depuis la gare d'Hiroshima, prenez un tramway ou un bus en direction de Genbaku-Dome-mae, puis entrez dans le parc. Comptez environ 20 minutes pour le trajet en transit.",
-      "es": "Desde la estación de Hiroshima, tome un tranvía o autobús hacia Genbaku-Dome-mae y luego camine hacia el parque. Espere unos 20 minutos para el tramo de tránsito."
+      "es": "Desde la estación de Hiroshima, tome un tranvía o autobús hacia Genbaku-Dome-mae y luego camine hacia el parque. Calcule unos 20 minutos para el trayecto en transporte."
     }
   },
   "pref:yamaguchi:kintaikyo-bridge": {
@@ -1308,7 +1308,7 @@
       "th": "มีห้องน้ำสำหรับผู้ใช้รถเข็น รถเข็นให้ยืม และห้องให้นม ไม่มีรถเข็นเด็กให้ยืม ตรวจเส้นทางที่ต้องใช้กับตลาด",
       "ko": "장애인용 화장실, 휠체어 대여, 수유실이 안내되어 있습니다. 유모차는 대여하지 않습니다. 필요한 이동 경로는 시장에 직접 확인하세요.",
       "zh-CN": "列出了无障碍厕所、轮椅借用和哺乳室。婴儿车不可借用；与市场确认您的具体路线。",
-      "vi": "Nhà vệ sinh dành cho người khuyết tật, dịch vụ cho thuê xe lăn và phòng cho con bú đều được liệt kê. Xe đẩy không có sẵn để cho mượn; xác nhận lộ trình cụ thể với ban quản lý chợ.",
+      "vi": "Nhà vệ sinh dành cho người khuyết tật, xe lăn cho mượn và phòng cho con bú đều được liệt kê. Xe đẩy không có sẵn để cho mượn; xác nhận lộ trình cụ thể với ban quản lý chợ.",
       "fr": "Des toilettes accessibles, des prêts de fauteuils roulants et une salle d’allaitement sont répertoriés. Les poussettes ne sont pas disponibles au prêt ; confirmez votre itinéraire spécifique avec le marché.",
       "es": "Se enumeran baños accesibles, préstamo de sillas de ruedas y una sala de lactancia. Los cochecitos no están disponibles para préstamo; Confirme su ruta específica con el mercado."
     }
@@ -1384,7 +1384,7 @@
       "th": "นั่ง Aizu Railway ลง Yunokami-Onsen แล้วต่อบัสหรือแท็กซี่ไป Ouchi-juku ตรวจฤดูให้บริการรถบัสและรถต่อเที่ยวสุดท้ายก่อนออกเดินทาง",
       "ko": "아이즈 철도를 타고 유노카미 온천까지 간 다음 버스나 택시를 타고 오우치주쿠까지 갑니다. 출발 전 계절별 버스 운행상황과 마지막 귀환 교통편을 확인하세요.",
       "zh-CN": "乘坐会津铁道到汤野上温泉，然后乘坐巴士或出租车到大内宿。出发前检查季节性巴士运营情况以及最后的返程班次。",
-      "vi": "Đi Đường sắt Aizu đến Yunokami-Onsen, sau đó đi xe buýt hoặc taxi đến Ouchi-juku. Kiểm tra hoạt động của xe buýt theo mùa và chuyến khứ hồi cuối cùng trước khi khởi hành.",
+      "vi": "Đi Đường sắt Aizu đến Yunokami-Onsen, sau đó đi xe buýt hoặc taxi đến Ouchi-juku. Kiểm tra hoạt động của xe buýt theo mùa và chuyến nối cuối cùng để trở về trước khi khởi hành.",
       "fr": "Prenez le chemin de fer Aizu jusqu'à Yunokami-Onsen, puis un bus ou un taxi jusqu'à Ouchi-juku. Vérifiez le fonctionnement des bus saisonniers et la dernière correspondance retour avant le départ.",
       "es": "Tome el ferrocarril Aizu hasta Yunokami-Onsen y luego un autobús o taxi hasta Ouchi-juku. Verifique el funcionamiento estacional del autobús y la última conexión de regreso antes de la salida."
     }
@@ -1524,7 +1524,7 @@
       "zh-CN": "从 JR 甲府北口步行约 30 分钟或乘坐巴士 10 分钟前往武田神社。检查回程巴士时刻表。",
       "vi": "Từ lối ra phía bắc của JR Kofu, đi bộ khoảng 30 phút hoặc đi xe buýt khoảng 10 phút về phía Đền Takeda. Kiểm tra lịch trình xe buýt trở về.",
       "fr": "Depuis la sortie nord de JR Kofu, comptez environ 30 minutes à pied ou dix minutes en bus en direction du sanctuaire Takeda. Vérifiez les horaires des bus de retour.",
-      "es": "Desde la salida norte de JR Kofu, espere unos 30 minutos a pie o diez minutos en autobús hacia el Santuario Takeda. Consulta el horario del autobús de vuelta."
+      "es": "Desde la salida norte de JR Kofu, calcule unos 30 minutos a pie o diez minutos en autobús hacia el Santuario Takeda. Consulte el horario del autobús de vuelta."
     }
   },
   "pref:gifu:takayama-jinya": {
@@ -1680,7 +1680,7 @@
       "zh-CN": "使用 JR 日丰本线的宫崎神宫站。从车站区域可以看到神社大门；步行至神社最多需要 15 分钟。",
       "vi": "Sử dụng Ga Miyazaki-Jingu trên Tuyến chính JR Nippo. Từ khu vực nhà ga có thể nhìn thấy cổng đền; cho phép tối đa 15 phút đi bộ đến đền thờ.",
       "fr": "Utilisez la station Miyazaki-Jingu sur la ligne principale JR Nippo. La porte du sanctuaire est visible depuis le quartier de la gare ; prévoyez jusqu'à 15 minutes de marche jusqu'au sanctuaire.",
-      "es": "Utilice la estación Miyazaki-Jingu de la línea principal JR Nippo. La puerta del santuario es visible desde el área de la estación; espere hasta 15 minutos para caminar hasta el santuario."
+      "es": "Utilice la estación Miyazaki-Jingu de la línea principal JR Nippo. La puerta del santuario es visible desde el área de la estación; prevea hasta 15 minutos a pie hasta el santuario."
     }
   },
   "pref:kagoshima:sengan-en": {

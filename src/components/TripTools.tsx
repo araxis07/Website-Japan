@@ -550,9 +550,9 @@ export default function TripTools() {
             {incoming.trip.title || copy.title} · {incoming.trip.days}{' '}
             {copy.days} · {incoming.trip.items.length} {copy.count}
           </p>
-          <p>
-            {incoming.trip.base} · {incoming.trip.startDate}
-          </p>
+          {(incoming.trip.base || incoming.trip.startDate) && (
+            <p>{[incoming.trip.base, incoming.trip.startDate].filter(Boolean).join(' · ')}</p>
+          )}
           {Object.keys(drafts).length > 0 && (
             <p role="alert">{tools.pendingDrafts}</p>
           )}
@@ -583,8 +583,8 @@ export default function TripTools() {
                   {tripPlace(item).names[lang]} ·{' '}
                   {item.day
                     ? dayLabel(item.day, lang, copy.day)
-                    : copy.unplanned}{' '}
-                  · {item.time}
+                    : copy.unplanned}
+                  {item.time && ` · ${item.time}`}
                   {item.custom && (
                     <p>
                       {item.custom.address}

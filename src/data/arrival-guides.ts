@@ -395,7 +395,81 @@ export const arrivalChecks = [
       text: 'แผนผังห้องเด็กของฮาเนดะแยกพื้นที่สาธารณะกับหลังตรวจความปลอดภัย และระบุจุดให้นมกับเปลี่ยนผ้าอ้อม เลือกห้องที่เข้าใช้ได้จากฝั่งขาเข้าก่อนออกไปต่อรถ เผื่อพัก หาทางใช้ลิฟต์ และตรวจตั๋วเด็ก พื้นที่รถเข็นเด็ก และความช่วยเหลือกับบริษัทที่ใช้จริง',
     },
   },
-] satisfies ({ source: string; reviewedAt: string } & Record<
+  {
+    "reviewedAt": "2026-11-17",
+    "source": "https://www.nankaibus.jp/airport/kanku_02/",
+    "airport": "KIX · Kansai",
+    "en": {
+      "title": "KIX: Terminal 2 to the station",
+      "text": "From Terminal 2, take the free shuttle towards Terminal 1/Aeroplaza, then the bridge from Aeroplaza to Kansai-airport Station."
+    },
+    "ja": {
+      "title": "関空：第2ターミナルから駅へ",
+      "text": "第2ターミナルからは第1ターミナル・エアロプラザ方面の無料連絡バスへ。エアロプラザから連絡橋を通り関西空港駅へ。"
+    },
+    "th": {
+      "title": "KIX: จาก Terminal 2 ไปสถานี",
+      "text": "จาก Terminal 2 นั่งรถรับส่งฟรีไปทาง Terminal 1/Aeroplaza แล้วตามทางเชื่อมจาก Aeroplaza ไปสถานี Kansai-airport"
+    },
+    "ko": {
+      "title": "KIX: 제2터미널에서 역으로",
+      "text": "제2터미널에서는 제1터미널·에어로플라자 방면 무료 셔틀버스를 타세요. 에어로플라자에서 연결 다리를 따라 간사이공항역으로 가세요."
+    },
+    "zh-CN": {
+      "title": "KIX：从第2航站楼前往车站",
+      "text": "从第2航站楼乘免费接驳巴士前往第1航站楼／Aeroplaza方向，再从Aeroplaza沿连桥前往关西机场站。"
+    },
+    "vi": {
+      "title": "KIX: từ nhà ga 2 đến ga tàu",
+      "text": "Từ nhà ga 2, đi xe buýt miễn phí hướng nhà ga 1/Aeroplaza, rồi theo cầu nối từ Aeroplaza đến ga Kansai-airport."
+    },
+    "fr": {
+      "title": "KIX : du terminal 2 à la gare",
+      "text": "Depuis le terminal 2, prenez la navette gratuite vers le terminal 1/Aeroplaza, puis le pont reliant Aeroplaza à la gare Kansai-airport."
+    },
+    "es": {
+      "title": "KIX: de la terminal 2 a la estación",
+      "text": "Desde la terminal 2, tome la lanzadera gratuita hacia la terminal 1/Aeroplaza y siga el puente desde Aeroplaza hasta la estación Kansai-airport."
+    }
+  },
+  {
+    "reviewedAt": "2026-11-17",
+    "source": "https://www.westjr.co.jp/travel-information/en/train-usage-guide/howto/guide/",
+    "airport": "KIX · Kansai",
+    "en": {
+      "title": "KIX: choose the railway",
+      "text": "Concourse signs: JR-West blue, Nankai red. Match the company to your ticket. HARUKA requires a separate limited-express fare."
+    },
+    "ja": {
+      "title": "関空：鉄道会社を確認",
+      "text": "コンコースではJR西日本が青、南海が赤の案内。切符の会社を確認。はるかは乗車券のほかに特急券が必要です。"
+    },
+    "th": {
+      "title": "KIX: เลือกบริษัทรถไฟ",
+      "text": "ป้ายโถงสถานี: JR-West สีน้ำเงิน Nankai สีแดง เลือกบริษัทให้ตรงตั๋ว HARUKA ต้องจ่ายค่าด่วนพิเศษเพิ่มจากค่าโดยสารพื้นฐาน"
+    },
+    "ko": {
+      "title": "KIX: 철도회사 확인",
+      "text": "대합실 안내는 JR서일본이 파란색, 난카이가 빨간색입니다. 승차권의 회사를 확인하세요. 하루카는 기본 운임 외에 특급 요금이 필요합니다."
+    },
+    "zh-CN": {
+      "title": "KIX：确认铁路公司",
+      "text": "站厅指示中JR西日本为蓝色、南海为红色。请核对车票所属公司。乘HARUKA须在基本车费外另付特急费。"
+    },
+    "vi": {
+      "title": "KIX: chọn hãng đường sắt",
+      "text": "Biển ở sảnh ga: JR-West màu xanh dương, Nankai màu đỏ. Chọn đúng hãng ghi trên vé. HARUKA cần trả thêm phí tàu tốc hành."
+    },
+    "fr": {
+      "title": "KIX : choisir la compagnie",
+      "text": "Dans le hall : JR-West en bleu, Nankai en rouge. Vérifiez la compagnie du billet. HARUKA exige un supplément express distinct."
+    },
+    "es": {
+      "title": "KIX: elija la compañía",
+      "text": "En el vestíbulo: JR-West en azul, Nankai en rojo. Compruebe la compañía del billete. HARUKA requiere un suplemento de expreso aparte."
+    }
+  },
+] satisfies ({ source: string; reviewedAt: string; airport?: string } & Record<
   Locale,
   { title: string; text: string }
 >)[]

@@ -48,3 +48,19 @@ If these checks uncover a problem, record the specific device/client, trigger an
 ## Eight-language follow-up — 9 November 2026
 
 The second Chinese venue model review is complete, but it does not complete native-language acceptance. Keyboard, axe and viewport reflow tests support accessibility review; device emulation does not certify VoiceOver, TalkBack, OS file handling or physical magnification. Run the novice and device tasks in the participant’s selected language, then switch language and verify the same saved visits and private notes remain. Keep the production/operator, calendar-client and physical-device rows Not Run until external evidence exists.
+
+## Session worksheet — 17 November 2026
+
+Use one copy per novice or device session. Record an anonymous participant code, tested commit, date, device/OS/browser version, locale, theme, text zoom and network conditions. Use invented bookings and record observations without private backup contents. Give the task without showing the expected path; record wrong turns and requests for help before explaining the interface.
+
+| Task | Status | Completion time / help needed | Redacted observation |
+| --- | --- | --- | --- |
+| Find Gion, save it and assign a day | Not Run | — | — |
+| Explain the map pin, route origin and entrance limitations | Not Run | — | — |
+| Choose a starting path for an empty trip | Not Run | — | — |
+| Reload, switch language and recover an invalid draft without losing another field | Not Run | — | — |
+| Explain and export the full backup versus a share copy, then restore in a clean profile | Not Run | — | — |
+
+For each device, record whether `window.isSecureContext`, Web Locks and IndexedDB are available before the recovery task. A phone visiting an HTTP LAN IP is not visiting its own localhost: do not count that as the supported secure saving environment. Use an operator-approved HTTPS test origin trusted by the device, or localhost on the device itself. Provisioning that environment is separate from this worksheet; no public tunnel, deployment or domain has been created.
+
+Run the existing calendar matrix in disposable calendars and record each application's import/reimport behavior. Automated ICS date, line-folding and privacy assertions do not complete those client rows. Ask the participant to explain which personal fields remain in calendars and print/PDF. Keep all human, physical-device and assistive-technology statuses Not Run until an actual session supplies evidence.

@@ -63,6 +63,7 @@
 .trip-extras button,
 .file-import,
 .import-preview button,
+.explore-map-panel .prefecture-preview > button,
 .explorer-toolbar button,
 .place-search-results li > button,
 .map-toolbar button,
@@ -78,6 +79,16 @@
 }
 .trip-file-actions {
   margin-bottom: 12px;
+}
+.import-preview > button {
+  max-width: calc(100% - 0.5rem);
+  margin: 0.25rem;
+  overflow-wrap: anywhere;
+}
+.explore-map-panel .prefecture-preview > button {
+  max-width: calc(100% - 0.5rem);
+  margin: 0.25rem 0.5rem 0.25rem 0;
+  overflow-wrap: anywhere;
 }
 .file-import {
   flex-basis: 100%;
@@ -400,6 +411,7 @@ html[data-motion='still'] .culture-photo img {
   margin-block: 1rem;
 }
 .export-privacy input {
+  flex-shrink: 0;
   width: 24px !important;
   min-height: 24px !important;
 }

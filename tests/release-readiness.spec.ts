@@ -24,6 +24,32 @@ const importInput = (page: Page) => page.locator('#trip-import input[type=file]'
 const preview = (page: Page) => page.locator('.trip-tools > .import-preview')
 const stored = async (page: Page) => JSON.parse((await readStorage(page, tripKey)) ?? JSON.stringify(emptyTrip))
 
+test('import review shows only supplied optional metadata and visit times', async ({ page }) => {
+  await page.goto('/en/my-trip')
+  for (const [metadata, expected] of [
+    [{}, en.tools.mergeHelp],
+    [{ base: 'Kyoto Station' }, 'Kyoto Station'],
+    [{ startDate: '2026-11-17' }, '2026-11-17'],
+    [{ base: 'Kyoto Station', startDate: '2026-11-17' }, 'Kyoto Station · 2026-11-17'],
+  ] as const) {
+    await importInput(page).setInputFiles({
+      ...file,
+      buffer: Buffer.from(JSON.stringify({ ...backup, ...metadata, items: [
+        { id: 'gion', day: 1 }, { id: 'gion', day: 2, entryId: 'return', time: '10:00' },
+      ] })),
+    })
+    await expect(preview(page).locator(':scope > p').nth(1)).toHaveText(expected)
+    await openDetails(preview(page).locator('details'))
+    const rows = preview(page).locator('ol > li')
+    const labels = await rows.evaluateAll((items) => items.map((item) =>
+      [...item.childNodes].filter((node) => node.nodeType === Node.TEXT_NODE)
+        .map((node) => node.textContent).join('').replace(/\s+/g, ' ').trim(),
+    ))
+    expect(labels).toEqual(['Gion · Day 1', 'Gion · Day 2 · 10:00'])
+    await preview(page).getByRole('button', { name: en.tools.cancel, exact: true }).click()
+  }
+})
+
 test('the server-rendered planner keeps its footer below the initial viewport', async ({ browser, baseURL }) => {
   for (const viewport of [{ width: 320, height: 844 }, { width: 1440, height: 1000 }]) {
     const context = await browser.newContext({ baseURL, viewport, javaScriptEnabled: false })

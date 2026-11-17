@@ -2,7 +2,7 @@ import fs from 'node:fs/promises'
 import type { Download, Page } from '@playwright/test'
 import { readStorage, test, expect, openDetails } from './fixtures'
 import { emptyTrip, tripKey, type Trip } from '../src/lib/trip'
-import { fieldReview, visitDetails, visitSource } from '../src/data/visit-details'
+import { fieldReview, visitDetails, visitSource, type Visit } from '../src/data/visit-details'
 import en from '../src/i18n/dictionaries/en.json'
 import ja from '../src/i18n/dictionaries/ja.json'
 import th from '../src/i18n/dictionaries/th.json'
@@ -62,6 +62,54 @@ async function downloadText(download: Download) {
 }
 
 test('event validity is inclusive and distinct from review age without changing sibling provenance or unknown fields', () => {
+  const text = {
+    en: 'Example fact', ja: 'Example fact', th: 'Example fact', ko: 'Example fact',
+    'zh-CN': 'Example fact', vi: 'Example fact', fr: 'Example fact', es: 'Example fact',
+  }
+  const visit: Visit = {
+    source: 'https://example.test/visit',
+    reviewedAt: '2030-01-01',
+    booking: text,
+    hours: text,
+    accessibility: text,
+    fieldSources: {
+      booking: {
+        source: 'https://example.test/event',
+        reviewedAt: '2030-01-01',
+        validThrough: '2030-02-01',
+        applicablePeriods: [{ from: '2030-01-01', through: '2030-02-01' }],
+      },
+      hours: {
+        source: 'https://example.test/hours',
+        reviewedAt: '2030-01-15',
+      },
+    },
+  }
+  expect(fieldReview(visit, 'booking', '2030-01-31')).toMatchObject({
+    status: 'reviewed',
+    reviewedAt: '2030-01-01',
+    validThrough: '2030-02-01',
+    nextReviewBy: '2030-01-31',
+  })
+  expect(fieldReview(visit, 'booking', '2030-02-01').status).toBe('overdue')
+  expect(fieldReview(visit, 'booking', '2030-02-02')).toMatchObject({
+    status: 'expired',
+    reviewedAt: '2030-01-01',
+    validThrough: '2030-02-01',
+  })
+  expect(visitSource(visit, 'hours')).toEqual({
+    source: 'https://example.test/hours', reviewedAt: '2030-01-15',
+  })
+  expect(fieldReview(visit, 'hours', '2030-02-02').status).toBe('reviewed')
+  expect(fieldReview(visit, 'accessibility', '2030-02-02').status).toBe('reviewed')
+  for (const field of ['access', 'entrance', 'admission'] as const)
+    expect(fieldReview(visit, field, '2030-02-02')).toEqual({ status: 'unverified' })
+  expect(
+    fieldReview({ ...visit, booking: undefined }, 'booking', '2030-02-02'),
+  ).toEqual({ status: 'unverified' })
+})
+
+test('published Kyoto and Kiyomizu provenance retains explicit review sources and dates', () => {
   const museum = visitDetails['kyoto-museum']
   const temple = visitDetails.kiyomizu
   expect(visitSource(museum, 'booking')).toEqual({
@@ -70,39 +118,37 @@ test('event validity is inclusive and distinct from review age without changing 
     validThrough: '2026-11-29',
     applicablePeriods: [{ from: '2026-10-06', through: '2026-11-29' }],
   })
-  expect(fieldReview(museum, 'booking', '2026-11-29')).toMatchObject({
-    status: 'reviewed',
-    reviewedAt: '2026-10-30',
-    validThrough: '2026-11-29',
-    nextReviewBy: '2026-11-29',
+  expect(visitSource(museum, 'hours')).toEqual({
+    source: 'https://www.kyohaku.go.jp/eng/visit/info/',
+    reviewedAt: '2026-11-03',
   })
-  expect(fieldReview(museum, 'booking', '2026-11-30')).toMatchObject({
-    status: 'expired',
-    reviewedAt: '2026-10-30',
-    validThrough: '2026-11-29',
+  expect(visitSource(museum, 'accessibility')).toEqual({
+    source: 'https://www.kyohaku.go.jp/eng/visit/accessibility/',
+    reviewedAt: '2026-10-31',
   })
-  expect(fieldReview(temple, 'booking', '2026-11-30').status).toBe('overdue')
-  expect(fieldReview(temple, 'booking', '2026-12-01').status).toBe('expired')
-  expect(visitSource(museum, 'hours').reviewedAt).toBe('2026-11-03')
+  expect(visitSource(temple, 'booking')).toEqual({
+    source: 'https://www.kiyomizudera.or.jp/event/yakan.php',
+    reviewedAt: '2026-10-30',
+    validThrough: '2026-11-30',
+    applicablePeriods: [
+      { from: '2026-03-27', through: '2026-04-05' },
+      { from: '2026-08-14', through: '2026-08-16' },
+      { from: '2026-11-21', through: '2026-11-30' },
+    ],
+  })
   expect(visitSource(temple, 'entrance')).toEqual({
     source: 'https://www.kiyomizudera.or.jp/faq/',
     reviewedAt: '2026-11-16',
   })
-  expect(visitSource(temple, 'accessibility').reviewedAt).toBe('2026-10-26')
-  expect(fieldReview(museum, 'accessibility', '2026-11-30').status).toBe(
-    'reviewed',
-  )
-  for (const field of ['hours', 'admission', 'booking', 'accessibility'] as const)
-    expect(
-      fieldReview(
-        visitDetails['pref:kyoto:fushimi-inari-taisha'],
-        field,
-        '2027-01-01',
-      ),
-    ).toEqual({ status: 'unverified' })
-  expect(
-    fieldReview({ ...museum, booking: undefined }, 'booking', '2027-01-01'),
-  ).toEqual({ status: 'unverified' })
+  expect(visitSource(temple, 'accessibility')).toEqual({
+    source: 'https://www.kiyomizudera.or.jp/en/faq/',
+    reviewedAt: '2026-10-26',
+  })
+  const inari = visitDetails['pref:kyoto:fushimi-inari-taisha']
+  for (const field of ['hours', 'admission', 'booking', 'accessibility'] as const) {
+    expect(inari[field]).toBeUndefined()
+    expect(inari.notApplicable?.[field]).toBeUndefined()
+  }
 })
 
 test('resolved direction origins remain visible with the controls closed in every language', async ({
