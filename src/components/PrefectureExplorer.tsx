@@ -28,6 +28,7 @@ type Entry = {
     information: Record<'hours' | 'booking' | 'accessibility', boolean>
   })[]
 }
+// Load catalog guides on selection rather than prefetching transient filtered results.
 export default function PrefectureExplorer({
   entries,
   regions,
@@ -203,7 +204,7 @@ export default function PrefectureExplorer({
         <ul className="prefecture-static">
           {entries.map((entry) => (
             <li key={entry.slug}>
-              <Link href={`/${lang}/prefectures/${entry.slug}`}>
+              <Link prefetch={false} href={`/${lang}/prefectures/${entry.slug}`}>
                 {entry.names[lang]}
               </Link>
             </li>
@@ -522,6 +523,7 @@ export default function PrefectureExplorer({
                 {tools.returnResults}
               </button>
               <Link
+                prefetch={false}
                 className="button"
                 href={
                   scope === 'places' && selectedPlace
@@ -556,6 +558,7 @@ export default function PrefectureExplorer({
               />
             )}
             <Link
+              prefetch={false}
               className="button"
               href={
                 scope === 'places' && selectedPlace
@@ -582,7 +585,7 @@ export default function PrefectureExplorer({
                       scope === 'places' && selectedPlace?.id === place.id
                     }
                   >
-                    <Link href={placePath(place, lang)}>
+                    <Link prefetch={false} href={placePath(place, lang)}>
                       {place.names[lang]}
                     </Link>
                     {place.names[lang] !== place.names.ja && (
@@ -635,13 +638,13 @@ export default function PrefectureExplorer({
                   >
                     <p>{regions.find((r) => r.id === p.region)?.name}</p>
                     <h3>
-                      <Link href={`/${lang}/prefectures/${p.slug}`}>
+                      <Link prefetch={false} href={`/${lang}/prefectures/${p.slug}`}>
                         {p.names[lang]}
                       </Link>
                     </h3>
                     <p>{p.summary}</p>
                     <div>
-                      <Link href={`/${lang}/prefectures/${p.slug}`}>
+                      <Link prefetch={false} href={`/${lang}/prefectures/${p.slug}`}>
                         {copy.read} ↗
                       </Link>
                       <button
