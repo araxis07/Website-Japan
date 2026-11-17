@@ -139,13 +139,11 @@ test('all dictionaries and public content cover every supported locale', async (
 })
 
 for (const lang of ['ko', 'zh-CN', 'vi', 'fr', 'es'] as const) {
-  test(`${lang} routes, language switching and narrow layouts work`, async ({ page }) => {
-    test.setTimeout(90_000)
-    const errors: string[] = []
-    page.on('pageerror', (error) => errors.push(error.message))
-    const dict = await getDictionary(lang)
-    await page.emulateMedia({ reducedMotion: 'reduce' })
-    for (const path of ['', '/explore?scope=places&view=list', '/first-visit', '/my-trip', '/destinations/kyoto', '/prefectures/kyoto', '/about', '/credits']) {
+  for (const path of ['', '/explore?scope=places&view=list', '/first-visit', '/my-trip', '/destinations/kyoto', '/prefectures/kyoto', '/about', '/credits']) {
+    test(`${lang}${path || '/'} renders in both themes without overflow`, async ({ page }) => {
+      const errors: string[] = []
+      page.on('pageerror', (error) => errors.push(error.message))
+      await page.emulateMedia({ reducedMotion: 'reduce' })
       const response = await page.goto(`/${lang}${path}`)
       expect(response?.status()).toBe(200)
       await expect(page.locator('html')).toHaveAttribute('lang', lang)
@@ -158,16 +156,25 @@ for (const lang of ['ko', 'zh-CN', 'vi', 'fr', 'es'] as const) {
         }
       }
       await page.waitForLoadState('networkidle')
-    }
-    await page.waitForLoadState('networkidle')
+      expect(errors).toEqual([])
+    })
+  }
+  test(`${lang} language switching preserves filters and accessible labels`, async ({ page }) => {
+    const errors: string[] = []
+    page.on('pageerror', (error) => errors.push(error.message))
+    const dict = await getDictionary(lang)
+    await page.emulateMedia({ reducedMotion: 'reduce' })
     await page.goto(`/${lang}/explore?q=Kyoto&scope=places&view=list`)
     await page.locator('.language-picker summary').click()
     await expect(page.locator('.language-picker a')).toHaveCount(8)
     await page.locator('.language-picker a[lang="en"]').click()
     await expect(page).toHaveURL(/\/en\/explore\?.*q=Kyoto/)
+    await expect(page.locator('html')).toHaveAttribute('lang', 'en')
+    await expect(page.locator('.language-picker summary')).toHaveAccessibleName(`${en.navigation.language}: ${localeNames.en}`)
     await page.locator('.language-picker summary').click()
     await page.locator(`.language-picker a[lang="${lang}"]`).click()
     await expect(page).toHaveURL(new RegExp(`/${lang}/explore\\?.*q=Kyoto`))
+    await expect(page.locator('html')).toHaveAttribute('lang', lang)
     await expect(page.locator('.language-picker summary')).toHaveAccessibleName(`${dict.navigation.language}: ${localeNames[lang]}`)
     expect(errors).toEqual([])
   })
