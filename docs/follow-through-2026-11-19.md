@@ -20,7 +20,7 @@ The integrated focused browser suite passed **294 cases with one existing skip**
 
 ## Linux runner follow-up
 
-The first CI attempt passed shard 1 (411 tests, 7.6 minutes), while shard 2 timed out before any tests during system-package installation: its Ubuntu mirror download took 7 minutes 31 seconds for 126 MB. The installer step now allows 12 minutes instead of 8. The 35-minute job limit, browser-test timeouts, assertions and full suite remain unchanged. This addresses observed setup variability, not an application-test failure. The latest commit checks remain authoritative for both shards and the aggregate gate.
+The first CI attempt passed shard 1 (411 tests, 7.6 minutes), while shard 2 timed out before any tests during system-package installation: its Ubuntu mirror download took 7 minutes 31 seconds for 126 MB. A 12-minute installer allowance also failed on the same regional mirror before tests began. The final jobs use the official Playwright 1.64.1 Noble container, pinned by registry digest and matched to the locked test package, with preinstalled browsers/system dependencies. Update the image version and digest together with future Playwright upgrades. This removes the failing runtime APT/browser installation steps; npm still installs the locked project packages and setup-node selects Node 24. The 35-minute job limit, browser-test timeouts, assertions and full suite remain unchanged. See [official CI/container guidance](https://playwright.dev/docs/docker). The latest commit checks remain authoritative for both shards and the aggregate gate.
 
 ## External acceptance
 
