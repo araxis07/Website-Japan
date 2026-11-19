@@ -65,7 +65,7 @@ jobs:
       - name: Restore production build
         run: tar -xzf next-build.tar.gz
       - name: Install browser system dependencies
-        timeout-minutes: 8
+        timeout-minutes: 12
         run: npx playwright install-deps chromium webkit firefox
       - name: Install test browsers
         timeout-minutes: 6

@@ -18,6 +18,10 @@ A single diagnostic Chromium run at 390×844, reduced motion, 4× CPU slowdown a
 
 The integrated focused browser suite passed **294 cases with one existing skip** across Chromium, WebKit and Firefox (4.1 minutes): Explore payload/hydration, content quality, planning clarity, November next steps, international coverage and travel/no-JavaScript regressions. The pushed commit's Website quality checks are the authority for the full Linux regression and artifact handoff.
 
+## Linux runner follow-up
+
+The first CI attempt passed shard 1 (411 tests, 7.6 minutes), while shard 2 timed out before any tests during system-package installation: its Ubuntu mirror download took 7 minutes 31 seconds for 126 MB. The installer step now allows 12 minutes instead of 8. The 35-minute job limit, browser-test timeouts, assertions and full suite remain unchanged. This addresses observed setup variability, not an application-test failure. The latest commit checks remain authoritative for both shards and the aggregate gate.
+
 ## External acceptance
 
 Use the existing [visitor acceptance worksheet](visitor-acceptance.md#session-worksheet--17-november-2026). Native reviewers, novice participants, physical iPhone/Android recovery, VoiceOver/TalkBack, calendar-client interoperability, on-site route checks and deployed HTTPS/rollback acceptance remain **Not Run**. No production origin, tunnel, account system, analytics service or infrastructure was created. Existing unknown visitor facts remain unknown; source research does not certify an accessible route.
