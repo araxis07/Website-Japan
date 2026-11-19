@@ -1461,3 +1461,8 @@ html[lang='th'] .place-search-results {
     margin-block: 0.5rem;
   }
 }
+
+/* Keep the footer below the fold while URL-dependent results hydrate. */
+.explorer-loading {
+  min-height: 100svh;
+}

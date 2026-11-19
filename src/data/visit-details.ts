@@ -714,6 +714,14 @@ export const visitDetails: Record<string, Visit> = {
       "es": "Para visitas grupales, el museo solicita a los visitantes que envíen una solicitud grupal por correo o fax. Consulte los arreglos separados para exposiciones especiales.",
     },
     fieldSources: {
+      hours: {
+        source: 'https://www.osakamushis.jp/eng/visit/information.html',
+        reviewedAt: '2026-11-19',
+      },
+      admission: {
+        source: 'https://www.osakamushis.jp/eng/visit/information.html',
+        reviewedAt: '2026-11-19',
+      },
       booking: {
         source: 'https://www.osakamushis.jp/eng/about/faq.html',
         reviewedAt: '2026-10-30',
@@ -783,6 +791,14 @@ export const visitDetails: Record<string, Visit> = {
         source: 'https://www.museum.hokudai.ac.jp/outline/open/',
         reviewedAt: '2026-11-17',
       },
+      hours: {
+        source: 'https://www.museum.hokudai.ac.jp/outline/open/',
+        reviewedAt: '2026-11-19',
+      },
+      admission: {
+        source: 'https://www.museum.hokudai.ac.jp/outline/open/',
+        reviewedAt: '2026-11-19',
+      },
       booking: {
         source: 'https://www.museum.hokudai.ac.jp/english/visit/',
         reviewedAt: '2026-10-26',
@@ -818,6 +834,10 @@ export const visitDetails: Record<string, Visit> = {
       "es": "Generalmente de 09:00 a 17:00; Julio-agosto de 08:30 a 18:00 y diciembre-febrero de 09:00 a 16:30. La última admisión es 30 minutos antes del cierre; consultar avisos de cierre.",
     },
     fieldSources: {
+      hours: {
+        source: 'https://www.fujisan-whc.jp/en/guide/index.html',
+        reviewedAt: '2026-11-19',
+      },
       access: {
         source: 'https://www.fujisan-whc.jp/en/access/index.html',
         reviewedAt: '2026-10-25',
@@ -926,7 +946,7 @@ export const visitDetails: Record<string, Visit> = {
       },
       booking: {
         source: 'https://www.kiyomizudera.or.jp/event/yakan.php',
-        reviewedAt: '2026-10-30',
+        reviewedAt: '2026-11-19',
         validThrough: '2026-11-30',
         applicablePeriods: [
           { from: '2026-03-27', through: '2026-04-05' },
@@ -1149,7 +1169,7 @@ export const visitDetails: Record<string, Visit> = {
     fieldSources: {
       booking: {
         source: 'https://www.kyohaku.go.jp/eng/',
-        reviewedAt: '2026-10-30',
+        reviewedAt: '2026-11-19',
         validThrough: '2026-11-29',
         applicablePeriods: [
           { from: '2026-10-06', through: '2026-11-29' },

@@ -38,6 +38,32 @@ for (const lang of ['en', 'zh-CN'] as const)
     expect(errors).toEqual([])
   })
 
+test('Explore deep queries wait for URL filters before displaying catalog results', async ({ page }) => {
+  const errors: string[] = []
+  page.on('pageerror', (error) => errors.push(error.message))
+  let releaseScripts = () => {}
+  const scriptsReleased = new Promise<void>((resolve) => { releaseScripts = resolve })
+  await page.route('**/_next/**/*.js*', async (route) => {
+    await scriptsReleased
+    await route.continue()
+  })
+  try {
+    await page.goto('/en/explore?scope=places&view=list&q=Gion', { waitUntil: 'domcontentloaded' })
+    await expect(page.getByRole('progressbar', { name: en.explorer.search })).toBeVisible()
+    await expect(page.locator('.explorer-filters, .explore-map-panel, .prefecture-grid, .place-search-results')).toHaveCount(0)
+    expect(await page.locator('.site-footer').evaluate((footer) => footer.getBoundingClientRect().top >= innerHeight)).toBe(true)
+  } finally {
+    releaseScripts()
+  }
+  await expect(page.locator('.explorer-filters input[type=search]')).toHaveValue('Gion')
+  await expect(page.locator('.explorer-toolbar select')).toHaveValue('places')
+  await expect(page.locator('.place-search-results li')).toHaveCount(1)
+  await expect(page.locator('.place-search-results a[href$="#place-gion"]')).toBeVisible()
+  await expect(page.locator('.explore-map-panel')).toBeHidden()
+  await expect(page.getByRole('progressbar')).toHaveCount(0)
+  expect(errors).toEqual([])
+})
+
 for (const field of ['hours', 'booking', 'accessibility'] as const) {
   test(`Explore preserves ${field} filtering with server-projected topic availability`, async ({ page }) => {
     const matches = places.filter((place) => {

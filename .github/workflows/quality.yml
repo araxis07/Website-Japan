@@ -32,18 +32,62 @@ jobs:
       - run: npm run lint
       - run: npm run build
       - run: npm run typecheck
+      - run: node scripts/check-deployment.mjs --self-test
+      - name: Package production build
+        run: tar --exclude=.next/cache --exclude=.next/dev -czf next-build.tar.gz .next
+      - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
+        with:
+          name: next-build
+          path: next-build.tar.gz
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 1
+  e2e:
+    needs: verify
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [1, 2]
+    env:
+      NEXT_PUBLIC_BASE_URL: https://example.test
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53 # v6
+        with:
+          name: next-build
+      - name: Restore production build
+        run: tar -xzf next-build.tar.gz
       - name: Install browser system dependencies
         timeout-minutes: 8
         run: npx playwright install-deps chromium webkit firefox
       - name: Install test browsers
         timeout-minutes: 6
         run: npx playwright install chromium webkit firefox
-      - run: node scripts/check-deployment.mjs --self-test
-      - run: npm test
+      - run: npm test -- --shard=${{ matrix.shard }}/2
       - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
         if: always()
         with:
-          name: quality-evidence
+          name: quality-evidence-${{ matrix.shard }}
           path: test-results/
           if-no-files-found: ignore
           retention-days: 7
+  quality-complete:
+    needs: [verify, e2e]
+    if: always()
+    runs-on: ubuntu-24.04
+    timeout-minutes: 2
+    steps:
+      - name: Require quality gates and both test shards
+        env:
+          VERIFY_RESULT: ${{ needs.verify.result }}
+          E2E_RESULT: ${{ needs.e2e.result }}
+        run: |
+          test "$VERIFY_RESULT" = success
+          test "$E2E_RESULT" = success

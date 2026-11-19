@@ -114,7 +114,7 @@ test('published Kyoto and Kiyomizu provenance retains explicit review sources an
   const temple = visitDetails.kiyomizu
   expect(visitSource(museum, 'booking')).toEqual({
     source: 'https://www.kyohaku.go.jp/eng/',
-    reviewedAt: '2026-10-30',
+    reviewedAt: '2026-11-19',
     validThrough: '2026-11-29',
     applicablePeriods: [{ from: '2026-10-06', through: '2026-11-29' }],
   })
@@ -128,7 +128,7 @@ test('published Kyoto and Kiyomizu provenance retains explicit review sources an
   })
   expect(visitSource(temple, 'booking')).toEqual({
     source: 'https://www.kiyomizudera.or.jp/event/yakan.php',
-    reviewedAt: '2026-10-30',
+    reviewedAt: '2026-11-19',
     validThrough: '2026-11-30',
     applicablePeriods: [
       { from: '2026-03-27', through: '2026-04-05' },
@@ -465,7 +465,7 @@ test('first offline use can export full JSON, readable HTML and a saved-copy lib
   await context.setOffline(false)
 })
 
-test('expired event claims, overdue checks and unknown facts remain distinct in every language', async ({
+test('expired event claims, current checks and unknown facts remain distinct in every language', async ({
   page,
 }) => {
   test.setTimeout(60_000)
@@ -481,7 +481,7 @@ test('expired event claims, overdue checks and unknown facts remain distinct in 
     await expect(booking).toHaveAttribute('data-review-status', 'expired')
     await expect(booking).toContainText(copy.tools.claimExpired)
     await expect(booking).toContainText(copy.tools.validThrough)
-    await expect(booking.locator('time[datetime="2026-10-30"]')).toBeVisible()
+    await expect(booking.locator('time[datetime="2026-11-19"]')).toBeVisible()
     await expect(booking.locator('.field-source time[datetime="2026-11-29"]')).toBeVisible()
     await expect(booking.locator('.field-source a')).toHaveAttribute(
       'href',
@@ -496,10 +496,11 @@ test('expired event claims, overdue checks and unknown facts remain distinct in 
     await expect(hours.locator('time')).toHaveAttribute('datetime', '2026-11-03')
     const temple = page.locator('#place-kiyomizu > .visit-details')
     await openDetails(temple)
-    const dueBooking = temple.locator('.visit-facts > div').filter({ has: page.getByText(copy.tools.booking, { exact: true }) })
-    await expect(dueBooking).toHaveAttribute('data-review-status', 'overdue')
-    await expect(dueBooking).toContainText(copy.tools.reviewDue)
-    await expect(dueBooking).not.toContainText(copy.tools.claimExpired)
+    const currentBooking = temple.locator('.visit-facts > div').filter({ has: page.getByText(copy.tools.booking, { exact: true }) })
+    await expect(currentBooking).toHaveAttribute('data-review-status', 'reviewed')
+    await expect(currentBooking).toContainText(copy.tools.reviewCurrent)
+    await expect(currentBooking.locator('.field-source time').first()).toHaveAttribute('datetime', '2026-11-19')
+    await expect(currentBooking).not.toContainText(copy.tools.claimExpired)
     const inari = page.locator(
       '[id="place-pref:kyoto:fushimi-inari-taisha"] > .visit-details',
     )

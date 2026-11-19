@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useMemo, useRef } from 'react'
+import { useEffect, useMemo, useRef, useSyncExternalStore } from 'react'
 import Link from 'next/link'
 import type { Locale } from '@/i18n/config'
 import type { Dictionary } from '@/i18n/dictionaries'
@@ -28,6 +28,7 @@ type Entry = {
     information: Record<'hours' | 'booking' | 'accessibility', boolean>
   })[]
 }
+const subscribeToHydration = () => () => {}
 // Load catalog guides on selection rather than prefetching transient filtered results.
 export default function PrefectureExplorer({
   entries,
@@ -51,6 +52,7 @@ export default function PrefectureExplorer({
   const returnTarget = useRef<HTMLButtonElement | null>(null)
   const sheet = useRef<HTMLDialogElement>(null)
   const suffix = usePageLocation()
+  const ready = useSyncExternalStore(subscribeToHydration, () => true, () => false)
   const params = new URLSearchParams(suffix.split('#')[0])
   const query = (params.get('q') || '').slice(0, 120)
   const normalizedQuery = useMemo(() => normalizeSearch(query.trim()), [query])
@@ -192,13 +194,15 @@ export default function PrefectureExplorer({
     updateFilters({ place: id }, true)
     if (matchMedia('(max-width: 700px)').matches) sheet.current?.showModal()
   }
-  return (
+  // Static HTML cannot know URL filters; wait for the browser snapshot before showing results.
+  if (!ready) return (
     <>
+      <p className="explorer-loading" role="status">
+        <progress aria-label={copy.search} />
+      </p>
       <noscript>
         <style>
-          {
-            '.explorer-filters,.explorer-toolbar,.explore-map-panel,.prefecture-grid,.prefecture-list-title,.results-pagination{display:none}'
-          }
+          {'.explorer-loading{display:none}'}
         </style>
         <p>{mapCopy.nojs}</p>
         <ul className="prefecture-static">
@@ -211,6 +215,10 @@ export default function PrefectureExplorer({
           ))}
         </ul>
       </noscript>
+    </>
+  )
+  return (
+    <>
       <div className="explorer-filters">
         <label>
           {copy.search}

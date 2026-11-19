@@ -190,7 +190,7 @@ test('Kyoto hours and admission retain distinct event scopes and field-specific 
         await expect(fact.locator('.field-source time')).toHaveAttribute('datetime', '2026-11-03')
       }
       const booking = details.locator('.visit-facts > div').filter({ has: page.getByText(copy.tools.booking, { exact: true }) })
-      await expect(booking.locator('.field-source time').first()).toHaveAttribute('datetime', '2026-10-30')
+      await expect(booking.locator('.field-source time').first()).toHaveAttribute('datetime', '2026-11-19')
       await expect(booking.locator('.field-source time').last()).toHaveAttribute('datetime', id === 'kiyomizu' ? '2026-11-30' : '2026-11-29')
     }
     if (lang === 'en') {
