@@ -65,7 +65,7 @@ jobs:
       - name: Restore production build
         run: tar -xzf next-build.tar.gz
       - name: Use Ubuntu HTTPS mirrors for browser dependencies
-        run: printf '%s\n' 'https://archive.ubuntu.com/ubuntu/ priority:1' 'https://security.ubuntu.com/ubuntu/ priority:2' | sudo tee /etc/apt/apt-mirrors.txt
+        run: printf '%s\tpriority:1\n%s\tpriority:2\n' 'https://archive.ubuntu.com/ubuntu/' 'https://security.ubuntu.com/ubuntu/' | sudo tee /etc/apt/apt-mirrors.txt
       - name: Install browser system dependencies
         timeout-minutes: 8
         run: npx playwright install-deps chromium webkit firefox
