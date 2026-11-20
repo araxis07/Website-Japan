@@ -480,7 +480,12 @@ export default function TripPlanner({
                         </label>
                       )
                       return (
-                        <li key={entryKey(entry)} data-place-id={entry.id}>
+                        <li
+                          key={entryKey(entry)}
+                          id={`trip-visit-${entryKey(entry)}`}
+                          tabIndex={-1}
+                          data-place-id={entry.id}
+                        >
                           <div className="trip-place-copy">
                             <span className="place-kind">
                               {entry.custom

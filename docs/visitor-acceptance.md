@@ -56,7 +56,7 @@ Use one copy per novice or device session. Record an anonymous participant code,
 | Task | Status | Completion time / help needed | Redacted observation |
 | --- | --- | --- | --- |
 | Find Gion, save it and assign a day | Not Run | — | — |
-| Explain the map pin, route origin and entrance limitations | Not Run | — | — |
+| Select a day-map pin with touch/keyboard, find the matching repeated/personal visit, and explain pin, route-origin and entrance limitations | Not Run | — | — |
 | Choose a starting path for an empty trip | Not Run | — | — |
 | Reload, switch language and recover an invalid draft without losing another field | Not Run | — | — |
 | Explain and export the full backup versus a share copy, then restore in a clean profile | Not Run | — | — |

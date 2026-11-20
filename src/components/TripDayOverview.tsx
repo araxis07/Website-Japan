@@ -13,6 +13,7 @@ export default function TripDayOverview({
 }) {
   const { lang, tools } = useTrip()
   const [open, setOpen] = useState(false)
+  const [selected, setSelected] = useState('')
   const points = useMemo(
     () =>
       entries.flatMap((entry) => {
@@ -45,7 +46,20 @@ export default function TripDayOverview({
           <p>{tools.personalPinNotice}</p>
         )}
         {open && points.length > 0 && (
-          <StreetMap points={points} lang={lang} copy={mapCopy} tools={tools} />
+          <StreetMap
+            points={points}
+            selected={points.find((point) => point.id === selected)?.id}
+            onSelect={(id) => {
+              const card = document.getElementById(`trip-visit-${id}`)
+              if (!card) return
+              setSelected(id)
+              card.focus({ preventScroll: true })
+              card.scrollIntoView({ block: 'start' })
+            }}
+            lang={lang}
+            copy={mapCopy}
+            tools={tools}
+          />
         )}
       </details>
       {timed.length > 0 && (

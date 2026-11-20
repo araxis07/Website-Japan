@@ -137,6 +137,10 @@ export const visitDetails: Record<string, Visit> = {
       "es": "Hay un ascensor a la izquierda al situarse de frente al salón principal. Los baños multiuso están a la derecha de Hozomon y detrás del salón principal. Consulta la ruta desde la estación por separado.",
     },
     fieldSources: {
+      hours: {
+        source: 'https://www.senso-ji.jp/access/',
+        reviewedAt: '2026-11-20',
+      },
       access: {
         source: 'https://www.senso-ji.jp/access/',
         reviewedAt: '2026-11-16',
@@ -241,6 +245,18 @@ export const visitDetails: Record<string, Visit> = {
       "es": "Las visitas autoguiadas no requieren reserva; Los tours premium utilizan reservas por separado.",
     },
     fieldSources: {
+      hours: {
+        source: 'https://www.sapporobeer.jp/english/brewery/s_museum/',
+        reviewedAt: '2026-11-20',
+      },
+      admission: {
+        source: 'https://www.sapporobeer.jp/english/brewery/s_museum/',
+        reviewedAt: '2026-11-20',
+      },
+      booking: {
+        source: 'https://www.sapporobeer.jp/english/brewery/s_museum/',
+        reviewedAt: '2026-11-20',
+      },
       access: {
         source: 'https://www.sapporobeer.jp/english/brewery/s_museum/',
         reviewedAt: '2026-10-25',
@@ -292,6 +308,10 @@ export const visitDetails: Record<string, Visit> = {
       "es": "Escaleras empinadas y pendientes; No hay ascensores en la torre del homenaje. Las sillas de ruedas no pueden acceder a los edificios del homenaje.",
     },
     fieldSources: {
+      hours: {
+        source: 'https://www.himejicastle.jp/en/',
+        reviewedAt: '2026-11-20',
+      },
       admission: {
         source: 'https://www.himejicastle.jp/en/',
         reviewedAt: '2026-10-27',
@@ -333,6 +353,14 @@ export const visitDetails: Record<string, Visit> = {
       "es": "A unos 20 minutos a pie desde Kintetsu Nara. El templo también publica instrucciones sobre paradas de autobús.",
     },
     fieldSources: {
+      hours: {
+        source: 'https://www.todaiji.or.jp/en/information/haikan/',
+        reviewedAt: '2026-11-20',
+      },
+      admission: {
+        source: 'https://www.todaiji.or.jp/en/information/haikan/',
+        reviewedAt: '2026-11-20',
+      },
       access: {
         source: 'https://www.todaiji.or.jp/en/access/',
         reviewedAt: '2026-10-25',
@@ -342,6 +370,20 @@ export const visitDetails: Record<string, Visit> = {
   'pref:aomori:nebuta-museum-wa-rasse': {
     source: 'https://www.nebuta.jp/warasse/foreign/english.html',
     reviewedAt: '2026-10-25',
+    fieldSources: {
+      hours: {
+        source: 'https://www.nebuta.jp/warasse/foreign/english.html',
+        reviewedAt: '2026-11-20',
+      },
+      admission: {
+        source: 'https://www.nebuta.jp/warasse/foreign/english.html',
+        reviewedAt: '2026-11-20',
+      },
+      booking: {
+        source: 'https://www.nebuta.jp/warasse/foreign/english.html',
+        reviewedAt: '2026-11-20',
+      },
+    },
     minutes: 90,
     access: {
       en: 'About one minute on foot from Aomori Station.',
@@ -429,6 +471,10 @@ export const visitDetails: Record<string, Visit> = {
       "es": "Hay sillas de ruedas disponibles en las puertas indicadas. El jardín tiene desniveles y gravilla; Utilice la ruta accesible oficial recomendada.",
     },
     fieldSources: {
+      hours: {
+        source: 'https://shiro-niwa.pref.ishikawa.lg.jp/kenrokuen-garden/info.html',
+        reviewedAt: '2026-11-20',
+      },
       access: {
         source: 'https://shiro-niwa.pref.ishikawa.lg.jp/access.html',
         reviewedAt: '2026-10-25',
@@ -510,6 +556,14 @@ export const visitDetails: Record<string, Visit> = {
       "es": "Usa la Puerta Kuromon en el lado sur. El puente rojo no es una entrada.",
     },
     fieldSources: {
+      hours: {
+        source: 'https://www.matsumoto-castle.jp/eng/info',
+        reviewedAt: '2026-11-20',
+      },
+      booking: {
+        source: 'https://www.matsumoto-castle.jp/eng/info',
+        reviewedAt: '2026-11-20',
+      },
       access: {
         source: 'https://www.matsumoto-castle.jp/access',
         reviewedAt: '2026-10-25',
@@ -541,6 +595,16 @@ export const visitDetails: Record<string, Visit> = {
   'pref:fukui:fukui-prefectural-dinosaur-museum': {
     source: 'https://www.dinosaur.pref.fukui.jp/en/info.html',
     reviewedAt: '2026-10-25',
+    fieldSources: {
+      hours: {
+        source: 'https://www.dinosaur.pref.fukui.jp/en/info.html',
+        reviewedAt: '2026-11-20',
+      },
+      admission: {
+        source: 'https://www.dinosaur.pref.fukui.jp/en/info.html',
+        reviewedAt: '2026-11-20',
+      },
+    },
     minutes: 180,
     access: {
       en: 'From Fukui, take Echizen Railway to Katsuyama, then a community bus or taxi. Check the last return connection.',
@@ -598,14 +662,14 @@ export const visitDetails: Record<string, Visit> = {
       "es": "08:00–21:00; última entrada 20:40. Abierto todo el año, con posibles cierres de mantenimiento en el interior.",
     },
     admission: {
-      en: 'Adult ¥1,100; school-age visitors ¥550. Re-entry is not permitted.',
+      en: 'Adults ¥1,100; elementary, junior-high and high-school students ¥550. Re-entry is not permitted.',
       ja: '大人1,100円、小中高生550円。再入場不可。',
-      th: 'ผู้ใหญ่ 1,100 เยน นักเรียน 550 เยน ออกแล้วกลับเข้าใหม่ไม่ได้',
-      "ko": "성인 1,100엔, 학생 연령 방문객 550엔입니다. 재입장은 불가능합니다.",
-      "zh-CN": "成人 1,100 日元；学龄游客 550 日元。不允许再次入场。",
-      "vi": "Người lớn 1.100 yên; du khách trong độ tuổi đi học 550 yên. Việc vào lại không được phép.",
-      "fr": "Adulte 1 100 ¥ ; visiteurs d’âge scolaire 550 ¥. Toute sortie est définitive.",
-      "es": "Adulto ¥1.100; visitantes en edad escolar ¥ 550. No se permite el reingreso.",
+      th: 'ผู้ใหญ่ 1,100 เยน นักเรียนประถม มัธยมต้น และมัธยมปลาย 550 เยน ออกแล้วกลับเข้าใหม่ไม่ได้',
+      "ko": "성인 1,100엔, 초등학생·중학생·고등학생 550엔입니다. 재입장은 불가능합니다.",
+      "zh-CN": "成人1,100日元；小学生、初中生及高中生550日元。不允许再次入场。",
+      "vi": "Người lớn 1.100 yên; học sinh tiểu học, trung học cơ sở và trung học phổ thông 550 yên. Không được vào lại sau khi ra ngoài.",
+      "fr": "Adultes 1 100 ¥ ; élèves du primaire, du collège et du lycée 550 ¥. Toute sortie est définitive.",
+      "es": "Adultos 1.100 ¥; estudiantes de primaria, secundaria básica y bachillerato 550 ¥. No se permite el reingreso.",
     },
     entrance: {
       en: 'Omotemon bridge entry until 20:40; the Suimon entrance closes at 18:00.',
@@ -618,6 +682,14 @@ export const visitDetails: Record<string, Visit> = {
       "es": "Entrada al puente Omotemon hasta las 20:40; la entrada de Suimon cierra a las 18:00.",
     },
     fieldSources: {
+      hours: {
+        source: 'https://nagasakidejima.jp/about/',
+        reviewedAt: '2026-11-20',
+      },
+      admission: {
+        source: 'https://nagasakidejima.jp/about/',
+        reviewedAt: '2026-11-20',
+      },
       access: {
         source: 'https://nagasakidejima.jp/about/',
         reviewedAt: '2026-10-25',
@@ -627,6 +699,16 @@ export const visitDetails: Record<string, Visit> = {
   'pref:aichi:nagoya-castle': {
     source: 'https://www.nagoya-info.jp/en/spot/detail/1/',
     reviewedAt: '2026-10-25',
+    fieldSources: {
+      hours: {
+        source: 'https://www.nagoya-info.jp/en/spot/detail/1/',
+        reviewedAt: '2026-11-20',
+      },
+      admission: {
+        source: 'https://www.nagoyajo.city.nagoya.jp/en/information/',
+        reviewedAt: '2026-11-20',
+      },
+    },
     minutes: 120,
     access: {
       en: 'About five minutes from Nagoyajo Station, Meijo Line, exit 7.',

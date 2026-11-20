@@ -102,6 +102,12 @@
   "pref:miyagi:zuihoden": {
     "source": "https://www.zuihoden.com/en/info/",
     "reviewedAt": "2026-10-25",
+    "fieldSources": {
+      "hours": {
+        "source": "https://www.zuihoden.com/en/info/",
+        "reviewedAt": "2026-11-20"
+      }
+    },
     "access": {
       "en": "Use Loople Sendai to Zuihoden-mae, or walk 15–20 minutes from Omachi Nishi-koen on the Tozai subway. The return bus route differs.",
       "ja": "るーぷる仙台の瑞鳳殿前下車、または地下鉄東西線大町西公園駅から徒歩15〜20分。帰りのバス経路は異なります。",
@@ -136,6 +142,16 @@
   "pref:miyagi:zuiganji-temple": {
     "source": "https://www.zuiganji.or.jp/english/",
     "reviewedAt": "2026-10-25",
+    "fieldSources": {
+      "hours": {
+        "source": "https://www.zuiganji.or.jp/english/",
+        "reviewedAt": "2026-11-20"
+      },
+      "admission": {
+        "source": "https://www.zuiganji.or.jp/english/",
+        "reviewedAt": "2026-11-20"
+      }
+    },
     "access": {
       "en": "Walk about 10 minutes from Matsushima-Kaigan on the JR Senseki Line, or 25 minutes from JR Matsushima.",
       "ja": "JR仙石線松島海岸駅から徒歩約10分、JR松島駅から約25分。",
@@ -154,7 +170,7 @@
       "zh-CN": "成人门票1,000日元；小学生、初中生500日元。",
       "vi": "Vé vào cửa người lớn 1.000 yên; học sinh tiểu học và trung học cơ sở 500 yên.",
       "fr": "Entrée adulte 1 000 ¥ ; étudiants du primaire et du premier cycle du secondaire 500 ¥.",
-      "es": "Entrada para adultos ¥1.000; estudiantes de primaria y secundaria ¥ 500."
+      "es": "Entrada para adultos ¥1.000; estudiantes de primaria y secundaria básica ¥ 500."
     },
     "hours": {
       "en": "Opens 08:30. Closing varies from 15:30 in midwinter to 17:00 April–September; last entry is 30 minutes earlier.",
@@ -1344,6 +1360,16 @@
   "pref:akita:aoyagi-samurai-manor": {
     "source": "https://tazawako-kakunodate.com/spots/5990/",
     "reviewedAt": "2026-10-25",
+    "fieldSources": {
+      "hours": {
+        "source": "https://tazawako-kakunodate.com/spots/5990/",
+        "reviewedAt": "2026-11-20"
+      },
+      "admission": {
+        "source": "https://tazawako-kakunodate.com/spots/5990/",
+        "reviewedAt": "2026-11-20"
+      }
+    },
     "access": {
       "en": "About 15 minutes on foot or five minutes by taxi from JR Kakunodate Station.",
       "ja": "JR角館駅から徒歩約15分、またはタクシー約5分。",
@@ -1553,22 +1579,22 @@
     "fieldSources": {
       "hours": {
         "source": "https://jinya.gifu.jp/en/guide/info/",
-        "reviewedAt": "2026-10-25"
+        "reviewedAt": "2026-11-20"
       },
       "admission": {
-        "source": "https://jinya.gifu.jp/en/guide/info/",
-        "reviewedAt": "2026-10-25"
+        "source": "https://jinya.gifu.jp/guide/info/",
+        "reviewedAt": "2026-11-20"
       }
     },
     "admission": {
-      "en": "Adult admission ¥500; visitors aged 18 or younger enter free at review.",
-      "ja": "確認時は大人500円、18歳以下無料。",
-      "th": "ราคาที่ตรวจ ผู้ใหญ่ 500 เยน อายุไม่เกิน 18 ปีเข้าฟรี",
-      "ko": "성인 입장료 500엔; 18세 이하 방문객은 정보 확인 당시 무료로 입장할 수 있습니다.",
-      "zh-CN": "成人门票500日元； 18 岁或以下的游客可免费入场（信息核查时）。",
-      "vi": "Vé vào cửa người lớn ¥500; du khách từ 18 tuổi trở xuống được vào cửa miễn phí tại thời điểm kiểm tra thông tin.",
-      "fr": "Entrée adulte 500 ¥ ; les visiteurs âgés de 18 ans ou moins entrent gratuitement au moment de la vérification.",
-      "es": "Entrada para adultos ¥500; Los visitantes de 18 años o menos entran gratis en la fecha de comprobación."
+      "en": "Individual admission ¥500; high-school students and younger enter free. Student ID may be requested.",
+      "ja": "個人500円、高校生以下無料。学生手帳の提示を求められる場合があります。",
+      "th": "ตั๋วบุคคล 500 เยน นักเรียนมัธยมปลายและระดับต่ำกว่าเข้าฟรี อาจต้องแสดงบัตรนักเรียน",
+      "ko": "개인 입장료 500엔; 고등학생 이하는 무료입니다. 학생증 제시를 요청할 수 있습니다.",
+      "zh-CN": "个人门票500日元；高中生及以下免费，可能需要出示学生证。",
+      "vi": "Vé cá nhân 500 yên; học sinh trung học phổ thông trở xuống được miễn phí. Có thể phải xuất trình thẻ học sinh.",
+      "fr": "Entrée individuelle 500 ¥ ; gratuit pour les lycéens et les élèves des niveaux inférieurs. Une carte scolaire peut être demandée.",
+      "es": "Entrada individual 500 ¥; estudiantes de bachillerato y de niveles inferiores entran gratis. Se puede solicitar el carné de estudiante."
     }
   },
   "pref:mie:futami-okitama-shrine": {
