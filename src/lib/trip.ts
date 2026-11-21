@@ -406,13 +406,14 @@ export function tripDate(start: string | undefined, day: number) {
   return date.toISOString().slice(0, 10)
 }
 
+const japanDateFormatter = new Intl.DateTimeFormat('en', {
+  timeZone: 'Asia/Tokyo',
+  year: 'numeric',
+  month: '2-digit',
+  day: '2-digit',
+})
 export function japanDate(now = new Date()) {
-  const parts = new Intl.DateTimeFormat('en', {
-    timeZone: 'Asia/Tokyo',
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit',
-  }).formatToParts(now)
+  const parts = japanDateFormatter.formatToParts(now)
   return ['year', 'month', 'day']
     .map((type) => parts.find((part) => part.type === type)!.value)
     .join('-')

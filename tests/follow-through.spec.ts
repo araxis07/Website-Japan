@@ -13,6 +13,17 @@ import { currentNotices, travelNotices } from '../src/data/travel-notices'
 import { mapUrl, places } from '../src/data/places'
 
 const libraryKey = 'japan-travel-library-v1'
+test('Japan dates follow each supplied instant across leap day and New Year', () => {
+  for (const [instant, expected] of [
+    ['2024-02-28T14:59:59.999Z', '2024-02-28'],
+    ['2024-02-28T15:00:00.000Z', '2024-02-29'],
+    ['2024-02-29T15:00:00.000Z', '2024-03-01'],
+    ['2026-12-31T14:59:59.999Z', '2026-12-31'],
+    ['2026-12-31T15:00:00.000Z', '2027-01-01'],
+    ['2024-02-28T14:59:59.999Z', '2024-02-28'],
+  ])
+    expect(japanDate(new Date(instant))).toBe(expected)
+})
 test('new optional data validates without breaking old backups or leaking into public copies', async () => {
   expect(parseTrip(JSON.stringify(emptyTrip))).toEqual(emptyTrip)
   const trip = {

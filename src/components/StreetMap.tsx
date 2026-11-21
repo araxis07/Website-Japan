@@ -5,7 +5,9 @@ import { mapProvider } from '../../map-provider.mjs'
 import type { Place } from '@/data/places'
 import type { Locale } from '@/i18n/config'
 import type { Dictionary } from '@/i18n/dictionaries'
-export type MapPoint = Pick<Place, 'id' | 'coordinates' | 'names'>
+export type MapPoint = Pick<Place, 'id' | 'coordinates' | 'names'> & {
+  ordinal?: number
+}
 
 export default function StreetMap({
   points,
@@ -139,6 +141,7 @@ export default function StreetMap({
         })
         groups.forEach((group) => {
           const point = group[0]
+          const ordinal = point.ordinal ?? points.indexOf(point) + 1
           const clustered = group.length > 1
           const label = document.createElement('span')
           label.textContent = group.map((p) => p.names[lang]).join(' · ')
@@ -168,7 +171,7 @@ export default function StreetMap({
             alt: label.textContent,
             icon: L.divIcon({
               className: `street-marker${clustered ? ' map-cluster' : ''}`,
-              html: `<span>${clustered ? group.length : points.indexOf(point) + 1}</span>`,
+              html: `<span>${clustered ? group.length : ordinal}</span>`,
               iconSize: [36, 36],
               iconAnchor: [18, 36],
             }),
@@ -179,7 +182,7 @@ export default function StreetMap({
               'aria-label',
               clustered
                 ? `${group.length}: ${label.textContent}`
-                : `${points.indexOf(point) + 1}. ${label.textContent}`,
+                : `${ordinal}. ${label.textContent}`,
             )
             icon?.addEventListener('keydown', (event) => {
               if (event.key === 'Enter' || event.key === ' ') {

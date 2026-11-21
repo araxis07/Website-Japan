@@ -530,6 +530,7 @@
     "dayMap": "Mapa de este día",
     "routeOrder": "Los números siguen el orden de tu lista. Los marcadores son puntos de referencia, no entradas verificadas ni una ruta calculada. Usa las indicaciones para el trayecto real.",
     "timeline": "Tus estimaciones de tiempo",
+    "timelineOrder": "Se muestra según las horas de visita que has introducido; los números corresponden al orden de tu lista de visitas.",
     "freeTime": "Margen hasta la siguiente visita (minutos)",
     "starter": "Empezar un primer viaje",
     "starterHelp": "Elige una base de llegada y un interés. Revisa los lugares antes de añadirlos; consulta por separado las fechas de apertura y los traslados.",

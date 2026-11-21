@@ -16,20 +16,34 @@ export default function TripDayOverview({
   const [selected, setSelected] = useState('')
   const points = useMemo(
     () =>
-      entries.flatMap((entry) => {
+      entries.flatMap((entry, index) => {
         const place = tripPlace(entry)
         return place.coordinates
           ? [
               {
                 id: entryKey(entry),
+                ordinal: index + 1,
                 names: place.names,
                 coordinates: place.coordinates,
+                time: entry.time,
               },
             ]
           : []
       }),
     [entries],
   )
+  const coincident = open ? points.filter((point) => points.some((other) =>
+    other.id !== point.id &&
+    other.coordinates[0] === point.coordinates[0] &&
+    other.coordinates[1] === point.coordinates[1],
+  )) : []
+  const selectVisit = (id: string) => {
+    const card = document.getElementById(`trip-visit-${id}`)
+    if (!card) return
+    setSelected(id)
+    card.focus({ preventScroll: true })
+    card.scrollIntoView({ block: 'start' })
+  }
   const timed = entries
     .filter((entry) => entry.time)
     .sort((a, b) => a.time!.localeCompare(b.time!))
@@ -45,17 +59,25 @@ export default function TripDayOverview({
         {entries.some((entry) => entry.custom?.coordinates) && (
           <p>{tools.personalPinNotice}</p>
         )}
+        {coincident.length > 0 && (
+          <div className="map-toolbar day-map-choices" role="group" aria-label={tools.place}>
+            {coincident.map((point) => (
+              <button
+                key={point.id}
+                type="button"
+                aria-pressed={selected === point.id}
+                onClick={() => selectVisit(point.id)}
+              >
+                {point.ordinal}. {point.names[lang]}{point.time && ` · ${point.time}`}
+              </button>
+            ))}
+          </div>
+        )}
         {open && points.length > 0 && (
           <StreetMap
             points={points}
             selected={points.find((point) => point.id === selected)?.id}
-            onSelect={(id) => {
-              const card = document.getElementById(`trip-visit-${id}`)
-              if (!card) return
-              setSelected(id)
-              card.focus({ preventScroll: true })
-              card.scrollIntoView({ block: 'start' })
-            }}
+            onSelect={selectVisit}
             lang={lang}
             copy={mapCopy}
             tools={tools}
@@ -65,6 +87,7 @@ export default function TripDayOverview({
       {timed.length > 0 && (
         <details>
           <summary>{tools.timeline}</summary>
+          <p className="source-note">{tools.timelineOrder}</p>
           <ol className="trip-timeline">
             {timed.map((entry, index) => {
               const next = timed[index + 1]
@@ -78,7 +101,7 @@ export default function TripDayOverview({
               return (
                 <li key={entryKey(entry)}>
                   <strong>
-                    {entry.time} · {tripPlace(entry).names[lang]}
+                    {entries.indexOf(entry) + 1}. {entry.time} · {tripPlace(entry).names[lang]}
                   </strong>
                   <p>
                     {tools.duration}: {entry.duration ?? '—'} {tools.minuteUnit}{' '}

@@ -536,6 +536,7 @@
     "dayMap": "Carte de cette journée",
     "routeOrder": "Les numéros suivent l’ordre de votre liste. Les repères sont des points de référence, pas des entrées vérifiées ni un itinéraire calculé. Utilisez les indications d’itinéraire pour vos déplacements réels.",
     "timeline": "Vos estimations horaires",
+    "timelineOrder": "Affichage selon les heures de visite saisies ; les numéros renvoient à l’ordre de votre liste de visites.",
     "freeTime": "Temps avant la prochaine visite (minutes)",
     "starter": "Commencer un premier voyage",
     "starterHelp": "Choisissez un point de départ à l’arrivée et un centre d’intérêt. Vérifiez les lieux avant de les ajouter ; contrôlez séparément les dates d’ouverture et les correspondances.",

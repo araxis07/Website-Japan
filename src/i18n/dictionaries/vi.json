@@ -530,6 +530,7 @@
     "dayMap": "Bản đồ cho ngày này",
     "routeOrder": "Số thứ tự theo danh sách của bạn. Ghim là điểm tham chiếu, không phải lối vào đã xác minh hay tuyến đường được tính toán. Dùng Chỉ đường để di chuyển thực tế.",
     "timeline": "Ước tính thời gian của bạn",
+    "timelineOrder": "Hiển thị theo giờ tham quan bạn đã nhập; số thứ tự tương ứng với danh sách điểm đến của bạn.",
     "freeTime": "Khoảng trống trước lượt ghé thăm tiếp theo (phút)",
     "starter": "Bắt đầu chuyến đi đầu tiên",
     "starterHelp": "Chọn điểm dừng đầu tiên khi đến và sở thích. Xem trước các địa điểm trước khi thêm; kiểm tra riêng ngày mở cửa và các chặng chuyển tiếp.",

@@ -1466,3 +1466,8 @@ html[lang='th'] .place-search-results {
 .explorer-loading {
   min-height: 100svh;
 }
+
+.day-map-choices button {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}

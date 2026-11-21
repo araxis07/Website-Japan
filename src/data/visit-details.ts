@@ -70,7 +70,7 @@ export const visitDetails: Record<string, Visit> = {
           "es": "Gion es un distrito, no un lugar con entrada única. Cada negocio, templo y carril privado tiene sus propias reglas de acceso, horario y reserva.",
         },
         source: 'https://www.japan.travel/en/spot/84/',
-        reviewedAt: '2026-10-26',
+        reviewedAt: '2026-11-21',
       },
       admission: {
         reason: {
@@ -84,7 +84,7 @@ export const visitDetails: Record<string, Visit> = {
           "es": "Gion es un distrito, no un lugar con entrada única. Cada negocio, templo y carril privado tiene sus propias reglas de acceso, horario y reserva.",
         },
         source: 'https://www.japan.travel/en/spot/84/',
-        reviewedAt: '2026-10-26',
+        reviewedAt: '2026-11-21',
       },
       booking: {
         reason: {
@@ -98,7 +98,7 @@ export const visitDetails: Record<string, Visit> = {
           "es": "Gion es un distrito, no un lugar con entrada única. Cada negocio, templo y carril privado tiene sus propias reglas de acceso, horario y reserva.",
         },
         source: 'https://www.japan.travel/en/spot/84/',
-        reviewedAt: '2026-10-26',
+        reviewedAt: '2026-11-21',
       },
     },
   },
@@ -859,14 +859,14 @@ export const visitDetails: Record<string, Visit> = {
       "es": "Utilice el intercomunicador antes de utilizar el elevador de sillas de ruedas. Préstamo de sillas de ruedas/cochecitos en la recepción del primer piso; Aseos accesibles en plantas 1 y 2.",
     },
     booking: {
-      en: 'Advance reservation is not required for a regular visit.',
-      ja: '通常の見学は事前予約不要。',
-      th: 'การเข้าชมปกติไม่ต้องจองล่วงหน้า',
-      "ko": "일반 관람은 사전 예약이 필요하지 않습니다.",
-      "zh-CN": "一般参观无需提前预约。",
-      "vi": "Tham quan thông thường không cần đặt trước.",
-      "fr": "Il n'est pas nécessaire de réserver à l'avance pour une visite régulière.",
-      "es": "No se requiere reserva previa para una visita regular.",
+      en: 'Regular individual visits do not require advance reservation. For groups and school visits, contact the museum in advance to confirm the applicable application procedure and deadline.',
+      ja: '通常の個人見学は事前予約不要。団体・学校の見学は事前に博物館へ連絡し、該当する申込手続きと期限を確認してください。',
+      th: 'เข้าชมปกติแบบรายบุคคลไม่ต้องจองล่วงหน้า สำหรับหมู่คณะและโรงเรียน โปรดติดต่อพิพิธภัณฑ์ล่วงหน้าเพื่อตรวจขั้นตอนยื่นคำขอและกำหนดเวลาที่ใช้กับการเข้าชมของตน',
+      "ko": "일반 개인 관람은 사전 예약이 필요하지 않습니다. 단체·학교 방문은 박물관에 미리 연락해 해당 신청 절차와 제출 기한을 확인하세요.",
+      "zh-CN": "一般个人参观无需提前预约。团体及学校参观请提前联系博物馆，确认适用的申请手续和提交期限。",
+      "vi": "Tham quan cá nhân thông thường không cần đặt trước. Đoàn và trường học hãy liên hệ trước với bảo tàng để xác nhận thủ tục và hạn nộp đơn áp dụng.",
+      "fr": "Les visites individuelles ordinaires ne nécessitent pas de réservation préalable. Pour les groupes et les visites scolaires, contactez le musée à l’avance pour confirmer la procédure de demande et le délai applicables.",
+      "es": "Las visitas individuales ordinarias no requieren reserva previa. Para grupos y visitas escolares, contacte al museo con antelación para confirmar el procedimiento de solicitud y el plazo aplicables.",
     },
     fieldSources: {
       access: {
@@ -883,7 +883,7 @@ export const visitDetails: Record<string, Visit> = {
       },
       booking: {
         source: 'https://www.museum.hokudai.ac.jp/english/visit/',
-        reviewedAt: '2026-10-26',
+        reviewedAt: '2026-11-21',
       },
       accessibility: {
         source: 'https://www.museum.hokudai.ac.jp/english/visit/',
@@ -1092,7 +1092,7 @@ export const visitDetails: Record<string, Visit> = {
       "zh-CN": "09:30–17:00；部分日期延长夜间开放，请查看官方日历。闭馆前30分钟停止入场。通常周一休馆，节假日可能有例外安排。",
       "vi": "09:30–17:00; buổi tối kéo dài theo lịch chính thức. Lần vào cuối cùng là 30 phút trước khi đóng cửa. Thứ Hai thường đóng cửa; áp dụng ngoại lệ ngày lễ.",
       "fr": "09h30-17h00 ; soirées prolongées au calendrier officiel. Dernière entrée 30 minutes avant la fermeture. Les lundis normalement fermés ; des exceptions pour les jours fériés s'appliquent.",
-      "es": "09:30–17:00; Tardes extendidas en el calendario oficial. Última entrada 30 minutos antes del cierre. Los lunes normalmente cerrado; Se aplican excepciones de vacaciones.",
+      "es": "09:30–17:00; Tardes extendidas en el calendario oficial. Última entrada 30 minutos antes del cierre. Los lunes normalmente cerrado; Se aplican excepciones en días festivos.",
     },
     admission: {
       en: 'Collection: adults ¥1,000, university students ¥500. Special exhibitions are priced separately; check ID and concession rules.',
@@ -1138,17 +1138,17 @@ export const visitDetails: Record<string, Visit> = {
       hours: {
         source:
           'https://www.tnm.jp/modules/r_free_page/index.php?id=113&lang=en',
-        reviewedAt: '2026-10-26',
+        reviewedAt: '2026-11-21',
       },
       admission: {
         source:
           'https://www.tnm.jp/modules/r_free_page/index.php?id=113&lang=en',
-        reviewedAt: '2026-10-26',
+        reviewedAt: '2026-11-21',
       },
       booking: {
         source:
           'https://www.tnm.jp/modules/r_free_page/index.php?id=113&lang=en',
-        reviewedAt: '2026-10-26',
+        reviewedAt: '2026-11-21',
       },
       entrance: {
         source: 'https://www.tnm.jp/modules/r_free_page/index.php?id=113&lang=en',

@@ -488,6 +488,7 @@ export default function TripPlanner({
                         >
                           <div className="trip-place-copy">
                             <span className="place-kind">
+                              {index + 1}.{' '}
                               {entry.custom
                                 ? tools.personalStop
                                 : place.id.startsWith('destination:')

@@ -530,6 +530,7 @@
     "dayMap": "Map for this day",
     "routeOrder": "Numbers follow your list order. Pins are reference points, not verified entrances or a calculated route. Use Directions for actual travel.",
     "timeline": "Your timing estimates",
+    "timelineOrder": "Shown by the visit times you entered; numbers refer to your visit list order.",
     "freeTime": "Gap before the next visit (minutes)",
     "starter": "Start a first trip",
     "starterHelp": "Choose an arrival base and interest. Preview the places before adding; check opening dates and transfers separately.",

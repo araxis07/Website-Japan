@@ -68,7 +68,8 @@ Map pins are reference locations, not verified entrances. Venue details link to 
 Keep translation keys aligned, preserve stable place IDs, and update only facts and review dates checked against their sources. Photo sources and licenses are listed on each language's `/credits` page.
 
 - [Release setup, content review and privacy](docs/release-operations.md)
-- [Latest day-map handoff, source review and diagnostics](docs/follow-through-2026-11-20.md)
+- [Latest visit references, source review and date-formatting checks](docs/follow-through-2026-11-21.md)
+- [Day-map handoff, source review and diagnostics](docs/follow-through-2026-11-20.md)
 - [Explore, source maintenance and CI changes](docs/follow-through-2026-11-19.md)
 - [November 17 usability, security and source verification](docs/usability-follow-through-2026-11-17.md)
 - [Eight-language stabilization, loading measurements and remaining acceptance](docs/post-international-stabilization-2026-11-09.md)
